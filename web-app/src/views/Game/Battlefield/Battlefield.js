@@ -17,13 +17,39 @@ class Battlefield extends Component {
                <div className={classes.cardsInPlay}>
                   <div className={classes.cardRow} style={{ height: size }}></div>
                   <div className={classes.cardRow}>
+                     <YugiohCard height={size} blank notFull />
                      <YugiohCard
                         name="Black Luster Soldier - Envoy of the Beginning"
                         cardType="effectMonster"
                         attribute="Light"
                         levelOrSubtype={8}
                         height={size}
-                        notFull
+                        atk={3000}
+                        def={2500}
+                        player="villain"
+                        row="s/t"
+                        zone={1}
+                     />
+                     <YugiohCard
+                        name="Shining Angel"
+                        cardType="effectMonster"
+                        attribute="Light"
+                        levelOrSubtype={4}
+                        height={size}
+                        atk={1400}
+                        def={800}
+                        player="villain"
+                        row="s/t"
+                        zone={2}
+                     />
+                     <YugiohCard
+                        name="Call of the Haunted"
+                        cardType="trap"
+                        levelOrSubtype="Continuous"
+                        height={size}
+                        player="villain"
+                        row="s/t"
+                        zone={3}
                      />
                      <YugiohCard
                         name="Black Luster Soldier - Envoy of the Beginning"
@@ -31,6 +57,11 @@ class Battlefield extends Component {
                         attribute="Light"
                         levelOrSubtype={8}
                         height={size}
+                        atk={3000}
+                        def={2500}
+                        player="villain"
+                        row="s/t"
+                        zone={4}
                      />
                      <YugiohCard
                         name="Black Luster Soldier - Envoy of the Beginning"
@@ -38,36 +69,13 @@ class Battlefield extends Component {
                         attribute="Light"
                         levelOrSubtype={8}
                         height={size}
+                        atk={3000}
+                        def={2500}
+                        player="villain"
+                        row="s/t"
+                        zone={5}
                      />
-                     <YugiohCard
-                        name="Black Luster Soldier - Envoy of the Beginning"
-                        cardType="effectMonster"
-                        attribute="Light"
-                        levelOrSubtype={8}
-                        height={size}
-                     />
-                     <YugiohCard
-                        name="Black Luster Soldier - Envoy of the Beginning"
-                        cardType="effectMonster"
-                        attribute="Light"
-                        levelOrSubtype={8}
-                        height={size}
-                     />
-                     <YugiohCard
-                        name="Black Luster Soldier - Envoy of the Beginning"
-                        cardType="effectMonster"
-                        attribute="Light"
-                        levelOrSubtype={8}
-                        height={size}
-                     />
-                     <YugiohCard
-                        name="Black Luster Soldier - Envoy of the Beginning"
-                        cardType="effectMonster"
-                        attribute="Light"
-                        levelOrSubtype={8}
-                        height={size}
-                        notFull
-                     />
+                     <YugiohCard height={size} blank notFull />
                   </div>
                   <div className={classes.cardRow}>
                      <YugiohCard height={size} blank notFull />
@@ -98,7 +106,7 @@ class Battlefield extends Component {
                   </div>
                </div>
             </DndProvider>
-            <div className={classes.rightTools}>Testing</div>
+            <div className={classes.rightTools}>Right Toolbar</div>
          </div>
       );
    }

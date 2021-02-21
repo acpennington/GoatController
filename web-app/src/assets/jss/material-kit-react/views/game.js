@@ -16,9 +16,9 @@ const gameStyle = {
    },
    leftPanel: {
       flex: "25%",
-      backgroundColor: "rgba(0,0,0,0.9)",
       width: "100%",
-      marginRight: "5px"
+      marginRight: "5px",
+      height: "100%"
    },
    gameplay: {
       flex: "75%",
@@ -36,29 +36,14 @@ const gameStyle = {
       backgroundColor: "green",
       height: "100%"
    },
-   largePic: {
-      position: "relative",
-      backgroundColor: "black",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover"
-   },
-   cardText: {
+   chat: {
       borderRadius: "3px",
-      position: "absolute",
-      bottom: 0,
-      overflow: "auto",
-      margin: "5px",
-      padding: "3px",
+      marginTop: "8px",
+      padding: "5px",
       backgroundColor: "rgba(0,0,0,0.9)",
-      "&::-webkit-scrollbar": {
-         width: "8px"
-      },
-      "&::-webkit-scrollbar-thumb": {
-         background: "#888"
-      }
+      width: "100%",
+      height: "calc(60% - 8px)"
    },
-   chat: {},
    cardRow: {
       display: "flex",
       width: "100%"

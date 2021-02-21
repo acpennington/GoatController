@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 import Battlefield from "./Battlefield/Battlefield.js";
+import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
 
 const sizeRatio = 1.63;
 
@@ -19,14 +20,12 @@ class Game extends Component {
       const vpw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
       const vph = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
       const sizingValue = Math.min(vpw / sizeRatio, vph);
-      console.log("game resized");
       return sizingValue;
    };
 
    render() {
       const { classes } = this.props;
       const sizingValue = this.state.sizingValue;
-      const picHeight = sizingValue * sizeRatio * 0.95 * 0.25;
 
       return (
          <div className={classes.container} style={{ backgroundImage: 'url("/backgrounds/thousandeyes.png")' }}>
@@ -38,20 +37,7 @@ class Game extends Component {
                }}
             >
                <div className={classes.leftPanel}>
-                  <div
-                     className={classes.largePic}
-                     style={{
-                        height: picHeight,
-                        backgroundImage: 'url("/cards/small/ShiningAngel.jpg")'
-                     }}
-                  >
-                     <div className={classes.cardText} style={{ maxHeight: picHeight - 10 }}>
-                        Shining Angel [Light/4]
-                        <br />
-                        Fairy/Effect – When this card is destroyed by battle and sent to the Graveyard: You can Special
-                        Summon 1 LIGHT monster with 1500 or less ATK from your Deck, in face-up Attack Position.
-                     </div>
-                  </div>
+                  <YugiohCardExpanded name="Shining Angel" />
                   <div className={classes.chat}>
                      Player1: Yo
                      <br />

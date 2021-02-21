@@ -4,8 +4,11 @@ import { useDrag, useDrop } from "react-dnd";
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 import PropTypes from "prop-types";
-const useStyles = makeStyles(cardStyle);
 
+import compress from "utils/compressName.js";
+import { useDispatch } from "react-redux";
+
+const useStyles = makeStyles(cardStyle);
 const ItemTypes = {
    CARD: "card"
 };
@@ -13,7 +16,25 @@ const cardRatio = 1.45;
 
 export default function YugiohCard(props) {
    const classes = useStyles();
-   const { cardType, name, height, attribute, levelOrSubtype, blank, selected, def, notFull, undraggable } = props;
+   const dispatch = useDispatch();
+   const {
+      cardType,
+      name,
+      atk,
+      def,
+      height,
+      attribute,
+      levelOrSubtype,
+      blank,
+      inDef,
+      notFull,
+      undraggable,
+      player,
+      row,
+      zone
+   } = props;
+
+   const selected = false;
 
    const [{ isDragging }, drag] = useDrag({
       item: { type: ItemTypes.CARD },
@@ -22,8 +43,19 @@ export default function YugiohCard(props) {
       })
    });
 
-   let cardBg, nameColor, cardArt, nameHeight, cardTypeIcon, subtitle;
+   const [{ isOver }, drop] = useDrop({
+      accept: ItemTypes.CARD,
+      drop: () => {
+         console.log("dropped");
+      },
+      collect: (monitor) => ({
+         isOver: !!monitor.isOver()
+      })
+   });
+
+   let cardBg, nameColor, cardArt, nameHeight, cardTypeIcon, subtitle, isMonster;
    if (!blank) {
+      isMonster = cardType.includes("Monster");
       [cardBg, nameColor] = getColors(cardType);
       cardArt = (
          <img src={"/cards/small/" + compress(name) + ".jpg"} width={height / cardRatio - 7 + "px"} alt={name} />
@@ -31,7 +63,7 @@ export default function YugiohCard(props) {
       nameHeight = height / 3 / 4 - 1;
       cardTypeIcon = (
          <img
-            src={"/cards/svgs/" + (cardType.includes("Monster") ? attribute : cardType) + ".svg"}
+            src={"/cards/svgs/" + (isMonster ? attribute : cardType) + ".svg"}
             height={nameHeight * 1.05 + "px"}
             alt=""
          />
@@ -41,17 +73,38 @@ export default function YugiohCard(props) {
 
    return (
       <div
-         ref={drag}
+         ref={undraggable ? null : blank ? drop : drag}
          className={classes.container}
          style={{
             width: height / cardRatio,
             height: height,
             marginLeft: notFull ? 0 : (height / cardRatio) * 0.25,
             marginRight: notFull ? 0 : (height / cardRatio) * 0.25,
-            transform: def ? "rotate(90deg)" : "rotate(0deg)",
+            transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
             opacity: isDragging ? 0 : 1
          }}
-         onMouseEnter={log}
+         onClick={
+            blank
+               ? null
+               : () => {
+                    console.log("clicked");
+                    dispatch({ type: "NEW_SELECTION", data: { player, row, zone, name } });
+                 }
+         }
+         onMouseEnter={
+            blank
+               ? null
+               : () => {
+                    dispatch({ type: "NEW_HOVER", data: name });
+                 }
+         }
+         onMouseLeave={
+            blank
+               ? null
+               : () => {
+                    dispatch({ type: "CLEAR_HOVER", data: "" });
+                 }
+         }
       >
          <div className={classes.svg}>
             <svg width={height / cardRatio} height={height}>
@@ -67,8 +120,8 @@ export default function YugiohCard(props) {
                      (height - 14) +
                      " a5,5 0 0 1 5,-5 z"
                   }
-                  fill={blank ? "rgba(0,0,0,0.75)" : cardBg}
-                  stroke={selected ? "green" : "#292c42"}
+                  fill={blank ? "rgba(0,0,0,0.8)" : cardBg}
+                  stroke={selected || isOver ? "green" : "#292c42"}
                   strokeWidth="3"
                />
             </svg>
@@ -86,7 +139,11 @@ export default function YugiohCard(props) {
                         paddingTop: nameHeight * 0.3 + "px"
                      }}
                   >
-                     3000 / 2500
+                     {isMonster && (
+                        <Fragment>
+                           {atk} / {def}
+                        </Fragment>
+                     )}
                   </div>
                </div>
                <div
@@ -132,14 +189,6 @@ function getColors(cardType) {
    if (cardType === "trap") return ["#9e427e", "white"];
 }
 
-function compress(name) {
-   return name.replace(/[^a-zA-Z0-9]/g, "");
-}
-
-function log() {
-   console.log("clicked");
-}
-
 function getSubtitle(starsOrAlt, height) {
    if (Number.isInteger(starsOrAlt)) {
       const star = <img src="/cards/svgs/star.svg" height={height} alt="yugioh star" />;
@@ -160,8 +209,7 @@ function getSubtitle(starsOrAlt, height) {
 
 YugiohCard.propTypes = {
    blank: PropTypes.bool,
-   selected: PropTypes.bool,
-   def: PropTypes.bool,
+   inDef: PropTypes.bool,
    notFull: PropTypes.bool,
    undraggable: PropTypes.bool
 };
