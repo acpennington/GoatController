@@ -10,6 +10,7 @@ import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
+import GamePage from "views/Game/Game.js";
 
 // example pages
 import YugiohCard from "views/Examples/YugiohCard.js";
@@ -19,6 +20,7 @@ var hist = createBrowserHistory();
 ReactDOM.render(
    <Router history={hist}>
       <Switch>
+         <Route path="/game" component={GamePage} />
          <Route path="/examples/yugiohcard" component={YugiohCard} />
          <Route path="/landing-page" component={LandingPage} />
          <Route path="/profile-page" component={ProfilePage} />

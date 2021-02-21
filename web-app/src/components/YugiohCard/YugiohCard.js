@@ -1,86 +1,109 @@
 import React, { Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
-
+import PropTypes from "prop-types";
 const useStyles = makeStyles(cardStyle);
+
+const cardRatio = 1.45;
 
 export default function YugiohCard(props) {
    const classes = useStyles();
-   const { cardType, name, width, attribute, levelOrSubtype } = props;
-   const isMonster = cardType.includes("Monster");
+   const { cardType, name, height, attribute, levelOrSubtype, blank, selected, def, notFull } = props;
 
-   const [cardBg, nameColor] = getColors(cardType);
-   const cardArt = <img src={"/cards/small/" + compress(name) + ".jpg"} width={width - 8 + "px"} alt={name} />;
-   const nameHeight = (width * 1.5 - width) / 4;
-   const cardTypeIcon = (
-      <img src={"/cards/svgs/" + (isMonster ? attribute : cardType) + ".svg"} height={nameHeight + "px"} />
-   );
-   const subtitle = getSubtitle(levelOrSubtype, nameHeight * 0.67);
+   let cardBg, nameColor, cardArt, nameHeight, cardTypeIcon, subtitle;
+   if (!blank) {
+      [cardBg, nameColor] = getColors(cardType);
+      cardArt = (
+         <img src={"/cards/small/" + compress(name) + ".jpg"} width={height / cardRatio - 7 + "px"} alt={name} />
+      );
+      nameHeight = height / 3 / 4 - 1;
+      cardTypeIcon = (
+         <img
+            src={"/cards/svgs/" + (cardType.includes("Monster") ? attribute : cardType) + ".svg"}
+            height={nameHeight * 1.05 + "px"}
+         />
+      );
+      subtitle = getSubtitle(levelOrSubtype, nameHeight * 0.67);
+   }
 
    return (
-      <div className={classes.container} style={{ width: width, height: width * 1.5 }} onMouseEnter={log}>
+      <div
+         className={classes.container}
+         style={{
+            width: height / cardRatio,
+            height: height,
+            marginLeft: notFull ? 0 : (height / cardRatio) * 0.25,
+            marginRight: notFull ? 0 : (height / cardRatio) * 0.25,
+            transform: def ? "rotate(90deg)" : "rotate(0deg)"
+         }}
+         onMouseEnter={log}
+      >
          <div className={classes.svg}>
-            <svg width={width} height={width * 1.5}>
+            <svg width={height / cardRatio} height={height}>
                <path
                   d={
                      "M7,2 h" +
-                     (width - 14) +
+                     (height / cardRatio - 14) +
                      " a5,5 0 0 1 5,5 v" +
-                     (width * 1.5 - 14) +
+                     (height - 14) +
                      " a5,5 0 0 1 -5,5 h-" +
-                     (width - 14) +
+                     (height / cardRatio - 14) +
                      " a5,5 0 0 1 -5,-5 v-" +
-                     (width * 1.5 - 14) +
+                     (height - 14) +
                      " a5,5 0 0 1 5,-5 z"
                   }
-                  fill={cardBg}
-                  stroke="black"
+                  fill={blank ? "rgba(0,0,0,0.5)" : cardBg}
+                  stroke={selected ? "green" : "#292c42"}
                   strokeWidth="3"
                />
             </svg>
          </div>
-         <div className={classes.art}>
-            {cardArt}
-            <br />
-            <div
-               className={classes.monsterStats}
-               style={{
-                  fontSize: nameHeight * 1.28 + "px",
-                  lineHeight: nameHeight * 1.28 + "px",
-                  paddingTop: nameHeight * 0.3 + "px"
-               }}
-            >
-               3000 / 2500
-            </div>
-         </div>
-         <div
-            className={classes.name}
-            style={{
-               fontSize: nameHeight + "px",
-               lineHeight: nameHeight + "px",
-               color: nameColor
-            }}
-         >
-            {name}
-         </div>
-         <div className={classes.sideBySide} style={{ paddingTop: nameHeight * 2 + 5 + "px" }}>
-            <div
-               className={classes.icon}
-               style={{
-                  lineHeight: nameHeight + "px"
-               }}
-            >
-               {cardTypeIcon}
-            </div>
-            <div
-               className={classes.subtitle}
-               style={{
-                  lineHeight: nameHeight * 0.71 + "px"
-               }}
-            >
-               {subtitle}
-            </div>
-         </div>
+         {!blank && (
+            <Fragment>
+               <div className={classes.art}>
+                  {cardArt}
+                  <br />
+                  <div
+                     className={classes.monsterStats}
+                     style={{
+                        fontSize: nameHeight * 1.28 + "px",
+                        lineHeight: nameHeight * 1.28 + "px",
+                        paddingTop: nameHeight * 0.3 + "px"
+                     }}
+                  >
+                     3000 / 2500
+                  </div>
+               </div>
+               <div
+                  className={classes.name}
+                  style={{
+                     fontSize: nameHeight + "px",
+                     lineHeight: nameHeight + "px",
+                     color: nameColor
+                  }}
+               >
+                  {name}
+               </div>
+               <div className={classes.sideBySide} style={{ paddingTop: nameHeight * 2 + 5 + "px" }}>
+                  <div
+                     className={classes.icon}
+                     style={{
+                        lineHeight: nameHeight + "px"
+                     }}
+                  >
+                     {cardTypeIcon}
+                  </div>
+                  <div
+                     className={classes.subtitle}
+                     style={{
+                        lineHeight: nameHeight * 0.71 + "px"
+                     }}
+                  >
+                     {subtitle}
+                  </div>
+               </div>
+            </Fragment>
+         )}
       </div>
    );
 }
@@ -119,3 +142,10 @@ function getSubtitle(starsOrAlt, height) {
       return <img src={"/cards/svgs/" + starsOrAlt + ".svg"} height={height} />;
    }
 }
+
+YugiohCard.propTypes = {
+   blank: PropTypes.bool,
+   selected: PropTypes.bool,
+   def: PropTypes.bool,
+   notFull: PropTypes.bool
+};

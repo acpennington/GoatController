@@ -9,7 +9,7 @@ export default function ExampleYugiohCard() {
          cardType="effectMonster"
          attribute="Light"
          levelOrSubtype={8}
-         width={100}
+         height={500}
       />
    );
 }
