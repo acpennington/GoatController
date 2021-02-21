@@ -1,14 +1,26 @@
 import React, { Fragment } from "react";
+import { useDrag, useDrop } from "react-dnd";
+
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 import PropTypes from "prop-types";
 const useStyles = makeStyles(cardStyle);
 
+const ItemTypes = {
+   CARD: "card"
+};
 const cardRatio = 1.45;
 
 export default function YugiohCard(props) {
    const classes = useStyles();
-   const { cardType, name, height, attribute, levelOrSubtype, blank, selected, def, notFull } = props;
+   const { cardType, name, height, attribute, levelOrSubtype, blank, selected, def, notFull, undraggable } = props;
+
+   const [{ isDragging }, drag] = useDrag({
+      item: { type: ItemTypes.CARD },
+      collect: (monitor) => ({
+         isDragging: !!monitor.isDragging()
+      })
+   });
 
    let cardBg, nameColor, cardArt, nameHeight, cardTypeIcon, subtitle;
    if (!blank) {
@@ -21,6 +33,7 @@ export default function YugiohCard(props) {
          <img
             src={"/cards/svgs/" + (cardType.includes("Monster") ? attribute : cardType) + ".svg"}
             height={nameHeight * 1.05 + "px"}
+            alt=""
          />
       );
       subtitle = getSubtitle(levelOrSubtype, nameHeight * 0.67);
@@ -28,13 +41,15 @@ export default function YugiohCard(props) {
 
    return (
       <div
+         ref={drag}
          className={classes.container}
          style={{
             width: height / cardRatio,
             height: height,
             marginLeft: notFull ? 0 : (height / cardRatio) * 0.25,
             marginRight: notFull ? 0 : (height / cardRatio) * 0.25,
-            transform: def ? "rotate(90deg)" : "rotate(0deg)"
+            transform: def ? "rotate(90deg)" : "rotate(0deg)",
+            opacity: isDragging ? 0 : 1
          }}
          onMouseEnter={log}
       >
@@ -52,7 +67,7 @@ export default function YugiohCard(props) {
                      (height - 14) +
                      " a5,5 0 0 1 5,-5 z"
                   }
-                  fill={blank ? "rgba(0,0,0,0.5)" : cardBg}
+                  fill={blank ? "rgba(0,0,0,0.75)" : cardBg}
                   stroke={selected ? "green" : "#292c42"}
                   strokeWidth="3"
                />
@@ -127,7 +142,7 @@ function log() {
 
 function getSubtitle(starsOrAlt, height) {
    if (Number.isInteger(starsOrAlt)) {
-      const star = <img src="/cards/svgs/star.svg" height={height} />;
+      const star = <img src="/cards/svgs/star.svg" height={height} alt="yugioh star" />;
       const starArray = [];
       for (let i = 0; i < starsOrAlt; i++) {
          starArray.push(
@@ -139,7 +154,7 @@ function getSubtitle(starsOrAlt, height) {
       }
       return starArray;
    } else {
-      return <img src={"/cards/svgs/" + starsOrAlt + ".svg"} height={height} />;
+      return <img src={"/cards/svgs/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
    }
 }
 
@@ -147,5 +162,6 @@ YugiohCard.propTypes = {
    blank: PropTypes.bool,
    selected: PropTypes.bool,
    def: PropTypes.bool,
-   notFull: PropTypes.bool
+   notFull: PropTypes.bool,
+   undraggable: PropTypes.bool
 };

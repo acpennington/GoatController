@@ -2,10 +2,9 @@ import React, { Component } from "react";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
-import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 
-const sizeRatio = 1.6;
+const sizeRatio = 1.63;
 
 class Game extends Component {
    constructor(props) {
@@ -27,7 +26,7 @@ class Game extends Component {
    render() {
       const { classes } = this.props;
       const sizingValue = this.state.sizingValue;
-      const picHeight = sizingValue * sizeRatio * 0.9 * 0.25;
+      const picHeight = sizingValue * sizeRatio * 0.95 * 0.25;
 
       return (
          <div className={classes.container} style={{ backgroundImage: 'url("/backgrounds/thousandeyes.png")' }}>

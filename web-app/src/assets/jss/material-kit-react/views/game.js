@@ -12,18 +12,29 @@ const gameStyle = {
       height: "100vh"
    },
    innerContainer: {
-      display: "flex",
-      backgroundColor: "rgba(0,0,0,0.75)"
+      display: "flex"
    },
    leftPanel: {
       flex: "25%",
       backgroundColor: "rgba(0,0,0,0.9)",
-      width: "100%"
+      width: "100%",
+      marginRight: "5px"
    },
    gameplay: {
-      paddingLeft: "3px",
       flex: "75%",
       overflow: "hidden"
+   },
+   gameplayContainer: {
+      display: "flex",
+      height: "100%"
+   },
+   cardsInPlay: {
+      flex: "90%"
+   },
+   rightTools: {
+      flex: "10%",
+      backgroundColor: "green",
+      height: "100%"
    },
    largePic: {
       position: "relative",
