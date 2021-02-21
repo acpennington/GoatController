@@ -6,12 +6,16 @@ const useStyles = makeStyles(cardStyle);
 
 export default function YugiohCard(props) {
    const classes = useStyles();
-   const { cardType, name, width } = props;
+   const { cardType, name, width, attribute, levelOrSubtype } = props;
+   const isMonster = cardType.includes("Monster");
 
    const [cardBg, nameColor] = getColors(cardType);
-   const cardArt = <img src={"/cards/small/" + compress(name) + ".jpg"} width={width - 8} alt={name} />;
+   const cardArt = <img src={"/cards/small/" + compress(name) + ".jpg"} width={width - 8 + "px"} alt={name} />;
    const nameHeight = (width * 1.5 - width) / 4;
-   const cardTypeIcon = <img src="/cards/svgs/spell.svg" height={nameHeight + "px"} />;
+   const cardTypeIcon = (
+      <img src={"/cards/svgs/" + (isMonster ? attribute : cardType) + ".svg"} height={nameHeight + "px"} />
+   );
+   const subtitle = getSubtitle(levelOrSubtype, nameHeight * 0.67);
 
    return (
       <div className={classes.container} style={{ width: width, height: width * 1.5 }} onMouseEnter={log}>
@@ -35,25 +39,47 @@ export default function YugiohCard(props) {
                />
             </svg>
          </div>
-         <div className={classes.art}>{cardArt}</div>
+         <div className={classes.art}>
+            {cardArt}
+            <br />
+            <div
+               className={classes.monsterStats}
+               style={{
+                  fontSize: nameHeight * 1.28 + "px",
+                  lineHeight: nameHeight * 1.28 + "px",
+                  paddingTop: nameHeight * 0.3 + "px"
+               }}
+            >
+               3000 / 2500
+            </div>
+         </div>
          <div
             className={classes.name}
             style={{
                fontSize: nameHeight + "px",
                lineHeight: nameHeight + "px",
-               color: nameColor,
-               width: width - nameHeight - 8 + "px"
+               color: nameColor
             }}
          >
             {name}
          </div>
-         <div
-            className={classes.icon}
-            style={{
-               lineHeight: nameHeight + "px"
-            }}
-         >
-            {cardTypeIcon}
+         <div className={classes.sideBySide} style={{ paddingTop: nameHeight * 2 + 5 + "px" }}>
+            <div
+               className={classes.icon}
+               style={{
+                  lineHeight: nameHeight + "px"
+               }}
+            >
+               {cardTypeIcon}
+            </div>
+            <div
+               className={classes.subtitle}
+               style={{
+                  lineHeight: nameHeight * 0.71 + "px"
+               }}
+            >
+               {subtitle}
+            </div>
          </div>
       </div>
    );
@@ -76,4 +102,20 @@ function log() {
    console.log("clicked");
 }
 
-function getSubtitle(starsOrAlt) {}
+function getSubtitle(starsOrAlt, height) {
+   if (Number.isInteger(starsOrAlt)) {
+      const star = <img src="/cards/svgs/star.svg" height={height} />;
+      const starArray = [];
+      for (let i = 0; i < starsOrAlt; i++) {
+         starArray.push(
+            <Fragment>
+               {star}
+               <br />
+            </Fragment>
+         );
+      }
+      return starArray;
+   } else {
+      return <img src={"/cards/svgs/" + starsOrAlt + ".svg"} height={height} />;
+   }
+}
