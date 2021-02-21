@@ -1,43 +1,32 @@
-const smallWidth = 200;
-const largeWidth = 500;
-
 const cardStyle = {
-   default: {
-      fontVariant: "small-caps"
+   container: {
+      position: "relative"
    },
-   cardSmall: {
-      fontVariant: "small-caps",
-      width: smallWidth + "px",
-      height: (86 / 59) * smallWidth + "px",
-      padding: smallWidth * 0.05 + "px",
-      fontSize: (27 / 473) * smallWidth + "px"
+   svg: {
+      position: "absolute",
+      zIndex: -1
    },
-   cardLarge: {
-      width: largeWidth + "px",
-      height: (86 / 59) * largeWidth + "px",
-      padding: largeWidth * 0.05 + "px",
-      fontSize: (27 / 473) * largeWidth + "px"
+   icon: {
+      position: "relative",
+      float: "right",
+      margin: "4px",
+      zIndex: 3
    },
-   normalMonster: {
-      backgroundColor: "#fbc676"
+   name: {
+      overflowWrap: "break-word",
+      position: "absolute",
+      letterSpacing: "-1px",
+      marginTop: "5px",
+      marginLeft: "5px",
+      zIndex: 1
    },
-   effectMonster: {
-      backgroundColor: "#c9823f"
-   },
-   ritualMonster: {
-      backgroundColor: "#156db4"
-   },
-   fusionMonster: {
-      backgroundColor: "#7f598c"
-   },
-   spell: {
-      backgroundColor: "#1f8f97",
-      color: "white"
-   },
-   trap: {
-      backgroundColor: "#9e427e",
-      color: "white"
+   art: {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 2
    }
 };
 
-export { cardStyle };
+export default cardStyle;
