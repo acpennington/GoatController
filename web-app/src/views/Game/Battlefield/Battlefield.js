@@ -35,12 +35,7 @@ class Battlefield extends Component {
                      />
                      <YugiohCard
                         name="Shining Angel"
-                        cardType="effectMonster"
-                        attribute="Light"
-                        levelOrSubtype={4}
                         height={size}
-                        atk={1400}
-                        def={800}
                         player="villain"
                         row="s/t"
                         zone={1}
