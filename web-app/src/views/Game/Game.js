@@ -5,7 +5,7 @@ import styles from "assets/jss/material-kit-react/views/game.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
 
-const sizeRatio = 1.63;
+const sizeRatio = 1.7;
 
 class Game extends Component {
    constructor(props) {
@@ -45,7 +45,7 @@ class Game extends Component {
                   </div>
                </div>
                <div className={classes.gameplay}>
-                  <Battlefield size={sizingValue / 6} />
+                  <Battlefield size={sizingValue / 5.7} />
                </div>
             </div>
          </div>

@@ -15,7 +15,17 @@ class Battlefield extends Component {
          <div className={classes.gameplayContainer}>
             <DndProvider backend={HTML5Backend}>
                <div className={classes.cardsInPlay}>
-                  <div className={classes.cardRow} style={{ height: size }}></div>
+                  <div className={classes.cardRow} style={{ height: size * 0.7 }}>
+                     <div className={classes.hand}>
+                        <YugiohCard height={size * 0.7} blank notFull />
+                        <YugiohCard height={size * 0.7} blank notFull />
+                        <YugiohCard height={size * 0.7} blank notFull />
+                        <YugiohCard height={size * 0.7} blank notFull />
+                        <YugiohCard height={size * 0.7} blank notFull />
+                        <YugiohCard height={size * 0.7} blank notFull />
+                        <YugiohCard height={size * 0.7} blank notFull />
+                     </div>
+                  </div>
                   <div className={classes.cardRow}>
                      <YugiohCard height={size} blank notFull />
                      <YugiohCard

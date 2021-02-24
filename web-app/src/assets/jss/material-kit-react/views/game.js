@@ -29,10 +29,10 @@ const gameStyle = {
       height: "100%"
    },
    cardsInPlay: {
-      flex: "90%"
+      flex: "91%"
    },
    rightTools: {
-      flex: "10%",
+      flex: "9%",
       backgroundColor: "green",
       height: "100%"
    },
@@ -46,7 +46,12 @@ const gameStyle = {
    },
    cardRow: {
       display: "flex",
-      width: "100%"
+      width: "100%",
+      margin: "auto"
+   },
+   hand: {
+      display: "flex",
+      margin: "auto"
    },
    card: {
       flex: 100 / 7 + "%"
