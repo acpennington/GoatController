@@ -27,13 +27,8 @@ class Battlefield extends Component {
                   <div className={classes.cardRow}>
                      <YugiohCard height={size} blank notFull player="villain" row="s/t" />
                      <YugiohCard
-                        name="Black Luster Soldier - Envoy of the Beginning"
-                        cardType="effectMonster"
-                        attribute="Light"
-                        levelOrSubtype={8}
                         height={size}
-                        atk={3000}
-                        def={2500}
+                        blank
                         player="villain"
                         row="s/t"
                         zone={1}
@@ -51,34 +46,22 @@ class Battlefield extends Component {
                         zone={2}
                      />
                      <YugiohCard
-                        name="Call of the Haunted"
-                        cardType="trap"
-                        levelOrSubtype="Continuous"
                         height={size}
+                        blank
                         player="villain"
                         row="s/t"
                         zone={3}
                      />
                      <YugiohCard
-                        name="Black Luster Soldier - Envoy of the Beginning"
-                        cardType="effectMonster"
-                        attribute="Light"
-                        levelOrSubtype={8}
                         height={size}
-                        atk={3000}
-                        def={2500}
+                        blank
                         player="villain"
                         row="s/t"
                         zone={4}
                      />
                      <YugiohCard
-                        name="Black Luster Soldier - Envoy of the Beginning"
-                        cardType="effectMonster"
-                        attribute="Light"
-                        levelOrSubtype={8}
                         height={size}
-                        atk={3000}
-                        def={2500}
+                        blank
                         player="villain"
                         row="s/t"
                         zone={5}

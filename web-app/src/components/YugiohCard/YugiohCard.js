@@ -6,6 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 import PropTypes from "prop-types";
 
+import getCardDetails from "utils/getCardDetails.js"
 import compress from "utils/compressName.js";
 
 const useStyles = makeStyles(cardStyle);
@@ -18,13 +19,8 @@ export default function YugiohCard(props) {
    const classes = useStyles();
    const dispatch = useDispatch();
    const {
-      cardType,
       name,
-      atk,
-      def,
       height,
-      attribute,
-      levelOrSubtype,
       blank,
       inDef,
       notFull,
@@ -53,6 +49,8 @@ export default function YugiohCard(props) {
          isOver: !!monitor.isOver()
       })
    });
+
+   const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
    let nameColor, cardArt, nameHeight, cardTypeIcon, subtitle, isMonster;
    if (!blank) {
