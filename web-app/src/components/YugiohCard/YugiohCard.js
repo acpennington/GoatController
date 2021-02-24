@@ -112,8 +112,7 @@ export default function YugiohCard(props) {
                height: height,
                width: height / cardRatio,
                borderColor: selected || isOver ? "green" : "#292c42",
-
-               backgroundImage: !blank && 'url("/cards/bgs/' + cardType + '.png")',
+               backgroundImage: !blank && 'url("/cards/bgs/' + cardType + '.jpg")',
                backgroundColor: "rgba(0,0,0,0.8)"
             }}
          ></div>
