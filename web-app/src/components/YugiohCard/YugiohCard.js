@@ -19,9 +19,7 @@ export default function YugiohCard(props) {
    const classes = useStyles();
    const dispatch = useDispatch();
    const {
-      name,
       height,
-      blank,
       inDef,
       notFull,
       undraggable,
@@ -30,6 +28,12 @@ export default function YugiohCard(props) {
       zone
    } = props;
 
+   const card = useSelector(state => state.field[player][row][zone]);
+   const blank = card ? true : false;
+   const name = card ? card.name : null;
+
+   if (!blank) console.log(name);
+   
    const selection = useSelector(state => state.selectedCard);
    const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
 

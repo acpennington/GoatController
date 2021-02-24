@@ -11,7 +11,7 @@ const initialState = {
         monster: [
             null,
             null,
-            null,
+            {name: "Shining Angel"},
             null,
             null
         ]
