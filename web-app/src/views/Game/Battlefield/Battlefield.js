@@ -31,7 +31,7 @@ class Battlefield extends Component {
                         blank
                         player="villain"
                         row="s/t"
-                        zone={1}
+                        zone={0}
                      />
                      <YugiohCard
                         name="Shining Angel"
@@ -41,6 +41,13 @@ class Battlefield extends Component {
                         height={size}
                         atk={1400}
                         def={800}
+                        player="villain"
+                        row="s/t"
+                        zone={1}
+                     />
+                     <YugiohCard
+                        height={size}
+                        blank
                         player="villain"
                         row="s/t"
                         zone={2}
@@ -58,13 +65,6 @@ class Battlefield extends Component {
                         player="villain"
                         row="s/t"
                         zone={4}
-                     />
-                     <YugiohCard
-                        height={size}
-                        blank
-                        player="villain"
-                        row="s/t"
-                        zone={5}
                      />
                      <YugiohCard height={size} blank notFull player="villain" row="s/t" />
                   </div>
