@@ -1,13 +1,12 @@
 import React, { Fragment } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 import PropTypes from "prop-types";
 
 import compress from "utils/compressName.js";
-import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles(cardStyle);
 const ItemTypes = {
@@ -194,5 +193,8 @@ YugiohCard.propTypes = {
    blank: PropTypes.bool,
    inDef: PropTypes.bool,
    notFull: PropTypes.bool,
-   undraggable: PropTypes.bool
+   undraggable: PropTypes.bool,
+   player: PropTypes.string.isRequired,
+   row: PropTypes.string.isRequired,
+   zone: PropTypes.number
 };

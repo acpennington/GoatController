@@ -17,17 +17,15 @@ class Battlefield extends Component {
                <div className={classes.cardsInPlay}>
                   <div className={classes.cardRow} style={{ height: size * 0.7 }}>
                      <div className={classes.hand}>
-                        <YugiohCard height={size * 0.7} blank notFull />
-                        <YugiohCard height={size * 0.7} blank notFull />
-                        <YugiohCard height={size * 0.7} blank notFull />
-                        <YugiohCard height={size * 0.7} blank notFull />
-                        <YugiohCard height={size * 0.7} blank notFull />
-                        <YugiohCard height={size * 0.7} blank notFull />
-                        <YugiohCard height={size * 0.7} blank notFull />
+                        <YugiohCard height={size * 0.7} blank notFull player="villain" row="hand"/>
+                        <YugiohCard height={size * 0.7} blank notFull player="villain" row="hand"/>
+                        <YugiohCard height={size * 0.7} blank notFull player="villain" row="hand"/>
+                        <YugiohCard height={size * 0.7} blank notFull player="villain" row="hand"/>
+                        <YugiohCard height={size * 0.7} blank notFull player="villain" row="hand"/>
                      </div>
                   </div>
                   <div className={classes.cardRow}>
-                     <YugiohCard height={size} blank notFull />
+                     <YugiohCard height={size} blank notFull player="villain" row="s/t" />
                      <YugiohCard
                         name="Black Luster Soldier - Envoy of the Beginning"
                         cardType="effectMonster"
@@ -85,34 +83,34 @@ class Battlefield extends Component {
                         row="s/t"
                         zone={5}
                      />
-                     <YugiohCard height={size} blank notFull />
+                     <YugiohCard height={size} blank notFull player="villain" row="s/t" />
                   </div>
                   <div className={classes.cardRow}>
-                     <YugiohCard height={size} blank notFull />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank notFull />
+                     <YugiohCard height={size} blank notFull player="villain" row="monster"/>
+                     <YugiohCard height={size} blank player="villain" row="monster" />
+                     <YugiohCard height={size} blank player="villain" row="monster" />
+                     <YugiohCard height={size} blank player="villain" row="monster" />
+                     <YugiohCard height={size} blank player="villain" row="monster" />
+                     <YugiohCard height={size} blank player="villain" row="monster" />
+                     <YugiohCard height={size} blank notFull player="villain" row="monster" />
                   </div>
                   <div className={classes.cardRow}>
-                     <YugiohCard height={size} blank notFull />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank notFull />
+                     <YugiohCard height={size} blank notFull player="hero" row="monster" />
+                     <YugiohCard height={size} blank player="hero" row="monster" />
+                     <YugiohCard height={size} blank player="hero" row="monster" />
+                     <YugiohCard height={size} blank player="hero" row="monster" />
+                     <YugiohCard height={size} blank player="hero" row="monster" />
+                     <YugiohCard height={size} blank player="hero" row="monster" />
+                     <YugiohCard height={size} blank notFull player="hero" row="monster" />
                   </div>
                   <div className={classes.cardRow}>
-                     <YugiohCard height={size} blank notFull />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank />
-                     <YugiohCard height={size} blank notFull />
+                     <YugiohCard height={size} blank notFull player="hero" row="monster" />
+                     <YugiohCard height={size} blank player="hero" row="s/t" />
+                     <YugiohCard height={size} blank player="hero" row="s/t"  />
+                     <YugiohCard height={size} blank player="hero" row="s/t" />
+                     <YugiohCard height={size} blank player="hero" row="s/t" />
+                     <YugiohCard height={size} blank player="hero" row="s/t" />
+                     <YugiohCard height={size} blank notFull player="hero" row="s/t" />
                   </div>
                </div>
             </DndProvider>
