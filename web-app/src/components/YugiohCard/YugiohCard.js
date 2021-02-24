@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { useDrag, useDrop } from "react-dnd";
+import { useSelector } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
@@ -34,7 +35,8 @@ export default function YugiohCard(props) {
       zone
    } = props;
 
-   const selected = false;
+   const selection = useSelector(state => state.selectedCard);
+   const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
 
    const [{ isDragging }, drag] = useDrag({
       item: { type: ItemTypes.CARD },
@@ -124,9 +126,9 @@ export default function YugiohCard(props) {
                   <div
                      className={classes.monsterStats}
                      style={{
-                        fontSize: nameHeight * 1.28 + "px",
-                        lineHeight: nameHeight * 1.28 + "px",
-                        paddingTop: nameHeight * 0.3 + "px"
+                        fontSize: nameHeight * 1.29 + "px",
+                        lineHeight: nameHeight * 1.29 + "px",
+                        paddingTop: nameHeight * 0.29 + "px"
                      }}
                   >
                      {isMonster && (
