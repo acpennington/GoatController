@@ -53,10 +53,10 @@ export default function YugiohCard(props) {
       })
    });
 
-   let cardBg, nameColor, cardArt, nameHeight, cardTypeIcon, subtitle, isMonster;
+   let nameColor, cardArt, nameHeight, cardTypeIcon, subtitle, isMonster;
    if (!blank) {
       isMonster = cardType.includes("Monster");
-      [cardBg, nameColor] = getColors(cardType);
+      nameColor = cardType === "spell" || cardType === "trap" ? "white" : "black";
       cardArt = (
          <img src={"/cards/small/" + compress(name) + ".jpg"} width={height / cardRatio - 7 + "px"} alt={name} />
       );
@@ -106,26 +106,17 @@ export default function YugiohCard(props) {
                  }
          }
       >
-         <div className={classes.svg}>
-            <svg width={height / cardRatio} height={height}>
-               <path
-                  d={
-                     "M7,2 h" +
-                     (height / cardRatio - 14) +
-                     " a5,5 0 0 1 5,5 v" +
-                     (height - 14) +
-                     " a5,5 0 0 1 -5,5 h-" +
-                     (height / cardRatio - 14) +
-                     " a5,5 0 0 1 -5,-5 v-" +
-                     (height - 14) +
-                     " a5,5 0 0 1 5,-5 z"
-                  }
-                  fill={blank ? "rgba(0,0,0,0.8)" : cardBg}
-                  stroke={selected || isOver ? "green" : "#292c42"}
-                  strokeWidth="3"
-               />
-            </svg>
-         </div>
+         <div
+            className={classes.background}
+            style={{
+               height: height,
+               width: height / cardRatio,
+               borderColor: selected || isOver ? "green" : "#292c42",
+
+               backgroundImage: !blank && 'url("/cards/bgs/' + cardType + '.png")',
+               backgroundColor: "rgba(0,0,0,0.8)"
+            }}
+         ></div>
          {!blank && (
             <Fragment>
                <div className={classes.art}>
@@ -178,15 +169,6 @@ export default function YugiohCard(props) {
          )}
       </div>
    );
-}
-
-function getColors(cardType) {
-   if (cardType === "normalMonster") return ["#fbc676", "black"];
-   if (cardType === "effectMonster") return ["#c9823f", "black"];
-   if (cardType === "ritualMonster") return ["#156db4", "black"];
-   if (cardType === "fusionMonster") return ["#7f598c", "black"];
-   if (cardType === "spell") return ["#1f8f97", "white"];
-   if (cardType === "trap") return ["#9e427e", "white"];
 }
 
 function getSubtitle(starsOrAlt, height) {

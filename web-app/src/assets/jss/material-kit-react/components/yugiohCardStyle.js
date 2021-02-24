@@ -2,7 +2,11 @@ const cardStyle = {
    container: {
       position: "relative"
    },
-   svg: {
+   background: {
+      backgroundRepeat: "repeat",
+      borderRadius: "5px",
+      borderStyle: "solid",
+      borderWidth: "3px",
       position: "absolute",
       zIndex: -1
    },
