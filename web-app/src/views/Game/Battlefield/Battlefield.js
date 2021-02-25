@@ -9,29 +9,15 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 
 class Battlefield extends Component {
-   renderHand = (player) => {
-      const handCount = this.props.handCounts[player];
-
-      // if handCount === 0 return a dropZone
-
-      const handList = [];
-
-      for (let i = 0; i < handCount; i++) {
-         handList.push(<YugiohCard height={player === "hero" ? this.props.size : this.props.size * 0.7} player={player} row="hand" zone={i} notFull />);
-      }
-
-      return handList;
-   };
-
    render() {
-      const { classes, size } = this.props;
+      const { classes, size, handCounts } = this.props;
 
       return (
          <div className={classes.gameplayContainer}>
             <DndProvider backend={HTML5Backend}>
                <div className={classes.cardsInPlay}>
                   <div className={classes.cardRow} style={{ height: size * 0.7 }}>
-                     <div className={classes.hand}>{this.renderHand("villain")}</div>
+                     <div className={classes.hand}>{renderHand("villain", handCounts.villain, size)}</div>
                   </div>
                   <div className={classes.cardRow}>
                      <YugiohCard height={size} notFull player="villain" row="s/t" />
@@ -70,15 +56,25 @@ class Battlefield extends Component {
                      <YugiohCard height={size} notFull player="hero" row="s/t" />
                   </div>
                   <div className={classes.cardRow}>
-                     <div className={classes.hand}>{this.renderHand("hero")}</div>
+                     <div className={classes.hand}>{renderHand("hero", handCounts.hero, size)}</div>
                   </div>
                </div>
             </DndProvider>
-            <div className={classes.rightTools}>Hand Count: {this.props.handCounts.hero}</div>
+            <div className={classes.rightTools}>Hand Count: {handCounts.hero}</div>
          </div>
       );
    }
 }
+
+function renderHand(player, handCount, size) {
+   const handList = [];
+
+   for (let i = 0; i < handCount; i++) {
+      handList.push(<YugiohCard height={size * (player === "hero" ? 1 : 0.7)} player={player} row="hand" zone={i} notFull />);
+   }
+
+   return handList;
+};
 
 function mapStateToProps(state) {
    const field = state.field;
