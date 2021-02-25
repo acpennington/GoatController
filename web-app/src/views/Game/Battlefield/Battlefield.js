@@ -11,6 +11,9 @@ import styles from "assets/jss/material-kit-react/views/game.js";
 class Battlefield extends Component {
    renderHand = (player) => {
       const handCount = this.props.handCounts[player];
+
+      // if handCount === 0 return a dropZone
+
       const handList = [];
 
       for (let i = 0; i < handCount; i++) {
