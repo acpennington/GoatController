@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 import PropTypes from "prop-types";
 
-import getCardDetails from "utils/getCardDetails.js"
+import getCardDetails from "utils/getCardDetails.js";
 import compress from "utils/compressName.js";
 
 const useStyles = makeStyles(cardStyle);
@@ -18,23 +18,13 @@ const cardRatio = 1.45;
 export default function YugiohCard(props) {
    const classes = useStyles();
    const dispatch = useDispatch();
-   const {
-      height,
-      inDef,
-      notFull,
-      undraggable,
-      player,
-      row,
-      zone
-   } = props;
+   const { height, inDef, notFull, undraggable, player, row, zone } = props;
 
-   const card = useSelector(state => state.field[player][row][zone]);
-   const blank = card ? true : false;
+   const card = useSelector((state) => state.field[player][row][zone]);
+   const blank = card ? false : true;
    const name = card ? card.name : null;
 
-   if (!blank) console.log(name);
-   
-   const selection = useSelector(state => state.selectedCard);
+   const selection = useSelector((state) => state.selectedCard);
    const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
 
    const [{ isDragging }, drag] = useDrag({
