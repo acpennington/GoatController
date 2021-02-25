@@ -15,17 +15,13 @@ const cardRatio = 1.45;
 export default function YugiohCard(props) {
    const classes = useStyles();
    const dispatch = useDispatch();
-   const { height, inDef, notFull, undraggable, player, row, zone } = props;
-
-   const card = useSelector((state) => state.field[player][row][zone]);
-   const blank = card ? false : true;
-   const name = card ? card.name : null;
+   const { height, inDef, notFull, player, row, zone } = props;
 
    const selection = useSelector((state) => state.selectedCard);
    const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
 
    const [{ isDragging }, drag] = useDrag({
-      item: { type: "card", name, player, row, zone },
+      item: { type: "card", player, row, zone },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
       })
@@ -40,6 +36,10 @@ export default function YugiohCard(props) {
          isOver: !!monitor.isOver()
       })
    });
+
+   const card = useSelector((state) => state.field[player][row][zone]);
+   const blank = !card || isDragging ? true : false;
+   const name = card ? card.name : null;
 
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
@@ -63,7 +63,7 @@ export default function YugiohCard(props) {
 
    return (
       <div
-         ref={undraggable ? null : blank ? drop : drag}
+         ref={blank && !isDragging ? drop : drag}
          className={classes.container}
          style={{
             width: height / cardRatio,
@@ -71,26 +71,17 @@ export default function YugiohCard(props) {
             marginLeft: notFull ? 0 : (height / cardRatio) * 0.25,
             marginRight: notFull ? 0 : (height / cardRatio) * 0.25,
             transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
-            opacity: isDragging ? 0 : 1
+            opacity: (isDragging || blank) && row === "hand" ? 0 : 1
          }}
-         onClick={
-            !blank &&
-            (() => {
-               dispatch({ type: "NEW_SELECTION", data: { player, row, zone, name } });
-            })
-         }
-         onMouseEnter={
-            !blank &&
-            (() => {
-               dispatch({ type: "NEW_HOVER", data: name });
-            })
-         }
-         onMouseLeave={
-            !blank &&
-            (() => {
-               dispatch({ type: "CLEAR_HOVER", data: "" });
-            })
-         }
+         onClick={() => {
+            if (!blank) dispatch({ type: "NEW_SELECTION", data: { player, row, zone, name } });
+         }}
+         onMouseEnter={() => {
+            if (!blank) dispatch({ type: "NEW_HOVER", data: name });
+         }}
+         onMouseLeave={() => {
+            if (!blank) dispatch({ type: "CLEAR_HOVER" });
+         }}
       >
          <div
             className={classes.background}
@@ -177,7 +168,6 @@ function getSubtitle(starsOrAlt, height) {
 YugiohCard.propTypes = {
    inDef: PropTypes.bool,
    notFull: PropTypes.bool,
-   undraggable: PropTypes.bool,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
    zone: PropTypes.number

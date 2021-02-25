@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -8,6 +9,17 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 
 class Battlefield extends Component {
+   renderHand = (player) => {
+      const handCount = this.props.handCounts[player];
+      const handList = [];
+
+      for (let i = 0; i < handCount; i++) {
+         handList.push(<YugiohCard height={this.props.size} player={player} row="hand" zone={i} />);
+      }
+
+      return handList;
+   };
+
    render() {
       const { classes, size } = this.props;
 
@@ -54,12 +66,20 @@ class Battlefield extends Component {
                      <YugiohCard height={size} player="hero" row="s/t" zone={4} />
                      <YugiohCard height={size} notFull player="hero" row="s/t" />
                   </div>
+                  <div className={classes.cardRow}>
+                     <div className={classes.hand}>{this.renderHand("hero")}</div>
+                  </div>
                </div>
             </DndProvider>
-            <div className={classes.rightTools}>Right Toolbar</div>
+            <div className={classes.rightTools}>Hand Count: {this.props.handCounts.hero.length}</div>
          </div>
       );
    }
 }
 
-export default withStyles(styles)(Battlefield);
+function mapStateToProps(state) {
+   const field = state.field;
+   return { handCounts: { hero: field.hero.hand.length, villain: field.villain.hand.length } };
+}
+
+export default connect(mapStateToProps, {})(withStyles(styles)(Battlefield));
