@@ -1,6 +1,6 @@
 const initialState = {
    villain: {
-      hand: [],
+      hand: [{ name: "Shining Angel" }],
       "s/t": [{ name: "Call of the Haunted" }, null, null, null, null],
       monster: [null, null, { name: "Shining Angel" }, null, null]
    },

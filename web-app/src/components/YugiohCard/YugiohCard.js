@@ -22,6 +22,7 @@ export default function YugiohCard(props) {
 
    const [{ isDragging }, drag] = useDrag({
       item: { type: "card", player, row, zone },
+      canDrag: () => { return player==="hero" },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
       })
@@ -29,11 +30,12 @@ export default function YugiohCard(props) {
 
    const [{ isOver }, drop] = useDrop({
       accept: "card",
+      canDrop: () => droppable(),
       drop: (item) => {
          dispatch({ type: "MOVE_CARD", data: { from: item, to: { player, row, zone } } });
       },
       collect: (monitor) => ({
-         isOver: !!monitor.isOver()
+         isOver: !!monitor.isOver(),
       })
    });
 
@@ -163,6 +165,10 @@ function getSubtitle(starsOrAlt, height) {
    } else {
       return <img src={"/cards/svgs/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
    }
+}
+
+function droppable() {
+   return true;
 }
 
 YugiohCard.propTypes = {

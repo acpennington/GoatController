@@ -14,7 +14,7 @@ class Battlefield extends Component {
       const handList = [];
 
       for (let i = 0; i < handCount; i++) {
-         handList.push(<YugiohCard height={this.props.size} player={player} row="hand" zone={i} />);
+         handList.push(<YugiohCard height={player === "hero" ? this.props.size : this.props.size * 0.7} player={player} row="hand" zone={i} notFull />);
       }
 
       return handList;
@@ -28,7 +28,7 @@ class Battlefield extends Component {
             <DndProvider backend={HTML5Backend}>
                <div className={classes.cardsInPlay}>
                   <div className={classes.cardRow} style={{ height: size * 0.7 }}>
-                     <div className={classes.hand}></div>
+                     <div className={classes.hand}>{this.renderHand("villain")}</div>
                   </div>
                   <div className={classes.cardRow}>
                      <YugiohCard height={size} notFull player="villain" row="s/t" />
@@ -71,7 +71,7 @@ class Battlefield extends Component {
                   </div>
                </div>
             </DndProvider>
-            <div className={classes.rightTools}>Hand Count: {this.props.handCounts.hero.length}</div>
+            <div className={classes.rightTools}>Hand Count: {this.props.handCounts.hero}</div>
          </div>
       );
    }
