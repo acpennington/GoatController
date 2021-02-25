@@ -175,7 +175,6 @@ function getSubtitle(starsOrAlt, height) {
 }
 
 YugiohCard.propTypes = {
-   blank: PropTypes.bool,
    inDef: PropTypes.bool,
    notFull: PropTypes.bool,
    undraggable: PropTypes.bool,
