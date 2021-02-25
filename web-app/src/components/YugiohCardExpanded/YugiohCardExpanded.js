@@ -5,16 +5,16 @@ import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
 import compress from "utils/compressName.js";
-import getCardDetails from "utils/getCardDetails.js"
+import getCardDetails from "utils/getCardDetails.js";
 
 class YugiohCardExpanded extends Component {
    render() {
       const { classes, hoverCard, selectedCard } = this.props;
       const cardName = hoverCard || (selectedCard && selectedCard.name) || false;
 
-      if (!cardName) return (<div className={classes.largePic}></div>);
+      if (!cardName) return <div className={classes.largePic}></div>;
 
-      const { attribute, levelOrSubtype, atk, def, text } = getCardDetails(cardName);
+      const { cardType, attribute, levelOrSubtype, atk, def, text } = getCardDetails(cardName);
       return (
          <div
             className={classes.largePic}
@@ -23,11 +23,11 @@ class YugiohCardExpanded extends Component {
             }}
          >
             <div className={classes.cardText}>
-               {cardName} [{attribute}/{levelOrSubtype}]
+               {cardName} [{attribute || cardType}/{levelOrSubtype}]
                <br />
                {text}
                <br />
-               {atk && "ATK "+atk+" / DEF "+def}
+               {atk && "ATK " + atk + " / DEF " + def}
             </div>
          </div>
       );

@@ -7,6 +7,12 @@ const cards = {
       def: 800,
       text:
          "Fairy/Effect – When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 LIGHT monster with 1500 or less ATK from your Deck, in face-up Attack Position."
+   },
+   "Call of the Haunted": {
+      cardType: "Trap",
+      levelOrSubtype: "Continuous",
+      text:
+         "Activate this card by targeting 1 monster in your GY; Special Summon that target in Attack Position. When this card leaves the field, destroy that monster. When that monster is destroyed, destroy this card."
    }
 };
 

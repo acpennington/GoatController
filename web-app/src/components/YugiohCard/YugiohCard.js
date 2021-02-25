@@ -10,9 +10,6 @@ import getCardDetails from "utils/getCardDetails.js";
 import compress from "utils/compressName.js";
 
 const useStyles = makeStyles(cardStyle);
-const ItemTypes = {
-   CARD: "card"
-};
 const cardRatio = 1.45;
 
 export default function YugiohCard(props) {
@@ -28,16 +25,16 @@ export default function YugiohCard(props) {
    const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
 
    const [{ isDragging }, drag] = useDrag({
-      item: { type: ItemTypes.CARD },
+      item: { type: "card", name, player, row, zone },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
       })
    });
 
    const [{ isOver }, drop] = useDrop({
-      accept: ItemTypes.CARD,
-      drop: () => {
-         console.log("dropped");
+      accept: "card",
+      drop: (item) => {
+         dispatch({ type: "MOVE_CARD", data: { from: item, to: { player, row, zone } } });
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver()
@@ -77,26 +74,22 @@ export default function YugiohCard(props) {
             opacity: isDragging ? 0 : 1
          }}
          onClick={
-            blank
-               ? null
-               : () => {
-                    console.log("clicked");
-                    dispatch({ type: "NEW_SELECTION", data: { player, row, zone, name } });
-                 }
+            !blank &&
+            (() => {
+               dispatch({ type: "NEW_SELECTION", data: { player, row, zone, name } });
+            })
          }
          onMouseEnter={
-            blank
-               ? null
-               : () => {
-                    dispatch({ type: "NEW_HOVER", data: name });
-                 }
+            !blank &&
+            (() => {
+               dispatch({ type: "NEW_HOVER", data: name });
+            })
          }
          onMouseLeave={
-            blank
-               ? null
-               : () => {
-                    dispatch({ type: "CLEAR_HOVER", data: "" });
-                 }
+            !blank &&
+            (() => {
+               dispatch({ type: "CLEAR_HOVER", data: "" });
+            })
          }
       >
          <div
