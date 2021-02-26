@@ -39,9 +39,36 @@ class Game extends Component {
                <div className={classes.leftPanel}>
                   <YugiohCardExpanded name="Shining Angel" />
                   <div className={classes.chat}>
-                     Player1: Yo
-                     <br />
-                     Player2: What's up
+                     {/** Send message functionality to be added here*/}
+                     <div>
+                        <div>Player1: Yo yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                        <div>Player1: Yo</div>
+                     </div>
                   </div>
                </div>
                <div className={classes.gameplay}>

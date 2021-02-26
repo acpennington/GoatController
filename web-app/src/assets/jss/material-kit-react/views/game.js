@@ -42,7 +42,10 @@ const gameStyle = {
       padding: "5px",
       backgroundColor: "rgba(0,0,0,0.9)",
       width: "100%",
-      height: "calc(60% - 8px)"
+      height: "calc(60% - 8px)",
+      overflow: "auto",
+      display: "flex",
+      flexDirection: "column-reverse"
    },
    cardRow: {
       display: "flex",
