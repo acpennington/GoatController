@@ -37,9 +37,12 @@ const cardStyle = {
       marginTop: "2px",
       top: "50%",
       left: "50%",
+      width: "100%",
+      paddingTop: "100%",
       transform: "translate(-50%, -50%)",
       backgroundPosition: "center",
       backgroundSize: "100%",
+      backgroundRepeat: "no-repeat",
       zIndex: 2
    },
    monsterStats: {

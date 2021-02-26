@@ -88,11 +88,7 @@ export default function YugiohCard(props) {
             <Fragment>
                <div 
                   className={classes.art} 
-                  style={{
-                     width: height / cardRatio - 7 + "px",
-                     height: height / cardRatio - 7 + "px",
-                     backgroundImage: 'url("/cards/small/' + compress(name) + '.jpg")'
-                  }}
+                  style={{ backgroundImage: 'url("/cards/small/' + compress(name) + '.jpg")' }}
                >
                </div>
                <div
