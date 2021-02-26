@@ -33,6 +33,7 @@ export default function YugiohCard(props) {
       canDrop: () => droppable(),
       drop: (item) => {
          dispatch({ type: "MOVE_CARD", data: { from: item, to: { player, row, zone } } });
+         dispatch({ type: "CLEAR_SELECTION" });
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver(),
