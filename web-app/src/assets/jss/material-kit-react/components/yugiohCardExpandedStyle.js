@@ -21,7 +21,6 @@ const yugiohCardExpandedStyle = {
       width: containerMax,
       overflow: "auto",
       scrollbarColor: "#888 rgba(0,0,0,0)",
-      //scrollbarWidth: "thin",
       "&::-webkit-scrollbar": {
          width: "8px"
       },
