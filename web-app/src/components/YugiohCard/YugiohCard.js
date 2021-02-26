@@ -95,8 +95,7 @@ export default function YugiohCard(props) {
                      className={classes.monsterStats}
                      style={{
                         fontSize: nameHeight * 1.29 + "px",
-                        lineHeight: nameHeight * 1.29 + "px",
-                        paddingTop: nameHeight * 0.29 + "px"
+                        lineHeight: nameHeight * 1.29 + "px"
                      }}
                   >
                      {isMonster && atk+" / "+def}

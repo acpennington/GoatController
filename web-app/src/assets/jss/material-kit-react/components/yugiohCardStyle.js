@@ -6,6 +6,8 @@ const cardStyle = {
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "3px",
+      padding: "1px",
+      overflow: "hidden"
    },
    sideBySide: {
       display: "flex"
@@ -28,8 +30,6 @@ const cardStyle = {
       overflowWrap: "break-word",
       position: "absolute",
       letterSpacing: "-0.5px",
-      marginTop: "5px",
-      marginLeft: "5px",
       zIndex: 1
    },
    art: {
@@ -50,7 +50,8 @@ const cardStyle = {
       textAlign: "center",
       width: "100%",
       color: "black",
-      bottom: "0px"
+      bottom: "0px",
+      marginBottom: "3%"
    }
 };
 

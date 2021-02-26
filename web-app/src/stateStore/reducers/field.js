@@ -7,7 +7,7 @@ const initialState = {
    hero: {
       hand: [{ name: "Shining Angel" }, { name: "Call of the Haunted" }],
       "s/t": [null, null, null, null, null],
-      monster: [null, null, null, null, null]
+      monster: [null, null, { name: "Black Luster Soldier - Envoy of the Beginning" }, null, null]
    }
 };
 
