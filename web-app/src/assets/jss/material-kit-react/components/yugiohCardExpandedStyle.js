@@ -20,6 +20,7 @@ const yugiohCardExpandedStyle = {
       maxHeight: containerMax,
       width: containerMax,
       overflow: "auto",
+      scrollbarColor: "#888 rgba(0,0,0,0)",
       "&::-webkit-scrollbar": {
          width: "8px"
       },
