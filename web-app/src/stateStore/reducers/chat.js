@@ -1,4 +1,4 @@
-const initialState = [{ author: "Game", content: "New match started."}];
+const initialState = [{ author: "Game", content: "New match started."}, { author: "Player1", content: "glhf"}];
 
 export default function (state = initialState, action) {
     const { type, data } = action;

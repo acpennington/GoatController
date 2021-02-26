@@ -16,7 +16,6 @@ const cardStyle = {
       flex: "99%",
       position: "relative",
       float: "left",
-      marginLeft: "5px",
       zIndex: 3
    },
    subtitle: {
@@ -24,7 +23,6 @@ const cardStyle = {
       position: "relative",
       float: "right",
       zIndex: 3,
-      marginRight: "5px"
    },
    name: {
       overflowWrap: "break-word",
