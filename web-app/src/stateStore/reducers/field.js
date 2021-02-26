@@ -16,9 +16,15 @@ export default function (state = initialState, action) {
    switch (type) {
       case "MOVE_CARD":
          const { from, to } = data;
-         state[to.player][to.row][to.zone] = { ...state[from.player][from.row][from.zone] };
 
-         if (from.row === "hand") state[from.player][from.row].splice(from.zone, 1);
+         if (to.row === "hand") {
+            state[to.player]["hand"].push(state[from.player][from.row][from.zone]);
+            console.log(JSON.stringify(state[to.player]["hand"]));
+         } else {
+            state[to.player][to.row][to.zone] = { ...state[from.player][from.row][from.zone] };
+         }
+
+         if (from.row === "hand") state[from.player]["hand"].splice(from.zone, 1);
          else state[from.player][from.row][from.zone] = null;
          return state;
       case "UPDATE_VILLAIN":
