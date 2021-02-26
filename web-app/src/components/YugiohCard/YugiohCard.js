@@ -45,13 +45,10 @@ export default function YugiohCard(props) {
 
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
-   let nameColor, cardArt, nameHeight, cardTypeIcon, subtitle, isMonster;
+   let nameColor, nameHeight, cardTypeIcon, subtitle, isMonster;
    if (!blank) {
       isMonster = cardType.includes("Monster");
       nameColor = cardType === "spell" || cardType === "trap" ? "white" : "black";
-      cardArt = (
-         <img src={"/cards/small/" + compress(name) + ".jpg"} width={height / cardRatio - 7 + "px"} alt={name} />
-      );
       nameHeight = height / 3 / 4 - 1;
       cardTypeIcon = (
          <img
@@ -73,7 +70,9 @@ export default function YugiohCard(props) {
             marginLeft: notFull ? 0 : (height / cardRatio) * 0.25,
             marginRight: notFull ? 0 : (height / cardRatio) * 0.25,
             transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
-            opacity: (isDragging || blank) && row === "hand" ? 0 : 1
+            opacity: (isDragging || blank) && row === "hand" ? 0 : 1,
+            borderColor: selected || isOver ? "green" : "#292c42",
+            backgroundImage: !blank && 'url("/cards/bgs/' + cardType + '.jpg")',
          }}
          onClick={() => {
             if (!blank) dispatch({ type: "NEW_SELECTION", data: { player, row, zone, name } });
@@ -85,22 +84,18 @@ export default function YugiohCard(props) {
             if (!blank) dispatch({ type: "CLEAR_HOVER" });
          }}
       >
-         <div
-            className={classes.background}
-            style={{
-               height: height,
-               width: height / cardRatio,
-               borderColor: selected || isOver ? "green" : "#292c42",
-               backgroundImage: !blank && 'url("/cards/bgs/' + cardType + '.jpg")',
-               backgroundColor: "rgba(0,0,0,0.8)"
-            }}
-         ></div>
          {!blank && (
             <Fragment>
-               <div className={classes.art}>
-                  {cardArt}
-                  <br />
-                  <div
+               <div 
+                  className={classes.art} 
+                  style={{
+                     width: height / cardRatio - 7 + "px",
+                     height: height / cardRatio - 7 + "px",
+                     backgroundImage: 'url("/cards/small/' + compress(name) + '.jpg")'
+                  }}
+               >
+               </div>
+               <div
                      className={classes.monsterStats}
                      style={{
                         fontSize: nameHeight * 1.29 + "px",
@@ -108,13 +103,8 @@ export default function YugiohCard(props) {
                         paddingTop: nameHeight * 0.29 + "px"
                      }}
                   >
-                     {isMonster && (
-                        <Fragment>
-                           {atk} / {def}
-                        </Fragment>
-                     )}
+                     {isMonster && atk+" / "+def}
                   </div>
-               </div>
                <div
                   className={classes.name}
                   style={{

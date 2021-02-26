@@ -92,9 +92,8 @@ function Hand(props) {
    return (
       <div
          className={classes.cardRow}
-         style={{ height: size * (isHero ? 1 : 0.7) }}
+         style={{ height: size * (isHero ? 1 : 0.7), backgroundColor: isOver ? "rgba(0,255,0,0.2)" : null }}
          ref={isHero ? drop : null}
-         style={{ backgroundColor: isOver ? "rgba(0,255,0,0.2)" : null }}
       >
          <div className={classes.hand}>{handList}</div>
       </div>

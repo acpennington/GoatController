@@ -4,12 +4,14 @@ import { connectRouter } from "connected-react-router";
 
 import hoverCard from "./hoverCard.js";
 import selectedCard from "./selectedCard.js";
-import field from "./field.js"
+import field from "./field.js";
+import chat from "./chat.js";
 
 export default (history) =>
    combineReducers({
       router: connectRouter(history),
       field,
       hoverCard,
-      selectedCard
+      selectedCard,
+      chat
    });

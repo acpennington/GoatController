@@ -1,14 +1,11 @@
 const cardStyle = {
    container: {
-      position: "relative"
-   },
-   background: {
+      position: "relative",
+      backgroundColor: "rgba(0,0,0,0.8)",
       backgroundRepeat: "repeat",
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "3px",
-      position: "absolute",
-      zIndex: -1
    },
    sideBySide: {
       display: "flex"
@@ -41,13 +38,16 @@ const cardStyle = {
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
+      backgroundPosition: "center",
+      backgroundSize: "100%",
       zIndex: 2
    },
    monsterStats: {
       position: "absolute",
       textAlign: "center",
       width: "100%",
-      color: "black"
+      color: "black",
+      bottom: "0px"
    }
 };
 

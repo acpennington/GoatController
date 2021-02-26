@@ -4,6 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
+import Chat from "components/Chat/Chat.js"
 
 const sizeRatio = 1.7;
 
@@ -37,39 +38,8 @@ class Game extends Component {
                }}
             >
                <div className={classes.leftPanel}>
-                  <YugiohCardExpanded name="Shining Angel" />
-                  <div className={classes.chat}>
-                     {/** Send message functionality to be added here*/}
-                     <div>
-                        <div>Player1: Yo yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                        <div>Player1: Yo</div>
-                     </div>
-                  </div>
+                  <YugiohCardExpanded />
+                  <Chat />
                </div>
                <div className={classes.gameplay}>
                   <Battlefield size={sizingValue / 5.7} />
