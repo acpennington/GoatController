@@ -87,7 +87,8 @@ export default function YugiohCard(props) {
             if (!blank) {
                if (!selected) dispatch(newSelection({ player, row, zone, name }));
                else if (player === "hero") {
-                  if (row === "monster") dispatch(switchPosition(zone));
+                  dispatch(switchPosition(row, zone));
+                  dispatch(clearSelection());
                } else dispatch(clearSelection());
             }
          }}

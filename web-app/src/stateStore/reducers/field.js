@@ -48,12 +48,16 @@ export default function (state = initialState, action) {
 
          return state;
       case "SWITCH_POSITION":
-         const myMonster = state.hero.monster[data];
-         myMonster.inDef = !myMonster.inDef;
-         if (myMonster.facedown) myMonster.facedown = false;
+         const { row, zone } = data;
+         const myCard = state.hero[row][zone];
+         if (row === "monster") {
+            if (myCard.inDef) {
+               if (myCard.facedown) myCard.inDef = false;
+               myCard.facedown = !myCard.facedown;
+            } else myCard.inDef = true;
+         } else myCard.facedown = !myCard.facedown;
+
          return state;
-      case "FLIP":
-         break;
       case "UPDATE_VILLAIN":
          break;
       case "RESET_GAME":
