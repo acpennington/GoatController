@@ -2,7 +2,7 @@ import getCardDetails from "utils/getCardDetails.js";
 
 const initialState = {
    villain: {
-      deck: 35,
+      deck: { count: 35 },
       graveyard: [],
       banished: [],
       hand: [
@@ -17,7 +17,7 @@ const initialState = {
       monster: [null, null, { name: "Shining Angel" }, null, null]
    },
    hero: {
-      deck: 35,
+      deck: { count: 35 },
       graveyard: [],
       banished: [],
       usedFusions: [],
@@ -44,7 +44,13 @@ export default function (state = initialState, action) {
          if (to.row === "hand") state[to.player]["hand"].push({ name: state[from.player][from.row][from.zone].name });
          else state[to.player][to.row][to.zone] = { ...state[from.player][from.row][from.zone] };
 
-         if (to.row === "monster" && facedown) state[to.player][to.row][to.zone].inDef = true;
+         if (to.row === "monster" && facedown) state[to.player]["monster"][to.zone].inDef = true;
+
+         if (to.row === "s/t" && !facedown) {
+            const cardName = state[to.player]["s/t"][to.zone].name;
+            const cardDetails = getCardDetails(cardName);
+            if (cardDetails.cardType === "Trap") state[to.player]["s/t"][to.zone].facedown = true;
+         }
 
          if (from.row === "hand") state[from.player]["hand"].splice(from.zone, 1);
          else state[from.player][from.row][from.zone] = null;

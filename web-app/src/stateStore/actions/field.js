@@ -1,4 +1,13 @@
+import { clearSelection } from "./selectedCard.js";
+
 function moveCard(data) {
+   return (dispatch) => {
+      dispatch(move(data));
+      dispatch(clearSelection());
+   };
+}
+
+function move(data) {
    return { type: "MOVE_CARD", data };
 }
 

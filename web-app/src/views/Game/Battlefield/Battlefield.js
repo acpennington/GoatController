@@ -4,7 +4,6 @@ import { DndProvider, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
-import { clearSelection } from "stateStore/actions/selectedCard.js";
 import { moveCard } from "stateStore/actions/field.js";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -27,21 +26,21 @@ export default function Battlefield(props) {
             <div className={classes.cardsInPlay}>
                <Hand player="villain" handCount={handCounts.villain} size={size} />
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player="villain" row="s/t" />
-                  <YugiohCard height={size} player="villain" row="s/t" zone={0} />
-                  <YugiohCard height={size} player="villain" row="s/t" zone={1} />
-                  <YugiohCard height={size} player="villain" row="s/t" zone={2} />
-                  <YugiohCard height={size} player="villain" row="s/t" zone={3} />
+                  <YugiohCard height={size} notFull player="villain" row="deck" />
                   <YugiohCard height={size} player="villain" row="s/t" zone={4} />
-                  <YugiohCard height={size} notFull player="villain" row="s/t" />
+                  <YugiohCard height={size} player="villain" row="s/t" zone={3} />
+                  <YugiohCard height={size} player="villain" row="s/t" zone={2} />
+                  <YugiohCard height={size} player="villain" row="s/t" zone={1} />
+                  <YugiohCard height={size} player="villain" row="s/t" zone={0} />
+                  <YugiohCard height={size} notFull player="villain" row="extra deck" />
                </div>
                <div className={classes.cardRow}>
                   <YugiohCard height={size} notFull player="villain" row="monster" />
-                  <YugiohCard height={size} player="villain" row="monster" zone={0} />
-                  <YugiohCard height={size} player="villain" row="monster" zone={1} />
-                  <YugiohCard height={size} player="villain" row="monster" zone={2} />
-                  <YugiohCard height={size} player="villain" row="monster" zone={3} />
                   <YugiohCard height={size} player="villain" row="monster" zone={4} />
+                  <YugiohCard height={size} player="villain" row="monster" zone={3} />
+                  <YugiohCard height={size} player="villain" row="monster" zone={2} />
+                  <YugiohCard height={size} player="villain" row="monster" zone={1} />
+                  <YugiohCard height={size} player="villain" row="monster" zone={0} />
                   <YugiohCard height={size} notFull player="villain" row="monster" />
                </div>
                <div className={classes.cardRow}>
@@ -54,13 +53,13 @@ export default function Battlefield(props) {
                   <YugiohCard height={size} notFull player="hero" row="monster" />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player="hero" row="s/t" />
+                  <YugiohCard height={size} notFull player="hero" row="extra deck" />
                   <YugiohCard height={size} player="hero" row="s/t" zone={0} />
                   <YugiohCard height={size} player="hero" row="s/t" zone={1} />
                   <YugiohCard height={size} player="hero" row="s/t" zone={2} />
                   <YugiohCard height={size} player="hero" row="s/t" zone={3} />
                   <YugiohCard height={size} player="hero" row="s/t" zone={4} />
-                  <YugiohCard height={size} notFull player="hero" row="s/t" />
+                  <YugiohCard height={size} notFull player="hero" row="deck" />
                </div>
                <Hand player="hero" handCount={handCounts.hero} size={size} />
             </div>
@@ -81,7 +80,6 @@ function Hand(props) {
       accept: "card",
       drop: (item) => {
          dispatch(moveCard({ from: item, to: { player, row: "hand" } }));
-         dispatch(clearSelection());
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver()

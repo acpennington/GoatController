@@ -15,15 +15,17 @@ import { moveCard, switchPosition } from "stateStore/actions/field.js";
 
 const useStyles = makeStyles(cardStyle);
 const cardRatio = 1.45;
+const deckZones = ["extra deck", "deck"];
 
 export default function YugiohCard(props) {
    const classes = useStyles();
    const dispatch = useDispatch();
 
    const { height, notFull, player, row, zone } = props;
-   const card = useSelector((state) => state.field[player][row][zone]);
+   const card = useSelector((state) => (state.field[player][row] ? state.field[player][row][zone] : false));
    const name = card && card.name;
-   const facedown = name === "Facedown Card" || (card && card.facedown);
+   const deckZone = deckZones.includes(row);
+   const facedown = name === "Facedown Card" || deckZone || (card && card.facedown);
    const inDef = card && card.inDef && row === "monster" ? card.inDef : false;
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
@@ -45,14 +47,13 @@ export default function YugiohCard(props) {
       canDrop: () => droppable(),
       drop: (item) => {
          dispatch(moveCard({ from: item, to: { player, row, zone } }));
-         dispatch(clearSelection());
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver()
       })
    });
 
-   const blank = !card || isDragging ? true : false;
+   const blank = (!card || isDragging) && !deckZone;
    let nameColor, nameHeight, cardTypeIcon, subtitle, isMonster;
    if (!blank && !facedown) {
       isMonster = cardType.includes("Monster");
@@ -84,7 +85,7 @@ export default function YugiohCard(props) {
                !blank && (facedown ? 'url("/sleeves/goat.png")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
          onClick={() => {
-            if (!blank) {
+            if (!blank && !deckZone) {
                if (!selected) dispatch(newSelection(player, row, zone, name));
                else {
                   if (player === "hero") dispatch(switchPosition(row, zone));
@@ -93,7 +94,7 @@ export default function YugiohCard(props) {
             }
          }}
          onMouseEnter={() => {
-            if (!blank) dispatch(newHover(name));
+            if (!blank && !deckZone) dispatch(newHover(name));
          }}
       >
          {!blank && !facedown && (
