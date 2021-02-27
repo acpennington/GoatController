@@ -10,6 +10,8 @@ import getCardDetails from "utils/getCardDetails.js";
 import compress from "utils/compressName.js";
 
 import { newHover, clearHover } from "stateStore/actions/hoverCard.js";
+import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
+import { moveCard } from "stateStore/actions/field.js";
 
 const useStyles = makeStyles(cardStyle);
 const cardRatio = 1.45;
@@ -37,8 +39,8 @@ export default function YugiohCard(props) {
       accept: "card",
       canDrop: () => droppable(),
       drop: (item) => {
-         dispatch({ type: "MOVE_CARD", data: { from: item, to: { player, row, zone } } });
-         dispatch({ type: "CLEAR_SELECTION" });
+         dispatch(moveCard({ from: item, to: { player, row, zone } }));
+         dispatch(clearSelection());
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver()
@@ -81,7 +83,7 @@ export default function YugiohCard(props) {
             backgroundImage: !blank && 'url("/cards/bgs/' + cardType + '.jpg")'
          }}
          onClick={() => {
-            if (!blank) dispatch({ type: "NEW_SELECTION", data: { player, row, zone, name } });
+            if (!blank) dispatch(newSelection({ player, row, zone, name }));
          }}
          onMouseEnter={() => {
             if (!blank) dispatch(newHover(name));
