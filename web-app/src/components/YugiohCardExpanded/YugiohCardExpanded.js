@@ -14,11 +14,10 @@ class YugiohCardExpanded extends Component {
       const { classes, hoverCard, selectedCard } = this.props;
       const hoverCardName = rename(hoverCard);
       const selectedCardName = rename(selectedCard, "name");
-      const cardName = hoverCardName || selectedCardName || false;
+      const cardName = selectedCardName || hoverCardName || false;
 
       if (!cardName) return <div className={classes.largePic}></div>;
 
-      const showButtons = !hoverCard || hoverCard === selectedCardName;
       const { cardType, attribute, levelOrSubtype, atk, def, text } = getCardDetails(cardName);
       return (
          <div
@@ -28,14 +27,12 @@ class YugiohCardExpanded extends Component {
             }}
          >
             <div className={classes.contentContainer}>
-               {showButtons && (
-                  <div className={classes.buttons}>
-                     <Button color="primary">
-                        <Description />
-                        Rulings
-                     </Button>
-                  </div>
-               )}
+               <div className={classes.buttons}>
+                  <Button color="primary">
+                     <Description />
+                     Rulings
+                  </Button>
+               </div>
                <div className={classes.cardText}>
                   <strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]
                   <br />

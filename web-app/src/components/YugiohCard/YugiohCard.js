@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import getCardDetails from "utils/getCardDetails.js";
 import compress from "utils/compressName.js";
 
-import { newHover, clearHover } from "stateStore/actions/hoverCard.js";
+import { newHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
 import { moveCard, switchPosition } from "stateStore/actions/field.js";
 
@@ -88,14 +88,11 @@ export default function YugiohCard(props) {
                if (!selected) dispatch(newSelection({ player, row, zone, name }));
                else if (player === "hero") {
                   if (row === "monster") dispatch(switchPosition(zone));
-               }
+               } else dispatch(clearSelection());
             }
          }}
          onMouseEnter={() => {
             if (!blank) dispatch(newHover(name));
-         }}
-         onMouseLeave={() => {
-            if (!blank) dispatch(clearHover());
          }}
       >
          {!blank && !facedown && (
