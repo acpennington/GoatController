@@ -165,6 +165,7 @@ function droppable() {
 }
 
 YugiohCard.propTypes = {
+   height: PropTypes.number.isRequired,
    notFull: PropTypes.bool,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
