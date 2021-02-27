@@ -143,17 +143,15 @@ export default function YugiohCard(props) {
 
 function getSubtitle(starsOrAlt, height) {
    if (Number.isInteger(starsOrAlt)) {
-      const star = <img src="/cards/svgs/star.svg" height={height} alt="yugioh star" />;
-      const starArray = [];
-      for (let i = 0; i < starsOrAlt; i++) {
-         starArray.push(
-            <Fragment>
-               {star}
-               <br />
-            </Fragment>
+      const starList = [];
+      for (let i = 0; i < starsOrAlt - 1; i++) {
+         starList.push(
+            <div key={i}>
+               <img src="/cards/svgs/star.svg" height={height} alt="yugioh star" />
+            </div>
          );
       }
-      return starArray;
+      return starList;
    } else {
       return <img src={"/cards/svgs/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
    }

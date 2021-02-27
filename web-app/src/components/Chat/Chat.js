@@ -18,10 +18,12 @@ class Chat extends Component {
 
    renderMessages = () => {
       const messages = this.props.chat;
+      const messagesLength = messages.length;
       const messageList = [];
 
-      for (const message of messages) {
-         messageList.push(<div>{message.author + ": " + message.content}</div>);
+      for (let i = 0; i < messagesLength; i++) {
+         const message = messages[i];
+         messageList.push(<div key={i}>{message.author + ": " + message.content}</div>);
       }
 
       return <div>{messageList}</div>;

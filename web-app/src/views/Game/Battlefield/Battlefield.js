@@ -4,6 +4,8 @@ import { DndProvider, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
+import { clearSelection } from "stateStore/actions/selectedCard.js";
+import { moveCard } from "stateStore/actions/field.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -63,7 +65,7 @@ export default function Battlefield(props) {
                <Hand player="hero" handCount={handCounts.hero} size={size} />
             </div>
          </DndProvider>
-         <div className={classes.rightTools}>Hand Count: {handCounts.hero}</div>
+         <div className={classes.rightTools}>Right Toolbar Placeholder</div>
       </div>
    );
 }
@@ -78,7 +80,8 @@ function Hand(props) {
    const [{ isOver }, drop] = useDrop({
       accept: "card",
       drop: (item) => {
-         dispatch({ type: "MOVE_CARD", data: { from: item, to: { player, row: "hand" } } });
+         dispatch(moveCard({ from: item, to: { player, row: "hand" } }));
+         dispatch(clearSelection());
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver()
@@ -86,7 +89,9 @@ function Hand(props) {
    });
 
    for (let i = 0; i < handCount; i++) {
-      handList.push(<YugiohCard height={size * (isHero ? 1 : 0.7)} player={player} row="hand" zone={i} notFull />);
+      handList.push(
+         <YugiohCard height={size * (isHero ? 1 : 0.7)} player={player} row="hand" zone={i} notFull key={i} />
+      );
    }
 
    return (
