@@ -4,9 +4,9 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
-import Chat from "components/Chat/Chat.js"
+import Chat from "components/Chat/Chat.js";
 
-const sizeRatio = 1.7;
+const sizeRatio = 1.68;
 
 class Game extends Component {
    constructor(props) {

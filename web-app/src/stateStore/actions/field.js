@@ -2,4 +2,8 @@ function moveCard(data) {
    return { type: "MOVE_CARD", data };
 }
 
-export { moveCard };
+function switchPosition(data) {
+   return { type: "SWITCH_POSITION", data };
+}
+
+export { moveCard, switchPosition };

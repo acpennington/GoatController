@@ -35,5 +35,5 @@ const emptyCard = {
 };
 
 export default function getCardDetails(name) {
-   return name ? cards[name] : emptyCard;
+   return name && cards[name] ? cards[name] : emptyCard;
 }

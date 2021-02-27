@@ -29,11 +29,13 @@ const gameStyle = {
       height: "100%"
    },
    cardsInPlay: {
-      flex: "91%"
+      flex: "90%"
    },
    rightTools: {
-      flex: "9%",
-      backgroundColor: "green",
+      flex: "10%",
+      borderLeftStyle: "solid",
+      borderLeftWidth: "3px",
+      borderLeftColor: "black",
       height: "100%"
    },
    chat: {

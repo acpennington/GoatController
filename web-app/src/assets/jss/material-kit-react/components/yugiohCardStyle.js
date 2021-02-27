@@ -2,12 +2,14 @@ const cardStyle = {
    container: {
       position: "relative",
       backgroundColor: "rgba(0,0,0,0.8)",
-      backgroundRepeat: "repeat",
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "3px",
       padding: "1px",
-      overflow: "hidden"
+      overflow: "hidden",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover"
    },
    sideBySide: {
       display: "flex"
@@ -22,7 +24,7 @@ const cardStyle = {
       flex: "1%",
       position: "relative",
       float: "right",
-      zIndex: 3,
+      zIndex: 3
    },
    name: {
       overflowWrap: "break-word",

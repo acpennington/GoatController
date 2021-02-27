@@ -11,7 +11,7 @@ import compress from "utils/compressName.js";
 
 import { newHover, clearHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
-import { moveCard } from "stateStore/actions/field.js";
+import { moveCard, switchPosition } from "stateStore/actions/field.js";
 
 const useStyles = makeStyles(cardStyle);
 const cardRatio = 1.45;
@@ -19,8 +19,13 @@ const cardRatio = 1.45;
 export default function YugiohCard(props) {
    const classes = useStyles();
    const dispatch = useDispatch();
+
    const { height, notFull, player, row, zone } = props;
-   const inDef = false; // we should change this to be state-based
+   const card = useSelector((state) => state.field[player][row][zone]);
+   const name = card && card.name;
+   const facedown = name === "Facedown Card" || (card && card.facedown);
+   const inDef = card && card.inDef && row === "monster" ? card.inDef : false;
+   const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
    const selection = useSelector((state) => state.selectedCard);
    const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
@@ -47,14 +52,9 @@ export default function YugiohCard(props) {
       })
    });
 
-   const card = useSelector((state) => state.field[player][row][zone]);
    const blank = !card || isDragging ? true : false;
-   const name = card ? card.name : null;
-
-   const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
-
    let nameColor, nameHeight, cardTypeIcon, subtitle, isMonster;
-   if (!blank) {
+   if (!blank && !facedown) {
       isMonster = cardType.includes("Monster");
       nameColor = cardType === "spell" || cardType === "trap" ? "white" : "black";
       nameHeight = (height - height / cardRatio) / 4 + 1;
@@ -75,15 +75,21 @@ export default function YugiohCard(props) {
          style={{
             width: height / cardRatio,
             height: height,
-            marginLeft: notFull ? 0 : (height / cardRatio) * 0.25,
-            marginRight: notFull ? 0 : (height / cardRatio) * 0.25,
+            marginLeft: notFull ? 0 : (height - height / cardRatio) / 2,
+            marginRight: notFull ? 0 : (height - height / cardRatio) / 2,
             transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
             opacity: (isDragging || blank) && row === "hand" ? 0 : 1,
             borderColor: selected || isOver ? "green" : "#292c42",
-            backgroundImage: !blank && 'url("/cards/bgs/' + cardType + '.jpg")'
+            backgroundImage:
+               !blank && (facedown ? 'url("/sleeves/goat.png")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
          onClick={() => {
-            if (!blank) dispatch(newSelection({ player, row, zone, name }));
+            if (!blank) {
+               if (!selected) dispatch(newSelection({ player, row, zone, name }));
+               else if (player === "hero") {
+                  if (row === "monster") dispatch(switchPosition(zone));
+               }
+            }
          }}
          onMouseEnter={() => {
             if (!blank) dispatch(newHover(name));
@@ -92,7 +98,7 @@ export default function YugiohCard(props) {
             if (!blank) dispatch(clearHover());
          }}
       >
-         {!blank && (
+         {!blank && !facedown && (
             <Fragment>
                <div
                   className={classes.art}

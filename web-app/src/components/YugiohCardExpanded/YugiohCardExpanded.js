@@ -12,8 +12,9 @@ import getCardDetails from "utils/getCardDetails.js";
 class YugiohCardExpanded extends Component {
    render() {
       const { classes, hoverCard, selectedCard } = this.props;
-      const selectedCardName = selectedCard && selectedCard.name;
-      const cardName = hoverCard || selectedCardName || false;
+      const hoverCardName = rename(hoverCard);
+      const selectedCardName = rename(selectedCard, "name");
+      const cardName = hoverCardName || selectedCardName || false;
 
       if (!cardName) return <div className={classes.largePic}></div>;
 
@@ -46,6 +47,10 @@ class YugiohCardExpanded extends Component {
          </div>
       );
    }
+}
+
+function rename(card, prop = false) {
+   return prop ? card && card[prop] !== "Facedown Card" && card[prop] : card !== "Facedown Card" && card;
 }
 
 function mapStateToProps(state) {
