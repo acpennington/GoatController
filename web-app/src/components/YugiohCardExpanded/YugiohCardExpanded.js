@@ -12,9 +12,7 @@ import getCardDetails from "utils/getCardDetails.js";
 class YugiohCardExpanded extends Component {
    render() {
       const { classes, hoverCard, selectedCard } = this.props;
-      const hoverCardName = rename(hoverCard);
-      const selectedCardName = rename(selectedCard, "name");
-      const cardName = selectedCardName || hoverCardName || false;
+      const cardName = rename(selectedCard, "name") || rename(hoverCard) || false;
 
       if (!cardName) return <div className={classes.largePic}></div>;
 
