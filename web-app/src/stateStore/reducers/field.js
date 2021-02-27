@@ -13,7 +13,7 @@ const initialState = {
          { name: "Facedown Card" }
       ],
       "s/t": [{ name: "Call of the Haunted" }, null, null, null, null],
-      fieldSpell: null,
+      "field spell": null,
       monster: [null, null, { name: "Shining Angel" }, null, null]
    },
    hero: {
@@ -23,7 +23,7 @@ const initialState = {
       usedFusions: [],
       hand: [{ name: "Shining Angel" }, { name: "Call of the Haunted" }],
       "s/t": [null, null, null, null, null],
-      fieldSpell: null,
+      "field spell": null,
       monster: [
          null,
          null,

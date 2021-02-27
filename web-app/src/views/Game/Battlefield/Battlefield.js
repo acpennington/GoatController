@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { DndProvider, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -11,8 +12,7 @@ import styles from "assets/jss/material-kit-react/views/game.js";
 
 const useStyles = makeStyles(styles);
 
-export default function Battlefield(props) {
-   const { size } = props;
+function Battlefield({ size }) {
    const classes = useStyles();
 
    const handCounts = useSelector((state) => ({
@@ -102,3 +102,9 @@ function Hand(props) {
       </div>
    );
 }
+
+Battlefield.propTypes = {
+   size: PropTypes.number.isRequired
+};
+
+export default Battlefield;

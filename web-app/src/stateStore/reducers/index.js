@@ -6,6 +6,7 @@ import hoverCard from "./hoverCard.js";
 import selectedCard from "./selectedCard.js";
 import field from "./field.js";
 import chat from "./chat.js";
+import settings from "./settings.js";
 
 export default (history) =>
    combineReducers({
@@ -13,5 +14,6 @@ export default (history) =>
       field,
       hoverCard,
       selectedCard,
-      chat
+      chat,
+      settings
    });

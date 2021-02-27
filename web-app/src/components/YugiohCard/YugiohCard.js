@@ -57,11 +57,11 @@ export default function YugiohCard(props) {
    let nameColor, nameHeight, cardTypeIcon, subtitle, isMonster;
    if (!blank && !facedown) {
       isMonster = cardType.includes("Monster");
-      nameColor = cardType === "spell" || cardType === "trap" ? "white" : "black";
+      nameColor = cardType === "Spell" || cardType === "Trap" ? "white" : "black";
       nameHeight = (height - height / cardRatio) / 4 + 1;
       cardTypeIcon = (
          <img
-            src={"/cards/svgs/" + (isMonster ? attribute : cardType) + ".svg"}
+            src={"/cards/svgs/attributes/" + (isMonster ? attribute : cardType) + ".svg"}
             height={nameHeight * 1.05 + "px"}
             alt=""
          />
@@ -149,16 +149,16 @@ export default function YugiohCard(props) {
 function getSubtitle(starsOrAlt, height) {
    if (Number.isInteger(starsOrAlt)) {
       const starList = [];
-      for (let i = 0; i < starsOrAlt - 1; i++) {
+      for (let i = 0; i < starsOrAlt; i++) {
          starList.push(
             <div key={i}>
-               <img src="/cards/svgs/star.svg" height={height} alt="yugioh star" />
+               <img src="/cards/svgs/subtypes/star.svg" height={height} alt="yugioh star" />
             </div>
          );
       }
       return starList;
    } else {
-      return <img src={"/cards/svgs/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
+      return <img src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
    }
 }
 
