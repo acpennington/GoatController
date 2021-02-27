@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 import Button from "components/CustomButtons/Button.js";
+import { Description } from "@material-ui/icons";
 
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
@@ -16,7 +17,7 @@ class YugiohCardExpanded extends Component {
 
       if (!cardName) return <div className={classes.largePic}></div>;
 
-      const showButtons = !hoverCard || hoverCard===selectedCardName
+      const showButtons = !hoverCard || hoverCard === selectedCardName;
       const { cardType, attribute, levelOrSubtype, atk, def, text } = getCardDetails(cardName);
       return (
          <div
@@ -26,7 +27,14 @@ class YugiohCardExpanded extends Component {
             }}
          >
             <div className={classes.contentContainer}>
-               {showButtons && <div className={classes.buttons}><Button color="primary">Rulings</Button></div>}
+               {showButtons && (
+                  <div className={classes.buttons}>
+                     <Button color="primary">
+                        <Description />
+                        Rulings
+                     </Button>
+                  </div>
+               )}
                <div className={classes.cardText}>
                   <strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]
                   <br />

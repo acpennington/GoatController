@@ -1,10 +1,12 @@
 const initialState = {
    villain: {
+      deck: 35,
       hand: [{ name: "Shining Angel" }],
       "s/t": [{ name: "Call of the Haunted" }, null, null, null, null],
       monster: [null, null, { name: "Shining Angel" }, null, null]
    },
    hero: {
+      deck: 35,
       hand: [{ name: "Shining Angel" }, { name: "Call of the Haunted" }],
       "s/t": [null, null, null, null, null],
       monster: [null, null, { name: "Black Luster Soldier - Envoy of the Beginning" }, null, null]

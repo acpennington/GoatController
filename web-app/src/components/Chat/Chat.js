@@ -1,37 +1,55 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import CustomInput from "components/CustomInput/CustomInput.js";
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
+import { addMessage } from "stateStore/actions/chat.js";
+
 class Chat extends Component {
-    renderMessages = () => {
-        const messages = this.props.chat;
-        const messageList = [];
+   submitMessage = (event) => {
+      if (event.key === "Enter") {
+         this.props.addMessage({ author: "Player1", content: event.target.value });
+         event.target.value = "";
+         this.forceUpdate();
+      }
+   };
 
-        for (const message of messages) {
-            messageList.push(<div>{message.author + ": " + message.content}</div>)
-        }
+   renderMessages = () => {
+      const messages = this.props.chat;
+      const messageList = [];
 
-        return (
-            <div>{messageList}</div>
-        );
-    }
+      for (const message of messages) {
+         messageList.push(<div>{message.author + ": " + message.content}</div>);
+      }
 
-    render() {
-        const { classes } = this.props;
-        return(
-            <div className={classes.container}>
-                {/** Send message functionality to be added here*/}
-                {this.renderMessages()}
-            </div>
-        );
-    }
+      return <div>{messageList}</div>;
+   };
+
+   render() {
+      const { classes } = this.props;
+      return (
+         <div className={classes.container}>
+            <CustomInput
+               id="Message"
+               white
+               formControlProps={{
+                  fullWidth: true
+               }}
+               inputProps={{
+                  onKeyPress: this.submitMessage,
+                  margin: "dense"
+               }}
+            />
+            {this.renderMessages()}
+         </div>
+      );
+   }
 }
 
-
 function mapStateToProps(state) {
-    return { chat: state.chat };
- }
- 
- export default connect(mapStateToProps, {})(withStyles(chatStyle)(Chat));
+   return { chat: state.chat };
+}
+
+export default connect(mapStateToProps, { addMessage })(withStyles(chatStyle)(Chat));

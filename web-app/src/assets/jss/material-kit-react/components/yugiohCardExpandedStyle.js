@@ -1,5 +1,5 @@
 const containerMargin = 6;
-const containerMax = "calc(100% - "+2*containerMargin+"px)";
+const containerMax = "calc(100% - " + 2 * containerMargin + "px)";
 
 const yugiohCardExpandedStyle = {
    largePic: {
@@ -7,11 +7,11 @@ const yugiohCardExpandedStyle = {
       borderColor: "black",
       borderRadius: "3px",
       position: "relative",
-      backgroundColor: "black",
+      backgroundColor: "rgba(0,0,0,0.85)",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
-      height: "40%",
+      height: "40%"
    },
    contentContainer: {
       position: "absolute",
@@ -32,7 +32,7 @@ const yugiohCardExpandedStyle = {
       borderRadius: "3px",
       padding: "3px",
       width: "100%",
-      backgroundColor: "rgba(0,0,0,0.85)",
+      backgroundColor: "rgba(0,0,0,0.85)"
    },
    buttons: {
       display: "flex",

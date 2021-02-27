@@ -7,8 +7,7 @@ function newHover(name) {
 
 function clearHover() {
    return {
-      type: "CLEAR_HOVER",
-      data: ""
+      type: "CLEAR_HOVER"
    };
 }
 

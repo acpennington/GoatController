@@ -9,20 +9,25 @@ import PropTypes from "prop-types";
 import getCardDetails from "utils/getCardDetails.js";
 import compress from "utils/compressName.js";
 
+import { newHover, clearHover } from "stateStore/actions/hoverCard.js";
+
 const useStyles = makeStyles(cardStyle);
 const cardRatio = 1.45;
 
 export default function YugiohCard(props) {
    const classes = useStyles();
    const dispatch = useDispatch();
-   const { height, inDef, notFull, player, row, zone } = props;
+   const { height, notFull, player, row, zone } = props;
+   const inDef = false; // we should change this to be state-based
 
    const selection = useSelector((state) => state.selectedCard);
    const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
 
    const [{ isDragging }, drag] = useDrag({
       item: { type: "card", player, row, zone },
-      canDrag: () => { return player==="hero" },
+      canDrag: () => {
+         return player === "hero";
+      },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
       })
@@ -36,7 +41,7 @@ export default function YugiohCard(props) {
          dispatch({ type: "CLEAR_SELECTION" });
       },
       collect: (monitor) => ({
-         isOver: !!monitor.isOver(),
+         isOver: !!monitor.isOver()
       })
    });
 
@@ -50,7 +55,7 @@ export default function YugiohCard(props) {
    if (!blank) {
       isMonster = cardType.includes("Monster");
       nameColor = cardType === "spell" || cardType === "trap" ? "white" : "black";
-      nameHeight = height / 3 / 4 - 1;
+      nameHeight = (height - height / cardRatio) / 4 + 1;
       cardTypeIcon = (
          <img
             src={"/cards/svgs/" + (isMonster ? attribute : cardType) + ".svg"}
@@ -73,34 +78,33 @@ export default function YugiohCard(props) {
             transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
             opacity: (isDragging || blank) && row === "hand" ? 0 : 1,
             borderColor: selected || isOver ? "green" : "#292c42",
-            backgroundImage: !blank && 'url("/cards/bgs/' + cardType + '.jpg")',
+            backgroundImage: !blank && 'url("/cards/bgs/' + cardType + '.jpg")'
          }}
          onClick={() => {
             if (!blank) dispatch({ type: "NEW_SELECTION", data: { player, row, zone, name } });
          }}
          onMouseEnter={() => {
-            if (!blank) dispatch({ type: "NEW_HOVER", data: name });
+            if (!blank) dispatch(newHover(name));
          }}
          onMouseLeave={() => {
-            if (!blank) dispatch({ type: "CLEAR_HOVER" });
+            if (!blank) dispatch(clearHover());
          }}
       >
          {!blank && (
             <Fragment>
-               <div 
-                  className={classes.art} 
-                  style={{ backgroundImage: 'url("/cards/small/' + compress(name) + '.jpg")' }}
-               >
-               </div>
                <div
-                     className={classes.monsterStats}
-                     style={{
-                        fontSize: nameHeight * 1.29 + "px",
-                        lineHeight: nameHeight * 1.29 + "px"
-                     }}
-                  >
-                     {isMonster && atk+" / "+def}
-                  </div>
+                  className={classes.art}
+                  style={{ backgroundImage: 'url("/cards/small/' + compress(name) + '.jpg")' }}
+               ></div>
+               <div
+                  className={classes.monsterStats}
+                  style={{
+                     fontSize: nameHeight * 1.29 + "px",
+                     lineHeight: nameHeight * 1.29 + "px"
+                  }}
+               >
+                  {isMonster && atk + " / " + def}
+               </div>
                <div
                   className={classes.name}
                   style={{
@@ -158,7 +162,6 @@ function droppable() {
 }
 
 YugiohCard.propTypes = {
-   inDef: PropTypes.bool,
    notFull: PropTypes.bool,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
