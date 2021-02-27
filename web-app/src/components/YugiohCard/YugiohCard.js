@@ -85,7 +85,7 @@ export default function YugiohCard(props) {
          }}
          onClick={() => {
             if (!blank) {
-               if (!selected) dispatch(newSelection({ player, row, zone, name }));
+               if (!selected) dispatch(newSelection(player, row, zone, name));
                else {
                   if (player === "hero") dispatch(switchPosition(row, zone));
                   dispatch(clearSelection());

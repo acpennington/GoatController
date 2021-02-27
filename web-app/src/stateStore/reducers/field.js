@@ -39,9 +39,12 @@ export default function (state = initialState, action) {
    switch (type) {
       case "MOVE_CARD":
          const { from, to } = data;
+         const facedown = state[from.player][from.row][from.zone].facedown;
 
          if (to.row === "hand") state[to.player]["hand"].push({ name: state[from.player][from.row][from.zone].name });
          else state[to.player][to.row][to.zone] = { ...state[from.player][from.row][from.zone] };
+
+         if (to.row === "monster" && facedown) state[to.player][to.row][to.zone].inDef = true;
 
          if (from.row === "hand") state[from.player]["hand"].splice(from.zone, 1);
          else state[from.player][from.row][from.zone] = null;

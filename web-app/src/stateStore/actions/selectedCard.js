@@ -1,4 +1,5 @@
-function newSelection(data) {
+function newSelection(player, row, zone, name) {
+   const data = { player, row, zone, name };
    return { type: "NEW_SELECTION", data };
 }
 
