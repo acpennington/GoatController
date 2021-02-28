@@ -1,3 +1,8 @@
+// game settings
+const GAME_RATIO = 1.68;
+const VILLAIN_HAND_SIZE = 0.7;
+const CARD_RATIO = 1.45;
+
 // players
 const HERO = "hero";
 const VILLAIN = "villain";
@@ -18,6 +23,7 @@ const DECK = "deck";
 const EXTRA_DECK = "extra deck";
 const GRAVEYARD = "graveyard";
 const BANISHED = "banished";
+const deckZones = [DECK, EXTRA_DECK];
 
 // actions
 const ADD_MESSAGE = "ADD_MESSAGE";
@@ -35,6 +41,10 @@ const SWITCH_DISCARD = "SWITCH_DISCARD";
 const CARD = "card";
 
 export {
+   // game settings
+   GAME_RATIO,
+   VILLAIN_HAND_SIZE,
+   CARD_RATIO,
    // players
    HERO,
    VILLAIN,
@@ -52,6 +62,7 @@ export {
    EXTRA_DECK,
    GRAVEYARD,
    BANISHED,
+   deckZones,
    // actions
    ADD_MESSAGE,
    RESET_CHAT,

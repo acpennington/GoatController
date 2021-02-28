@@ -12,11 +12,9 @@ import compress from "utils/compressName.js";
 import { newHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
 import { moveCard, switchPosition } from "stateStore/actions/field.js";
-import { HERO, FACEDOWN_CARD, SPELL, TRAP, HAND, MONSTER, CARD } from "utils/constants.js";
+import { CARD_RATIO, HERO, FACEDOWN_CARD, SPELL, TRAP, HAND, deckZones, MONSTER, CARD } from "utils/constants.js";
 
 const useStyles = makeStyles(cardStyle);
-const cardRatio = 1.45;
-const deckZones = ["extra deck", "deck"];
 
 export default function YugiohCard(props) {
    const classes = useStyles();
@@ -59,7 +57,7 @@ export default function YugiohCard(props) {
    if (!blank && !facedown) {
       isMonster = cardType.includes("Monster");
       nameColor = cardType === SPELL || cardType === TRAP ? "white" : "black";
-      nameHeight = (height - height / cardRatio) / 4 + 1;
+      nameHeight = (height - height / CARD_RATIO) / 4 + 1;
       cardTypeIcon = (
          <img
             src={"/cards/svgs/attributes/" + (isMonster ? attribute : cardType) + ".svg"}
@@ -75,10 +73,10 @@ export default function YugiohCard(props) {
          ref={blank && !isDragging ? drop : drag}
          className={classes.container}
          style={{
-            width: height / cardRatio,
+            width: height / CARD_RATIO,
             height: height,
-            marginLeft: notFull ? 0 : (height - height / cardRatio) / 2,
-            marginRight: notFull ? 0 : (height - height / cardRatio) / 2,
+            marginLeft: notFull ? 0 : (height - height / CARD_RATIO) / 2,
+            marginRight: notFull ? 0 : (height - height / CARD_RATIO) / 2,
             transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
             opacity: (isDragging || blank) && row === HAND ? 0 : 1,
             borderColor: selected || isOver ? "green" : "#292c42",

@@ -6,7 +6,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import { moveCard } from "stateStore/actions/field.js";
-import { HERO, VILLAIN, MONSTER, ST, HAND, DECK, EXTRA_DECK, CARD } from "utils/constants.js";
+import { VILLAIN_HAND_SIZE, HERO, VILLAIN, MONSTER, ST, HAND, DECK, EXTRA_DECK, CARD } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -70,8 +70,7 @@ function Battlefield({ size }) {
    );
 }
 
-function Hand(props) {
-   const { player, handCount, size } = props;
+function Hand({ player, handCount, size }) {
    const classes = useStyles();
    const dispatch = useDispatch();
    const handList = [];
@@ -89,14 +88,21 @@ function Hand(props) {
 
    for (let i = 0; i < handCount; i++) {
       handList.push(
-         <YugiohCard height={size * (isHero ? 1 : 0.7)} player={player} row={HAND} zone={i} notFull key={i} />
+         <YugiohCard
+            height={size * (isHero ? 1 : VILLAIN_HAND_SIZE)}
+            player={player}
+            row={HAND}
+            zone={i}
+            notFull
+            key={i}
+         />
       );
    }
 
    return (
       <div
          className={classes.cardRow}
-         style={{ height: size * (isHero ? 1 : 0.7), backgroundColor: isOver && "rgba(0,255,0,0.2)" }}
+         style={{ height: size * (isHero ? 1 : VILLAIN_HAND_SIZE), backgroundColor: isOver && "rgba(0,255,0,0.2)" }}
          ref={isHero ? drop : null}
       >
          <div className={classes.hand}>{handList}</div>
@@ -105,6 +111,12 @@ function Hand(props) {
 }
 
 Battlefield.propTypes = {
+   size: PropTypes.number.isRequired
+};
+
+Hand.propTypes = {
+   player: PropTypes.string.isRequired,
+   handCount: PropTypes.number.isRequired,
    size: PropTypes.number.isRequired
 };
 
