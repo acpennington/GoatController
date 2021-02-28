@@ -12,6 +12,7 @@ import compress from "utils/compressName.js";
 import { newHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
 import { moveCard, switchPosition } from "stateStore/actions/field.js";
+import { HERO, FACEDOWN_CARD, SPELL, TRAP, HAND, MONSTER, CARD } from "utils/constants.js";
 
 const useStyles = makeStyles(cardStyle);
 const cardRatio = 1.45;
@@ -25,17 +26,17 @@ export default function YugiohCard(props) {
    const card = useSelector((state) => (state.field[player][row] ? state.field[player][row][zone] : false));
    const name = card && card.name;
    const deckZone = deckZones.includes(row);
-   const facedown = name === "Facedown Card" || deckZone || (card && card.facedown);
-   const inDef = card && card.inDef && row === "monster" ? card.inDef : false;
+   const facedown = name === FACEDOWN_CARD || deckZone || (card && card.facedown);
+   const inDef = card && card.inDef && row === MONSTER ? card.inDef : false;
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
    const selection = useSelector((state) => state.selectedCard);
    const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
 
    const [{ isDragging }, drag] = useDrag({
-      item: { type: "card", player, row, zone },
+      item: { type: CARD, player, row, zone },
       canDrag: () => {
-         return player === "hero";
+         return player === HERO;
       },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
@@ -43,7 +44,7 @@ export default function YugiohCard(props) {
    });
 
    const [{ isOver }, drop] = useDrop({
-      accept: "card",
+      accept: CARD,
       canDrop: () => droppable(),
       drop: (item) => {
          dispatch(moveCard({ from: item, to: { player, row, zone } }));
@@ -57,7 +58,7 @@ export default function YugiohCard(props) {
    let nameColor, nameHeight, cardTypeIcon, subtitle, isMonster;
    if (!blank && !facedown) {
       isMonster = cardType.includes("Monster");
-      nameColor = cardType === "Spell" || cardType === "Trap" ? "white" : "black";
+      nameColor = cardType === SPELL || cardType === TRAP ? "white" : "black";
       nameHeight = (height - height / cardRatio) / 4 + 1;
       cardTypeIcon = (
          <img
@@ -79,7 +80,7 @@ export default function YugiohCard(props) {
             marginLeft: notFull ? 0 : (height - height / cardRatio) / 2,
             marginRight: notFull ? 0 : (height - height / cardRatio) / 2,
             transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
-            opacity: (isDragging || blank) && row === "hand" ? 0 : 1,
+            opacity: (isDragging || blank) && row === HAND ? 0 : 1,
             borderColor: selected || isOver ? "green" : "#292c42",
             backgroundImage:
                !blank && (facedown ? 'url("/sleeves/goat.png")' : 'url("/cards/bgs/' + cardType + '.jpg")')
@@ -88,7 +89,7 @@ export default function YugiohCard(props) {
             if (!blank && !deckZone) {
                if (!selected) dispatch(newSelection(player, row, zone, name));
                else {
-                  if (player === "hero") dispatch(switchPosition(row, zone));
+                  if (player === HERO) dispatch(switchPosition(row, zone));
                   dispatch(clearSelection());
                }
             }
@@ -152,7 +153,7 @@ function getSubtitle(starsOrAlt, height) {
       for (let i = 0; i < starsOrAlt; i++) {
          starList.push(
             <div key={i}>
-               <img src="/cards/svgs/subtypes/star.svg" height={height} alt="yugioh star" />
+               <img src="/cards/svgs/subtypes/star.svg" height={height} alt="yugioh level star" />
             </div>
          );
       }

@@ -8,6 +8,7 @@ import { Description } from "@material-ui/icons";
 
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
+import { FACEDOWN_CARD } from "utils/constants";
 
 class YugiohCardExpanded extends Component {
    render() {
@@ -45,7 +46,7 @@ class YugiohCardExpanded extends Component {
 }
 
 function rename(card, prop = false) {
-   return prop ? card && card[prop] !== "Facedown Card" && card[prop] : card !== "Facedown Card" && card;
+   return prop ? card && card[prop] !== FACEDOWN_CARD && card[prop] : card !== FACEDOWN_CARD && card;
 }
 
 function mapStateToProps(state) {

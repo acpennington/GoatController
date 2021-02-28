@@ -1,3 +1,4 @@
+import { MOVE_CARD, SWITCH_POSITION } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
 
 function moveCard(data) {
@@ -8,12 +9,12 @@ function moveCard(data) {
 }
 
 function move(data) {
-   return { type: "MOVE_CARD", data };
+   return { type: MOVE_CARD, data };
 }
 
 function switchPosition(row, zone) {
    const data = { row, zone };
-   return { type: "SWITCH_POSITION", data };
+   return { type: SWITCH_POSITION, data };
 }
 
 export { moveCard, switchPosition };

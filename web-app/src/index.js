@@ -14,15 +14,11 @@ import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import GamePage from "views/Game/Game.js";
 
-// example pages
-import YugiohCard from "views/Examples/YugiohCard.js";
-
 ReactDOM.render(
    <Provider store={store}>
       <ConnectedRouter history={history}>
          <Switch>
             <Route path="/game" component={GamePage} />
-            <Route path="/examples/yugiohcard" component={YugiohCard} />
             <Route path="/landing-page" component={LandingPage} />
             <Route path="/profile-page" component={ProfilePage} />
             <Route path="/login-page" component={LoginPage} />

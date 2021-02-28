@@ -6,11 +6,13 @@ import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
 import { addMessage } from "stateStore/actions/chat.js";
+import { HERO } from "utils/constants.js";
+import getPlayerName from "utils/getPlayerName.js";
 
 class Chat extends Component {
    submitMessage = (event) => {
       if (event.key === "Enter") {
-         this.props.addMessage({ author: "Player1", content: event.target.value });
+         this.props.addMessage({ author: getPlayerName(HERO), content: event.target.value });
          event.target.value = "";
          this.forceUpdate();
       }

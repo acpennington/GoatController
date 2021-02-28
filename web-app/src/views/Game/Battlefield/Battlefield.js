@@ -6,6 +6,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import { moveCard } from "stateStore/actions/field.js";
+import { HERO, VILLAIN, MONSTER, ST, HAND, DECK, EXTRA_DECK, CARD } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -24,44 +25,44 @@ function Battlefield({ size }) {
       <div className={classes.gameplayContainer}>
          <DndProvider backend={HTML5Backend}>
             <div className={classes.cardsInPlay}>
-               <Hand player="villain" handCount={handCounts.villain} size={size} />
+               <Hand player={VILLAIN} handCount={handCounts.villain} size={size} />
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player="villain" row="deck" />
-                  <YugiohCard height={size} player="villain" row="s/t" zone={4} />
-                  <YugiohCard height={size} player="villain" row="s/t" zone={3} />
-                  <YugiohCard height={size} player="villain" row="s/t" zone={2} />
-                  <YugiohCard height={size} player="villain" row="s/t" zone={1} />
-                  <YugiohCard height={size} player="villain" row="s/t" zone={0} />
-                  <YugiohCard height={size} notFull player="villain" row="extra deck" />
+                  <YugiohCard height={size} notFull player={VILLAIN} row={DECK} />
+                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={4} />
+                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={3} />
+                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={2} />
+                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={1} />
+                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={0} />
+                  <YugiohCard height={size} notFull player={VILLAIN} row={EXTRA_DECK} />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player="villain" row="monster" />
-                  <YugiohCard height={size} player="villain" row="monster" zone={4} />
-                  <YugiohCard height={size} player="villain" row="monster" zone={3} />
-                  <YugiohCard height={size} player="villain" row="monster" zone={2} />
-                  <YugiohCard height={size} player="villain" row="monster" zone={1} />
-                  <YugiohCard height={size} player="villain" row="monster" zone={0} />
-                  <YugiohCard height={size} notFull player="villain" row="monster" />
+                  <YugiohCard height={size} notFull player={VILLAIN} row={MONSTER} />
+                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={4} />
+                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={3} />
+                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={2} />
+                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={1} />
+                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={0} />
+                  <YugiohCard height={size} notFull player={VILLAIN} row={MONSTER} />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player="hero" row="monster" />
-                  <YugiohCard height={size} player="hero" row="monster" zone={0} />
-                  <YugiohCard height={size} player="hero" row="monster" zone={1} />
-                  <YugiohCard height={size} player="hero" row="monster" zone={2} />
-                  <YugiohCard height={size} player="hero" row="monster" zone={3} />
-                  <YugiohCard height={size} player="hero" row="monster" zone={4} />
-                  <YugiohCard height={size} notFull player="hero" row="monster" />
+                  <YugiohCard height={size} notFull player={HERO} row={MONSTER} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={0} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={1} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={2} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={3} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={4} />
+                  <YugiohCard height={size} notFull player={HERO} row={MONSTER} />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player="hero" row="extra deck" />
-                  <YugiohCard height={size} player="hero" row="s/t" zone={0} />
-                  <YugiohCard height={size} player="hero" row="s/t" zone={1} />
-                  <YugiohCard height={size} player="hero" row="s/t" zone={2} />
-                  <YugiohCard height={size} player="hero" row="s/t" zone={3} />
-                  <YugiohCard height={size} player="hero" row="s/t" zone={4} />
-                  <YugiohCard height={size} notFull player="hero" row="deck" />
+                  <YugiohCard height={size} notFull player={HERO} row={EXTRA_DECK} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={0} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={1} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={2} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={3} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={4} />
+                  <YugiohCard height={size} notFull player={HERO} row={DECK} />
                </div>
-               <Hand player="hero" handCount={handCounts.hero} size={size} />
+               <Hand player={HERO} handCount={handCounts.hero} size={size} />
             </div>
          </DndProvider>
          <div className={classes.rightTools}>Right Toolbar Placeholder</div>
@@ -74,12 +75,12 @@ function Hand(props) {
    const classes = useStyles();
    const dispatch = useDispatch();
    const handList = [];
-   const isHero = player === "hero";
+   const isHero = player === HERO;
 
    const [{ isOver }, drop] = useDrop({
-      accept: "card",
+      accept: CARD,
       drop: (item) => {
-         dispatch(moveCard({ from: item, to: { player, row: "hand" } }));
+         dispatch(moveCard({ from: item, to: { player, row: HAND } }));
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver()
@@ -88,14 +89,14 @@ function Hand(props) {
 
    for (let i = 0; i < handCount; i++) {
       handList.push(
-         <YugiohCard height={size * (isHero ? 1 : 0.7)} player={player} row="hand" zone={i} notFull key={i} />
+         <YugiohCard height={size * (isHero ? 1 : 0.7)} player={player} row={HAND} zone={i} notFull key={i} />
       );
    }
 
    return (
       <div
          className={classes.cardRow}
-         style={{ height: size * (isHero ? 1 : 0.7), backgroundColor: isOver ? "rgba(0,255,0,0.2)" : null }}
+         style={{ height: size * (isHero ? 1 : 0.7), backgroundColor: isOver && "rgba(0,255,0,0.2)" }}
          ref={isHero ? drop : null}
       >
          <div className={classes.hand}>{handList}</div>
