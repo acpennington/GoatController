@@ -6,7 +6,18 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import { moveCard } from "stateStore/actions/field.js";
-import { VILLAIN_HAND_SIZE, HERO, VILLAIN, MONSTER, ST, HAND, DECK, EXTRA_DECK, CARD } from "utils/constants.js";
+import {
+   VILLAIN_HAND_SIZE,
+   HERO,
+   VILLAIN,
+   MONSTER,
+   ST,
+   HAND,
+   DECK,
+   EXTRA_DECK,
+   CARD,
+   OVER_COLOR
+} from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -75,6 +86,7 @@ function Hand({ player, handCount, size }) {
    const dispatch = useDispatch();
    const handList = [];
    const isHero = player === HERO;
+   const handSize = size * (isHero ? (handCount > 9 ? 0.95 : 1) : VILLAIN_HAND_SIZE * (handCount > 13 ? 0.94 : 1));
 
    const [{ isOver }, drop] = useDrop({
       accept: CARD,
@@ -87,22 +99,16 @@ function Hand({ player, handCount, size }) {
    });
 
    for (let i = 0; i < handCount; i++) {
-      handList.push(
-         <YugiohCard
-            height={size * (isHero ? 1 : VILLAIN_HAND_SIZE)}
-            player={player}
-            row={HAND}
-            zone={i}
-            notFull
-            key={i}
-         />
-      );
+      handList.push(<YugiohCard height={handSize} player={player} row={HAND} zone={i} notFull key={i} />);
    }
 
    return (
       <div
          className={classes.cardRow}
-         style={{ height: size * (isHero ? 1 : VILLAIN_HAND_SIZE), backgroundColor: isOver && "rgba(0,255,0,0.2)" }}
+         style={{
+            height: size * (isHero ? 1 : VILLAIN_HAND_SIZE),
+            backgroundColor: isOver && OVER_COLOR + "33"
+         }}
          ref={isHero ? drop : null}
       >
          <div className={classes.hand}>{handList}</div>

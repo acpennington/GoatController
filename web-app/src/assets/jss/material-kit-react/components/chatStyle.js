@@ -1,3 +1,5 @@
+import scrollStyle from "./scrollStyle.js";
+
 const chatStyle = {
    container: {
       borderRadius: "3px",
@@ -9,13 +11,7 @@ const chatStyle = {
       overflow: "auto",
       display: "flex",
       flexDirection: "column-reverse",
-      scrollbarColor: "#888 rgba(0,0,0,0)",
-      "&::-webkit-scrollbar": {
-         width: "8px"
-      },
-      "&::-webkit-scrollbar-thumb": {
-         background: "#888"
-      }
+      ...scrollStyle
    }
 };
 

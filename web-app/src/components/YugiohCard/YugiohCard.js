@@ -170,9 +170,7 @@ function getSubtitle(starsOrAlt, height) {
          );
       }
       return starList;
-   } else {
-      return <img src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
-   }
+   } else return <img src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
 }
 
 function droppable() {

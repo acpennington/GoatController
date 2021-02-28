@@ -1,3 +1,5 @@
+import scrollStyle from "../components/scrollStyle.js";
+
 const gameStyle = {
    container: {
       display: "flex",
@@ -22,21 +24,25 @@ const gameStyle = {
    },
    gameplay: {
       flex: "75%",
-      overflow: "hidden"
+      overflow: "hidden",
+      width: "100%"
    },
    gameplayContainer: {
       display: "flex",
-      height: "100%"
+      height: "100%",
+      width: "100%"
    },
    cardsInPlay: {
-      flex: "90%"
+      flex: "90%",
+      width: "90%"
    },
    rightTools: {
       flex: "10%",
       borderLeftStyle: "solid",
       borderLeftWidth: "3px",
       borderLeftColor: "black",
-      height: "100%"
+      height: "100%",
+      width: "100%"
    },
    chat: {
       borderRadius: "3px",
@@ -52,7 +58,10 @@ const gameStyle = {
    cardRow: {
       display: "flex",
       width: "100%",
-      margin: "auto"
+      margin: "auto",
+      overflowX: "auto",
+      overflowY: "hidden",
+      ...scrollStyle
    },
    hand: {
       display: "flex",

@@ -6,13 +6,7 @@ const initialState = {
       deck: { count: 35 },
       graveyard: [],
       banished: [],
-      hand: [
-         { name: FACEDOWN_CARD },
-         { name: FACEDOWN_CARD },
-         { name: FACEDOWN_CARD },
-         { name: FACEDOWN_CARD },
-         { name: FACEDOWN_CARD }
-      ],
+      hand: [{ name: FACEDOWN_CARD }, { name: FACEDOWN_CARD }, { name: FACEDOWN_CARD }],
       "s/t": [{ name: "Call of the Haunted" }, null, null, null, null],
       "field spell": null,
       monster: [null, null, { name: "Shining Angel" }, null, null]
@@ -22,7 +16,7 @@ const initialState = {
       graveyard: [],
       banished: [],
       usedFusions: [],
-      hand: [{ name: "Shining Angel" }, { name: "Call of the Haunted" }],
+      hand: [{ name: "Shining Angel" }, { name: "Call of the Haunted" }, { name: "Call of the Haunted" }],
       "s/t": [null, null, null, null, null],
       "field spell": null,
       monster: [

@@ -1,3 +1,5 @@
+import scrollStyle from "./scrollStyle.js";
+
 const containerMargin = 6;
 const containerMax = "calc(100% - " + 2 * containerMargin + "px)";
 
@@ -20,13 +22,7 @@ const yugiohCardExpandedStyle = {
       maxHeight: containerMax,
       width: containerMax,
       overflow: "auto",
-      scrollbarColor: "#888 rgba(0,0,0,0)",
-      "&::-webkit-scrollbar": {
-         width: "8px"
-      },
-      "&::-webkit-scrollbar-thumb": {
-         background: "#888"
-      }
+      ...scrollStyle
    },
    cardText: {
       borderRadius: "3px",

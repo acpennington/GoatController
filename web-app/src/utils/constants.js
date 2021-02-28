@@ -44,7 +44,7 @@ const ALL = [];
 const NONE = "none";
 
 // colors
-const OVER_COLOR = "green";
+const OVER_COLOR = "#00FF00";
 const HERO_SELECTION_COLOR = "blue";
 const VILLAIN_SELECTION_COLOR = "red";
 
