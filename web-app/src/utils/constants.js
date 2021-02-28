@@ -19,12 +19,16 @@ const stTypes = [SPELL, TRAP];
 // rows & zones
 const MONSTER = "monster";
 const ST = "s/t";
+const FIELD_SPELL = "field spell";
 const HAND = "hand";
 const DECK = "deck";
 const EXTRA_DECK = "extra deck";
+const deckZones = [DECK, EXTRA_DECK];
 const GRAVEYARD = "graveyard";
 const BANISHED = "banished";
-const deckZones = [DECK, EXTRA_DECK];
+const discardZones = [GRAVEYARD, BANISHED];
+const dndZones = [DECK, ...discardZones];
+const dynamicZones = [HAND, ...discardZones];
 
 // actions
 const ADD_MESSAGE = "ADD_MESSAGE";
@@ -45,7 +49,7 @@ const NONE = "none";
 
 // colors
 const OVER_COLOR = "#00FF00";
-const HERO_SELECTION_COLOR = "blue";
+const HERO_SELECTION_COLOR = "#003CFF";
 const VILLAIN_SELECTION_COLOR = "red";
 
 export {
@@ -66,12 +70,16 @@ export {
    // rows & zones
    MONSTER,
    ST,
+   FIELD_SPELL,
    HAND,
    DECK,
    EXTRA_DECK,
+   deckZones,
    GRAVEYARD,
    BANISHED,
-   deckZones,
+   discardZones,
+   dndZones,
+   dynamicZones,
    // actions
    ADD_MESSAGE,
    RESET_CHAT,

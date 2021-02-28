@@ -12,6 +12,7 @@ import {
    VILLAIN,
    MONSTER,
    ST,
+   FIELD_SPELL,
    HAND,
    DECK,
    EXTRA_DECK,
@@ -31,6 +32,7 @@ function Battlefield({ size }) {
       hero: state.field.hero.hand.length,
       villain: state.field.villain.hand.length
    }));
+   const DISCARD_PILE = useSelector((state) => state.settings.discardPile);
 
    return (
       <div className={classes.gameplayContainer}>
@@ -47,22 +49,22 @@ function Battlefield({ size }) {
                   <YugiohCard height={size} notFull player={VILLAIN} row={EXTRA_DECK} />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player={VILLAIN} row={MONSTER} />
+                  <YugiohCard height={size} notFull player={VILLAIN} row={DISCARD_PILE} />
                   <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={4} />
                   <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={3} />
                   <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={2} />
                   <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={1} />
                   <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={0} />
-                  <YugiohCard height={size} notFull player={VILLAIN} row={MONSTER} />
+                  <YugiohCard height={size} notFull player={VILLAIN} row={FIELD_SPELL} />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player={HERO} row={MONSTER} />
+                  <YugiohCard height={size} notFull player={HERO} row={FIELD_SPELL} />
                   <YugiohCard height={size} player={HERO} row={MONSTER} zone={0} />
                   <YugiohCard height={size} player={HERO} row={MONSTER} zone={1} />
                   <YugiohCard height={size} player={HERO} row={MONSTER} zone={2} />
                   <YugiohCard height={size} player={HERO} row={MONSTER} zone={3} />
                   <YugiohCard height={size} player={HERO} row={MONSTER} zone={4} />
-                  <YugiohCard height={size} notFull player={HERO} row={MONSTER} />
+                  <YugiohCard height={size} notFull player={HERO} row={DISCARD_PILE} />
                </div>
                <div className={classes.cardRow}>
                   <YugiohCard height={size} notFull player={HERO} row={EXTRA_DECK} />

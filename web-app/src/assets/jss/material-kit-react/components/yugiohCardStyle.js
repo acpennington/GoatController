@@ -35,7 +35,6 @@ const cardStyle = {
    },
    art: {
       position: "absolute",
-      marginTop: "2px",
       top: "50%",
       left: "50%",
       width: "100%",

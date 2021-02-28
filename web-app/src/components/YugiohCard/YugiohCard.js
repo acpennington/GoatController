@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -19,7 +19,10 @@ import {
    FACEDOWN_CARD,
    stTypes,
    HAND,
+   EXTRA_DECK,
    deckZones,
+   discardZones,
+   dndZones,
    MONSTER,
    CARD,
    OVER_COLOR,
@@ -28,12 +31,22 @@ import {
 
 const useStyles = makeStyles(cardStyle);
 
-export default function YugiohCard(props) {
+export default function YugiohCard({ height, notFull, player, row, zone }) {
    const classes = useStyles();
    const dispatch = useDispatch();
 
-   const { height, notFull, player, row, zone } = props;
-   const card = useSelector((state) => (state.field[player][row] ? state.field[player][row][zone] : false));
+   let card = useSelector((state) => (zone !== -1 ? state.field[player][row][zone] : state.field[player][row]));
+   if (discardZones.includes(row)) {
+      const cardLength = card.length;
+      if (cardLength === 0) {
+         zone = 0;
+         card = false;
+      } else {
+         zone = cardLength - 1;
+         card = card[zone];
+      }
+   }
+
    const name = card && card.name;
    const deckZone = deckZones.includes(row);
    const facedown = name === FACEDOWN_CARD || deckZone || (card && card.facedown);
@@ -47,9 +60,6 @@ export default function YugiohCard(props) {
 
    const [{ isDragging }, drag] = useDrag({
       item: { type: CARD, player, row, zone },
-      canDrag: () => {
-         return player === HERO;
-      },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
       })
@@ -57,7 +67,6 @@ export default function YugiohCard(props) {
 
    const [{ isOver }, drop] = useDrop({
       accept: CARD,
-      canDrop: () => droppable(),
       drop: (item) => {
          dispatch(moveCard({ from: item, to: { player, row, zone } }));
       },
@@ -82,9 +91,20 @@ export default function YugiohCard(props) {
       subtitle = getSubtitle(levelOrSubtype, nameHeight * 0.67);
    }
 
+   let dragOrDrop = useRef(null);
+   if (player === HERO) {
+      if (blank && !isDragging) dragOrDrop = drop;
+      else {
+         if (dndZones.includes(row)) drag(drop(dragOrDrop));
+         else if (row !== EXTRA_DECK) dragOrDrop = drag;
+      }
+   } else {
+      if (row === MONSTER && blank) dragOrDrop = drop;
+   }
+
    return (
       <div
-         ref={blank && !isDragging ? drop : drag}
+         ref={dragOrDrop}
          className={classes.container}
          style={{
             width: height / CARD_RATIO,
@@ -173,14 +193,14 @@ function getSubtitle(starsOrAlt, height) {
    } else return <img src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
 }
 
-function droppable() {
-   return true;
-}
-
 YugiohCard.propTypes = {
    height: PropTypes.number.isRequired,
    notFull: PropTypes.bool,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
    zone: PropTypes.number
+};
+
+YugiohCard.defaultProps = {
+   zone: -1
 };

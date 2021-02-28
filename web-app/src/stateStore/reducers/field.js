@@ -1,5 +1,15 @@
 import getCardDetails from "utils/getCardDetails.js";
-import { FACEDOWN_CARD, MONSTER, ST, HAND, TRAP, MOVE_CARD, SWITCH_POSITION, RESET_GAME } from "utils/constants.js";
+import {
+   FACEDOWN_CARD,
+   MONSTER,
+   ST,
+   FIELD_SPELL,
+   dynamicZones,
+   TRAP,
+   MOVE_CARD,
+   SWITCH_POSITION,
+   RESET_GAME
+} from "utils/constants.js";
 
 const initialState = {
    villain: {
@@ -34,10 +44,13 @@ export default function (state = initialState, action) {
    switch (type) {
       case MOVE_CARD:
          const { from, to } = data;
-         const facedown = state[from.player][from.row][from.zone].facedown;
+         const fieldSpell = from.row === FIELD_SPELL;
+         const fromCard = fieldSpell ? state[from.player][from.row] : state[from.player][from.row][from.zone];
+         const facedown = fromCard.facedown;
 
-         if (to.row === HAND) state[to.player][HAND].push({ name: state[from.player][from.row][from.zone].name });
-         else state[to.player][to.row][to.zone] = { ...state[from.player][from.row][from.zone] };
+         if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
+         else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
+         else state[to.player][to.row][to.zone] = { ...fromCard };
 
          if (to.row === MONSTER && facedown) state[to.player][MONSTER][to.zone].inDef = true;
 
@@ -47,8 +60,11 @@ export default function (state = initialState, action) {
             if (cardDetails.cardType === TRAP) state[to.player][ST][to.zone].facedown = true;
          }
 
-         if (from.row === HAND) state[from.player][HAND].splice(from.zone, 1);
-         else state[from.player][from.row][from.zone] = null;
+         if (dynamicZones.includes(from.row)) state[from.player][from.row].splice(from.zone, 1);
+         else {
+            if (fieldSpell) state[from.player][from.row] = null;
+            else state[from.player][from.row][from.zone] = null;
+         }
 
          return state;
       case SWITCH_POSITION:
