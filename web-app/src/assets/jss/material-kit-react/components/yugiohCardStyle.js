@@ -5,6 +5,7 @@ const cardStyle = {
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "3px",
+      borderColor: "#292c42",
       padding: "1px",
       overflow: "hidden",
       backgroundPosition: "center",

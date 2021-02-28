@@ -14,6 +14,7 @@ const FACEDOWN_CARD = "Facedown Card";
 const EFFECT_MONSTER = "effectMonster";
 const SPELL = "Spell";
 const TRAP = "Trap";
+const stTypes = [SPELL, TRAP];
 
 // rows & zones
 const MONSTER = "monster";
@@ -39,6 +40,13 @@ const SWITCH_DISCARD = "SWITCH_DISCARD";
 
 // ItemTypes
 const CARD = "card";
+const ALL = [];
+const NONE = "none";
+
+// colors
+const OVER_COLOR = "green";
+const HERO_SELECTION_COLOR = "blue";
+const VILLAIN_SELECTION_COLOR = "red";
 
 export {
    // game settings
@@ -54,6 +62,7 @@ export {
    EFFECT_MONSTER,
    SPELL,
    TRAP,
+   stTypes,
    // rows & zones
    MONSTER,
    ST,
@@ -75,5 +84,11 @@ export {
    CLEAR_SELECTION,
    SWITCH_DISCARD,
    // ItemTypes
-   CARD
+   CARD,
+   ALL,
+   NONE,
+   // colors
+   OVER_COLOR,
+   HERO_SELECTION_COLOR,
+   VILLAIN_SELECTION_COLOR
 };

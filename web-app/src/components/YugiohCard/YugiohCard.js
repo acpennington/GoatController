@@ -12,7 +12,19 @@ import compress from "utils/compressName.js";
 import { newHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
 import { moveCard, switchPosition } from "stateStore/actions/field.js";
-import { CARD_RATIO, HERO, FACEDOWN_CARD, SPELL, TRAP, HAND, deckZones, MONSTER, CARD } from "utils/constants.js";
+import { typesToList, typesToString } from "utils/convertTypes.js";
+import {
+   CARD_RATIO,
+   HERO,
+   FACEDOWN_CARD,
+   stTypes,
+   HAND,
+   deckZones,
+   MONSTER,
+   CARD,
+   OVER_COLOR,
+   HERO_SELECTION_COLOR
+} from "utils/constants.js";
 
 const useStyles = makeStyles(cardStyle);
 
@@ -30,6 +42,8 @@ export default function YugiohCard(props) {
 
    const selection = useSelector((state) => state.selectedCard);
    const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
+
+   const types = [player, row]; // need to flesh this out
 
    const [{ isDragging }, drag] = useDrag({
       item: { type: CARD, player, row, zone },
@@ -55,8 +69,8 @@ export default function YugiohCard(props) {
    const blank = (!card || isDragging) && !deckZone;
    let nameColor, nameHeight, cardTypeIcon, subtitle, isMonster;
    if (!blank && !facedown) {
-      isMonster = cardType.includes("Monster");
-      nameColor = cardType === SPELL || cardType === TRAP ? "white" : "black";
+      isMonster = !stTypes.includes(cardType);
+      nameColor = isMonster ? "black" : "white";
       nameHeight = (height - height / CARD_RATIO) / 4 + 1;
       cardTypeIcon = (
          <img
@@ -79,7 +93,7 @@ export default function YugiohCard(props) {
             marginRight: notFull ? 0 : (height - height / CARD_RATIO) / 2,
             transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
             opacity: (isDragging || blank) && row === HAND ? 0 : 1,
-            borderColor: selected || isOver ? "green" : "#292c42",
+            borderColor: (isOver && OVER_COLOR) || (selected && HERO_SELECTION_COLOR),
             backgroundImage:
                !blank && (facedown ? 'url("/sleeves/goat.png")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
