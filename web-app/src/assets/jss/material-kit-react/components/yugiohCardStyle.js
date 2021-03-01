@@ -1,3 +1,5 @@
+const borderColor = "#292c42";
+
 const cardStyle = {
    container: {
       position: "relative",
@@ -5,7 +7,7 @@ const cardStyle = {
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "3px",
-      borderColor: "#292c42",
+      borderColor,
       padding: "1px",
       overflow: "hidden",
       backgroundPosition: "center",
@@ -41,8 +43,10 @@ const cardStyle = {
       paddingTop: "100%",
       transform: "translate(-50%, -50%)",
       backgroundPosition: "center",
-      backgroundSize: "100%",
+      backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
+      borderTop: "2px solid " + borderColor,
+      borderBottom: "2px solid " + borderColor,
       zIndex: 2
    },
    monsterStats: {

@@ -8,6 +8,7 @@ import {
    TRAP,
    MOVE_CARD,
    SWITCH_POSITION,
+   SHUFFLE_HAND,
    RESET_GAME
 } from "utils/constants.js";
 
@@ -26,7 +27,12 @@ const initialState = {
       graveyard: [],
       banished: [],
       usedFusions: [],
-      hand: [{ name: "Shining Angel" }, { name: "Call of the Haunted" }, { name: "Call of the Haunted" }],
+      hand: [
+         { name: "Shining Angel" },
+         { name: "Call of the Haunted" },
+         { name: "Call of the Haunted" },
+         { name: "Necrovalley" }
+      ],
       "s/t": [null, null, null, null, null],
       "field spell": null,
       monster: [
@@ -44,6 +50,7 @@ export default function (state = initialState, action) {
    switch (type) {
       case MOVE_CARD:
          const { from, to } = data;
+
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = fieldSpell ? state[from.player][from.row] : state[from.player][from.row][from.zone];
          const facedown = fromCard.facedown;
@@ -78,9 +85,32 @@ export default function (state = initialState, action) {
          } else myCard.facedown = !myCard.facedown;
 
          return state;
+      case SHUFFLE_HAND:
+         shuffle(state.hero.hand);
+         return state;
       case RESET_GAME:
          return initialState;
       default:
          return state;
    }
+}
+
+function shuffle(array) {
+   var currentIndex = array.length,
+      temporaryValue,
+      randomIndex;
+
+   // While there remain elements to shuffle...
+   while (0 !== currentIndex) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      // And swap it with the current element.
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+   }
+
+   return array;
 }

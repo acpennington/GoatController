@@ -16,7 +16,7 @@ import {
    HAND,
    DECK,
    EXTRA_DECK,
-   CARD,
+   allTypes,
    OVER_COLOR
 } from "utils/constants.js";
 
@@ -91,7 +91,7 @@ function Hand({ player, handCount, size }) {
    const handSize = size * (isHero ? (handCount > 9 ? 0.95 : 1) : VILLAIN_HAND_SIZE * (handCount > 13 ? 0.94 : 1));
 
    const [{ isOver }, drop] = useDrop({
-      accept: CARD,
+      accept: allTypes,
       drop: (item) => {
          dispatch(moveCard({ from: item, to: { player, row: HAND } }));
       },

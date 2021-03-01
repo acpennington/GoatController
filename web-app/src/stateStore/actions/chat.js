@@ -1,9 +1,9 @@
-import { ADD_MESSAGE } from "utils/constants";
+import { ADD_MESSAGE, SHUFFLE_HAND } from "utils/constants";
 
 function addMessage(message) {
    return {
-      type: ADD_MESSAGE,
-      data: message
+      type: SHUFFLE_HAND
+      //data: message
    };
 }
 

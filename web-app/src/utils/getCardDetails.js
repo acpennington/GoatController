@@ -22,6 +22,12 @@ const cards = {
       def: 2500,
       text:
          "Warrior/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn, you can activate 1 of these effects. ● Target 1 monster on the field; banish it. This card cannot attack the turn this effect is activated. ● If this attacking card destroys an opponent's monster by battle: It can make a second attack in a row."
+   },
+   Necrovalley: {
+      cardType: "Spell",
+      levelOrSubtype: "Field",
+      text:
+         'All "Gravekeeper\'s" monsters gain 500 ATK and DEF. Cards in the Graveyard cannot be banished. Negate any card effect that would move a card in the Graveyard to a different place. Negate any card effect that changes Types or Attributes in the Graveyard.'
    }
 };
 
