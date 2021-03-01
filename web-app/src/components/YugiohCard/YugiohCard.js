@@ -93,8 +93,6 @@ export default function YugiohCard({ height, notFull, player, row, zone }) {
       })
    });
 
-   if (isOver) console.log("candrop: " + canDrop);
-
    const blank = (!card || isDragging) && !deckZone;
    let nameColor, nameHeight, cardTypeIcon, subtitle;
    if (!blank && !facedown) {
