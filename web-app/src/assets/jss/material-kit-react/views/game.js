@@ -1,5 +1,3 @@
-import scrollStyle from "../components/scrollStyle.js";
-
 const gameStyle = {
    container: {
       display: "flex",
@@ -19,7 +17,7 @@ const gameStyle = {
    leftPanel: {
       flex: "25%",
       width: "100%",
-      marginRight: "5px",
+      marginRight: "4px",
       height: "100%"
    },
    gameplay: {
@@ -60,8 +58,7 @@ const gameStyle = {
       width: "100%",
       margin: "auto",
       overflowX: "auto",
-      overflowY: "hidden",
-      ...scrollStyle
+      overflowY: "hidden"
    },
    hand: {
       display: "flex",

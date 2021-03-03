@@ -17,7 +17,15 @@ const initialState = {
       deck: { count: 35 },
       graveyard: [],
       banished: [],
-      hand: [{ name: FACEDOWN_CARD }, { name: FACEDOWN_CARD }, { name: FACEDOWN_CARD }],
+      hand: [
+         { name: FACEDOWN_CARD },
+         { name: FACEDOWN_CARD },
+         { name: FACEDOWN_CARD },
+         { name: FACEDOWN_CARD },
+         { name: FACEDOWN_CARD },
+         { name: FACEDOWN_CARD },
+         { name: FACEDOWN_CARD }
+      ],
       "s/t": [{ name: "Call of the Haunted" }, null, null, null, null],
       "field spell": null,
       monster: [null, null, { name: "Shining Angel" }, null, null]
@@ -31,6 +39,12 @@ const initialState = {
          { name: "Shining Angel" },
          { name: "Call of the Haunted" },
          { name: "Call of the Haunted" },
+         { name: "Necrovalley" },
+         { name: "Necrovalley" },
+         { name: "Necrovalley" },
+         { name: "Necrovalley" },
+         { name: "Necrovalley" },
+         { name: "Necrovalley" },
          { name: "Necrovalley" }
       ],
       "s/t": [null, null, null, null, null],
