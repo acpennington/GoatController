@@ -41,9 +41,9 @@ class Game extends Component {
                   <YugiohCardExpanded />
                   <Chat />
                </div>
-               <div className={classes.gameplay}>
+         
                   <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} />
-               </div>
+            
             </div>
          </div>
       );

@@ -5,6 +5,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
+import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
 import { HERO } from "utils/constants.js";
 import getPlayerName from "utils/getPlayerName.js";
@@ -28,24 +29,24 @@ class Chat extends Component {
          messageList.push(<div key={i}>{message.author + ": " + message.content}</div>);
       }
 
-      return <div>{messageList}</div>;
+      return <FriendlyScroll height="100%">{messageList}</FriendlyScroll>;
    };
 
    render() {
       const { classes } = this.props;
       return (
          <div className={classes.container}>
-            <CustomInput
-               id="Message"
-               white
-               formControlProps={{
-                  fullWidth: true
-               }}
-               inputProps={{
-                  onKeyPress: this.submitMessage,
-                  margin: "dense"
-               }}
-            />
+                <CustomInput
+                id="Message"
+                white
+                formControlProps={{
+                    fullWidth: true
+                }}
+                inputProps={{
+                    onKeyPress: this.submitMessage,
+                    margin: "dense"
+                }}
+                />
             {this.renderMessages()}
          </div>
       );

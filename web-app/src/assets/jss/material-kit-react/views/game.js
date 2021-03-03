@@ -16,23 +16,28 @@ const gameStyle = {
    },
    leftPanel: {
       flex: "25%",
-      width: "100%",
+      width: "25%",
       marginRight: "4px",
       height: "100%"
    },
    gameplay: {
       flex: "75%",
-      overflow: "hidden",
-      width: "100%"
+      width: "75%",
+      overflow: "hidden"
    },
    gameplayContainer: {
+      flex: "75%",
+      width: "75%",
+      overflow: "hidden",
+      position: "relative",
       display: "flex",
-      height: "100%",
-      width: "100%"
+      height: "100%"
    },
    cardsInPlay: {
+      position: "relative",
       flex: "90%",
-      width: "90%"
+      width: "90%",
+      maxWidth: "90%"
    },
    rightTools: {
       flex: "10%",
@@ -40,7 +45,8 @@ const gameStyle = {
       borderLeftWidth: "3px",
       borderLeftColor: "black",
       height: "100%",
-      width: "100%"
+      width: "10%",
+      maxWidth: "10%"
    },
    chat: {
       borderRadius: "3px",

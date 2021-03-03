@@ -22,7 +22,8 @@ const friendlyScrollStyle = {
       position: "relative",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center"
+      justifyContent: "center",
+      width: "100%"
    },
    btnLeft: {
       left: "0%",
