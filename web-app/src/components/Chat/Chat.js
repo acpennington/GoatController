@@ -29,7 +29,7 @@ class Chat extends Component {
          messageList.push(<div key={i}>{message.author + ": " + message.content}</div>);
       }
 
-      return <FriendlyScroll height="100%">{messageList}</FriendlyScroll>;
+      return <FriendlyScroll height="100%" id="chatScroll">{messageList}</FriendlyScroll>;
    };
 
    render() {

@@ -16,7 +16,7 @@ class FriendlyScroll extends Component {
    };
 
    render() {
-      const { classes, height, backgroundColor, overflowX, overflowY, drop, id } = this.props;
+      const { classes, id, drop, style} = this.props;
 
       const element = document.getElementById(this.props.id);
       const scrollbarExists = element && element.scrollWidth > element.clientWidth;
@@ -33,7 +33,7 @@ class FriendlyScroll extends Component {
             <div
                id={id}
                className={classes.childrenContainer}
-               style={{ height, backgroundColor, overflowX, overflowY }}
+               style={style}
                ref={drop}
             >
                {this.props.children}
@@ -49,7 +49,7 @@ class FriendlyScroll extends Component {
 }
 
 FriendlyScroll.propTypes = {
-   height: PropTypes.number
+   id: PropTypes.string.isRequired
 };
 
 export default withStyles(friendlyScrollStyles)(FriendlyScroll);

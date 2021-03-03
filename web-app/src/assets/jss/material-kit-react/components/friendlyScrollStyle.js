@@ -46,8 +46,6 @@ const friendlyScrollStyle = {
       ...buttonStyle
    },
    childrenContainer: {
-      display: "flex",
-      margin: "auto",
       width: "100%",
       overflowX: "auto",
       overflowY: "auto",

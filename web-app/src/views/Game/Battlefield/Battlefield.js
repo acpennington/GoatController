@@ -107,13 +107,16 @@ function Hand({ player, handCount, size }) {
 
    const mySize = size * (isHero ? 1 : VILLAIN_HAND_SIZE);
    const myColor = isOver && OVER_COLOR + "33";
+   const myStyle = { height:{mySize},
+      backgroundColor: {myColor},
+      overflowY: "hidden",
+      display: "flex"
+   }
    return (
       <FriendlyScroll
-         height={mySize}
-         backgroundColor={myColor}
-         overflowY="hidden"
-         drop={isHero && drop}
          id={"hand" + player}
+         drop={isHero && drop}
+         style={myStyle}
       >
          <div className={classes.hand}>{handList}</div>
       </FriendlyScroll>
