@@ -16,7 +16,7 @@ class FriendlyScroll extends Component {
    };
 
    render() {
-      const { classes, id, drop, style} = this.props;
+      const { classes, id, drop, style, contStyle} = this.props;
 
       const element = document.getElementById(this.props.id);
       const scrollbarExists = element && element.scrollWidth > element.clientWidth;
@@ -24,7 +24,7 @@ class FriendlyScroll extends Component {
       const shouldScrollLeft = scrollbarExists && element.scrollLeft > 10;
 
       return (
-         <div className={classes.wholeContainer}>
+         <div className={classes.wholeContainer} style={contStyle}>
             {shouldScrollLeft && (
                <button className={classes["btnLeft"]}>
                   <BsArrowLeftShort size="20px" onClick={() => this.scrollLeft(element)} />

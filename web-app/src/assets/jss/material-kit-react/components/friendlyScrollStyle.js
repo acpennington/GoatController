@@ -23,7 +23,8 @@ const friendlyScrollStyle = {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
-      width: "100%"
+      width: "100%",
+      overflow: "hidden"
    },
    btnLeft: {
       left: "0%",
@@ -46,7 +47,10 @@ const friendlyScrollStyle = {
       ...buttonStyle
    },
    childrenContainer: {
+      display: "flex",
+      flexDirection: "column-reverse",
       width: "100%",
+      maxHeight: "100%",
       overflowX: "auto",
       overflowY: "auto",
       ...scrollStyle
