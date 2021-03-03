@@ -34,6 +34,16 @@ const friendlyScrollStyle = {
       marginRight: "2px",
       ...buttonStyle
    },
+   btnTop: {
+      top: "0%",
+      marginTop: "2px",
+      ...buttonStyle
+   },
+   btnBottom: {
+      bottom: "0%",
+      marginBottom: "2px",
+      ...buttonStyle
+   },
    childrenContainer: {
       display: "flex",
       margin: "auto",
