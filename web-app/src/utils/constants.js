@@ -6,6 +6,7 @@ const CARD_RATIO = 1.45;
 // players
 const HERO = "hero";
 const VILLAIN = "villain";
+const SYSTEM = "Server";
 
 // special card names
 const FACEDOWN_CARD = "Facedown Card";
@@ -32,6 +33,7 @@ const dynamicZones = [HAND, ...discardZones];
 
 // actions
 const ADD_MESSAGE = "ADD_MESSAGE";
+const SYSTEM_MESSAGE = "SYSTEM_MESSAGE";
 const RESET_CHAT = "RESET_CHAT";
 const MOVE_CARD = "MOVE_CARD";
 const SWITCH_POSITION = "SWITCH_POSITION";
@@ -64,6 +66,7 @@ export {
    // players
    HERO,
    VILLAIN,
+   SYSTEM,
    // special card names
    FACEDOWN_CARD,
    // cardTypes
@@ -86,6 +89,7 @@ export {
    dynamicZones,
    // actions
    ADD_MESSAGE,
+   SYSTEM_MESSAGE,
    RESET_CHAT,
    MOVE_CARD,
    SWITCH_POSITION,
