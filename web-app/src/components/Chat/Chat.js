@@ -25,11 +25,19 @@ class Chat extends Component {
       const messageList = [];
 
       for (let i = 0; i < messagesLength; i++) {
-         const message = messages[messagesLength-1-i];
+         const message = messages[messagesLength - 1 - i];
          messageList.push(<div key={i}>{message.author + ": " + message.content}</div>);
       }
 
-      return <FriendlyScroll height="100%" id="chatScroll" style={{position: "absolute", bottom: 0}} contStyle={{height: "80%"}}>{messageList}</FriendlyScroll>;
+      return (
+         <FriendlyScroll
+            id="chatScroll"
+            style={{ position: "absolute", bottom: 0 }}
+            contStyle={{ height: "calc(100% - 50px)" }}
+         >
+            {messageList}
+         </FriendlyScroll>
+      );
    };
 
    render() {
@@ -38,15 +46,15 @@ class Chat extends Component {
          <div className={classes.container}>
             {this.renderMessages()}
             <CustomInput
-                id="Message"
-                white
-                formControlProps={{
-                    fullWidth: true
-                }}
-                inputProps={{
-                    onKeyPress: this.submitMessage,
-                    margin: "dense"
-                }}
+               id="Message"
+               white
+               formControlProps={{
+                  fullWidth: true
+               }}
+               inputProps={{
+                  onKeyPress: this.submitMessage,
+                  margin: "dense"
+               }}
             />
          </div>
       );

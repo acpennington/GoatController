@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
+import { BsArrowLeftShort, BsArrowRightShort, BsArrowDownShort } from "react-icons/bs";
 
 import { withStyles } from "@material-ui/core/styles";
 import friendlyScrollStyles from "assets/jss/material-kit-react/components/friendlyScrollStyle.js";
+import { BUFFER } from "utils/constants.js";
 
 class FriendlyScroll extends Component {
    scrollLeft = (element) => {
@@ -12,16 +13,18 @@ class FriendlyScroll extends Component {
    };
 
    scrollRight = (element) => {
-      element.scroll(10000, 10000);
+      element.scroll(100000, 100000);
    };
 
    render() {
-      const { classes, id, drop, style, contStyle} = this.props;
+      const { classes, id, drop, style, contStyle, bgColor, horiz } = this.props;
 
       const element = document.getElementById(this.props.id);
-      const scrollbarExists = element && element.scrollWidth > element.clientWidth;
-      const shouldScrollRight = scrollbarExists && element.scrollLeft < element.scrollWidth - element.clientWidth - 10;
-      const shouldScrollLeft = scrollbarExists && element.scrollLeft > 10;
+      const scrollgap =
+         element && (horiz ? element.scrollWidth - element.clientWidth : element.scrollHeight - element.clientHeight);
+      const scrollbarExists = scrollgap > 0;
+      const shouldScrollRight = scrollbarExists && (horiz ? element.scrollLeft < scrollgap - BUFFER : true);
+      const shouldScrollLeft = scrollbarExists && horiz && element.scrollLeft > BUFFER;
 
       return (
          <div className={classes.wholeContainer} style={contStyle}>
@@ -33,14 +36,18 @@ class FriendlyScroll extends Component {
             <div
                id={id}
                className={classes.childrenContainer}
-               style={style}
+               style={{ backgroundColor: bgColor, ...style }}
                ref={drop}
             >
                {this.props.children}
             </div>
             {shouldScrollRight && (
-               <button className={classes["btnRight"]}>
-                  <BsArrowRightShort size="20px" onClick={() => this.scrollRight(element)} />
+               <button className={classes["btn" + (horiz ? "Right" : "Bottom")]}>
+                  {horiz ? (
+                     <BsArrowRightShort size="20px" onClick={() => this.scrollRight(element)} />
+                  ) : (
+                     <BsArrowDownShort size="20px" onClick={() => this.scrollRight(element)} />
+                  )}
                </button>
             )}
          </div>
@@ -49,7 +56,8 @@ class FriendlyScroll extends Component {
 }
 
 FriendlyScroll.propTypes = {
-   id: PropTypes.string.isRequired
+   id: PropTypes.string.isRequired,
+   horiz: PropTypes.bool
 };
 
 export default withStyles(friendlyScrollStyles)(FriendlyScroll);

@@ -27,23 +27,16 @@ const friendlyScrollStyle = {
       overflow: "hidden"
    },
    btnLeft: {
-      left: "0%",
-      marginLeft: "2px",
+      left: "2px",
       ...buttonStyle
    },
    btnRight: {
-      right: "0%",
-      marginRight: "2px",
-      ...buttonStyle
-   },
-   btnTop: {
-      top: "0%",
-      marginTop: "2px",
+      right: "2px",
       ...buttonStyle
    },
    btnBottom: {
-      bottom: "0%",
-      marginBottom: "2px",
+      bottom: "2px",
+      right: "10px",
       ...buttonStyle
    },
    childrenContainer: {

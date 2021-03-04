@@ -105,18 +105,14 @@ function Hand({ player, handCount, size }) {
       handList.push(<YugiohCard height={handSize} player={player} row={HAND} zone={i} notFull key={i} />);
    }
 
-   const mySize = size * (isHero ? 1 : VILLAIN_HAND_SIZE);
    const myColor = isOver && OVER_COLOR + "33";
-   const myStyle = { height:{mySize},
-      backgroundColor: {myColor},
-      overflowY: "hidden",
-      display: "flex"
-   }
    return (
       <FriendlyScroll
          id={"hand" + player}
          drop={isHero && drop}
-         style={myStyle}
+         style={{ overflowY: "hidden" }}
+         bgColor={myColor}
+         horiz
       >
          <div className={classes.hand}>{handList}</div>
       </FriendlyScroll>

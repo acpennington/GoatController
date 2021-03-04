@@ -53,6 +53,9 @@ const INVALID_COLOR = "red";
 const HERO_SELECTION_COLOR = "#003CFF";
 const VILLAIN_SELECTION_COLOR = "yellow";
 
+// scrolling
+const BUFFER = 15;
+
 export {
    // game settings
    GAME_RATIO,
@@ -100,5 +103,7 @@ export {
    OVER_COLOR,
    INVALID_COLOR,
    HERO_SELECTION_COLOR,
-   VILLAIN_SELECTION_COLOR
+   VILLAIN_SELECTION_COLOR,
+   // scrolling
+   BUFFER
 };
