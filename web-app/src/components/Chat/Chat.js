@@ -13,8 +13,11 @@ import getPlayerName from "utils/getPlayerName.js";
 class Chat extends Component {
    submitMessage = (event) => {
       if (event.key === "Enter") {
-         this.props.addMessage({ author: getPlayerName(HERO), content: event.target.value });
-         event.target.value = "";
+         const trimmedMessage = event.target.value.trim();
+         if (trimmedMessage) {
+            this.props.addMessage({ author: getPlayerName(HERO), content: trimmedMessage });
+            event.target.value = "";
+         }
       }
    };
 
