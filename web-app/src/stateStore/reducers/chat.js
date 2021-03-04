@@ -6,7 +6,7 @@ export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
       case ADD_MESSAGE:
-         state.push(data);
+         state = [...state, data]
          return state;
       case RESET_CHAT:
          return initialState;

@@ -15,7 +15,6 @@ class Chat extends Component {
       if (event.key === "Enter") {
          this.props.addMessage({ author: getPlayerName(HERO), content: event.target.value });
          event.target.value = "";
-         this.forceUpdate();
       }
    };
 
