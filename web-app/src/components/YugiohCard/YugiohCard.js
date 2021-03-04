@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from "react";
+import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -7,8 +7,8 @@ import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.
 import PropTypes from "prop-types";
 
 import getCardDetails from "utils/getCardDetails.js";
-import compress from "utils/compressName.js";
 
+import CardArt from "./CardArt.js";
 import { newHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
 import { moveCard, switchPosition } from "stateStore/actions/field.js";
@@ -16,7 +16,6 @@ import {
    CARD_RATIO,
    HERO,
    FACEDOWN_CARD,
-   stTypes,
    MONSTER,
    ST,
    FIELD_SPELL,
@@ -60,10 +59,9 @@ export default function YugiohCard({ height, notFull, player, row, zone }) {
    const selection = useSelector((state) => state.selectedCard);
    const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
 
-   const isMonster = !stTypes.includes(cardType);
    let type = row;
    if (dynamicZones.includes(row)) {
-      if (isMonster) type = OFF_FIELD + MONSTER;
+      if (atk) type = OFF_FIELD + MONSTER;
       else {
          if (levelOrSubtype === FIELD_SPELL) type = FIELD_SPELL;
          else type = OFF_FIELD + ST;
@@ -94,19 +92,7 @@ export default function YugiohCard({ height, notFull, player, row, zone }) {
    });
 
    const blank = (!card || isDragging) && !deckZone;
-   let nameColor, nameHeight, cardTypeIcon, subtitle;
-   if (!blank && !facedown) {
-      nameColor = isMonster ? "black" : "white";
-      nameHeight = (height - height / CARD_RATIO) / 4;
-      cardTypeIcon = (
-         <img
-            src={"/cards/svgs/attributes/" + (isMonster ? attribute : cardType) + ".svg"}
-            height={nameHeight * 1.05 + "px"}
-            alt=""
-         />
-      );
-      subtitle = getSubtitle(levelOrSubtype, nameHeight * 0.67);
-   }
+   const nameHeight = (height - height / CARD_RATIO) / 4;
 
    let dragOrDrop = useRef(null);
    if (player === HERO) {
@@ -148,66 +134,17 @@ export default function YugiohCard({ height, notFull, player, row, zone }) {
          }}
       >
          {!blank && !facedown && (
-            <Fragment>
-               <div
-                  className={classes.art}
-                  style={{ backgroundImage: 'url("/cards/small/' + compress(name) + '.jpg")' }}
-               ></div>
-               <div
-                  className={classes.monsterStats}
-                  style={{
-                     fontSize: nameHeight * 1.29 + "px",
-                     lineHeight: nameHeight * 1.29 + "px"
-                  }}
-               >
-                  {isMonster && atk + " / " + def}
-               </div>
-               <div
-                  className={classes.name}
-                  style={{
-                     fontSize: nameHeight + "px",
-                     lineHeight: nameHeight + "px",
-                     color: nameColor
-                  }}
-               >
-                  {name}
-               </div>
-               <div className={classes.sideBySide} style={{ paddingTop: nameHeight * 2 + "px" }}>
-                  <div
-                     className={classes.icon}
-                     style={{
-                        lineHeight: nameHeight + "px"
-                     }}
-                  >
-                     {cardTypeIcon}
-                  </div>
-                  <div
-                     className={classes.subtitle}
-                     style={{
-                        lineHeight: nameHeight * 0.71 + "px"
-                     }}
-                  >
-                     {subtitle}
-                  </div>
-               </div>
-            </Fragment>
+            <CardArt
+               name={name}
+               nameHeight={nameHeight}
+               cardTypeIcon={atk ? attribute : cardType}
+               levelOrSubtype={levelOrSubtype}
+               atk={atk}
+               def={def}
+            />
          )}
       </div>
    );
-}
-
-function getSubtitle(starsOrAlt, height) {
-   if (Number.isInteger(starsOrAlt)) {
-      const starList = [];
-      for (let i = 0; i < starsOrAlt; i++) {
-         starList.push(
-            <div key={i}>
-               <img src="/cards/svgs/subtypes/star.svg" height={height} alt="yugioh level star" />
-            </div>
-         );
-      }
-      return starList;
-   } else return <img src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
 }
 
 function isAcceptable(itemType, acceptables) {

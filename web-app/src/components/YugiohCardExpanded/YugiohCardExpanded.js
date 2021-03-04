@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -10,7 +10,7 @@ import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
 import { FACEDOWN_CARD } from "utils/constants";
 
-class YugiohCardExpanded extends Component {
+class YugiohCardExpanded extends PureComponent {
    render() {
       const { classes, hoverCard, selectedCard } = this.props;
       const cardName = rename(selectedCard, "name") || rename(hoverCard) || false;
