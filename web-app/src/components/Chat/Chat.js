@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import { connect } from "react-redux";
 
 import CustomInput from "components/CustomInput/CustomInput.js";
@@ -21,32 +21,17 @@ class Chat extends Component {
       }
    };
 
-   renderMessages = () => {
-      const messages = this.props.chat;
-      const messagesLength = messages.length;
-      const messageList = [];
-
-      for (let i = 0; i < messagesLength; i++) {
-         const message = messages[messagesLength - 1 - i];
-         messageList.push(<div key={i}>{message.author + ": " + message.content}</div>);
-      }
-
-      return (
-         <FriendlyScroll
-            id="chatScroll"
-            style={{ position: "absolute", bottom: 0 }}
-            contStyle={{ height: "calc(100% - 50px)" }}
-         >
-            {messageList}
-         </FriendlyScroll>
-      );
-   };
-
    render() {
-      const { classes } = this.props;
+      const { classes, chat } = this.props;
       return (
          <div className={classes.container}>
-            {this.renderMessages()}
+            <FriendlyScroll
+               id="chatScroll"
+               style={{ position: "absolute", bottom: 0 }}
+               contStyle={{ height: "calc(100% - 50px)" }}
+            >
+               <Messages chat={chat}/>
+            </FriendlyScroll>
             <CustomInput
                id="Message"
                white
@@ -65,6 +50,21 @@ class Chat extends Component {
 
 function mapStateToProps(state) {
    return { chat: state.chat };
+}
+
+class Messages extends PureComponent {
+   render() {
+      const messages = this.props.chat;
+      const messagesLength = messages.length;
+      const messageList = [];
+
+      for (let i = 0; i < messagesLength; i++) {
+         const message = messages[messagesLength - 1 - i];
+         messageList.push(<div key={i}>{message.author + ": " + message.content}</div>);
+      }
+
+      return messageList;
+   }
 }
 
 export default connect(mapStateToProps, { addMessage })(withStyles(chatStyle)(Chat));
