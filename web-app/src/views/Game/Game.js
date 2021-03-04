@@ -20,8 +20,7 @@ class Game extends Component {
    getSizingValue = () => {
       const vpw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
       const vph = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-      const sizingValue = Math.min(vpw / GAME_RATIO, vph);
-      return sizingValue;
+      return Math.min(vpw / GAME_RATIO, vph);
    };
 
    render() {
