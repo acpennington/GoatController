@@ -40,7 +40,10 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
    const dispatch = useDispatch();
 
    let card = useSelector((state) => (zone !== -1 ? state.field[player][row][zone] : state.field[player][row]));
-   if (discardZones.includes(row)) {
+
+   const deckZone = deckZones.includes(row);
+   const discardZone = discardZones.includes(row);
+   if (discardZone) {
       const cardLength = card.length;
       if (cardLength === 0) {
          zone = 0;
@@ -52,7 +55,6 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
    }
    const name = card && card.name;
 
-   const deckZone = deckZones.includes(row);
    const facedown = name === FACEDOWN_CARD || deckZone || (card && card.facedown);
    const inDef = card && card.inDef && row === MONSTER ? card.inDef : false;
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
@@ -134,7 +136,7 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
                !blank && (facedown ? 'url("/sleeves/goat.png")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
          onClick={() => {
-            if (!blank && !deckZone) {
+            if (!blank && !deckZone && !discardZone) {
                if (!selected) dispatch(newSelection(player, row, zone, name));
                else {
                   if (isHero) dispatch(switchPosition(row, zone));
