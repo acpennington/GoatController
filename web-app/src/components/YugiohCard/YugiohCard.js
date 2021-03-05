@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -32,9 +32,10 @@ import {
    HERO_SELECTION_COLOR
 } from "utils/constants.js";
 
+const Mousetrap = require("mousetrap");
 const useStyles = makeStyles(cardStyle);
 
-export default function YugiohCard({ height, notFull, player, row, zone }) {
+export default function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
    const classes = useStyles();
    const dispatch = useDispatch();
 
@@ -94,8 +95,9 @@ export default function YugiohCard({ height, notFull, player, row, zone }) {
    const blank = (!card || isDragging) && !deckZone;
    const nameHeight = (height - height / CARD_RATIO) / 4;
 
+   const isHero = player === HERO;
    let dragOrDrop = useRef(null);
-   if (player === HERO) {
+   if (isHero) {
       if (blank && !isDragging) dragOrDrop = drop;
       else {
          if (dndZones.includes(row)) drag(drop(dragOrDrop));
@@ -104,6 +106,17 @@ export default function YugiohCard({ height, notFull, player, row, zone }) {
    } else {
       if (row === MONSTER && blank) dragOrDrop = drop;
    }
+
+   const handleDelete = () => {
+      dispatch(moveCard({ from: { player, row, zone }, to: { player, row: discardPile, zone: 0 } }));
+   };
+
+   if (isHero && selected) Mousetrap.bind("d", handleDelete);
+   useEffect(() => {
+      return function cleanup() {
+         Mousetrap.unbind("d");
+      };
+   }, []);
 
    return (
       <div
@@ -124,7 +137,7 @@ export default function YugiohCard({ height, notFull, player, row, zone }) {
             if (!blank && !deckZone) {
                if (!selected) dispatch(newSelection(player, row, zone, name));
                else {
-                  if (player === HERO) dispatch(switchPosition(row, zone));
+                  if (isHero) dispatch(switchPosition(row, zone));
                   dispatch(clearSelection());
                }
             }
@@ -156,7 +169,8 @@ YugiohCard.propTypes = {
    notFull: PropTypes.bool,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
-   zone: PropTypes.number
+   zone: PropTypes.number,
+   discardPile: PropTypes.string
 };
 
 YugiohCard.defaultProps = {

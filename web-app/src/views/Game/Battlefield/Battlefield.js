@@ -59,24 +59,24 @@ function Battlefield({ size }) {
                   <YugiohCard height={size} notFull player={VILLAIN} row={FIELD_SPELL} />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player={HERO} row={FIELD_SPELL} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={0} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={1} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={2} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={3} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={4} />
+                  <YugiohCard height={size} notFull player={HERO} row={FIELD_SPELL} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={0} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={1} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={2} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={3} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={4} discardPile={DISCARD_PILE} />
                   <YugiohCard height={size} notFull player={HERO} row={DISCARD_PILE} />
                </div>
                <div className={classes.cardRow}>
                   <YugiohCard height={size} notFull player={HERO} row={EXTRA_DECK} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={0} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={1} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={2} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={3} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={4} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={0} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={1} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={2} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={3} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size} player={HERO} row={ST} zone={4} discardPile={DISCARD_PILE} />
                   <YugiohCard height={size} notFull player={HERO} row={DECK} />
                </div>
-               <Hand player={HERO} handCount={handCounts.hero} size={size} />
+               <Hand player={HERO} handCount={handCounts.hero} size={size} discardPile={DISCARD_PILE} />
             </div>
          </DndProvider>
          <div className={classes.rightTools}>Right Toolbar Placeholder</div>
@@ -84,7 +84,7 @@ function Battlefield({ size }) {
    );
 }
 
-function Hand({ player, handCount, size }) {
+function Hand({ player, handCount, size, discardPile }) {
    const classes = useStyles();
    const dispatch = useDispatch();
    const handList = [];
@@ -101,9 +101,21 @@ function Hand({ player, handCount, size }) {
       })
    });
 
-   for (let i = 0; i < handCount; i++) {
-      handList.push(<YugiohCard height={handSize} player={player} row={HAND} zone={i} notFull key={i} />);
-   }
+   if (handCount < 1) handList.push(<div> </div>);
+   else
+      for (let i = 0; i < handCount; i++) {
+         handList.push(
+            <YugiohCard
+               height={handSize}
+               player={player}
+               row={HAND}
+               zone={i}
+               discardPile={discardPile}
+               notFull
+               key={i}
+            />
+         );
+      }
 
    const myColor = isOver && OVER_COLOR + "33";
    return (
@@ -114,7 +126,9 @@ function Hand({ player, handCount, size }) {
          bgColor={myColor}
          horiz
       >
-         <div className={classes.hand}>{handList}</div>
+         <div className={classes.hand} style={{ height: handSize }}>
+            {handList}
+         </div>
       </FriendlyScroll>
    );
 }

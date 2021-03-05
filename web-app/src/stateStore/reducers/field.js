@@ -39,13 +39,6 @@ const initialState = {
          { name: "Shining Angel" },
          { name: "Call of the Haunted" },
          { name: "Call of the Haunted" },
-         { name: "Necrovalley" },
-         { name: "Necrovalley" },
-         { name: "Necrovalley" },
-         { name: "Necrovalley" },
-         { name: "Necrovalley" },
-         { name: "Necrovalley" },
-         { name: "Necrovalley" },
          { name: "Necrovalley" }
       ],
       "s/t": [null, null, null, null, null],
