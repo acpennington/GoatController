@@ -15,6 +15,7 @@ import { moveCard, switchPosition } from "stateStore/actions/field.js";
 import {
    CARD_RATIO,
    HERO,
+   VILLAIN,
    FACEDOWN_CARD,
    MONSTER,
    ST,
@@ -40,8 +41,6 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
    const classes = useStyles();
    const dispatch = useDispatch();
 
-   let card = useSelector((state) => (zone !== -1 ? state.field[player][row][zone] : state.field[player][row]));
-
    const discardZone = discardZones.includes(row);
    const deckZone = deckZones.includes(row);
    const isExtraDeck = row === EXTRA_DECK;
@@ -52,6 +51,7 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
       else return false;
    });
 
+   let card = useSelector((state) => (zone !== -1 ? state.field[player][row][zone] : state.field[player][row]));
    if (discardZone) {
       const cardLength = card.length;
       if (cardLength === 0) {
@@ -63,6 +63,12 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
       }
    }
    const name = card && card.name;
+   const isHero = player === HERO;
+   const sleeves = useSelector(
+      (state) =>
+         (isExtraDeck && state.field[player].sleeves) ||
+         (card && (card.notOwned ? state.field[isHero ? VILLAIN : HERO].sleeves : state.field[player].sleeves))
+   );
 
    const facedown = name === FACEDOWN_CARD || deckZone || (card && card.facedown);
    const inDef = card && card.inDef && row === MONSTER ? card.inDef : false;
@@ -106,7 +112,6 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
    const blank = ((!card || isDragging) && !deckZone) || (deckZone && zoneLabel === 0);
    const nameHeight = (height - height / CARD_RATIO) / 4;
 
-   const isHero = player === HERO;
    let dragOrDrop = useRef(null);
    if (isHero) {
       if (blank && !isDragging) dragOrDrop = drop;
@@ -118,11 +123,10 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
       if (row === MONSTER && blank) dragOrDrop = drop;
    }
 
-   const handleDelete = () => {
-      dispatch(moveCard({ from: { player, row, zone }, to: { player, row: discardPile, zone: 0 } }));
-   };
-
-   if (isHero && selected) Mousetrap.bind("d", handleDelete);
+   if (isHero && selected)
+      Mousetrap.bind("d", () => {
+         dispatch(moveCard({ from: { player, row, zone }, to: { player, row: discardPile, zone: 0 } }));
+      });
    useEffect(() => {
       return function cleanup() {
          Mousetrap.unbind("d");
@@ -142,7 +146,7 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
             opacity: (isDragging || blank) && row === HAND ? 0 : 1,
             borderColor: (isOver && (canDrop ? OVER_COLOR : INVALID_COLOR)) || (selected && HERO_SELECTION_COLOR),
             backgroundImage:
-               !blank && (facedown ? 'url("/sleeves/goat.png")' : 'url("/cards/bgs/' + cardType + '.jpg")')
+               !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
          onClick={() => {
             if (!blank && !deckZone && !discardZone) {

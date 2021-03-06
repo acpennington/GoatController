@@ -14,6 +14,7 @@ import {
 
 const initialState = {
    villain: {
+      sleeves: "exarion.png",
       deck: { count: 35 },
       graveyard: [],
       banished: [],
@@ -31,6 +32,7 @@ const initialState = {
       monster: [null, null, { name: "Shining Angel" }, null, null]
    },
    hero: {
+      sleeves: "goat.png",
       deck: { count: 35 },
       graveyard: [],
       banished: [],
@@ -68,6 +70,7 @@ export default function (state = initialState, action) {
          const { from, to } = data;
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = fieldSpell ? state[from.player][from.row] : state[from.player][from.row][from.zone];
+         if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
          const facedown = fromCard.facedown;
 
          if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });

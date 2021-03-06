@@ -16,8 +16,8 @@ class Chat extends Component {
       if (event.key === "Enter") {
          const trimmedMessage = event.target.value.trim();
          if (trimmedMessage) {
-            this.props.addMessage({ author: getPlayerName(HERO), content: trimmedMessage });
             event.target.value = "";
+            this.props.addMessage({ author: getPlayerName(HERO), content: trimmedMessage });
          }
       }
    };
