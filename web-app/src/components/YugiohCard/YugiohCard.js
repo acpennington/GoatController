@@ -20,6 +20,7 @@ import {
    ST,
    FIELD_SPELL,
    HAND,
+   DECK,
    EXTRA_DECK,
    deckZones,
    discardZones,
@@ -41,8 +42,16 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
 
    let card = useSelector((state) => (zone !== -1 ? state.field[player][row][zone] : state.field[player][row]));
 
-   const deckZone = deckZones.includes(row);
    const discardZone = discardZones.includes(row);
+   const deckZone = deckZones.includes(row);
+   const isExtraDeck = row === EXTRA_DECK;
+   const zoneLabel = useSelector((state) => {
+      if (row === DECK) return state.field[player][DECK].count;
+      else if (isExtraDeck) return EXTRA_DECK;
+      if (discardZone) return state.field[player][row].length;
+      else return false;
+   });
+
    if (discardZone) {
       const cardLength = card.length;
       if (cardLength === 0) {
@@ -94,7 +103,7 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
       })
    });
 
-   const blank = (!card || isDragging) && !deckZone;
+   const blank = ((!card || isDragging) && !deckZone) || (deckZone && zoneLabel === 0);
    const nameHeight = (height - height / CARD_RATIO) / 4;
 
    const isHero = player === HERO;
@@ -103,7 +112,7 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
       if (blank && !isDragging) dragOrDrop = drop;
       else {
          if (dndZones.includes(row)) drag(drop(dragOrDrop));
-         else if (row !== EXTRA_DECK) dragOrDrop = drag;
+         else if (!isExtraDeck) dragOrDrop = drag;
       }
    } else {
       if (row === MONSTER && blank) dragOrDrop = drop;
@@ -157,6 +166,11 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
                atk={atk}
                def={def}
             />
+         )}
+         {zoneLabel !== 0 && (
+            <div className={classes.zoneLabel} style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}>
+               {zoneLabel}
+            </div>
          )}
       </div>
    );

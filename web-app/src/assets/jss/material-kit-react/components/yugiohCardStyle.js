@@ -56,6 +56,16 @@ const cardStyle = {
       color: "black",
       bottom: "0px",
       marginBottom: "3%"
+   },
+   zoneLabel: {
+      position: "absolute",
+      textAlign: "center",
+      filter:
+         "drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black)",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      zIndex: 100
    }
 };
 
