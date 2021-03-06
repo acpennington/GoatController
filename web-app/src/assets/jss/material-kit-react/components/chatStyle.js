@@ -1,11 +1,13 @@
+const marginTop = 5;
+
 const chatStyle = {
    container: {
       borderRadius: "3px",
-      marginTop: "8px",
-      padding: "5px 5px 0px 5px",
+      marginTop,
+      padding: "4px 4px 0px 4px",
       backgroundColor: "rgba(0,0,0,0.9)",
       width: "100%",
-      height: "calc(60% - 8px)"
+      height: "calc(60% - " + marginTop + "px)"
    },
    canned: { width: "100%", display: "flex", justifyContent: "space-around" }
 };
