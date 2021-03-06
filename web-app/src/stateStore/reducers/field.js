@@ -39,7 +39,15 @@ const initialState = {
          { name: "Shining Angel" },
          { name: "Call of the Haunted" },
          { name: "Call of the Haunted" },
-         { name: "Necrovalley" }
+         { name: "Necrovalley" },
+         { name: "Shining Angel" },
+         { name: "Shining Angel" },
+         { name: "Shining Angel" },
+         { name: "Shining Angel" },
+         { name: "Shining Angel" },
+         { name: "Shining Angel" },
+         { name: "Shining Angel" },
+         { name: "Shining Angel" }
       ],
       "s/t": [null, null, null, null, null],
       "field spell": null,
@@ -58,7 +66,6 @@ export default function (state = initialState, action) {
    switch (type) {
       case MOVE_CARD:
          const { from, to } = data;
-
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = fieldSpell ? state[from.player][from.row] : state[from.player][from.row][from.zone];
          const facedown = fromCard.facedown;
@@ -84,7 +91,7 @@ export default function (state = initialState, action) {
          return state;
       case SWITCH_POSITION:
          const { row, zone } = data;
-         const myCard = state.hero[row][zone];
+         const myCard = row === FIELD_SPELL ? state.hero[FIELD_SPELL] : state.hero[row][zone];
          if (row === MONSTER) {
             if (myCard.inDef) {
                if (myCard.facedown) myCard.inDef = false;

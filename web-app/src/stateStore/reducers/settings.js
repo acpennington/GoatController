@@ -1,6 +1,6 @@
 import { GRAVEYARD, BANISHED, SWITCH_DISCARD } from "utils/constants.js";
 
-const initialState = { discardPile: GRAVEYARD };
+const initialState = { discardPile: GRAVEYARD, cannedMessages: ["Response?", "Yes", "No", "Thinking"] };
 
 export default function (state = initialState, action) {
    const { type } = action;

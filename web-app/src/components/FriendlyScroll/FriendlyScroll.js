@@ -13,7 +13,7 @@ class FriendlyScroll extends Component {
    };
 
    scrollRight = (element) => {
-      element.scroll(element.scrollHeight, element.scrollWidth);
+      element.scroll(element.scrollWidth, element.scrollHeight);
    };
 
    render() {

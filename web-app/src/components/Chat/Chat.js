@@ -1,6 +1,7 @@
 import React, { Component, PureComponent } from "react";
 import { connect } from "react-redux";
 
+import Button from "components/CustomButtons/Button.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
@@ -22,15 +23,17 @@ class Chat extends Component {
    };
 
    render() {
-      const { classes, chat } = this.props;
+      const { classes, chat, cannedMessages } = this.props;
+      console.log(JSON.stringify(cannedMessages));
+
       return (
          <div className={classes.container}>
             <FriendlyScroll
                id="chatScroll"
                style={{ position: "absolute", bottom: 0 }}
-               contStyle={{ height: "calc(100% - 50px)" }}
+               contStyle={{ height: "calc(100% - 85px)" }}
             >
-               <Messages chat={chat}/>
+               <Messages chat={chat} />
             </FriendlyScroll>
             <CustomInput
                id="Message"
@@ -43,13 +46,25 @@ class Chat extends Component {
                   margin: "dense"
                }}
             />
+            <div className={classes.canned}>
+               {cannedMessages.map((message) => (
+                  <Button
+                     color="primary"
+                     size="sm"
+                     fullWidth
+                     onClick={() => this.props.addMessage({ author: getPlayerName(HERO), content: message })}
+                  >
+                     {message}
+                  </Button>
+               ))}
+            </div>
          </div>
       );
    }
 }
 
 function mapStateToProps(state) {
-   return { chat: state.chat };
+   return { chat: state.chat, cannedMessages: state.settings.cannedMessages };
 }
 
 class Messages extends PureComponent {

@@ -5,8 +5,9 @@ const chatStyle = {
       padding: "5px 5px 0px 5px",
       backgroundColor: "rgba(0,0,0,0.9)",
       width: "100%",
-      height: "calc(60% - 8px)",
-   }
+      height: "calc(60% - 8px)"
+   },
+   canned: { width: "100%", display: "flex", justifyContent: "space-around" }
 };
 
 export default chatStyle;
