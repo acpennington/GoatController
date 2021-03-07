@@ -1,28 +1,29 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import Button from "components/CustomButtons/Button.js";
 import Tooltip from "@material-ui/core/Tooltip";
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/game.js";
+import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 import { switchDiscard } from "stateStore/actions/settings.js";
 import { discardZones } from "utils/constants.js";
 
-class RightTools extends PureComponent {
+class StandardTools extends PureComponent {
    render() {
       const { classes, discardPile } = this.props;
       const otherZone = discardZones.filter((zone) => zone !== discardPile)[0];
 
       return (
-         <div className={classes.rightTools}>
+         <div className={classes.container}>
             <Tooltip
-               id="instagram-twitter"
+               id="switch discard"
                title={"Click to switch to " + otherZone}
                placement="bottom"
                classes={{ tooltip: classes.tooltip }}
             >
-               <Button fullWidth color="info" onClick={this.props.switchDiscard}>
+               <Button color="info" onClick={this.props.switchDiscard}>
                   Showing
                   <br />
                   {discardPile}
@@ -33,4 +34,8 @@ class RightTools extends PureComponent {
    }
 }
 
-export default connect(null, { switchDiscard })(withStyles(styles)(RightTools));
+StandardTools.propTypes = {
+   discardPile: PropTypes.string.isRequired
+};
+
+export default connect(null, { switchDiscard })(withStyles(styles)(StandardTools));

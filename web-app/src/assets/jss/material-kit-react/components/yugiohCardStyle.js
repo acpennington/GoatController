@@ -1,4 +1,4 @@
-const borderColor = "#292c42";
+import { BORDER_COLOR } from "utils/constants.js";
 
 const cardStyle = {
    container: {
@@ -7,7 +7,7 @@ const cardStyle = {
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "3px",
-      borderColor,
+      borderColor: BORDER_COLOR,
       padding: "1px",
       overflow: "hidden",
       backgroundPosition: "center",
@@ -45,8 +45,8 @@ const cardStyle = {
       backgroundPosition: "center",
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat",
-      borderTop: "2px solid " + borderColor,
-      borderBottom: "2px solid " + borderColor,
+      borderTop: "2px solid " + BORDER_COLOR,
+      borderBottom: "2px solid " + BORDER_COLOR,
       zIndex: 2
    },
    monsterStats: {

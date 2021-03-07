@@ -6,7 +6,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import Hand from "./Hand.js";
-import RightTools from "./RightTools.js";
+import RightTools from "./RightTools/RightTools.js";
 import { HERO, VILLAIN, MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,8 +24,8 @@ function Battlefield({ size }) {
    const DISCARD_PILE = useSelector((state) => state.settings.discardPile);
 
    return (
-      <div className={classes.gameplayContainer}>
-         <DndProvider backend={HTML5Backend}>
+      <DndProvider backend={HTML5Backend}>
+         <div className={classes.gameplayContainer}>
             <div className={classes.cardsInPlay}>
                <Hand player={VILLAIN} handCount={handCounts.villain} size={size} />
                <div className={classes.cardRow}>
@@ -66,9 +66,9 @@ function Battlefield({ size }) {
                </div>
                <Hand player={HERO} handCount={handCounts.hero} size={size} discardPile={DISCARD_PILE} />
             </div>
-         </DndProvider>
-         <RightTools discardPile={DISCARD_PILE} />
-      </div>
+            <RightTools height={size} discardPile={DISCARD_PILE} />
+         </div>
+      </DndProvider>
    );
 }
 

@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector, useDispatch } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
-import PropTypes from "prop-types";
 
 import getCardDetails from "utils/getCardDetails.js";
 
@@ -12,6 +12,7 @@ import CardArt from "./CardArt.js";
 import { newHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
 import { moveCard, switchPosition } from "stateStore/actions/field.js";
+import { openModal } from "stateStore/actions/settings.js";
 import {
    CARD_RATIO,
    HERO,
@@ -23,6 +24,8 @@ import {
    HAND,
    DECK,
    EXTRA_DECK,
+   GRAVEYARD,
+   BANISHED,
    deckZones,
    discardZones,
    dndZones,
@@ -37,7 +40,7 @@ import {
 const Mousetrap = require("mousetrap");
 const useStyles = makeStyles(cardStyle);
 
-export default function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
+function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
    const classes = useStyles();
    const dispatch = useDispatch();
 
@@ -47,12 +50,14 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
    const zoneLabel = useSelector((state) => {
       if (row === DECK) return state.field[player][DECK].count;
       else if (isExtraDeck) return EXTRA_DECK;
-      if (discardZone) return state.field[player][row].length;
+      if (discardZone && zone === -1) return state.field[player][row].length;
       else return false;
    });
 
    let card = useSelector((state) => (zone !== -1 ? state.field[player][row][zone] : state.field[player][row]));
-   if (discardZone) {
+   let dontSelect = false;
+   if (discardZone && zone === -1) {
+      dontSelect = true;
       const cardLength = card.length;
       if (cardLength === 0) {
          zone = 0;
@@ -149,13 +154,20 @@ export default function YugiohCard({ height, notFull, player, row, zone, discard
                !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
          onClick={() => {
-            if (!blank && !deckZone && !discardZone) {
+            if (!blank && !deckZone && !dontSelect) {
                if (!selected) dispatch(newSelection(player, row, zone, name));
                else {
-                  if (isHero) dispatch(switchPosition(row, zone));
+                  if (isHero) {
+                     if (discardZone) {
+                        const oppositeDiscard = row === GRAVEYARD ? BANISHED : GRAVEYARD;
+                        dispatch(
+                           moveCard({ from: { player, row, zone }, to: { player, row: oppositeDiscard, zone: 0 } })
+                        );
+                     } else dispatch(switchPosition(row, zone));
+                  }
                   dispatch(clearSelection());
                }
-            }
+            } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal({ player, row }));
          }}
          onMouseEnter={() => {
             if (!blank && !deckZone) dispatch(newHover(name));
@@ -196,3 +208,5 @@ YugiohCard.propTypes = {
 YugiohCard.defaultProps = {
    zone: -1
 };
+
+export default YugiohCard;

@@ -1,5 +1,3 @@
-import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
-
 const gameStyle = {
    container: {
       display: "flex",
@@ -37,19 +35,10 @@ const gameStyle = {
    },
    cardsInPlay: {
       position: "relative",
-      flex: "90%",
-      width: "90%",
-      maxWidth: "90%"
+      flex: "85.5%",
+      width: "85.5%",
+      maxWidth: "85.5%"
    },
-   rightTools: {
-      flex: "10%",
-      height: "100%",
-      width: "10%",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center"
-   },
-
    chat: {
       borderRadius: "3px",
       marginTop: "8px",
@@ -71,11 +60,7 @@ const gameStyle = {
    hand: {
       display: "flex",
       margin: "auto"
-   },
-   card: {
-      flex: 100 / 7 + "%"
-   },
-   ...tooltip
+   }
 };
 
 export default gameStyle;

@@ -1,6 +1,7 @@
 // game settings
-const GAME_RATIO = 1.68;
+const GAME_RATIO = 1.75;
 const VILLAIN_HAND_SIZE = 0.7;
+const MODAL_CARD_SIZE = 0.7;
 const CARD_RATIO = 1.45;
 
 // players
@@ -44,6 +45,8 @@ const CLEAR_HOVER = "CLEAR_HOVER";
 const NEW_SELECTION = "NEW_SELECTION";
 const CLEAR_SELECTION = "CLEAR_SELECTION";
 const SWITCH_DISCARD = "SWITCH_DISCARD";
+const OPEN_MODAL = "OPEN_MODAL";
+const CLOSE_MODAL = "CLOSE_MODAL";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -54,6 +57,7 @@ const OVER_COLOR = "#00FF00";
 const INVALID_COLOR = "red";
 const HERO_SELECTION_COLOR = "#003CFF";
 const VILLAIN_SELECTION_COLOR = "yellow";
+const BORDER_COLOR = "#292c42";
 
 // scrolling
 const BUFFER = 15;
@@ -62,6 +66,7 @@ export {
    // game settings
    GAME_RATIO,
    VILLAIN_HAND_SIZE,
+   MODAL_CARD_SIZE,
    CARD_RATIO,
    // players
    HERO,
@@ -100,6 +105,8 @@ export {
    NEW_SELECTION,
    CLEAR_SELECTION,
    SWITCH_DISCARD,
+   OPEN_MODAL,
+   CLOSE_MODAL,
    // ItemTypes
    OFF_FIELD,
    allTypes,
@@ -108,6 +115,7 @@ export {
    INVALID_COLOR,
    HERO_SELECTION_COLOR,
    VILLAIN_SELECTION_COLOR,
+   BORDER_COLOR,
    // scrolling
    BUFFER
 };

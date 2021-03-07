@@ -15,6 +15,7 @@ import {
 const initialState = {
    villain: {
       sleeves: "exarion.png",
+      lifepoints: 8000,
       deck: { count: 35 },
       graveyard: [],
       banished: [],
@@ -33,6 +34,7 @@ const initialState = {
    },
    hero: {
       sleeves: "goat.png",
+      lifepoints: 8000,
       deck: { count: 35 },
       graveyard: [],
       banished: [],
@@ -42,12 +44,6 @@ const initialState = {
          { name: "Call of the Haunted" },
          { name: "Call of the Haunted" },
          { name: "Necrovalley" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
          { name: "Shining Angel" },
          { name: "Shining Angel" }
       ],

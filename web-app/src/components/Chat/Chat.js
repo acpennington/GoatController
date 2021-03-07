@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import Button from "components/CustomButtons/Button.js";
@@ -11,7 +11,7 @@ import { addMessage } from "stateStore/actions/chat.js";
 import { HERO } from "utils/constants.js";
 import getPlayerName from "utils/getPlayerName.js";
 
-class Chat extends Component {
+class Chat extends PureComponent {
    submitMessage = (event) => {
       if (event.key === "Enter") {
          const trimmedMessage = event.target.value.trim();
@@ -24,7 +24,6 @@ class Chat extends Component {
 
    render() {
       const { classes, chat, cannedMessages } = this.props;
-      console.log(JSON.stringify(cannedMessages));
 
       return (
          <div className={classes.container}>
@@ -47,12 +46,13 @@ class Chat extends Component {
                }}
             />
             <div className={classes.canned}>
-               {cannedMessages.map((message) => (
+               {cannedMessages.map((message, index) => (
                   <Button
                      color="primary"
                      size="sm"
                      fullWidth
                      onClick={() => this.props.addMessage({ author: getPlayerName(HERO), content: message })}
+                     key={index}
                   >
                      {message}
                   </Button>
