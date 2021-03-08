@@ -9,7 +9,7 @@ import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
 import { HERO } from "utils/constants.js";
-import getPlayerName from "utils/getPlayerName.js";
+import getPlayerName from "utils/getPlayerName.js"
 
 class Chat extends PureComponent {
    submitMessage = (event) => {
@@ -21,6 +21,10 @@ class Chat extends PureComponent {
          }
       }
    };
+
+   componentDidMount() {}
+
+   componentWillUnmount() {}
 
    render() {
       const { classes, chat, cannedMessages } = this.props;
