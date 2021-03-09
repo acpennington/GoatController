@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { bind, unbind } from "mousetrap";
 
 import Button from "components/CustomButtons/Button.js";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -11,6 +12,14 @@ import { switchDiscard } from "stateStore/actions/settings.js";
 import { discardZones } from "utils/constants.js";
 
 class StandardTools extends PureComponent {
+   componentDidMount() {
+      bind("s", this.props.switchDiscard);
+   }
+
+   componentWillUnmount() {
+      unbind("s", this.props.switchDiscard);
+   }
+
    render() {
       const { classes, discardPile } = this.props;
       const otherZone = discardZones.filter((zone) => zone !== discardPile)[0];

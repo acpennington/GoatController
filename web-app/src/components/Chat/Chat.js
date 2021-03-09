@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
+import { bind, unbind } from "mousetrap";
 
 import Button from "components/CustomButtons/Button.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
@@ -9,7 +10,14 @@ import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
 import { HERO } from "utils/constants.js";
-import getPlayerName from "utils/getPlayerName.js"
+import getPlayerName from "utils/getPlayerName.js";
+
+const cannedMessages = [
+   { message: "Response?", shortcut: "r" },
+   { message: "Yes", shortcut: "y" },
+   { message: "No", shortcut: "n" },
+   { message: "Thinking", shortcut: "t" }
+];
 
 class Chat extends PureComponent {
    submitMessage = (event) => {
@@ -22,12 +30,19 @@ class Chat extends PureComponent {
       }
    };
 
-   componentDidMount() {}
+   componentDidMount() {
+      for (const canned of cannedMessages)
+         bind(canned.shortcut, () => {
+            this.props.addMessage({ author: getPlayerName(HERO), content: canned.message });
+         });
+   }
 
-   componentWillUnmount() {}
+   componentWillUnmount() {
+      for (const canned of cannedMessages) unbind(canned.shortcut);
+   }
 
    render() {
-      const { classes, chat, cannedMessages } = this.props;
+      const { classes, chat } = this.props;
 
       return (
          <div className={classes.container}>
@@ -50,15 +65,15 @@ class Chat extends PureComponent {
                }}
             />
             <div className={classes.canned}>
-               {cannedMessages.map((message, index) => (
+               {cannedMessages.map((canned, index) => (
                   <Button
                      color="primary"
                      size="sm"
                      fullWidth
-                     onClick={() => this.props.addMessage({ author: getPlayerName(HERO), content: message })}
+                     onClick={() => this.props.addMessage({ author: getPlayerName(HERO), content: canned.message })}
                      key={index}
                   >
-                     {message}
+                     {canned.message}
                   </Button>
                ))}
             </div>
@@ -68,7 +83,7 @@ class Chat extends PureComponent {
 }
 
 function mapStateToProps(state) {
-   return { chat: state.chat, cannedMessages: state.settings.cannedMessages };
+   return { chat: state.chat };
 }
 
 class Messages extends PureComponent {

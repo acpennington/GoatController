@@ -2,12 +2,12 @@ import React, { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector, useDispatch } from "react-redux";
+import { bind, unbind } from "mousetrap";
 
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
 import getCardDetails from "utils/getCardDetails.js";
-
 import CardArt from "./CardArt.js";
 import { newHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
@@ -37,7 +37,6 @@ import {
    HERO_SELECTION_COLOR
 } from "utils/constants.js";
 
-const Mousetrap = require("mousetrap");
 const useStyles = makeStyles(cardStyle);
 
 function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
@@ -129,12 +128,12 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
    }
 
    if (isHero && selected)
-      Mousetrap.bind("d", () => {
+      bind("d", () => {
          dispatch(moveCard({ from: { player, row, zone }, to: { player, row: discardPile, zone: 0 } }));
       });
    useEffect(() => {
       return function cleanup() {
-         Mousetrap.unbind("d");
+         unbind("d");
       };
    }, []);
 
