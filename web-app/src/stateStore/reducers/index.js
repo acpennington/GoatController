@@ -7,6 +7,7 @@ import selectedCard from "./selectedCard.js";
 import field from "./field.js";
 import chat from "./chat.js";
 import settings from "./settings.js";
+import turn from "./turn.js";
 
 export default (history) =>
    combineReducers({
@@ -15,5 +16,6 @@ export default (history) =>
       hoverCard,
       selectedCard,
       chat,
-      settings
+      settings,
+      turn
    });

@@ -19,7 +19,7 @@ const buttonStyle = {
       border: "none",
       borderRadius: "3px",
       position: "relative",
-      padding: "12px 30px",
+      padding: "10px 20px",
       margin: "2px",
       fontSize: "12px",
       fontWeight: "400",

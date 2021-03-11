@@ -47,6 +47,10 @@ const CLEAR_SELECTION = "CLEAR_SELECTION";
 const SWITCH_DISCARD = "SWITCH_DISCARD";
 const OPEN_MODAL = "OPEN_MODAL";
 const CLOSE_MODAL = "CLOSE_MODAL";
+const SET_TURN = "SET_PHASE";
+const NEXT_PHASE = "NEXT_PHASE";
+const PREV_PHASE = "PREV_PHASE";
+const RESET_TURN = "RESET_TURN";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -61,6 +65,16 @@ const BORDER_COLOR = "#292c42";
 
 // scrolling
 const BUFFER = 15;
+
+// phases
+const DRAW = "Draw";
+const STANDBY = "Standby";
+const MAIN1 = "Main 1";
+const BATTLE = "Battle";
+const MAIN2 = "Main 2";
+const END = "End";
+const NEXT_TURN = "Next Turn";
+const phases = [DRAW, STANDBY, MAIN1, BATTLE, MAIN2, END, NEXT_TURN];
 
 export {
    // game settings
@@ -107,6 +121,10 @@ export {
    SWITCH_DISCARD,
    OPEN_MODAL,
    CLOSE_MODAL,
+   SET_TURN,
+   NEXT_PHASE,
+   PREV_PHASE,
+   RESET_TURN,
    // ItemTypes
    OFF_FIELD,
    allTypes,
@@ -117,5 +135,14 @@ export {
    VILLAIN_SELECTION_COLOR,
    BORDER_COLOR,
    // scrolling
-   BUFFER
+   BUFFER,
+   // phases
+   DRAW,
+   STANDBY,
+   MAIN1,
+   BATTLE,
+   MAIN2,
+   END,
+   NEXT_TURN,
+   phases
 };
