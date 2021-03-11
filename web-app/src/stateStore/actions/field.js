@@ -1,4 +1,4 @@
-import { MOVE_CARD, SWITCH_POSITION, SHUFFLE_HAND } from "utils/constants";
+import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
 
 function moveCard(data) {
@@ -13,12 +13,23 @@ function move(data) {
 }
 
 function switchPosition(row, zone) {
-   const data = { row, zone };
-   return { type: SWITCH_POSITION, data };
+   return { type: SWITCH_POSITION, data: { row, zone } };
 }
 
-function shuffleHand() {
-   return { type: SHUFFLE_HAND };
+function adjustLP(player, change, currentLP) {
+   if (-change > currentLP) change = -currentLP;
+
+   return (dispatch) => {
+      for (let i = 0, increment = 75*(change > 0 ? 1 : -1); i !== change; i += increment) {
+         if (Math.abs(increment) > Math.abs(change - i)) increment = change - i;
+         setTimeout(dispatch, 0, oneLP(player, increment));
+      }
+   };
+   
 }
 
-export { moveCard, switchPosition, shuffleHand };
+function oneLP(player, change) {
+   return { type: ADJUST_LP, data: { player, change } };
+}
+
+export { moveCard, switchPosition, adjustLP };

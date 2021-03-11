@@ -30,6 +30,12 @@ const rightToolsStyle = {
       display: "flex",
       justifyContent: "center"
    },
+   LPbutton: {
+      marginRight: "3px"
+   },
+   LPbox: {
+      marginRight: "3px"
+   },
    ...tooltip
 };
 

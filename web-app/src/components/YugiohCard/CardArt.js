@@ -43,6 +43,7 @@ class CardArt extends PureComponent {
                >
                   <img
                      src={"/cards/svgs/attributes/" + cardTypeIcon + ".svg"}
+                     draggable="false"
                      height={nameHeight * 1.05 + "px"}
                      alt=""
                   />
@@ -67,12 +68,12 @@ function getSubtitle(starsOrAlt, height) {
       for (let i = 0; i < starsOrAlt; i++) {
          starList.push(
             <div key={i}>
-               <img src="/cards/svgs/subtypes/star.svg" height={height} alt="yugioh level star" />
+               <img src="/cards/svgs/subtypes/star.svg" draggable="false" height={height} alt="yugioh level star" />
             </div>
          );
       }
       return starList;
-   } else return <img src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"} height={height} alt="yugioh subtype" />;
+   } else return <img src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"} draggable="false" height={height} alt="yugioh subtype" />;
 }
 
 export default withStyles(cardStyle)(CardArt);

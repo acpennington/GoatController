@@ -8,7 +8,7 @@ import {
    TRAP,
    MOVE_CARD,
    SWITCH_POSITION,
-   SHUFFLE_HAND,
+   ADJUST_LP,
    RESET_GAME
 } from "utils/constants.js";
 
@@ -97,11 +97,11 @@ export default function (state = initialState, action) {
                myCard.facedown = !myCard.facedown;
             } else myCard.inDef = true;
          } else myCard.facedown = !myCard.facedown;
-
          return state;
-      case SHUFFLE_HAND:
-         shuffle(state.hero.hand);
-         return state;
+      case ADJUST_LP:
+         const { player, change } = data;
+         state[player].lifepoints += change;
+         return { ...state };
       case RESET_GAME:
          return initialState;
       default:

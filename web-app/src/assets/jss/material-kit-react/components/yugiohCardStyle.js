@@ -12,7 +12,8 @@ const cardStyle = {
       overflow: "hidden",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
-      backgroundSize: "cover"
+      backgroundSize: "cover",
+      userSelect: "none"
    },
    sideBySide: {
       display: "flex"
