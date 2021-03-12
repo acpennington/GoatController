@@ -1,4 +1,22 @@
-const fusions = {};
+const fusions = {
+   "Thousand-Eyes Restrict": {
+      cardType: "fusionMonster",
+      attribute: "Dark",
+      levelOrSubtype: 1,
+      atk: 0,
+      def: 0,
+      text:
+         'Spellcaster/Fusion/Effect – Relinquished" + "Thousand-Eyes Idol". Other monsters on the field cannot change their battle positions or attack. Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). This card\'s ATK/DEF become equal to that equipped monster\'s. If this card would be destroyed by battle, destroy that equipped monster instead.'
+   },
+   "Gatling Dragon": {
+      cardType: "fusionMonster",
+      attribute: "Dark",
+      levelOrSubtype: 8,
+      atk: 0,
+      def: 0,
+      text: 'Machine/Fusion/Effect – "Barrel Dragon" + "Blowback Dragon". Once per turn: You can toss a coin 3 times and destroy as many monsters on the field as possible, but not more than the number of heads.'
+   }
+};
 
 const cards = {
     "Shining Angel": {
