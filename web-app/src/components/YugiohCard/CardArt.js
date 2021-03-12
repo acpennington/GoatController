@@ -13,7 +13,7 @@ class CardArt extends PureComponent {
          <Fragment>
             <div
                className={classes.art}
-               style={{ backgroundImage: 'url("/cards/small/' + compress(name) + '.jpg")' }}
+               style={{ backgroundImage: 'url("/cards/art/' + compress(name) + '.jpg")' }}
             ></div>
             <div
                className={classes.monsterStats}
@@ -73,7 +73,15 @@ function getSubtitle(starsOrAlt, height) {
          );
       }
       return starList;
-   } else return <img src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"} draggable="false" height={height} alt="yugioh subtype" />;
+   } else
+      return (
+         <img
+            src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"}
+            draggable="false"
+            height={height}
+            alt="yugioh subtype"
+         />
+      );
 }
 
 export default withStyles(cardStyle)(CardArt);

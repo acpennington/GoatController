@@ -34,7 +34,7 @@ class StandardTools extends PureComponent {
 
    swapLPmode = () => {
       this.setState({ LPmode: this.state.LPmode * -1 });
-   }
+   };
 
    submitMessage = (event) => {
       if (event.key === "Enter") {
@@ -54,7 +54,11 @@ class StandardTools extends PureComponent {
       const myColor = isHero ? "info" : "danger";
       const LPbutton = (
          <div className={classes.LPbutton} onClick={this.swapLPmode}>
-            {this.state.LPmode === 1 ? <FaPlusCircle color="green" size="1.5em" /> : <FaMinusCircle color="yellow" size="1.5em" />}
+            {this.state.LPmode === 1 ? (
+               <FaPlusCircle color="green" size="1.5em" />
+            ) : (
+               <FaMinusCircle color="red" size="1.5em" />
+            )}
          </div>
       );
 
