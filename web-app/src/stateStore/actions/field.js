@@ -1,3 +1,5 @@
+import { Howl } from "howler";
+
 import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
 
@@ -17,15 +19,19 @@ function switchPosition(row, zone) {
 }
 
 function adjustLP(player, change, currentLP) {
+   const sound = new Howl({
+      src: ["/sounds/lp.mp3"]
+   });
+   sound.play();
+
    if (-change > currentLP) change = -currentLP;
 
    return (dispatch) => {
-      for (let i = 0, increment = 75*(change > 0 ? 1 : -1); i !== change; i += increment) {
+      for (let i = 0, increment = 75 * (change > 0 ? 1 : -1); i !== change; i += increment) {
          if (Math.abs(increment) > Math.abs(change - i)) increment = change - i;
          setTimeout(dispatch, 0, oneLP(player, increment));
       }
    };
-   
 }
 
 function oneLP(player, change) {
