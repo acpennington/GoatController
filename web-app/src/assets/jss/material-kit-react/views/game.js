@@ -35,9 +35,9 @@ const gameStyle = {
    },
    cardsInPlay: {
       position: "relative",
-      flex: "85.5%",
-      width: "85.5%",
-      maxWidth: "85.5%"
+      flex: "84%",
+      width: "84%",
+      maxWidth: "84%"
    },
    chat: {
       borderRadius: "3px",

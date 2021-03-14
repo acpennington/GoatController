@@ -2,8 +2,9 @@ import { BORDER_COLOR } from "utils/constants.js";
 
 const cardStyle = {
    container: {
+      margin: "1px",
       position: "relative",
-      backgroundColor: "rgba(0,0,0,0.8)",
+      backgroundColor: "rgba(0,0,0,0.82)",
       borderRadius: "5px",
       borderStyle: "solid",
       borderWidth: "3px",
@@ -22,18 +23,21 @@ const cardStyle = {
       flex: "99%",
       position: "relative",
       float: "left",
-      zIndex: 3
+      zIndex: 3,
+      filter: "drop-shadow(0px 0px 3px black)"
    },
    subtitle: {
       flex: "1%",
       position: "relative",
       float: "right",
-      zIndex: 3
+      zIndex: 3,
+      filter: "drop-shadow(0px 0px 3px black)"
    },
    name: {
+      fontWeight: 400,
       overflowWrap: "break-word",
       position: "absolute",
-      letterSpacing: "-0.5px",
+      letterSpacing: "-0.2px",
       zIndex: 1
    },
    art: {
@@ -51,12 +55,14 @@ const cardStyle = {
       zIndex: 2
    },
    monsterStats: {
+      fontWeight: 400,
       position: "absolute",
       textAlign: "center",
       width: "100%",
       color: "black",
       bottom: "0px",
-      marginBottom: "3%"
+      marginBottom: "3%",
+      filter: "drop-shadow(0px 0px 6px white)"
    },
    zoneLabel: {
       position: "absolute",

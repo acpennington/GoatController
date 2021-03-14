@@ -27,46 +27,46 @@ function Battlefield({ size }) {
       <DndProvider backend={HTML5Backend}>
          <div className={classes.gameplayContainer}>
             <div className={classes.cardsInPlay}>
-               <Hand player={VILLAIN} handCount={handCounts.villain} size={size} />
+               <Hand player={VILLAIN} handCount={handCounts.villain} size={size - 1.5} />
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player={VILLAIN} row={DECK} />
-                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={4} />
-                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={3} />
-                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={2} />
-                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={1} />
-                  <YugiohCard height={size} player={VILLAIN} row={ST} zone={0} />
-                  <YugiohCard height={size} notFull player={VILLAIN} row={EXTRA_DECK} />
+                  <YugiohCard height={size - 1.5} notFull player={VILLAIN} row={DECK} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={ST} zone={4} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={ST} zone={3} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={ST} zone={2} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={ST} zone={1} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={ST} zone={0} />
+                  <YugiohCard height={size - 1.5} notFull player={VILLAIN} row={EXTRA_DECK} />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player={VILLAIN} row={DISCARD_PILE} />
-                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={4} />
-                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={3} />
-                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={2} />
-                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={1} />
-                  <YugiohCard height={size} player={VILLAIN} row={MONSTER} zone={0} />
-                  <YugiohCard height={size} notFull player={VILLAIN} row={FIELD_SPELL} />
+                  <YugiohCard height={size - 1.5} notFull player={VILLAIN} row={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={MONSTER} zone={4} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={MONSTER} zone={3} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={MONSTER} zone={2} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={MONSTER} zone={1} />
+                  <YugiohCard height={size - 1.5} player={VILLAIN} row={MONSTER} zone={0} />
+                  <YugiohCard height={size - 1.5} notFull player={VILLAIN} row={FIELD_SPELL} />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player={HERO} row={FIELD_SPELL} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={0} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={1} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={2} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={3} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} player={HERO} row={MONSTER} zone={4} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} notFull player={HERO} row={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} notFull player={HERO} row={FIELD_SPELL} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={MONSTER} zone={0} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={MONSTER} zone={1} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={MONSTER} zone={2} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={MONSTER} zone={3} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={MONSTER} zone={4} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} notFull player={HERO} row={DISCARD_PILE} />
                </div>
                <div className={classes.cardRow}>
-                  <YugiohCard height={size} notFull player={HERO} row={EXTRA_DECK} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={0} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={1} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={2} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={3} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} player={HERO} row={ST} zone={4} discardPile={DISCARD_PILE} />
-                  <YugiohCard height={size} notFull player={HERO} row={DECK} />
+                  <YugiohCard height={size - 1.5} notFull player={HERO} row={EXTRA_DECK} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={ST} zone={0} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={ST} zone={1} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={ST} zone={2} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={ST} zone={3} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} player={HERO} row={ST} zone={4} discardPile={DISCARD_PILE} />
+                  <YugiohCard height={size - 1.5} notFull player={HERO} row={DECK} />
                </div>
-               <Hand player={HERO} handCount={handCounts.hero} size={size} discardPile={DISCARD_PILE} />
+               <Hand player={HERO} handCount={handCounts.hero} size={size - 1.5} discardPile={DISCARD_PILE} />
             </div>
-            <RightTools height={size} discardPile={DISCARD_PILE} />
+            <RightTools height={size - 1.5} discardPile={DISCARD_PILE} />
          </div>
       </DndProvider>
    );

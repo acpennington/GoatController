@@ -144,8 +144,8 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
          style={{
             width: height / CARD_RATIO,
             height: height,
-            marginLeft: notFull ? 0 : (height - height / CARD_RATIO) / 2,
-            marginRight: notFull ? 0 : (height - height / CARD_RATIO) / 2,
+            marginLeft: !notFull && (height - height / CARD_RATIO) / 2,
+            marginRight: !notFull && (height - height / CARD_RATIO) / 2,
             transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
             opacity: (isDragging || blank) && row === HAND ? 0 : 1,
             borderColor: (isOver && (canDrop ? OVER_COLOR : INVALID_COLOR)) || (selected && HERO_SELECTION_COLOR),

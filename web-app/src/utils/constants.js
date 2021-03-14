@@ -1,7 +1,7 @@
 // game settings
-const GAME_RATIO = 1.75;
+const GAME_RATIO = 1.76;
 const VILLAIN_HAND_SIZE = 0.7;
-const MODAL_CARD_SIZE = 0.7;
+const MODAL_CARD_SIZE = 0.8;
 const CARD_RATIO = 1.45;
 
 // players
@@ -64,7 +64,7 @@ const VILLAIN_SELECTION_COLOR = "yellow";
 const BORDER_COLOR = "#292c42";
 
 // scrolling
-const BUFFER = 15;
+const BUFFER = 10;
 
 // phases
 const DRAW = "Draw";

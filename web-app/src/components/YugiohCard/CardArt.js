@@ -29,7 +29,8 @@ class CardArt extends PureComponent {
                style={{
                   fontSize: nameHeight + "px",
                   lineHeight: nameHeight + "px",
-                  color: atk ? "black" : "white"
+                  color: atk ? "black" : "white",
+                  filter: "drop-shadow(0px 0px 5px" + (atk ? " white)" : " black)")
                }}
             >
                {name}

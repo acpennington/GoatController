@@ -34,6 +34,11 @@ const friendlyScrollStyle = {
       right: "2px",
       ...buttonStyle
    },
+   btnTop: {
+      top: "2px",
+      right: "10px",
+      ...buttonStyle
+   },
    btnBottom: {
       bottom: "2px",
       right: "10px",

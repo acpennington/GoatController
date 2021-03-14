@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { BsArrowLeftShort, BsArrowRightShort, BsArrowDownShort } from "react-icons/bs";
+import { BsArrowLeftShort, BsArrowRightShort, BsArrowDownShort, BsArrowUpShort } from "react-icons/bs";
 
 import { withStyles } from "@material-ui/core/styles";
 import friendlyScrollStyles from "assets/jss/material-kit-react/components/friendlyScrollStyle.js";
@@ -23,14 +23,20 @@ class FriendlyScroll extends Component {
       const scrollgap =
          element && (horiz ? element.scrollWidth - element.clientWidth : element.scrollHeight - element.clientHeight);
       const scrollbarExists = scrollgap > 0;
-      const shouldScrollRight = scrollbarExists && (horiz ? element.scrollLeft < scrollgap - BUFFER : true);
-      const shouldScrollLeft = scrollbarExists && horiz && element.scrollLeft > BUFFER;
+      const shouldScrollRight =
+         scrollbarExists && (horiz ? element.scrollLeft : element.scrollTop) < scrollgap - BUFFER;
+      const shouldScrollLeft =
+         id !== "chatScroll" && scrollbarExists && (horiz ? element.scrollLeft : element.scrollTop) > BUFFER;
 
       return (
          <div className={classes.wholeContainer} style={contStyle}>
             {shouldScrollLeft && (
-               <button className={classes["btnLeft"]}>
-                  <BsArrowLeftShort size="20px" onClick={() => this.scrollLeft(element)} />
+               <button className={classes["btn" + (horiz ? "Left" : "Top")]}>
+                  {horiz ? (
+                     <BsArrowLeftShort size="20px" onClick={() => this.scrollLeft(element)} />
+                  ) : (
+                     <BsArrowUpShort size="20px" onClick={() => this.scrollLeft(element)} />
+                  )}
                </button>
             )}
             <div

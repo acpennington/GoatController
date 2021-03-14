@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -26,7 +26,7 @@ function Modal({ pile, height }) {
 
    return (
       <div className={classes.modalContainer}>
-         <Tooltip id="switch discard" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
+         <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
             <div className={classes.header} onClick={() => dispatch(closeModal())}>
                Viewing {!isExtra && getPlayerName(player) + "'s"} {row}
             </div>
@@ -42,7 +42,7 @@ function Modal({ pile, height }) {
    );
 }
 
-class RenderCards extends PureComponent {
+class RenderCards extends Component {
    render() {
       const { classes, cardsLen, height, player, row } = this.props;
       const cardDivs = [];
@@ -57,7 +57,11 @@ class RenderCards extends PureComponent {
       }
 
       return (
-         <FriendlyScroll id="modal" style={{ flexDirection: "column" }} contStyle={{ height: "calc(100% - 85px)" }}>
+         <FriendlyScroll
+            id={"modal" + player + row}
+            style={{ flexDirection: "column" }}
+            contStyle={{ height: "calc(100% - 85px)" }}
+         >
             {cardDivs}
          </FriendlyScroll>
       );
