@@ -9,6 +9,8 @@ const emptyCard = {
    text: null
 };
 
-export default function getCardDetails(name) {
+function getCardDetails(name) {
    return name && cards[name] ? cards[name] : emptyCard;
 }
+
+export default getCardDetails;

@@ -1,10 +1,15 @@
 import getCardDetails from "utils/getCardDetails.js";
 import {
+   HERO,
+   VILLAIN,
    FACEDOWN_CARD,
+   FUSION_MONSTER,
    MONSTER,
    ST,
    FIELD_SPELL,
+   EXTRA_DECK,
    dynamicZones,
+   toExtraZones,
    TRAP,
    MOVE_CARD,
    SWITCH_POSITION,
@@ -19,9 +24,8 @@ const initialState = {
       deck: { count: 35 },
       graveyard: [{ name: "Call of the Haunted" }],
       banished: [],
+      usedFusions: {},
       hand: [
-         { name: FACEDOWN_CARD },
-         { name: FACEDOWN_CARD },
          { name: FACEDOWN_CARD },
          { name: FACEDOWN_CARD },
          { name: FACEDOWN_CARD },
@@ -38,23 +42,12 @@ const initialState = {
       deck: { count: 35 },
       graveyard: [],
       banished: [],
-      usedFusions: [],
+      usedFusions: {},
       hand: [
          { name: "Shining Angel" },
          { name: "Call of the Haunted" },
          { name: "Call of the Haunted" },
          { name: "Necrovalley" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
-         { name: "Shining Angel" },
          { name: "Shining Angel" }
       ],
       "s/t": [null, null, null, null, null],
@@ -63,7 +56,7 @@ const initialState = {
          null,
          null,
          { name: "Black Luster Soldier - Envoy of the Beginning", inDef: true, facedown: true },
-         null,
+         { name: "Gatling Dragon", notOwned: true },
          null
       ]
    }
@@ -75,25 +68,33 @@ export default function (state = initialState, action) {
       case MOVE_CARD:
          const { from, to } = data;
          const fieldSpell = from.row === FIELD_SPELL;
-         const fromCard = fieldSpell ? state[from.player][from.row] : state[from.player][from.row][from.zone];
+         const fromCard = from.cardName
+            ? { name: from.cardName }
+            : fieldSpell
+            ? state[from.player][from.row]
+            : state[from.player][from.row][from.zone];
          if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
          const facedown = fromCard.facedown;
 
-         if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
+         if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) {
+            if (fromCard.notOwned) state[from.player === HERO ? VILLAIN : HERO].usedFusions[fromCard.name] -= 1;
+            else state[from.player].usedFusions[fromCard.name] -= 1;
+         } else if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
          else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
          else state[to.player][to.row][to.zone] = { ...fromCard };
 
          if (to.row === MONSTER && facedown) state[to.player][MONSTER][to.zone].inDef = true;
 
          if (to.row === ST && !facedown) {
-            const cardName = state[to.player][ST][to.zone].name;
-            const cardDetails = getCardDetails(cardName);
+            const cardDetails = getCardDetails(state[to.player][ST][to.zone].name);
             if (cardDetails.cardType === TRAP) state[to.player][ST][to.zone].facedown = true;
          }
 
          if (dynamicZones.includes(from.row)) state[from.player][from.row].splice(from.zone, 1);
          else {
             if (fieldSpell) state[from.player][from.row] = null;
+            else if (from.row === EXTRA_DECK)
+               state[from.player].usedFusions[from.cardName] = state[from.player].usedFusions[from.cardName] + 1 || 1;
             else state[from.player][from.row][from.zone] = null;
          }
 

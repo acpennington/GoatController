@@ -14,9 +14,9 @@ const FACEDOWN_CARD = "Facedown Card";
 
 // cardTypes
 const EFFECT_MONSTER = "effectMonster";
+const FUSION_MONSTER = "fusionMonster";
 const SPELL = "Spell";
 const TRAP = "Trap";
-const stTypes = [SPELL, TRAP];
 
 // rows & zones
 const MONSTER = "monster";
@@ -31,6 +31,7 @@ const BANISHED = "banished";
 const discardZones = [GRAVEYARD, BANISHED];
 const dndZones = [DECK, ...discardZones];
 const dynamicZones = [HAND, ...discardZones];
+const toExtraZones = [HAND, ...deckZones];
 
 // actions
 const ADD_MESSAGE = "ADD_MESSAGE";
@@ -54,7 +55,7 @@ const RESET_TURN = "RESET_TURN";
 
 // ItemTypes
 const OFF_FIELD = "offField";
-const allTypes = [MONSTER, ST, FIELD_SPELL, OFF_FIELD + MONSTER, OFF_FIELD + ST];
+const allTypes = [MONSTER, ST, FIELD_SPELL, OFF_FIELD + MONSTER, OFF_FIELD + ST, EXTRA_DECK];
 
 // colors
 const OVER_COLOR = "#00FF00";
@@ -90,9 +91,9 @@ export {
    FACEDOWN_CARD,
    // cardTypes
    EFFECT_MONSTER,
+   FUSION_MONSTER,
    SPELL,
    TRAP,
-   stTypes,
    // rows & zones
    MONSTER,
    ST,
@@ -106,6 +107,7 @@ export {
    discardZones,
    dndZones,
    dynamicZones,
+   toExtraZones,
    // actions
    ADD_MESSAGE,
    SYSTEM_MESSAGE,

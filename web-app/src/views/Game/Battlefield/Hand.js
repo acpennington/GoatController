@@ -6,7 +6,7 @@ import { useDrop } from "react-dnd";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { moveCard } from "stateStore/actions/field.js";
-import { VILLAIN_HAND_SIZE, HERO, HAND, allTypes, OVER_COLOR } from "utils/constants.js";
+import { VILLAIN_HAND_SIZE, HERO, HAND, allTypes, OVER_COLOR, EXTRA_DECK } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -20,13 +20,15 @@ function Hand({ player, handCount, size, discardPile }) {
    const isHero = player === HERO;
    const handSize = size * (isHero ? (handCount > 9 ? 0.95 : 1) : VILLAIN_HAND_SIZE * (handCount > 13 ? 0.94 : 1));
 
-   const [{ isOver }, drop] = useDrop({
+   const [{ isOver, canDrop }, drop] = useDrop({
       accept: allTypes,
+      canDrop: (item) => item.row !== EXTRA_DECK,
       drop: (item) => {
          dispatch(moveCard({ from: item, to: { player, row: HAND } }));
       },
       collect: (monitor) => ({
-         isOver: !!monitor.isOver()
+         isOver: !!monitor.isOver(),
+         canDrop: monitor.canDrop()
       })
    });
 
@@ -36,7 +38,7 @@ function Hand({ player, handCount, size, discardPile }) {
       );
    }
 
-   const myColor = isOver && OVER_COLOR + "33";
+   const myColor = isOver && canDrop && OVER_COLOR + "33";
    return (
       <FriendlyScroll
          id={"hand" + player}

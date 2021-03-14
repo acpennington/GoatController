@@ -8,6 +8,7 @@ import compress from "utils/compressName.js";
 class CardArt extends PureComponent {
    render() {
       const { classes, name, nameHeight, cardTypeIcon, levelOrSubtype, atk, def } = this.props;
+      const isMonster = !isNaN(levelOrSubtype);
 
       return (
          <Fragment>
@@ -22,15 +23,15 @@ class CardArt extends PureComponent {
                   lineHeight: nameHeight * 1.29 + "px"
                }}
             >
-               {atk && atk + " / " + def}
+               {isMonster && atk + " / " + def}
             </div>
             <div
                className={classes.name}
                style={{
                   fontSize: nameHeight + "px",
                   lineHeight: nameHeight + "px",
-                  color: atk ? "black" : "white",
-                  filter: "drop-shadow(0px 0px 5px" + (atk ? " white)" : " black)")
+                  color: isMonster ? "black" : "white",
+                  filter: "drop-shadow(0px 0px 5px" + (isMonster ? " white)" : " black)")
                }}
             >
                {name}

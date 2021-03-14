@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -7,6 +7,7 @@ import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import { closeModal } from "stateStore/actions/settings.js";
 import getPlayerName from "utils/getPlayerName.js";
 import { EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
+import { fusions } from "utils/cardDB.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import { makeStyles } from "@material-ui/core/styles";
@@ -21,7 +22,11 @@ function Modal({ pile, height }) {
    const { player, row } = pile;
    const isExtra = row === EXTRA_DECK;
 
-   const cardsLen = useSelector((state) => !isExtra && state.field[player][row].length);
+   let fusionNames = isExtra && Object.keys(fusions);
+   const usedFusions = useSelector((state) => isExtra && state.field[player].usedFusions);
+   fusionNames = fusionNames.filter((name) => !usedFusions[name] || usedFusions[name] < 3);
+
+   const cardsLen = useSelector((state) => (isExtra ? fusionNames.length : state.field[player][row].length));
    if (cardsLen === 0) dispatch(closeModal());
 
    return (
@@ -37,35 +42,49 @@ function Modal({ pile, height }) {
             height={height * MODAL_CARD_SIZE}
             player={player}
             row={row}
+            cardNames={fusionNames}
          />
       </div>
    );
 }
 
-class RenderCards extends Component {
-   render() {
-      const { classes, cardsLen, height, player, row } = this.props;
-      const cardDivs = [];
+function RenderCards({ classes, cardsLen, height, player, row, cardNames }) {
+   const cardDivs = [];
 
-      for (let i = cardsLen - 1; i >= 0; i -= 2) {
-         cardDivs.push(
-            <div className={classes.cards} key={i}>
-               <YugiohCard height={height} player={player} row={row} zone={i} notFull />
-               {i !== 0 && <YugiohCard height={height} player={player} row={row} zone={i - 1} notFull />}
-            </div>
-         );
-      }
-
-      return (
-         <FriendlyScroll
-            id={"modal" + player + row}
-            style={{ flexDirection: "column" }}
-            contStyle={{ height: "calc(100% - 85px)" }}
-         >
-            {cardDivs}
-         </FriendlyScroll>
+   for (let i = cardsLen - 1; i >= 0; i -= 2) {
+      cardDivs.push(
+         <div className={classes.cards} key={i}>
+            <YugiohCard
+               height={height}
+               player={player}
+               row={row}
+               zone={i}
+               cardName={cardNames && cardNames[i]}
+               notFull
+            />
+            {i !== 0 && (
+               <YugiohCard
+                  height={height}
+                  player={player}
+                  row={row}
+                  zone={i - 1}
+                  cardName={cardNames && cardNames[i - 1]}
+                  notFull
+               />
+            )}
+         </div>
       );
    }
+
+   return (
+      <FriendlyScroll
+         id={"modal" + player + row}
+         style={{ flexDirection: "column" }}
+         contStyle={{ height: "calc(100% - 85px)" }}
+      >
+         {cardDivs}
+      </FriendlyScroll>
+   );
 }
 
 Modal.propTypes = {

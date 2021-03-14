@@ -39,21 +39,24 @@ import {
 
 const useStyles = makeStyles(cardStyle);
 
-function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
+function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName }) {
    const classes = useStyles();
    const dispatch = useDispatch();
 
    const discardZone = discardZones.includes(row);
-   const deckZone = deckZones.includes(row);
-   const isExtraDeck = row === EXTRA_DECK;
+   const deckZone = deckZones.includes(row) && zone === -1;
+   const isExtraDeck = row === EXTRA_DECK && zone === -1;
    const zoneLabel = useSelector((state) => {
       if (row === DECK) return state.field[player][DECK].count;
       else if (isExtraDeck) return EXTRA_DECK;
+      else if (row === EXTRA_DECK) return 3 - (state.field[player].usedFusions[cardName] || 0);
       if (discardZone && zone === -1) return state.field[player][row].length;
       else return false;
    });
 
-   let card = useSelector((state) => (zone !== -1 ? state.field[player][row][zone] : state.field[player][row]));
+   let card = useSelector((state) =>
+      cardName ? { name: cardName } : zone !== -1 ? state.field[player][row][zone] : state.field[player][row]
+   );
    let dontSelect = false;
    if (discardZone && zone === -1) {
       dontSelect = true;
@@ -83,7 +86,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
 
    let type = row;
    if (dynamicZones.includes(row)) {
-      if (atk) type = OFF_FIELD + MONSTER;
+      if (!isNaN(levelOrSubtype)) type = OFF_FIELD + MONSTER;
       else {
          if (levelOrSubtype === FIELD_SPELL) type = FIELD_SPELL;
          else type = OFF_FIELD + ST;
@@ -91,7 +94,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
    }
 
    const [{ isDragging }, drag] = useDrag({
-      item: { type, player, row, zone },
+      item: { type, player, row, zone, cardName },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
       })
@@ -99,7 +102,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
 
    let acceptables = allTypes;
    if (row === FIELD_SPELL) acceptables = FIELD_SPELL;
-   else if (row === MONSTER) acceptables = [MONSTER, ST, OFF_FIELD + MONSTER];
+   else if (row === MONSTER) acceptables = [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK];
    else if (row === ST) acceptables = [MONSTER, ST, OFF_FIELD + ST];
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allTypes,
@@ -176,7 +179,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile }) {
             <CardArt
                name={name}
                nameHeight={nameHeight}
-               cardTypeIcon={atk ? attribute : cardType}
+               cardTypeIcon={attribute || cardType}
                levelOrSubtype={levelOrSubtype}
                atk={atk}
                def={def}
@@ -201,7 +204,8 @@ YugiohCard.propTypes = {
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
    zone: PropTypes.number,
-   discardPile: PropTypes.string
+   discardPile: PropTypes.string,
+   cardName: PropTypes.string
 };
 
 YugiohCard.defaultProps = {
