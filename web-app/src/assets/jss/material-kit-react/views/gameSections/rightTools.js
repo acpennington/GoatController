@@ -29,7 +29,7 @@ const rightToolsStyle = {
    footer: {
       position: "absolute",
       width: "100%",
-      padding: "3px",
+      padding: "5px",
       border: "solid 1px white",
       bottom: 0,
       textAlign: "center",
