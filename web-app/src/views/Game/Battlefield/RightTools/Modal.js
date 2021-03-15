@@ -25,6 +25,12 @@ function Modal({ pile, height }) {
 
    const { player, row } = pile;
    const isExtra = row === EXTRA_DECK;
+   console.log("header" + row);
+
+   const flipSwitch = (event) => {
+      setMetaTargets(event.target.checked);
+      if (!event.target.checked) setLevelFilter(false);
+   };
 
    const [metaTargets, setMetaTargets] = useState(true);
    const [levelFilter, setLevelFilter] = useState(false);
@@ -50,7 +56,11 @@ function Modal({ pile, height }) {
    return (
       <div className={classes.modalContainer}>
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
-            <div id="modalheader" className={classes.header} onClick={() => dispatch(closeModal())}>
+            <div
+               id="modalheader"
+               className={classes["header" + row.split(" ")[0]]}
+               onClick={() => dispatch(closeModal())}
+            >
                Viewing {!isExtra && getPlayerName(player) + "'s"} {row}
             </div>
          </Tooltip>
@@ -64,13 +74,10 @@ function Modal({ pile, height }) {
             sub={hfHeights}
          />
          {isExtra && (
-            <div id="modalfooter" className={classes.footer}>
+            <div id="modalfooter" className={classes["footer" + row.split(" ")[0]]}>
                <Switch
                   checked={metaTargets}
-                  onChange={(event) => {
-                     setMetaTargets(event.target.checked);
-                     if (!event.target.checked) setLevelFilter(false);
-                  }}
+                  onChange={(event) => flipSwitch(event)}
                   color="primary"
                   style={{ color: "#9c27b0" }}
                />

@@ -145,7 +145,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
          className={classes.container}
          style={{
             width: height / CARD_RATIO,
-            height: height,
+            height,
             marginLeft: !notFull && (height - height / CARD_RATIO) / 2,
             marginRight: !notFull && (height - height / CARD_RATIO) / 2,
             transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
