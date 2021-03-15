@@ -37,7 +37,7 @@ class YugiohCardExpanded extends PureComponent {
                   <br />
                   {text}
                   <br />
-                  {atk && "ATK " + atk + " / DEF " + def}
+                  {attribute && "ATK " + atk + " / DEF " + def}
                </div>
             </div>
          </div>

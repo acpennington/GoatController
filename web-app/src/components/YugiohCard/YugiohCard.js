@@ -117,7 +117,6 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
    });
 
    const blank = ((!card || isDragging) && !deckZone) || (deckZone && zoneLabel === 0);
-   const nameHeight = (height - height / CARD_RATIO) / 4;
 
    let dragOrDrop = useRef(null);
    if (isHero) {
@@ -178,7 +177,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
          {!blank && !facedown && (
             <CardArt
                name={name}
-               nameHeight={nameHeight}
+               nameHeight={(height - height / CARD_RATIO) / 4 - 0.5}
                cardTypeIcon={attribute || cardType}
                levelOrSubtype={levelOrSubtype}
                atk={atk}

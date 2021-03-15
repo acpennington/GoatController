@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -6,14 +6,18 @@ import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import { closeModal } from "stateStore/actions/settings.js";
 import getPlayerName from "utils/getPlayerName.js";
+import getCardDetails from "utils/getCardDetails";
 import { EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
 import { fusions } from "utils/cardDB.js";
 
+import Button from "components/CustomButtons/Button.js";
 import Tooltip from "@material-ui/core/Tooltip";
+import Switch from "@material-ui/core/Switch";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 const useStyles = makeStyles(styles);
+const levels = [1, 3, 4, 5, 6, 7, 8, 9];
 
 function Modal({ pile, height }) {
    const classes = useStyles();
@@ -22,17 +26,31 @@ function Modal({ pile, height }) {
    const { player, row } = pile;
    const isExtra = row === EXTRA_DECK;
 
-   let fusionNames = isExtra && Object.keys(fusions);
+   const [metaTargets, setMetaTargets] = useState(true);
+   const [levelFilter, setLevelFilter] = useState(false);
+
    const usedFusions = useSelector((state) => isExtra && state.field[player].usedFusions);
-   fusionNames = fusionNames.filter((name) => !usedFusions[name] || usedFusions[name] < 3);
+   const fusionNames =
+      isExtra &&
+      Object.keys(fusions)
+         .filter((name) => !usedFusions[name] || usedFusions[name] < 3)
+         .filter((name) => {
+            const cardDetails = getCardDetails(name);
+            return !cardDetails.noMeta === metaTargets && (!levelFilter || levelFilter === cardDetails.levelOrSubtype);
+         });
 
    const cardsLen = useSelector((state) => (isExtra ? fusionNames.length : state.field[player][row].length));
    if (cardsLen === 0) dispatch(closeModal());
 
+   const header = document.getElementById("modalheader");
+   const footer = document.getElementById("modalfooter");
+   const hfHeights = (header ? header.offsetHeight : 0) + (footer ? footer.offsetHeight : 0);
+   console.log(hfHeights);
+
    return (
       <div className={classes.modalContainer}>
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
-            <div className={classes.header} onClick={() => dispatch(closeModal())}>
+            <div id="modalheader" className={classes.header} onClick={() => dispatch(closeModal())}>
                Viewing {!isExtra && getPlayerName(player) + "'s"} {row}
             </div>
          </Tooltip>
@@ -43,13 +61,44 @@ function Modal({ pile, height }) {
             player={player}
             row={row}
             cardNames={fusionNames}
+            sub={hfHeights}
          />
+         {isExtra && (
+            <div id="modalfooter" className={classes.footer}>
+               <Switch
+                  checked={metaTargets}
+                  onChange={(event) => {
+                     setMetaTargets(event.target.checked);
+                     if (!event.target.checked) setLevelFilter(false);
+                  }}
+                  color="primary"
+                  style={{ color: "#9c27b0" }}
+               />
+               Meta Targets
+               {metaTargets && (
+                  <div className={classes.levelFilter}>
+                     {levels.map((level) => (
+                        <Button
+                           color={levelFilter === level ? "primary" : "info"}
+                           size="sm"
+                           round
+                           justIcon
+                           onClick={() => setLevelFilter(level)}
+                        >
+                           {level}
+                        </Button>
+                     ))}
+                  </div>
+               )}
+            </div>
+         )}
       </div>
    );
 }
 
-function RenderCards({ classes, cardsLen, height, player, row, cardNames }) {
+function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub }) {
    const cardDivs = [];
+   console.log(sub);
 
    for (let i = cardsLen - 1; i >= 0; i -= 2) {
       cardDivs.push(
@@ -80,7 +129,7 @@ function RenderCards({ classes, cardsLen, height, player, row, cardNames }) {
       <FriendlyScroll
          id={"modal" + player + row}
          style={{ flexDirection: "column" }}
-         contStyle={{ height: "calc(100% - 85px)" }}
+         contStyle={{ height: "calc(100% - " + sub + "px)" }}
       >
          {cardDivs}
       </FriendlyScroll>
@@ -97,7 +146,8 @@ RenderCards.propTypes = {
    cardsLen: PropTypes.number.isRequired,
    height: PropTypes.number.isRequired,
    player: PropTypes.string.isRequired,
-   row: PropTypes.string.isRequired
+   row: PropTypes.string.isRequired,
+   sub: PropTypes.number.isRequired
 };
 
 export default Modal;
