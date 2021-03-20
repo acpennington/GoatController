@@ -14,6 +14,7 @@ import {
    MOVE_CARD,
    SWITCH_POSITION,
    ADJUST_LP,
+   REVEAL_HAND,
    RESET_GAME
 } from "utils/constants.js";
 
@@ -32,6 +33,7 @@ const initialState = {
          { name: FACEDOWN_CARD },
          { name: FACEDOWN_CARD }
       ],
+      handRevealed: false,
       "s/t": [{ name: "Call of the Haunted" }, null, null, null, null],
       "field spell": null,
       monster: [null, null, { name: "Shining Angel" }, null, null]
@@ -50,6 +52,7 @@ const initialState = {
          { name: "Necrovalley" },
          { name: "Shining Angel" }
       ],
+      handRevealed: false,
       "s/t": [null, null, null, null, null],
       "field spell": null,
       monster: [
@@ -112,6 +115,9 @@ export default function (state = initialState, action) {
       case ADJUST_LP:
          const { player, change } = data;
          state[player].lifepoints += change;
+         return { ...state };
+      case REVEAL_HAND:
+         state.hero.handRevealed = !state.hero.handRevealed;
          return { ...state };
       case RESET_GAME:
          return initialState;

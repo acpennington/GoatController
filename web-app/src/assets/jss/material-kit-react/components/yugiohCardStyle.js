@@ -25,7 +25,11 @@ const name = {
 };
 
 const cardStyle = {
-   container,
+   container: {
+      ...container,
+      top: "100%",
+      transform: "translateY(-100%)"
+   },
    containerDef: {
       ...container,
       transform: "rotate(90deg)"

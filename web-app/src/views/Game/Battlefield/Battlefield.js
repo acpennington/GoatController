@@ -30,7 +30,7 @@ function Battlefield({ size }) {
          <div className={classes.gameplayContainer}>
             <div className={classes.cardsInPlay}>
                <Hand player={VILLAIN} handCount={handCounts.villain} size={size - 1.5} />
-               <div className={classes.cardRow}>
+               <div className={classes.cardRow} style={{ height: size }}>
                   <YugiohCard height={size - 1.5} notFull player={VILLAIN} row={DECK} />
                   <YugiohCard height={size - 1.5} player={VILLAIN} row={ST} zone={4} />
                   <YugiohCard height={size - 1.5} player={VILLAIN} row={ST} zone={3} />
@@ -39,7 +39,7 @@ function Battlefield({ size }) {
                   <YugiohCard height={size - 1.5} player={VILLAIN} row={ST} zone={0} />
                   <YugiohCard height={size - 1.5} notFull player={VILLAIN} row={EXTRA_DECK} />
                </div>
-               <div className={classes.cardRow}>
+               <div className={classes.cardRow} style={{ height: size }}>
                   <YugiohCard height={size - 1.5} notFull player={VILLAIN} row={discardPile} />
                   <YugiohCard height={size - 1.5} player={VILLAIN} row={MONSTER} zone={4} />
                   <YugiohCard height={size - 1.5} player={VILLAIN} row={MONSTER} zone={3} />
@@ -48,7 +48,7 @@ function Battlefield({ size }) {
                   <YugiohCard height={size - 1.5} player={VILLAIN} row={MONSTER} zone={0} />
                   <YugiohCard height={size - 1.5} notFull player={VILLAIN} row={FIELD_SPELL} />
                </div>
-               <div className={classes.cardRow}>
+               <div className={classes.cardRow} style={{ height: size }}>
                   <YugiohCard height={size - 1.5} notFull player={HERO} row={FIELD_SPELL} discardPile={discardPile} />
                   <YugiohCard height={size - 1.5} player={HERO} row={MONSTER} zone={0} discardPile={discardPile} />
                   <YugiohCard height={size - 1.5} player={HERO} row={MONSTER} zone={1} discardPile={discardPile} />
@@ -57,7 +57,7 @@ function Battlefield({ size }) {
                   <YugiohCard height={size - 1.5} player={HERO} row={MONSTER} zone={4} discardPile={discardPile} />
                   <YugiohCard height={size - 1.5} notFull player={HERO} row={discardPile} />
                </div>
-               <div className={classes.cardRow}>
+               <div className={classes.cardRow} style={{ height: size }}>
                   <YugiohCard height={size - 1.5} notFull player={HERO} row={EXTRA_DECK} />
                   <YugiohCard height={size - 1.5} player={HERO} row={ST} zone={0} discardPile={discardPile} />
                   <YugiohCard height={size - 1.5} player={HERO} row={ST} zone={1} discardPile={discardPile} />
@@ -66,7 +66,7 @@ function Battlefield({ size }) {
                   <YugiohCard height={size - 1.5} player={HERO} row={ST} zone={4} discardPile={discardPile} />
                   <YugiohCard height={size - 1.5} notFull player={HERO} row={DECK} />
                </div>
-               <Hand player={HERO} handCount={handCounts.hero} size={size - 1.5} discardPile={discardPile} />
+               <Hand player={HERO} handCount={handCounts.hero} size={size} discardPile={discardPile} />
             </div>
             <RightTools height={size - 1.5} discardPile={discardPile} />
          </div>

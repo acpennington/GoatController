@@ -1,7 +1,7 @@
 // game settings
-const GAME_RATIO = 1.76;
-const VILLAIN_HAND_SIZE = 0.7;
-const MODAL_CARD_SIZE = 0.8;
+const GAME_RATIO = 1.82;
+const VILLAIN_HAND_SIZE = 0.5;
+const MODAL_CARD_SIZE = 0.75;
 const CARD_RATIO = 1.45;
 
 // players
@@ -40,6 +40,7 @@ const RESET_CHAT = "RESET_CHAT";
 const MOVE_CARD = "MOVE_CARD";
 const SWITCH_POSITION = "SWITCH_POSITION";
 const ADJUST_LP = "ADJUST_LP";
+const REVEAL_HAND = "REVEAL_HAND";
 const RESET_GAME = "RESET_GAME";
 const NEW_HOVER = "NEW_HOVER";
 const CLEAR_HOVER = "CLEAR_HOVER";
@@ -62,6 +63,7 @@ const OVER_COLOR = "#00FF00";
 const HERO_SELECTION_COLOR = "#003CFF";
 const VILLAIN_SELECTION_COLOR = "red";
 const BORDER_COLOR = "#292c42";
+const REVEAL_COLOR = "white";
 
 // scrolling
 const BUFFER = 10;
@@ -113,6 +115,7 @@ export {
    RESET_CHAT,
    MOVE_CARD,
    SWITCH_POSITION,
+   REVEAL_HAND,
    ADJUST_LP,
    RESET_GAME,
    NEW_HOVER,
@@ -134,6 +137,7 @@ export {
    HERO_SELECTION_COLOR,
    VILLAIN_SELECTION_COLOR,
    BORDER_COLOR,
+   REVEAL_COLOR,
    // scrolling
    BUFFER,
    // phases

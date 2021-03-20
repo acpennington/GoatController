@@ -133,7 +133,7 @@ function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub })
    return (
       <FriendlyScroll
          id={"modal" + player + row}
-         style={{ flexDirection: "column" }}
+         style={{ flexDirection: "column", overflowY: cardsLen > 12 ? "auto" : "hidden" }}
          contStyle={{ height: "calc(100% - " + sub + "px)" }}
       >
          {cardDivs}

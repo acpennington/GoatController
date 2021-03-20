@@ -1,6 +1,6 @@
 import { Howl } from "howler";
 
-import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP } from "utils/constants";
+import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
 
 function moveCard(data) {
@@ -16,6 +16,10 @@ function move(data) {
 
 function switchPosition(row, zone) {
    return { type: SWITCH_POSITION, data: { row, zone } };
+}
+
+function revealHand() {
+   return { type: REVEAL_HAND };
 }
 
 function adjustLP(player, change, currentLP) {
@@ -38,4 +42,4 @@ function oneLP(player, change) {
    return { type: ADJUST_LP, data: { player, change } };
 }
 
-export { moveCard, switchPosition, adjustLP };
+export { moveCard, switchPosition, revealHand, adjustLP };

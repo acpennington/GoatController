@@ -11,7 +11,7 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 import LifeBar from "components/LifeBar/LifeBar.js";
-import { adjustLP } from "stateStore/actions/field.js";
+import { adjustLP, revealHand } from "stateStore/actions/field.js";
 import { switchDiscard } from "stateStore/actions/settings.js";
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
 import { HERO, VILLAIN, discardZones, phases } from "utils/constants.js";
@@ -47,7 +47,7 @@ class StandardTools extends PureComponent {
    };
 
    render() {
-      const { classes, discardPile, turn, heroLP, villainLP } = this.props;
+      const { classes, discardPile, turn, heroLP, villainLP, handRevealed } = this.props;
       const { player, phase } = turn;
       const otherZone = discardZones.filter((zone) => zone !== discardPile)[0];
       const isHero = player === HERO;
@@ -88,6 +88,9 @@ class StandardTools extends PureComponent {
                   {discardPile}
                </Button>
             </Tooltip>
+            <Button color={"primary"} onClick={this.props.revealHand}>
+               {handRevealed ? "Stop Revealing" : "Reveal Hand"}
+            </Button>
             <LifeBar life={heroLP} player={HERO} />
             <div className={classes.LPbox}>
                <CustomInput
@@ -109,13 +112,18 @@ class StandardTools extends PureComponent {
 }
 
 function mapStateToProps(state) {
-   return { turn: state.turn, villainLP: state.field.villain.lifepoints, heroLP: state.field.hero.lifepoints };
+   return {
+      turn: state.turn,
+      villainLP: state.field.villain.lifepoints,
+      heroLP: state.field.hero.lifepoints,
+      handRevealed: state.field.hero.handRevealed
+   };
 }
 
 StandardTools.propTypes = {
    discardPile: PropTypes.string.isRequired
 };
 
-export default connect(mapStateToProps, { switchDiscard, setTurn, nextPhase, prevPhase, adjustLP })(
+export default connect(mapStateToProps, { switchDiscard, setTurn, nextPhase, prevPhase, adjustLP, revealHand })(
    withStyles(styles)(StandardTools)
 );

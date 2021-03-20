@@ -35,9 +35,9 @@ const gameStyle = {
    },
    cardsInPlay: {
       position: "relative",
-      flex: "84%",
-      width: "84%",
-      maxWidth: "84%"
+      flex: "85%",
+      width: "85%",
+      maxWidth: "85%"
    },
    chat: {
       borderRadius: "3px",
@@ -51,6 +51,7 @@ const gameStyle = {
       flexDirection: "column-reverse"
    },
    cardRow: {
+      position: "relative",
       display: "flex",
       width: "100%",
       margin: "auto",
@@ -59,7 +60,8 @@ const gameStyle = {
    },
    hand: {
       display: "flex",
-      margin: "auto"
+      margin: "auto",
+      position: "relative"
    }
 };
 

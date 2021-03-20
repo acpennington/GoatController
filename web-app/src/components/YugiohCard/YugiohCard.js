@@ -33,7 +33,8 @@ import {
    OFF_FIELD,
    allTypes,
    OVER_COLOR,
-   HERO_SELECTION_COLOR
+   HERO_SELECTION_COLOR,
+   REVEAL_COLOR
 } from "utils/constants.js";
 
 const useStyles = makeStyles(cardStyle);
@@ -45,7 +46,8 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
    const discardZone = discardZones.includes(row);
    const deckZone = deckZones.includes(row) && zone === -1;
    const isExtraDeck = row === EXTRA_DECK && zone === -1;
-   let { zoneLabel, card, sleeves, selected } = useSelector((state) => {
+   const inHand = row === HAND;
+   let { zoneLabel, card, sleeves, selected, handRevealed } = useSelector((state) => {
       const card = cardName
          ? { name: cardName }
          : zone === -1
@@ -56,12 +58,13 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
          (card && (card.notOwned ? state.field[isHero ? VILLAIN : HERO].sleeves : state.field[player].sleeves));
       const selection = state.selectedCard;
       const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
+      const handRevealed = state.field[player].handRevealed;
       const zoneLabel =
          (row === DECK && state.field[player][DECK].count) ||
          (isExtraDeck && EXTRA_DECK) ||
          (row === EXTRA_DECK && 3 - (state.field[player].usedFusions[cardName] || 0)) ||
          (discardZone && zone === -1 && state.field[player][row].length);
-      return { zoneLabel, card, sleeves, selected };
+      return { zoneLabel, card, sleeves, selected, handRevealed };
    });
 
    let dontSelect = false;
@@ -78,6 +81,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
    }
 
    const name = card && card.name;
+   const revealed = inHand && handRevealed;
    const isHero = player === HERO;
    const facedown = name === FACEDOWN_CARD || deckZone || (card && card.facedown);
    const inDef = card && card.inDef && row === MONSTER ? card.inDef : false;
@@ -142,8 +146,9 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
             height,
             marginLeft: margin,
             marginRight: margin,
-            opacity: (isDragging || blank) && row === HAND && 0,
-            borderColor: (isOver && canDrop && OVER_COLOR) || (selected && HERO_SELECTION_COLOR),
+            opacity: (isDragging || blank) && inHand && 0,
+            borderColor:
+               (isOver && canDrop && OVER_COLOR) || (selected && HERO_SELECTION_COLOR) || (revealed && REVEAL_COLOR),
             backgroundImage:
                !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}

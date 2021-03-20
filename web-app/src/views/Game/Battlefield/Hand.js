@@ -16,9 +16,9 @@ const useStyles = makeStyles(styles);
 function Hand({ player, handCount, size, discardPile }) {
    const classes = useStyles();
    const dispatch = useDispatch();
-   const handList = [];
+
    const isHero = player === HERO;
-   const handSize = size * (isHero ? (handCount > 9 ? 0.95 : 1) : VILLAIN_HAND_SIZE * (handCount > 13 ? 0.94 : 1));
+   const handSize = size * (isHero && handCount > 9 ? 0.95 : 1);
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allTypes,
@@ -32,22 +32,22 @@ function Hand({ player, handCount, size, discardPile }) {
       })
    });
 
+   const handList = [];
    for (let i = 0; i < handCount; i++) {
       handList.push(
          <YugiohCard height={handSize} player={player} row={HAND} zone={i} discardPile={discardPile} notFull key={i} />
       );
    }
 
-   const myColor = isOver && canDrop && OVER_COLOR + "33";
    return (
       <FriendlyScroll
          id={"hand" + player}
          drop={isHero && drop}
          style={{ overflowY: "hidden" }}
-         bgColor={myColor}
+         bgColor={isOver && canDrop && OVER_COLOR + "33"}
          horiz
       >
-         <div className={classes.hand} style={{ height: handSize }}>
+         <div className={classes.hand} style={{ height: handSize * (isHero ? 1 : VILLAIN_HAND_SIZE) }}>
             {handList}
          </div>
       </FriendlyScroll>
