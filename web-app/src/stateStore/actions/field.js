@@ -3,6 +3,10 @@ import { Howl } from "howler";
 import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
 
+function soundOn() {
+   return window.localStorage.getItem("soundOn") === "true";
+}
+
 function moveCard(data) {
    return (dispatch) => {
       dispatch(move(data));
@@ -23,10 +27,12 @@ function revealHand() {
 }
 
 function adjustLP(player, change, currentLP) {
-   const sound = new Howl({
-      src: ["/sounds/lp.mp3"]
-   });
-   sound.play();
+   if (soundOn()) {
+      const sound = new Howl({
+         src: ["/sounds/lp.mp3"]
+      });
+      sound.play();
+   }
 
    if (-change > currentLP) change = -currentLP;
 

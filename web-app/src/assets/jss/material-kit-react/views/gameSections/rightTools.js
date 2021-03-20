@@ -9,14 +9,14 @@ const allContainers = {
    marginLeft: "4px",
    height: "100%",
    width: "15%",
-   borderRadius: "3px"
+   borderRadius: "3px",
+   textAlign: "center"
 };
 
 const header = {
    width: "100%",
    padding: "8px 5px",
    border: "solid 2px black",
-   textAlign: "center",
    backgroundPosition: "center",
    backgroundRepeat: "no-repeat",
    backgroundSize: "cover",

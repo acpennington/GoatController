@@ -6,6 +6,7 @@ import { bind, unbind } from "mousetrap";
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import Button from "components/CustomButtons/Button.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
+import Switch from "@material-ui/core/Switch";
 import Tooltip from "@material-ui/core/Tooltip";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
@@ -19,7 +20,9 @@ import { HERO, VILLAIN, discardZones, phases } from "utils/constants.js";
 class StandardTools extends PureComponent {
    constructor(props) {
       super(props);
-      this.state = { LPmode: -1 };
+      const storage = window.localStorage;
+      if (storage.getItem("soundOn") === null) storage.setItem("soundOn", true);
+      this.state = { LPmode: -1, soundOn: storage.getItem("soundOn") === "true" };
    }
 
    componentDidMount() {
@@ -36,6 +39,12 @@ class StandardTools extends PureComponent {
       this.setState({ LPmode: this.state.LPmode * -1 });
    };
 
+   flipSound = (event) => {
+      const storage = window.localStorage;
+      storage.setItem("soundOn", event.target.checked);
+      this.setState({ soundOn: event.target.checked });
+   };
+
    submitMessage = (event) => {
       if (event.key === "Enter") {
          const trimmedMessage = Number(event.target.value.trim());
@@ -49,16 +58,13 @@ class StandardTools extends PureComponent {
    render() {
       const { classes, discardPile, turn, heroLP, villainLP, handRevealed } = this.props;
       const { player, phase } = turn;
+      const { soundOn, LPmode } = this.state;
       const otherZone = discardZones.filter((zone) => zone !== discardPile)[0];
       const isHero = player === HERO;
       const myColor = isHero ? "info" : "danger";
       const LPbutton = (
          <div className={classes.LPbutton} onClick={this.swapLPmode}>
-            {this.state.LPmode === 1 ? (
-               <FaPlusCircle color="green" size="1.5em" />
-            ) : (
-               <FaMinusCircle color="red" size="1.5em" />
-            )}
+            {LPmode === 1 ? <FaPlusCircle color="green" size="1.5em" /> : <FaMinusCircle color="yellow" size="1.5em" />}
          </div>
       );
 
@@ -105,6 +111,13 @@ class StandardTools extends PureComponent {
                      margin: "dense"
                   }}
                />
+               <Switch
+                  checked={soundOn}
+                  onChange={(event) => this.flipSound(event)}
+                  color="primary"
+                  style={{ color: "#9c27b0" }}
+               />
+               Sound {soundOn ? "On" : "Off"}
             </div>
          </div>
       );

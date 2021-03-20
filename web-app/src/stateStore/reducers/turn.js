@@ -22,11 +22,8 @@ export default function (state = initialState, action) {
          }
       case PREV_PHASE:
          if (state.player === VILLAIN) return state;
-         else {
-            phaseNum = phases.indexOf(state.phase);
-            return { player: HERO, phase: phases[phaseNum && phaseNum - 1] };
-         }
-
+         phaseNum = phases.indexOf(state.phase);
+         return { player: HERO, phase: phases[phaseNum && phaseNum - 1] };
       case RESET_TURN:
          return initialState;
       default:
