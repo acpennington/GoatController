@@ -1,7 +1,7 @@
 // game settings
 const GAME_RATIO = 1.8;
 const VILLAIN_HAND_SIZE = 0.5;
-const MODAL_CARD_SIZE = 0.8;
+const MODAL_CARD_SIZE = 0.82;
 const CARD_RATIO = 1.45;
 
 // players
