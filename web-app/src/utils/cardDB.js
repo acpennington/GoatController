@@ -277,7 +277,7 @@ const fusions = {
       def: 1800,
       text: 'Winged Beast/Fusion – "Blue-Winged Crown" + "Niwatori"'
    },
-   "Punished Horseman": {
+   "Rabid Horseman": {
       cardType: "fusionMonster",
       attribute: "Earth",
       levelOrSubtype: 6,
@@ -398,7 +398,7 @@ const fusions = {
    },
    "XYZ-Dragon Cannon": {
       cardType: "fusionMonster",
-      attribute: "",
+      attribute: "Light",
       levelOrSubtype: 8,
       atk: 2800,
       def: 2600,
@@ -408,8 +408,8 @@ const fusions = {
    },
    "XZ-Tank Cannon": {
       cardType: "fusionMonster",
-      attribute: "",
-      levelOrSubtype: 0,
+      attribute: "Light",
+      levelOrSubtype: 6,
       atk: 2400,
       def: 2100,
       text:
