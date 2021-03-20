@@ -59,9 +59,8 @@ const allTypes = [MONSTER, ST, FIELD_SPELL, OFF_FIELD + MONSTER, OFF_FIELD + ST,
 
 // colors
 const OVER_COLOR = "#00FF00";
-const INVALID_COLOR = "red";
 const HERO_SELECTION_COLOR = "#003CFF";
-const VILLAIN_SELECTION_COLOR = "yellow";
+const VILLAIN_SELECTION_COLOR = "red";
 const BORDER_COLOR = "#292c42";
 
 // scrolling
@@ -132,7 +131,6 @@ export {
    allTypes,
    // colors
    OVER_COLOR,
-   INVALID_COLOR,
    HERO_SELECTION_COLOR,
    VILLAIN_SELECTION_COLOR,
    BORDER_COLOR,

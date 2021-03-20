@@ -26,13 +26,8 @@ class CardArt extends PureComponent {
                {isMonster && atk + " / " + def}
             </div>
             <div
-               className={classes.name}
-               style={{
-                  fontSize: nameHeight + "px",
-                  lineHeight: nameHeight + "px",
-                  color: isMonster ? "black" : "white",
-                  filter: "drop-shadow(0px 0px 5px" + (isMonster ? " white)" : " black)")
-               }}
+               className={classes["name" + (isMonster ? "Mon" : "ST")]}
+               style={{ fontSize: nameHeight + "px", lineHeight: nameHeight + "px" }}
             >
                {name}
             </div>

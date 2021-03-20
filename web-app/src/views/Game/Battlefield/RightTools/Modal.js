@@ -25,7 +25,6 @@ function Modal({ pile, height }) {
 
    const { player, row } = pile;
    const isExtra = row === EXTRA_DECK;
-   console.log("header" + row);
 
    const flipSwitch = (event) => {
       setMetaTargets(event.target.checked);
@@ -51,7 +50,6 @@ function Modal({ pile, height }) {
    const header = document.getElementById("modalheader");
    const footer = document.getElementById("modalfooter");
    const hfHeights = (header ? header.offsetHeight : 0) + (footer ? footer.offsetHeight : 0);
-   console.log(hfHeights);
 
    return (
       <div className={classes.modalContainer}>
@@ -84,13 +82,14 @@ function Modal({ pile, height }) {
                Meta Targets
                {metaTargets && (
                   <div className={classes.levelFilter}>
-                     {levels.map((level) => (
+                     {levels.map((level, index) => (
                         <Button
                            color={levelFilter === level ? "primary" : "info"}
                            size="sm"
                            round
                            justIcon
                            onClick={() => setLevelFilter(level)}
+                           key={index}
                         >
                            {level}
                         </Button>
@@ -105,7 +104,6 @@ function Modal({ pile, height }) {
 
 function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub }) {
    const cardDivs = [];
-   console.log(sub);
 
    for (let i = cardsLen - 1; i >= 0; i -= 2) {
       cardDivs.push(

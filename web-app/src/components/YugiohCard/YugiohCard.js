@@ -33,7 +33,6 @@ import {
    OFF_FIELD,
    allTypes,
    OVER_COLOR,
-   INVALID_COLOR,
    HERO_SELECTION_COLOR
 } from "utils/constants.js";
 
@@ -46,17 +45,25 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
    const discardZone = discardZones.includes(row);
    const deckZone = deckZones.includes(row) && zone === -1;
    const isExtraDeck = row === EXTRA_DECK && zone === -1;
-   const zoneLabel = useSelector((state) => {
-      if (row === DECK) return state.field[player][DECK].count;
-      else if (isExtraDeck) return EXTRA_DECK;
-      else if (row === EXTRA_DECK) return 3 - (state.field[player].usedFusions[cardName] || 0);
-      if (discardZone && zone === -1) return state.field[player][row].length;
-      else return false;
+   let { zoneLabel, card, sleeves, selected } = useSelector((state) => {
+      const card = cardName
+         ? { name: cardName }
+         : zone === -1
+         ? state.field[player][row]
+         : state.field[player][row][zone];
+      const sleeves =
+         (isExtraDeck && state.field[player].sleeves) ||
+         (card && (card.notOwned ? state.field[isHero ? VILLAIN : HERO].sleeves : state.field[player].sleeves));
+      const selection = state.selectedCard;
+      const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
+      const zoneLabel =
+         (row === DECK && state.field[player][DECK].count) ||
+         (isExtraDeck && EXTRA_DECK) ||
+         (row === EXTRA_DECK && 3 - (state.field[player].usedFusions[cardName] || 0)) ||
+         (discardZone && zone === -1 && state.field[player][row].length);
+      return { zoneLabel, card, sleeves, selected };
    });
 
-   let card = useSelector((state) =>
-      cardName ? { name: cardName } : zone !== -1 ? state.field[player][row][zone] : state.field[player][row]
-   );
    let dontSelect = false;
    if (discardZone && zone === -1) {
       dontSelect = true;
@@ -69,29 +76,17 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
          card = card[zone];
       }
    }
+
    const name = card && card.name;
    const isHero = player === HERO;
-   const sleeves = useSelector(
-      (state) =>
-         (isExtraDeck && state.field[player].sleeves) ||
-         (card && (card.notOwned ? state.field[isHero ? VILLAIN : HERO].sleeves : state.field[player].sleeves))
-   );
-
    const facedown = name === FACEDOWN_CARD || deckZone || (card && card.facedown);
    const inDef = card && card.inDef && row === MONSTER ? card.inDef : false;
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
-   const selection = useSelector((state) => state.selectedCard);
-   const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
-
-   let type = row;
-   if (dynamicZones.includes(row)) {
-      if (!isNaN(levelOrSubtype)) type = OFF_FIELD + MONSTER;
-      else {
-         if (levelOrSubtype === FIELD_SPELL) type = FIELD_SPELL;
-         else type = OFF_FIELD + ST;
-      }
-   }
+   const type =
+      (dynamicZones.includes(row) &&
+         ((levelOrSubtype === FIELD_SPELL && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : ST))) ||
+      row;
 
    const [{ isDragging }, drag] = useDrag({
       item: { type, player, row, zone, cardName },
@@ -100,10 +95,12 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
       })
    });
 
-   let acceptables = allTypes;
-   if (row === FIELD_SPELL) acceptables = FIELD_SPELL;
-   else if (row === MONSTER) acceptables = [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK];
-   else if (row === ST) acceptables = [MONSTER, ST, OFF_FIELD + ST];
+   const acceptables =
+      (row === FIELD_SPELL && FIELD_SPELL) ||
+      (row === MONSTER && [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK]) ||
+      (row === ST && [MONSTER, ST, OFF_FIELD + ST]) ||
+      allTypes;
+
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allTypes,
       canDrop: (item) => isAcceptable(item.type, acceptables),
@@ -116,18 +113,14 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
       })
    });
 
-   const blank = ((!card || isDragging) && !deckZone) || (deckZone && zoneLabel === 0);
+   const blank = ((!card || isDragging) && !deckZone) || (deckZone && !zoneLabel);
 
    let dragOrDrop = useRef(null);
    if (isHero) {
       if (blank && !isDragging) dragOrDrop = drop;
-      else {
-         if (dndZones.includes(row)) drag(drop(dragOrDrop));
-         else if (!isExtraDeck) dragOrDrop = drag;
-      }
-   } else {
-      if (row === MONSTER && blank) dragOrDrop = drop;
-   }
+      else if (dndZones.includes(row)) drag(drop(dragOrDrop));
+      else if (!isExtraDeck) dragOrDrop = drag;
+   } else if (row === MONSTER && blank) dragOrDrop = drop;
 
    if (isHero && selected)
       bind("d", () => {
@@ -139,18 +132,18 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
       };
    }, []);
 
+   const margin = !notFull && (height - height / CARD_RATIO) / 2;
    return (
       <div
          ref={dragOrDrop}
-         className={classes.container}
+         className={classes["container" + (inDef ? "Def" : "")]}
          style={{
             width: height / CARD_RATIO,
             height,
-            marginLeft: !notFull && (height - height / CARD_RATIO) / 2,
-            marginRight: !notFull && (height - height / CARD_RATIO) / 2,
-            transform: inDef ? "rotate(90deg)" : "rotate(0deg)",
-            opacity: (isDragging || blank) && row === HAND ? 0 : 1,
-            borderColor: (isOver && (canDrop ? OVER_COLOR : INVALID_COLOR)) || (selected && HERO_SELECTION_COLOR),
+            marginLeft: margin,
+            marginRight: margin,
+            opacity: (isDragging || blank) && row === HAND && 0,
+            borderColor: (isOver && canDrop && OVER_COLOR) || (selected && HERO_SELECTION_COLOR),
             backgroundImage:
                !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
