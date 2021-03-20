@@ -15,19 +15,14 @@ const gameStyle = {
       display: "flex"
    },
    leftPanel: {
-      flex: "25%",
-      width: "25%",
+      flex: "23%",
+      width: "23%",
       marginRight: "4px",
       height: "100%"
    },
-   gameplay: {
-      flex: "75%",
-      width: "75%",
-      overflow: "hidden"
-   },
    gameplayContainer: {
-      flex: "75%",
-      width: "75%",
+      flex: "77%",
+      width: "77%",
       overflow: "hidden",
       position: "relative",
       display: "flex",
@@ -35,9 +30,9 @@ const gameStyle = {
    },
    cardsInPlay: {
       position: "relative",
-      flex: "85%",
-      width: "85%",
-      maxWidth: "85%"
+      flex: "84%",
+      width: "84%",
+      maxWidth: "84%"
    },
    chat: {
       borderRadius: "3px",

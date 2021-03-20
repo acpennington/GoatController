@@ -10,6 +10,9 @@ import {
 
 const buttonStyle = {
    button: {
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
       minHeight: "auto",
       minWidth: "auto",
       backgroundColor: grayColor,

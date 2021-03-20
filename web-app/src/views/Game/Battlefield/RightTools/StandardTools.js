@@ -15,7 +15,7 @@ import LifeBar from "components/LifeBar/LifeBar.js";
 import { adjustLP, revealHand } from "stateStore/actions/field.js";
 import { switchDiscard } from "stateStore/actions/settings.js";
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
-import { HERO, VILLAIN, discardZones, phases } from "utils/constants.js";
+import { HERO, VILLAIN, GRAVEYARD, discardZones, phases } from "utils/constants.js";
 
 class StandardTools extends PureComponent {
    constructor(props) {
@@ -88,13 +88,41 @@ class StandardTools extends PureComponent {
                placement="bottom"
                classes={{ tooltip: classes.tooltip }}
             >
-               <Button color="primary" onClick={this.props.switchDiscard}>
+               <Button
+                  onClick={this.props.switchDiscard}
+                  style={
+                     discardPile === GRAVEYARD
+                        ? {
+                             backgroundImage:
+                                'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/cards/art/CalloftheHaunted.jpg")',
+                             backgroundPosition: "50% 95%"
+                          }
+                        : {
+                             backgroundImage:
+                                'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/cards/art/DimensionFusion.jpg")'
+                          }
+                  }
+               >
                   Showing
                   <br />
                   {discardPile}
                </Button>
             </Tooltip>
-            <Button color={"primary"} onClick={this.props.revealHand}>
+            <Button
+               onClick={this.props.revealHand}
+               style={
+                  handRevealed
+                     ? {
+                          backgroundImage:
+                             'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/cards/art/InfiniteCards.jpg")',
+                          backgroundPosition: "50% 15%"
+                       }
+                     : {
+                          backgroundImage:
+                             'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/Ante.jpg")'
+                       }
+               }
+            >
                {handRevealed ? "Stop Revealing" : "Reveal Hand"}
             </Button>
             <LifeBar life={heroLP} player={HERO} />

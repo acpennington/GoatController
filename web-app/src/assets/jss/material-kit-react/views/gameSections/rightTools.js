@@ -8,7 +8,7 @@ const allContainers = {
    flexDirection: "column",
    marginLeft: "4px",
    height: "100%",
-   width: "15%",
+   width: "16%",
    borderRadius: "3px",
    textAlign: "center"
 };

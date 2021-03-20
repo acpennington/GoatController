@@ -21,7 +21,8 @@ const name = {
    overflowWrap: "break-word",
    position: "absolute",
    letterSpacing: "-0.2px",
-   zIndex: 1
+   zIndex: 1,
+   textAlign: "left"
 };
 
 const cardStyle = {
@@ -42,6 +43,7 @@ const cardStyle = {
       position: "relative",
       float: "left",
       zIndex: 3,
+      textAlign: "left",
       filter: "drop-shadow(0px 0px 3px black)"
    },
    subtitle: {
@@ -49,6 +51,7 @@ const cardStyle = {
       position: "relative",
       float: "right",
       zIndex: 3,
+      textAlign: "right",
       filter: "drop-shadow(0px 0px 3px black)"
    },
    nameMon: {
