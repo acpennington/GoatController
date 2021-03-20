@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 
 import { Provider } from "react-redux";
-import store from "stateStore/store.js";
+import store from "stateStore/gameStore.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
 import Chat from "components/Chat/Chat.js";

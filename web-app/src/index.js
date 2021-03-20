@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Switch } from "react-router-dom";
-import { history } from "./stateStore/store.js";
+import { history } from "./stateStore/gameStore.js";
 
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 
