@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Route, Switch } from "react-router-dom";
-import { ConnectedRouter } from "connected-react-router";
-import { Provider } from "react-redux";
-import store, { history } from "./stateStore/store.js";
+import { Router, Route, Switch } from "react-router-dom";
+import { history } from "./stateStore/store.js";
 
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 
@@ -15,16 +13,14 @@ import LoginPage from "views/LoginPage/LoginPage.js";
 import GamePage from "views/Game/Game.js";
 
 ReactDOM.render(
-   <Provider store={store}>
-      <ConnectedRouter history={history}>
-         <Switch>
-            <Route path="/game" component={GamePage} />
-            <Route path="/landing-page" component={LandingPage} />
-            <Route path="/profile-page" component={ProfilePage} />
-            <Route path="/login-page" component={LoginPage} />
-            <Route path="/" component={Components} />
-         </Switch>
-      </ConnectedRouter>
-   </Provider>,
+   <Router history={history}>
+      <Switch>
+         <Route path="/game" component={GamePage} />
+         <Route path="/landing-page" component={LandingPage} />
+         <Route path="/profile-page" component={ProfilePage} />
+         <Route path="/login-page" component={LoginPage} />
+         <Route path="/" component={Components} />
+      </Switch>
+   </Router>,
    document.getElementById("root")
 );

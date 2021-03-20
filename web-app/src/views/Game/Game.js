@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 
+import { Provider } from "react-redux";
+import store from "stateStore/store.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
 import Chat from "components/Chat/Chat.js";
@@ -28,21 +30,23 @@ class Game extends Component {
       const sizingValue = this.state.sizingValue;
 
       return (
-         <div className={classes.container} style={{ backgroundImage: 'url("/backgrounds/thousandeyes.png")' }}>
-            <div
-               className={classes.innerContainer}
-               style={{
-                  height: sizingValue,
-                  width: sizingValue * GAME_RATIO
-               }}
-            >
-               <div className={classes.leftPanel}>
-                  <YugiohCardExpanded />
-                  <Chat />
+         <Provider store={store}>
+            <div className={classes.container} style={{ backgroundImage: 'url("/backgrounds/thousandeyes.png")' }}>
+               <div
+                  className={classes.innerContainer}
+                  style={{
+                     height: sizingValue,
+                     width: sizingValue * GAME_RATIO
+                  }}
+               >
+                  <div className={classes.leftPanel}>
+                     <YugiohCardExpanded />
+                     <Chat />
+                  </div>
+                  <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} />
                </div>
-               <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} />
             </div>
-         </div>
+         </Provider>
       );
    }
 }
