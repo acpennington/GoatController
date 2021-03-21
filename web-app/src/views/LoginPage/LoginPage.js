@@ -34,6 +34,8 @@ export default function LoginPage(props) {
    const classes = useStyles();
    const { ...rest } = props;
 
+   const headerText = isLogin ? "Login" : "Register";
+
    return (
       <div>
          <Header
@@ -62,7 +64,7 @@ export default function LoginPage(props) {
                      <Card className={classes[cardAnimation]}>
                         <form className={classes.form}>
                            <CardHeader color="primary" className={classes.cardHeader}>
-                              <h4>Login</h4>
+                              <h4>{headerText}</h4>
                            </CardHeader>
                            <p className={classes.divider}>Goat Duels Await You...</p>
                            <CardBody>
@@ -117,23 +119,21 @@ export default function LoginPage(props) {
                            </CardBody>
                            <CardFooter className={classes.cardFooter}>
                               <Button simple color="primary" size="lg">
-                                 Login
+                                 {headerText}
                               </Button>
-                              <Button simple color="primary" size="lg">
-                                 Forgot Password?
+                              {isLogin && (
+                                 <Button simple color="primary" size="lg">
+                                    Forgot Password?
+                                 </Button>
+                              )}
+                           </CardFooter>
+                           <hr />
+                           <CardFooter className={classes.cardFooter}>
+                              {isLogin ? "Need an account?" : "Did you mean to login?"}
+                              <Button simple color="primary" size="lg" onClick={() => setIsLogin(!isLogin)}>
+                                 {isLogin ? "Register" : "Login"}
                               </Button>
                            </CardFooter>
-                           {isLogin && (
-                              <>
-                                 <hr />
-                                 <CardFooter className={classes.cardFooter}>
-                                    Need an account?
-                                    <Button simple color="primary" size="lg">
-                                       Register
-                                    </Button>
-                                 </CardFooter>
-                              </>
-                           )}
                         </form>
                      </Card>
                   </GridItem>
