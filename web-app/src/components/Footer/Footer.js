@@ -29,10 +29,11 @@ export default function Footer(props) {
    return (
       <footer className={footerClasses}>
          <div className={classes.container}>
-            <div className={classes.left}></div>
-            <div className={classes.right}>
-               &copy; {1900 + new Date().getYear()}, made with <Favorite className={classes.icon} /> by the Goat Format
-               community
+            <div className={classes.right} style={{ width: "100%" }}>
+               Best viewed in Chrome, Edge, or any Chromium-based web browser. Make sure your browser is up to date!
+               <br />
+               &copy; {1900 + new Date().getYear()}, made with <Favorite className={classes.icon} /> by ACP {"&"} the
+               Goat Format community
             </div>
          </div>
       </footer>
