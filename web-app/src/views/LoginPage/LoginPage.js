@@ -58,7 +58,7 @@ export default function LoginPage(props) {
          >
             <div className={classes.container}>
                <GridContainer justify="center">
-                  <GridItem xs={12} sm={12} md={4}>
+                  <GridItem xs={12} sm={8} md={4}>
                      <Card className={classes[cardAnimation]}>
                         <form className={classes.form}>
                            <CardHeader color="primary" className={classes.cardHeader}>
