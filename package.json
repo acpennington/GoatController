@@ -1,0 +1,23 @@
+{
+   "name": "goatcontroller",
+   "version": "1.0.0",
+   "description": "A Dueling Simulator Optimized for Goat Format",
+   "main": "app.js",
+   "scripts": {
+      "buildfe": "cd web-app && npm run build",
+      "start": "node ./bin/www"
+   },
+   "author": "ACP and the Goat Format community",
+   "license": "ISC",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/acpennington/GoatController"
+   },
+   "dependencies": {
+      "cookie-parser": "^1.4.5",
+      "cors": "^2.8.5",
+      "debug": "^2.6.9",
+      "express": "^4.17.1",
+      "morgan": "^1.10.0"
+   }
+}
