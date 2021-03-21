@@ -61,7 +61,7 @@ export default function LoginPage(props) {
             <div className={classes.container}>
                <GridContainer justify="center">
                   <GridItem xs={12} sm={8} md={4}>
-                     <Card className={classes[cardAnimation]}>
+                     <Card className={classes[cardAnimation]} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
                         <form className={classes.form}>
                            <CardHeader color="primary" className={classes.cardHeader}>
                               <h4>{headerText}</h4>
