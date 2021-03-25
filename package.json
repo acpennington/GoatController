@@ -2,7 +2,7 @@
    "name": "goatcontroller",
    "version": "1.0.0",
    "description": "A Dueling Simulator Optimized for Goat Format",
-   "main": "app.js",
+   "main": "server.js",
    "scripts": {
       "buildfe": "cd web-app && npm run build",
       "start": "node ./bin/www"
@@ -14,11 +14,15 @@
       "url": "https://github.com/acpennington/GoatController"
    },
    "dependencies": {
+      "@aws-sdk/client-dynamodb": "^3.9.0",
       "aws-sdk": "^2.870.0",
+      "bcryptjs": "^2.4.3",
       "cookie-parser": "^1.4.5",
       "cors": "^2.8.5",
       "debug": "^2.6.9",
       "express": "^4.17.1",
+      "express-validator": "^6.10.0",
+      "jsonwebtoken": "^8.5.1",
       "morgan": "^1.10.0"
    }
 }

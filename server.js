@@ -4,9 +4,6 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
-// Import all needed routes
-// ex: const resultsRouter = require("./routes/api/results");
-
 // Express imports
 const express = require("express");
 const app = express();
@@ -18,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Define Routes
-// ex: app.use("/api/results", resultsRouter);
+app.use("/api/users", require("./api/users.js"));
 
 app.use(express.static("web-app/build"));
 app.get("*", function (req, res) {
