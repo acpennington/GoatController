@@ -49,11 +49,11 @@ const rightToolsStyle = {
       ...header,
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/cards/art/DimensionFusion.jpg")'
    },
-   headerExtra: {
+   headerFusion: {
       ...header,
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/cards/art/Polymerization.jpg")'
    },
-   footerExtra: {
+   footerFusion: {
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("/cards/art/Metamorphosis.jpg")',
       ...footer
    },

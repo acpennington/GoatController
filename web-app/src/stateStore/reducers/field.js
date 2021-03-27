@@ -48,7 +48,7 @@ const initialState = {
       hand: [
          { name: "Shining Angel" },
          { name: "Call of the Haunted" },
-         { name: "Call of the Haunted" },
+         { name: "Nobleman of Crossout" },
          { name: "Necrovalley" },
          { name: "Shining Angel" }
       ],

@@ -473,6 +473,12 @@ const spells = {
       levelOrSubtype: "Field",
       text:
          'All "Gravekeeper\'s" monsters gain 500 ATK and DEF. Cards in the Graveyard cannot be banished. Negate any card effect that would move a card in the Graveyard to a different place. Negate any card effect that changes Types or Attributes in the Graveyard.'
+   },
+   "Nobleman of Crossout": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text:
+         "Target 1 face-down monster on the field; destroy that target, and if you do, banish it, then, if it was a Flip monster, each player reveals their Main Deck, then banishes all cards from it with that monster's name."
    }
 };
 
@@ -486,9 +492,11 @@ const traps = {
 };
 
 const nonfusions = {
-   ...monsters, ...spells, ...traps
+   ...monsters,
+   ...spells,
+   ...traps
 };
 
-const cards = {...fusions, ...nonfusions};
+const cards = { ...fusions, ...nonfusions };
 
 export { cards, fusions, nonfusions, monsters, spells, traps };

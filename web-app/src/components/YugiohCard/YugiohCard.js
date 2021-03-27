@@ -140,13 +140,14 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
    return (
       <div
          ref={dragOrDrop}
-         className={classes["container" + (inDef ? "Def" : "")]}
+         className={classes["container" + (inDef ? "Def" : isHero ? "" : "Villain")]}
          style={{
             width: height / CARD_RATIO,
             height,
             marginLeft: margin,
             marginRight: margin,
             opacity: (isDragging || blank) && inHand && 0,
+            borderWidth: (blank || deckZone || isOver || revealed) && "3px",
             borderColor:
                (isOver && canDrop && OVER_COLOR) || (selected && HERO_SELECTION_COLOR) || (revealed && REVEAL_COLOR),
             backgroundImage:
@@ -180,10 +181,14 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
                levelOrSubtype={levelOrSubtype}
                atk={atk}
                def={def}
+               isHero={isHero}
             />
          )}
          {zoneLabel !== 0 && (
-            <div className={classes.zoneLabel} style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}>
+            <div
+               className={classes["zoneLabel" + (isHero ? "" : "Villain")]}
+               style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}
+            >
                {zoneLabel}
             </div>
          )}

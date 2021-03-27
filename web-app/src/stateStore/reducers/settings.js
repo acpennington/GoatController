@@ -1,6 +1,10 @@
 import { GRAVEYARD, BANISHED, SWITCH_DISCARD, OPEN_MODAL, CLOSE_MODAL } from "utils/constants.js";
 
-const initialState = { discardPile: GRAVEYARD, modal: null };
+const initialState = {
+   showNames: false,
+   discardPile: GRAVEYARD,
+   modal: null
+};
 
 export default function (state = initialState, action) {
    const { type, data } = action;
