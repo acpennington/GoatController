@@ -140,14 +140,14 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
    return (
       <div
          ref={dragOrDrop}
-         className={classes["container" + (inDef ? "Def" : isHero ? "" : "Villain")]}
+         className={classes["container" + (inDef ? "Def" : isHero ? "" : "Villain" + (inHand ? "Hand" : ""))]}
          style={{
-            width: height / CARD_RATIO,
+            width: Math.floor(height / CARD_RATIO),
             height,
             marginLeft: margin,
             marginRight: margin,
             opacity: (isDragging || blank) && inHand && 0,
-            borderWidth: (blank || deckZone || isOver || revealed) && "3px",
+            borderWidth: (blank || deckZone || isOver || revealed || (!isHero && inHand)) && "3px",
             borderColor:
                (isOver && canDrop && OVER_COLOR) || (selected && HERO_SELECTION_COLOR) || (revealed && REVEAL_COLOR),
             backgroundImage:

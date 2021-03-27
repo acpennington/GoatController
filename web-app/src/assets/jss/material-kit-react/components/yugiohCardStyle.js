@@ -68,11 +68,13 @@ const zoneLabel = {
 
 const cardStyle = {
    container: {
-      ...container,
-      top: "100%",
-      transform: "translateY(-100%)"
+      ...container
    },
    containerVillain: {
+      ...container,
+      transform: "rotate(180deg)"
+   },
+   containerVillainHand: {
       ...container,
       top: "100%",
       transform: "translateY(-100%) rotate(180deg)"
