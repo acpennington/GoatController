@@ -4,14 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
+import ModalHeader from "./ModalHeader.js";
 import { closeModal } from "stateStore/actions/settings.js";
-import getPlayerName from "utils/getPlayerName.js";
 import getCardDetails from "utils/getCardDetails";
 import { EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
 import { fusions } from "utils/cardDB.js";
 
 import Button from "components/CustomButtons/Button.js";
-import Tooltip from "@material-ui/core/Tooltip";
 import Switch from "@material-ui/core/Switch";
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
@@ -56,15 +55,7 @@ function Modal({ pile, height }) {
 
    return (
       <div className={classes.modalContainer}>
-         <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
-            <div
-               id="modalheader"
-               className={classes["header" + row.split(" ")[0]]}
-               onClick={() => dispatch(closeModal())}
-            >
-               Viewing {!isExtra && getPlayerName(player) + "'s"} {row}
-            </div>
-         </Tooltip>
+         <ModalHeader classes={classes} isExtra={isExtra} player={player} row={row} />
          <RenderCards
             classes={classes}
             cardsLen={cardsLen}

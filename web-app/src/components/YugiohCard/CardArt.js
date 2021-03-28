@@ -67,10 +67,16 @@ function getSubtitle(starsOrAlt, height) {
       const starList = [];
       for (let i = 0; i < starsOrAlt; i++) {
          starList.push(
-            <img src="/cards/svgs/subtypes/star.svg" draggable="false" height={height * 0.67} alt="yugioh level star" />
+            <img
+               src="/cards/svgs/subtypes/star.svg"
+               draggable="false"
+               height={height * 0.67}
+               alt="yugioh level star"
+               key={i}
+            />
          );
       }
-      return <>{starList}</>;
+      return <Fragment>{starList}</Fragment>;
    } else
       return (
          <img
