@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -47,9 +47,12 @@ function Modal({ pile, height }) {
    const cardsLen = useSelector((state) => (isExtra ? fusionNames.length : state.field[player][row].length));
    if (cardsLen === 0) dispatch(closeModal());
 
-   const header = document.getElementById("modalheader");
-   const footer = document.getElementById("modalfooter");
-   const hfHeights = (header ? header.offsetHeight : 0) + (footer ? footer.offsetHeight : 0);
+   const [hfHeights, sethfHeights] = useState(0);
+   useEffect(() => {
+      const header = document.getElementById("modalheader");
+      const footer = document.getElementById("modalfooter");
+      sethfHeights((header ? header.offsetHeight : 0) + (footer ? footer.offsetHeight : 0));
+   }, []);
 
    return (
       <div className={classes.modalContainer}>

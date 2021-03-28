@@ -50,7 +50,7 @@ const monsterStats = {
    fontWeight: 400,
    textAlign: "center",
    width: "100%",
-   height: "calc(50% - 1.5px)",
+   height: "48.5%",
    color: "black",
    filter: "drop-shadow(0px 0px 6px white)"
 };

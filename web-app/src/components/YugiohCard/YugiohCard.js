@@ -147,7 +147,8 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
             marginLeft: margin,
             marginRight: margin,
             opacity: (isDragging || blank) && inHand && 0,
-            borderWidth: (blank || deckZone || isOver || revealed || (!isHero && inHand)) && "3px",
+            borderWidth:
+               (blank || facedown || deckZone || isOver || selected || revealed || (!isHero && inHand)) && "3px",
             borderColor:
                (isOver && canDrop && OVER_COLOR) || (selected && HERO_SELECTION_COLOR) || (revealed && REVEAL_COLOR),
             backgroundImage:
