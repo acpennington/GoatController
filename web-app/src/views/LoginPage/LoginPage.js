@@ -68,34 +68,17 @@ export default function LoginPage(props) {
                            </CardHeader>
                            <p className={classes.divider}>Goat Duels Await You...</p>
                            <CardBody>
-                              {!isLogin && (
-                                 <CustomInput
-                                    labelText="Username"
-                                    id="username"
-                                    formControlProps={{
-                                       fullWidth: true
-                                    }}
-                                    inputProps={{
-                                       type: "text",
-                                       endAdornment: (
-                                          <InputAdornment position="end">
-                                             <People className={classes.inputIconsColor} />
-                                          </InputAdornment>
-                                       )
-                                    }}
-                                 />
-                              )}
                               <CustomInput
-                                 labelText="Email"
-                                 id="email"
+                                 labelText="Username"
+                                 id="username"
                                  formControlProps={{
                                     fullWidth: true
                                  }}
                                  inputProps={{
-                                    type: "email",
+                                    type: "text",
                                     endAdornment: (
                                        <InputAdornment position="end">
-                                          <Email className={classes.inputIconsColor} />
+                                          <People className={classes.inputIconsColor} />
                                        </InputAdornment>
                                     )
                                  }}

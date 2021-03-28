@@ -31,6 +31,9 @@ export default function Footer(props) {
             <div className={classes.right} style={{ width: "100%" }}>
                Best viewed in Chrome, Edge, or any Chromium-based web browser. Make sure your browser is up to date!
                <br />
+               This web app uses cookies for authentication. Please do not use your browser's private or "incognito"
+               mode.
+               <br />
                &copy; {1900 + new Date().getYear()}, made with <Favorite className={classes.icon} /> by ACP {"&"} the
                Goat Format community
             </div>
