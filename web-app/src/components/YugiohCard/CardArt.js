@@ -8,9 +8,20 @@ import compress from "utils/compressName.js";
 
 class CardArt extends PureComponent {
    render() {
-      const { classes, name, nameHeight, cardTypeIcon, levelOrSubtype, atk, def, isHero, showNames } = this.props;
+      const {
+         classes,
+         name,
+         nameHeight,
+         cardTypeIcon,
+         levelOrSubtype,
+         atk,
+         def,
+         isHero,
+         showNames,
+         inDef
+      } = this.props;
       const isMonster = !isNaN(levelOrSubtype);
-      const villExtension = isHero ? "" : "Villain";
+      const villExtension = isHero || inDef ? "" : "Villain";
 
       return (
          <Fragment>

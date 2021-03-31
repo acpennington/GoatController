@@ -47,6 +47,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
    const deckZone = deckZones.includes(row) && zone === -1;
    const isExtraDeck = row === EXTRA_DECK && zone === -1;
    const inHand = row === HAND;
+
    let { zoneLabel, card, sleeves, selected, handRevealed } = useSelector((state) => {
       const card = cardName
          ? { name: cardName }
@@ -136,11 +137,11 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
       };
    }, []);
 
-   const margin = !notFull && (height - height / CARD_RATIO) / 2;
+   const margin = !notFull && (height - height / CARD_RATIO) / 2 + 1;
    return (
       <div
          ref={dragOrDrop}
-         className={classes["container" + (inDef ? "Def" : isHero ? "" : "Villain" + (inHand ? "Hand" : ""))]}
+         className={classes["container" + (inDef ? "Def" : (isHero ? "" : "Villain") + rowClass(row))]}
          style={{
             width: Math.floor(height / CARD_RATIO),
             height,
@@ -183,6 +184,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
                atk={atk}
                def={def}
                isHero={isHero}
+               inDef={inDef}
             />
          )}
          {zoneLabel !== 0 && (
@@ -195,6 +197,21 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
          )}
       </div>
    );
+}
+
+function rowClass(row) {
+   switch (row) {
+      case HAND:
+         return "Hand";
+      case MONSTER:
+         return "Mon";
+      case ST:
+         return "ST";
+      case FIELD_SPELL:
+         return "Field";
+      default:
+         return "";
+   }
 }
 
 function isAcceptable(itemType, acceptables) {
