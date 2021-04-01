@@ -11,7 +11,8 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Apps, CloudDownload, Description } from "@material-ui/icons";
+import { Apps, CloudDownload, Description, Help } from "@material-ui/icons";
+import { SiDiscord } from "react-icons/si";
 
 // core components
 import Button from "components/CustomButtons/Button.js";
@@ -31,13 +32,23 @@ export default function HeaderLinks(props) {
                target="_blank"
                className={classes.navLink}
             >
+               <Help className={classes.icons} /> FAQ
+            </Button>
+         </ListItem>
+         <ListItem className={classes.listItem}>
+            <Button
+               href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+               color="transparent"
+               target="_blank"
+               className={classes.navLink}
+            >
                <Description className={classes.icons} /> Card Rulings
             </Button>
          </ListItem>
          <ListItem className={classes.listItem}>
             <Tooltip
-               id="instagram-twitter"
-               title="Follow us on twitter"
+               id="discord"
+               title="Join our Discord server"
                placement={window.innerWidth > 959 ? "top" : "left"}
                classes={{ tooltip: classes.tooltip }}
             >
@@ -47,13 +58,13 @@ export default function HeaderLinks(props) {
                   color="transparent"
                   className={classes.navLink}
                >
-                  <i className={classes.socialIcons + " fab fa-twitter"} />
+                  <SiDiscord className={classes.socialIcons} />
                </Button>
             </Tooltip>
          </ListItem>
          <ListItem className={classes.listItem}>
             <Tooltip
-               id="instagram-facebook"
+               id="facebook"
                title="Follow us on facebook"
                placement={window.innerWidth > 959 ? "top" : "left"}
                classes={{ tooltip: classes.tooltip }}
@@ -65,23 +76,6 @@ export default function HeaderLinks(props) {
                   className={classes.navLink}
                >
                   <i className={classes.socialIcons + " fab fa-facebook"} />
-               </Button>
-            </Tooltip>
-         </ListItem>
-         <ListItem className={classes.listItem}>
-            <Tooltip
-               id="instagram-tooltip"
-               title="Follow us on instagram"
-               placement={window.innerWidth > 959 ? "top" : "left"}
-               classes={{ tooltip: classes.tooltip }}
-            >
-               <Button
-                  color="transparent"
-                  href="https://www.instagram.com/CreativeTimOfficial?ref=creativetim"
-                  target="_blank"
-                  className={classes.navLink}
-               >
-                  <i className={classes.socialIcons + " fab fa-instagram"} />
                </Button>
             </Tooltip>
          </ListItem>

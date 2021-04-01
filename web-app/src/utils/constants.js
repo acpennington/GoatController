@@ -63,7 +63,6 @@ const allTypes = [MONSTER, ST, FIELD_SPELL, OFF_FIELD + MONSTER, OFF_FIELD + ST,
 const OVER_COLOR = "#00FF00";
 const HERO_SELECTION_COLOR = "#003CFF";
 const VILLAIN_SELECTION_COLOR = "red";
-const BORDER_COLOR = "#292c42";
 const REVEAL_COLOR = "white";
 
 // scrolling
@@ -138,7 +137,6 @@ export {
    OVER_COLOR,
    HERO_SELECTION_COLOR,
    VILLAIN_SELECTION_COLOR,
-   BORDER_COLOR,
    REVEAL_COLOR,
    // scrolling
    BUFFER,

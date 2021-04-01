@@ -16,7 +16,7 @@ const useStyles = makeStyles(styles);
 
 function Battlefield({ size }) {
    const classes = useStyles();
-   const cardHeight = Math.floor(size - 1.5);
+   const cardHeight = Math.floor(size - 2);
 
    const { handCounts, discardPile } = useSelector((state) => ({
       handCounts: {

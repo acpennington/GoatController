@@ -10,7 +10,7 @@ import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded
 import Chat from "components/Chat/Chat.js";
 import { GAME_RATIO, VILLAIN_HAND_SIZE } from "utils/constants.js";
 
-const backgroundImage = 'url("/backgrounds/thousandeyes.png")';
+const backgroundImage = 'url("/backgrounds/sorcererinspace.png")';
 
 class Game extends Component {
    constructor(props) {

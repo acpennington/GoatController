@@ -137,7 +137,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       };
    }, []);
 
-   const margin = !notFull && (height - height / CARD_RATIO) / 2 + 1;
+   const margin = !notFull && (height - height / CARD_RATIO) / 2 + 2;
    const villExtension = isHero || modal ? "" : "Villain";
    return (
       <div
@@ -179,7 +179,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
          {!blank && !facedown && (
             <CardArt
                name={name}
-               nameHeight={(height - height / CARD_RATIO) / 4 - 0.5}
+               nameHeight={Math.floor((height - height / CARD_RATIO) / 4 - 1)}
                cardTypeIcon={attribute || cardType}
                levelOrSubtype={levelOrSubtype}
                atk={atk}

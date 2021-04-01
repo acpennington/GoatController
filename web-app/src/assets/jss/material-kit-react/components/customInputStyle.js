@@ -75,10 +75,10 @@ const customInputStyle = {
    whiteInput: {
       borderStyle: "solid",
       borderWidth: "2px",
-      borderRadius: "3px",
+      borderRadius: "12px",
       borderColor: "white",
-      paddingLeft: "3px",
-      paddingRight: "3px",
+      paddingLeft: "8px",
+      paddingRight: "8px",
       "&,&::placeholder": {
          color: "#FFFFFF",
          opacity: "1"

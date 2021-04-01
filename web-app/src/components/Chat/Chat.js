@@ -51,7 +51,7 @@ class Chat extends PureComponent {
                style={{ position: "absolute", bottom: 0 }}
                contStyle={{ height: "calc(100% - 85px)" }}
             >
-               <Messages chat={chat} />
+               <Messages classes={classes} chat={chat} />
             </FriendlyScroll>
             <CustomInput
                id="Message"
@@ -88,13 +88,32 @@ function mapStateToProps(state) {
 
 class Messages extends PureComponent {
    render() {
+      const classes = this.props.classes;
       const messages = this.props.chat;
       const messagesLength = messages.length;
       const messageList = [];
 
       for (let i = 0; i < messagesLength; i++) {
          const message = messages[messagesLength - 1 - i];
-         messageList.push(<div key={i}>{message.author + ": " + message.content}</div>);
+
+         const prevMessage = messages[messagesLength - 2 - i];
+         const nextMessage = messages[messagesLength - 0 - i];
+         const messageAbove = prevMessage && prevMessage.author === message.author;
+         const messageBelow = nextMessage && nextMessage.author === message.author;
+
+         let section = "";
+         if (messageAbove && messageBelow) section = "Mid";
+         else if (messageAbove) section = "End";
+         else if (messageBelow) section = "Start";
+
+         const authorIsHero = getPlayerName(HERO) === message.author;
+         messageList.push(
+            <div className={classes.messageContainer}>
+               <div className={classes["message" + section + (authorIsHero ? "Hero" : "")]} key={i}>
+                  {(authorIsHero ? "" : message.author + ": ") + message.content}
+               </div>
+            </div>
+         );
       }
 
       return messageList;

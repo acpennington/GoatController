@@ -1,17 +1,18 @@
-import { BORDER_COLOR } from "utils/constants.js";
-
-const monsterColor = "rgba(155,86,31,0.45)";
-const stColor = "linear-gradient(to right, rgba(21,115,78,0.45), rgba(134,43,104,0.45))";
-const fieldColor = "rgba(21,115,78,0.45)";
+const borderColor = "rgb(10,15,34)";
+const monsterColor = "rgb(155,86,31)";
+const stColor = "rgb(21,115,78) rgb(126,38,98) rgb(126,38,98) rgb(21,115,78)";
+const fieldColor = "rgb(21,115,78)";
 
 const container = {
    margin: "1px",
    position: "relative",
-   backgroundColor: "rgba(0,0,0,0.65)",
+   top: 0,
+   left: 0,
+   backgroundColor: "rgba(0,0,0,0.8)",
    borderRadius: "3px",
    borderStyle: "solid",
    borderWidth: "0px",
-   borderColor: BORDER_COLOR,
+   borderColor,
    padding: "1px",
    overflow: "hidden",
    backgroundPosition: "center",
@@ -21,7 +22,8 @@ const container = {
 };
 
 const icons = {
-   position: "relative",
+   position: "absolute",
+   width: "100%",
    zIndex: 3,
    textAlign: "center",
    filter: "drop-shadow(0px 0px 2px white)",
@@ -47,14 +49,14 @@ const name = {
 
 const monsterStats = {
    position: "absolute",
-   bottom: 0,
    left: 0,
+   top: "90%",
+   transform: "translateY(-90%)",
    display: "flex",
    justifyContent: "center",
    fontWeight: 400,
    textAlign: "center",
    width: "100%",
-   height: "48.5%",
    color: "black",
    filter: "drop-shadow(0px 0px 6px white)"
 };
@@ -79,15 +81,15 @@ const cardStyle = {
    },
    containerMon: {
       ...container,
-      backgroundColor: monsterColor
+      borderColor: monsterColor
    },
    containerST: {
       ...container,
-      backgroundImage: stColor
+      borderColor: stColor
    },
    containerField: {
       ...container,
-      backgroundColor: fieldColor
+      borderColor: fieldColor
    },
    containerVillain: {
       ...container,
@@ -101,17 +103,17 @@ const cardStyle = {
    containerVillainMon: {
       ...container,
       transform: "rotate(180deg)",
-      backgroundColor: monsterColor
+      borderColor: monsterColor
    },
    containerVillainST: {
       ...container,
       transform: "rotate(180deg)",
-      backgroundImage: stColor
+      borderColor: stColor
    },
    containerVillainField: {
       ...container,
       transform: "rotate(180deg)",
-      backgroundColor: fieldColor
+      borderColor: fieldColor
    },
    containerDef: {
       ...container,
@@ -151,18 +153,20 @@ const cardStyle = {
       left: 0,
       width: "100%",
       height: "29%",
-      border: "3px solid rgba(0,0,0,0.3)"
+      border: "3px solid rgba(0,0,0,0.3)",
+      borderColor: "rgba(0,0,0,0) rgba(0,0,0,0.3) rgba(0,0,0,0.3) rgba(0,0,0,0.3)"
    },
    monsterStats,
    monsterStatsVillain: {
       ...monsterStats,
-      paddingTop: "5%",
-      transform: "rotate(180deg)"
+      transform: "translateY(-90%) rotate(180deg)"
    },
    statBox: {
       fontFamily: "Matrix",
       fontWeight: 500,
       margin: "0% 5%",
+      paddingTop: "3%",
+      paddingBottom: "3%",
       width: "40%",
       textAlign: "center"
    },
