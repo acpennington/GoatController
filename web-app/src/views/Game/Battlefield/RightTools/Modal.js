@@ -107,8 +107,9 @@ function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub })
                player={player}
                row={row}
                zone={i}
-               cardName={cardNames && cardNames[i]}
+               cardName={cardNames ? cardNames[i] : null}
                notFull
+               modal
             />
             {i !== 0 && (
                <YugiohCard
@@ -116,8 +117,9 @@ function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub })
                   player={player}
                   row={row}
                   zone={i - 1}
-                  cardName={cardNames && cardNames[i - 1]}
+                  cardName={cardNames ? cardNames[i - 1] : null}
                   notFull
+                  modal
                />
             )}
          </div>

@@ -479,6 +479,13 @@ const spells = {
       levelOrSubtype: "Normal",
       text:
          "Target 1 face-down monster on the field; destroy that target, and if you do, banish it, then, if it was a Flip monster, each player reveals their Main Deck, then banishes all cards from it with that monster's name."
+   },
+   "Premature Burial": {
+      cardType: "Spell",
+      levelOrSubtype: "Equip",
+      text:
+         "Activate this card by paying 800 LP, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. When this card is destroyed, destroy the equipped monster.",
+      prepopLP: 800
    }
 };
 

@@ -1,9 +1,10 @@
-import { GRAVEYARD, BANISHED, SWITCH_DISCARD, OPEN_MODAL, CLOSE_MODAL } from "utils/constants.js";
+import { GRAVEYARD, BANISHED, SWITCH_DISCARD, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP } from "utils/constants.js";
 
 const initialState = {
    showNames: false,
    discardPile: GRAVEYARD,
-   modal: null
+   modal: null,
+   prepopLP: null
 };
 
 export default function (state = initialState, action) {
@@ -20,6 +21,9 @@ export default function (state = initialState, action) {
       case CLOSE_MODAL:
          state.modal = null;
          return state;
+      case PREPOP_LP:
+         state.prepopLP = data;
+         return { ...state };
       default:
          return state;
    }

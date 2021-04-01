@@ -39,7 +39,7 @@ import {
 
 const useStyles = makeStyles(cardStyle);
 
-function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName }) {
+function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName, modal }) {
    const classes = useStyles();
    const dispatch = useDispatch();
 
@@ -138,10 +138,11 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
    }, []);
 
    const margin = !notFull && (height - height / CARD_RATIO) / 2 + 1;
+   const villExtension = isHero || modal ? "" : "Villain";
    return (
       <div
          ref={dragOrDrop}
-         className={classes["container" + (inDef ? "Def" : (isHero ? "" : "Villain") + rowClass(row))]}
+         className={classes["container" + (inDef ? "Def" : villExtension + rowClass(row))]}
          style={{
             width: Math.floor(height / CARD_RATIO),
             height,
@@ -183,13 +184,12 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName 
                levelOrSubtype={levelOrSubtype}
                atk={atk}
                def={def}
-               isHero={isHero}
-               inDef={inDef}
+               villExtension={villExtension}
             />
          )}
          {zoneLabel !== 0 && (
             <div
-               className={classes["zoneLabel" + (isHero ? "" : "Villain")]}
+               className={classes["zoneLabel" + villExtension]}
                style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}
             >
                {zoneLabel}
@@ -225,7 +225,8 @@ YugiohCard.propTypes = {
    row: PropTypes.string.isRequired,
    zone: PropTypes.number,
    discardPile: PropTypes.string,
-   cardName: PropTypes.string
+   cardName: PropTypes.string,
+   modal: PropTypes.bool
 };
 
 YugiohCard.defaultProps = {

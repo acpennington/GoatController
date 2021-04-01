@@ -16,12 +16,10 @@ class CardArt extends PureComponent {
          levelOrSubtype,
          atk,
          def,
-         isHero,
          showNames,
-         inDef
+         villExtension
       } = this.props;
       const isMonster = !isNaN(levelOrSubtype);
-      const villExtension = isHero || inDef ? "" : "Villain";
 
       return (
          <Fragment>

@@ -13,9 +13,11 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 
 import LifeBar from "components/LifeBar/LifeBar.js";
 import { adjustLP, revealHand } from "stateStore/actions/field.js";
-import { switchDiscard } from "stateStore/actions/settings.js";
+import { switchDiscard, prepopLP } from "stateStore/actions/settings.js";
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
 import { HERO, VILLAIN, GRAVEYARD, discardZones, phases } from "utils/constants.js";
+
+const LPinput = "LPinput";
 
 class StandardTools extends PureComponent {
    constructor(props) {
@@ -51,22 +53,28 @@ class StandardTools extends PureComponent {
          if (trimmedMessage) {
             event.target.value = "";
             this.props.adjustLP(HERO, this.state.LPmode * trimmedMessage, this.props.heroLP);
+            this.props.prepopLP(null);
          }
       }
    };
 
    render() {
-      const { classes, discardPile, turn, heroLP, villainLP, handRevealed } = this.props;
+      const { classes, discardPile, turn, heroLP, villainLP, handRevealed, prepopLPvalue } = this.props;
       const { player, phase } = turn;
       const { soundOn, LPmode } = this.state;
+
       const otherZone = discardZones.filter((zone) => zone !== discardPile)[0];
       const isHero = player === HERO;
       const myColor = isHero ? "info" : "danger";
+
       const LPbutton = (
          <div className={classes.LPbutton} onClick={this.swapLPmode}>
             {LPmode === 1 ? <FaPlusCircle color="green" size="1.5em" /> : <FaMinusCircle color="yellow" size="1.5em" />}
          </div>
       );
+
+      const LPinputField = document.getElementById(LPinput);
+      if (LPinputField) LPinputField.value = prepopLPvalue;
 
       return (
          <div className={classes.container}>
@@ -128,7 +136,7 @@ class StandardTools extends PureComponent {
             <LifeBar life={heroLP} player={HERO} />
             <div className={classes.LPbox}>
                <CustomInput
-                  id="LP"
+                  id={LPinput}
                   white
                   formControlProps={{
                      fullWidth: true
@@ -157,7 +165,8 @@ function mapStateToProps(state) {
       turn: state.turn,
       villainLP: state.field.villain.lifepoints,
       heroLP: state.field.hero.lifepoints,
-      handRevealed: state.field.hero.handRevealed
+      handRevealed: state.field.hero.handRevealed,
+      prepopLPvalue: state.settings.prepopLP
    };
 }
 
@@ -165,6 +174,12 @@ StandardTools.propTypes = {
    discardPile: PropTypes.string.isRequired
 };
 
-export default connect(mapStateToProps, { switchDiscard, setTurn, nextPhase, prevPhase, adjustLP, revealHand })(
-   withStyles(styles)(StandardTools)
-);
+export default connect(mapStateToProps, {
+   switchDiscard,
+   setTurn,
+   nextPhase,
+   prevPhase,
+   adjustLP,
+   revealHand,
+   prepopLP
+})(withStyles(styles)(StandardTools));

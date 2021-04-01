@@ -50,7 +50,7 @@ const initialState = {
          { name: "Call of the Haunted" },
          { name: "Nobleman of Crossout" },
          { name: "Necrovalley" },
-         { name: "Shining Angel" }
+         { name: "Premature Burial" }
       ],
       handRevealed: false,
       "s/t": [null, null, null, null, null],
