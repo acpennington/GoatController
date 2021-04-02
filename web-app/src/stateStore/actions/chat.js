@@ -1,9 +1,9 @@
 import { ADD_MESSAGE } from "utils/constants";
 
-function addMessage(message) {
+function addMessage(author, content) {
    return {
       type: ADD_MESSAGE,
-      data: message
+      data: { author, content }
    };
 }
 

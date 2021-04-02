@@ -22,18 +22,25 @@ const cannedMessages = [
 class Chat extends PureComponent {
    submitMessage = (event) => {
       if (event.key === "Enter") {
-         const trimmedMessage = event.target.value.trim();
-         if (trimmedMessage) {
-            event.target.value = "";
-            this.props.addMessage({ author: getPlayerName(HERO), content: trimmedMessage });
-         }
+         this.sendMessage(getPlayerName(HERO), event.target.value);
+         event.target.value = "";
+      }
+   };
+
+   sendMessage = (author, content) => {
+      content = content.trim();
+      if (content) {
+         const allMessages = this.props.chat;
+         const lastMessage = allMessages[allMessages.length - 1];
+         if (!(lastMessage.author === author && lastMessage.content === content))
+            this.props.addMessage(author, content);
       }
    };
 
    componentDidMount() {
       for (const canned of cannedMessages)
          bind(canned.shortcut, () => {
-            this.props.addMessage({ author: getPlayerName(HERO), content: canned.message });
+            this.sendMessage(getPlayerName(HERO), canned.message);
          });
    }
 
@@ -70,7 +77,7 @@ class Chat extends PureComponent {
                      color="primary"
                      size="sm"
                      fullWidth
-                     onClick={() => this.props.addMessage({ author: getPlayerName(HERO), content: canned.message })}
+                     onClick={() => this.sendMessage(getPlayerName(HERO), canned.message)}
                      key={index}
                   >
                      {canned.message}

@@ -1,4 +1,4 @@
-import { cards } from "./cardDB.js";
+import { cards } from "databases/cardDB.js";
 
 const emptyCard = {
    cardType: null,

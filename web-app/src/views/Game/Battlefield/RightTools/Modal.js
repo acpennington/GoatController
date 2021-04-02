@@ -8,7 +8,7 @@ import ModalHeader from "./ModalHeader.js";
 import { closeModal } from "stateStore/actions/settings.js";
 import getCardDetails from "utils/getCardDetails";
 import { EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
-import { fusions } from "utils/cardDB.js";
+import { fusions } from "databases/cardDB.js";
 
 import Button from "components/CustomButtons/Button.js";
 import Switch from "@material-ui/core/Switch";
@@ -82,7 +82,9 @@ function Modal({ pile, height }) {
                            size="sm"
                            round
                            justIcon
-                           onClick={() => setLevelFilter(level)}
+                           onClick={() => {
+                              level === levelFilter ? setLevelFilter(false) : setLevelFilter(level);
+                           }}
                            key={index}
                         >
                            {level}

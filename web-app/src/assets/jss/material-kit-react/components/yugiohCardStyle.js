@@ -7,7 +7,6 @@ const container = {
    margin: "1px",
    position: "relative",
    top: 0,
-   left: 0,
    backgroundColor: "rgba(0,0,0,0.8)",
    borderRadius: "3px",
    borderStyle: "solid",
