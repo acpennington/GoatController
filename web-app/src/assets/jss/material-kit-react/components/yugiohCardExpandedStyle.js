@@ -1,4 +1,4 @@
-import scrollStyle from "./scrollStyle.js";
+import scrollStyle from "../scrollStyle.js";
 
 const containerMargin = 6;
 const containerMax = "calc(100% - " + 2 * containerMargin + "px)";

@@ -26,24 +26,38 @@ export default function HeaderLinks(props) {
    return (
       <List className={classes.list}>
          <ListItem className={classes.listItem}>
-            <Button
-               href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
-               color="transparent"
-               target="_blank"
-               className={classes.navLink}
+            <Tooltip
+               id="FAQ"
+               title="More about GoatDuels.com"
+               placement={window.innerWidth > 959 ? "top" : "left"}
+               classes={{ tooltip: classes.tooltip }}
             >
-               <Help className={classes.icons} /> FAQ
-            </Button>
+               <Button
+                  href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+                  color="transparent"
+                  target="_blank"
+                  className={classes.navLink}
+               >
+                  <Help className={classes.icons} /> FAQ
+               </Button>
+            </Tooltip>
          </ListItem>
          <ListItem className={classes.listItem}>
-            <Button
-               href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
-               color="transparent"
-               target="_blank"
-               className={classes.navLink}
+            <Tooltip
+               id="rulings"
+               title="Lookup any Goat ruling"
+               placement={window.innerWidth > 959 ? "top" : "left"}
+               classes={{ tooltip: classes.tooltip }}
             >
-               <Description className={classes.icons} /> Card Rulings
-            </Button>
+               <Button
+                  href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+                  color="transparent"
+                  target="_blank"
+                  className={classes.navLink}
+               >
+                  <Description className={classes.icons} /> Card Rulings
+               </Button>
+            </Tooltip>
          </ListItem>
          <ListItem className={classes.listItem}>
             <Tooltip

@@ -10,15 +10,17 @@ import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
 import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
-import GamePage from "views/Game/Game.js";
+import Game from "views/Game/Game.js";
+import Wall from "views/Wall/Wall.js";
 
 ReactDOM.render(
    <Router history={history}>
       <Switch>
-         <Route path="/game" component={GamePage} />
+         <Route path="/game" component={Game} />
          <Route path="/landing-page" component={LandingPage} />
          <Route path="/profile-page" component={ProfilePage} />
          <Route path="/login-page" component={LoginPage} />
+         <Route path="/wall" component={Wall} />
          <Route path="/" component={Components} />
       </Switch>
    </Router>,

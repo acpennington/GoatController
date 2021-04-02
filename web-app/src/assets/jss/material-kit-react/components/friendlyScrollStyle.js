@@ -1,4 +1,4 @@
-import scrollStyle from "./scrollStyle.js";
+import scrollStyle from "../scrollStyle.js";
 
 const buttonSize = 24;
 
