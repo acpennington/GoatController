@@ -1,4 +1,4 @@
-const borderColor = "rgb(5,10,40)";
+const borderColor = "rgb(5,10,30)";
 const monsterColor = "rgb(155,86,31)";
 const stColor = "rgb(21,115,78) rgb(126,38,98) rgb(126,38,98) rgb(21,115,78)";
 const fieldColor = "rgb(21,115,78)";
