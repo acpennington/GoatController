@@ -485,7 +485,13 @@ const spells = {
       levelOrSubtype: "Equip",
       text:
          "Activate this card by paying 800 LP, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. When this card is destroyed, destroy the equipped monster.",
-      prepopLP: 800
+      prepopLP: -800
+   },
+   "Upstart Goblin": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text: "Draw 1 card, then your opponent gains 1000 LP.",
+      prepopLP: 1000
    }
 };
 
@@ -495,6 +501,13 @@ const traps = {
       levelOrSubtype: "Continuous",
       text:
          "Activate this card by targeting 1 monster in your GY; Special Summon that target in Attack Position. When this card leaves the field, destroy that monster. When that monster is destroyed, destroy this card."
+   },
+   "Solemn Judgment": {
+      cardType: "Trap",
+      levelOrSubtype: "Counter",
+      text:
+         "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card.",
+      prepopLP: "half"
    }
 };
 
