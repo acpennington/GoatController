@@ -85,7 +85,9 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const revealed = inHand && handRevealed;
    const isHero = player === HERO;
    const facedown = name === FACEDOWN_CARD || deckZone || (card && card.facedown);
-   const inDef = card && card.inDef && row === MONSTER ? card.inDef : false;
+   const monsterZone = row === MONSTER;
+   const STzone = row === ST;
+   const inDef = card && card.inDef && monsterZone ? card.inDef : false;
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
    const type =
@@ -102,8 +104,8 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
 
    const acceptables =
       (row === FIELD_SPELL && FIELD_SPELL) ||
-      (row === MONSTER && [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK]) ||
-      (row === ST && [MONSTER, ST, OFF_FIELD + ST]) ||
+      (monsterZone && [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK]) ||
+      (STzone && [MONSTER, ST, OFF_FIELD + ST]) ||
       allTypes;
 
    const [{ isOver, canDrop }, drop] = useDrop({
@@ -142,7 +144,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    return (
       <div
          ref={dragOrDrop}
-         className={classes["container" + (inDef ? "Def" : villExtension + (facedown ? "" : rowClass(row)))]}
+         className={classes["container" + (inDef ? "Def" : villExtension + (STzone && facedown ? "" : rowClass(row)))]}
          style={{
             width: Math.floor(height / CARD_RATIO),
             height,
