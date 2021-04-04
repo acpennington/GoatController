@@ -142,7 +142,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    return (
       <div
          ref={dragOrDrop}
-         className={classes["container" + (inDef ? "Def" : villExtension + rowClass(row))]}
+         className={classes["container" + (inDef ? "Def" : villExtension + (facedown ? "" : rowClass(row)))]}
          style={{
             width: Math.floor(height / CARD_RATIO),
             height,
