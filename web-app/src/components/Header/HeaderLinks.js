@@ -11,8 +11,9 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Apps, CloudDownload, Description, Help } from "@material-ui/icons";
+import { Description, Help } from "@material-ui/icons";
 import { SiDiscord } from "react-icons/si";
+import { FaYoutube } from "react-icons/fa";
 
 // core components
 import Button from "components/CustomButtons/Button.js";
@@ -61,6 +62,23 @@ export default function HeaderLinks(props) {
          </ListItem>
          <ListItem className={classes.listItem}>
             <Tooltip
+               id="facebook"
+               title="Follow us on facebook"
+               placement={window.innerWidth > 959 ? "top" : "left"}
+               classes={{ tooltip: classes.tooltip }}
+            >
+               <Button
+                  color="transparent"
+                  href="https://www.facebook.com/CreativeTim?ref=creativetim"
+                  target="_blank"
+                  className={classes.navLink}
+               >
+                  <i className={classes.socialIcons + " fab fa-facebook"} />
+               </Button>
+            </Tooltip>
+         </ListItem>
+         <ListItem className={classes.listItem}>
+            <Tooltip
                id="discord"
                title="Join our Discord server"
                placement={window.innerWidth > 959 ? "top" : "left"}
@@ -78,18 +96,18 @@ export default function HeaderLinks(props) {
          </ListItem>
          <ListItem className={classes.listItem}>
             <Tooltip
-               id="facebook"
-               title="Follow us on facebook"
+               id="youtube-tooltip"
+               title="Watch our videos"
                placement={window.innerWidth > 959 ? "top" : "left"}
                classes={{ tooltip: classes.tooltip }}
             >
                <Button
                   color="transparent"
-                  href="https://www.facebook.com/CreativeTim?ref=creativetim"
+                  href="https://www.youtube.com/playlist?list=PL2c0kg0uXCQ4C49FlRlhm2-LO2Q6NGeh7"
                   target="_blank"
                   className={classes.navLink}
                >
-                  <i className={classes.socialIcons + " fab fa-facebook"} />
+                  <FaYoutube />
                </Button>
             </Tooltip>
          </ListItem>
