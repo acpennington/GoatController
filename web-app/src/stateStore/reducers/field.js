@@ -103,7 +103,7 @@ export default function (state = initialState, action) {
             else state[from.player][from.row][from.zone] = null;
          }
 
-         return state;
+         return { ...state };
       case SWITCH_POSITION:
          const { row, zone } = data;
          const myCard = row === FIELD_SPELL ? state.hero[FIELD_SPELL] : state.hero[row][zone];

@@ -115,8 +115,8 @@ class Messages extends PureComponent {
 
          const authorIsHero = getPlayerName(HERO) === message.author;
          messageList.push(
-            <div className={classes.messageContainer}>
-               <div className={classes["message" + section + (authorIsHero ? "Hero" : "")]} key={i}>
+            <div className={classes.messageContainer} key={i}>
+               <div className={classes["message" + section + (authorIsHero ? "Hero" : "")]}>
                   {(authorIsHero ? "" : message.author + ": ") + message.content}
                </div>
             </div>
