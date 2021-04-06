@@ -39,7 +39,7 @@ ZoneLabel.propTypes = {
     row: PropTypes.string.isRequired,
     isExtraDeck: PropTypes.bool.isRequired,
     isDiscardZone: PropTypes.bool.isRequired,
-    cardName: PropTypes.string.isRequired,
+    cardName: PropTypes.string,
     villExtension: PropTypes.string.isRequired
  };
  

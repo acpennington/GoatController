@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -99,6 +100,16 @@ function getSubtitle(starsOrAlt, height) {
 
 function mapStateToProps(state) {
    return { showNames: state.settings.showNames };
+}
+
+CardArt.propTypes = {
+   name: PropTypes.string,
+   nameHeight: PropTypes.number.isRequired,
+   cardTypeIcon: PropTypes.string.isRequired,
+   levelOrSubtype: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+   atk: PropTypes.number,
+   def: PropTypes.number,
+   villExtension: PropTypes.string.isRequired
 }
 
 export default connect(mapStateToProps, {})(withStyles(cardStyle)(CardArt));

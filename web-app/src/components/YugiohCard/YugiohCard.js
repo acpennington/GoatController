@@ -183,7 +183,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
             row={row}
             isExtraDeck={isExtraDeck}
             isDiscardZone={isDiscardZone}
-            cardName={cardName || ""}
+            cardName={cardName}
             villExtension={villExtension}
          />
       </div>
