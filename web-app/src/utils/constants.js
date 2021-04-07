@@ -8,6 +8,7 @@ const CARD_RATIO = 1.45;
 const HERO = "hero";
 const VILLAIN = "villain";
 const SYSTEM = "Server";
+const GAME = "Game";
 
 // special card names
 const FACEDOWN_CARD = "Facedown Card";
@@ -89,6 +90,7 @@ export {
    HERO,
    VILLAIN,
    SYSTEM,
+   GAME,
    // special card names
    FACEDOWN_CARD,
    // cardTypes

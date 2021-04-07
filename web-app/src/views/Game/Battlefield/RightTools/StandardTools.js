@@ -26,7 +26,7 @@ class StandardTools extends PureComponent {
       if (storage.getItem("soundOn") === null) storage.setItem("soundOn", true);
       const showNames = storage.getItem("showNames");
       if (showNames === null) storage.setItem("showNames", false);
-      else if (showNames === "true") this.props.switchNames();
+      else if (showNames === "true" && !props.showNames) this.props.switchNames();
       
       this.state = { LPmode: -1, soundOn: storage.getItem("soundOn") === "true" };
    }

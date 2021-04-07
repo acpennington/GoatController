@@ -51,7 +51,7 @@ const gameStyle = {
       width: "100%",
       margin: "auto",
       overflowX: "auto",
-      overflowY: "hidden"
+      overflowY: "hidden",
    },
    hand: {
       display: "flex",
