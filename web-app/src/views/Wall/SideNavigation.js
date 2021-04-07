@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 
 import Button from "components/CustomButtons/Button.js";
 
+import Tooltip from "@material-ui/core/Tooltip";
 import { FaGamepad, FaWrench, FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { RiSettings4Fill } from "react-icons/ri";
@@ -14,16 +15,23 @@ class SideNavigation extends PureComponent {
       const { classes } = this.props;
 
       return (
-         <div className={classes.container}>
+         <div className={classes.container} style={{ height: "calc(80vh - 22px)" }}>
             <Button color={"primary"} size="lg" round style={{ width: "99%" }}>
                <FaGamepad /> Leagues
             </Button>
             <Button color={"primary"} size="lg" round style={{ width: "99%" }}>
                <FaWrench /> Deck Constructor
             </Button>
-            <Button color={"primary"} size="lg" round style={{ width: "99%" }}>
-               <FaSearch /> Replay Viewer
-            </Button>
+            <Tooltip
+               id="comingsoon"
+               title="Coming soon!"
+               placement={"bottom"}
+               classes={{ tooltip: classes.tooltip }}
+            >
+               <Button color={"default"} size="lg" round style={{ width: "99%" }}>
+                  <FaSearch /> Replay Viewer
+               </Button>
+            </Tooltip>
             <Button color={"primary"} size="lg" round style={{ width: "99%" }}>
                <CgProfile /> Profile Viewer
             </Button>

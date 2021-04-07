@@ -1,5 +1,5 @@
-/*eslint-disable*/
 import React from "react";
+import PropTypes from "prop-types";
 
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { Description, Help } from "@material-ui/icons";
 import { SiDiscord } from "react-icons/si";
 import { FaYoutube } from "react-icons/fa";
+import People from "@material-ui/icons/People";
 
 // core components
 import Button from "components/CustomButtons/Button.js";
@@ -22,7 +23,7 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 
 const useStyles = makeStyles(styles);
 
-export default function HeaderLinks(props) {
+function HeaderLinks({ loggedInAs }) {
    const classes = useStyles();
    return (
       <List className={classes.list}>
@@ -111,6 +112,22 @@ export default function HeaderLinks(props) {
                </Button>
             </Tooltip>
          </ListItem>
+         {loggedInAs && 
+            <ListItem className={classes.listItem}>
+               <Button
+                  color="transparent"
+                  className={classes.navLink}
+               >
+                  <People /> {loggedInAs}
+               </Button>
+            </ListItem>
+         }
       </List>
    );
 }
+
+HeaderLinks.propTypes = {
+   loggedInAs: PropTypes.string
+};
+
+export default HeaderLinks;
