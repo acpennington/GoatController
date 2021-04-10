@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-// @material-ui/core components
+import axios from "axios";
+
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
+
 import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
-// core components
+
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
@@ -19,13 +20,35 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import { headers } from "utils/constants.js";
 
+import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
 
 export default function LoginPage(props) {
    const [isLogin, setIsLogin] = useState(true);
    const [cardAnimation, setCardAnimation] = useState("cardHidden");
+   const [username, setUsername] = useState(false);
+   const usernameEvent = (event) => {
+      setUsername(event.target.value);
+   };
+   const [password, setPassword] = useState(false);
+   const passwordEvent = (event) => {
+      setPassword(event.target.value);
+   };
+
+   const submit = async () => {
+      const user = { username, password };
+      const config = { headers };
+      const body = JSON.stringify(user);
+
+      try {
+         const res = await axios.post("/api/" + (isLogin ? "auth" : "users"), body, config);
+         console.log(JSON.stringify(res.data));
+      } catch (err) {
+         console.log(JSON.stringify(err));
+      }
+   };
 
    setTimeout(function () {
       setCardAnimation("");
@@ -75,6 +98,7 @@ export default function LoginPage(props) {
                                     fullWidth: true
                                  }}
                                  inputProps={{
+                                    onChange: usernameEvent,
                                     type: "text",
                                     endAdornment: (
                                        <InputAdornment position="end">
@@ -90,6 +114,7 @@ export default function LoginPage(props) {
                                     fullWidth: true
                                  }}
                                  inputProps={{
+                                    onChange: passwordEvent,
                                     type: "password",
                                     endAdornment: (
                                        <InputAdornment position="end">
@@ -101,7 +126,7 @@ export default function LoginPage(props) {
                               />
                            </CardBody>
                            <CardFooter className={classes.cardFooter}>
-                              <Button simple color="primary" size="lg">
+                              <Button simple color="primary" size="lg" onClick={submit}>
                                  {headerText}
                               </Button>
                               {isLogin && (

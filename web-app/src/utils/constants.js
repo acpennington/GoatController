@@ -80,6 +80,11 @@ const END = "End";
 const NEXT_TURN = "Next Turn";
 const phases = [DRAW, STANDBY, MAIN1, BATTLE, MAIN2, END, NEXT_TURN];
 
+// axios
+const headers = {
+   "Content-Type": "application/json"
+};
+
 export {
    // game settings
    GAME_RATIO,
@@ -152,5 +157,7 @@ export {
    MAIN2,
    END,
    NEXT_TURN,
-   phases
+   phases,
+   // axios
+   headers
 };
