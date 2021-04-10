@@ -10,15 +10,12 @@ const DynamoDB = new AWS.DynamoDB();
 
 const sendJWT = require("./utils/sendJWT");
 
-// @route POST api/users
-// @desc Register a user
+// @route POST api/auth
+// @desc Login/authenticate a user
 // @access Public
 router.post(
    "/",
-   [
-      check("username", "Userame is required").notEmpty(),
-      check("password", "Please use a password with 10 or more characters").isLength({ min: 10 })
-   ],
+   [check("username", "Userame is required").notEmpty(), check("password", "Password is required").exists()],
    async (req, res) => {
       const errors = validationResult(req);
       if (errors.isEmpty()) {
@@ -37,25 +34,19 @@ router.post(
          }).promise();
          const user = result.Item;
 
-         if (user) res.status(400).json({ errors: [{ msg: "User already exists" }] });
+         if (!user) invalidCredentials(res);
+         const hashword = user.hashword.S;
 
-         const salt = await bcrypt.genSalt(7);
-         const hashword = await bcrypt.hash(password, salt);
+         const isMatch = await bcrypt.compare(password, hashword);
 
-         params = {
-            TableName: "users",
-            Item: {
-               username: { S: username },
-               hashword: { S: hashword }
-            }
-         };
-         await DynamoDB.putItem(params, (err) => {
-            if (err) res.status(400).json({ errors: [err] });
-         }).promise();
-
-         sendJWT(res, username);
+         if (isMatch) sendJWT(res, username);
+         else invalidCredentials(res);
       } else res.status(400).json({ errors: errors.array() });
    }
 );
+
+function invalidCredentials(res) {
+   res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
+}
 
 module.exports = router;

@@ -16,6 +16,7 @@ app.use(cookieParser());
 
 // Define Routes
 app.use("/api/users", require("./api/users.js"));
+app.use("/api/auth", require("./api/auth.js"));
 
 app.use(express.static("web-app/build"));
 app.get("*", function (req, res) {

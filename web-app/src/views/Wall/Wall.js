@@ -27,7 +27,7 @@ export default function LoginPage(props) {
          <Header
             absolute
             color="transparent"
-            brand="Goat Duels: A Dueling Simulator Optimized For Goat Format"
+            brand="Goat Duels"
             rightLinks={<HeaderLinks />}
             fixed
             changeColorOnScroll={{
