@@ -44,11 +44,10 @@ export default function LoginPage(props) {
       const body = JSON.stringify(user);
 
       try {
-         setErrors(false);
+         setErrors("Authenticating...");
          const res = await axios.post("/api/" + (isLogin ? "auth" : "users"), body, config);
       } catch (err) {
          const apiErrors = err.response.data.errors;
-         console.log(JSON.stringify(apiErrors));
          let errorString = "";
 
          for (const error of apiErrors) errorString += error.msg + " ";
@@ -97,7 +96,10 @@ export default function LoginPage(props) {
                            <CardHeader color="primary" className={classes.cardHeader}>
                               <h4>{headerText}</h4>
                            </CardHeader>
-                           <p className={classes.divider} style={{ color: errors && "red" }}>
+                           <p
+                              className={classes.divider}
+                              style={{ color: errors && (errors === "Authenticating..." ? "green" : "red") }}
+                           >
                               {errors ? errors : "Goat Duels Await You..."}
                            </p>
                            <CardBody>
