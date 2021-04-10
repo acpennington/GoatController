@@ -15,7 +15,7 @@ const sendJWT = require("./utils/sendJWT");
 // @access Public
 router.post(
    "/",
-   [check("username", "Userame is required").notEmpty(), check("password", "Password is required").exists()],
+   [check("username", "Userame is required").notEmpty(), check("password", "Password is required").notEmpty()],
    async (req, res) => {
       const errors = validationResult(req);
       if (errors.isEmpty()) {
@@ -34,13 +34,12 @@ router.post(
          }).promise();
          const user = result.Item;
 
-         if (!user) invalidCredentials(res);
-         const hashword = user.hashword.S;
+         if (user) {
+            const isMatch = await bcrypt.compare(password, user.hashword.S);
 
-         const isMatch = await bcrypt.compare(password, hashword);
-
-         if (isMatch) sendJWT(res, username);
-         else invalidCredentials(res);
+            if (isMatch) sendJWT(res, username);
+            else invalidCredentials(res);
+         } else invalidCredentials(res);
       } else res.status(400).json({ errors: errors.array() });
    }
 );

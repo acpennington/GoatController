@@ -28,11 +28,12 @@ const useStyles = makeStyles(styles);
 export default function LoginPage(props) {
    const [isLogin, setIsLogin] = useState(true);
    const [cardAnimation, setCardAnimation] = useState("cardHidden");
-   const [username, setUsername] = useState(false);
+   const [errors, setErrors] = useState(false);
+   const [username, setUsername] = useState("");
    const usernameEvent = (event) => {
       setUsername(event.target.value);
    };
-   const [password, setPassword] = useState(false);
+   const [password, setPassword] = useState("");
    const passwordEvent = (event) => {
       setPassword(event.target.value);
    };
@@ -43,10 +44,17 @@ export default function LoginPage(props) {
       const body = JSON.stringify(user);
 
       try {
+         setErrors(false);
          const res = await axios.post("/api/" + (isLogin ? "auth" : "users"), body, config);
-         console.log(JSON.stringify(res.data));
       } catch (err) {
-         console.log(JSON.stringify(err));
+         const apiErrors = err.response.data.errors;
+         console.log(JSON.stringify(apiErrors));
+         let errorString = "";
+
+         for (const error of apiErrors) errorString += error.msg + " ";
+
+         errorString = errorString.slice(0, -1);
+         setErrors(errorString);
       }
    };
 
@@ -89,7 +97,9 @@ export default function LoginPage(props) {
                            <CardHeader color="primary" className={classes.cardHeader}>
                               <h4>{headerText}</h4>
                            </CardHeader>
-                           <p className={classes.divider}>Goat Duels Await You...</p>
+                           <p className={classes.divider} style={{ color: errors && "red" }}>
+                              {errors ? errors : "Goat Duels Await You..."}
+                           </p>
                            <CardBody>
                               <CustomInput
                                  labelText="Username"
