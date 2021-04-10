@@ -8,6 +8,7 @@ const CARD_RATIO = 1.45;
 const HERO = "hero";
 const VILLAIN = "villain";
 const SYSTEM = "Server";
+const GAME = "Game";
 
 // special card names
 const FACEDOWN_CARD = "Facedown Card";
@@ -47,6 +48,7 @@ const CLEAR_HOVER = "CLEAR_HOVER";
 const NEW_SELECTION = "NEW_SELECTION";
 const CLEAR_SELECTION = "CLEAR_SELECTION";
 const SWITCH_DISCARD = "SWITCH_DISCARD";
+const SWITCH_NAMES = "SWITCH_NAMES";
 const OPEN_MODAL = "OPEN_MODAL";
 const CLOSE_MODAL = "CLOSE_MODAL";
 const PREPOP_LP = "PREPOP_LP";
@@ -88,6 +90,7 @@ export {
    HERO,
    VILLAIN,
    SYSTEM,
+   GAME,
    // special card names
    FACEDOWN_CARD,
    // cardTypes
@@ -123,6 +126,7 @@ export {
    NEW_SELECTION,
    CLEAR_SELECTION,
    SWITCH_DISCARD,
+   SWITCH_NAMES,
    OPEN_MODAL,
    CLOSE_MODAL,
    PREPOP_LP,

@@ -1,8 +1,9 @@
 import scrollStyle from "../scrollStyle.js";
+import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const wallStyle = {
    container: {
-      height: "75vh",
+      height: "calc(80vh - 60px)",
       overflowY: "auto",
       overflowX: "hidden",
       ...scrollStyle
@@ -28,7 +29,8 @@ const wallStyle = {
    namedate: {},
    content: {
       marginTop: "3px"
-   }
+   },
+   ...tooltip
 };
 
 export default wallStyle;

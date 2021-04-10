@@ -13,7 +13,7 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 
 import LifeBar from "components/LifeBar/LifeBar.js";
 import { adjustLP, revealHand } from "stateStore/actions/field.js";
-import { switchDiscard, prepopLP } from "stateStore/actions/settings.js";
+import { switchDiscard, switchNames, prepopLP } from "stateStore/actions/settings.js";
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
 import { HERO, VILLAIN, GRAVEYARD, discardZones, phases } from "utils/constants.js";
 
@@ -24,6 +24,10 @@ class StandardTools extends PureComponent {
       super(props);
       const storage = window.localStorage;
       if (storage.getItem("soundOn") === null) storage.setItem("soundOn", true);
+      const showNames = storage.getItem("showNames");
+      if (showNames === null) storage.setItem("showNames", false);
+      else if (showNames === "true" && !props.showNames) this.props.switchNames();
+      
       this.state = { LPmode: -1, soundOn: storage.getItem("soundOn") === "true" };
    }
 
@@ -42,9 +46,13 @@ class StandardTools extends PureComponent {
    };
 
    flipSound = (event) => {
-      const storage = window.localStorage;
-      storage.setItem("soundOn", event.target.checked);
-      this.setState({ soundOn: event.target.checked });
+      window.localStorage.setItem("soundOn", event.target.checked);
+      this.setState = { soundOn: event.target.checked};
+   };
+
+   flipNames = (event) => {
+      window.localStorage.setItem("showNames", event.target.checked);
+      this.props.switchNames();
    };
 
    submitMessage = (event) => {
@@ -59,7 +67,7 @@ class StandardTools extends PureComponent {
    };
 
    render() {
-      const { classes, discardPile, turn, heroLP, villainLP, handRevealed, prepopLPvalue } = this.props;
+      const { classes, discardPile, turn, heroLP, villainLP, handRevealed, prepopLPvalue, showNames } = this.props;
       const { player, phase } = turn;
       const { soundOn, LPmode } = this.state;
 
@@ -161,7 +169,14 @@ class StandardTools extends PureComponent {
                   color="primary"
                   style={{ color: "#9c27b0" }}
                />
-               Sound {soundOn ? "On" : "Off"}
+               Sound {soundOn ? "On" : "Off"}<br/>
+               <Switch
+                  checked={showNames}
+                  onChange={(event) => this.flipNames(event)}
+                  color="primary"
+                  style={{ color: "#9c27b0" }}
+               />
+               Show Card Names
             </div>
          </div>
       );
@@ -174,7 +189,8 @@ function mapStateToProps(state) {
       villainLP: state.field.villain.lifepoints,
       heroLP: state.field.hero.lifepoints,
       handRevealed: state.field.hero.handRevealed,
-      prepopLPvalue: state.settings.prepopLP
+      prepopLPvalue: state.settings.prepopLP,
+      showNames: state.settings.showNames
    };
 }
 
@@ -184,6 +200,7 @@ StandardTools.propTypes = {
 
 export default connect(mapStateToProps, {
    switchDiscard,
+   switchNames,
    setTurn,
    nextPhase,
    prevPhase,

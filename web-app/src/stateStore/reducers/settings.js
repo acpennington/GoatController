@@ -1,4 +1,4 @@
-import { GRAVEYARD, BANISHED, SWITCH_DISCARD, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP } from "utils/constants.js";
+import { GRAVEYARD, BANISHED, SWITCH_DISCARD, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP } from "utils/constants.js";
 
 const initialState = {
    showNames: false,
@@ -14,6 +14,9 @@ export default function (state = initialState, action) {
          if (state.discardPile === GRAVEYARD) state.discardPile = BANISHED;
          else state.discardPile = GRAVEYARD;
          return state;
+      case SWITCH_NAMES:
+         state.showNames = !state.showNames;
+         return { ...state };
       case OPEN_MODAL:
          if (state.modal && state.modal.row === data.row && state.modal.player === data.player) state.modal = null;
          else state.modal = data;

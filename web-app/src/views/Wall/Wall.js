@@ -45,7 +45,7 @@ export default function LoginPage(props) {
             }}
          >
             <div className={classes.container}>
-               <div className={classes[cardAnimation]} style={{ marginTop: "-45px", marginBottom: "-100%" }}>
+               <div className={classes[cardAnimation]} style={{ marginTop: "-5vh", marginBottom: "-100%" }}>
                   <GridContainer justify="center">
                      <GridItem xs={6} sm={5} md={5} lg={4}>
                         <SideNavigation />
