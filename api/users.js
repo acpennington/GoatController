@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const { aws_remote_config } = require("../config/config.js");
 const AWS = require("aws-sdk");
 AWS.config.update(aws_remote_config);
-const DynamoDB = new AWS.DynamoDB();
+const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const getJwt = require("./utils/getJwt.js");
 
@@ -23,16 +23,15 @@ router.post(
       const errors = validationResult(req);
       if (errors.isEmpty()) {
          const { username, password } = req.body;
-         // See if user exists
 
          let params = {
             TableName: "users",
             Key: {
-               username: { S: username }
+               username
             }
          };
 
-         const result = await DynamoDB.getItem(params, (err) => {
+         const result = await DynamoDB.get(params, (err) => {
             if (err) res.status(400).json({ errors: [err] });
          }).promise();
          const user = result.Item;
@@ -42,19 +41,26 @@ router.post(
          const salt = await bcrypt.genSalt(7);
          const hashword = await bcrypt.hash(password, salt);
 
+         const goatgold = 0;
+         const gamebg = "default.png";
+         const settings = { gamebg };
+
          params = {
             TableName: "users",
             Item: {
-               username: { S: username },
-               hashword: { S: hashword }
+               username,
+               hashword,
+               goatgold,
+               settings
             }
          };
-         await DynamoDB.putItem(params, (err) => {
+
+         await DynamoDB.put(params, (err) => {
             if (err) res.status(400).json({ errors: [err] });
          }).promise();
 
          const token = getJwt(username);
-         res.json({ token });
+         res.json({ token, username, goatgold, settings: { gamebg } });
       } else res.status(400).json({ errors: errors.array() });
    }
 );
