@@ -41,17 +41,19 @@ router.post(
          const salt = await bcrypt.genSalt(7);
          const hashword = await bcrypt.hash(password, salt);
 
-         const goatgold = 0;
-         const gamebg = "default.png";
-         const settings = { gamebg };
+         const newUser = {
+            username,
+            hashword,
+            goatgold: 0,
+            settings: {
+               gamebg: "default.png"
+            }
+         };
 
          params = {
             TableName: "users",
             Item: {
-               username,
-               hashword,
-               goatgold,
-               settings
+               ...newUser
             }
          };
 
@@ -60,7 +62,8 @@ router.post(
          }).promise();
 
          const token = getJwt(username);
-         res.json({ token, username, goatgold, settings: { gamebg } });
+         delete newUser.hashword;
+         res.json({ token, ...newUser });
       } else res.status(400).json({ errors: errors.array() });
    }
 );

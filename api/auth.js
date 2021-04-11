@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const { aws_remote_config } = require("../config/config.js");
 const AWS = require("aws-sdk");
 AWS.config.update(aws_remote_config);
-const DynamoDB = new AWS.DynamoDB();
+const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const getJwt = require("./utils/getJwt.js");
 
@@ -25,22 +25,22 @@ router.post(
          let params = {
             TableName: "users",
             Key: {
-               username: { S: username }
+               username
             }
          };
 
-         const result = await DynamoDB.getItem(params, (err) => {
+         const result = await DynamoDB.get(params, (err) => {
             if (err) res.status(400).json({ errors: [err] });
          }).promise();
          const user = result.Item;
 
          if (user) {
-            const isMatch = await bcrypt.compare(password, user.hashword.S);
+            const isMatch = await bcrypt.compare(password, user.hashword);
 
             if (isMatch) {
                const token = getJwt(username);
-               console.log(token);
-               res.json({ token });
+               delete user.hashword;
+               res.json({ token, ...user });
             } else invalidCredentials(res);
          } else invalidCredentials(res);
       } else res.status(400).json({ errors: errors.array() });
