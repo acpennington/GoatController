@@ -8,7 +8,7 @@ const AWS = require("aws-sdk");
 AWS.config.update(aws_remote_config);
 const DynamoDB = new AWS.DynamoDB();
 
-const sendJWT = require("./utils/sendJWT");
+const getJwt = require("./utils/getJwt.js");
 
 // @route POST api/auth
 // @desc Login/authenticate a user
@@ -37,8 +37,11 @@ router.post(
          if (user) {
             const isMatch = await bcrypt.compare(password, user.hashword.S);
 
-            if (isMatch) sendJWT(res, username);
-            else invalidCredentials(res);
+            if (isMatch) {
+               const token = getJwt(username);
+               console.log(token);
+               res.json({ token });
+            } else invalidCredentials(res);
          } else invalidCredentials(res);
       } else res.status(400).json({ errors: errors.array() });
    }

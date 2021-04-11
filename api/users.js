@@ -8,7 +8,7 @@ const AWS = require("aws-sdk");
 AWS.config.update(aws_remote_config);
 const DynamoDB = new AWS.DynamoDB();
 
-const sendJWT = require("./utils/sendJWT");
+const getJwt = require("./utils/getJwt.js");
 
 // @route POST api/users
 // @desc Register a user
@@ -53,7 +53,8 @@ router.post(
             if (err) res.status(400).json({ errors: [err] });
          }).promise();
 
-         sendJWT(res, username);
+         const token = getJwt(username);
+         res.json({ token });
       } else res.status(400).json({ errors: errors.array() });
    }
 );
