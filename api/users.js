@@ -46,7 +46,8 @@ router.post(
             hashword,
             goatgold: 0,
             settings: {
-               gamebg: "default.png"
+               gamebg: "default.png",
+               defaultsleeves: "goat.png"
             }
          };
 
