@@ -18,7 +18,6 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import SectionBasics from "./Sections/SectionBasics.js";
 import SectionNavbars from "./Sections/SectionNavbars.js";
 import SectionTabs from "./Sections/SectionTabs.js";
-import SectionPills from "./Sections/SectionPills.js";
 import SectionNotifications from "./Sections/SectionNotifications.js";
 import SectionTypography from "./Sections/SectionTypography.js";
 import SectionJavascript from "./Sections/SectionJavascript.js";
@@ -67,7 +66,6 @@ export default function Components(props) {
         <SectionBasics />
         <SectionNavbars />
         <SectionTabs />
-        <SectionPills />
         <SectionNotifications />
         <SectionTypography />
         <SectionJavascript />
