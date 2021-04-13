@@ -9,7 +9,7 @@ import "./style.css";
 
 class CardFinder extends PureComponent {
     render() {
-        const { value, withFusions } = this.props;
+        const { value, withFusions, onChange } = this.props;
 
         const cardList = [];
         const cardKeys = Object.keys(withFusions ? cards : nonfusions);
@@ -26,6 +26,7 @@ class CardFinder extends PureComponent {
                 filterOptions={fuzzySearch}
                 options={cardList}
                 value={value}
+                onChange={onChange}
                 name="Cards"
                 autoComplete="on"
                 emptyMessage="Not found"
@@ -37,7 +38,8 @@ class CardFinder extends PureComponent {
 
 CardFinder.propTypes = {
     value: PropTypes.string,
-    withFusions: PropTypes.bool
+    withFusions: PropTypes.bool,
+    onChange: PropTypes.func
 }
 
 export default CardFinder;
