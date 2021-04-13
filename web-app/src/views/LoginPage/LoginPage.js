@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { bind, unbind } from "mousetrap";
 
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -46,15 +47,20 @@ export default function LoginPage(props) {
       try {
          setErrors("Authenticating...");
          const res = await axios.post("/api/" + (isLogin ? "auth" : "users"), body, config);
+         window.location.href = isLogin ? "/wall" : "/settings";
       } catch (err) {
          const apiErrors = err.response.data.errors;
          let errorString = "";
 
-         for (const error of apiErrors) errorString += error.msg + " ";
+         for (const error of apiErrors) errorString += error.msg + ". ";
 
          errorString = errorString.slice(0, -1);
          setErrors(errorString);
       }
+   };
+
+   const enterToSubmit = (event) => {
+      if (event.key === "Enter") submit();
    };
 
    setTimeout(function () {
@@ -111,6 +117,7 @@ export default function LoginPage(props) {
                                  }}
                                  inputProps={{
                                     onChange: usernameEvent,
+                                    onKeyPress: enterToSubmit,
                                     type: "text",
                                     endAdornment: (
                                        <InputAdornment position="end">
@@ -127,6 +134,7 @@ export default function LoginPage(props) {
                                  }}
                                  inputProps={{
                                     onChange: passwordEvent,
+                                    onKeyPress: enterToSubmit,
                                     type: "password",
                                     endAdornment: (
                                        <InputAdornment position="end">
