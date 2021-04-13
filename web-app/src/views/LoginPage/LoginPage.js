@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { bind, unbind } from "mousetrap";
 
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
