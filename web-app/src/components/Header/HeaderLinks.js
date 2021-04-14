@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-// react components for routing our app without refresh
-import { Link } from "react-router-dom";
-
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
@@ -11,16 +8,14 @@ import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
-import { Description, Help } from "@material-ui/icons";
+import { Description, Help, YouTube } from "@material-ui/icons";
 import { SiDiscord } from "react-icons/si";
-import { FaYoutube } from "react-icons/fa";
 import People from "@material-ui/icons/People";
 
 // core components
 import Button from "components/CustomButtons/Button.js";
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
-
 const useStyles = makeStyles(styles);
 
 function HeaderLinks({ loggedInAs }) {
@@ -108,7 +103,7 @@ function HeaderLinks({ loggedInAs }) {
                   target="_blank"
                   className={classes.navLink}
                >
-                  <FaYoutube />
+                  <YouTube className={classes.socialIcons} />
                </Button>
             </Tooltip>
          </ListItem>

@@ -25,10 +25,9 @@ class SideNavigation extends PureComponent {
             <Tooltip
                id="comingsoon"
                title="Coming soon!"
-               placement={"bottom"}
                classes={{ tooltip: classes.tooltip }}
             >
-               <Button color={"default"} size="lg" round style={{ width: "99%" }}>
+               <Button size="lg" round style={{ width: "99%" }}>
                   <FaSearch /> Replay Viewer
                </Button>
             </Tooltip>

@@ -28,7 +28,7 @@ export default function LoginPage(props) {
             absolute
             color="transparent"
             brand="Goat Duels"
-            rightLinks={<HeaderLinks />}
+            rightLinks={<HeaderLinks loggedInAs="ACP" />}
             fixed
             changeColorOnScroll={{
                height: 100,
