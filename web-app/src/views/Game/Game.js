@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 
-import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/game.js";
-
 import { Provider } from "react-redux";
 import store from "stateStore/gameStore.js";
-import Battlefield from "./Battlefield/Battlefield.js";
-import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
-import Chat from "components/Chat/Chat.js";
+import LeftPanel from "./LeftPanel.js";
+import Battlefield from "./Battlefield/Battlefield.js"
 import { GAME_RATIO, VILLAIN_HAND_SIZE } from "utils/constants.js";
+
+import { withStyles } from "@material-ui/core/styles";
+import styles from "assets/jss/material-kit-react/views/game.js";
 
 const backgroundImage = 'url("/backgrounds/sorcererinspace.png")';
 
@@ -41,10 +40,7 @@ class Game extends Component {
                      width: sizingValue * GAME_RATIO
                   }}
                >
-                  <div className={classes.leftPanel}>
-                     <YugiohCardExpanded />
-                     <Chat />
-                  </div>
+                  <LeftPanel />
                   <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} />
                </div>
             </div>

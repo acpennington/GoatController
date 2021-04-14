@@ -13,7 +13,8 @@ const yugiohCardExpandedStyle = {
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
-      height: "40%"
+      height: "40%",
+      width: "100%"
    },
    contentContainer: {
       position: "absolute",
@@ -28,7 +29,7 @@ const yugiohCardExpandedStyle = {
       borderRadius: "3px",
       padding: "3px",
       width: "100%",
-      backgroundColor: "rgba(0,0,0,0.85)"
+      backgroundColor: "rgba(0,0,0,0.85)",
    },
    buttons: {
       display: "flex",
