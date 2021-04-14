@@ -24,7 +24,7 @@ const cannedMessages = [
 class Chat extends PureComponent {
    submitMessage = (event) => {
       if (event.key === "Enter") {
-         this.sendMessage(getPlayerName(HERO), event.target.value);
+         this.sendMessage(this.props.name, event.target.value);
          event.target.value = "";
       }
    };
@@ -40,10 +40,11 @@ class Chat extends PureComponent {
    };
 
    componentDidMount() {
-      for (const canned of cannedMessages)
-         bind(canned.shortcut, () => {
-            this.sendMessage(getPlayerName(HERO), canned.message);
-         });
+      if (this.props.name)
+         for (const canned of cannedMessages)
+            bind(canned.shortcut, () => {
+               this.sendMessage(this.props.name, canned.message);
+            });
    }
 
    componentWillUnmount() {
@@ -51,7 +52,7 @@ class Chat extends PureComponent {
    }
 
    render() {
-      const { classes, chat, watching } = this.props;
+      const { classes, chat, watching, name } = this.props;
 
       return (
          <div className={classes.container}>
@@ -80,7 +81,7 @@ class Chat extends PureComponent {
                         color="primary"
                         size="sm"
                         fullWidth
-                        onClick={() => this.sendMessage(getPlayerName(HERO), canned.message)}
+                        onClick={() => this.sendMessage(name, canned.message)}
                         key={index}
                      >
                         {canned.message}
@@ -98,7 +99,8 @@ function mapStateToProps(state) {
 }
 
 Chat.propTypes = {
-   watching: PropTypes.bool
+   watching: PropTypes.bool,
+   name: PropTypes.string
 }
 
 export default connect(mapStateToProps, { addMessage })(withStyles(chatStyle)(Chat));
