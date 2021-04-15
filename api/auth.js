@@ -20,7 +20,6 @@ router.post(
       const errors = validationResult(req);
       if (errors.isEmpty()) {
          const { username, password } = req.body;
-         // See if user exists
 
          let params = {
             TableName: "users",
@@ -36,7 +35,6 @@ router.post(
 
          if (user) {
             const isMatch = await bcrypt.compare(password, user.hashword);
-
             if (isMatch) {
                const token = getJwt(username);
                delete user.hashword;
