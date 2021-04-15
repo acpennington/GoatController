@@ -9,6 +9,7 @@ AWS.config.update(aws_remote_config);
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const getJwt = require("./utils/getJwt.js");
+const todaysDate = require("./utils/todaysDate.js");
 
 // @route POST api/users
 // @desc Register a user
@@ -45,6 +46,7 @@ router.post(
             username,
             hashword,
             goatgold: 0,
+            joinDate: todaysDate(),
             settings: {
                gamebg: "default.png",
                defaultsleeves: "goat.png"
