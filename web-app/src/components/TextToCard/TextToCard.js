@@ -36,8 +36,7 @@ class TextToCard extends PureComponent {
     }
 
     flipExpandedCard = () => {
-        const showExpandedCard = !this.state.showExpandedCard;
-        this.setState({ showExpandedCard});
+        this.setState({ showExpandedCard: !this.state.showExpandedCard });
     }
 
     render() {
