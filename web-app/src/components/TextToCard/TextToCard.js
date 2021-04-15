@@ -32,24 +32,24 @@ const NormalTooltip = withStyles((theme) => ({
 class TextToCard extends PureComponent {
     constructor(props) {
         super(props);
-        this.state = { showExpandedCard: false, open: false };
+        this.state = { showExpandedCard: false};
     }
 
     flipExpandedCard = () => {
         const showExpandedCard = !this.state.showExpandedCard;
-        this.setState({ showExpandedCard, open: showExpandedCard });
+        this.setState({ showExpandedCard});
     }
 
     render() {
         const { name } = this.props;
-        const { showExpandedCard, open } = this.state;
+        const { showExpandedCard } = this.state;
 
         if (showExpandedCard) 
             return (
                 <ClickAwayListener onClickAway={this.flipExpandedCard}>
                     <ExpandedCardTooltip
                         title={<YugiohCardExpanded hoverCard={name} height="325px" width="325px" noButtons />}
-                        open={open}
+                        open={true}
                         onClose={this.flipExpandedCard}
                         disableFocusListener
                         disableHoverListener
