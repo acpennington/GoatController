@@ -16,7 +16,7 @@ class SideNavigation extends PureComponent {
 
       return (
          <div className={classes.container} style={{ height: "calc(80vh - 22px)" }}>
-            <Button color="primary" size="lg" round style={{ width: "99%" }}>
+            <Button color="primary" size="lg" round style={{ width: "99%" }} href="/game">
                <FaGamepad /> Leagues
             </Button>
             <Button color="primary" size="lg" round style={{ width: "99%" }}>

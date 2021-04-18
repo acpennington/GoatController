@@ -177,7 +177,7 @@ CustomDropdown.propTypes = {
    caret: PropTypes.bool,
    left: PropTypes.bool,
    noLiPadding: PropTypes.bool,
-   // function that retuns the selected item
+   // function that returns the selected item
    onClick: PropTypes.func
 };
 

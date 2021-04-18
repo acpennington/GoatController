@@ -49,7 +49,7 @@ router.post(
             goatGold: 0,
             joinDate: todaysDate(),
             settings: {
-               gamebg: "default.png",
+               gamebg: "Default.png",
                defaultSleeves: "goat.png"
             }
          };

@@ -9,12 +9,14 @@ import { GAME_RATIO, VILLAIN_HAND_SIZE } from "utils/constants.js";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 
-const backgroundImage = 'url("/backgrounds/default.png")';
-
 class Game extends Component {
    constructor(props) {
       super(props);
-      this.state = { sizingValue: this.getSizingValue() };
+      const settings = JSON.parse(window.sessionStorage.getItem("settings"));
+      this.state = {
+         sizingValue: this.getSizingValue(),
+         backgroundImage: 'url("/backgrounds/' + settings.gamebg + '")'
+      };
       window.addEventListener("resize", () => {
          this.setState({ sizingValue: this.getSizingValue() });
       });
@@ -28,7 +30,7 @@ class Game extends Component {
 
    render() {
       const { classes } = this.props;
-      const sizingValue = this.state.sizingValue;
+      const { sizingValue, backgroundImage } = this.state;
 
       return (
          <Provider store={store}>

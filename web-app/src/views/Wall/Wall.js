@@ -7,11 +7,10 @@ import GridItem from "components/Grid/GridItem.js";
 
 import SideNavigation from "./SideNavigation.js";
 import GetPosts from "./GetPosts.js";
+import { checkToken } from "utils/authToken.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-
-import { checkToken } from "utils/authToken.js";
 
 class Wall extends PureComponent {
    render() {
