@@ -15,7 +15,7 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
 class HeaderLinks extends PureComponent {
-   render () {
+   render() {
       const { classes, loggedInAs } = this.props;
 
       return (
@@ -105,16 +105,13 @@ class HeaderLinks extends PureComponent {
                   </Button>
                </Tooltip>
             </ListItem>
-            {loggedInAs && 
+            {loggedInAs && (
                <ListItem className={classes.listItem}>
-                  <Button
-                     color="transparent"
-                     className={classes.navLink}
-                  >
+                  <Button color="transparent" className={classes.navLink} href="/settings">
                      <People /> {loggedInAs}
                   </Button>
                </ListItem>
-            }
+            )}
          </List>
       );
    }

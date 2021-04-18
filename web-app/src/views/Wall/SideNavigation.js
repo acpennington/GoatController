@@ -16,25 +16,21 @@ class SideNavigation extends PureComponent {
 
       return (
          <div className={classes.container} style={{ height: "calc(80vh - 22px)" }}>
-            <Button color={"primary"} size="lg" round style={{ width: "99%" }}>
+            <Button color="primary" size="lg" round style={{ width: "99%" }}>
                <FaGamepad /> Leagues
             </Button>
-            <Button color={"primary"} size="lg" round style={{ width: "99%" }}>
+            <Button color="primary" size="lg" round style={{ width: "99%" }}>
                <FaWrench /> Deck Constructor
             </Button>
-            <Tooltip
-               id="comingsoon"
-               title="Coming soon!"
-               classes={{ tooltip: classes.tooltip }}
-            >
+            <Tooltip id="comingsoon" title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
                <Button size="lg" round style={{ width: "99%" }}>
                   <FaSearch /> Replay Viewer
                </Button>
             </Tooltip>
-            <Button color={"primary"} size="lg" round style={{ width: "99%" }}>
+            <Button color="primary" size="lg" round style={{ width: "99%" }}>
                <CgProfile /> Profile Viewer
             </Button>
-            <Button color={"primary"} size="lg" round style={{ width: "99%" }}>
+            <Button color="primary" size="lg" round style={{ width: "99%" }} href="/settings">
                <RiSettings4Fill /> Settings
             </Button>
          </div>
