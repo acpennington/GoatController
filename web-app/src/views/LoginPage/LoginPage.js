@@ -26,6 +26,8 @@ import { setAuthToken } from "utils/authToken.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
 
+const objects = ["settings"];
+
 export default function LoginPage(props) {
    const [isLogin, setIsLogin] = useState(true);
    const [cardAnimation, setCardAnimation] = useState("cardHidden");
@@ -52,7 +54,10 @@ export default function LoginPage(props) {
          setAuthToken(data.token);
 
          const storage = window.sessionStorage;
-         storage.setItem("token", data.token);
+         for (const item in data) {
+            if (objects.includes(item)) storage.setItem(item, JSON.stringify(data[item]));
+            else storage.setItem(item, data[item]);
+         }
 
          window.location.href = isLogin ? "/wall" : "/settings";
       } catch (err) {
