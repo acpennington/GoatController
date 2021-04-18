@@ -21,7 +21,7 @@ import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
 import { headers } from "utils/constants.js";
-import setAuthToken from "utils/setAuthToken.js";
+import { setAuthToken } from "utils/authToken.js";
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
@@ -51,6 +51,9 @@ export default function LoginPage(props) {
          const data = res.data;
          setAuthToken(data.token);
 
+         const storage = window.sessionStorage;
+         storage.setItem("token", data.token);
+
          window.location.href = isLogin ? "/wall" : "/settings";
       } catch (err) {
          const apiErrors = err.response.data.errors;
@@ -73,7 +76,6 @@ export default function LoginPage(props) {
 
    const classes = useStyles();
    const { ...rest } = props;
-
    const headerText = isLogin ? "Login" : "Register";
 
    return (
@@ -93,7 +95,7 @@ export default function LoginPage(props) {
          <div
             className={classes.pageHeader}
             style={{
-               backgroundImage: 'url("/backgrounds/thousandeyes.png")',
+               backgroundImage: 'url("/backgrounds/Thousand_Eyes_Goats.png")',
                backgroundSize: "cover",
                backgroundPosition: "center"
             }}

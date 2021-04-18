@@ -11,8 +11,11 @@ import GetPosts from "./GetPosts.js";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
+import { checkToken } from "utils/authToken.js";
+
 class Wall extends PureComponent {
    render() {
+      checkToken();
       const { classes, ...rest } = this.props;
 
       return (
@@ -32,7 +35,7 @@ class Wall extends PureComponent {
             <div
                className={classes.pageHeader}
                style={{
-                  backgroundImage: 'url("/backgrounds/thousandeyes.png")',
+                  backgroundImage: 'url("/backgrounds/Thousand_Eyes_Goats.png")',
                   backgroundSize: "cover",
                   backgroundPosition: "center"
                }}
