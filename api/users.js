@@ -10,6 +10,8 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const getJwt = require("./utils/getJwt.js");
 const todaysDate = require("./utils/todaysDate.js");
+const auth = require("./utils/middleware.js");
+const { response } = require("../server.js");
 
 // @route POST api/users
 // @desc Register a user
@@ -45,11 +47,11 @@ router.post(
          const newUser = {
             username,
             hashword,
-            goatgold: 0,
+            goatGold: 0,
             joinDate: todaysDate(),
             settings: {
                gamebg: "default.png",
-               defaultsleeves: "goat.png"
+               defaultSleeves: "goat.png"
             }
          };
 
@@ -61,7 +63,7 @@ router.post(
          };
 
          await DynamoDB.put(params, (err) => {
-            if (err) res.status(400).json({ errors: [err] });
+            if (err) res.status(400).json({ errors: [err.message] });
          }).promise();
 
          const token = getJwt(username);
@@ -87,14 +89,46 @@ router.get("/", [check("username", "Username is required").notEmpty()], async (r
       };
 
       const result = await DynamoDB.get(params, (err) => {
-         if (err) res.status(400).json({ errors: [err] });
+         if (err) res.status(400).json({ errors: [err.message] });
       }).promise();
       const user = result.Item;
 
-      if (user) {
-         res.json({ joinDate: user.joinDate });
-      } else res.status(400).json({ errors: [{ msg: "User not found" }] });
+      if (user) res.json({ joinDate: user.joinDate });
+      else res.status(400).json({ errors: [{ msg: "User not found" }] });
    } else res.status(400).json({ errors: errors.array() });
+});
+
+// @route PUT api/users
+// @desc Update your a part of your user's profile/attributes
+// @access Public
+router.put("/", auth, async (req, res) => {
+   const body = { ...req.body };
+   delete body.hashword;
+   delete body.username;
+   delete body.goatgold;
+   delete body.joinDate;
+
+   const params = {
+      TableName: "users",
+      Key: {
+         username: req.username
+      },
+      UpdateExpression: "set ",
+      ExpressionAttributeValues: {}
+   };
+
+   let counter = 0;
+   for (const attribute in body) {
+      params.UpdateExpression += attribute + " = :var" + counter + ", ";
+      params.ExpressionAttributeValues[":var" + counter] = body[attribute];
+      counter += 1;
+   }
+   params.UpdateExpression = params.UpdateExpression.slice(0, -2);
+
+   await DynamoDB.update(params, (err) => {
+      if (err) res.status(400).json({ errors: [err.message] });
+   }).promise();
+   res.json({ msg: "User successfully updated" });
 });
 
 module.exports = router;

@@ -29,7 +29,7 @@ router.post(
          };
 
          const result = await DynamoDB.get(params, (err) => {
-            if (err) res.status(400).json({ errors: [err] });
+            if (err) res.status(400).json({ errors: [err.message] });
          }).promise();
          const user = result.Item;
 
