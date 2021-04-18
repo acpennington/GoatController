@@ -13,8 +13,11 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 class Wall extends PureComponent {
-   render() {
+   constructor() {
       checkToken();
+   }
+
+   render() {
       const { classes, ...rest } = this.props;
 
       return (

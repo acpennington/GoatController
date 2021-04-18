@@ -20,6 +20,8 @@ const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goat
 
 class SettingsPage extends PureComponent {
    constructor(props) {
+      checkToken();
+
       super(props);
       const settings = JSON.parse(window.sessionStorage.getItem("settings"));
       this.state = { settings, unsaved: false };
@@ -32,13 +34,12 @@ class SettingsPage extends PureComponent {
    save = () => {
       if (this.state.unsaved) {
          window.sessionStorage.setItem("settings", JSON.stringify(this.state.settings));
+
          window.location.href = "/wall";
       }
    };
 
    render() {
-      checkToken();
-
       const { classes, ...rest } = this.props;
       const { settings, unsaved } = this.state;
       const { gamebg } = settings;
