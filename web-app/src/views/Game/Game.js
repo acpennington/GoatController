@@ -3,13 +3,13 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 import store from "stateStore/gameStore.js";
 import LeftPanel from "./LeftPanel.js";
-import Battlefield from "./Battlefield/Battlefield.js"
+import Battlefield from "./Battlefield/Battlefield.js";
 import { GAME_RATIO, VILLAIN_HAND_SIZE } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 
-const backgroundImage = 'url("/backgrounds/sorcererinspace.png")';
+const backgroundImage = 'url("/backgrounds/default.png")';
 
 class Game extends Component {
    constructor(props) {

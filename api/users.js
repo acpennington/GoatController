@@ -11,7 +11,6 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 const getJwt = require("./utils/getJwt.js");
 const todaysDate = require("./utils/todaysDate.js");
 const auth = require("./utils/middleware.js");
-const { response } = require("../server.js");
 
 // @route POST api/users
 // @desc Register a user
@@ -103,10 +102,7 @@ router.get("/", [check("username", "Username is required").notEmpty()], async (r
 // @access Public
 router.put("/", auth, async (req, res) => {
    const body = { ...req.body };
-   delete body.hashword;
-   delete body.username;
-   delete body.goatgold;
-   delete body.joinDate;
+   deleteAttributes(body, ["username", "hashword", "goatGold", "joinDate"]);
 
    const params = {
       TableName: "users",
@@ -130,5 +126,9 @@ router.put("/", auth, async (req, res) => {
    }).promise();
    res.json({ msg: "User successfully updated" });
 });
+
+function deleteAttributes(variable, attributes) {
+   for (const attribute of attributes) delete variable[attribute];
+}
 
 module.exports = router;

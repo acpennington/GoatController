@@ -21,6 +21,7 @@ import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
 import { headers } from "utils/constants.js";
+import setAuthToken from "utils/setAuthToken.js";
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
@@ -45,7 +46,11 @@ export default function LoginPage(props) {
 
       try {
          setErrors("Authenticating...");
+
          const res = await axios.post("/api/" + (isLogin ? "auth" : "users"), body, config);
+         const data = res.data;
+         setAuthToken(data.token);
+
          window.location.href = isLogin ? "/wall" : "/settings";
       } catch (err) {
          const apiErrors = err.response.data.errors;
