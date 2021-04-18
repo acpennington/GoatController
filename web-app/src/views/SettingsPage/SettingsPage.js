@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import axios from "axios";
 
 import { BsArrowLeftShort } from "react-icons/bs";
 import { FaSave } from "react-icons/fa";
@@ -11,7 +12,7 @@ import Button from "components/CustomButtons/Button.js";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
-import { checkToken } from "utils/authToken.js";
+import { getAuthHeaders, checkToken } from "utils/authToken.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
@@ -20,9 +21,9 @@ const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goat
 
 class SettingsPage extends PureComponent {
    constructor(props) {
+      super(props);
       checkToken();
 
-      super(props);
       const settings = JSON.parse(window.sessionStorage.getItem("settings"));
       this.state = { settings, unsaved: false };
    }
@@ -31,11 +32,26 @@ class SettingsPage extends PureComponent {
       this.setState({ settings: { ...this.state.settings, gamebg: bg }, unsaved: true });
    };
 
-   save = () => {
-      if (this.state.unsaved) {
+   save = async () => {
+      const { settings, unsaved } = this.state;
+      if (unsaved) {
          window.sessionStorage.setItem("settings", JSON.stringify(this.state.settings));
 
-         window.location.href = "/wall";
+         const config = { headers: getAuthHeaders() };
+         console.log(JSON.stringify(config));
+         const body = JSON.stringify({ settings });
+         try {
+            const res = await axios.put("/api/users", body, config);
+            window.location.href = "/wall";
+         } catch (err) {
+            const apiErrors = err.response.data.errors;
+            let errorString = "";
+
+            for (const error of apiErrors) errorString += error.msg + ". ";
+
+            errorString = errorString.slice(0, -1);
+            console.log(errorString);
+         }
       }
    };
 
@@ -81,6 +97,8 @@ class SettingsPage extends PureComponent {
                                  ]}
                               />
                            </div>
+                        </GridItem>
+                        <GridItem xs={12}>
                            <div style={{ textAlign: "center" }}>
                               <Button color="primary" size="lg" round href="/wall">
                                  <BsArrowLeftShort /> Back

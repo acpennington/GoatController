@@ -1,8 +1,8 @@
-import axios from "axios";
+import { headers } from "utils/constants.js";
 
-function setAuthToken(token) {
-   if (token) axios.defaults.headers.common["x-auth-token"] = token;
-   else delete axios.defaults.headers.common["x-auth-token"];
+function getAuthHeaders() {
+   headers["x-auth-token"] = window.sessionStorage.getItem("token");
+   return headers;
 }
 
 function checkToken() {
@@ -10,4 +10,4 @@ function checkToken() {
    if (!token) window.location.href = "/login-page";
 }
 
-export { setAuthToken, checkToken };
+export { getAuthHeaders, checkToken };
