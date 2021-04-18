@@ -17,7 +17,7 @@ const todaysDate = require("./utils/todaysDate.js");
 router.post(
    "/",
    [
-      check("username", "Userame is required").notEmpty(),
+      check("username", "Username is required").notEmpty(),
       check("password", "Please use a password with 10 or more characters").isLength({ min: 10 })
    ],
    async (req, res) => {
@@ -70,5 +70,31 @@ router.post(
       } else res.status(400).json({ errors: errors.array() });
    }
 );
+
+// @route GET api/users
+// @desc Get another user's info
+// @access Public
+router.get("/", [check("username", "Username is required").notEmpty()], async (req, res) => {
+   const errors = validationResult(req);
+   if (errors.isEmpty()) {
+      const { username } = req.body;
+
+      let params = {
+         TableName: "users",
+         Key: {
+            username
+         }
+      };
+
+      const result = await DynamoDB.get(params, (err) => {
+         if (err) res.status(400).json({ errors: [err] });
+      }).promise();
+      const user = result.Item;
+
+      if (user) {
+         res.json({ joinDate: user.joinDate });
+      } else res.status(400).json({ errors: [{ msg: "User not found" }] });
+   } else res.status(400).json({ errors: errors.array() });
+});
 
 module.exports = router;
