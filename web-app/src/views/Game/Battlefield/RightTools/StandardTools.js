@@ -84,7 +84,7 @@ class StandardTools extends PureComponent {
       const LPinputField = document.getElementById(LPinput);
       if (LPinputField && prepopLPvalue) {
          if (prepopLPvalue === "half") {
-            LPinputField.value = Math.ceil(heroLP / 2);
+            LPinputField.value = Math.floor(heroLP / 2);
             if (LPmode !== -1) this.swapLPmode();
          } else {
             LPinputField.value = Math.abs(prepopLPvalue);

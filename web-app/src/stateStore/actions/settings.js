@@ -5,7 +5,6 @@ function switchDiscard() {
 }
 
 function switchNames() {
-   console.log("send switch names dispatch");
    return { type: SWITCH_NAMES };
 }
 
