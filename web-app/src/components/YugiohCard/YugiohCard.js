@@ -43,12 +43,23 @@ const useStyles = makeStyles(cardStyle);
 function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName, modal }) {
    const classes = useStyles();
    const dispatch = useDispatch();
-   const { discardZone, deckZone, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone, isHero } = getBools(player, row, zone);
+   const {
+      discardZone,
+      deckZone,
+      isExtraDeck,
+      isDiscardZone,
+      inHand,
+      monsterZone,
+      STzone,
+      fieldZone,
+      isHero
+   } = getBools(player, row, zone);
 
    let { deckCount, card, sleeves, selected, handRevealed } = useSelector((state) => {
       const sfPlayer = state.field[player];
       const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
-      const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[isHero ? VILLAIN : HERO].sleeves;
+      const sleeves =
+         isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[isHero ? VILLAIN : HERO].sleeves;
       const selection = state.selectedCard;
       const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
       const handRevealed = sfPlayer.handRevealed;
@@ -61,8 +72,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       if (cardLength === 0) {
          zone = 0;
          card = false;
-      }
-      else {
+      } else {
          zone = cardLength - 1;
          card = card[zone];
       }

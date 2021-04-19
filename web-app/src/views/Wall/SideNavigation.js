@@ -16,9 +16,11 @@ class SideNavigation extends PureComponent {
 
       return (
          <div className={classes.container} style={{ height: "calc(80vh - 22px)" }}>
-            <Button color="primary" size="lg" round style={{ width: "99%" }} href="/game">
-               <FaGamepad /> Leagues
-            </Button>
+            <Tooltip id="leagues" title="Find games here!" classes={{ tooltip: classes.tooltip }}>
+               <Button color="primary" size="lg" round style={{ width: "99%" }} href="/game">
+                  <FaGamepad /> Leagues
+               </Button>
+            </Tooltip>
             <Button color="primary" size="lg" round style={{ width: "99%" }}>
                <FaWrench /> Deck Constructor
             </Button>

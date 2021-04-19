@@ -11,7 +11,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-
+import JustSleeves from "components/YugiohCard/JustSleeves";
 import { getAuthHeaders, checkToken } from "utils/authToken.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -28,8 +28,12 @@ class SettingsPage extends PureComponent {
       this.state = { settings, unsaved: false };
    }
 
-   setbg = (bg) => {
-      this.setState({ settings: { ...this.state.settings, gamebg: bg }, unsaved: true });
+   setbg = (gamebg) => {
+      this.setState({ settings: { ...this.state.settings, gamebg }, unsaved: true });
+   };
+
+   setSleeves = (sleeves) => {
+      this.setState({ settings: { ...this.state.settings, sleeves }, unsaved: true });
    };
 
    save = async () => {
@@ -88,12 +92,14 @@ class SettingsPage extends PureComponent {
                         <GridItem xs={12}>
                            <div style={{ textAlign: "center" }}>
                               <CustomDropdown
-                                 buttonText={"Game Background: " + formatBg(gamebg)}
+                                 buttonText={"Game Background: " + formatFileName(gamebg)}
                                  buttonProps={{
                                     color: "transparent"
                                  }}
                                  dropdownList={[
-                                    ...backgrounds.map((bg) => <div onClick={() => this.setbg(bg)}>{formatBg(bg)}</div>)
+                                    ...backgrounds.map((bg) => (
+                                       <div onClick={() => this.setbg(bg)}>{formatFileName(bg)}</div>
+                                    ))
                                  ]}
                               />
                            </div>
@@ -117,7 +123,7 @@ class SettingsPage extends PureComponent {
    }
 }
 
-function formatBg(gamebg) {
+function formatFileName(gamebg) {
    return gamebg.split(".")[0].replace(/_/g, " ");
 }
 

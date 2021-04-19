@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-
 import { Provider } from "react-redux";
+
 import store from "stateStore/gameStore.js";
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
+import { checkToken } from "utils/authToken.js";
 import { GAME_RATIO, VILLAIN_HAND_SIZE } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -12,6 +13,8 @@ import styles from "assets/jss/material-kit-react/views/game.js";
 class Game extends Component {
    constructor(props) {
       super(props);
+      checkToken();
+
       const settings = JSON.parse(window.sessionStorage.getItem("settings"));
       this.state = {
          sizingValue: this.getSizingValue(),
