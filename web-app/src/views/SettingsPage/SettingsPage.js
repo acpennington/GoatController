@@ -105,6 +105,11 @@ class SettingsPage extends PureComponent {
                            </div>
                         </GridItem>
                         <GridItem xs={12}>
+                           <div style={{ textAlign: "center", display: "flex", justifyContent: "center" }}>
+                              <JustSleeves height={250} sleeves="goat.png"/>
+                           </div>
+                        </GridItem>                        
+                        <GridItem xs={12}>
                            <div style={{ textAlign: "center" }}>
                               <Button color="primary" size="lg" round href="/wall">
                                  <BsArrowLeftShort /> Back
