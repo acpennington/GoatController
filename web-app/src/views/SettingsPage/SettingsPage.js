@@ -18,6 +18,7 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
+const sleeveChoices = ["goat.png", "exarion.png"];
 
 class SettingsPage extends PureComponent {
    constructor(props) {
@@ -62,7 +63,7 @@ class SettingsPage extends PureComponent {
    render() {
       const { classes, ...rest } = this.props;
       const { settings, unsaved } = this.state;
-      const { gamebg } = settings;
+      const { gamebg, sleeves } = settings;
 
       return (
          <div>
@@ -106,7 +107,20 @@ class SettingsPage extends PureComponent {
                         </GridItem>
                         <GridItem xs={12}>
                            <div style={{ textAlign: "center", display: "flex", justifyContent: "center" }}>
-                              <JustSleeves height={250} sleeves="goat.png"/>
+                              <div>
+                              <CustomDropdown
+                                 buttonText={"Sleeves: " + formatFileName(sleeves)}
+                                 buttonProps={{
+                                    color: "transparent"
+                                 }}
+                                 dropdownList={[
+                                    ...sleeveChoices.map((sleeve) => (
+                                       <div onClick={() => this.setSleeves(sleeve)}>{formatFileName(sleeve)}</div>
+                                    ))
+                                 ]}
+                              />
+                              <JustSleeves height={250} sleeves={sleeves} />
+                              </div>
                            </div>
                         </GridItem>                        
                         <GridItem xs={12}>
