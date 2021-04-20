@@ -39,13 +39,21 @@ class SettingsPage extends PureComponent {
       this.state = { settings, unsaved: false, requirePass: false };
    }
 
-   setbg = (gamebg) => {
+   setBg = (gamebg) => {
       this.setState({ settings: { ...this.state.settings, gamebg }, unsaved: true });
    };
 
    setSleeves = (sleeves) => {
       this.setState({ settings: { ...this.state.settings, sleeves }, unsaved: true });
    };
+
+   setEmail = (event) => {
+      this.setState({ settings: { ...this.state.settings, email: event.target.value }, unsaved: true, requirePass: true });
+   }
+
+   setDiscord = (event) => {
+      this.setState({ settings: { ...this.state.settings, discord: event.target.value }, unsaved: true, requirePass: true });
+   }
 
    save = async () => {
       const { settings, unsaved } = this.state;
@@ -73,7 +81,7 @@ class SettingsPage extends PureComponent {
    render() {
       const { classes, ...rest } = this.props;
       const { settings, unsaved, requirePass } = this.state;
-      const { gamebg, sleeves } = settings;
+      const { gamebg, sleeves, email, discord } = settings;
 
       return (
          <div>
@@ -109,7 +117,7 @@ class SettingsPage extends PureComponent {
                                  }}
                                  dropdownList={[
                                     ...backgrounds.map((bg) => (
-                                       <div onClick={() => this.setbg(bg)}>{formatFileName(bg)}</div>
+                                       <div onClick={() => this.setBg(bg)}>{formatFileName(bg)}</div>
                                     ))
                                  ]}
                               />
@@ -155,6 +163,8 @@ class SettingsPage extends PureComponent {
                                        }}
                                        inputProps={{
                                           type: "text",
+                                          defaultValue: email,
+                                          onChange: this.setEmail,
                                           endAdornment: (
                                              <InputAdornment position="end">
                                                 <Email className={classes.inputIconsColor} />
@@ -170,6 +180,8 @@ class SettingsPage extends PureComponent {
                                        }}
                                        inputProps={{
                                           type: "text",
+                                          defaultValue: discord,
+                                          onChange: this.setDiscord,
                                           endAdornment: (
                                              <InputAdornment position="end">
                                                 <SiDiscord className={classes.inputIconsColor} />
