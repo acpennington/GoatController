@@ -3,6 +3,7 @@ import axios from "axios";
 
 import { BsArrowLeftShort } from "react-icons/bs";
 import { FaSave } from "react-icons/fa";
+import { SiDiscord } from "react-icons/si";
 
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -13,6 +14,14 @@ import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import JustSleeves from "components/YugiohCard/JustSleeves";
 import { getAuthHeaders, checkToken } from "utils/authToken.js";
+
+import Card from "components/Card/Card.js";
+import CardBody from "components/Card/CardBody.js";
+import CardHeader from "components/Card/CardHeader.js";
+
+import Email from "@material-ui/icons/Email";
+import Phone from "@material-ui/icons/Phone";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
@@ -106,23 +115,79 @@ class SettingsPage extends PureComponent {
                            </div>
                         </GridItem>
                         <GridItem xs={12}>
-                           <div style={{ textAlign: "center", display: "flex", justifyContent: "center" }}>
+                           <div style={{ textAlign: "center", display: "flex", justifyContent: "center", marginBottom: "30px" }}>
                               <div>
-                              <CustomDropdown
-                                 buttonText={"Sleeves: " + formatFileName(sleeves)}
-                                 buttonProps={{
-                                    color: "transparent"
-                                 }}
-                                 dropdownList={[
-                                    ...sleeveChoices.map((sleeve) => (
-                                       <div onClick={() => this.setSleeves(sleeve)}>{formatFileName(sleeve)}</div>
-                                    ))
-                                 ]}
-                              />
-                              <JustSleeves height={250} sleeves={sleeves} />
+                                 <CustomDropdown
+                                    buttonText={"Sleeves: " + formatFileName(sleeves)}
+                                    buttonProps={{
+                                       color: "transparent"
+                                    }}
+                                    dropdownList={[
+                                       ...sleeveChoices.map((sleeve) => (
+                                          <div onClick={() => this.setSleeves(sleeve)}>{formatFileName(sleeve)}</div>
+                                       ))
+                                    ]}
+                                 />
+                                 <JustSleeves height={250} sleeves={sleeves} />
                               </div>
                            </div>
-                        </GridItem>                        
+                        </GridItem>
+                        <GridItem xs={12} sm={6}>
+                           <Card style={{ paddingBottom: "20px", backgroundColor: "rgba(255,255,255,0.92)" }}>
+                              <form className={classes.form}>
+                                 <CardHeader color="primary" className={classes.cardHeader}>
+                                    <h4>Account Recovery</h4>
+                                 </CardHeader>
+                                 <CardBody>
+                                    <CustomInput
+                                       labelText="Email"
+                                       id="email"
+                                       formControlProps={{
+                                          fullWidth: true
+                                       }}
+                                       inputProps={{
+                                          type: "text",
+                                          endAdornment: (
+                                             <InputAdornment position="end">
+                                                <Email className={classes.inputIconsColor} />
+                                             </InputAdornment>
+                                          )
+                                       }}
+                                    />
+                                    <CustomInput
+                                       labelText="US Phone Number"
+                                       id="phone"
+                                       formControlProps={{
+                                          fullWidth: true
+                                       }}
+                                       inputProps={{
+                                          type: "text",
+                                          endAdornment: (
+                                             <InputAdornment position="end">
+                                                <Phone className={classes.inputIconsColor} />
+                                             </InputAdornment>
+                                          )
+                                       }}
+                                    />
+                                    <CustomInput
+                                       labelText="Discord ID"
+                                       id="discord"
+                                       formControlProps={{
+                                          fullWidth: true
+                                       }}
+                                       inputProps={{
+                                          type: "text",
+                                          endAdornment: (
+                                             <InputAdornment position="end">
+                                                <SiDiscord className={classes.inputIconsColor} />
+                                             </InputAdornment>
+                                          )
+                                       }}
+                                    />                                    
+                                 </CardBody>
+                              </form>
+                           </Card>
+                        </GridItem>                              
                         <GridItem xs={12}>
                            <div style={{ textAlign: "center" }}>
                               <Button color="primary" size="lg" round href="/wall">
@@ -142,8 +207,8 @@ class SettingsPage extends PureComponent {
    }
 }
 
-function formatFileName(gamebg) {
-   return gamebg.split(".")[0].replace(/_/g, " ");
+function formatFileName(fileName) {
+   return fileName.split(".")[0].replace(/_/g, " ");
 }
 
 export default withStyles(styles)(SettingsPage);

@@ -5,7 +5,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
 
-import Email from "@material-ui/icons/Email";
 import People from "@material-ui/icons/People";
 
 import Header from "components/Header/Header.js";
@@ -153,6 +152,24 @@ export default function LoginPage(props) {
                                     autoComplete: "off"
                                  }}
                               />
+                              {!isLogin && <CustomInput
+                                 labelText="Re-type Password"
+                                 id="pass2"
+                                 formControlProps={{
+                                    fullWidth: true
+                                 }}
+                                 inputProps={{
+                                    onChange: passwordEvent,
+                                    onKeyPress: enterToSubmit,
+                                    type: "password",
+                                    endAdornment: (
+                                       <InputAdornment position="end">
+                                          <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                       </InputAdornment>
+                                    ),
+                                    autoComplete: "off"
+                                 }}
+                              />}
                            </CardBody>
                            <CardFooter className={classes.cardFooter}>
                               <Button simple color="primary" size="lg" onClick={submit}>
