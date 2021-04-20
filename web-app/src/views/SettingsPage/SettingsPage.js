@@ -56,7 +56,7 @@ class SettingsPage extends PureComponent {
    }
 
    save = async () => {
-      const { settings, unsaved } = this.state;
+      const { settings, unsaved, requirePass } = this.state;
       if (unsaved) {
          window.sessionStorage.setItem("settings", JSON.stringify(this.state.settings));
 
