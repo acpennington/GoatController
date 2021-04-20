@@ -21,6 +21,7 @@ import CardHeader from "components/Card/CardHeader.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import Email from "@material-ui/icons/Email";
+import Icon from "@material-ui/core/Icon";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -35,7 +36,7 @@ class SettingsPage extends PureComponent {
       checkToken();
 
       const settings = JSON.parse(window.sessionStorage.getItem("settings"));
-      this.state = { settings, unsaved: false };
+      this.state = { settings, unsaved: false, requirePass: false };
    }
 
    setbg = (gamebg) => {
@@ -71,7 +72,7 @@ class SettingsPage extends PureComponent {
 
    render() {
       const { classes, ...rest } = this.props;
-      const { settings, unsaved } = this.state;
+      const { settings, unsaved, requirePass } = this.state;
       const { gamebg, sleeves } = settings;
 
       return (
@@ -80,7 +81,7 @@ class SettingsPage extends PureComponent {
                absolute
                color="transparent"
                brand="Goat Duels"
-               rightLinks={<HeaderLinks loggedInAs="ACP" />}
+               rightLinks={<HeaderLinks loggedInAs={window.sessionStorage.getItem("username")} />}
                fixed
                changeColorOnScroll={{
                   height: 100,
@@ -179,7 +180,70 @@ class SettingsPage extends PureComponent {
                                  </CardBody>
                               </form>
                            </Card>
-                        </GridItem>                              
+                        </GridItem>   
+                        <GridItem xs={12} sm={6}>
+                           <Card style={{ paddingBottom: "20px", backgroundColor: "rgba(255,255,255,0.92)" }}>
+                              <form className={classes.form}>
+                                 <CardHeader color="primary" className={classes.cardHeader}>
+                                    <Tooltip
+                                       id="accounts"
+                                       title="Used for password resets"
+                                       placement="top"
+                                       classes={{ tooltip: classes.tooltip }}
+                                    >
+                                       <h4>Change Password</h4>
+                                    </Tooltip>
+                                 </CardHeader>
+                                 <CardBody>
+                                    <CustomInput
+                                       labelText="New Password"
+                                       id="pass"
+                                       formControlProps={{
+                                          fullWidth: true
+                                       }}
+                                       inputProps={{
+                                          type: "text",
+                                          endAdornment: (
+                                             <InputAdornment position="end">
+                                                <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                             </InputAdornment>
+                                          )
+                                       }}
+                                    />
+                                    <CustomInput
+                                       labelText="Retype New Password"
+                                       id="pass2"
+                                       formControlProps={{
+                                          fullWidth: true
+                                       }}
+                                       inputProps={{
+                                          type: "text",
+                                          endAdornment: (
+                                             <InputAdornment position="end">
+                                                <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                             </InputAdornment>
+                                          )
+                                       }}
+                                    />
+                                    <CustomInput
+                                       labelText={<span style={{color: requirePass && "red"}}>Current Password</span>}
+                                       id="pass3"
+                                       formControlProps={{
+                                          fullWidth: true
+                                       }}
+                                       inputProps={{
+                                          type: "text",
+                                          endAdornment: (
+                                             <InputAdornment position="end">
+                                                <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                             </InputAdornment>
+                                          )
+                                       }}
+                                    />                                    
+                                 </CardBody>
+                              </form>
+                           </Card>
+                        </GridItem>                            
                         <GridItem xs={12}>
                            <div style={{ textAlign: "center" }}>
                               <Button color="primary" size="lg" round href="/wall">

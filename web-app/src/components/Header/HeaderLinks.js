@@ -107,9 +107,16 @@ class HeaderLinks extends PureComponent {
             </ListItem>
             {loggedInAs && (
                <ListItem className={classes.listItem}>
-                  <Button color="transparent" className={classes.navLink} href="/settings">
-                     <People /> {loggedInAs}
-                  </Button>
+                  <Tooltip
+                     id="settings"
+                     title="Account settings"
+                     placement={window.innerWidth > 959 ? "top" : "left"}
+                     classes={{ tooltip: classes.tooltip }}
+                  >
+                     <Button color="transparent" className={classes.navLink} href="/settings">
+                        <People /> {loggedInAs}
+                     </Button>
+                  </Tooltip>
                </ListItem>
             )}
          </List>
