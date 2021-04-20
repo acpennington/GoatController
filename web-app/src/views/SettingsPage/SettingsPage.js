@@ -18,8 +18,8 @@ import { getAuthHeaders, checkToken } from "utils/authToken.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
+import CardFooter from "components/Card/CardFooter.js";
 
-import Tooltip from "@material-ui/core/Tooltip";
 import Email from "@material-ui/icons/Email";
 import Icon from "@material-ui/core/Icon";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -142,17 +142,10 @@ class SettingsPage extends PureComponent {
                            </div>
                         </GridItem>
                         <GridItem xs={12} sm={6}>
-                           <Card style={{ paddingBottom: "20px", backgroundColor: "rgba(255,255,255,0.92)" }}>
+                           <Card style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
                               <form className={classes.form}>
                                  <CardHeader color="primary" className={classes.cardHeader}>
-                                    <Tooltip
-                                       id="accounts"
-                                       title="Used for password resets"
-                                       placement="top"
-                                       classes={{ tooltip: classes.tooltip }}
-                                    >
-                                       <h4>Link Accounts</h4>
-                                    </Tooltip>
+                                    <h4>Link Accounts</h4>
                                  </CardHeader>
                                  <CardBody>
                                     <CustomInput
@@ -190,6 +183,9 @@ class SettingsPage extends PureComponent {
                                        }}
                                     />                                    
                                  </CardBody>
+                                 <CardFooter className={classes.cardFooter} style={{textAlign: "center", padding: "0.9375rem 1.875rem"}}>
+                                    It is highly recommended that you link at least one account so that you will be able to recover your password (if forgotten).
+                                 </CardFooter>
                               </form>
                            </Card>
                         </GridItem>   
@@ -197,14 +193,7 @@ class SettingsPage extends PureComponent {
                            <Card style={{ paddingBottom: "20px", backgroundColor: "rgba(255,255,255,0.92)" }}>
                               <form className={classes.form}>
                                  <CardHeader color="primary" className={classes.cardHeader}>
-                                    <Tooltip
-                                       id="accounts"
-                                       title="Used for password resets"
-                                       placement="top"
-                                       classes={{ tooltip: classes.tooltip }}
-                                    >
-                                       <h4>Change Password</h4>
-                                    </Tooltip>
+                                    <h4>Change Password</h4>
                                  </CardHeader>
                                  <CardBody>
                                     <CustomInput
