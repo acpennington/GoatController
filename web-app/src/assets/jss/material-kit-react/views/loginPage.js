@@ -1,4 +1,5 @@
 import { container } from "assets/jss/material-kit-react.js";
+import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const signupPageStyle = {
   container: {
@@ -85,7 +86,8 @@ const signupPageStyle = {
   },
   inputIconsColor: {
     color: "#495057"
-  }
+  },
+  ...tooltip
 };
 
 export default signupPageStyle;

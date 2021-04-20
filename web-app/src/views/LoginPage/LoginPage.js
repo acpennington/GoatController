@@ -38,33 +38,40 @@ export default function LoginPage(props) {
    const passwordEvent = (event) => {
       setPassword(event.target.value);
    };
+   const [passwordTwo, setPasswordTwo] = useState("");
+   const passwordTwoEvent = (event) => {
+      setPasswordTwo(event.target.value);
+   };
 
    const submit = async () => {
-      const user = { username, password };
-      const config = { headers };
-      const body = JSON.stringify(user);
+      if (!isLogin && (password !== passwordTwo)) setErrors("Passwords do not match.")
+      else {
+         const user = { username, password };
+         const config = { headers };
+         const body = JSON.stringify(user);
 
-      try {
-         setErrors("Authenticating...");
+         try {
+            setErrors("Authenticating...");
 
-         const res = await axios.post("/api/" + (isLogin ? "auth" : "users"), body, config);
-         const data = res.data;
+            const res = await axios.post("/api/" + (isLogin ? "auth" : "users"), body, config);
+            const data = res.data;
 
-         const storage = window.sessionStorage;
-         for (const item in data) {
-            if (objects.includes(item)) storage.setItem(item, JSON.stringify(data[item]));
-            else storage.setItem(item, data[item]);
+            const storage = window.sessionStorage;
+            for (const item in data) {
+               if (objects.includes(item)) storage.setItem(item, JSON.stringify(data[item]));
+               else storage.setItem(item, data[item]);
+            }
+
+            window.location.href = isLogin ? "/wall" : "/settings";
+         } catch (err) {
+            const apiErrors = err.response.data.errors;
+            let errorString = "";
+
+            for (const error of apiErrors) errorString += error.msg + ". ";
+
+            errorString = errorString.slice(0, -1);
+            setErrors(errorString);
          }
-
-         window.location.href = isLogin ? "/wall" : "/settings";
-      } catch (err) {
-         const apiErrors = err.response.data.errors;
-         let errorString = "";
-
-         for (const error of apiErrors) errorString += error.msg + ". ";
-
-         errorString = errorString.slice(0, -1);
-         setErrors(errorString);
       }
    };
 
@@ -159,7 +166,7 @@ export default function LoginPage(props) {
                                     fullWidth: true
                                  }}
                                  inputProps={{
-                                    onChange: passwordEvent,
+                                    onChange: passwordTwoEvent,
                                     onKeyPress: enterToSubmit,
                                     type: "password",
                                     endAdornment: (

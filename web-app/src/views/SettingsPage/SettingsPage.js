@@ -19,8 +19,8 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 
+import Tooltip from "@material-ui/core/Tooltip";
 import Email from "@material-ui/icons/Email";
-import Phone from "@material-ui/icons/Phone";
 import InputAdornment from "@material-ui/core/InputAdornment";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -136,11 +136,18 @@ class SettingsPage extends PureComponent {
                            <Card style={{ paddingBottom: "20px", backgroundColor: "rgba(255,255,255,0.92)" }}>
                               <form className={classes.form}>
                                  <CardHeader color="primary" className={classes.cardHeader}>
-                                    <h4>Account Recovery</h4>
+                                    <Tooltip
+                                       id="accounts"
+                                       title="Used for password resets"
+                                       placement="top"
+                                       classes={{ tooltip: classes.tooltip }}
+                                    >
+                                       <h4>Link Accounts</h4>
+                                    </Tooltip>
                                  </CardHeader>
                                  <CardBody>
                                     <CustomInput
-                                       labelText="Email"
+                                       labelText="Email Address"
                                        id="email"
                                        formControlProps={{
                                           fullWidth: true
@@ -150,21 +157,6 @@ class SettingsPage extends PureComponent {
                                           endAdornment: (
                                              <InputAdornment position="end">
                                                 <Email className={classes.inputIconsColor} />
-                                             </InputAdornment>
-                                          )
-                                       }}
-                                    />
-                                    <CustomInput
-                                       labelText="US Phone Number"
-                                       id="phone"
-                                       formControlProps={{
-                                          fullWidth: true
-                                       }}
-                                       inputProps={{
-                                          type: "text",
-                                          endAdornment: (
-                                             <InputAdornment position="end">
-                                                <Phone className={classes.inputIconsColor} />
                                              </InputAdornment>
                                           )
                                        }}
@@ -194,7 +186,7 @@ class SettingsPage extends PureComponent {
                                  <BsArrowLeftShort /> Back
                               </Button>
                               <Button color={unsaved && "primary"} size="lg" round onClick={this.save}>
-                                 <FaSave /> Save
+                                 <FaSave /> Save Settings
                               </Button>
                            </div>
                         </GridItem>
