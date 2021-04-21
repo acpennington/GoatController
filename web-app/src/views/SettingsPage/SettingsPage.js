@@ -36,7 +36,15 @@ class SettingsPage extends PureComponent {
       checkToken();
 
       const settings = JSON.parse(window.sessionStorage.getItem("settings"));
-      this.state = { settings, unsaved: false, requirePass: false };
+      this.state = {
+         settings,
+         oldPassword: "",
+         newPassword: "",
+         newPasswordTwo: "",
+         unsaved: false,
+         requirePass: false,
+         errors: false
+      };
    }
 
    setBg = (gamebg) => {
@@ -48,40 +56,72 @@ class SettingsPage extends PureComponent {
    };
 
    setEmail = (event) => {
-      this.setState({ settings: { ...this.state.settings, email: event.target.value }, unsaved: true, requirePass: true });
-   }
+      this.setState({
+         settings: { ...this.state.settings, email: event.target.value },
+         unsaved: true,
+         requirePass: true
+      });
+   };
 
    setDiscord = (event) => {
-      this.setState({ settings: { ...this.state.settings, discord: event.target.value }, unsaved: true, requirePass: true });
-   }
+      this.setState({
+         settings: { ...this.state.settings, discord: event.target.value },
+         unsaved: true,
+         requirePass: true
+      });
+   };
+
+   setOldPassword = (event) => {
+      this.setState({ oldPassword: event.target.value });
+   };
+
+   setNewPassword = (event) => {
+      this.setState({ newPassword: event.target.value, unsaved: true, requirePass: true });
+   };
+
+   setNewPasswordTwo = (event) => {
+      this.setState({ newPasswordTwo: event.target.value, unsaved: true, requirePass: true });
+   };
 
    save = async () => {
-      const { settings, unsaved, requirePass } = this.state;
-      if (unsaved) {
-         window.sessionStorage.setItem("settings", JSON.stringify(this.state.settings));
+      const { settings, unsaved, requirePass, oldPassword, newPassword, newPasswordTwo } = this.state;
+      if (unsaved && (!requirePass || oldPassword)) {
+         if (settings.discord && !isDiscordValid(settings.discord))
+            this.setState({
+               errors: "Your discord name must end with a # and a 4-digit number. For example: ACP#1234."
+            });
+         else if (newPassword !== newPasswordTwo) this.setState({ errors: "New passwords do not match." });
+         else {
+            window.sessionStorage.setItem("settings", JSON.stringify(this.state.settings));
 
-         const config = { headers: getAuthHeaders() };
-         console.log(JSON.stringify(config));
-         const body = JSON.stringify({ settings });
-         try {
-            const res = await axios.put("/api/users", body, config);
-            window.location.href = "/wall";
-         } catch (err) {
-            const apiErrors = err.response.data.errors;
-            let errorString = "";
+            const config = { headers: getAuthHeaders() };
+            let body = { settings };
+            if (oldPassword) body.oldPassword = oldPassword;
+            if (newPassword) body.newPassword = newPassword;
+            body = JSON.stringify(body);
 
-            for (const error of apiErrors) errorString += error.msg + ". ";
+            try {
+               await axios.put("/api/users", body, config);
+               window.location.href = "/wall";
+            } catch (err) {
+               const apiErrors = err.response.data.errors;
+               let errorString = "";
 
-            errorString = errorString.slice(0, -1);
-            console.log(errorString);
+               for (const error of apiErrors) errorString += error.msg + ". ";
+
+               errorString = errorString.slice(0, -1);
+               this.setState({ errors: errorString });
+            }
          }
       }
    };
 
    render() {
       const { classes, ...rest } = this.props;
-      const { settings, unsaved, requirePass } = this.state;
+      const { settings, unsaved, requirePass, errors, oldPassword } = this.state;
       const { gamebg, sleeves, email, discord } = settings;
+
+      console.log(JSON.stringify(settings));
 
       return (
          <div>
@@ -124,7 +164,14 @@ class SettingsPage extends PureComponent {
                            </div>
                         </GridItem>
                         <GridItem xs={12}>
-                           <div style={{ textAlign: "center", display: "flex", justifyContent: "center", marginBottom: "30px" }}>
+                           <div
+                              style={{
+                                 textAlign: "center",
+                                 display: "flex",
+                                 justifyContent: "center",
+                                 marginBottom: "30px"
+                              }}
+                           >
                               <div>
                                  <CustomDropdown
                                     buttonText={"Sleeves: " + formatFileName(sleeves)}
@@ -181,14 +228,18 @@ class SettingsPage extends PureComponent {
                                              </InputAdornment>
                                           )
                                        }}
-                                    />                                    
+                                    />
                                  </CardBody>
-                                 <CardFooter className={classes.cardFooter} style={{textAlign: "center", padding: "0.9375rem 1.875rem"}}>
-                                    It is highly recommended that you link at least one account so that you will be able to recover your password (if forgotten).
+                                 <CardFooter
+                                    className={classes.cardFooter}
+                                    style={{ textAlign: "center", padding: "0.9375rem 1.875rem" }}
+                                 >
+                                    It is highly recommended that you link at least one account so that you will be able
+                                    to recover your password (if forgotten).
                                  </CardFooter>
                               </form>
                            </Card>
-                        </GridItem>   
+                        </GridItem>
                         <GridItem xs={12} sm={6}>
                            <Card style={{ paddingBottom: "20px", backgroundColor: "rgba(255,255,255,0.92)" }}>
                               <form className={classes.form}>
@@ -203,7 +254,8 @@ class SettingsPage extends PureComponent {
                                           fullWidth: true
                                        }}
                                        inputProps={{
-                                          type: "text",
+                                          type: "password",
+                                          onChange: this.setNewPassword,
                                           endAdornment: (
                                              <InputAdornment position="end">
                                                 <Icon className={classes.inputIconsColor}>lock_outline</Icon>
@@ -218,7 +270,8 @@ class SettingsPage extends PureComponent {
                                           fullWidth: true
                                        }}
                                        inputProps={{
-                                          type: "text",
+                                          type: "password",
+                                          onChange: this.setNewPasswordTwo,
                                           endAdornment: (
                                              <InputAdornment position="end">
                                                 <Icon className={classes.inputIconsColor}>lock_outline</Icon>
@@ -227,30 +280,46 @@ class SettingsPage extends PureComponent {
                                        }}
                                     />
                                     <CustomInput
-                                       labelText={<span style={{color: requirePass && "red"}}>Current Password</span>}
+                                       labelText={
+                                          <span style={{ color: requirePass && !oldPassword && "red" }}>
+                                             {"Current Password" + (requirePass ? " (Required)" : "")}
+                                          </span>
+                                       }
                                        id="pass3"
                                        formControlProps={{
                                           fullWidth: true
                                        }}
                                        inputProps={{
-                                          type: "text",
+                                          type: "password",
+                                          onChange: this.setOldPassword,
                                           endAdornment: (
                                              <InputAdornment position="end">
                                                 <Icon className={classes.inputIconsColor}>lock_outline</Icon>
                                              </InputAdornment>
                                           )
                                        }}
-                                    />                                    
+                                    />
                                  </CardBody>
                               </form>
                            </Card>
-                        </GridItem>                            
+                        </GridItem>
                         <GridItem xs={12}>
                            <div style={{ textAlign: "center" }}>
+                              {errors && (
+                                 <span style={{ color: "red" }}>
+                                    {errors}
+                                    <br />
+                                 </span>
+                              )}
                               <Button color="primary" size="lg" round href="/wall">
                                  <BsArrowLeftShort /> Back
                               </Button>
-                              <Button color={unsaved && "primary"} size="lg" round onClick={this.save}>
+                              <Button
+                                 color={unsaved && (!requirePass || oldPassword) && "primary"}
+                                 size="lg"
+                                 round
+                                 onClick={this.save}
+                              >
                                  <FaSave /> Save Settings
                               </Button>
                            </div>
@@ -262,6 +331,11 @@ class SettingsPage extends PureComponent {
          </div>
       );
    }
+}
+
+function isDiscordValid(discordName) {
+   const splitName = discordName.split("#");
+   return splitName.length === 2 && splitName[1].length === 4 && Number.isInteger(parseFloat(splitName[1]));
 }
 
 function formatFileName(fileName) {

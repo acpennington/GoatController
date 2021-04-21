@@ -19,7 +19,7 @@ router.post(
    "/",
    [
       check("username", "Username is required").notEmpty(),
-      check("password", "Please use a password with 10 or more characters").isLength({ min: 10 })
+      check("password", "Password must be 10 or more characters").isLength({ min: 10 })
    ],
    async (req, res) => {
       const errors = validationResult(req);
@@ -98,11 +98,44 @@ router.get("/", [check("username", "Username is required").notEmpty()], async (r
 });
 
 // @route PUT api/users
-// @desc Update your a part of your user's profile/attributes
-// @access Public
+// @desc Update a part of your user's profile/attributes
+// @access Private
 router.put("/", auth, async (req, res) => {
+   let checkedPassword = false;
    const body = { ...req.body };
    deleteAttributes(body, ["username", "hashword", "goatGold", "joinDate"]);
+
+   if ("oldPassword" in body) {
+      const params = {
+         TableName: "users",
+         Key: {
+            username: req.username
+         }
+      };
+
+      const result = await DynamoDB.get(params, (err) => {
+         if (err) res.status(400).json({ errors: [err] });
+      }).promise();
+      const user = result.Item;
+
+      const isMatch = await bcrypt.compare(body.oldPassword, user.hashword);
+
+      if (isMatch) {
+         checkedPassword = true;
+         if ("newPassword" in body) {
+            const newPassword = body.newPassword;
+            if (newPassword.length < 10)
+               res.status(400).json({ errors: [{ msg: "Your new password must be at least 10 characters" }] });
+            else {
+               const salt = await bcrypt.genSalt(7);
+               body.hashword = await bcrypt.hash(newPassword, salt);
+            }
+         }
+
+         oldEmail = user.settings.email;
+         oldDiscord = user.settings.discord;
+      } else res.status(400).json({ errors: [{ msg: "Password is not correct" }] });
+   }
 
    const params = {
       TableName: "users",

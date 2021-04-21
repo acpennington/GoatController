@@ -27,7 +27,7 @@ class Wall extends PureComponent {
                absolute
                color="transparent"
                brand="Goat Duels"
-               rightLinks={<HeaderLinks loggedInAs="ACP" />}
+               rightLinks={<HeaderLinks loggedInAs={window.sessionStorage.getItem("username")} />}
                fixed
                changeColorOnScroll={{
                   height: 100,
