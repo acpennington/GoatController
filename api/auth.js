@@ -13,6 +13,7 @@ const getJwt = require("./utils/getJwt.js");
 // @route POST api/auth
 // @desc Login/authenticate a user
 // @access Public
+// @db 1 read, 0 writes
 router.post(
    "/",
    [check("username", "Userame is required").notEmpty(), check("password", "Password is required").notEmpty()],

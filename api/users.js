@@ -15,6 +15,7 @@ const auth = require("./utils/middleware.js");
 // @route POST api/users
 // @desc Register a user
 // @access Public
+// @db 1 read, 1 write
 router.post(
    "/",
    [
@@ -79,6 +80,7 @@ router.post(
 // @route GET api/users
 // @desc Get another user's info
 // @access Public
+// @db 1 read, 0 writes
 router.get("/", [check("username", "Username is required").notEmpty()], async (req, res) => {
    const errors = validationResult(req);
    if (errors.isEmpty()) {
@@ -104,6 +106,7 @@ router.get("/", [check("username", "Username is required").notEmpty()], async (r
 // @route PUT api/users
 // @desc Update a part of your user's profile/attributes
 // @access Private
+// @db 1 read, 1 write
 router.put("/", auth, async (req, res) => {
    let checkedPassword = false;
    const body = { ...req.body };
