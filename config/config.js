@@ -48,7 +48,9 @@ module.exports = {
          "Ring of Destruction",
          "Call of the Haunted",
          "Sakuretsu Armor",
-         "Sakuretsu Armor"
+         "Sakuretsu Armor",
+         "Dust Tornado",
+         "Dust Tornado"
       ],
       sidedeck: []
    }
