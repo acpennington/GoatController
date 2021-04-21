@@ -8,6 +8,7 @@ module.exports = {
    jwtsecret: "DeezNuts69",
    defaultDeck: {
       decktype: "Goat Control",
+      default: true,
       wins: 0,
       losses: 0,
       maindeck: [
