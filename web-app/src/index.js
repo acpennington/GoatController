@@ -21,6 +21,7 @@ ReactDOM.render(
          <Route path="/texttocard" component={TextToCardDemo} />
          <Route path="/cardfinder" component={CardFinderDemo} />
          <Route path="/game" component={Game} />
+         <Route path="/solo" component={Game} />
          <Route path="/landing-page" component={LandingPage} />
          <Route path="/settings" component={SettingsPage} />
          <Route path="/login-page" component={LoginPage} />
