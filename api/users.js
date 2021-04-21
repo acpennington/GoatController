@@ -48,6 +48,7 @@ router.post(
             hashword,
             goatGold: 0,
             joinDate: todaysDate(),
+            lastDuel: "Never",
             settings: {
                gamebg: "Default.png",
                sleeves: "goat.png"
