@@ -3,7 +3,7 @@ const router = express.Router();
 const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 
-const { aws_remote_config } = require("../config/config.js");
+const { aws_remote_config, defaultDeck } = require("../config/config.js");
 const AWS = require("aws-sdk");
 AWS.config.update(aws_remote_config);
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
@@ -48,10 +48,13 @@ router.post(
             hashword,
             goatGold: 0,
             joinDate: todaysDate(),
-            lastDuel: "Never",
+            lastMatch: "Never",
             settings: {
                gamebg: "Default.png",
                sleeves: "goat.png"
+            },
+            decks: {
+               "Good Ol Goats": defaultDeck
             }
          };
 
