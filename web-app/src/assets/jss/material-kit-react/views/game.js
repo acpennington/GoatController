@@ -4,10 +4,6 @@ const gameStyle = {
       justifyContent: "center",
       alignItems: "center",
       margin: "auto",
-      backgroundColor: "black",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
       width: "100vw",
       height: "100vh"
    },

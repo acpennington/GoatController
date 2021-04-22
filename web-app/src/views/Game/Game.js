@@ -4,6 +4,8 @@ import { Provider } from "react-redux";
 import store from "stateStore/gameStore.js";
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
+
+import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 import { GAME_RATIO, VILLAIN_HAND_SIZE } from "utils/constants.js";
 
@@ -16,10 +18,9 @@ class Game extends Component {
       checkToken();
 
       const settings = JSON.parse(window.sessionStorage.getItem("settings"));
-      this.state = {
-         sizingValue: this.getSizingValue(),
-         backgroundImage: 'url("/backgrounds/' + settings.gamebg + '")'
-      };
+      setBodyImage(settings.gamebg);
+
+      this.state = { sizingValue: this.getSizingValue() };
       window.addEventListener("resize", () => {
          this.setState({ sizingValue: this.getSizingValue() });
       });
@@ -33,11 +34,11 @@ class Game extends Component {
 
    render() {
       const { classes } = this.props;
-      const { sizingValue, backgroundImage } = this.state;
+      const { sizingValue } = this.state;
 
       return (
          <Provider store={store}>
-            <div className={classes.container} style={{ backgroundImage }}>
+            <div className={classes.container}>
                <div
                   className={classes.innerContainer}
                   style={{
