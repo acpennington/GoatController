@@ -13,6 +13,8 @@ import Button from "components/CustomButtons/Button.js";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import JustSleeves from "components/YugiohCard/JustSleeves";
+
+import setBodyImage from "utils/setBodyImage.js";
 import { getAuthHeaders, checkToken } from "utils/authToken.js";
 
 import Card from "components/Card/Card.js";
@@ -36,6 +38,8 @@ class SettingsPage extends PureComponent {
       checkToken();
 
       const settings = JSON.parse(window.sessionStorage.getItem("settings"));
+      setBodyImage(settings.gamebg);
+
       this.state = {
          settings,
          oldPassword: "",
@@ -49,6 +53,7 @@ class SettingsPage extends PureComponent {
 
    setBg = (gamebg) => {
       this.setState({ settings: { ...this.state.settings, gamebg }, unsaved: true });
+      setBodyImage(gamebg);
    };
 
    setSleeves = (sleeves) => {
@@ -119,9 +124,7 @@ class SettingsPage extends PureComponent {
    render() {
       const { classes, ...rest } = this.props;
       const { settings, unsaved, requirePass, errors, oldPassword } = this.state;
-      const { gamebg, sleeves, email, discord } = settings;
-
-      console.log(JSON.stringify(settings));
+      const { sleeves, email, discord, gamebg } = settings;
 
       return (
          <div>
@@ -139,11 +142,6 @@ class SettingsPage extends PureComponent {
             />
             <div
                className={classes.pageHeader}
-               style={{
-                  backgroundImage: 'url("/backgrounds/' + gamebg + '")',
-                  backgroundSize: "cover",
-                  backgroundPosition: "center"
-               }}
             >
                <div className={classes.container}>
                   <div style={{ marginTop: "-5vh", marginBottom: "-100%" }}>
