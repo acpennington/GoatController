@@ -33,7 +33,7 @@ export default function GetPosts() {
    else posts = posts.filter((post) => postFilter === "All" || post.author === postFilter);
 
    return (
-      <>
+      <div style={{ width: "calc(100% - 250px)", position: "relative", float: "right" }}>
          <CustomDropdown
             buttonText={"Posts By: " + postFilter}
             buttonProps={{
@@ -59,6 +59,6 @@ export default function GetPosts() {
                </div>
             ))}
          </div>
-      </>
+      </div>
    );
 }

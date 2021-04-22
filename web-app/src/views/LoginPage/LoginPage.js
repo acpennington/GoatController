@@ -45,7 +45,7 @@ export default function LoginPage(props) {
    };
 
    const submit = async () => {
-      if (!isLogin && (password !== passwordTwo)) setErrors("Passwords do not match.")
+      if (!isLogin && password !== passwordTwo) setErrors("Passwords do not match.");
       else {
          const user = { username, password };
          const config = { headers };
@@ -84,7 +84,9 @@ export default function LoginPage(props) {
       setCardAnimation("");
    }, 700);
 
-   useEffect(() => { setBodyImage("Thousand_Eyes_Goats.png") }, []);
+   useEffect(() => {
+      setBodyImage("Thousand_Eyes_Goats.png");
+   }, []);
 
    const classes = useStyles();
    const { ...rest } = props;
@@ -104,9 +106,7 @@ export default function LoginPage(props) {
             }}
             {...rest}
          />
-         <div
-            className={classes.pageHeader}
-         >
+         <div className={classes.pageHeader}>
             <div className={classes.container}>
                <GridContainer justify="center">
                   <GridItem xs={12} sm={8} md={4}>
@@ -157,24 +157,26 @@ export default function LoginPage(props) {
                                     autoComplete: "off"
                                  }}
                               />
-                              {!isLogin && <CustomInput
-                                 labelText="Re-type Password"
-                                 id="pass2"
-                                 formControlProps={{
-                                    fullWidth: true
-                                 }}
-                                 inputProps={{
-                                    onChange: passwordTwoEvent,
-                                    onKeyPress: enterToSubmit,
-                                    type: "password",
-                                    endAdornment: (
-                                       <InputAdornment position="end">
-                                          <Icon className={classes.inputIconsColor}>lock_outline</Icon>
-                                       </InputAdornment>
-                                    ),
-                                    autoComplete: "off"
-                                 }}
-                              />}
+                              {!isLogin && (
+                                 <CustomInput
+                                    labelText="Re-type Password"
+                                    id="pass2"
+                                    formControlProps={{
+                                       fullWidth: true
+                                    }}
+                                    inputProps={{
+                                       onChange: passwordTwoEvent,
+                                       onKeyPress: enterToSubmit,
+                                       type: "password",
+                                       endAdornment: (
+                                          <InputAdornment position="end">
+                                             <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                          </InputAdornment>
+                                       ),
+                                       autoComplete: "off"
+                                    }}
+                                 />
+                              )}
                            </CardBody>
                            <CardFooter className={classes.cardFooter}>
                               <Button simple color="primary" size="lg" onClick={submit}>

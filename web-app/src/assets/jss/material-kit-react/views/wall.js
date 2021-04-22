@@ -3,10 +3,9 @@ import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const wallStyle = {
    container: {
-      height: "calc(80vh - 60px)",
       overflowY: "auto",
       overflowX: "hidden",
-      ...scrollStyle
+      padding: "5px"
    },
    post: {
       backgroundColor: "rgb(36,37,38)",
