@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -19,6 +19,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
+import setBodyImage from "utils/setBodyImage.js";
 import { headers } from "utils/constants.js";
 
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
@@ -83,6 +84,8 @@ export default function LoginPage(props) {
       setCardAnimation("");
    }, 700);
 
+   useEffect(() => { setBodyImage("Thousand_Eyes_Goats.png") }, []);
+
    const classes = useStyles();
    const { ...rest } = props;
    const headerText = isLogin ? "Login" : "Register";
@@ -103,11 +106,6 @@ export default function LoginPage(props) {
          />
          <div
             className={classes.pageHeader}
-            style={{
-               backgroundImage: 'url("/backgrounds/Thousand_Eyes_Goats.png")',
-               backgroundSize: "cover",
-               backgroundPosition: "center"
-            }}
          >
             <div className={classes.container}>
                <GridContainer justify="center">
