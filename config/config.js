@@ -9,6 +9,7 @@ module.exports = {
    defaultDeck: {
       decktype: "Goat Control",
       default: true,
+      visibility: "private",
       wins: 0,
       losses: 0,
       maindeck: [
