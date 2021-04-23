@@ -464,6 +464,94 @@ const monsters = {
       def: 2500,
       text:
          "Warrior/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn, you can activate 1 of these effects. ● Target 1 monster on the field; banish it. This card cannot attack the turn this effect is activated. ● If this attacking card destroys an opponent's monster by battle: It can make a second attack in a row."
+   },
+   "Airknight Parshath": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 5,
+      atk: 1900,
+      def: 1400,
+      text:
+         "Fairy/Effect – If this card attacks a Defense Position monster, inflict piercing battle damage. If this card inflicts battle damage to your opponent: Draw 1 card."
+   },
+   "Magician of Faith": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 1,
+      atk: 300,
+      def: 400,
+      text: "Spellcaster/Flip/Effect – FLIP: Target 1 Spell in your GY; add that target to your hand."
+   },
+   "Magical Merchant": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 1,
+      atk: 200,
+      def: 700,
+      text:
+         "Insect/Flip/Effect – FLIP: Excavate cards from the top of your Deck until you excavate a Spell/Trap, then add that card to your hand, also send the remaining cards to the GY."
+   },
+   "Abyss Soldier": {
+      cardType: "effectMonster",
+      attribute: "Water",
+      levelOrSubtype: 4,
+      atk: 1800,
+      def: 1300,
+      text:
+         "Aqua/Effect – Once per turn: You can discard 1 WATER monster to the Graveyard to target 1 card on the field; return it to the hand."
+   },
+   "Breaker the Magical Warrior": {
+      cardType: "effectMonster",
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 1000,
+      text:
+         "Spellcaster/Effect – If this card is Normal Summoned: Place 1 Spell Counter on it (max. 1). Gains 300 ATK for each Spell Counter on it. You can remove 1 Spell Counter from this card, then target 1 Spell/Trap on the field; destroy that target."
+   },
+   Tsukuyomi: {
+      cardType: "effectMonster",
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 1100,
+      def: 1400,
+      text:
+         "Spellcaster/Effect – Cannot be Special Summoned. If this card is Normal Summoned or flipped face-up: Target 1 face-up monster on the field; change that target to face-down Defense Position. Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand."
+   },
+   Sangan: {
+      cardType: "effectMonster",
+      attribute: "Dark",
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 600,
+      text:
+         'Fiend/Effect – If this card is sent from the field to the GY: Add 1 monster with 1500 or less ATK from your Deck to your hand, but you cannot activate cards, or the effects of cards, with that name for the rest of this turn. You can only use this effect of "Sangan" once per turn.'
+   },
+   "Sinister Serpent": {
+      cardType: "effectMonster",
+      attribute: "Water",
+      levelOrSubtype: 1,
+      atk: 300,
+      def: 250,
+      text:
+         "Reptile/Effect – During your Standby Phase, if this card is in your Graveyard: You can return it to your hand."
+   },
+   "Tribe-Infecting Virus": {
+      cardType: "effectMonster",
+      attribute: "Water",
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 1000,
+      text:
+         "Aqua/Effect – Discard 1 card from your hand and declare 1 Type of monster. Destroy all face-up monsters of the declared Type on the field."
+   },
+   "Morphing Jar": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 5,
+      atk: 1900,
+      def: 1400,
+      text: "Rock/Flip/Effect – FLIP: Both players discard their entire hands, then draw 5 cards."
    }
 };
 
@@ -492,6 +580,62 @@ const spells = {
       levelOrSubtype: "Normal",
       text: "Draw 1 card, then your opponent gains 1000 LP.",
       prepopLP: 1000
+   },
+   "Pot of Greed": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text: "Draw 2 cards."
+   },
+   "Graceful Charity": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text: "Draw 3 cards, then discard 2 cards."
+   },
+   "Delinquent Duo": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text:
+         "Pay 1000 LP; your opponent discards 1 random card, and if they have any other cards in their hand, discard 1 more card of their choice.",
+      prepopLP: 1000
+   },
+   "Heavy Storm": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text: "Destroy all Spell and Trap Cards on the field."
+   },
+   "Mystical Space Typhoon": {
+      cardType: "Spell",
+      levelOrSubtype: "Quick-Play",
+      text: "Target 1 Spell/Trap on the field; destroy that target."
+   },
+   "Snatch Steal": {
+      cardType: "Spell",
+      levelOrSubtype: "Equip",
+      text:
+         "Equip only to a monster your opponent controls. Take control of the equipped monster. During each of your opponent's Standby Phases: They gain 1000 Life Points."
+   },
+   Metamorphosis: {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text:
+         "Tribute 1 monster. Special Summon 1 Fusion Monster from your Extra Deck with the same Level as the Tributed monster."
+   },
+   Scapegoat: {
+      cardType: "Spell",
+      levelOrSubtype: "Quick-Play",
+      text:
+         'Special Summon 4 "Sheep Tokens" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. They cannot be Tributed for a Tribute Summon. You cannot Summon other monsters the turn you activate this card (but you can Normal Set).'
+   },
+   "Book of Moon": {
+      cardType: "Spell",
+      levelOrSubtype: "Quick-Play",
+      text: "Target 1 face-up monster on the field; change that target to face-down Defense Position."
+   },
+   "Nobleman of Crossout": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text:
+         "Target 1 face-down monster on the field; destroy that target, and if you do, banish it, then, if it was a Flip monster, each player banishes all cards from their Deck with that monster's name."
    }
 };
 
@@ -508,6 +652,33 @@ const traps = {
       text:
          "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card.",
       prepopLP: "half"
+   },
+   "Mirror Force": {
+      cardType: "Trap",
+      levelOrSubtype: "Normal",
+      text: "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters."
+   },
+   "Torrential Tribute": {
+      cardType: "Trap",
+      levelOrSubtype: "Normal",
+      text: "When a monster(s) is Summoned: Destroy all monsters on the field."
+   },
+   "Ring of Destruction": {
+      cardType: "Trap",
+      levelOrSubtype: "Normal",
+      text:
+         'During your opponent\'s turn: Target 1 face-up monster your opponent controls whose ATK is less than or equal to their LP; destroy that face-up monster, and if you do, take damage equal to its original ATK, then inflict damage to your opponent, equal to the damage you took. You can only activate 1 "Ring of Destruction" per turn.'
+   },
+   "Sakuretsu Armor": {
+      cardType: "Trap",
+      levelOrSubtype: "Normal",
+      text: "When an opponent's monster declares an attack: Target the attacking monster; destroy that target."
+   },
+   "Dust Tornado": {
+      cardType: "Trap",
+      levelOrSubtype: "Normal",
+      text:
+         "Target 1 Spell/Trap your opponent controls; destroy that target, then you can Set 1 Spell/Trap from your hand."
    }
 };
 
