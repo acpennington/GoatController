@@ -3,19 +3,22 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
-import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import Button from "components/CustomButtons/Button.js";
+import ButtonRow from "components/CustomButtons/ButtonRow.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Switch from "@material-ui/core/Switch";
 import Tooltip from "@material-ui/core/Tooltip";
-import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 import LifeBar from "components/LifeBar/LifeBar.js";
-import { adjustLP, revealHand } from "stateStore/actions/field.js";
+import { adjustLP, revealHand, resetSolo } from "stateStore/actions/field.js";
 import { switchDiscard, switchNames, prepopLP } from "stateStore/actions/settings.js";
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
 import { HERO, VILLAIN, GRAVEYARD, discardZones, phases } from "utils/constants.js";
+
+import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
+
+import { withStyles } from "@material-ui/core/styles";
+import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 const LPinput = "LPinput";
 
@@ -67,7 +70,7 @@ class StandardTools extends PureComponent {
    };
 
    render() {
-      const { classes, discardPile, turn, heroLP, villainLP, handRevealed, prepopLPvalue, showNames } = this.props;
+      const { classes, discardPile, turn, heroLP, villainLP, handRevealed, prepopLPvalue, showNames, solo, resetSolo } = this.props;
       const { player, phase } = turn;
       const { soundOn, LPmode } = this.state;
 
@@ -178,6 +181,14 @@ class StandardTools extends PureComponent {
                />
                Show Card Names
             </div>
+            {solo ? 
+               <ButtonRow>
+                  <Button color="primary" fullWidth round onClick={resetSolo}>Reset</Button>
+                  <Button color="primary" fullWidth round href="/wall">Quit</Button>
+               </ButtonRow> 
+               : 
+               <Button color="primary" fullWidth round>Concede</Button>
+            }
          </div>
       );
    }
@@ -207,5 +218,6 @@ export default connect(mapStateToProps, {
    prevPhase,
    adjustLP,
    revealHand,
-   prepopLP
+   prepopLP,
+   resetSolo
 })(withStyles(styles)(StandardTools));

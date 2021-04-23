@@ -1,4 +1,3 @@
-import scrollStyle from "../scrollStyle.js";
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const wallStyle = {

@@ -19,11 +19,6 @@ const chatStyle = {
       width: "100%",
       height: "calc(60% - " + marginTop + "px)"
    },
-   canned: {
-      width: "100%",
-      display: "flex",
-      justifyContent: "space-around"
-   },
    messageContainer: {
       display: "inline-block"
    },

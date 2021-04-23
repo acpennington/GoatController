@@ -15,7 +15,8 @@ import {
    SWITCH_POSITION,
    ADJUST_LP,
    REVEAL_HAND,
-   RESET_GAME_SOLO
+   RESET_GAME,
+   NEW_SOLO_GAME
 } from "utils/constants.js";
 
 const initialState = {
@@ -47,7 +48,9 @@ const initialState = {
    }
 };
 
-export default function (state = initialState, action) {
+const resetState = { ...initialState };
+
+export default function (state = { ...initialState }, action) {
    const { type, data } = action;
    switch (type) {
       case MOVE_CARD:
@@ -101,14 +104,15 @@ export default function (state = initialState, action) {
       case REVEAL_HAND:
          state.hero.handRevealed = !state.hero.handRevealed;
          return { ...state };
-      case RESET_GAME_SOLO:
-         state = initialState;
+      case RESET_GAME:
+         console.log(JSON.stringify(resetState));
+         return initialState;
+      case NEW_SOLO_GAME:
          const decks = JSON.parse(window.sessionStorage.getItem("decks"));
          const activeMaindeck = getActiveDeck(decks);
          const cards = shuffle(activeMaindeck);
 
          for (let i = 0; i < 6; i++) state.hero.hand.push({ name: cards.pop() })
-         console.log(JSON.stringify(state.hero.hand));
 
          state.hero.deck.count = cards.length;
          state.hero.deck.cards = cards;

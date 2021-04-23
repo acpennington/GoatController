@@ -17,7 +17,7 @@ class FriendlyScroll extends Component {
    };
 
    render() {
-      const { classes, id, drop, style, contStyle, bgColor, horiz } = this.props;
+      const { classes, id, drop, style, contStyle, bgColor, horiz, children } = this.props;
 
       const element = document.getElementById(this.props.id);
       const scrollgap =
@@ -45,7 +45,7 @@ class FriendlyScroll extends Component {
                style={{ backgroundColor: bgColor, ...style }}
                ref={drop}
             >
-               {this.props.children}
+               {children}
             </div>
             {shouldScrollRight && (
                <button className={classes["btn" + (horiz ? "Right" : "Bottom")]}>

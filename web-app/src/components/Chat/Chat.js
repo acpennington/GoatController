@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
 import Button from "components/CustomButtons/Button.js";
+import ButtonRow from "components/CustomButtons/ButtonRow.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
@@ -73,7 +74,7 @@ class Chat extends PureComponent {
                      margin: "dense"
                   }}
                />
-               <div className={classes.canned}>
+               <ButtonRow>
                   {cannedMessages.map((canned, index) => (
                      <Button
                         color="primary"
@@ -85,7 +86,7 @@ class Chat extends PureComponent {
                         {canned.message}
                      </Button>
                   ))}
-               </div>
+               </ButtonRow>
             </Fragment>}
          </div>
       );
