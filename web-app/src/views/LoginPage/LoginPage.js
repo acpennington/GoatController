@@ -25,7 +25,7 @@ import { headers } from "utils/constants.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
 
-const objects = ["settings"];
+const objects = ["settings", "decks"];
 
 export default function LoginPage(props) {
    const [isLogin, setIsLogin] = useState(true);

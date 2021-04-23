@@ -195,7 +195,8 @@ function mapStateToProps(state) {
 }
 
 StandardTools.propTypes = {
-   discardPile: PropTypes.string.isRequired
+   discardPile: PropTypes.string.isRequired,
+   solo: PropTypes.bool
 };
 
 export default connect(mapStateToProps, {

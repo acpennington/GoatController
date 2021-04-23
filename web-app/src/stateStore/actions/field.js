@@ -1,6 +1,6 @@
 import { Howl } from "howler";
 
-import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND } from "utils/constants";
+import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, RESET_GAME_SOLO } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
 
 function soundOn() {
@@ -48,4 +48,9 @@ function oneLP(player, change) {
    return { type: ADJUST_LP, data: { player, change } };
 }
 
-export { moveCard, switchPosition, revealHand, adjustLP };
+
+function resetSolo() {
+   return { type: RESET_GAME_SOLO };
+}
+
+export { moveCard, switchPosition, revealHand, adjustLP, resetSolo };

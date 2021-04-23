@@ -15,55 +15,35 @@ import {
    SWITCH_POSITION,
    ADJUST_LP,
    REVEAL_HAND,
-   RESET_GAME
+   RESET_GAME_SOLO
 } from "utils/constants.js";
 
 const initialState = {
    villain: {
       sleeves: "exarion.png",
       lifepoints: 8000,
-      deck: { count: 35 },
-      graveyard: [{ name: "Call of the Haunted" }],
+      deck: { count: 0 },
+      graveyard: [],
       banished: [],
       usedFusions: {},
-      hand: [
-         { name: FACEDOWN_CARD },
-         { name: FACEDOWN_CARD },
-         { name: FACEDOWN_CARD },
-         { name: FACEDOWN_CARD },
-         { name: FACEDOWN_CARD }
-      ],
+      hand: [],
       handRevealed: false,
-      "s/t": [{ name: "Call of the Haunted" }, null, null, null, null],
+      "s/t": [null, null, null, null, null],
       "field spell": null,
-      monster: [null, null, { name: "Shining Angel" }, null, null]
+      monster: [null, null, null, null, null]
    },
    hero: {
       sleeves: "goat.png",
       lifepoints: 8000,
-      deck: { count: 35 },
+      deck: { count: 0 },
       graveyard: [],
       banished: [],
       usedFusions: {},
-      hand: [
-         { name: "Shining Angel" },
-         { name: "Call of the Haunted" },
-         { name: "Nobleman of Crossout" },
-         { name: "Necrovalley" },
-         { name: "Premature Burial" },
-         { name: "Upstart Goblin" },
-         { name: "Solemn Judgment" }
-      ],
+      hand: [],
       handRevealed: false,
       "s/t": [null, null, null, null, null],
       "field spell": null,
-      monster: [
-         null,
-         null,
-         { name: "Black Luster Soldier - Envoy of the Beginning", inDef: true, facedown: true },
-         { name: "Gatling Dragon", notOwned: true },
-         null
-      ]
+      monster: [null, null, null, null, null]
    }
 };
 
@@ -121,9 +101,37 @@ export default function (state = initialState, action) {
       case REVEAL_HAND:
          state.hero.handRevealed = !state.hero.handRevealed;
          return { ...state };
-      case RESET_GAME:
-         return initialState;
+      case RESET_GAME_SOLO:
+         state = initialState;
+         const decks = JSON.parse(window.sessionStorage.getItem("decks"));
+         const activeMaindeck = getActiveDeck(decks);
+         const cards = shuffle(activeMaindeck);
+
+         for (let i = 0; i < 6; i++) state.hero.hand.push({ name: cards.pop() })
+         console.log(JSON.stringify(state.hero.hand));
+
+         state.hero.deck.count = cards.length;
+         state.hero.deck.cards = cards;
+         return { ...state };
       default:
          return state;
    }
+}
+
+function getActiveDeck(decks) {
+   for (const deckName in decks) {
+      const deck = decks[deckName];
+      if (deck.active) return deck.maindeck;
+   }
+}
+
+function shuffle(deck) {
+   for (let i = deck.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * i)
+      const temp = deck[i];
+      deck[i] = deck[j];
+      deck[j] = temp;
+   }
+
+   return deck;
 }

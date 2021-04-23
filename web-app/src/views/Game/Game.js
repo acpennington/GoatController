@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Provider } from "react-redux";
 
 import store from "stateStore/gameStore.js";
@@ -33,7 +34,7 @@ class Game extends Component {
    };
 
    render() {
-      const { classes } = this.props;
+      const { classes, solo } = this.props;
       const { sizingValue } = this.state;
 
       return (
@@ -47,12 +48,16 @@ class Game extends Component {
                   }}
                >
                   <LeftPanel />
-                  <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} />
+                  <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} solo={solo} />
                </div>
             </div>
          </Provider>
       );
    }
+}
+
+Game.propTypes = {
+   solo: PropTypes.bool
 }
 
 export default withStyles(styles)(Game);
