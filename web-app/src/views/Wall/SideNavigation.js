@@ -6,6 +6,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { FaGamepad, FaWrench, FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { RiSettings4Fill } from "react-icons/ri";
+import { BsFillPersonFill } from "react-icons/bs";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -22,6 +23,9 @@ class SideNavigation extends PureComponent {
                   <FaGamepad /> Leagues
                </Button>
             </Tooltip>
+            <Button color="primary" size="lg" round style={{ width: "99%" }} href="/solo">
+               <BsFillPersonFill /> Solo Duel
+            </Button>
             <Tooltip title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
                <Button size="lg" round style={{ width: "99%" }}>
                   <FaWrench /> Deck Constructor
