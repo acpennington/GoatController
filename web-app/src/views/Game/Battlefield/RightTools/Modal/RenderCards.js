@@ -18,13 +18,10 @@ function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub, f
          const cardName = cards[numb].name;
          const cardDetails = getCardDetails(cardName);
          const filters = filter.split(",");
-         console.log(JSON.stringify(filters));
 
          for (const singleFilter of filters) {
             const operator = singleFilter.includes(">") ? ">" : singleFilter.includes("<") ? "<" : "=";
             const [deet, comparator] = singleFilter.split(operator);
-            console.log(deet + " " + operator + " " + comparator);
-            console.log(cardDetails[deet]);
             switch (operator) {
                case ">":
                   if (!(cardDetails[deet] && cardDetails[deet] > comparator)) return false;
