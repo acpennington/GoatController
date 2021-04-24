@@ -2,7 +2,6 @@ import getCardDetails from "utils/getCardDetails.js";
 import {
    HERO,
    VILLAIN,
-   FACEDOWN_CARD,
    FUSION_MONSTER,
    MONSTER,
    ST,
