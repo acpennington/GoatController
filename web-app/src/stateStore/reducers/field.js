@@ -15,42 +15,29 @@ import {
    SWITCH_POSITION,
    ADJUST_LP,
    REVEAL_HAND,
-   RESET_GAME,
    NEW_SOLO_GAME
 } from "utils/constants.js";
 
-const initialState = {
-   villain: {
-      sleeves: "exarion.png",
-      lifepoints: 8000,
-      deck: { count: 0 },
-      graveyard: [],
-      banished: [],
-      usedFusions: {},
-      hand: [],
-      handRevealed: false,
-      "s/t": [null, null, null, null, null],
-      "field spell": null,
-      monster: [null, null, null, null, null]
-   },
-   hero: {
-      sleeves: "goat.png",
-      lifepoints: 8000,
-      deck: { count: 0 },
-      graveyard: [],
-      banished: [],
-      usedFusions: {},
-      hand: [],
-      handRevealed: false,
-      "s/t": [null, null, null, null, null],
-      "field spell": null,
-      monster: [null, null, null, null, null]
-   }
+const blankField = {
+   sleeves: "goat.png",
+   lifepoints: 8000,
+   deck: { count: 0 },
+   graveyard: [],
+   banished: [],
+   usedFusions: {},
+   hand: [],
+   handRevealed: false,
+   "s/t": [null, null, null, null, null],
+   "field spell": null,
+   monster: [null, null, null, null, null]
 };
 
-const resetState = { ...initialState };
+const initialState = {
+   villain: { ...blankField },
+   hero: { ...blankField }
+};
 
-export default function (state = { ...initialState }, action) {
+export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
       case MOVE_CARD:
@@ -104,19 +91,42 @@ export default function (state = { ...initialState }, action) {
       case REVEAL_HAND:
          state.hero.handRevealed = !state.hero.handRevealed;
          return { ...state };
-      case RESET_GAME:
-         console.log(JSON.stringify(resetState));
-         return initialState;
       case NEW_SOLO_GAME:
          const decks = JSON.parse(window.sessionStorage.getItem("decks"));
          const activeMaindeck = getActiveDeck(decks);
          const cards = shuffle(activeMaindeck);
 
-         for (let i = 0; i < 6; i++) state.hero.hand.push({ name: cards.pop() })
+         const newHand = [];
+         for (let i = 0; i < 6; i++) newHand.push({ name: cards.pop() });
 
-         state.hero.deck.count = cards.length;
-         state.hero.deck.cards = cards;
-         return { ...state };
+         return {
+            villain: {
+               sleeves: "goat.png",
+               lifepoints: 8000,
+               deck: { count: 0 },
+               graveyard: [],
+               banished: [],
+               usedFusions: {},
+               hand: [],
+               handRevealed: false,
+               "s/t": [null, null, null, null, null],
+               "field spell": null,
+               monster: [null, null, null, null, null]
+            },
+            hero: {
+               sleeves: "goat.png",
+               lifepoints: 8000,
+               deck: { count: cards.length, cards },
+               graveyard: [],
+               banished: [],
+               usedFusions: {},
+               hand: newHand,
+               handRevealed: false,
+               "s/t": [null, null, null, null, null],
+               "field spell": null,
+               monster: [null, null, null, null, null]
+            }
+         };
       default:
          return state;
    }
@@ -131,7 +141,7 @@ function getActiveDeck(decks) {
 
 function shuffle(deck) {
    for (let i = deck.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * i)
+      const j = Math.floor(Math.random() * i);
       const temp = deck[i];
       deck[i] = deck[j];
       deck[j] = temp;
