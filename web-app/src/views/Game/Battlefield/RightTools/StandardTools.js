@@ -30,7 +30,7 @@ class StandardTools extends PureComponent {
       const showNames = storage.getItem("showNames");
       if (showNames === null) storage.setItem("showNames", false);
       else if (showNames === "true" && !props.showNames) this.props.switchNames();
-      
+
       this.state = { LPmode: -1, soundOn: storage.getItem("soundOn") === "true" };
    }
 
@@ -50,7 +50,7 @@ class StandardTools extends PureComponent {
 
    flipSound = (event) => {
       window.localStorage.setItem("soundOn", event.target.checked);
-      this.setState = { soundOn: event.target.checked};
+      this.setState = { soundOn: event.target.checked };
    };
 
    flipNames = (event) => {
@@ -70,7 +70,18 @@ class StandardTools extends PureComponent {
    };
 
    render() {
-      const { classes, discardPile, turn, heroLP, villainLP, handRevealed, prepopLPvalue, showNames, solo, resetSolo } = this.props;
+      const {
+         classes,
+         discardPile,
+         turn,
+         heroLP,
+         villainLP,
+         handRevealed,
+         prepopLPvalue,
+         showNames,
+         solo,
+         resetSolo
+      } = this.props;
       const { player, phase } = turn;
       const { soundOn, LPmode } = this.state;
 
@@ -153,6 +164,20 @@ class StandardTools extends PureComponent {
                {handRevealed ? "Stop Revealing" : "Reveal Hand"}
             </Button>
             <LifeBar life={heroLP} player={HERO} />
+            {solo ? (
+               <ButtonRow>
+                  <Button color="primary" fullWidth round onClick={resetSolo}>
+                     Reset
+                  </Button>
+                  <Button color="primary" fullWidth round href="/wall">
+                     Quit
+                  </Button>
+               </ButtonRow>
+            ) : (
+               <Button color="primary" fullWidth round>
+                  Concede
+               </Button>
+            )}
             <div className={classes.LPbox}>
                <CustomInput
                   id={LPinput}
@@ -172,7 +197,8 @@ class StandardTools extends PureComponent {
                   color="primary"
                   style={{ color: "#9c27b0" }}
                />
-               Sound {soundOn ? "On" : "Off"}<br/>
+               Sound {soundOn ? "On" : "Off"}
+               <br />
                <Switch
                   checked={showNames}
                   onChange={(event) => this.flipNames(event)}
@@ -181,14 +207,6 @@ class StandardTools extends PureComponent {
                />
                Show Card Names
             </div>
-            {solo ? 
-               <ButtonRow>
-                  <Button color="primary" fullWidth round onClick={resetSolo}>Reset</Button>
-                  <Button color="primary" fullWidth round href="/wall">Quit</Button>
-               </ButtonRow> 
-               : 
-               <Button color="primary" fullWidth round>Concede</Button>
-            }
          </div>
       );
    }
