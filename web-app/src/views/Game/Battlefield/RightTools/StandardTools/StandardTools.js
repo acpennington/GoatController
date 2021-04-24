@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { bind, unbind } from "mousetrap";
 
 import Button from "components/CustomButtons/Button.js";
 import ButtonRow from "components/CustomButtons/ButtonRow.js";
@@ -10,12 +9,12 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import Switches from "./Switches.js";
 import ShowingDiscard from "./ShowingDiscard.js";
 import RevealHand from "./RevealHand.js";
+import Phases from "./Phases.js";
 
 import LifeBar from "components/LifeBar/LifeBar.js";
 import { adjustLP, resetSolo } from "stateStore/actions/field.js";
 import { prepopLP } from "stateStore/actions/settings.js";
-import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
-import { HERO, VILLAIN, phases } from "utils/constants.js";
+import { HERO, VILLAIN } from "utils/constants.js";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
@@ -28,15 +27,6 @@ class StandardTools extends PureComponent {
    constructor(props) {
       super(props);
       this.state = { LPmode: -1, dontSwap: false };
-   }
-
-   componentDidMount() {
-      bind("up", this.props.prevPhase);
-      bind("down", this.props.nextPhase);
-   }
-
-   componentWillUnmount() {
-      unbind(["up", "down"]);
    }
 
    swapLPmode = () => {
@@ -55,12 +45,8 @@ class StandardTools extends PureComponent {
    };
 
    render() {
-      const { classes, discardPile, turn, heroLP, villainLP, prepopLP, prepopLPvalue, solo, resetSolo } = this.props;
-      const { player, phase } = turn;
+      const { classes, discardPile, heroLP, villainLP, prepopLP, prepopLPvalue, solo, resetSolo } = this.props;
       const { LPmode, dontSwap } = this.state;
-
-      const isHero = player === HERO;
-      const myColor = isHero ? "info" : "danger";
 
       const LPinputField = document.getElementById(LPinput);
       if (LPinputField && prepopLPvalue) {
@@ -92,17 +78,7 @@ class StandardTools extends PureComponent {
       return (
          <div className={classes.container}>
             <LifeBar life={villainLP} player={VILLAIN} />
-            {phases.map((aPhase, index) => (
-               <Button
-                  color={myColor}
-                  round
-                  style={{ opacity: aPhase === phase || 0.8, border: aPhase === phase && "solid 3px white" }}
-                  key={index}
-                  onClick={isHero ? () => this.props.setTurn(player, aPhase) : undefined}
-               >
-                  {aPhase}
-               </Button>
-            ))}
+            <Phases />
             <ShowingDiscard discardPile={discardPile} />
             <RevealHand />
             <LifeBar life={heroLP} player={HERO} />
@@ -142,7 +118,6 @@ class StandardTools extends PureComponent {
 
 function mapStateToProps(state) {
    return {
-      turn: state.turn,
       villainLP: state.field.villain.lifepoints,
       heroLP: state.field.hero.lifepoints,
       prepopLPvalue: state.settings.prepopLP
@@ -154,11 +129,4 @@ StandardTools.propTypes = {
    solo: PropTypes.bool
 };
 
-export default connect(mapStateToProps, {
-   setTurn,
-   nextPhase,
-   prevPhase,
-   adjustLP,
-   prepopLP,
-   resetSolo
-})(withStyles(styles)(StandardTools));
+export default connect(mapStateToProps, { adjustLP, prepopLP, resetSolo })(withStyles(styles)(StandardTools));

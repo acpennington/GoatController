@@ -1,4 +1,14 @@
-import { HERO, VILLAIN, DRAW, phases, SET_TURN, NEXT_PHASE, PREV_PHASE, RESET_TURN } from "utils/constants.js";
+import {
+   HERO,
+   VILLAIN,
+   DRAW,
+   NEXT_TURN,
+   phases,
+   SET_TURN,
+   NEXT_PHASE,
+   PREV_PHASE,
+   RESET_TURN
+} from "utils/constants.js";
 
 const initialState = {
    player: HERO,
@@ -13,7 +23,7 @@ export default function (state = initialState, action) {
          return data;
       case NEXT_PHASE:
          if (state.player === VILLAIN) {
-            if (phases.indexOf(state.phase) === phases.length - 1) return { player: HERO, phase: phases[0] };
+            if (state.phase === NEXT_TURN) return { player: HERO, phase: DRAW };
             else return state;
          } else {
             phaseNum = phases.indexOf(state.phase);
