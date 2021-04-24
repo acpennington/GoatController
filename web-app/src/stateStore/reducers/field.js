@@ -43,9 +43,7 @@ export default function (state = initialState, action) {
    switch (type) {
       case MOVE_CARD:
          const { from, to } = data;
-         if (from.row === DECK) {
-            from.zone = state[from.player][DECK].length - 1;
-         }
+         if (from.row === DECK && from.zone === -1) from.zone = state[from.player][DECK].length - 1;
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = from.cardName
             ? { name: from.cardName }

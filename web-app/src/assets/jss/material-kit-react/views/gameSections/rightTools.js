@@ -49,6 +49,11 @@ const rightToolsStyle = {
       ...header,
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/cards/art/DimensionFusion.jpg")'
    },
+   headerdeck: {
+      ...header,
+      backgroundPosition: "50% 95%",
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/cards/art/CardShuffle.jpg")'
+   },
    headerFusion: {
       ...header,
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/cards/art/Polymerization.jpg")'

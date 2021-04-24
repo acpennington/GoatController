@@ -8,8 +8,8 @@ function switchNames() {
    return { type: SWITCH_NAMES };
 }
 
-function openModal(data) {
-   return { type: OPEN_MODAL, data };
+function openModal(player, row, filter = false) {
+   return { type: OPEN_MODAL, data: { player, row, filter } };
 }
 
 function closeModal() {

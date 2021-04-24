@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 
-import Modal from "./Modal.js";
+import Modal from "./Modal/Modal.js";
 import StandardTools from "./StandardTools/StandardTools.js";
 
 function RightTools({ height, discardPile, solo }) {

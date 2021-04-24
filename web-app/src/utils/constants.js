@@ -86,6 +86,9 @@ const headers = {
    "Content-Type": "application/json"
 };
 
+// script names
+const SEARCH_DECK = "Search_Deck";
+
 export {
    // game settings
    GAME_RATIO,
@@ -161,5 +164,7 @@ export {
    NEXT_TURN,
    phases,
    // axios
-   headers
+   headers,
+   // script names
+   SEARCH_DECK
 };

@@ -1,9 +1,9 @@
 import { NEW_HOVER, CLEAR_HOVER } from "utils/constants.js";
 
-function newHover(name) {
+function newHover(player, row, zone, name) {
    return {
       type: NEW_HOVER,
-      data: name
+      data: { player, row, zone, name }
    };
 }
 

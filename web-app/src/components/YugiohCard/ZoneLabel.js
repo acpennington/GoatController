@@ -27,9 +27,9 @@ class ZoneLabel extends PureComponent {
 }
 
 function mapStateToProps(state, ownProps) {
-   const { player, row, isExtraDeck, isDiscardZone, cardName } = ownProps;
+   const { player, row, isDeck, isExtraDeck, isDiscardZone, cardName } = ownProps;
    const zoneLabel =
-      (row === DECK && state.field[player][DECK].length) ||
+      (isDeck && state.field[player][DECK].length) ||
       (isExtraDeck && EXTRA_DECK) ||
       (row === EXTRA_DECK && 3 - (state.field[player].usedFusions[cardName] || 0)) ||
       (isDiscardZone && state.field[player][row].length);
@@ -40,6 +40,7 @@ ZoneLabel.propTypes = {
    height: PropTypes.number.isRequired,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
+   isDeck: PropTypes.bool.isRequired,
    isExtraDeck: PropTypes.bool.isRequired,
    isDiscardZone: PropTypes.bool.isRequired,
    cardName: PropTypes.string,

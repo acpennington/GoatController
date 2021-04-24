@@ -46,6 +46,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const {
       discardZone,
       deckZone,
+      isDeck,
       isExtraDeck,
       isDiscardZone,
       inHand,
@@ -170,10 +171,10 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                   }
                   dispatch(clearSelection());
                }
-            } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal({ player, row }));
+            } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row));
          }}
          onMouseEnter={() => {
-            if (!blank && !deckZone) dispatch(newHover(name));
+            if (!blank && !deckZone) dispatch(newHover(player, row, zone, name));
          }}
       >
          {!blank && !facedown && (
@@ -191,6 +192,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
             height={height}
             player={player}
             row={row}
+            isDeck={isDeck}
             isExtraDeck={isExtraDeck}
             isDiscardZone={isDiscardZone}
             cardName={cardName}
@@ -203,6 +205,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
 function getBools(player, row, zone) {
    const discardZone = discardZones.includes(row);
    const deckZone = deckZones.includes(row) && zone === -1;
+   const isDeck = row === DECK && zone === -1;
    const isExtraDeck = row === EXTRA_DECK && zone === -1;
    const isDiscardZone = discardZone && zone === -1;
    const inHand = row === HAND;
@@ -211,7 +214,7 @@ function getBools(player, row, zone) {
    const fieldZone = row === FIELD_SPELL;
    const isHero = player === HERO;
 
-   return { discardZone, deckZone, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone, isHero };
+   return { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone, isHero };
 }
 
 function rowClass(row) {

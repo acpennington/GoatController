@@ -1,23 +1,27 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 import Button from "components/CustomButtons/Button.js";
+
 import { Description } from "@material-ui/icons";
 
+import CardScript from "./CardScript.js";
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
-import { FACEDOWN_CARD } from "utils/constants";
+import { HERO, FACEDOWN_CARD, SEARCH_DECK } from "utils/constants";
 
 class YugiohCardExpanded extends PureComponent {
    render() {
       const { classes, hoverCard, selectedCard, height, width, noButtons } = this.props;
-      const cardName = rename(selectedCard, "name") || rename(hoverCard) || false;
+      const player = (selectedCard && selectedCard.player) || (hoverCard && hoverCard.player);
+      const cardName = rename(selectedCard) || rename(hoverCard);
 
       if (!cardName) return <div className={classes.largePic}></div>;
 
-      const { cardType, attribute, levelOrSubtype, atk, def, text } = getCardDetails(cardName);
+      const { cardType, attribute, levelOrSubtype, atk, def, text, script } = getCardDetails(cardName);
+      const scriptName = script && script.split(":")[0];
 
       return (
          <div
@@ -29,12 +33,15 @@ class YugiohCardExpanded extends PureComponent {
             }}
          >
             <div className={classes.contentContainer}>
-               {!noButtons && <div className={classes.buttons}>
-                  <Button color="primary">
-                     <Description />
-                     Rulings
-                  </Button>
-               </div>}
+               {!noButtons && (
+                  <div className={classes.buttons}>
+                     {script && validScript(player, scriptName) && <CardScript script={script} />}
+                     <Button color="primary">
+                        <Description />
+                        Rulings
+                     </Button>
+                  </div>
+               )}
                <div className={classes.cardText}>
                   <strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]
                   <br />
@@ -48,8 +55,12 @@ class YugiohCardExpanded extends PureComponent {
    }
 }
 
-function rename(card, prop = false) {
-   return prop ? card && card[prop] !== FACEDOWN_CARD && card[prop] : card !== FACEDOWN_CARD && card;
+function validScript(player, scriptName) {
+   return player === HERO || scriptName !== SEARCH_DECK;
+}
+
+function rename(card) {
+   return card && card.name !== FACEDOWN_CARD && card.name;
 }
 
 YugiohCardExpanded.propTypes = {
@@ -58,6 +69,6 @@ YugiohCardExpanded.propTypes = {
    height: PropTypes.string,
    width: PropTypes.string,
    noButtons: PropTypes.bool
-}
+};
 
 export default withStyles(cardStyle)(YugiohCardExpanded);

@@ -525,7 +525,8 @@ const monsters = {
       atk: 1000,
       def: 600,
       text:
-         'Fiend/Effect – If this card is sent from the field to the GY: Add 1 monster with 1500 or less ATK from your Deck to your hand, but you cannot activate cards, or the effects of cards, with that name for the rest of this turn. You can only use this effect of "Sangan" once per turn.'
+         'Fiend/Effect – If this card is sent from the field to the GY: Add 1 monster with 1500 or less ATK from your Deck to your hand, but you cannot activate cards, or the effects of cards, with that name for the rest of this turn. You can only use this effect of "Sangan" once per turn.',
+      script: "Search_Deck:atk<1500"
    },
    "Sinister Serpent": {
       cardType: "effectMonster",
