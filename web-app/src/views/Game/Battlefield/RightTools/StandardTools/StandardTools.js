@@ -6,12 +6,12 @@ import { bind, unbind } from "mousetrap";
 import Button from "components/CustomButtons/Button.js";
 import ButtonRow from "components/CustomButtons/ButtonRow.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-import Switch from "@material-ui/core/Switch";
 import Tooltip from "@material-ui/core/Tooltip";
 
+import Switches from "./Switches.js";
 import LifeBar from "components/LifeBar/LifeBar.js";
 import { adjustLP, revealHand, resetSolo } from "stateStore/actions/field.js";
-import { switchDiscard, switchNames, prepopLP } from "stateStore/actions/settings.js";
+import { switchDiscard, prepopLP } from "stateStore/actions/settings.js";
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
 import { HERO, VILLAIN, GRAVEYARD, discardZones, phases } from "utils/constants.js";
 
@@ -25,13 +25,8 @@ const LPinput = "LPinput";
 class StandardTools extends PureComponent {
    constructor(props) {
       super(props);
-      const storage = window.localStorage;
-      if (storage.getItem("soundOn") === null) storage.setItem("soundOn", true);
-      const showNames = storage.getItem("showNames");
-      if (showNames === null) storage.setItem("showNames", false);
-      else if (showNames === "true" && !props.showNames) this.props.switchNames();
 
-      this.state = { LPmode: -1, soundOn: storage.getItem("soundOn") === "true" };
+      this.state = { LPmode: -1, dontSwap: false };
    }
 
    componentDidMount() {
@@ -48,23 +43,13 @@ class StandardTools extends PureComponent {
       this.setState({ LPmode: this.state.LPmode * -1 });
    };
 
-   flipSound = (event) => {
-      window.localStorage.setItem("soundOn", event.target.checked);
-      this.setState = { soundOn: event.target.checked };
-   };
-
-   flipNames = (event) => {
-      window.localStorage.setItem("showNames", event.target.checked);
-      this.props.switchNames();
-   };
-
    submitMessage = (event) => {
+      this.props.prepopLP(null);
       if (event.key === "Enter") {
          const trimmedMessage = Number(event.target.value.trim());
          if (trimmedMessage) {
             event.target.value = "";
             this.props.adjustLP(HERO, this.state.LPmode * trimmedMessage, this.props.heroLP);
-            this.props.prepopLP(null);
          }
       }
    };
@@ -77,34 +62,44 @@ class StandardTools extends PureComponent {
          heroLP,
          villainLP,
          handRevealed,
+         prepopLP,
          prepopLPvalue,
-         showNames,
          solo,
          resetSolo
       } = this.props;
       const { player, phase } = turn;
-      const { soundOn, LPmode } = this.state;
+      const { LPmode, dontSwap } = this.state;
 
       const otherZone = discardZones.filter((zone) => zone !== discardPile)[0];
       const isHero = player === HERO;
       const myColor = isHero ? "info" : "danger";
 
+      const LPinputField = document.getElementById(LPinput);
+      if (LPinputField && prepopLPvalue) {
+         if (dontSwap) this.setState({ dontSwap: false });
+         else {
+            if (prepopLPvalue === "half") {
+               LPinputField.value = Math.floor(heroLP / 2);
+               if (LPmode !== -1) this.swapLPmode();
+            } else {
+               LPinputField.value = Math.abs(prepopLPvalue);
+               if (LPmode * prepopLPvalue < 0) this.swapLPmode();
+            }
+         }
+      }
+
       const LPbutton = (
-         <div className={classes.LPbutton} onClick={this.swapLPmode}>
+         <div
+            className={classes.LPbutton}
+            onClick={() => {
+               this.swapLPmode();
+               this.setState({ dontSwap: true });
+               if (prepopLPvalue) prepopLP(null);
+            }}
+         >
             {LPmode === 1 ? <FaPlusCircle color="green" size="1.5em" /> : <FaMinusCircle color="yellow" size="1.5em" />}
          </div>
       );
-
-      const LPinputField = document.getElementById(LPinput);
-      if (LPinputField && prepopLPvalue) {
-         if (prepopLPvalue === "half") {
-            LPinputField.value = Math.floor(heroLP / 2);
-            if (LPmode !== -1) this.swapLPmode();
-         } else {
-            LPinputField.value = Math.abs(prepopLPvalue);
-            if (LPmode * prepopLPvalue < 0) this.swapLPmode();
-         }
-      }
 
       return (
          <div className={classes.container}>
@@ -191,21 +186,7 @@ class StandardTools extends PureComponent {
                      margin: "dense"
                   }}
                />
-               <Switch
-                  checked={soundOn}
-                  onChange={(event) => this.flipSound(event)}
-                  color="primary"
-                  style={{ color: "#9c27b0" }}
-               />
-               Sound {soundOn ? "On" : "Off"}
-               <br />
-               <Switch
-                  checked={showNames}
-                  onChange={(event) => this.flipNames(event)}
-                  color="primary"
-                  style={{ color: "#9c27b0" }}
-               />
-               Show Card Names
+               <Switches />
             </div>
          </div>
       );
@@ -218,8 +199,7 @@ function mapStateToProps(state) {
       villainLP: state.field.villain.lifepoints,
       heroLP: state.field.hero.lifepoints,
       handRevealed: state.field.hero.handRevealed,
-      prepopLPvalue: state.settings.prepopLP,
-      showNames: state.settings.showNames
+      prepopLPvalue: state.settings.prepopLP
    };
 }
 
@@ -230,7 +210,6 @@ StandardTools.propTypes = {
 
 export default connect(mapStateToProps, {
    switchDiscard,
-   switchNames,
    setTurn,
    nextPhase,
    prevPhase,

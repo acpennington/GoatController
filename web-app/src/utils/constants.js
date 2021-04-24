@@ -31,7 +31,7 @@ const GRAVEYARD = "graveyard";
 const BANISHED = "banished";
 const discardZones = [GRAVEYARD, BANISHED];
 const dndZones = [DECK, ...discardZones];
-const dynamicZones = [HAND, ...discardZones];
+const dynamicZones = [HAND, DECK, ...discardZones];
 const toExtraZones = [HAND, ...deckZones];
 
 // actions
@@ -42,8 +42,8 @@ const MOVE_CARD = "MOVE_CARD";
 const SWITCH_POSITION = "SWITCH_POSITION";
 const ADJUST_LP = "ADJUST_LP";
 const REVEAL_HAND = "REVEAL_HAND";
-const RESET_GAME = "RESET_GAME";
 const NEW_SOLO_GAME = "NEW_SOLO_GAME";
+const DRAW_CARD = "DRAW_CARD";
 const NEW_HOVER = "NEW_HOVER";
 const CLEAR_HOVER = "CLEAR_HOVER";
 const NEW_SELECTION = "NEW_SELECTION";
@@ -60,7 +60,7 @@ const RESET_TURN = "RESET_TURN";
 
 // ItemTypes
 const OFF_FIELD = "offField";
-const allTypes = [MONSTER, ST, FIELD_SPELL, OFF_FIELD + MONSTER, OFF_FIELD + ST, EXTRA_DECK];
+const allTypes = [MONSTER, ST, FIELD_SPELL, OFF_FIELD + MONSTER, OFF_FIELD + ST, EXTRA_DECK, DECK];
 
 // colors
 const OVER_COLOR = "#00FF00";
@@ -126,8 +126,8 @@ export {
    SWITCH_POSITION,
    REVEAL_HAND,
    ADJUST_LP,
-   RESET_GAME,
    NEW_SOLO_GAME,
+   DRAW_CARD,
    NEW_HOVER,
    CLEAR_HOVER,
    NEW_SELECTION,

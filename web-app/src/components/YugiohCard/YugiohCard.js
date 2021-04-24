@@ -63,7 +63,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       const selection = state.selectedCard;
       const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
       const handRevealed = sfPlayer.handRevealed;
-      const deckCount = row === DECK ? sfPlayer[DECK].count : 1;
+      const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
       return { deckCount, card, sleeves, selected, handRevealed };
    });
 
@@ -85,9 +85,9 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
    const type =
-      (dynamicZones.includes(row) &&
-         ((levelOrSubtype === FIELD_SPELL && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : ST))) ||
-      row;
+      dynamicZones.includes(row) && row !== DECK
+         ? (levelOrSubtype === FIELD_SPELL && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : ST)
+         : row;
 
    const [{ isDragging }, drag] = useDrag({
       item: { type, player, row, zone, cardName },

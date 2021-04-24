@@ -7,6 +7,7 @@ import {
    ST,
    FIELD_SPELL,
    EXTRA_DECK,
+   DECK,
    dynamicZones,
    toExtraZones,
    TRAP,
@@ -14,13 +15,14 @@ import {
    SWITCH_POSITION,
    ADJUST_LP,
    REVEAL_HAND,
-   NEW_SOLO_GAME
+   NEW_SOLO_GAME,
+   DRAW_CARD
 } from "utils/constants.js";
 
 const blankField = {
    sleeves: "goat.png",
    lifepoints: 8000,
-   deck: { count: 0 },
+   deck: [],
    graveyard: [],
    banished: [],
    usedFusions: {},
@@ -41,11 +43,14 @@ export default function (state = initialState, action) {
    switch (type) {
       case MOVE_CARD:
          const { from, to } = data;
+         if (from.row === DECK) {
+            from.zone = state[from.player][DECK].length - 1;
+         }
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = from.cardName
             ? { name: from.cardName }
             : fieldSpell
-            ? state[from.player][from.row]
+            ? state[from.player][FIELD_SPELL]
             : state[from.player][from.row][from.zone];
          if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
          const facedown = fromCard.facedown;
@@ -65,12 +70,10 @@ export default function (state = initialState, action) {
          }
 
          if (dynamicZones.includes(from.row)) state[from.player][from.row].splice(from.zone, 1);
-         else {
-            if (fieldSpell) state[from.player][from.row] = null;
-            else if (from.row === EXTRA_DECK)
-               state[from.player].usedFusions[from.cardName] = state[from.player].usedFusions[from.cardName] + 1 || 1;
-            else state[from.player][from.row][from.zone] = null;
-         }
+         else if (fieldSpell) state[from.player][from.row] = null;
+         else if (from.row === EXTRA_DECK)
+            state[from.player].usedFusions[from.cardName] = state[from.player].usedFusions[from.cardName] + 1 || 1;
+         else state[from.player][from.row][from.zone] = null;
 
          return { ...state };
       case SWITCH_POSITION:
@@ -93,17 +96,17 @@ export default function (state = initialState, action) {
       case NEW_SOLO_GAME:
          const decks = JSON.parse(window.sessionStorage.getItem("decks"));
          const activeMaindeck = getActiveDeck(decks);
-         const cards = shuffle(activeMaindeck);
+         const namedCards = shuffle(activeMaindeck).map((card) => ({ name: card }));
 
          const newHand = [];
-         for (let i = 0; i < 6; i++) newHand.push({ name: cards.pop() });
+         for (let i = 0; i < 6; i++) newHand.push(namedCards.pop());
 
          const storage = window.sessionStorage;
          return {
             villain: {
                sleeves: storage.getItem("opponentsSleeves"),
                lifepoints: 8000,
-               deck: { count: 0 },
+               deck: [],
                graveyard: [],
                banished: [],
                usedFusions: {},
@@ -116,7 +119,7 @@ export default function (state = initialState, action) {
             hero: {
                sleeves: JSON.parse(storage.getItem("settings")).sleeves,
                lifepoints: 8000,
-               deck: { count: cards.length, cards },
+               deck: namedCards,
                graveyard: [],
                banished: [],
                usedFusions: {},
@@ -127,6 +130,10 @@ export default function (state = initialState, action) {
                monster: [null, null, null, null, null]
             }
          };
+      case DRAW_CARD:
+         const cards = state.hero.deck.cards;
+         if (cards && cards.length > 0) state.hero.hand.push({ name: cards.pop });
+         return { ...state };
       default:
          return state;
    }

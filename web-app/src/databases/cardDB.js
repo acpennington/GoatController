@@ -590,7 +590,7 @@ const spells = {
       levelOrSubtype: "Normal",
       text:
          "Pay 1000 LP; your opponent discards 1 random card, and if they have any other cards in their hand, discard 1 more card of their choice.",
-      prepopLP: 1000
+      prepopLP: -1000
    },
    "Heavy Storm": {
       cardType: "Spell",
@@ -606,7 +606,8 @@ const spells = {
       cardType: "Spell",
       levelOrSubtype: "Equip",
       text:
-         "Equip only to a monster your opponent controls. Take control of the equipped monster. During each of your opponent's Standby Phases: They gain 1000 Life Points."
+         "Equip only to a monster your opponent controls. Take control of the equipped monster. During each of your opponent's Standby Phases: They gain 1000 Life Points.",
+      prepopLP: 1000
    },
    Metamorphosis: {
       cardType: "Spell",
