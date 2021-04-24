@@ -16,13 +16,14 @@ import styles from "assets/jss/material-kit-react/views/game.js";
 class Battlefield extends Component {
    constructor(props) {
       super(props);
-      if (this.props.solo) this.props.resetSolo();
+      window.sessionStorage.setItem("opponentsSleeves", "goat.png");
+      if (props.solo) props.resetSolo();
    }
 
    render() {
-      const {classes, size, handCounts, discardPile, solo } = this.props;
+      const { classes, size, handCounts, discardPile, solo } = this.props;
       const cardHeight = Math.floor(size - 2);
-   
+
       return (
          <DndProvider backend={HTML5Backend}>
             <div className={classes.gameplayContainer}>
@@ -47,7 +48,13 @@ class Battlefield extends Component {
                      <YugiohCard height={cardHeight} notFull player={VILLAIN} row={FIELD_SPELL} />
                   </div>
                   <div className={classes.cardRow} style={{ height: size }}>
-                     <YugiohCard height={cardHeight} notFull player={HERO} row={FIELD_SPELL} discardPile={discardPile} />
+                     <YugiohCard
+                        height={cardHeight}
+                        notFull
+                        player={HERO}
+                        row={FIELD_SPELL}
+                        discardPile={discardPile}
+                     />
                      <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={0} discardPile={discardPile} />
                      <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={1} discardPile={discardPile} />
                      <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={2} discardPile={discardPile} />
@@ -74,12 +81,12 @@ class Battlefield extends Component {
 }
 
 function mapStateToProps(state) {
-   return { 
+   return {
       handCounts: {
          hero: state.field.hero.hand.length,
          villain: state.field.villain.hand.length
       },
-      discardPile: state.settings.discardPile 
+      discardPile: state.settings.discardPile
    };
 }
 

@@ -98,9 +98,10 @@ export default function (state = initialState, action) {
          const newHand = [];
          for (let i = 0; i < 6; i++) newHand.push({ name: cards.pop() });
 
+         const storage = window.sessionStorage;
          return {
             villain: {
-               sleeves: "goat.png",
+               sleeves: storage.getItem("opponentsSleeves"),
                lifepoints: 8000,
                deck: { count: 0 },
                graveyard: [],
@@ -113,7 +114,7 @@ export default function (state = initialState, action) {
                monster: [null, null, null, null, null]
             },
             hero: {
-               sleeves: "goat.png",
+               sleeves: JSON.parse(storage.getItem("settings")).sleeves,
                lifepoints: 8000,
                deck: { count: cards.length, cards },
                graveyard: [],
