@@ -63,6 +63,7 @@ function Modal({ pile, height }) {
             row={row}
             cardNames={fusionNames}
             sub={hfHeights}
+            filter={pile.filter}
          />
          {isExtra && (
             <div id="modalfooter" className={classes["footer" + row.split(" ")[0]]}>

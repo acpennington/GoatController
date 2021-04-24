@@ -1,20 +1,53 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
+import getCardDetails from "utils/getCardDetails.js";
 
-function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub }) {
+function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub, filter }) {
    const cardDivs = [];
 
-   for (let i = cardsLen - 1; i >= 0; i -= 2) {
+   let zoneNumbers = [];
+   for (let i = 0; i < cardsLen; i++) zoneNumbers.push(i);
+
+   const cards = useSelector((state) => (filter ? state.field[player][row] : false));
+   if (filter)
+      zoneNumbers = zoneNumbers.filter((numb) => {
+         const cardName = cards[numb].name;
+         const cardDetails = getCardDetails(cardName);
+         const filters = filter.split(",");
+         console.log(JSON.stringify(filters));
+
+         for (const singleFilter of filters) {
+            const operator = singleFilter.includes(">") ? ">" : singleFilter.includes("<") ? "<" : "=";
+            const [deet, comparator] = singleFilter.split(operator);
+            console.log(deet + " " + operator + " " + comparator);
+            console.log(cardDetails[deet]);
+            switch (operator) {
+               case ">":
+                  if (!(cardDetails[deet] && cardDetails[deet] > comparator)) return false;
+                  break;
+               case "<":
+                  if (!(cardDetails[deet] && cardDetails[deet] < comparator)) return false;
+                  break;
+               default:
+                  if (!(cardDetails[deet] && cardDetails[deet] === comparator)) return false;
+            }
+         }
+         console.log("valid card");
+         return true;
+      });
+
+   for (let i = zoneNumbers.length - 1; i >= 0; i -= 2) {
       cardDivs.push(
          <div className={classes.cards} key={i}>
             <YugiohCard
                height={height}
                player={player}
                row={row}
-               zone={i}
+               zone={zoneNumbers[i]}
                cardName={cardNames ? cardNames[i] : null}
                notFull
                modal
@@ -24,8 +57,8 @@ function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub })
                   height={height}
                   player={player}
                   row={row}
-                  zone={i - 1}
-                  cardName={cardNames ? cardNames[i - 1] : null}
+                  zone={zoneNumbers[i - 1]}
+                  cardName={cardNames ? cardNames[zoneNumbers[i - 1]] : null}
                   notFull
                   modal
                />
@@ -51,7 +84,8 @@ RenderCards.propTypes = {
    height: PropTypes.number.isRequired,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
-   sub: PropTypes.number.isRequired
+   sub: PropTypes.number.isRequired,
+   filter: PropTypes.string
 };
 
 export default RenderCards;

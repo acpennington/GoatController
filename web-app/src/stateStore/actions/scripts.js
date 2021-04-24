@@ -4,7 +4,7 @@ import { HERO, DECK } from "utils/constants.js";
 
 function filterDeck(params) {
    return (dispatch) => {
-      dispatch(openModal(HERO, DECK));
+      dispatch(openModal(HERO, DECK, params));
    };
 }
 

@@ -550,8 +550,8 @@ const monsters = {
       cardType: "effectMonster",
       attribute: "Light",
       levelOrSubtype: 5,
-      atk: 1900,
-      def: 1400,
+      atk: 700,
+      def: 600,
       text: "Rock/Flip/Effect – FLIP: Both players discard their entire hands, then draw 5 cards."
    }
 };
