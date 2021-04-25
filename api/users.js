@@ -52,7 +52,7 @@ router.post(
             lastMatch: "Never",
             settings: {
                gamebg: "Default.png",
-               sleeves: "goat.png"
+               sleeves: "Goat.png"
             },
             decks: {
                "Good Ol Goats": defaultDeck
