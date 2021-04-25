@@ -30,7 +30,7 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
-const sleeveChoices = ["goat.png", "exarion.png"];
+const sleeveChoices = ["Goat.png", "Exarion.png"];
 
 class SettingsPage extends PureComponent {
    constructor(props) {
@@ -140,9 +140,7 @@ class SettingsPage extends PureComponent {
                }}
                {...rest}
             />
-            <div
-               className={classes.pageHeader}
-            >
+            <div className={classes.pageHeader}>
                <div className={classes.container}>
                   <div style={{ marginTop: "-5vh", marginBottom: "-100%" }}>
                      <GridContainer justify="center">
