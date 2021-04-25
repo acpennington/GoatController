@@ -89,6 +89,7 @@ const headers = {
 // script names
 const SEARCH_DECK = "Search_Deck";
 const BANISH_ALL = "Banish_All";
+const MILL_UNTIL = "Mill_Until";
 
 export {
    // game settings
@@ -168,5 +169,6 @@ export {
    headers,
    // script names
    SEARCH_DECK,
-   BANISH_ALL
+   BANISH_ALL,
+   MILL_UNTIL
 };

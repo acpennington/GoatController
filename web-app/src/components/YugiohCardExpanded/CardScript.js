@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import Button from "components/CustomButtons/Button.js";
-import { FaSearch } from "react-icons/fa";
-import FindInPageIcon from "@material-ui/icons/FindInPage";
 
+import ScriptName from "./ScriptName.js";
 import { moveCard } from "stateStore/actions/field.js";
 import { filterDeck } from "stateStore/actions/scripts.js";
-import { HERO, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL } from "utils/constants";
+import { HERO, GRAVEYARD, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL } from "utils/constants";
+import getCardDetails from "utils/getCardDetails.js";
 
 class CardScript extends PureComponent {
    runScript = (name, params) => {
@@ -17,19 +17,47 @@ class CardScript extends PureComponent {
             this.props.filterDeck(params);
             break;
          case BANISH_ALL:
-            const deck = this.props.field.hero.deck;
-            const deckLength = deck.length;
-            for (let i = 0; i < deckLength; i++) {
-               const card = deck[i];
-               if (card && card.name === this.props.activeCard.name)
-                  this.props.moveCard({
-                     from: { player: HERO, row: DECK, zone: i },
-                     to: { player: HERO, row: BANISHED, zone: 0 }
-                  });
-            }
-            this.props.moveCard({ from: this.props.activeCard, to: { player: HERO, row: BANISHED, zone: 0 } });
+            this.banishAll();
+            break;
+         case MILL_UNTIL:
+            this.millUntil(params);
             break;
          default:
+      }
+   };
+
+   banishAll = () => {
+      const deck = this.props.field.hero.deck;
+      const deckLength = deck.length;
+
+      for (let i = 0; i < deckLength; i++) {
+         const card = deck[i];
+         if (card && card.name === this.props.activeCard.name)
+            this.props.moveCard({
+               from: { player: HERO, row: DECK, zone: i },
+               to: { player: HERO, row: BANISHED, zone: 0 }
+            });
+      }
+      this.props.moveCard({ from: this.props.activeCard, to: { player: HERO, row: BANISHED, zone: 0 } });
+   };
+
+   millUntil = (params) => {
+      const deck = this.props.field.hero.deck;
+      for (let i = deck.length - 1, stop = false; i >= 0 && !stop; i--) {
+         const card = deck[i];
+         const cardDetails = card && getCardDetails(card.name);
+         console.log(JSON.stringify(cardDetails));
+
+         if (params === ST) {
+            if (isNaN(cardDetails.atk)) stop = true;
+         }
+
+         console.log(stop);
+
+         this.props.moveCard({
+            from: { player: HERO, row: DECK, zone: i },
+            to: { player: HERO, row: GRAVEYARD, zone: 0 }
+         });
       }
    };
 
@@ -44,25 +72,6 @@ class CardScript extends PureComponent {
             <ScriptName scriptName={name} />
          </Button>
       );
-   }
-}
-
-function ScriptName({ scriptName }) {
-   switch (scriptName) {
-      case SEARCH_DECK:
-         return (
-            <Fragment>
-               <FaSearch /> Search Deck
-            </Fragment>
-         );
-      case BANISH_ALL:
-         return (
-            <Fragment>
-               <FindInPageIcon /> Banish All
-            </Fragment>
-         );
-      default:
-         return <Fragment>{scriptName.replace(/_/g, " ")}</Fragment>;
    }
 }
 

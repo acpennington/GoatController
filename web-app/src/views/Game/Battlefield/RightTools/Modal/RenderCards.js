@@ -24,10 +24,10 @@ function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub, f
             const [deet, comparator] = singleFilter.split(operator);
             switch (operator) {
                case ">":
-                  if (!(cardDetails[deet] && cardDetails[deet] > comparator)) return false;
+                  if (!(cardDetails[deet] && cardDetails[deet] >= comparator)) return false;
                   break;
                case "<":
-                  if (!(cardDetails[deet] && cardDetails[deet] < comparator)) return false;
+                  if (!(cardDetails[deet] && cardDetails[deet] <= comparator)) return false;
                   break;
                default:
                   if (!(cardDetails[deet] && cardDetails[deet] === comparator)) return false;
