@@ -549,8 +549,8 @@ const monsters = {
    },
    "Morphing Jar": {
       cardType: "effectMonster",
-      attribute: "Light",
-      levelOrSubtype: 5,
+      attribute: "Earth",
+      levelOrSubtype: 2,
       atk: 700,
       def: 600,
       text: "Rock/Flip/Effect – FLIP: Both players discard their entire hands, then draw 5 cards."
