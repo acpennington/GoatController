@@ -46,13 +46,10 @@ class CardScript extends PureComponent {
       for (let i = deck.length - 1, stop = false; i >= 0 && !stop; i--) {
          const card = deck[i];
          const cardDetails = card && getCardDetails(card.name);
-         console.log(JSON.stringify(cardDetails));
 
          if (params === ST) {
             if (isNaN(cardDetails.atk)) stop = true;
          }
-
-         console.log(stop);
 
          this.props.moveCard({
             from: { player: HERO, row: DECK, zone: i },
