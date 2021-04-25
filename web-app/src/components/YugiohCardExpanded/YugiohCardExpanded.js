@@ -10,13 +10,14 @@ import { Description } from "@material-ui/icons";
 import CardScript from "./CardScript.js";
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
-import { HERO, FACEDOWN_CARD, SEARCH_DECK } from "utils/constants";
+import { HERO, FACEDOWN_CARD, SEARCH_DECK, BANISH_ALL } from "utils/constants";
 
 class YugiohCardExpanded extends PureComponent {
    render() {
       const { classes, hoverCard, selectedCard, height, width, noButtons } = this.props;
-      const player = (selectedCard && selectedCard.player) || (hoverCard && hoverCard.player);
-      const cardName = rename(selectedCard) || rename(hoverCard);
+      const activeCard = selectedCard || hoverCard;
+      const player = activeCard && activeCard.player;
+      const cardName = rename(activeCard);
 
       if (!cardName) return <div className={classes.largePic}></div>;
 
@@ -36,6 +37,9 @@ class YugiohCardExpanded extends PureComponent {
                {!noButtons && (
                   <div className={classes.buttons}>
                      {script && validScript(player, scriptName) && <CardScript script={script} />}
+                     {text.includes("/Flip/") && (
+                        <CardScript script={BANISH_ALL} variant="Nobleman of Crossout" activeCard={activeCard} />
+                     )}
                      <Button color="primary">
                         <Description />
                         Rulings

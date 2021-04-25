@@ -33,7 +33,6 @@ function RenderCards({ classes, cardsLen, height, player, row, cardNames, sub, f
                   if (!(cardDetails[deet] && cardDetails[deet] === comparator)) return false;
             }
          }
-         console.log("valid card");
          return true;
       });
 

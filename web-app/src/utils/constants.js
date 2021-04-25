@@ -88,6 +88,7 @@ const headers = {
 
 // script names
 const SEARCH_DECK = "Search_Deck";
+const BANISH_ALL = "Banish_All";
 
 export {
    // game settings
@@ -166,5 +167,6 @@ export {
    // axios
    headers,
    // script names
-   SEARCH_DECK
+   SEARCH_DECK,
+   BANISH_ALL
 };

@@ -15,8 +15,7 @@ import {
    SWITCH_POSITION,
    ADJUST_LP,
    REVEAL_HAND,
-   NEW_SOLO_GAME,
-   DRAW_CARD
+   NEW_SOLO_GAME
 } from "utils/constants.js";
 
 const blankField = {
@@ -128,10 +127,6 @@ export default function (state = initialState, action) {
                monster: [null, null, null, null, null]
             }
          };
-      case DRAW_CARD:
-         const cards = state.hero.deck.cards;
-         if (cards && cards.length > 0) state.hero.hand.push({ name: cards.pop });
-         return { ...state };
       default:
          return state;
    }
