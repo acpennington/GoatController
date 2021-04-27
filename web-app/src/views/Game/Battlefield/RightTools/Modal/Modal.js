@@ -43,7 +43,7 @@ function Modal({ pile, height }) {
          });
 
    const cardsLen = useSelector((state) => (isExtra ? fusionNames.length : state.field[player][row].length));
-   if (cardsLen === 0) dispatch(closeModal());
+   if (cardsLen === 0) dispatch(closeModal(row));
 
    const [hfHeights, sethfHeights] = useState(0);
    useEffect(() => {

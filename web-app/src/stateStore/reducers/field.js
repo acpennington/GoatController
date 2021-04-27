@@ -15,7 +15,8 @@ import {
    SWITCH_POSITION,
    ADJUST_LP,
    REVEAL_HAND,
-   NEW_SOLO_GAME
+   NEW_SOLO_GAME,
+   SHUFFLE_DECK
 } from "utils/constants.js";
 
 const blankField = {
@@ -127,6 +128,9 @@ export default function (state = initialState, action) {
                monster: [null, null, null, null, null]
             }
          };
+      case SHUFFLE_DECK:
+         state.hero.deck = shuffle(state.hero.deck);
+         return { ...state};
       default:
          return state;
    }

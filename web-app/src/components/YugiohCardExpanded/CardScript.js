@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import Button from "components/CustomButtons/Button.js";
 
 import ScriptName from "./ScriptName.js";
-import { moveCard } from "stateStore/actions/field.js";
+import { moveCard, shuffleDeck } from "stateStore/actions/field.js";
 import { filterDeck } from "stateStore/actions/scripts.js";
 import { HERO, GRAVEYARD, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL } from "utils/constants";
 import getCardDetails from "utils/getCardDetails.js";
@@ -27,18 +27,21 @@ class CardScript extends PureComponent {
    };
 
    banishAll = () => {
+      const { moveCard, shuffleDeck} = this.props;
       const deck = this.props.field.hero.deck;
-      const deckLength = deck.length;
 
-      for (let i = 0; i < deckLength; i++) {
+      for (let i = 0; i < deck.length; i++) {
          const card = deck[i];
-         if (card && card.name === this.props.activeCard.name)
-            this.props.moveCard({
+         if (card && card.name === this.props.activeCard.name) {
+            moveCard({
                from: { player: HERO, row: DECK, zone: i },
                to: { player: HERO, row: BANISHED, zone: 0 }
             });
+            i--;
+         }
       }
-      this.props.moveCard({ from: this.props.activeCard, to: { player: HERO, row: BANISHED, zone: 0 } });
+      moveCard({ from: this.props.activeCard, to: { player: HERO, row: BANISHED, zone: 0 } });
+      shuffleDeck();
    };
 
    millUntil = (params) => {
@@ -92,4 +95,4 @@ CardScript.propTypes = {
    activeCard: PropTypes.object
 };
 
-export default connect(mapStateToProps, { filterDeck, moveCard })(CardScript);
+export default connect(mapStateToProps, { filterDeck, moveCard, shuffleDeck })(CardScript);

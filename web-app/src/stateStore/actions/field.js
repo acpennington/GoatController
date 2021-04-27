@@ -1,6 +1,6 @@
 import { Howl } from "howler";
 
-import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME } from "utils/constants";
+import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME, SHUFFLE_DECK } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
 
 function soundOn() {
@@ -48,4 +48,8 @@ function resetSolo() {
    return { type: NEW_SOLO_GAME };
 }
 
-export { moveCard, switchPosition, revealHand, adjustLP, resetSolo };
+function shuffleDeck() {
+   return { type: SHUFFLE_DECK };
+}
+
+export { moveCard, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };

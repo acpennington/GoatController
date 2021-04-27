@@ -11,7 +11,7 @@ class ModalHeader extends PureComponent {
       const { classes, isExtra, player, row } = this.props;
       return (
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
-            <div id="modalheader" className={classes["header" + row.split(" ")[0]]} onClick={this.props.closeModal}>
+            <div id="modalheader" className={classes["header" + row.split(" ")[0]]} onClick={() => this.props.closeModal(row)}>
                Viewing {!isExtra && getPlayerName(player) + "'s"} {row}
             </div>
          </Tooltip>

@@ -57,6 +57,7 @@ const SET_TURN = "SET_PHASE";
 const NEXT_PHASE = "NEXT_PHASE";
 const PREV_PHASE = "PREV_PHASE";
 const RESET_TURN = "RESET_TURN";
+const SHUFFLE_DECK = "SHUFFLE_DECK";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -146,6 +147,7 @@ export {
    NEXT_PHASE,
    PREV_PHASE,
    RESET_TURN,
+   SHUFFLE_DECK,
    // ItemTypes
    OFF_FIELD,
    allTypes,
