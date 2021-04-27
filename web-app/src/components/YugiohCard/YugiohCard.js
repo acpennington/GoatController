@@ -167,7 +167,8 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                         dispatch(
                            moveCard({ from: { player, row, zone }, to: { player, row: oppositeDiscard, zone: 0 } })
                         );
-                     } else dispatch(switchPosition(row, zone));
+                     } else if (row === DECK) dispatch(moveCard({ from: { player, row, zone }, to: { player, row: HAND } }));
+                     else dispatch(switchPosition(row, zone));
                   }
                   dispatch(clearSelection());
                }
