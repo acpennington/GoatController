@@ -14,12 +14,14 @@ import LandingPage from "views/LandingPage/LandingPage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import Game from "views/Game/Game.js";
 import Wall from "views/Wall/Wall.js";
+import Leagues from "views/Leagues/Leagues.js";
 
 ReactDOM.render(
    <Router history={history}>
       <Switch>
          <Route path="/texttocard" component={TextToCardDemo} />
          <Route path="/cardfinder" component={CardFinderDemo} />
+         <Route path="/leagues" component={Leagues} />
          <Route path="/game" component={Game} />
          <Route path="/solo" render={() => (<Game solo={true} />)} />
          <Route path="/landing-page" component={LandingPage} />
