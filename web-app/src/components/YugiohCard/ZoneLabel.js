@@ -5,11 +5,11 @@ import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
-import { DECK, EXTRA_DECK } from "utils/constants.js";
+import { DECK, EXTRA_DECK, GRAVEYARD, BANISHED } from "utils/constants.js";
 
 class ZoneLabel extends PureComponent {
    render() {
-      const { zoneLabel, villExtension, height, classes } = this.props;
+      const { zoneLabel, secondaryLabel, villExtension, height, classes } = this.props;
 
       return (
          <Fragment>
@@ -19,6 +19,14 @@ class ZoneLabel extends PureComponent {
                   style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}
                >
                   {zoneLabel}
+               </div>
+            )}
+            {secondaryLabel !== 0 && (
+               <div
+                  className={classes["secondaryLabel"]}
+                  style={{ fontSize: height / 7.5 + "px", lineHeight: height / 7.5 + "px" }}
+               >
+                  {secondaryLabel}
                </div>
             )}
          </Fragment>
@@ -33,7 +41,12 @@ function mapStateToProps(state, ownProps) {
       (isExtraDeck && EXTRA_DECK) ||
       (row === EXTRA_DECK && 3 - (state.field[player].usedFusions[cardName] || 0)) ||
       (isDiscardZone && state.field[player][row].length);
-   return { zoneLabel };
+   let secondaryLabel = false;
+   if (isDiscardZone) {
+      const oppositeDiscard = row === GRAVEYARD ? BANISHED : GRAVEYARD;
+      secondaryLabel = state.field[player][oppositeDiscard].length;
+   }
+   return { zoneLabel, secondaryLabel };
 }
 
 ZoneLabel.propTypes = {

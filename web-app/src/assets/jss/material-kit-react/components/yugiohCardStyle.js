@@ -71,6 +71,16 @@ const zoneLabel = {
    zIndex: 100
 };
 
+const secondaryLabel = {
+   position: "absolute",
+   filter:
+      "drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black)",
+   top: "0%",
+   right: "0%",
+   padding: "5px",
+   zIndex: 100
+}
+
 const cardStyle = {
    container: {
       ...container
@@ -173,7 +183,8 @@ const cardStyle = {
    zoneLabelVillain: {
       ...zoneLabel,
       transform: "translate(-50%, -50%) rotate(180deg)"
-   }
+   },
+   secondaryLabel
 };
 
 export default cardStyle;
