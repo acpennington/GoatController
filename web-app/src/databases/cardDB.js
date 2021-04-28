@@ -621,7 +621,8 @@ const spells = {
       cardType: "Spell",
       levelOrSubtype: "Quick-Play",
       text:
-         'Special Summon 4 "Sheep Tokens" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. They cannot be Tributed for a Tribute Summon. You cannot Summon other monsters the turn you activate this card (but you can Normal Set).'
+         'Special Summon 4 "Sheep Tokens" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. They cannot be Tributed for a Tribute Summon. You cannot Summon other monsters the turn you activate this card (but you can Normal Set).',
+      script: "Make_Tokens:count=4,name=Sheep Token,pos=atk"
    },
    "Book of Moon": {
       cardType: "Spell",
@@ -679,6 +680,17 @@ const traps = {
    }
 };
 
+const tokens = {
+   "Sheep Token": {
+      cardType: "normalMonster",
+      attribute: "Earth",
+      levelOrSubtype: 1,
+      atk: 0,
+      def: 0,
+      text: "Beast"
+   }
+}
+
 const nonfusions = {
    ...monsters,
    ...spells,
@@ -687,4 +699,4 @@ const nonfusions = {
 
 const cards = { ...fusions, ...nonfusions };
 
-export { cards, fusions, nonfusions, monsters, spells, traps };
+export { cards, fusions, nonfusions, monsters, spells, traps, tokens };

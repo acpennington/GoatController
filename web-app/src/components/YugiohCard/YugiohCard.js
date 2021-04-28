@@ -83,6 +83,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const revealed = inHand && handRevealed;
    const facedown = name === FACEDOWN_CARD || deckZone || (card && card.facedown);
    const inDef = card && card.inDef && monsterZone ? card.inDef : false;
+
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
    const type =

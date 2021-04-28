@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 
+import Header from "components/Header/Header.js";
+import HeaderLinks from "components/Header/HeaderLinks.js";
+
+import setBodyImage from "utils/setBodyImage.js";
+import { checkToken } from "utils/authToken.js";
+
 class Leagues extends Component {
     constructor(props) {
        super(props);

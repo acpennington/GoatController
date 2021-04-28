@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import Button from "components/CustomButtons/Button.js";
 
 import ScriptName from "./ScriptName.js";
-import { moveCard, shuffleDeck } from "stateStore/actions/field.js";
+import { moveCard, createTokens, shuffleDeck } from "stateStore/actions/field.js";
 import { filterDeck } from "stateStore/actions/scripts.js";
-import { HERO, GRAVEYARD, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL } from "utils/constants";
+import { HERO, GRAVEYARD, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS } from "utils/constants";
 import getCardDetails from "utils/getCardDetails.js";
 
 class CardScript extends PureComponent {
@@ -21,6 +21,9 @@ class CardScript extends PureComponent {
             break;
          case MILL_UNTIL:
             this.millUntil(params);
+            break;
+         case TOKENS:
+            this.props.createTokens(HERO, params);
             break;
          default:
       }
@@ -95,4 +98,4 @@ CardScript.propTypes = {
    activeCard: PropTypes.object
 };
 
-export default connect(mapStateToProps, { filterDeck, moveCard, shuffleDeck })(CardScript);
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, shuffleDeck })(CardScript);

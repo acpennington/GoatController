@@ -12,6 +12,7 @@ import {
    toExtraZones,
    TRAP,
    MOVE_CARD,
+   CREATE_TOKEN,
    SWITCH_POSITION,
    ADJUST_LP,
    REVEAL_HAND,
@@ -73,6 +74,16 @@ export default function (state = initialState, action) {
             state[from.player].usedFusions[from.cardName] = state[from.player].usedFusions[from.cardName] + 1 || 1;
          else state[from.player][from.row][from.zone] = null;
 
+         return { ...state };
+      case CREATE_TOKEN:
+         const { name, inDef } = data;
+         const tokenPlayer = data.player;
+         let tokenZone = 0;
+
+         for (; tokenZone < 5; tokenZone++) if (state[tokenPlayer].monster[tokenZone] === null) break;
+         if (tokenZone > 4) return state;
+
+         state[tokenPlayer].monster[tokenZone] = { name, inDef };
          return { ...state };
       case SWITCH_POSITION:
          const { row, zone } = data;

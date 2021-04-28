@@ -1,4 +1,4 @@
-import { cards } from "databases/cardDB.js";
+import { cards, tokens } from "databases/cardDB.js";
 
 const emptyCard = {
    cardType: null,
@@ -10,7 +10,9 @@ const emptyCard = {
 };
 
 function getCardDetails(name) {
-   return name && cards[name] ? cards[name] : emptyCard;
+   if (!name) return false;
+   else if (name.includes("Token")) return tokens[name] ? tokens[name] : emptyCard;
+   else return cards[name] ? cards[name] : emptyCard;
 }
 
 export default getCardDetails;

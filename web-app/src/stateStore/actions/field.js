@@ -1,6 +1,6 @@
 import { Howl } from "howler";
 
-import { MOVE_CARD, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME, SHUFFLE_DECK } from "utils/constants";
+import { MOVE_CARD, CREATE_TOKEN, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME, SHUFFLE_DECK } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
 
 function soundOn() {
@@ -12,6 +12,23 @@ function moveCard(data) {
       dispatch({ type: MOVE_CARD, data });
       dispatch(clearSelection());
    };
+}
+
+function createTokens(player, params) {
+   const splitParams = params.split(",");
+
+   let count, name, inDef;
+
+   for (const param of splitParams) {
+      const [variable, value] = param.split("=")
+      if (variable === "count") count = Number(value);
+      else if (variable === "name") name = value;
+      else if (variable === "pos") inDef = (value === "atk")
+   }
+
+   return (dispatch) => {
+      for (let i = 0; i < count; i++) dispatch({type: CREATE_TOKEN, data: { player, name, inDef}})
+   }
 }
 
 function switchPosition(row, zone) {
@@ -52,4 +69,4 @@ function shuffleDeck() {
    return { type: SHUFFLE_DECK };
 }
 
-export { moveCard, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };
+export { moveCard, createTokens, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };

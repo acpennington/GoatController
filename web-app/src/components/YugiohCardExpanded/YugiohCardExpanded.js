@@ -19,8 +19,6 @@ class YugiohCardExpanded extends PureComponent {
       const player = activeCard && activeCard.player;
       const cardName = rename(activeCard);
 
-      console.log(cardName);
-
       if (!cardName) return <div className={classes.largePic}></div>;
 
       const { cardType, attribute, levelOrSubtype, atk, def, text, script } = getCardDetails(cardName);

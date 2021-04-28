@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 
 import { FaSearch } from "react-icons/fa";
 import { BiDownload } from "react-icons/bi";
+import { CgCardHearts } from "react-icons/cg";
 import FindInPageIcon from "@material-ui/icons/FindInPage";
 
-import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL } from "utils/constants";
+import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS } from "utils/constants";
 
 class ScriptName extends PureComponent {
    render() {
@@ -28,6 +29,12 @@ class ScriptName extends PureComponent {
             return (
                <Fragment>
                   <BiDownload /> Mill Until
+               </Fragment>
+            );
+         case TOKENS:
+            return (
+               <Fragment>
+                  <CgCardHearts /> Make Tokens
                </Fragment>
             );
          default:

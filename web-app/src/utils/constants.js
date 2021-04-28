@@ -39,6 +39,7 @@ const ADD_MESSAGE = "ADD_MESSAGE";
 const SYSTEM_MESSAGE = "SYSTEM_MESSAGE";
 const RESET_CHAT = "RESET_CHAT";
 const MOVE_CARD = "MOVE_CARD";
+const CREATE_TOKEN = "CREATE_TOKEN";
 const SWITCH_POSITION = "SWITCH_POSITION";
 const ADJUST_LP = "ADJUST_LP";
 const REVEAL_HAND = "REVEAL_HAND";
@@ -91,6 +92,7 @@ const headers = {
 const SEARCH_DECK = "Search_Deck";
 const BANISH_ALL = "Banish_All";
 const MILL_UNTIL = "Mill_Until";
+const TOKENS = "Make_Tokens";
 
 export {
    // game settings
@@ -129,6 +131,7 @@ export {
    SYSTEM_MESSAGE,
    RESET_CHAT,
    MOVE_CARD,
+   CREATE_TOKEN,
    SWITCH_POSITION,
    REVEAL_HAND,
    ADJUST_LP,
@@ -172,5 +175,6 @@ export {
    // script names
    SEARCH_DECK,
    BANISH_ALL,
-   MILL_UNTIL
+   MILL_UNTIL,
+   TOKENS
 };
