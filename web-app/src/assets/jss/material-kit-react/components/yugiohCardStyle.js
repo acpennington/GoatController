@@ -184,7 +184,11 @@ const cardStyle = {
       ...zoneLabel,
       transform: "translate(-50%, -50%) rotate(180deg)"
    },
-   secondaryLabel
+   secondaryLabel,
+   secondaryLabelVillain: {
+      ...secondaryLabel,
+      transform: "rotate(180deg)"
+   }
 };
 
 export default cardStyle;

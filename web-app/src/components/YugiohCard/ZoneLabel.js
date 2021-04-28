@@ -23,7 +23,7 @@ class ZoneLabel extends PureComponent {
             )}
             {secondaryLabel !== 0 && (
                <div
-                  className={classes["secondaryLabel"]}
+                  className={classes["secondaryLabel" + villExtension]}
                   style={{ fontSize: height / 7.5 + "px", lineHeight: height / 7.5 + "px" }}
                >
                   {secondaryLabel}
