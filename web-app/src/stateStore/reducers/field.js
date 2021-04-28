@@ -54,12 +54,14 @@ export default function (state = initialState, action) {
          if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
          const facedown = fromCard.facedown;
 
-         if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) {
-            if (fromCard.notOwned) state[from.player === HERO ? VILLAIN : HERO].usedFusions[fromCard.name] -= 1;
-            else state[from.player].usedFusions[fromCard.name] -= 1;
-         } else if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
-         else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
-         else state[to.player][to.row][to.zone] = { ...fromCard };
+         if (!fromCard.name.includes("Token") || to.row === MONSTER || to.row === ST) {
+            if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) {
+               if (fromCard.notOwned) state[from.player === HERO ? VILLAIN : HERO].usedFusions[fromCard.name] -= 1;
+               else state[from.player].usedFusions[fromCard.name] -= 1;
+            } else if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
+            else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
+            else state[to.player][to.row][to.zone] = { ...fromCard };
+         }
 
          if (to.row === MONSTER && facedown) state[to.player][MONSTER][to.zone].inDef = true;
 
