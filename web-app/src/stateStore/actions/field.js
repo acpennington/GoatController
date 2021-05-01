@@ -48,12 +48,7 @@ function revealHand() {
 }
 
 function adjustLP(player, change, currentLP) {
-   if (soundOn()) {
-      const sound = new Howl({
-         src: ["/sounds/lp.mp3"]
-      });
-      sound.play();
-   }
+   if (soundOn()) new Howl({ src: ["/sounds/lp.mp3"] }).play();
 
    if (-change > currentLP) change = -currentLP;
 
@@ -74,14 +69,9 @@ function resetSolo() {
 }
 
 function shuffleDeck() {
-   if (soundOn()) {
-      const sound = new Howl({
-         src: ["/sounds/shuffle.mp3"]
-      });
-      sound.play();
-   }
+   if (soundOn()) new Howl({ src: ["/sounds/shuffle.mp3"] }).play();
 
    return { type: SHUFFLE_DECK };
 }
 
-export { moveCard, createTokens, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };
+export { soundOn, moveCard, createTokens, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };

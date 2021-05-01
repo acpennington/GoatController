@@ -1,3 +1,6 @@
+import { Howl } from "howler";
+
+import { soundOn } from "../actions/field";
 import getCardDetails from "utils/getCardDetails.js";
 import {
    HERO,
@@ -5,6 +8,9 @@ import {
    FUSION_MONSTER,
    MONSTER,
    ST,
+   HAND,
+   GRAVEYARD,
+   BANISHED,
    FIELD_SPELL,
    EXTRA_DECK,
    DECK,
@@ -44,7 +50,8 @@ export default function (state = initialState, action) {
    switch (type) {
       case MOVE_CARD:
          const { from, to } = data;
-         if (from.row === DECK && from.zone === -1) from.zone = state[from.player][DECK].length - 1;
+         const drawingFromDeck = from.row === DECK && from.zone === -1;
+         if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = from.cardName
             ? { name: from.cardName }
@@ -53,6 +60,7 @@ export default function (state = initialState, action) {
             : state[from.player][from.row][from.zone];
          if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
          const facedown = fromCard.facedown;
+         let settingTrap = false;
 
          if (!fromCard.name.includes("Token") || to.row === MONSTER || to.row === ST) {
             if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) {
@@ -64,10 +72,24 @@ export default function (state = initialState, action) {
          }
 
          if (to.row === MONSTER && facedown) state[to.player][MONSTER][to.zone].inDef = true;
-
-         if (to.row === ST && !facedown) {
+         else if (to.row === ST && !facedown) {
             const cardDetails = getCardDetails(state[to.player][ST][to.zone].name);
-            if (cardDetails.cardType === TRAP) state[to.player][ST][to.zone].facedown = true;
+            if (cardDetails.cardType === TRAP) {
+               state[to.player][ST][to.zone].facedown = true;
+               settingTrap = true;
+            }
+         }
+
+         if (soundOn()) {
+            if (to.row === GRAVEYARD) new Howl({ src: ["/sounds/tograve.mp3"] }).play();
+            else if (to.row === BANISHED) new Howl({ src: ["/sounds/tobanished.mp3"] }).play();
+            else if (settingTrap || (facedown && from.row !== to.row)) new Howl({ src: ["/sounds/set.mp3"] }).play();
+            else if (to.row === MONSTER && from.row !== MONSTER && from.row !== ST)
+               new Howl({ src: ["/sounds/summon.mp3"] }).play();
+            else if (to.row === ST && from.row !== MONSTER && from.row !== ST)
+               new Howl({ src: ["/sounds/activate.mp3"] }).play();
+            else if (drawingFromDeck) new Howl({ src: ["/sounds/drawcard.mp3"] }).play();
+            else if (to.row === HAND && from.row !== HAND) new Howl({ src: ["/sounds/tohand.mp3"] }).play();
          }
 
          if (dynamicZones.includes(from.row)) state[from.player][from.row].splice(from.zone, 1);
@@ -93,9 +115,17 @@ export default function (state = initialState, action) {
          if (row === MONSTER) {
             if (myCard.inDef) {
                if (myCard.facedown) myCard.inDef = false;
+               new Howl({ src: ["/sounds/flip.mp3"] }).play();
                myCard.facedown = !myCard.facedown;
-            } else myCard.inDef = true;
-         } else myCard.facedown = !myCard.facedown;
+            } else {
+               new Howl({ src: ["/sounds/todef.mp3"] }).play();
+               myCard.inDef = true;
+            }
+         } else {
+            if (myCard.facedown) new Howl({ src: ["/sounds/activate.mp3"] }).play();
+            else new Howl({ src: ["/sounds/flip.mp3"] }).play();
+            myCard.facedown = !myCard.facedown;
+         }
          return state;
       case ADJUST_LP:
          const { player, change } = data;
@@ -143,7 +173,7 @@ export default function (state = initialState, action) {
          };
       case SHUFFLE_DECK:
          state.hero.deck = shuffle(state.hero.deck);
-         return { ...state};
+         return { ...state };
       default:
          return state;
    }
