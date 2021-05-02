@@ -26,7 +26,6 @@ function createTokens(player, params) {
    const splitParams = params.split(",");
 
    let count, name, inDef;
-
    for (const param of splitParams) {
       const [variable, value] = param.split("=");
       if (variable === "count") count = Number(value);

@@ -6,13 +6,20 @@ import Tooltip from "@material-ui/core/Tooltip";
 import getPlayerName from "utils/getPlayerName.js";
 import { closeModal } from "stateStore/actions/settings.js";
 
+import { withStyles } from "@material-ui/core/styles";
+import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
+
 class ModalHeader extends PureComponent {
    render() {
-      const { classes, isExtra, player, row } = this.props;
+      const { classes, addName, player, row } = this.props;
       return (
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
-            <div id="modalheader" className={classes["header" + row.split(" ")[0]]} onClick={() => this.props.closeModal(row)}>
-               Viewing {!isExtra && getPlayerName(player) + "'s"} {row}
+            <div
+               id="modalheader"
+               className={classes["header" + row.split(" ")[0]]}
+               onClick={() => this.props.closeModal(row)}
+            >
+               Viewing {addName && getPlayerName(player) + "'s"} {row}
             </div>
          </Tooltip>
       );
@@ -20,10 +27,9 @@ class ModalHeader extends PureComponent {
 }
 
 ModalHeader.propTypes = {
-   classes: PropTypes.object.isRequired,
-   isExtra: PropTypes.bool.isRequired,
+   addName: PropTypes.bool.isRequired,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired
 };
 
-export default connect(null, { closeModal })(ModalHeader);
+export default connect(null, { closeModal })(withStyles(styles)(ModalHeader));

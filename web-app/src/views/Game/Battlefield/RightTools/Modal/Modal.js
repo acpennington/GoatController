@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -6,7 +6,7 @@ import RenderCards from "./RenderCards.js";
 import ModalHeader from "./ModalHeader.js";
 import { closeModal } from "stateStore/actions/settings.js";
 import getCardDetails from "utils/getCardDetails";
-import { EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
+import { HERO, GRAVEYARD, BANISHED, DECK, EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
 import { fusions } from "databases/cardDB.js";
 
 import Button from "components/CustomButtons/Button.js";
@@ -54,7 +54,7 @@ function Modal({ pile, height }) {
 
    return (
       <div className={classes.modalContainer}>
-         <ModalHeader classes={classes} isExtra={isExtra} player={player} row={row} />
+         <ModalHeader addName={!isExtra} player={player} row={row} />
          <RenderCards
             classes={classes}
             cardsLen={cardsLen}
@@ -65,37 +65,56 @@ function Modal({ pile, height }) {
             sub={hfHeights}
             filter={pile.filter}
          />
-         {isExtra && (
+         {player === HERO && (
             <div id="modalfooter" className={classes["footer" + row.split(" ")[0]]}>
-               <Switch
-                  checked={metaTargets}
-                  onChange={(event) => flipSwitch(event)}
-                  color="primary"
-                  style={{ color: "#9c27b0" }}
-               />
-               Meta Targets
-               {metaTargets && (
-                  <div className={classes.levelFilter}>
-                     {levels.map((level, index) => (
-                        <Button
-                           color={levelFilter === level ? "primary" : "info"}
-                           size="sm"
-                           round
-                           justIcon
-                           onClick={() => {
-                              level === levelFilter ? setLevelFilter(false) : setLevelFilter(level);
-                           }}
-                           key={index}
-                        >
-                           {level}
-                        </Button>
-                     ))}
-                  </div>
+               {isExtra ? (
+                  <Fragment>
+                     <Switch
+                        checked={metaTargets}
+                        onChange={(event) => flipSwitch(event)}
+                        color="primary"
+                        style={{ color: "#9c27b0" }}
+                     />
+                     Meta Targets
+                     {metaTargets && (
+                        <div className={classes.levelFilter}>
+                           {levels.map((level, index) => (
+                              <Button
+                                 color={levelFilter === level ? "primary" : "info"}
+                                 size="sm"
+                                 round
+                                 justIcon
+                                 onClick={() => {
+                                    level === levelFilter ? setLevelFilter(false) : setLevelFilter(level);
+                                 }}
+                                 key={index}
+                              >
+                                 {level}
+                              </Button>
+                           ))}
+                        </div>
+                     )}
+                  </Fragment>
+               ) : (
+                  <Fragment>Shortcut: {getShortcut(row)}</Fragment>
                )}
             </div>
          )}
       </div>
    );
+}
+
+function getShortcut(row) {
+   switch (row) {
+      case GRAVEYARD:
+         return "Double-click a card to banish it.";
+      case BANISHED:
+         return "Double-click a card to move it back to your graveyard.";
+      case DECK:
+         return "Double-click a card to add it to your hand.";
+      default:
+         return "None";
+   }
 }
 
 Modal.propTypes = {

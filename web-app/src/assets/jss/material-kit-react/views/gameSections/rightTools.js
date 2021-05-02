@@ -24,10 +24,10 @@ const header = {
 };
 
 const footer = {
+   ...header,
    position: "absolute",
    width: "100%",
    bottom: 0,
-   ...header,
    padding: "5px"
 };
 
@@ -59,8 +59,26 @@ const rightToolsStyle = {
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/cards/art/Polymerization.jpg")'
    },
    footerFusion: {
-      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("/cards/art/Metamorphosis.jpg")',
-      ...footer
+      ...footer,
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("/cards/art/Metamorphosis.jpg")'
+   },
+   footergraveyard: {
+      ...footer,
+      backgroundPosition: "50% 10%",
+      backgroundImage:
+         'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/KycootheGhostDestroyer.jpg")'
+   },
+   footerbanished: {
+      ...footer,
+      backgroundPosition: "50% 40%",
+      backgroundImage:
+         'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReturnfromtheDifferentDimension.jpg")'
+   },
+   footerdeck: {
+      ...footer,
+      backgroundPosition: "50% 40%",
+      backgroundImage:
+         'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReinforcementoftheArmy.jpg")'
    },
    cards: {
       display: "flex",
