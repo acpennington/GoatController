@@ -31,7 +31,7 @@ function createTokens(player, params) {
       const [variable, value] = param.split("=");
       if (variable === "count") count = Number(value);
       else if (variable === "name") name = value;
-      else if (variable === "pos") inDef = value === "atk";
+      else if (variable === "pos") inDef = value !== "atk";
    }
 
    return (dispatch) => {
