@@ -442,7 +442,7 @@ const fusions = {
       atk: 0,
       def: 0,
       text:
-         'Spellcaster/Fusion/Effect – Relinquished" + "Thousand-Eyes Idol". Other monsters on the field cannot change their battle positions or attack. Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). This card\'s ATK/DEF become equal to that equipped monster\'s. If this card would be destroyed by battle, destroy that equipped monster instead.'
+         'Spellcaster/Fusion/Effect – Relinquished" + "Thousand-Eyes Idol". <effect=Continuous>Other monsters on the field cannot change their battle positions or attack. </effect><effect=Ignition>Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). </effect><effect=Continuous>This card\'s ATK/DEF become equal to that equipped monster\'s. If this card would be destroyed by battle, destroy that equipped monster instead.</effect>'
    }
 };
 
@@ -689,7 +689,7 @@ const tokens = {
       def: 0,
       text: "Beast"
    }
-}
+};
 
 const nonfusions = {
    ...monsters,

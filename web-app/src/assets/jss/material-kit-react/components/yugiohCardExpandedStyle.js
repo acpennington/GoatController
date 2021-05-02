@@ -1,4 +1,5 @@
 import scrollStyle from "../scrollStyle.js";
+import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const containerMargin = 6;
 const containerMax = "calc(100% - " + 2 * containerMargin + "px)";
@@ -29,12 +30,18 @@ const yugiohCardExpandedStyle = {
       borderRadius: "3px",
       padding: "3px",
       width: "100%",
-      backgroundColor: "rgba(0,0,0,0.85)",
+      backgroundColor: "rgba(0,0,0,0.85)"
    },
    buttons: {
       display: "flex",
       justifyContent: "center"
-   }
+   },
+   underhover: {
+      "&:hover": {
+         textDecoration: "underline"
+      }
+   },
+   ...tooltip
 };
 
 export default yugiohCardExpandedStyle;

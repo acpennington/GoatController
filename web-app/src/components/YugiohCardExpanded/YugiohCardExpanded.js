@@ -1,16 +1,16 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 
-import { withStyles } from "@material-ui/core/styles";
-import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 import Button from "components/CustomButtons/Button.js";
-
-import { Description } from "@material-ui/icons";
-
+import EffectTooltips from "./EffectTooltips.js";
 import CardScript from "./CardScript.js";
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
 import { HERO, FACEDOWN_CARD, SEARCH_DECK, BANISH_ALL } from "utils/constants";
+
+import { Description } from "@material-ui/icons";
+import { withStyles } from "@material-ui/core/styles";
+import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
 class YugiohCardExpanded extends PureComponent {
    render() {
@@ -49,7 +49,7 @@ class YugiohCardExpanded extends PureComponent {
                <div className={classes.cardText}>
                   <strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]
                   <br />
-                  {text}
+                  <EffectTooltips text={text} />
                   <br />
                   {attribute && "ATK " + atk + " / DEF " + def}
                </div>
