@@ -34,8 +34,12 @@ function createTokens(player, params) {
       else if (variable === "pos") inDef = value !== "atk";
    }
 
+   if (soundOn()) new Howl({ src: ["/sounds/specialsummon.mp3"] }).play();
+
    return (dispatch) => {
-      for (let i = 0; i < count; i++) dispatch({ type: CREATE_TOKEN, data: { player, name, inDef } });
+      for (let i = 0; i < count; i++) {
+         dispatch({ type: CREATE_TOKEN, data: { player, name, inDef } });
+      }
    };
 }
 
