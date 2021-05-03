@@ -3,7 +3,7 @@ import React, { PureComponent } from "react";
 import Button from "components/CustomButtons/Button.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
-import { FaGamepad, FaWrench, FaSearch } from "react-icons/fa";
+import { FaGamepad, FaWrench, FaSearch, FaChartBar } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { RiSettings4Fill } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
@@ -34,6 +34,11 @@ class SideNavigation extends PureComponent {
             <Tooltip title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
                <Button size="lg" round style={{ width: "99%" }}>
                   <FaSearch /> Replay Viewer
+               </Button>
+            </Tooltip>
+            <Tooltip title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
+               <Button size="lg" round style={{ width: "99%" }}>
+                  <FaChartBar /> Big Goat Data
                </Button>
             </Tooltip>
             <Tooltip title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
