@@ -20,6 +20,7 @@ router.post(
    "/",
    [
       check("username", "Username is required").notEmpty(),
+      check("username", "Username must be alphanumeric (no special characters)").isAlphanumeric(),
       check("password", "Password must be 10 or more characters").isLength({ min: 10 })
    ],
    async (req, res) => {

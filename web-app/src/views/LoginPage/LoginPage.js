@@ -29,7 +29,6 @@ const objects = ["settings", "decks"];
 
 export default function LoginPage(props) {
    const query = decodeQuery();
-   console.log(!query);
    const [isLogin, setIsLogin] = useState(!query);
    const [cardAnimation, setCardAnimation] = useState("cardHidden");
    const [errors, setErrors] = useState(false);
@@ -239,7 +238,6 @@ function decodeQuery() {
    const trimmedString = swappedString.split("?")[1];
    if (trimmedString) {
       const [queryName, queryParam] = trimmedString.split("=");
-      console.log(queryName + " " + queryParam);
       if (queryName === "ref") return queryParam;
    }
 
