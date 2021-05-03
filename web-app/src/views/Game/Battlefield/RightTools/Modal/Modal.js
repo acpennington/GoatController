@@ -4,16 +4,18 @@ import { useSelector, useDispatch } from "react-redux";
 
 import RenderCards from "./RenderCards.js";
 import ModalHeader from "./ModalHeader.js";
+import ShortcutFooter from "./ShortcutFooter.js"
+
 import { closeModal } from "stateStore/actions/settings.js";
 import getCardDetails from "utils/getCardDetails";
-import { HERO, GRAVEYARD, BANISHED, DECK, EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
+import { HERO, EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
 import { fusions } from "databases/cardDB.js";
 
 import Button from "components/CustomButtons/Button.js";
 import Switch from "@material-ui/core/Switch";
+
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
-
 const useStyles = makeStyles(styles);
 const levels = [1, 3, 4, 5, 6, 7, 8, 9];
 
@@ -96,25 +98,12 @@ function Modal({ pile, height }) {
                      )}
                   </Fragment>
                ) : (
-                  <Fragment>Shortcut: {getShortcut(row)}</Fragment>
+                  <ShortcutFooter row={row} />
                )}
             </div>
          )}
       </div>
    );
-}
-
-function getShortcut(row) {
-   switch (row) {
-      case GRAVEYARD:
-         return "Double-click a card to banish it.";
-      case BANISHED:
-         return "Double-click a card to move it back to your graveyard.";
-      case DECK:
-         return "Double-click a card to add it to your hand.";
-      default:
-         return "None";
-   }
 }
 
 Modal.propTypes = {
