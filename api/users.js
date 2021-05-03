@@ -25,7 +25,7 @@ router.post(
    async (req, res) => {
       const errors = validationResult(req);
       if (errors.isEmpty()) {
-         const { username, password } = req.body;
+         const { username, password, referredby } = req.body;
 
          let params = {
             TableName: "users",
@@ -47,6 +47,7 @@ router.post(
          const newUser = {
             username,
             hashword,
+            referredby,
             goatGold: 0,
             joinDate: todaysDate(),
             lastMatch: "Never",

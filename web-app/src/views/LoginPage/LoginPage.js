@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 
-import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
-
 import People from "@material-ui/icons/People";
+import RecordVoiceOver from "@material-ui/icons/RecordVoiceOver";
 
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
@@ -22,13 +21,16 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { headers } from "utils/constants.js";
 
+import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
 
 const objects = ["settings", "decks"];
 
 export default function LoginPage(props) {
-   const [isLogin, setIsLogin] = useState(true);
+   const query = decodeQuery();
+   console.log(!query);
+   const [isLogin, setIsLogin] = useState(!query);
    const [cardAnimation, setCardAnimation] = useState("cardHidden");
    const [errors, setErrors] = useState(false);
    const [username, setUsername] = useState("");
@@ -43,11 +45,15 @@ export default function LoginPage(props) {
    const passwordTwoEvent = (event) => {
       setPasswordTwo(event.target.value);
    };
+   const [referredby, setReferredby] = useState(query);
+   const referredbyEvent = (event) => {
+      setReferredby(event.target.value);
+   }
 
    const submit = async () => {
       if (!isLogin && password !== passwordTwo) setErrors("Passwords do not match.");
       else {
-         const user = { username, password };
+         const user = isLogin ? { username, password } : { username, password, referredby };
          const config = { headers };
          const body = JSON.stringify(user);
 
@@ -158,24 +164,45 @@ export default function LoginPage(props) {
                                  }}
                               />
                               {!isLogin && (
-                                 <CustomInput
-                                    labelText="Re-type Password"
-                                    id="pass2"
-                                    formControlProps={{
-                                       fullWidth: true
-                                    }}
-                                    inputProps={{
-                                       onChange: passwordTwoEvent,
-                                       onKeyPress: enterToSubmit,
-                                       type: "password",
-                                       endAdornment: (
-                                          <InputAdornment position="end">
-                                             <Icon className={classes.inputIconsColor}>lock_outline</Icon>
-                                          </InputAdornment>
-                                       ),
-                                       autoComplete: "off"
-                                    }}
-                                 />
+                                 <Fragment>
+                                    <CustomInput
+                                       labelText="Re-type Password"
+                                       id="pass2"
+                                       formControlProps={{
+                                          fullWidth: true
+                                       }}
+                                       inputProps={{
+                                          onChange: passwordTwoEvent,
+                                          onKeyPress: enterToSubmit,
+                                          type: "password",
+                                          endAdornment: (
+                                             <InputAdornment position="end">
+                                                <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                             </InputAdornment>
+                                          ),
+                                          autoComplete: "off"
+                                       }}
+                                    />
+                                    <CustomInput
+                                       labelText="Referred by"
+                                       id="referredby"
+                                       formControlProps={{
+                                          fullWidth: true
+                                       }}
+                                       inputProps={{
+                                          defaultValue: query,
+                                          onChange: referredbyEvent,
+                                          onKeyPress: enterToSubmit,
+                                          type: "text",
+                                          endAdornment: (
+                                             <InputAdornment position="end">
+                                                <RecordVoiceOver className={classes.inputIconsColor} />
+                                             </InputAdornment>
+                                          ),
+                                          autoComplete: "off"
+                                       }}
+                                    />
+                                 </Fragment>
                               )}
                            </CardBody>
                            <CardFooter className={classes.cardFooter}>
@@ -204,4 +231,17 @@ export default function LoginPage(props) {
          </div>
       </div>
    );
+}
+
+function decodeQuery() {
+   const urlString = window.location.href;
+   const swappedString = urlString.replace(/_/g, " ");
+   const trimmedString = swappedString.split("?")[1];
+   if (trimmedString) {
+      const [queryName, queryParam] = trimmedString.split("=");
+      console.log(queryName + " " + queryParam);
+      if (queryName === "ref") return queryParam;
+   }
+
+   return "";
 }
