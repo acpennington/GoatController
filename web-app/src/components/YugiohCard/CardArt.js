@@ -2,10 +2,11 @@ import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import compress from "utils/compressName.js";
+import FoilStars from "./FoilStars.js";
+
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
-
-import compress from "utils/compressName.js";
 
 class CardArt extends PureComponent {
    render() {
@@ -27,7 +28,9 @@ class CardArt extends PureComponent {
             <div
                className={classes.art}
                style={{ backgroundImage: 'url("/cards/art/' + compress(name) + '.jpg")' }}
-            ></div>
+            >
+               <FoilStars nameHeight={nameHeight} />
+            </div>
             {showNames && (
                <div
                   className={classes["name" + villExtension]}

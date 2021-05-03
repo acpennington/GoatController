@@ -188,6 +188,27 @@ const cardStyle = {
    secondaryLabelVillain: {
       ...secondaryLabel,
       transform: "rotate(180deg)"
+   },
+   "@keyframes foil": {
+      "0%": {
+         opacity: 0,
+         transform: "rotate(0deg)"
+      },
+      "50%": {
+         opacity: 1,
+         transform: "rotate(360deg)"
+      },
+      "100%": {
+         opacity: 0,
+         transform: "rotate(720deg)"
+      }
+   },
+   star: {
+      position: "absolute",
+      animationName: "$foil",
+      animationDuration: "5s",
+      animationTimingFunction: "linear",
+      animationIterationCount: "infinite"
    }
 };
 
