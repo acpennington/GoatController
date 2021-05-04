@@ -150,7 +150,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
             height,
             marginLeft: margin,
             marginRight: margin,
-            opacity: (isDragging || blank) && inHand && 0,
+            opacity: (isDragging || blank) && !monsterZone && !STzone && !fieldZone && !isDiscardZone && !isDeck && 0,
             borderWidth:
                (blank || facedown || deckZone || isOver || selected || revealed || (!isHero && inHand)) && "3px",
             borderColor:
