@@ -14,24 +14,16 @@ class EffectTooltips extends PureComponent {
       let remainingText = text;
 
       while (remainingText.includes("<effect=")) {
-         console.log("looping");
-
          const splitString = remainingText.split("<effect=");
          const firstPart = splitString.shift();
          splitString.join("<effect=");
          if (firstPart) rtn.push(<Fragment>{firstPart}</Fragment>);
-
-         console.log(firstPart);
 
          const secondSplit = splitString.join("<effect=").split("</effect>");
          const secondPart = secondSplit.shift();
          const thirdPart = secondSplit.join("</effect>");
 
          const [effectType, effectText] = secondPart.split(">");
-
-         console.log(effectType);
-         console.log(effectText);
-
          if (effectText)
             rtn.push(
                <Tooltip title={effectType + " Effect"} classes={{ tooltip: classes.tooltip }}>

@@ -11,13 +11,16 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 
 class ModalHeader extends PureComponent {
    render() {
-      const { classes, addName, player, row } = this.props;
+      const { classes, addName, player, row, closeModal } = this.props;
+
+      console.log(addName + ", " + player);
+
       return (
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
             <div
                id="modalheader"
                className={classes["header" + row.split(" ")[0]]}
-               onClick={() => this.props.closeModal(row)}
+               onClick={() => closeModal(row)}
             >
                Viewing {addName && getPlayerName(player) + "'s"} {row}
             </div>
