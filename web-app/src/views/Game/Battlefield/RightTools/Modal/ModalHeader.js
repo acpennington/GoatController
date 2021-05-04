@@ -13,8 +13,6 @@ class ModalHeader extends PureComponent {
    render() {
       const { classes, addName, player, row, closeModal } = this.props;
 
-      console.log(addName + ", " + player);
-
       return (
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
             <div

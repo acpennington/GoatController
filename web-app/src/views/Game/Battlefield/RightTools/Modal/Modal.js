@@ -6,7 +6,6 @@ import RenderCards from "./RenderCards.js";
 import ModalHeader from "./ModalHeader.js";
 import ShortcutFooter from "./ShortcutFooter.js"
 
-import { closeModal } from "stateStore/actions/settings.js";
 import getCardDetails from "utils/getCardDetails";
 import { HERO, EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
 import { fusions } from "databases/cardDB.js";
@@ -46,10 +45,8 @@ class Modal extends Component {
     };
 
     render() {
-        const { classes, height, player, row, filter, isExtra, usedFusions, rowLength, closeModal } = this.props;
+        const { classes, height, player, row, filter, isExtra, usedFusions } = this.props;
         const { metaTargets, levelFilter, hfHeights } = this.state;
-
-        console.log(isExtra);
 
         const fusionNames =
             isExtra &&
@@ -60,15 +57,10 @@ class Modal extends Component {
                     return !cardDetails.noMeta === metaTargets && (!levelFilter || levelFilter === cardDetails.levelOrSubtype);
                 });
 
-        const cardsLen = isExtra ? fusionNames.length : rowLength;
-        if (cardsLen === 0) closeModal(row);
-
         return (
             <div className={classes.modalContainer}>
                 <ModalHeader addName={!isExtra} player={player} row={row} />
                 <RenderCards
-                    classes={classes}
-                    cardsLen={cardsLen}
                     height={height * MODAL_CARD_SIZE}
                     player={player}
                     row={row}
@@ -120,8 +112,7 @@ function mapStateToProps(state, ownProps) {
     const { player, row, filter } = ownProps.pile ;
     const isExtra = row === EXTRA_DECK;
     const usedFusions = isExtra && state.field[player].usedFusions;
-    const rowLength = !isExtra && state.field[player][row].length;
-    return { player, row, filter, isExtra, usedFusions, rowLength };
+    return { player, row, filter, isExtra, usedFusions, };
 }
 
 Modal.propTypes = {
@@ -129,4 +120,4 @@ Modal.propTypes = {
    pile: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, { closeModal })(withStyles(styles)(Modal));
+export default connect(mapStateToProps, {})(withStyles(styles)(Modal));
