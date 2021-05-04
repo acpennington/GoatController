@@ -11,6 +11,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
+import Snackbar from "components/Snackbar/SnackbarContent.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import JustSleeves from "components/YugiohCard/JustSleeves";
 
@@ -22,6 +23,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 
+import Warning from "@material-ui/icons/Warning";
 import Email from "@material-ui/icons/Email";
 import Icon from "@material-ui/core/Icon";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -302,10 +304,7 @@ class SettingsPage extends PureComponent {
                         <GridItem xs={12}>
                            <div style={{ textAlign: "center" }}>
                               {errors && (
-                                 <span style={{ color: "red" }}>
-                                    {errors}
-                                    <br />
-                                 </span>
+                                 <Snackbar message={"ERROR: " + errors} color="danger" icon={Warning} />
                               )}
                               <Button color="primary" size="lg" round href="/wall">
                                  <BsArrowLeftShort /> Back

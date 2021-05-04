@@ -36,11 +36,11 @@ router.post(
          };
 
          const result = await DynamoDB.get(params, (err) => {
-            if (err) res.status(400).json({ errors: [err] });
+            if (err) return res.status(400).json({ errors: [err] });
          }).promise();
          const user = result.Item;
 
-         if (user) res.status(400).json({ errors: [{ msg: "User already exists" }] });
+         if (user) return res.status(400).json({ errors: [{ msg: "User already exists" }] });
 
          const salt = await bcrypt.genSalt(7);
          const hashword = await bcrypt.hash(password, salt);
@@ -69,13 +69,13 @@ router.post(
          };
 
          await DynamoDB.put(params, (err) => {
-            if (err) res.status(400).json({ errors: [err.message] });
+            if (err) return res.status(400).json({ errors: [err.message] });
          }).promise();
 
          const token = getJwt(username);
          delete newUser.hashword;
-         res.json({ token, ...newUser });
-      } else res.status(400).json({ errors: errors.array() });
+         return res.json({ token, ...newUser });
+      } else return res.status(400).json({ errors: errors.array() });
    }
 );
 
@@ -96,13 +96,13 @@ router.get("/", [check("username", "Username is required").notEmpty()], async (r
       };
 
       const result = await DynamoDB.get(params, (err) => {
-         if (err) res.status(400).json({ errors: [err.message] });
+         if (err) return res.status(400).json({ errors: [err.message] });
       }).promise();
       const user = result.Item;
 
-      if (user) res.json({ joinDate: user.joinDate });
-      else res.status(400).json({ errors: [{ msg: "User not found" }] });
-   } else res.status(400).json({ errors: errors.array() });
+      if (user) return res.json({ joinDate: user.joinDate });
+      else return res.status(400).json({ errors: [{ msg: "User not found" }] });
+   } else return res.status(400).json({ errors: errors.array() });
 });
 
 // @route PUT api/users
@@ -110,9 +110,8 @@ router.get("/", [check("username", "Username is required").notEmpty()], async (r
 // @access Private
 // @db 1 read, 1 write
 router.put("/", auth, async (req, res) => {
-   let checkedPassword = false;
    const body = { ...req.body };
-   deleteAttributes(body, ["username", "hashword", "goatGold", "joinDate"]);
+   deleteAttributes(body, ["username", "hashword", "goatGold", "joinDate", "lastMatch"]);
 
    if ("oldPassword" in body) {
       const params = {
@@ -123,26 +122,22 @@ router.put("/", auth, async (req, res) => {
       };
 
       const result = await DynamoDB.get(params, (err) => {
-         if (err) res.status(400).json({ errors: [err] });
+         if (err) return res.status(400).json({ errors: [err] });
       }).promise();
       const user = result.Item;
 
       const isMatch = await bcrypt.compare(body.oldPassword, user.hashword);
 
       if (isMatch) {
-         checkedPassword = true;
-         if ("newPassword" in body) {
-            const newPassword = body.newPassword;
+         const { newPassword } = body;
+         if (newPassword) {
             if (newPassword.length < 10)
-               res.status(400).json({ errors: [{ msg: "Your new password must be at least 10 characters" }] });
+               return res.status(400).json({ errors: [{ msg: "Your new password must be at least 10 characters" }] });
             else {
                const salt = await bcrypt.genSalt(7);
                body.hashword = await bcrypt.hash(newPassword, salt);
             }
          }
-
-         oldEmail = user.settings.email;
-         oldDiscord = user.settings.discord;
       } else res.status(400).json({ errors: [{ msg: "Password is not correct" }] });
    }
 
@@ -163,10 +158,10 @@ router.put("/", auth, async (req, res) => {
    }
    params.UpdateExpression = params.UpdateExpression.slice(0, -2);
 
-   await DynamoDB.update(params, (err) => {
-      if (err) res.status(400).json({ errors: [err.message] });
-   }).promise();
-   res.json({ msg: "User successfully updated" });
+   DynamoDB.update(params, (err) => {
+      if (err) return res.status(400).json({ errors: [err.message] });
+      else return res.json({ msg: "User successfully updated" });
+   });
 });
 
 function deleteAttributes(variable, attributes) {

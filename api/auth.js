@@ -30,7 +30,7 @@ router.post(
          };
 
          const result = await DynamoDB.get(params, (err) => {
-            if (err) res.status(400).json({ errors: [err.message] });
+            if (err) return res.status(400).json({ errors: [err.message] });
          }).promise();
          const user = result.Item;
 
@@ -39,10 +39,10 @@ router.post(
             if (isMatch) {
                const token = getJwt(username);
                delete user.hashword;
-               res.json({ token, ...user });
-            } else invalidCredentials(res);
-         } else invalidCredentials(res);
-      } else res.status(400).json({ errors: errors.array() });
+               return res.json({ token, ...user });
+            } else return invalidCredentials(res);
+         } else return invalidCredentials(res);
+      } else return res.status(400).json({ errors: errors.array() });
    }
 );
 
