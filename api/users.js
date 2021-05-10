@@ -138,7 +138,9 @@ router.put("/", auth, async (req, res) => {
                body.hashword = await bcrypt.hash(newPassword, salt);
             }
          }
-      } else res.status(400).json({ errors: [{ msg: "Password is not correct" }] });
+      } else return res.status(400).json({ errors: [{ msg: "Password is not correct" }] });
+
+      deleteAttributes(body, ["oldPassword", "newPassword"]);
    }
 
    const params = {
