@@ -307,7 +307,7 @@ class SettingsPage extends PureComponent {
                                  <Snackbar message={"ERROR: " + errors} color="danger" icon={Warning} />
                               )}
                               <Button color="primary" size="lg" round href="/wall">
-                                 <BsArrowLeftShort /> Back
+                                 <BsArrowLeftShort /> To Wall
                               </Button>
                               <Button
                                  color={unsaved && (!requirePass || oldPassword) && "primary"}
