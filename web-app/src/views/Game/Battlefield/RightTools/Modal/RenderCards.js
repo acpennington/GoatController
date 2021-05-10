@@ -90,7 +90,8 @@ class RenderCards extends Component {
         return (
             <FriendlyScroll
                 id={"modal" + player + row}
-                style={{ flexDirection: "column", overflowY: cardsLen > 12 ? "auto" : "hidden" }}
+                flexDirection="column"
+                style={{ overflowY: cardsLen > 12 ? "auto" : "hidden" }}
                 contStyle={{ height: "calc(100% - " + sub + "px)" }}
             >
                 {cardDivs}
