@@ -20,7 +20,6 @@ class RenderCards extends Component {
     }
 
     filterZones = () => {
-        console.log("filtering zones");
         const { cardsLen, row, filter, cards, closeModal } = this.props;
         let zoneNumbers = [];
         for (let i = 0; i < cardsLen; i++) zoneNumbers.push(i);
@@ -114,7 +113,6 @@ function mapStateToProps(state, ownProps) {
     const { player, row, filter, cardNames } = ownProps;
     const cards = filter && state.field[player][row];
     const cardsLen = cardNames ? cardNames.length : state.field[player][row].length;
-    console.log(cardsLen);
     return { cards, cardsLen };
 }
 
