@@ -60,7 +60,7 @@ class Chat extends PureComponent {
                style={{ position: "absolute", bottom: 0 }}
                contStyle={{ height: watching ? "100%" : "calc(100% - 85px)" }}
             >
-               <Messages classes={classes} messages={chat} />
+               <Messages messages={chat} />
             </FriendlyScroll>
             {!watching && <Fragment>
                <CustomInput

@@ -42,6 +42,7 @@ function Hand({ player, handCount, size, discardPile }) {
    return (
       <FriendlyScroll
          id={"hand" + player}
+         count={handCount}
          drop={isHero && drop}
          style={{ overflowY: "hidden" }}
          bgColor={isOver && canDrop && OVER_COLOR + "33"}

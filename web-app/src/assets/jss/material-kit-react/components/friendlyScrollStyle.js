@@ -17,14 +17,24 @@ const buttonStyle = {
    borderColor: "black"
 };
 
+const childrenContainer = {
+   display: "flex",
+   flexDirection: "column-reverse",
+   width: "100%",
+   maxHeight: "100%",
+   overflowX: "auto",
+   overflowY: "auto",
+   ...scrollStyle
+};
+
 const friendlyScrollStyle = {
    wholeContainer: {
       position: "relative",
+      width: "100%",
+      overflow: "hidden",
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
-      width: "100%",
-      overflow: "hidden"
+      justifyContent: "center"
    },
    btnLeft: {
       left: "2px",
@@ -44,14 +54,10 @@ const friendlyScrollStyle = {
       right: "10px",
       ...buttonStyle
    },
-   childrenContainer: {
-      display: "flex",
-      flexDirection: "column-reverse",
-      width: "100%",
-      maxHeight: "100%",
-      overflowX: "auto",
-      overflowY: "auto",
-      ...scrollStyle
+   childrenContainer,
+   childrenContainerHoriz: {
+      ...childrenContainer,
+      flexDirection: "row-reverse"
    }
 };
 

@@ -8,25 +8,44 @@ import friendlyScrollStyles from "assets/jss/material-kit-react/components/frien
 import { BUFFER } from "utils/constants.js";
 
 class FriendlyScroll extends Component {
-   scrollLeft = (element) => {
+   constructor(props) {
+      super(props);
+      this.state = { shouldScrollLeft: false, shouldScrollRight: false, element: false };
+   }
+
+   componentDidMount() {
+      this.setState({ element: document.getElementById(this.props.id) });
+   }
+
+   componentDidUpdate(prevProps) {
+      if (prevProps.count !== this.props.count) this.updateScrollingBehavior();
+   }
+
+   updateScrollingBehavior = () => {
+      const { id, horiz } = this.props;
+      const { element } = this.state;
+
+      const scrollgap = horiz ? element.scrollWidth - element.clientWidth : element.scrollHeight - element.clientHeight;
+      const scrollbarExists = scrollgap > 0;
+      const scrollDist = Math.abs(horiz ? element.scrollLeft : element.scrollTop);
+      const shouldScrollLeft = id !== "chatScroll" && scrollbarExists && scrollDist < scrollgap - BUFFER;
+      const shouldScrollRight = scrollbarExists && scrollDist > BUFFER;
+
+      if (shouldScrollLeft !== this.state.shouldScrollLeft || shouldScrollRight !== this.state.shouldScrollRight)
+         this.setState({ shouldScrollLeft, shouldScrollRight});
+   }
+
+   scrollRight = (element) => {
       element.scroll(0, 0);
    };
 
-   scrollRight = (element) => {
-      element.scroll(element.scrollWidth, element.scrollHeight);
+   scrollLeft = (element) => {
+      element.scroll(-element.scrollWidth, -element.scrollHeight);
    };
 
    render() {
       const { classes, id, drop, style, contStyle, bgColor, horiz, children } = this.props;
-
-      const element = document.getElementById(this.props.id);
-      const scrollgap =
-         element && (horiz ? element.scrollWidth - element.clientWidth : element.scrollHeight - element.clientHeight);
-      const scrollbarExists = scrollgap > 0;
-      const shouldScrollRight =
-         scrollbarExists && (horiz ? element.scrollLeft : element.scrollTop) < scrollgap - BUFFER;
-      const shouldScrollLeft =
-         id !== "chatScroll" && scrollbarExists && (horiz ? element.scrollLeft : element.scrollTop) > BUFFER;
+      const { element, shouldScrollLeft, shouldScrollRight } = this.state;
 
       return (
          <div className={classes.wholeContainer} style={contStyle}>
@@ -41,9 +60,10 @@ class FriendlyScroll extends Component {
             )}
             <div
                id={id}
-               className={classes.childrenContainer}
+               className={classes["childrenContainer" + (horiz ? "Horiz" : "")]}
                style={{ backgroundColor: bgColor, ...style }}
                ref={drop}
+               onScroll={this.updateScrollingBehavior}
             >
                {children}
             </div>
@@ -63,7 +83,14 @@ class FriendlyScroll extends Component {
 
 FriendlyScroll.propTypes = {
    id: PropTypes.string.isRequired,
-   horiz: PropTypes.bool
+   count: PropTypes.number,
+   horiz: PropTypes.bool,
+   bgcolor: PropTypes.string,
+   style: PropTypes.object
+};
+
+FriendlyScroll.defaultProps = {
+   count: 0
 };
 
 export default withStyles(friendlyScrollStyles)(FriendlyScroll);

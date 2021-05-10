@@ -1,7 +1,11 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 
 import { HERO } from "utils/constants.js";
 import getPlayerName from "utils/getPlayerName.js";
+
+import { withStyles } from "@material-ui/core/styles";
+import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
 class Messages extends PureComponent {
     render() {
@@ -36,4 +40,8 @@ class Messages extends PureComponent {
     }
  }
 
- export default Messages;
+ Messages.propTypes = {
+    messages: PropTypes.array
+ }
+
+ export default withStyles(chatStyle)(Messages);
