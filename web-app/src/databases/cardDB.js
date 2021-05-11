@@ -684,7 +684,7 @@ const traps = {
 
 const tokens = {
    "Sheep Token": {
-      cardType: "normalMonster",
+      cardType: "tokenMonster",
       attribute: "Earth",
       levelOrSubtype: 1,
       atk: 0,

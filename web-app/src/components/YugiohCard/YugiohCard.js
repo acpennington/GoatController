@@ -137,7 +137,6 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
 
    const margin = !notFull && (height - height / CARD_RATIO) / 2 + 2;
    const villExtension = isHero || modal ? "" : "Villain";
-   const token = !facedown && name && name.includes("Token"); // we'll need this later for token backgroundImage
    return (
       <div
          ref={dragOrDrop}
