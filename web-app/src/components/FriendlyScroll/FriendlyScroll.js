@@ -41,10 +41,11 @@ class FriendlyScroll extends Component {
 FriendlyScroll.propTypes = {
    id: PropTypes.string.isRequired,
    count: PropTypes.number,
+   style: PropTypes.object,
+   countStyle: PropTypes.object,
    horiz: PropTypes.bool,
    bgcolor: PropTypes.string,
    flexDirection: PropTypes.string,
-   style: PropTypes.object
 };
 
 FriendlyScroll.defaultProps = {
