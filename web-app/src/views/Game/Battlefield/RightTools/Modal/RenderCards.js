@@ -13,10 +13,7 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 class RenderCards extends Component {
     constructor(props) {
         super(props);
-        this.state = { zoneNumbers: this.filterZones() };
-    }
-
-    componentDidUpdate() {
+        this.zoneNumbers = this.filterZones();
     }
 
     filterZones = () => {
@@ -55,11 +52,12 @@ class RenderCards extends Component {
         const { classes, cardsLen, height, player, row, cardNames, sub } = this.props;
 
         const newZoneNumbers = this.filterZones();
-        if (!arrIdentical(this.state.zoneNumbers, newZoneNumbers)) this.state.zoneNumbers = newZoneNumbers;
-        const { zoneNumbers } = this.state;
+        if (!arrIdentical(this.zoneNumbers, newZoneNumbers)) this.zoneNumbers = newZoneNumbers;
+        const { zoneNumbers } = this;
+        const zoneLen = zoneNumbers.length;
 
         const cardDivs = [];
-        for (let i = zoneNumbers.length - 1; i >= 0; i -= 2) {
+        for (let i = zoneLen - 1; i >= 0; i -= 2) {
             cardDivs.push(
                 <div className={classes.cards} key={i}>
                     <YugiohCard
@@ -89,6 +87,7 @@ class RenderCards extends Component {
         return (
             <FriendlyScroll
                 id={"modal" + player + row}
+                count={zoneLen}
                 flexDirection="column"
                 style={{ overflowY: cardsLen > 12 ? "auto" : "hidden" }}
                 contStyle={{ height: "calc(100% - " + sub + "px)" }}
