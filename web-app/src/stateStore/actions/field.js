@@ -15,6 +15,10 @@ function soundOn() {
    return window.localStorage.getItem("soundOn") === "true";
 }
 
+function playSound(soundName) {
+   if (soundOn()) new Howl({ src: [soundName] }).play();
+}
+
 function moveCard(data) {
    return (dispatch) => {
       dispatch({ type: MOVE_CARD, data });
@@ -33,7 +37,7 @@ function createTokens(player, params) {
       else if (variable === "pos") inDef = value !== "atk";
    }
 
-   if (soundOn()) new Howl({ src: ["/sounds/specialsummon.mp3"] }).play();
+   playSound("/sounds/specialsummon.mp3");
 
    return (dispatch) => {
       for (let i = 0; i < count; i++) {
@@ -51,7 +55,7 @@ function revealHand() {
 }
 
 function adjustLP(player, change, currentLP) {
-   if (soundOn()) new Howl({ src: ["/sounds/lp.mp3"] }).play();
+   playSound("/sounds/lp.mp3");
 
    if (-change > currentLP) change = -currentLP;
 
@@ -72,9 +76,8 @@ function resetSolo() {
 }
 
 function shuffleDeck() {
-   if (soundOn()) new Howl({ src: ["/sounds/shuffle.mp3"] }).play();
-
+   playSound("/sounds/shuffle.mp3");
    return { type: SHUFFLE_DECK };
 }
 
-export { soundOn, moveCard, createTokens, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };
+export { playSound, moveCard, createTokens, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };

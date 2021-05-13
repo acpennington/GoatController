@@ -1,6 +1,4 @@
-import { Howl } from "howler";
-
-import { soundOn } from "../actions/field";
+import { playSound } from "../actions/field";
 import getCardDetails from "utils/getCardDetails.js";
 import {
    HERO,
@@ -80,17 +78,13 @@ export default function (state = initialState, action) {
             }
          }
 
-         if (soundOn()) {
-            if (to.row === GRAVEYARD) new Howl({ src: ["/sounds/tograve.mp3"] }).play();
-            else if (to.row === BANISHED) new Howl({ src: ["/sounds/tobanished.mp3"] }).play();
-            else if (settingTrap || (facedown && from.row !== to.row)) new Howl({ src: ["/sounds/set.mp3"] }).play();
-            else if (to.row === MONSTER && from.row !== MONSTER && from.row !== ST)
-               new Howl({ src: ["/sounds/summon.mp3"] }).play();
-            else if (to.row === ST && from.row !== MONSTER && from.row !== ST)
-               new Howl({ src: ["/sounds/activate.mp3"] }).play();
-            else if (drawingFromDeck) new Howl({ src: ["/sounds/drawcard.mp3"] }).play();
-            else if (to.row === HAND && from.row !== HAND) new Howl({ src: ["/sounds/tohand.mp3"] }).play();
-         }
+         if (to.row === GRAVEYARD) playSound("/sounds/tograve.mp3");
+         else if (to.row === BANISHED) playSound("/sounds/tobanished.mp3");
+         else if (settingTrap || (facedown && from.row !== to.row)) playSound("/sounds/set.mp3");
+         else if (to.row === MONSTER && from.row !== MONSTER && from.row !== ST) playSound("/sounds/summon.mp3");
+         else if (to.row === ST && from.row !== MONSTER && from.row !== ST) playSound("/sounds/activate.mp3");
+         else if (drawingFromDeck) playSound("/sounds/drawcard.mp3");
+         else if (to.row === HAND && from.row !== HAND) playSound("/sounds/tohand.mp3");
 
          if (dynamicZones.includes(from.row)) state[from.player][from.row].splice(from.zone, 1);
          else if (fieldSpell) state[from.player][from.row] = null;
@@ -115,15 +109,16 @@ export default function (state = initialState, action) {
          if (row === MONSTER) {
             if (myCard.inDef) {
                if (myCard.facedown) myCard.inDef = false;
-               new Howl({ src: ["/sounds/flip.mp3"] }).play();
+               playSound("/sounds/flip.mp3");
                myCard.facedown = !myCard.facedown;
             } else {
-               new Howl({ src: ["/sounds/todef.mp3"] }).play();
+               playSound("/sounds/todef.mp3");
                myCard.inDef = true;
             }
          } else {
-            if (myCard.facedown) new Howl({ src: ["/sounds/activate.mp3"] }).play();
-            else new Howl({ src: ["/sounds/flip.mp3"] }).play();
+            if (row !== HAND)
+               if (myCard.facedown) playSound("/sounds/activate.mp3");
+               else playSound("/sounds/flip.mp3");
             myCard.facedown = !myCard.facedown;
          }
          return state;
