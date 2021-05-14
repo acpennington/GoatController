@@ -18,8 +18,7 @@ class Game extends Component {
       super(props);
       checkToken();
 
-      const settings = JSON.parse(window.sessionStorage.getItem("settings"));
-      setBodyImage(settings.gamebg);
+      setBodyImage();
 
       this.state = { sizingValue: this.getSizingValue() };
       window.addEventListener("resize", () => {
