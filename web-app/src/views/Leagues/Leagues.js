@@ -11,8 +11,7 @@ class Leagues extends Component {
        super(props);
        checkToken();
  
-       const settings = JSON.parse(window.sessionStorage.getItem("settings"));
-       setBodyImage(settings.gamebg);
+       setBodyImage();
     }
  
     render() {
@@ -24,7 +23,7 @@ class Leagues extends Component {
                 absolute
                 color="transparent"
                 brand="Goat Duels"
-                rightLinks={<HeaderLinks loggedInAs={window.sessionStorage.getItem("username")} />}
+                rightLinks={<HeaderLinks loggedInAs={this.username} />}
                 fixed
                 changeColorOnScroll={{
                    height: 100,

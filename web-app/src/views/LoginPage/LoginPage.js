@@ -90,7 +90,7 @@ export default function LoginPage(props) {
    }, 700);
 
    useEffect(() => {
-      setBodyImage("Thousand_Eyes_Goats.png");
+      setBodyImage();
    }, []);
 
    const classes = useStyles();

@@ -16,8 +16,8 @@ class Wall extends PureComponent {
       super(props);
       checkToken();
 
-      const settings = JSON.parse(window.sessionStorage.getItem("settings"));
-      setBodyImage(settings.gamebg);
+      this.username = window.sessionStorage.getItem("username");
+      setBodyImage();
    }
 
    render() {
@@ -29,7 +29,7 @@ class Wall extends PureComponent {
                absolute
                color="transparent"
                brand="Goat Duels"
-               rightLinks={<HeaderLinks loggedInAs={window.sessionStorage.getItem("username")} />}
+               rightLinks={<HeaderLinks loggedInAs={this.username} />}
                fixed
                changeColorOnScroll={{
                   height: 100,

@@ -39,8 +39,9 @@ class SettingsPage extends PureComponent {
       super(props);
       checkToken();
 
+      this.username = window.sessionStorage.getItem("username");
       const settings = JSON.parse(window.sessionStorage.getItem("settings"));
-      setBodyImage(settings.gamebg);
+      setBodyImage();
 
       this.state = {
          settings,
@@ -134,7 +135,7 @@ class SettingsPage extends PureComponent {
                absolute
                color="transparent"
                brand="Goat Duels"
-               rightLinks={<HeaderLinks loggedInAs={window.sessionStorage.getItem("username")} />}
+               rightLinks={<HeaderLinks loggedInAs={this.username} />}
                fixed
                changeColorOnScroll={{
                   height: 100,
