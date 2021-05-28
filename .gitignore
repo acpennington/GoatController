@@ -1,3 +1,4 @@
 /node_modules
 package-lock.json
 /Lambda/UsersEndpoint/node_modules
+/Lambda/UsersEndpoint/UsersEndpoint.zip
