@@ -89,7 +89,7 @@ async function post(body) {
 
    const token = getJwt(username);
    delete newUser.hashword;
-   return { token, ...newUser };
+   return { statusCode: 200, body: { token, ...newUser } };
 }
 
 module.exports = post;

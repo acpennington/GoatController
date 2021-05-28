@@ -1,3 +1,7 @@
+const AWS = require("aws-sdk");
+AWS.config.update({ region: "us-east-2" });
+const DynamoDB = new AWS.DynamoDB.DocumentClient();
+
 // @route GET api/users
 // @desc Get another user's info
 // @access Public
@@ -31,8 +35,8 @@ async function get(body) {
    }).promise();
    const user = result.Item;
 
-   if (user) return res.json({ joinDate: user.joinDate });
-   else return res.status(400).json({ errors: [{ msg: "User not found" }] });
+   if (user) return { statusCode: 200, body: { joinDate: user.joinDate } };
+   else return { statusCode: 400, body: { errors: [{ msg: "User not found" }] } };
 }
 
 module.exports = get;
