@@ -6,6 +6,7 @@
    "author": "ACP and the Goat Format community",
    "license": "ISC",
    "dependencies": {
-      "bcryptjs": "^2.4.3"
+      "bcryptjs": "^2.4.3",
+      "jsonwebtoken": "^8.5.1"
    }
 }

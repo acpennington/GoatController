@@ -10,7 +10,7 @@ exports.handler = async (event) => {
       default:
          return {
             statusCode: 400,
-            body: JSON.stringify(event),
+            body: { errors: [{ msg: "Invalid HTTP method" }] },
          };
    }
 };
