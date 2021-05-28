@@ -1,5 +1,5 @@
 const bcrypt = require("bcryptjs");
-const { defaultDeck } = require("../config/config.js");
+const { defaultDeck } = require("./config/config.js");
 
 const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
@@ -25,7 +25,7 @@ async function post(body) {
 
    if (password.length < 10) errors.push({ msg: "Password must be at least 10 characters" });
 
-   if (errors)
+   if (errors.length > 0)
       return {
          statusCode: 400,
          body: { errors },
@@ -39,7 +39,11 @@ async function post(body) {
    };
 
    const result = await DynamoDB.get(params, (err) => {
-      if (err) return res.status(400).json({ errors: [err] });
+      if (err)
+         return {
+            statusCode: 400,
+            body: { errors: [err] },
+         };
    }).promise();
    const user = result.Item;
 
@@ -76,7 +80,11 @@ async function post(body) {
    };
 
    await DynamoDB.put(params, (err) => {
-      if (err) return res.status(400).json({ errors: [err.message] });
+      if (err)
+         return {
+            statusCode: 400,
+            body: { errors: [err] },
+         };
    }).promise();
 
    const token = getJwt(username);
