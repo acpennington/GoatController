@@ -1,0 +1,11 @@
+{
+   "name": "lambda",
+   "version": "1.0.0",
+   "description": "Lambda functions for AWS",
+   "main": "index.js",
+   "author": "ACP and the Goat Format community",
+   "license": "ISC",
+   "dependencies": {
+      "bcryptjs": "^2.4.3"
+   }
+}
