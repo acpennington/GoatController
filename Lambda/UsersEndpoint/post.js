@@ -12,7 +12,7 @@ const todaysDate = require("./utils/todaysDate.js");
 // @desc Register a user
 // @access Public
 // @db 1 read, 1 write
-function post(body) {
+async function post(body) {
    const { username, password, referredby } = body;
    const errors = [];
 

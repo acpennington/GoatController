@@ -6,7 +6,7 @@ exports.handler = async (event) => {
 
    switch (httpmethod) {
       case "POST":
-         return post(body);
+         return await post(body);
       default:
          return {
             statusCode: 400,
