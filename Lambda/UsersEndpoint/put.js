@@ -10,7 +10,7 @@ const auth = require("./utils/middleware.js");
 // @desc Update a part of your user's profile/attributes
 // @access Private
 // @db 1 read, 1 write
-function put(body, token) {
+async function put(body, token) {
    // Auth validation
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
@@ -21,8 +21,8 @@ function put(body, token) {
       const params = {
          TableName: "users",
          Key: {
-            username,
-         },
+            username
+         }
       };
 
       const result = await DynamoDB.get(params, (err) => {
@@ -49,10 +49,10 @@ function put(body, token) {
    const params = {
       TableName: "users",
       Key: {
-         username,
+         username
       },
       UpdateExpression: "set ",
-      ExpressionAttributeValues: {},
+      ExpressionAttributeValues: {}
    };
 
    let counter = 0;

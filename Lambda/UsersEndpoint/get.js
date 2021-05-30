@@ -13,25 +13,15 @@ async function get(body) {
    // Username validation
    if (username.length < 1) errors.push({ msg: "Username is required" });
 
-   if (errors.length > 0)
-      return {
-         statusCode: 400,
-         body: { errors },
-      };
+   if (errors.length > 0) return { statusCode: 400, body: { errors } };
 
    const params = {
       TableName: "users",
-      Key: {
-         username,
-      },
+      Key: { username }
    };
 
    const result = await DynamoDB.get(params, (err) => {
-      if (err)
-         return {
-            statusCode: 400,
-            body: { errors: [err] },
-         };
+      if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
    const user = result.Item;
 

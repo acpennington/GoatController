@@ -23,25 +23,15 @@ async function post(body) {
 
    if (password.length < 10) errors.push({ msg: "Password must be at least 10 characters" });
 
-   if (errors.length > 0)
-      return {
-         statusCode: 400,
-         body: { errors },
-      };
+   if (errors.length > 0) return { statusCode: 400, body: { errors } };
 
    let params = {
       TableName: "users",
-      Key: {
-         username,
-      },
+      Key: { username }
    };
 
    const result = await DynamoDB.get(params, (err) => {
-      if (err)
-         return {
-            statusCode: 400,
-            body: { errors: [err] },
-         };
+      if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
    const user = result.Item;
 
@@ -59,26 +49,20 @@ async function post(body) {
       lastMatch: "Never",
       settings: {
          gamebg: "Default.png",
-         sleeves: "Goat.png",
+         sleeves: "Goat.png"
       },
       decks: {
-         "Good Ol Goats": defaultDeck,
-      },
+         "Good Ol Goats": defaultDeck
+      }
    };
 
    params = {
       TableName: "users",
-      Item: {
-         ...newUser,
-      },
+      Item: { ...newUser }
    };
 
    await DynamoDB.put(params, (err) => {
-      if (err)
-         return {
-            statusCode: 400,
-            body: { errors: [err] },
-         };
+      if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
 
    const token = getJwt(username);

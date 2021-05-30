@@ -10,18 +10,16 @@ const getJwt = require("../utils/getJwt.js");
 // @desc Login/authenticate a user
 // @access Public
 // @db 1 read, 0 writes
-function auth(body) {
+async function auth(body) {
    const { username, password } = body;
 
    const params = {
       TableName: "users",
-      Key: {
-         username,
-      },
+      Key: { username }
    };
 
    const result = await DynamoDB.get(params, (err) => {
-      if (err) return res.status(400).json({ errors: [err.message] });
+      if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
    const user = result.Item;
 
@@ -30,7 +28,7 @@ function auth(body) {
       if (isMatch) {
          const token = getJwt(username);
          delete user.hashword;
-         return res.json({ token, ...user });
+         return { statusCode: 200, body: { token, ...user } };
       } else return invalidCredentials();
    } else return invalidCredentials();
 }
