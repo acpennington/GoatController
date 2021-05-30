@@ -14,37 +14,33 @@ const getJwt = require("./utils/getJwt.js");
 // @desc Login/authenticate a user
 // @access Public
 // @db 1 read, 0 writes
-router.post(
-   "/",
-   [check("username", "Userame is required").notEmpty(), check("password", "Password is required").notEmpty()],
-   async (req, res) => {
-      const errors = validationResult(req);
-      if (errors.isEmpty()) {
-         const { username, password } = req.body;
+router.post("/", [check("username", "Userame is required").notEmpty(), check("password", "Password is required").notEmpty()], async (req, res) => {
+   const errors = validationResult(req);
+   if (errors.isEmpty()) {
+      const { username, password } = req.body;
 
-         let params = {
-            TableName: "users",
-            Key: {
-               username
-            }
-         };
+      const params = {
+         TableName: "users",
+         Key: {
+            username,
+         },
+      };
 
-         const result = await DynamoDB.get(params, (err) => {
-            if (err) return res.status(400).json({ errors: [err.message] });
-         }).promise();
-         const user = result.Item;
+      const result = await DynamoDB.get(params, (err) => {
+         if (err) return res.status(400).json({ errors: [err.message] });
+      }).promise();
+      const user = result.Item;
 
-         if (user) {
-            const isMatch = await bcrypt.compare(password, user.hashword);
-            if (isMatch) {
-               const token = getJwt(username);
-               delete user.hashword;
-               return res.json({ token, ...user });
-            } else return invalidCredentials(res);
+      if (user) {
+         const isMatch = await bcrypt.compare(password, user.hashword);
+         if (isMatch) {
+            const token = getJwt(username);
+            delete user.hashword;
+            return res.json({ token, ...user });
          } else return invalidCredentials(res);
-      } else return res.status(400).json({ errors: errors.array() });
-   }
-);
+      } else return invalidCredentials(res);
+   } else return res.status(400).json({ errors: errors.array() });
+});
 
 function invalidCredentials(res) {
    res.status(400).json({ errors: [{ msg: "Invalid credentials" }] });
