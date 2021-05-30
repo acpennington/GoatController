@@ -16,7 +16,9 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import JustSleeves from "components/YugiohCard/JustSleeves";
 
 import setBodyImage from "utils/setBodyImage.js";
+import apiErrors from "utils/apiErrors.js";
 import { getAuthHeaders, checkToken } from "utils/authToken.js";
+import { API_URL } from "utils/constants.js";
 
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
@@ -33,14 +35,16 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
 const sleeveChoices = ["Goat.png", "Exarion.png"];
+const PROD = true;
 
 class SettingsPage extends PureComponent {
    constructor(props) {
       super(props);
       checkToken();
 
-      this.username = window.sessionStorage.getItem("username");
-      const settings = JSON.parse(window.sessionStorage.getItem("settings"));
+      const storage = window.sessionStorage;
+      this.username = storage.getItem("username");
+      const settings = JSON.parse(storage.getItem("settings"));
       setBodyImage();
 
       this.state = {
@@ -55,8 +59,10 @@ class SettingsPage extends PureComponent {
    }
 
    setBg = (gamebg) => {
-      this.setState({ settings: { ...this.state.settings, gamebg }, unsaved: true });
-      setBodyImage(gamebg);
+      const settings = { ...this.state.settings, gamebg };
+      window.sessionStorage.setItem("settings", JSON.stringify(settings));
+      this.setState({ settings, unsaved: true });
+      setBodyImage();
    };
 
    setSleeves = (sleeves) => {
@@ -108,18 +114,9 @@ class SettingsPage extends PureComponent {
             if (newPassword) body.newPassword = newPassword;
             body = JSON.stringify(body);
 
-            try {
-               await axios.put("/api/users", body, config);
-               window.location.href = "/wall";
-            } catch (err) {
-               const apiErrors = err.response.data.errors;
-               let errorString = "";
-
-               for (const error of apiErrors) errorString += error.msg + ". ";
-
-               errorString = errorString.slice(0, -1);
-               this.setState({ errors: errorString });
-            }
+            const res = await axios.put(API_URL + (PROD ? "prod" : "dev") + "/users", body, config);
+            if (res.data.statusCode === 200) window.location.href = "/wall";
+            else this.setState({ errors: apiErrors(res.data.body.errors) });
          }
       }
    };
@@ -154,11 +151,7 @@ class SettingsPage extends PureComponent {
                                  buttonProps={{
                                     color: "transparent"
                                  }}
-                                 dropdownList={[
-                                    ...backgrounds.map((bg) => (
-                                       <div onClick={() => this.setBg(bg)}>{formatFileName(bg)}</div>
-                                    ))
-                                 ]}
+                                 dropdownList={[...backgrounds.map((bg) => <div onClick={() => this.setBg(bg)}>{formatFileName(bg)}</div>)]}
                               />
                            </div>
                         </GridItem>
@@ -178,9 +171,7 @@ class SettingsPage extends PureComponent {
                                        color: "transparent"
                                     }}
                                     dropdownList={[
-                                       ...sleeveChoices.map((sleeve) => (
-                                          <div onClick={() => this.setSleeves(sleeve)}>{formatFileName(sleeve)}</div>
-                                       ))
+                                       ...sleeveChoices.map((sleeve) => <div onClick={() => this.setSleeves(sleeve)}>{formatFileName(sleeve)}</div>)
                                     ]}
                                  />
                                  <JustSleeves height={250} sleeves={sleeves} />
@@ -229,12 +220,9 @@ class SettingsPage extends PureComponent {
                                        }}
                                     />
                                  </CardBody>
-                                 <CardFooter
-                                    className={classes.cardFooter}
-                                    style={{ textAlign: "center", padding: "0.9375rem 1.875rem" }}
-                                 >
-                                    It is highly recommended that you link at least one account so that you will be able
-                                    to recover your password (if forgotten).
+                                 <CardFooter className={classes.cardFooter} style={{ textAlign: "center", padding: "0.9375rem 1.875rem" }}>
+                                    It is highly recommended that you link at least one account so that you will be able to recover your password (if
+                                    forgotten).
                                  </CardFooter>
                               </form>
                            </Card>
@@ -304,18 +292,11 @@ class SettingsPage extends PureComponent {
                         </GridItem>
                         <GridItem xs={12}>
                            <div style={{ textAlign: "center" }}>
-                              {errors && (
-                                 <Snackbar message={"ERROR: " + errors} color="danger" icon={Warning} />
-                              )}
+                              {errors && <Snackbar message={"ERROR: " + errors} color="danger" icon={Warning} />}
                               <Button color="primary" size="lg" round href="/wall">
                                  <BsArrowLeftShort /> To Wall
                               </Button>
-                              <Button
-                                 color={unsaved && (!requirePass || oldPassword) && "primary"}
-                                 size="lg"
-                                 round
-                                 onClick={this.save}
-                              >
+                              <Button color={unsaved && (!requirePass || oldPassword) && "primary"} size="lg" round onClick={this.save}>
                                  <FaSave /> Save Settings
                               </Button>
                            </div>

@@ -18,6 +18,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
+import apiErrors from "utils/apiErrors.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { API_URL, headers } from "utils/constants.js";
 
@@ -69,15 +70,7 @@ export default function LoginPage(props) {
             }
 
             window.location.href = isLogin ? "/wall" : "/settings";
-         } else {
-            const apiErrors = res.data.body.errors;
-            let errorString = "";
-
-            for (const error of apiErrors) errorString += error.msg + ". ";
-
-            errorString = errorString.slice(0, -1);
-            setErrors(errorString);
-         }
+         } else setErrors(apiErrors(res.data.body.errors));
       }
    };
 

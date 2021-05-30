@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
 import List from "@material-ui/core/List";
@@ -21,12 +21,7 @@ class HeaderLinks extends PureComponent {
       return (
          <List className={classes.list}>
             <ListItem className={classes.listItem}>
-               <Tooltip
-                  id="FAQ"
-                  title="More about GoatDuels.com"
-                  placement={window.innerWidth > 959 ? "top" : "left"}
-                  classes={{ tooltip: classes.tooltip }}
-               >
+               <Tooltip id="FAQ" title="More about GoatDuels.com" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                   <Button
                      href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
                      color="transparent"
@@ -38,12 +33,7 @@ class HeaderLinks extends PureComponent {
                </Tooltip>
             </ListItem>
             <ListItem className={classes.listItem}>
-               <Tooltip
-                  id="rulings"
-                  title="Lookup any Goat ruling"
-                  placement={window.innerWidth > 959 ? "top" : "left"}
-                  classes={{ tooltip: classes.tooltip }}
-               >
+               <Tooltip id="rulings" title="Lookup any Goat ruling" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                   <Button
                      href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
                      color="transparent"
@@ -55,18 +45,8 @@ class HeaderLinks extends PureComponent {
                </Tooltip>
             </ListItem>
             <ListItem className={classes.listItem}>
-               <Tooltip
-                  id="facebook"
-                  title="Follow us on facebook"
-                  placement={window.innerWidth > 959 ? "top" : "left"}
-                  classes={{ tooltip: classes.tooltip }}
-               >
-                  <Button
-                     color="transparent"
-                     href="https://www.facebook.com/CreativeTim?ref=creativetim"
-                     target="_blank"
-                     className={classes.navLink}
-                  >
+               <Tooltip id="facebook" title="Follow us on facebook" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
+                  <Button color="transparent" href="https://www.facebook.com/CreativeTim?ref=creativetim" target="_blank" className={classes.navLink}>
                      <i className={classes.socialIcons + " fab fa-facebook"} />
                   </Button>
                </Tooltip>
@@ -78,12 +58,7 @@ class HeaderLinks extends PureComponent {
                   placement={window.innerWidth > 959 ? "top" : "left"}
                   classes={{ tooltip: classes.tooltip }}
                >
-                  <Button
-                     href="https://twitter.com/CreativeTim?ref=creativetim"
-                     target="_blank"
-                     color="transparent"
-                     className={classes.navLink}
-                  >
+                  <Button href="https://twitter.com/CreativeTim?ref=creativetim" target="_blank" color="transparent" className={classes.navLink}>
                      <SiDiscord className={classes.socialIcons} />
                   </Button>
                </Tooltip>
@@ -107,12 +82,7 @@ class HeaderLinks extends PureComponent {
             </ListItem>
             {loggedInAs && (
                <ListItem className={classes.listItem}>
-                  <Tooltip
-                     id="settings"
-                     title="Account settings"
-                     placement={window.innerWidth > 959 ? "top" : "left"}
-                     classes={{ tooltip: classes.tooltip }}
-                  >
+                  <Tooltip id="settings" title="Account settings" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                      <Button color="transparent" className={classes.navLink} href="/settings">
                         <People /> {loggedInAs}
                      </Button>
