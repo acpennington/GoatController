@@ -20,9 +20,7 @@ async function put(body, token) {
    if ("oldPassword" in body) {
       const params = {
          TableName: "users",
-         Key: {
-            username
-         }
+         Key: { username }
       };
 
       const result = await DynamoDB.get(params, (err) => {
@@ -31,7 +29,6 @@ async function put(body, token) {
       const user = result.Item;
 
       const isMatch = await bcrypt.compare(body.oldPassword, user.hashword);
-
       if (isMatch) {
          const { newPassword } = body;
          if (newPassword) {
@@ -48,9 +45,7 @@ async function put(body, token) {
 
    const params = {
       TableName: "users",
-      Key: {
-         username
-      },
+      Key: { username },
       UpdateExpression: "set ",
       ExpressionAttributeValues: {}
    };
@@ -63,10 +58,10 @@ async function put(body, token) {
    }
    params.UpdateExpression = params.UpdateExpression.slice(0, -2);
 
-   DynamoDB.update(params, (err) => {
+   await DynamoDB.update(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
-      else return { statusCode: 200, body: { msg: "User successfully updated" } };
    });
+   return { statusCode: 200, body: { msg: "User successfully updated" } };
 }
 
 function deleteAttributes(variable, attributes) {
