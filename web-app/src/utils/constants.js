@@ -84,9 +84,8 @@ const NEXT_TURN = "Next Turn";
 const phases = [DRAW, STANDBY, MAIN1, BATTLE, MAIN2, END, NEXT_TURN];
 
 // axios
-const headers = {
-   "Content-Type": "application/json"
-};
+const API_URL = "https://s97v6wjzec.execute-api.us-east-2.amazonaws.com/";
+const headers = { "Content-Type": "application/json" };
 
 // script names
 const SEARCH_DECK = "Search_Deck";
@@ -171,6 +170,7 @@ export {
    NEXT_TURN,
    phases,
    // axios
+   API_URL,
    headers,
    // script names
    SEARCH_DECK,

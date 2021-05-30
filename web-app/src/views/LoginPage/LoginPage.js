@@ -19,13 +19,14 @@ import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
 import setBodyImage from "utils/setBodyImage.js";
-import { headers } from "utils/constants.js";
+import { API_URL, headers } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
 
 const objects = ["settings", "decks"];
+const PROD = true;
 
 export default function LoginPage(props) {
    const query = decodeQuery();
@@ -47,7 +48,7 @@ export default function LoginPage(props) {
    const [referredby, setReferredby] = useState(query);
    const referredbyEvent = (event) => {
       setReferredby(event.target.value);
-   }
+   };
 
    const submit = async () => {
       if (!isLogin && password !== passwordTwo) setErrors("Passwords do not match.");
@@ -56,21 +57,20 @@ export default function LoginPage(props) {
          const config = { headers };
          const body = JSON.stringify(user);
 
-         try {
-            setErrors("Authenticating...");
-
-            const res = await axios.post("/api/" + (isLogin ? "auth" : "users"), body, config);
-            const data = res.data;
-
+         setErrors("Authenticating...");
+         const res = await axios.post(API_URL + (PROD ? "prod" : "dev") + "/users" + (isLogin ? "/auth" : ""), body, config);
+         if (res.data.statusCode === 200) {
+            const data = res.data.body;
             const storage = window.sessionStorage;
+
             for (const item in data) {
                if (objects.includes(item)) storage.setItem(item, JSON.stringify(data[item]));
                else storage.setItem(item, data[item]);
             }
 
             window.location.href = isLogin ? "/wall" : "/settings";
-         } catch (err) {
-            const apiErrors = err.response.data.errors;
+         } else {
+            const apiErrors = res.data.body.errors;
             let errorString = "";
 
             for (const error of apiErrors) errorString += error.msg + ". ";
@@ -120,10 +120,7 @@ export default function LoginPage(props) {
                            <CardHeader color="primary" className={classes.cardHeader}>
                               <h4>{headerText}</h4>
                            </CardHeader>
-                           <p
-                              className={classes.divider}
-                              style={{ color: errors && (errors === "Authenticating..." ? "green" : "red") }}
-                           >
+                           <p className={classes.divider} style={{ color: errors && (errors === "Authenticating..." ? "green" : "red") }}>
                               {errors ? errors : "Goat Duels Await You..."}
                            </p>
                            <CardBody>
