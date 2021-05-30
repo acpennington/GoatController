@@ -92,6 +92,7 @@ const SEARCH_DECK = "Search_Deck";
 const BANISH_ALL = "Banish_All";
 const MILL_UNTIL = "Mill_Until";
 const TOKENS = "Make_Tokens";
+const RANDOM_DISCARD = "Random_Discard";
 
 export {
    // game settings
@@ -176,5 +177,6 @@ export {
    SEARCH_DECK,
    BANISH_ALL,
    MILL_UNTIL,
-   TOKENS
+   TOKENS,
+   RANDOM_DISCARD
 };

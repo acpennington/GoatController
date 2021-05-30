@@ -41,9 +41,7 @@ class YugiohCardExpanded extends PureComponent {
                         Rulings
                      </Button>
                      {script && validScript(player, scriptName) && <CardScript script={script} />}
-                     {text.includes("/Flip/") && (
-                        <CardScript script={BANISH_ALL} variant="Nobleman of Crossout" activeCard={activeCard} />
-                     )}
+                     {text.includes("/Flip/") && <CardScript script={BANISH_ALL} variant="Nobleman of Crossout" activeCard={activeCard} />}
                   </div>
                )}
                <div className={classes.cardText}>
@@ -68,7 +66,7 @@ function rename(card) {
 }
 
 YugiohCardExpanded.propTypes = {
-   hoverCard: PropTypes.string,
+   hoverCard: PropTypes.object,
    selectedCard: PropTypes.object,
    height: PropTypes.string,
    width: PropTypes.string,

@@ -7,7 +7,7 @@ import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
 import { moveCard, createTokens, shuffleDeck } from "stateStore/actions/field.js";
 import { filterDeck } from "stateStore/actions/scripts.js";
-import { HERO, GRAVEYARD, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS } from "utils/constants";
+import { HERO, GRAVEYARD, HAND, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD } from "utils/constants";
 import getCardDetails from "utils/getCardDetails.js";
 
 class CardScript extends PureComponent {
@@ -25,12 +25,16 @@ class CardScript extends PureComponent {
          case TOKENS:
             this.props.createTokens(HERO, params);
             break;
+         case RANDOM_DISCARD:
+            this.randomDiscard();
+            break;
          default:
+            console.log("Error: Undefined card script");
       }
    };
 
    banishAll = () => {
-      const { moveCard, shuffleDeck} = this.props;
+      const { moveCard, shuffleDeck } = this.props;
       const deck = this.props.field.hero.deck;
 
       for (let i = 0; i < deck.length; i++) {
@@ -64,6 +68,17 @@ class CardScript extends PureComponent {
       }
    };
 
+   randomDiscard = () => {
+      const handLength = this.props.field.hero.hand.length;
+      if (handLength > 0) {
+         const zone = Math.floor(Math.random() * (handLength - 1));
+         this.props.moveCard({
+            from: { player: HERO, row: HAND, zone },
+            to: { player: HERO, row: GRAVEYARD, zone: 0 }
+         });
+      }
+   };
+
    render() {
       const { script, variant, field } = this.props;
       const [name, params] = script.split(":");
@@ -83,6 +98,7 @@ function fieldContains(field, card) {
       case "Nobleman of Crossout":
          for (const zone of field.villain[ST]) if (zone && !zone.facedown && zone.name === card) return true;
          for (const zone of field.hero[ST]) if (zone && !zone.facedown && zone.name === card) return true;
+         return false;
       default:
          return false;
    }
