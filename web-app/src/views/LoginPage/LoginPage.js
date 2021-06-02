@@ -20,6 +20,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 
 import apiErrors from "utils/apiErrors.js";
 import setBodyImage from "utils/setBodyImage.js";
+import getApiStage from "utils/getApiStage.js";
 import { API_URL, headers } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -27,7 +28,6 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
 
 const objects = ["settings", "decks"];
-const PROD = true;
 
 export default function LoginPage(props) {
    const query = decodeQuery();
@@ -59,7 +59,7 @@ export default function LoginPage(props) {
          const body = JSON.stringify(user);
 
          setErrors("Authenticating...");
-         const res = await axios.post(API_URL + (PROD ? "prod" : "dev") + "/users" + (isLogin ? "/auth" : ""), body, config);
+         const res = await axios.post(API_URL + getApiStage() + "/users" + (isLogin ? "/auth" : ""), body, config);
          if (res.data.statusCode === 200) {
             const data = res.data.body;
             const storage = window.sessionStorage;

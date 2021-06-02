@@ -17,6 +17,7 @@ import JustSleeves from "components/YugiohCard/JustSleeves";
 
 import setBodyImage from "utils/setBodyImage.js";
 import apiErrors from "utils/apiErrors.js";
+import getApiStage from "utils/getApiStage.js";
 import { getAuthHeaders, checkToken } from "utils/authToken.js";
 import { API_URL } from "utils/constants.js";
 
@@ -35,7 +36,6 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
 const sleeveChoices = ["Goat.png", "Exarion.png"];
-const PROD = true;
 
 class SettingsPage extends PureComponent {
    constructor(props) {
@@ -114,7 +114,7 @@ class SettingsPage extends PureComponent {
             if (newPassword) body.newPassword = newPassword;
             body = JSON.stringify(body);
 
-            const res = await axios.put(API_URL + (PROD ? "prod" : "dev") + "/users", body, config);
+            const res = await axios.put(API_URL + getApiStage() + "/users", body, config);
             if (res.data.statusCode === 200) window.location.href = "/wall";
             else this.setState({ errors: apiErrors(res.data.body.errors) });
          }
