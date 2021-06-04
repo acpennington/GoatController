@@ -7,3 +7,5 @@ class CreateLeague extends PureComponent {
         <PageTemplate></PageTemplate>
     }
 }
+
+export default CreateLeague;
