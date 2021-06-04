@@ -9,7 +9,7 @@ import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import styles from "assets/jss/material-kit-react/components/pageTemplateStyle.js";
 
 class PageTemplate extends Component {
     constructor(props) {
