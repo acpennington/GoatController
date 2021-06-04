@@ -1,53 +1,18 @@
 import React, { PureComponent } from "react";
 
-import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
-
+import PageTemplate from "components/Header/PageTemplate";
 import SideNavigation from "./SideNavigation.js";
 import GetPosts from "./GetPosts.js";
-import { checkToken } from "utils/authToken.js";
-import setBodyImage from "utils/setBodyImage.js";
-
-import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 class Wall extends PureComponent {
-   constructor(props) {
-      super(props);
-      checkToken();
-
-      this.username = window.sessionStorage.getItem("username");
-      setBodyImage();
-   }
-
    render() {
-      const { classes, ...rest } = this.props;
-
       return (
-         <div>
-            <Header
-               absolute
-               color="transparent"
-               brand="Goat Duels"
-               rightLinks={<HeaderLinks loggedInAs={this.username} />}
-               fixed
-               changeColorOnScroll={{
-                  height: 100,
-                  color: "semitransparent"
-               }}
-               {...rest}
-            />
-            <div className={classes.pageHeader}>
-               <div className={classes.container}>
-                  <div style={{ marginTop: "-5vh", marginBottom: "-100%" }}>
-                     <SideNavigation />
-                     <GetPosts />
-                  </div>
-               </div>
-            </div>
-         </div>
+         <PageTemplate>
+            <SideNavigation />
+            <GetPosts />
+         </PageTemplate>
       );
    }
 }
 
-export default withStyles(styles)(Wall);
+export default Wall;

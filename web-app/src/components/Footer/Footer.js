@@ -21,18 +21,11 @@ export default function Footer(props) {
       [classes.footer]: true,
       [classes.footerWhiteFont]: whiteFont
    });
-   const aClasses = classNames({
-      [classes.a]: true,
-      [classes.footerWhiteFont]: whiteFont
-   });
    return (
       <footer className={footerClasses}>
          <div className={classes.container}>
-            <div className={classes.right} style={{ width: "100%" }}>
+            <div className={classes.right} style={{ width: "100%", borderRadius: "10px", backgroundColor: "rgba(0,0,0,0.5)" }}>
                Best viewed in Chrome, Edge, or any Chromium-based web browser. Make sure your browser is up to date!
-               <br />
-               This web app uses cookies for authentication. Do not use your browser's private or "incognito"
-               mode.
                <br />
                &copy; {1900 + new Date().getYear()}, made with <Favorite className={classes.icon} /> by ACP {"&"} the
                Goat Format community
