@@ -1,3 +1,5 @@
+import tooltip from "../tooltipsStyle.js";
+
 const signupPageStyle = {
    cardHidden: {
       opacity: "0",
@@ -45,7 +47,8 @@ const signupPageStyle = {
    },
    inputIconsColor: {
       color: "#495057"
-   }
+   },
+   ...tooltip
 };
 
 export default signupPageStyle;

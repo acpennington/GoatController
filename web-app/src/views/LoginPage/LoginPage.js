@@ -6,7 +6,7 @@ import Icon from "@material-ui/core/Icon";
 import People from "@material-ui/icons/People";
 import RecordVoiceOver from "@material-ui/icons/RecordVoiceOver";
 
-import PageTemplate from "components/Header/PageTemplate.js"
+import PageTemplate from "components/Header/PageTemplate.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
@@ -83,7 +83,7 @@ export default function LoginPage(props) {
    const headerText = isLogin ? "Login" : "Register";
 
    return (
-      <PageTemplate noToken noGap addFooter>
+      <PageTemplate noToken gap addFooter>
          <GridContainer justify="center">
             <GridItem xs={12} sm={8} md={4}>
                <Card className={classes[cardAnimation]} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
@@ -98,9 +98,7 @@ export default function LoginPage(props) {
                         <CustomInput
                            labelText="Username"
                            id="username"
-                           formControlProps={{
-                              fullWidth: true
-                           }}
+                           formControlProps={{ fullWidth: true }}
                            inputProps={{
                               onChange: usernameEvent,
                               onKeyPress: enterToSubmit,
@@ -115,9 +113,7 @@ export default function LoginPage(props) {
                         <CustomInput
                            labelText="Password"
                            id="pass"
-                           formControlProps={{
-                              fullWidth: true
-                           }}
+                           formControlProps={{ fullWidth: true }}
                            inputProps={{
                               onChange: passwordEvent,
                               onKeyPress: enterToSubmit,
@@ -135,9 +131,7 @@ export default function LoginPage(props) {
                               <CustomInput
                                  labelText="Re-type Password"
                                  id="pass2"
-                                 formControlProps={{
-                                    fullWidth: true
-                                 }}
+                                 formControlProps={{ fullWidth: true }}
                                  inputProps={{
                                     onChange: passwordTwoEvent,
                                     onKeyPress: enterToSubmit,

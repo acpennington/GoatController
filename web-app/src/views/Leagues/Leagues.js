@@ -46,6 +46,7 @@ class Leagues extends PureComponent {
                         id="leagues"
                         title={"Click to " + (joinExpanded ? "collapse list" : "show list of leagues")}
                         classes={{ tooltip: classes.tooltip }}
+                        placement="top"
                      >
                         <h3 onClick={this.swapExpanded}>Join League {joinExpanded ? <ArrowDropDownIcon /> : <ArrowRightIcon />}</h3>
                      </Tooltip>

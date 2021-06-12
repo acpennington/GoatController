@@ -1,4 +1,4 @@
-import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
+import tooltip from "../tooltipsStyle.js";
 
 const wallStyle = {
    container: {

@@ -1,8 +1,6 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
-
-import { FaSave } from "react-icons/fa";
-import { SiDiscord } from "react-icons/si";
 
 import PageTemplate from "components/Header/PageTemplate";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -13,6 +11,10 @@ import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Snackbar from "components/Snackbar/SnackbarContent.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import JustSleeves from "components/YugiohCard/JustSleeves";
+import Card from "components/Card/Card.js";
+import CardBody from "components/Card/CardBody.js";
+import CardHeader from "components/Card/CardHeader.js";
+import CardFooter from "components/Card/CardFooter.js";
 
 import setBodyImage from "utils/setBodyImage.js";
 import apiErrors from "utils/apiErrors.js";
@@ -20,15 +22,12 @@ import getApiStage from "utils/getApiStage.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL } from "utils/constants.js";
 
-import Card from "components/Card/Card.js";
-import CardBody from "components/Card/CardBody.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardFooter from "components/Card/CardFooter.js";
-
 import Warning from "@material-ui/icons/Warning";
 import Email from "@material-ui/icons/Email";
 import Icon from "@material-ui/core/Icon";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import { FaSave } from "react-icons/fa";
+import { SiDiscord } from "react-icons/si";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
@@ -118,7 +117,11 @@ class SettingsPage extends PureComponent {
    render() {
       const { classes } = this.props;
       const { settings, unsaved, requirePass, errors, oldPassword } = this.state;
-      const { sleeves, email, discord, gamebg } = settings;
+
+      const sleeves = settings ? settings.sleeves : "Goat.png";
+      const email = settings ? settings.email : null;
+      const discord = settings ? settings.discord : null;
+      const gamebg = settings ? settings.gamebg : "Default.png";
 
       return (
          <PageTemplate>
@@ -165,9 +168,7 @@ class SettingsPage extends PureComponent {
                            <CustomInput
                               labelText="Email Address"
                               id="email"
-                              formControlProps={{
-                                 fullWidth: true
-                              }}
+                              formControlProps={{ fullWidth: true }}
                               inputProps={{
                                  type: "text",
                                  defaultValue: email,
@@ -182,9 +183,7 @@ class SettingsPage extends PureComponent {
                            <CustomInput
                               labelText="Discord ID"
                               id="discord"
-                              formControlProps={{
-                                 fullWidth: true
-                              }}
+                              formControlProps={{ fullWidth: true }}
                               inputProps={{
                                  type: "text",
                                  defaultValue: discord,
@@ -213,9 +212,7 @@ class SettingsPage extends PureComponent {
                            <CustomInput
                               labelText="New Password"
                               id="pass"
-                              formControlProps={{
-                                 fullWidth: true
-                              }}
+                              formControlProps={{ fullWidth: true }}
                               inputProps={{
                                  type: "password",
                                  onChange: this.setNewPassword,
@@ -229,9 +226,7 @@ class SettingsPage extends PureComponent {
                            <CustomInput
                               labelText="Retype New Password"
                               id="pass2"
-                              formControlProps={{
-                                 fullWidth: true
-                              }}
+                              formControlProps={{ fullWidth: true }}
                               inputProps={{
                                  type: "password",
                                  onChange: this.setNewPasswordTwo,
@@ -247,9 +242,7 @@ class SettingsPage extends PureComponent {
                                  <span style={{ color: requirePass && !oldPassword && "red" }}>{"Current Password" + (requirePass ? " (Required)" : "")}</span>
                               }
                               id="pass3"
-                              formControlProps={{
-                                 fullWidth: true
-                              }}
+                              formControlProps={{ fullWidth: true }}
                               inputProps={{
                                  type: "password",
                                  onChange: this.setOldPassword,
@@ -287,5 +280,9 @@ function isDiscordValid(discordName) {
 function formatFileName(fileName) {
    return fileName.split(".")[0].replace(/_/g, " ");
 }
+
+SettingsPage.propTypes = {
+   classes: PropTypes.object
+};
 
 export default withStyles(styles)(SettingsPage);

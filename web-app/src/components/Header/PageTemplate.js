@@ -12,48 +12,46 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/components/pageTemplateStyle.js";
 
 class PageTemplate extends Component {
-    constructor(props) {
-        super(props);
-        if (!this.props.noToken) checkToken();
+   constructor(props) {
+      super(props);
+      if (!this.props.noToken) checkToken();
 
-        this.username = window.sessionStorage.getItem("username");
-        setBodyImage();
-    }
+      this.username = window.sessionStorage.getItem("username");
+      setBodyImage();
+   }
 
-    render() {
-        const { classes, noGap, addFooter, children } = this.props;
+   render() {
+      const { classes, gap, addFooter, children } = this.props;
 
-        return (
-            <div>
-                <Header
-                    absolute
-                    color="transparent"
-                    brand="Goat Duels"
-                    rightLinks={<HeaderLinks loggedInAs={this.username} />}
-                    fixed
-                    changeColorOnScroll={{
-                        height: 100,
-                        color: "semitransparent"
-                    }}
-                />
-                <div className={classes.pageHeader}>
-                    <div className={classes.container}>
-                        <div style={noGap ? {} : { marginTop: "-5vh", marginBottom: "-100%" }}>
-                            {children}
-                        </div>
-                    </div>
-                    {addFooter && <Footer whitefont />}
-                </div>
+      return (
+         <div>
+            <Header
+               absolute
+               color="transparent"
+               brand="Goat Duels"
+               rightLinks={<HeaderLinks loggedInAs={this.username} />}
+               fixed
+               changeColorOnScroll={{
+                  height: 100,
+                  color: "semitransparent"
+               }}
+            />
+            <div className={classes.pageHeader}>
+               <div className={classes.container}>
+                  <div style={gap ? {} : { marginTop: "-5vh", marginBottom: "-100%" }}>{children}</div>
+               </div>
+               {addFooter && <Footer whitefont />}
             </div>
-        );
-    }
+         </div>
+      );
+   }
 }
 
 PageTemplate.propTypes = {
-    classes: PropTypes.object.isRequired,
-    noToken: PropTypes.bool,
-    noGap: PropTypes.bool,
-    addFooter: PropTypes.bool
-}
+   classes: PropTypes.object.isRequired,
+   noToken: PropTypes.bool,
+   gap: PropTypes.bool,
+   addFooter: PropTypes.bool
+};
 
 export default withStyles(styles)(PageTemplate);
