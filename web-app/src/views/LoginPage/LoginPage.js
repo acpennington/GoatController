@@ -10,7 +10,7 @@ import PageTemplate from "components/Header/PageTemplate.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
-import Card from "components/Card/Card.js";
+import CardForm from "components/Card/CardForm.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
@@ -86,105 +86,103 @@ export default function LoginPage(props) {
       <PageTemplate noToken gap addFooter>
          <GridContainer justify="center">
             <GridItem xs={12} sm={8} md={4}>
-               <Card className={classes[cardAnimation]} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
-                  <form className={classes.form}>
-                     <CardHeader color="primary" className={classes.cardHeader}>
-                        <h4>{headerText}</h4>
-                     </CardHeader>
-                     <p className={classes.divider} style={{ color: errors && (errors === "Authenticating..." ? "green" : "red") }}>
-                        {errors ? errors : "Goat Duels Await You..."}
-                     </p>
-                     <CardBody>
-                        <CustomInput
-                           labelText="Username"
-                           id="username"
-                           formControlProps={{ fullWidth: true }}
-                           inputProps={{
-                              onChange: usernameEvent,
-                              onKeyPress: enterToSubmit,
-                              type: "text",
-                              endAdornment: (
-                                 <InputAdornment position="end">
-                                    <People className={classes.inputIconsColor} />
-                                 </InputAdornment>
-                              )
-                           }}
-                        />
-                        <CustomInput
-                           labelText="Password"
-                           id="pass"
-                           formControlProps={{ fullWidth: true }}
-                           inputProps={{
-                              onChange: passwordEvent,
-                              onKeyPress: enterToSubmit,
-                              type: "password",
-                              endAdornment: (
-                                 <InputAdornment position="end">
-                                    <Icon className={classes.inputIconsColor}>lock_outline</Icon>
-                                 </InputAdornment>
-                              ),
-                              autoComplete: "off"
-                           }}
-                        />
-                        {!isLogin && (
-                           <Fragment>
-                              <CustomInput
-                                 labelText="Re-type Password"
-                                 id="pass2"
-                                 formControlProps={{ fullWidth: true }}
-                                 inputProps={{
-                                    onChange: passwordTwoEvent,
-                                    onKeyPress: enterToSubmit,
-                                    type: "password",
-                                    endAdornment: (
-                                       <InputAdornment position="end">
-                                          <Icon className={classes.inputIconsColor}>lock_outline</Icon>
-                                       </InputAdornment>
-                                    ),
-                                    autoComplete: "off"
-                                 }}
-                              />
-                              <CustomInput
-                                 labelText="Referred by"
-                                 id="referredby"
-                                 formControlProps={{
-                                    fullWidth: true
-                                 }}
-                                 inputProps={{
-                                    defaultValue: query,
-                                    onChange: referredbyEvent,
-                                    onKeyPress: enterToSubmit,
-                                    type: "text",
-                                    endAdornment: (
-                                       <InputAdornment position="end">
-                                          <RecordVoiceOver className={classes.inputIconsColor} />
-                                       </InputAdornment>
-                                    ),
-                                    autoComplete: "off"
-                                 }}
-                              />
-                           </Fragment>
-                        )}
-                     </CardBody>
-                     <CardFooter className={classes.cardFooter}>
-                        <Button simple color="primary" size="lg" onClick={submit}>
-                           {headerText}
+               <CardForm classes={classes} className={classes[cardAnimation]} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
+                  <CardHeader color="primary" className={classes.cardHeader}>
+                     <h4>{headerText}</h4>
+                  </CardHeader>
+                  <p className={classes.divider} style={{ color: errors && (errors === "Authenticating..." ? "green" : "red") }}>
+                     {errors ? errors : "Goat Duels Await You..."}
+                  </p>
+                  <CardBody>
+                     <CustomInput
+                        labelText="Username"
+                        id="username"
+                        formControlProps={{ fullWidth: true }}
+                        inputProps={{
+                           onChange: usernameEvent,
+                           onKeyPress: enterToSubmit,
+                           type: "text",
+                           endAdornment: (
+                              <InputAdornment position="end">
+                                 <People className={classes.inputIconsColor} />
+                              </InputAdornment>
+                           )
+                        }}
+                     />
+                     <CustomInput
+                        labelText="Password"
+                        id="pass"
+                        formControlProps={{ fullWidth: true }}
+                        inputProps={{
+                           onChange: passwordEvent,
+                           onKeyPress: enterToSubmit,
+                           type: "password",
+                           endAdornment: (
+                              <InputAdornment position="end">
+                                 <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                              </InputAdornment>
+                           ),
+                           autoComplete: "off"
+                        }}
+                     />
+                     {!isLogin && (
+                        <Fragment>
+                           <CustomInput
+                              labelText="Re-type Password"
+                              id="pass2"
+                              formControlProps={{ fullWidth: true }}
+                              inputProps={{
+                                 onChange: passwordTwoEvent,
+                                 onKeyPress: enterToSubmit,
+                                 type: "password",
+                                 endAdornment: (
+                                    <InputAdornment position="end">
+                                       <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                    </InputAdornment>
+                                 ),
+                                 autoComplete: "off"
+                              }}
+                           />
+                           <CustomInput
+                              labelText="Referred by"
+                              id="referredby"
+                              formControlProps={{
+                                 fullWidth: true
+                              }}
+                              inputProps={{
+                                 defaultValue: query,
+                                 onChange: referredbyEvent,
+                                 onKeyPress: enterToSubmit,
+                                 type: "text",
+                                 endAdornment: (
+                                    <InputAdornment position="end">
+                                       <RecordVoiceOver className={classes.inputIconsColor} />
+                                    </InputAdornment>
+                                 ),
+                                 autoComplete: "off"
+                              }}
+                           />
+                        </Fragment>
+                     )}
+                  </CardBody>
+                  <CardFooter className={classes.cardFooter}>
+                     <Button simple color="primary" size="lg" onClick={submit}>
+                        {headerText}
+                     </Button>
+                     {isLogin && (
+                        <Button simple color="primary" size="lg">
+                           Forgot Password?
                         </Button>
-                        {isLogin && (
-                           <Button simple color="primary" size="lg">
-                              Forgot Password?
-                           </Button>
-                        )}
-                     </CardFooter>
-                     <hr />
-                     <CardFooter className={classes.cardFooter}>
-                        {isLogin ? "Need an account?" : "Did you mean to login?"}
-                        <Button simple color="primary" size="lg" onClick={() => setIsLogin(!isLogin)}>
-                           {isLogin ? "Register" : "Login"}
-                        </Button>
-                     </CardFooter>
-                  </form>
-               </Card>
+                     )}
+                  </CardFooter>
+                  <hr />
+                  <CardFooter className={classes.cardFooter}>
+                     {isLogin ? "Need an account?" : "Did you mean to login?"}
+                     <Button simple color="primary" size="lg" onClick={() => setIsLogin(!isLogin)}>
+                        {isLogin ? "Register" : "Login"}
+                     </Button>
+                  </CardFooter>
+               </CardForm>
             </GridItem>
          </GridContainer>
       </PageTemplate>

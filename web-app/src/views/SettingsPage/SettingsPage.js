@@ -11,7 +11,7 @@ import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Snackbar from "components/Snackbar/SnackbarContent.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import JustSleeves from "components/YugiohCard/JustSleeves";
-import Card from "components/Card/Card.js";
+import CardForm from "components/Card/CardForm.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
@@ -159,103 +159,99 @@ class SettingsPage extends PureComponent {
                   </div>
                </GridItem>
                <GridItem xs={12} sm={6}>
-                  <Card style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
-                     <form className={classes.form}>
-                        <CardHeader color="primary" className={classes.cardHeader}>
-                           <h4>Link Accounts</h4>
-                        </CardHeader>
-                        <CardBody>
-                           <CustomInput
-                              labelText="Email Address"
-                              id="email"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "text",
-                                 defaultValue: email,
-                                 onChange: this.setEmail,
-                                 endAdornment: (
-                                    <InputAdornment position="end">
-                                       <Email className={classes.inputIconsColor} />
-                                    </InputAdornment>
-                                 )
-                              }}
-                           />
-                           <CustomInput
-                              labelText="Discord ID"
-                              id="discord"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "text",
-                                 defaultValue: discord,
-                                 onChange: this.setDiscord,
-                                 endAdornment: (
-                                    <InputAdornment position="end">
-                                       <SiDiscord className={classes.inputIconsColor} />
-                                    </InputAdornment>
-                                 )
-                              }}
-                           />
-                        </CardBody>
-                        <CardFooter className={classes.cardFooter} style={{ textAlign: "center", padding: "0.9375rem 1.875rem" }}>
-                           It is highly recommended that you link at least one account so that you will be able to recover your password (if forgotten).
-                        </CardFooter>
-                     </form>
-                  </Card>
+                  <CardForm classes={classes} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
+                     <CardHeader color="primary" className={classes.cardHeader}>
+                        <h4>Link Accounts</h4>
+                     </CardHeader>
+                     <CardBody>
+                        <CustomInput
+                           labelText="Email Address"
+                           id="email"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: email,
+                              onChange: this.setEmail,
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <Email className={classes.inputIconsColor} />
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                        <CustomInput
+                           labelText="Discord ID"
+                           id="discord"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: discord,
+                              onChange: this.setDiscord,
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <SiDiscord className={classes.inputIconsColor} />
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                     </CardBody>
+                     <CardFooter className={classes.cardFooter} style={{ textAlign: "center", padding: "0.9375rem 1.875rem" }}>
+                        It is highly recommended that you link at least one account so that you will be able to recover your password (if forgotten).
+                     </CardFooter>
+                  </CardForm>
                </GridItem>
                <GridItem xs={12} sm={6}>
-                  <Card style={{ paddingBottom: "20px", backgroundColor: "rgba(255,255,255,0.92)" }}>
-                     <form className={classes.form}>
-                        <CardHeader color="primary" className={classes.cardHeader}>
-                           <h4>Change Password</h4>
-                        </CardHeader>
-                        <CardBody>
-                           <CustomInput
-                              labelText="New Password"
-                              id="pass"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "password",
-                                 onChange: this.setNewPassword,
-                                 endAdornment: (
-                                    <InputAdornment position="end">
-                                       <Icon className={classes.inputIconsColor}>lock_outline</Icon>
-                                    </InputAdornment>
-                                 )
-                              }}
-                           />
-                           <CustomInput
-                              labelText="Retype New Password"
-                              id="pass2"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "password",
-                                 onChange: this.setNewPasswordTwo,
-                                 endAdornment: (
-                                    <InputAdornment position="end">
-                                       <Icon className={classes.inputIconsColor}>lock_outline</Icon>
-                                    </InputAdornment>
-                                 )
-                              }}
-                           />
-                           <CustomInput
-                              labelText={
-                                 <span style={{ color: requirePass && !oldPassword && "red" }}>{"Current Password" + (requirePass ? " (Required)" : "")}</span>
-                              }
-                              id="pass3"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "password",
-                                 onChange: this.setOldPassword,
-                                 endAdornment: (
-                                    <InputAdornment position="end">
-                                       <Icon className={classes.inputIconsColor}>lock_outline</Icon>
-                                    </InputAdornment>
-                                 )
-                              }}
-                           />
-                        </CardBody>
-                     </form>
-                  </Card>
+                  <CardForm classes={classes} style={{ paddingBottom: "20px", backgroundColor: "rgba(255,255,255,0.92)" }}>
+                     <CardHeader color="primary" className={classes.cardHeader}>
+                        <h4>Change Password</h4>
+                     </CardHeader>
+                     <CardBody>
+                        <CustomInput
+                           labelText="New Password"
+                           id="pass"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "password",
+                              onChange: this.setNewPassword,
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                        <CustomInput
+                           labelText="Retype New Password"
+                           id="pass2"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "password",
+                              onChange: this.setNewPasswordTwo,
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                        <CustomInput
+                           labelText={
+                              <span style={{ color: requirePass && !oldPassword && "red" }}>{"Current Password" + (requirePass ? " (Required)" : "")}</span>
+                           }
+                           id="pass3"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "password",
+                              onChange: this.setOldPassword,
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                     </CardBody>
+                  </CardForm>
                </GridItem>
                <GridItem xs={12}>
                   <div style={{ textAlign: "center" }}>

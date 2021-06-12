@@ -6,7 +6,7 @@ import BackButton from "components/CustomButtons/BackButton.js";
 import PageTemplate from "components/Header/PageTemplate.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Card from "components/Card/Card.js";
+import CardForm from "components/Card/CardForm.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
@@ -20,12 +20,13 @@ import LanguageIcon from "@material-ui/icons/Language";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { FaSave, FaTwitch } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
+import { MdCreate } from "react-icons/md";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 const charMax = { name: 30, description: 60 };
-const requiredFields = ["info", "config", "ratings"];
+const requiredFields = ["info", "ratings"];
 
 function validUrl(url) {
    try {
@@ -55,7 +56,12 @@ class CreateLeague extends PureComponent {
          useQueue: true,
          useRatings: true,
          allowMultis: true,
-         autoApprove: true
+         autoApprove: true,
+         allowExarion: false,
+         center: 800,
+         kvalue: 24,
+         decay: 0.3,
+         newPlayerBonus: false
       };
    }
 
@@ -85,6 +91,8 @@ class CreateLeague extends PureComponent {
    setUseRatings = (event) => this.setState({ useRatings: event.target.checked });
    setAllowMultis = (event) => this.setState({ allowMultis: event.target.checked });
    setAutoApprove = (event) => this.setState({ autoApprove: event.target.checked });
+   setAllowExarion = (event) => this.setState({ allowExarion: event.target.checked });
+   setNewPlayerBonus = (event) => this.setState({ newPlayerBonus: event.target.checked });
 
    getError = (fieldName) => {
       switch (fieldName) {
@@ -116,7 +124,7 @@ class CreateLeague extends PureComponent {
 
    render() {
       const { classes } = this.props;
-      const { badFields, name, description, website, discord, twitch, youtube, useQueue, useRatings, allowMultis, autoApprove } = this.state;
+      const { badFields, name, description, website, discord, twitch, youtube, useQueue, useRatings, allowMultis, autoApprove, allowExarion } = this.state;
 
       const infoFooter = this.getFooter("info");
       const socialFooter = this.getFooter("social");
@@ -130,188 +138,195 @@ class CreateLeague extends PureComponent {
                   <h3 style={{ textAlign: "center", marginBottom: "30px" }}>Create a New League</h3>
                </GridItem>
                <GridItem xs={12} sm={6}>
-                  <Card style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
-                     <form className={classes.form}>
-                        <CardHeader color="primary" className={classes.cardHeader}>
-                           <h4>Basic Info</h4>
-                        </CardHeader>
-                        <CardBody>
-                           <CustomInput
-                              labelText="Name"
-                              id="name"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "text",
-                                 defaultValue: name,
-                                 onChange: (event) => this.setInfos({ name: event.target.value })
-                              }}
-                           />
-                           <CustomInput
-                              labelText="Short Description"
-                              id="description"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "text",
-                                 defaultValue: description,
-                                 onChange: (event) => this.setInfos({ description: event.target.value })
-                              }}
-                           />
-                        </CardBody>
-                        <CardFooter
-                           className={classes.cardFooter}
-                           style={{
-                              textAlign: "center",
-                              padding: "0.9375rem 1.875rem",
-                              color: infoFooter.startsWith("Error") || name.length === 0 || description.length === 0 ? "red" : "black"
+                  <CardForm classes={classes} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
+                     <CardHeader color="primary" className={classes.cardHeader}>
+                        <h4>Basic Info</h4>
+                     </CardHeader>
+                     <CardBody>
+                        <CustomInput
+                           labelText="Name"
+                           id="name"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: name,
+                              onChange: (event) => this.setInfos({ name: event.target.value }),
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <MdCreate className={classes.inputIconsColor} />
+                                 </InputAdornment>
+                              )
                            }}
-                        >
-                           {infoFooter}
-                        </CardFooter>
-                     </form>
-                  </Card>
+                        />
+                        <CustomInput
+                           labelText="Short Description"
+                           id="description"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: description,
+                              onChange: (event) => this.setInfos({ description: event.target.value }),
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <MdCreate className={classes.inputIconsColor} />
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                     </CardBody>
+                     <CardFooter
+                        className={classes.cardFooter}
+                        style={{
+                           textAlign: "center",
+                           padding: "0.9375rem 1.875rem",
+                           color: infoFooter.startsWith("Error") || name.length === 0 || description.length === 0 ? "red" : "black"
+                        }}
+                     >
+                        {infoFooter}
+                     </CardFooter>
+                  </CardForm>
                </GridItem>
                <GridItem xs={12} sm={6}>
-                  <Card style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
-                     <form className={classes.form}>
-                        <CardHeader color="primary" className={classes.cardHeader}>
-                           <h4>Configuration</h4>
-                        </CardHeader>
-                        <CardBody>
-                           <Switch checked={useQueue} onChange={this.setUseQueue} color="primary" style={{ color: "#9c27b0" }} />
-                           Use {useQueue ? "queue" : "host/join"} for matchmaking
-                           <Info
-                              content={
-                                 useQueue
-                                    ? "With a queue system, once two players are in the queue, they are matched with each other. Players who do not know who is already in the queue."
-                                    : "With a host system, players host matches and wait for someone to join. The host can accept or decline each challenger."
-                              }
-                           />
-                           <br />
-                           <Switch checked={useRatings} onChange={this.setUseRatings} color="primary" style={{ color: "#9c27b0" }} />
-                           {useRatings ? "Use a ratings/rankings system" : "No ratings/rankings system"}
-                           <br />
-                           <Switch checked={allowMultis} onChange={this.setAllowMultis} color="primary" style={{ color: "#9c27b0" }} />
-                           {allowMultis ? "Allow" : "Ban"} multiaccounting
-                           <Info
-                              content={
-                                 allowMultis
-                                    ? "The same person can join your league with multiple accounts."
-                                    : "Block proxies, VPNs, and TOR. Log users' IP addresses."
-                              }
-                           />
-                           <br />
-                           <Switch checked={autoApprove} onChange={this.setAutoApprove} color="primary" style={{ color: "#9c27b0" }} />
-                           {autoApprove ? "Auto-approve" : "Manually approve"} members
-                           <Info
-                              content={
-                                 autoApprove
-                                    ? "Automatically approve any member who wishes to join your league."
-                                    : "Members cannot play matches in your league until your manually approve them."
-                              }
-                           />
-                        </CardBody>
-                     </form>
-                  </Card>
+                  <CardForm classes={classes} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
+                     <CardHeader color="primary" className={classes.cardHeader}>
+                        <h4>Configuration</h4>
+                     </CardHeader>
+                     <CardBody>
+                        <Switch checked={useQueue} onChange={this.setUseQueue} color="primary" style={{ color: "#9c27b0" }} />
+                        Use {useQueue ? "queue" : "host/join"} for matchmaking
+                        <Info
+                           content={
+                              useQueue
+                                 ? "With a queue system, once two players are in the queue, they are matched with each other. Players who do not know who is already in the queue."
+                                 : "With a host system, players host matches and wait for someone to join. The host can accept or decline each challenger."
+                           }
+                        />
+                        <br />
+                        <Switch checked={useRatings} onChange={this.setUseRatings} color="primary" style={{ color: "#9c27b0" }} />
+                        {useRatings ? "Use a ratings/rankings system" : "No ratings/rankings system"}
+                        <br />
+                        <Switch checked={allowMultis} onChange={this.setAllowMultis} color="primary" style={{ color: "#9c27b0" }} />
+                        {allowMultis ? "Allow" : "Ban"} multiaccounting
+                        <Info
+                           content={
+                              allowMultis
+                                 ? "The same person can join your league with multiple accounts."
+                                 : "Block proxies, VPNs, and TOR. Log users' IP addresses."
+                           }
+                        />
+                        <br />
+                        <Switch checked={autoApprove} onChange={this.setAutoApprove} color="primary" style={{ color: "#9c27b0" }} />
+                        {autoApprove ? "Auto-approve" : "Manually approve"} members
+                        <Info
+                           content={
+                              autoApprove
+                                 ? "Automatically approve any member who wishes to join your league."
+                                 : "Members cannot play matches in your league until your manually approve them."
+                           }
+                        />
+                        <br />
+                        <Switch checked={allowExarion} onChange={this.setAllowExarion} color="primary" style={{ color: "#9c27b0" }} />
+                        {allowExarion ? "Allow" : "Do not allow"} Exarion Universe
+                        <Info content={"Exarion Universe is not TECHNICALLY a part of Goat Format, but some people prefer it to be legal."} />
+                     </CardBody>
+                  </CardForm>
                </GridItem>
                <GridItem xs={12} sm={6}>
-                  <Card style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
-                     <form className={classes.form}>
-                        <CardHeader color="primary" className={classes.cardHeader}>
-                           <h4>Social Media Links</h4>
-                        </CardHeader>
-                        <CardBody>
-                           <CustomInput
-                              labelText="Your Website"
-                              id="website"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "text",
-                                 defaultValue: website,
-                                 onChange: (event) => this.setSocials({ website: event.target.value }),
-                                 endAdornment: (
-                                    <InputAdornment position="end">
-                                       <LanguageIcon className={classes.inputIconsColor} />
-                                    </InputAdornment>
-                                 )
-                              }}
-                           />
-                           <CustomInput
-                              labelText="Discord Invitation"
-                              id="discord"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "text",
-                                 defaultValue: discord,
-                                 onChange: (event) => this.setSocials({ discord: event.target.value }),
-                                 endAdornment: (
-                                    <InputAdornment position="end">
-                                       <SiDiscord className={classes.inputIconsColor} />
-                                    </InputAdornment>
-                                 )
-                              }}
-                           />
-                           <CustomInput
-                              labelText="YouTube Channel"
-                              id="discord"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "text",
-                                 defaultValue: youtube,
-                                 onChange: (event) => this.setSocials({ youtube: event.target.value }),
-                                 endAdornment: (
-                                    <InputAdornment position="end">
-                                       <YouTube className={classes.inputIconsColor} />
-                                    </InputAdornment>
-                                 )
-                              }}
-                           />
-                           <CustomInput
-                              labelText="Twitch Channel"
-                              id="discord"
-                              formControlProps={{ fullWidth: true }}
-                              inputProps={{
-                                 type: "text",
-                                 defaultValue: twitch,
-                                 onChange: (event) => this.setSocials({ twitch: event.target.value }),
-                                 endAdornment: (
-                                    <InputAdornment position="end">
-                                       <FaTwitch className={classes.inputIconsColor} />
-                                    </InputAdornment>
-                                 )
-                              }}
-                           />
-                        </CardBody>
-                        <CardFooter
-                           className={classes.cardFooter}
-                           style={{
-                              textAlign: "center",
-                              padding: "0.9375rem 1.875rem",
-                              color: socialFooter.startsWith("Error") ? "red" : "black"
+                  <CardForm classes={classes} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
+                     <CardHeader color="primary" className={classes.cardHeader}>
+                        <h4>Social Media Links</h4>
+                     </CardHeader>
+                     <CardBody>
+                        <CustomInput
+                           labelText="Your Website"
+                           id="website"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: website,
+                              onChange: (event) => this.setSocials({ website: event.target.value }),
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <LanguageIcon className={classes.inputIconsColor} />
+                                 </InputAdornment>
+                              )
                            }}
-                        >
-                           {socialFooter}
-                        </CardFooter>
-                     </form>
-                  </Card>
+                        />
+                        <CustomInput
+                           labelText="Discord Invitation"
+                           id="discord"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: discord,
+                              onChange: (event) => this.setSocials({ discord: event.target.value }),
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <SiDiscord className={classes.inputIconsColor} />
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                        <CustomInput
+                           labelText="YouTube Channel"
+                           id="discord"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: youtube,
+                              onChange: (event) => this.setSocials({ youtube: event.target.value }),
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <YouTube className={classes.inputIconsColor} />
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                        <CustomInput
+                           labelText="Twitch Channel"
+                           id="discord"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: twitch,
+                              onChange: (event) => this.setSocials({ twitch: event.target.value }),
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    <FaTwitch className={classes.inputIconsColor} />
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                     </CardBody>
+                     <CardFooter
+                        className={classes.cardFooter}
+                        style={{
+                           textAlign: "center",
+                           padding: "0.9375rem 1.875rem",
+                           color: socialFooter.startsWith("Error") ? "red" : "black"
+                        }}
+                     >
+                        {socialFooter}
+                     </CardFooter>
+                  </CardForm>
                </GridItem>
                <GridItem xs={12} sm={6}>
                   {useRatings && (
-                     <Card style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
-                        <form className={classes.form}>
-                           <CardHeader color="primary" className={classes.cardHeader}>
-                              <h4>Ratings/Rankings System</h4>
-                           </CardHeader>
-                        </form>
-                     </Card>
+                     <CardForm classes={classes} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
+                        <CardHeader color="primary" className={classes.cardHeader}>
+                           <h4>Ratings/Rankings System</h4>
+                        </CardHeader>
+                        <CardBody></CardBody>
+                     </CardForm>
                   )}
                </GridItem>
                <GridItem xs={12}>
-                  <div style={{ textAlign: "center", marginTop: "20px" }}>
+                  <div style={{ textAlign: "center", margin: "20px 0px" }}>
                      <BackButton href="leagues" />
                      <Tooltip
                         title={
                            canSave
-                              ? "Note: It costs 5 Goat Gold every 30 days to keep your league. Your first 30 days is free. You can ask for donations from your leagues members to help pay the cost."
+                              ? "Note: It costs 5 Goat Gold every 30 days to keep your league. Your first 30 days is free. You can ask for donations from your league's members to help pay the cost."
                               : "Make sure that all required fields are filled out and there are no errors."
                         }
                         placement="top"
@@ -321,10 +336,6 @@ class CreateLeague extends PureComponent {
                            <FaSave /> Save and Create
                         </Button>
                      </Tooltip>
-                     <h5 style={{ backgroundColor: "rgba(0,0,0,0.6)", borderRadius: "8px", padding: "5px" }}>
-                        <strong>Note:</strong> It costs 5 Goat Gold every 30 days to keep your league. Your first 30 days is free. You can ask for donations
-                        from your leagues members to help pay the cost.
-                     </h5>
                   </div>
                </GridItem>
             </GridContainer>
