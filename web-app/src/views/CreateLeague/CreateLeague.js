@@ -12,6 +12,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Info from "components/Info/Info.js";
+import { validUrl, getError } from "./utils.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import Switch from "@material-ui/core/Switch";
@@ -28,15 +29,6 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const charMax = { name: 30, description: 60 };
 const requiredFields = ["info", "ratings"];
 
-function validUrl(url) {
-   try {
-      new URL(url);
-   } catch {
-      return false;
-   }
-   return true;
-}
-
 class CreateLeague extends PureComponent {
    constructor(props) {
       super(props);
@@ -45,7 +37,7 @@ class CreateLeague extends PureComponent {
          badFields: {
             info: [],
             social: [],
-            config: []
+            ratings: []
          },
          name: "",
          description: "",
@@ -58,8 +50,8 @@ class CreateLeague extends PureComponent {
          allowMultis: true,
          autoApprove: true,
          allowExarion: false,
-         center: 800,
-         kvalue: 24,
+         center: "800",
+         kvalue: "24",
          decay: 0.3,
          newPlayerBonus: false
       };
@@ -87,6 +79,17 @@ class CreateLeague extends PureComponent {
       this.setState({ badFields: { ...badFields, social: badSocialFields }, ...updates });
    };
 
+   setRatings = (updates) => {
+      const { center, kvalue, decay, badFields } = { ...this.state, ...updates };
+      const badRatingsFields = [];
+
+      if (center.length > 0 && isNaN(center)) badRatingsFields.push("center");
+      if (kvalue.length > 0 && (isNaN(kvalue) || Number(kvalue) < 0)) badRatingsFields.push("kvalue");
+      if (decay.length > 0 && (isNaN(decay) || Number(decay) < 0 || Number(decay) > 100)) badRatingsFields.push("decay");
+
+      this.setState({ badFields: { ...badFields, ratings: badRatingsFields }, ...updates });
+   };
+
    setUseQueue = (event) => this.setState({ useQueue: event.target.checked });
    setUseRatings = (event) => this.setState({ useRatings: event.target.checked });
    setAllowMultis = (event) => this.setState({ allowMultis: event.target.checked });
@@ -94,40 +97,43 @@ class CreateLeague extends PureComponent {
    setAllowExarion = (event) => this.setState({ allowExarion: event.target.checked });
    setNewPlayerBonus = (event) => this.setState({ newPlayerBonus: event.target.checked });
 
-   getError = (fieldName) => {
-      switch (fieldName) {
-         case "name":
-            return "The maximum number of characters allowed for name is " + charMax.name + ".";
-         case "description":
-            return "The maximum number of characters allowed for description is " + charMax.description + ".";
-         case "website":
-            return "Invalid website URL. It should look similar to https://domain.com.";
-         case "discord":
-            return 'Discord URL should start with "https" and contain "discord" in it.';
-         case "youtube":
-            return 'YouTube URL should start with "https" and contain "youtube.com" in it.';
-         case "twitch":
-            return 'Twitch URL should start with "https" and contain "twitch.tv" in it.';
-         default:
-            return "Unknown";
-      }
-   };
-
    getFooter = (footerName) => {
       const badFields = this.state.badFields[footerName];
       const badLength = badFields.length;
 
       if (badLength === 0) return "All of these fields are " + (requiredFields.includes(footerName) ? "required" : "optional") + ".";
-      else if (badLength === 1) return "Error: " + this.getError(badFields[0]);
-      else return "Errors: " + badFields.map((field) => this.getError(field)).join(" ");
+      else if (badLength === 1) return "Error: " + getError(badFields[0]);
+      else return "Errors: " + badFields.map((field) => getError(field)).join(" ");
+   };
+
+   save = async () => {
+      console.log("saved!");
    };
 
    render() {
       const { classes } = this.props;
-      const { badFields, name, description, website, discord, twitch, youtube, useQueue, useRatings, allowMultis, autoApprove, allowExarion } = this.state;
+      const {
+         badFields,
+         name,
+         description,
+         website,
+         discord,
+         twitch,
+         youtube,
+         useQueue,
+         useRatings,
+         allowMultis,
+         autoApprove,
+         allowExarion,
+         center,
+         kvalue,
+         decay,
+         newPlayerBonus
+      } = this.state;
 
       const infoFooter = this.getFooter("info");
       const socialFooter = this.getFooter("social");
+      const ratingsFooter = this.getFooter("ratings");
 
       const canSave = name.length > 0 && description.length > 0 && badFields.info.length === 0 && badFields.social.length === 0;
 
@@ -316,7 +322,64 @@ class CreateLeague extends PureComponent {
                         <CardHeader color="primary" className={classes.cardHeader}>
                            <h4>Ratings/Rankings System</h4>
                         </CardHeader>
-                        <CardBody></CardBody>
+                        <CardBody style={{ textAlign: "center" }}>
+                           <Info content={"This is the rating that all players start at. It is also the long-term average rating."} />
+                           <b>Center: </b>
+                           <CustomInput
+                              id="center"
+                              inputProps={{
+                                 type: "text",
+                                 defaultValue: center,
+                                 onChange: (event) => this.setRatings({ center: event.target.value })
+                              }}
+                           />
+                           <br />
+                           <Info content={"The higher the k-value, the faster that players win and lose rating. Between 16 and 32 is recommended."} />
+                           <b>K-value: </b>
+                           <CustomInput
+                              id="kvalue"
+                              inputProps={{
+                                 type: "text",
+                                 defaultValue: kvalue,
+                                 onChange: (event) => this.setRatings({ kvalue: event.target.value })
+                              }}
+                           />
+                           <br />
+                           <Info
+                              content={
+                                 "The percentage of their rating that a player loses each day. Enter 0 if you do NOT want any decay. Small values (less than 1) are recommended."
+                              }
+                           />
+                           <b>Daily ratings decay %: </b>
+                           <CustomInput
+                              id="decay"
+                              inputProps={{
+                                 type: "text",
+                                 defaultValue: decay,
+                                 onChange: (event) => this.setRatings({ decay: event.target.value })
+                              }}
+                           />
+                           <br />
+                           <Switch checked={newPlayerBonus} onChange={this.setNewPlayerBonus} color="primary" style={{ color: "#9c27b0" }} />
+                           {newPlayerBonus ? "Enable" : "Disable"} new player bonus
+                           <Info
+                              content={
+                                 newPlayerBonus
+                                    ? "New players will see their rating change twice as fast as normal. This effect will gradually wear off."
+                                    : "Treats new players the same as everyone else, for the purpose of ratings."
+                              }
+                           />
+                        </CardBody>
+                        <CardFooter
+                           className={classes.cardFooter}
+                           style={{
+                              textAlign: "center",
+                              padding: "0.9375rem 1.875rem",
+                              color: ratingsFooter.startsWith("Error") || center.length === 0 || kvalue.length === 0 || decay.length === 0 ? "red" : "black"
+                           }}
+                        >
+                           {ratingsFooter}
+                        </CardFooter>
                      </CardForm>
                   )}
                </GridItem>
@@ -332,7 +395,7 @@ class CreateLeague extends PureComponent {
                         placement="top"
                         classes={{ tooltip: classes.tooltip }}
                      >
-                        <Button color={canSave && "primary"} size="lg" round>
+                        <Button color={canSave && "primary"} size="lg" onClick={canSave ? this.save : undefined} round>
                            <FaSave /> Save and Create
                         </Button>
                      </Tooltip>
