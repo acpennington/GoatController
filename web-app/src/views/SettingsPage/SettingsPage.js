@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import axios from "axios";
 
-import { BsArrowLeftShort } from "react-icons/bs";
 import { FaSave } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
 
@@ -9,6 +8,7 @@ import PageTemplate from "components/Header/PageTemplate";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
+import BackButton from "components/CustomButtons/BackButton.js";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Snackbar from "components/Snackbar/SnackbarContent.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
@@ -149,9 +149,7 @@ class SettingsPage extends PureComponent {
                            buttonProps={{
                               color: "transparent"
                            }}
-                           dropdownList={[
-                              ...sleeveChoices.map((sleeve) => <div onClick={() => this.setSleeves(sleeve)}>{formatFileName(sleeve)}</div>)
-                           ]}
+                           dropdownList={[...sleeveChoices.map((sleeve) => <div onClick={() => this.setSleeves(sleeve)}>{formatFileName(sleeve)}</div>)]}
                         />
                         <JustSleeves height={250} sleeves={sleeves} />
                      </div>
@@ -200,8 +198,7 @@ class SettingsPage extends PureComponent {
                            />
                         </CardBody>
                         <CardFooter className={classes.cardFooter} style={{ textAlign: "center", padding: "0.9375rem 1.875rem" }}>
-                           It is highly recommended that you link at least one account so that you will be able to recover your password (if
-                           forgotten).
+                           It is highly recommended that you link at least one account so that you will be able to recover your password (if forgotten).
                         </CardFooter>
                      </form>
                   </Card>
@@ -247,9 +244,7 @@ class SettingsPage extends PureComponent {
                            />
                            <CustomInput
                               labelText={
-                                 <span style={{ color: requirePass && !oldPassword && "red" }}>
-                                    {"Current Password" + (requirePass ? " (Required)" : "")}
-                                 </span>
+                                 <span style={{ color: requirePass && !oldPassword && "red" }}>{"Current Password" + (requirePass ? " (Required)" : "")}</span>
                               }
                               id="pass3"
                               formControlProps={{
@@ -272,9 +267,7 @@ class SettingsPage extends PureComponent {
                <GridItem xs={12}>
                   <div style={{ textAlign: "center" }}>
                      {errors && <Snackbar message={"ERROR: " + errors} color="danger" icon={Warning} />}
-                     <Button color="primary" size="lg" round href="/wall">
-                        <BsArrowLeftShort /> To Wall
-                     </Button>
+                     <BackButton />
                      <Button color={unsaved && (!requirePass || oldPassword) && "primary"} size="lg" round onClick={this.save}>
                         <FaSave /> Save Settings
                      </Button>

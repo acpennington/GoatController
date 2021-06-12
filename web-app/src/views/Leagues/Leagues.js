@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 
 import Button from "components/CustomButtons/Button.js";
+import BackButton from "components/CustomButtons/BackButton.js";
 import PageTemplate from "components/Header/PageTemplate.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -52,12 +53,12 @@ class Leagues extends PureComponent {
                         <div style={{ marginBottom: "10px" }}>
                            {leaguesList
                               ? leaguesList.map((league, index) => (
-                                    <Tooltip id={league.name} title={league.description} classes={{ tooltip: classes.tooltip }}>
-                                       <Button color="success" size="lg" href={"/league?name=" + league.name} key={index}>
-                                          {league.name}
-                                       </Button>
-                                    </Tooltip>
-                                 ))
+                                   <Tooltip id={league.name} title={league.description} classes={{ tooltip: classes.tooltip }}>
+                                      <Button color="success" size="lg" href={"/league?name=" + league.name} key={index}>
+                                         {league.name}
+                                      </Button>
+                                   </Tooltip>
+                                ))
                               : "Fetching list of all leagues..."}
                         </div>
                      )}
@@ -68,6 +69,11 @@ class Leagues extends PureComponent {
                      <Button color="primary" size="lg" round href="/createleague">
                         <MdCreate /> Create League
                      </Button>
+                  </div>
+               </GridItem>
+               <GridItem xs={12}>
+                  <div style={{ textAlign: "center", marginTop: "20px" }}>
+                     <BackButton />
                   </div>
                </GridItem>
             </GridContainer>
