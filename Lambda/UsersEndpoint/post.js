@@ -44,6 +44,7 @@ async function post(body) {
       username,
       hashword,
       referredby,
+      verified: false,
       goatGold: 0,
       joinDate: todaysDate(),
       lastMatch: "Never",
