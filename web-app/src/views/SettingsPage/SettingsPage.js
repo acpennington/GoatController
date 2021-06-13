@@ -16,6 +16,7 @@ import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 
+import { isDiscordValid, formatFileName } from "./utils.js";
 import setBodyImage from "utils/setBodyImage.js";
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
@@ -266,15 +267,6 @@ class SettingsPage extends PureComponent {
          </PageTemplate>
       );
    }
-}
-
-function isDiscordValid(discordName) {
-   const splitName = discordName.split("#");
-   return splitName.length === 2 && splitName[1].length === 4 && Number.isInteger(parseFloat(splitName[1]));
-}
-
-function formatFileName(fileName) {
-   return fileName.split(".")[0].replace(/_/g, " ");
 }
 
 SettingsPage.propTypes = {

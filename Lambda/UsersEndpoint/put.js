@@ -61,7 +61,7 @@ async function put(body, token) {
 
    await DynamoDB.update(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
-   });
+   }).promise();
    return { statusCode: 200, body: { msg: "User successfully updated" } };
 }
 

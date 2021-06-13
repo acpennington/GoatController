@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -53,12 +53,11 @@ export default function Header(props) {
       [classes.fixed]: fixed
    });
    const brandComponent = (
-      <Fragment>
-         <img src="Goat_Token_Logo.svg" style={{ height: "2.8em" }} alt="Goat Duels logo" />
-         <Button className={classes.title}>
-            <u>Goat Duels</u>: A Dueling Simulator Just For Goat Format!
-         </Button>
-      </Fragment>
+      <Button className={classes.title}>
+         <img src="Goat_Token_Logo.svg" style={{ height: "2.4em", marginRight: "8px" }} alt="Goat Duels logo" />
+         Goat Duels
+         {document.documentElement.clientWidth > 1205 && ": A Dueling Simulator Just For Goat Format!"}
+      </Button>
    );
 
    return (
