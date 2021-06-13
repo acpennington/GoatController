@@ -33,7 +33,7 @@ function getError(fieldName) {
 }
 
 function nameToId(leagueName) {
-   return leagueName.replace(/[^a-zA-Z ]/g, "").replace(/ /g, "_");
+   return leagueName.replace(/[^a-zA-Z0-9 ]/g, "").replace(/ /g, "_");
 }
 
 function deleteAttributes(variable, attributes) {
