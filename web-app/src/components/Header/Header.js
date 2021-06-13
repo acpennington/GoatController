@@ -54,7 +54,7 @@ export default function Header(props) {
    });
    const brandComponent = (
       <Fragment>
-         <img src="Goat_Token_Logo.svg" style={{ height: "2.8em" }} />
+         <img src="Goat_Token_Logo.svg" style={{ height: "2.8em" }} alt="Goat Duels logo" />
          <Button className={classes.title}>
             <u>Goat Duels</u>: A Dueling Simulator Just For Goat Format!
          </Button>

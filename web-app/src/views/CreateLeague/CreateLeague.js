@@ -59,7 +59,7 @@ class CreateLeague extends PureComponent {
          allowExarion: false,
          center: "800",
          kvalue: "24",
-         decay: 0.3,
+         decay: "0.3",
          newPlayerBonus: false
       };
    }
@@ -152,7 +152,12 @@ class CreateLeague extends PureComponent {
       const socialFooter = this.getFooter("social");
       const ratingsFooter = this.getFooter("ratings");
 
-      const canSave = name.length > 0 && description.length > 0 && badFields.info.length === 0 && badFields.social.length === 0;
+      const canSave =
+         name.length > 0 &&
+         description.length > 0 &&
+         badFields.info.length === 0 &&
+         badFields.social.length === 0 &&
+         (!useRatings || (badFields.ratings.length === 0 && center.length > 0 && kvalue.length > 0 && decay.length > 0));
 
       return (
          <PageTemplate>
