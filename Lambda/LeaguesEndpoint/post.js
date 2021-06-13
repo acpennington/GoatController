@@ -8,24 +8,22 @@ const addMemberToLeague = require("./utils/addMemberToLeague.js");
 // @route POST api/leagues
 // @desc Create a new league
 // @access Private
-// @db 1 read, 2 writes
+// @db 2 reads, 2 writes
 async function post(body, token) {
    // Auth validation
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
-   const { id } = body;
+   const { id, name } = body;
 
-   const params = {
-      TableName: "users",
+   let params = {
+      TableName: "leagues",
       Key: { id }
    };
-
-   const result = await DynamoDB.get(params, (err) => {
+   let result = await DynamoDB.get(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
    const league = result.Item;
-
    if (league) return { statusCode: 400, body: { errors: [{ msg: "A league with this id already exists" }] } };
 
    const newLeague = {
@@ -33,10 +31,27 @@ async function post(body, token) {
       goatGold: 0,
       creationDate: todaysDate(),
       paidUtil: plusThirty(),
-      members: []
+      members: {}
    };
-
    addMemberToLeague(newLeague, username, "owner");
+
+   params = {
+      TableName: "leagues",
+      Item: { ...newLeague }
+   };
+   await DynamoDB.put(params, (err) => {
+      if (err) return { statusCode: 400, body: { errors: [err] } };
+   }).promise();
+
+   const params = {
+      TableName: "users",
+      Key: { username },
+      UpdateExpression: "set leagues = list_append(leagues, :league)",
+      ExpressionAttributeValues: { ":league": name }
+   };
+   await DynamoDB.update(params, (err) => {
+      if (err) return { statusCode: 400, body: { errors: [err] } };
+   });
 }
 
 module.exports = post;

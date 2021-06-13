@@ -27,6 +27,7 @@ async function put(body, token) {
          if (err) return { statusCode: 400, body: { errors: [err] } };
       }).promise();
       const user = result.Item;
+      if (!user) return { statusCode: 400, body: { errors: [{ msg: "Username " + username + " not found." }] } };
 
       const isMatch = await bcrypt.compare(body.oldPassword, user.hashword);
       if (isMatch) {

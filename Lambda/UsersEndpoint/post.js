@@ -51,6 +51,7 @@ async function post(body) {
          gamebg: "Default.png",
          sleeves: "Goat.png"
       },
+      leagues: [],
       decks: {
          "Good Ol Goats": defaultDeck
       }

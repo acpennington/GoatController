@@ -1,5 +1,7 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 
+import LeaguesMap from "./LeaguesMap.js";
 import Button from "components/CustomButtons/Button.js";
 import BackButton from "components/CustomButtons/BackButton.js";
 import PageTemplate from "components/Header/PageTemplate.js";
@@ -14,10 +16,20 @@ import { MdCreate } from "react-icons/md";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
+const officialUnranked = {
+   id: "GoatsDuels_Official_Unranked",
+   name: "GoatsDuels Official Unranked",
+   description: "Set up some fun testing games with your friends here"
+};
+
 class Leagues extends PureComponent {
    constructor(props) {
       super(props);
-      this.state = { joinExpanded: false, leaguesList: false };
+      this.state = {
+         joinExpanded: false,
+         leaguesList: false,
+         yourLeagues: false
+      };
    }
 
    swapExpanded = () => {
@@ -30,7 +42,7 @@ class Leagues extends PureComponent {
 
    render() {
       const { classes } = this.props;
-      const { joinExpanded, leaguesList } = this.state;
+      const { joinExpanded, leaguesList, yourLeagues } = this.state;
 
       return (
          <PageTemplate>
@@ -38,6 +50,7 @@ class Leagues extends PureComponent {
                <GridItem xs={12}>
                   <div style={{ textAlign: "center" }}>
                      <h3>Your Leagues</h3>
+                     {yourLeagues.map((league, index))}
                   </div>
                </GridItem>
                <GridItem xs={12}>
@@ -51,17 +64,7 @@ class Leagues extends PureComponent {
                         <h3 onClick={this.swapExpanded}>Join League {joinExpanded ? <ArrowDropDownIcon /> : <ArrowRightIcon />}</h3>
                      </Tooltip>
                      {joinExpanded && (
-                        <div style={{ marginBottom: "10px" }}>
-                           {leaguesList
-                              ? leaguesList.map((league, index) => (
-                                   <Tooltip id={league.name} title={league.description} classes={{ tooltip: classes.tooltip }}>
-                                      <Button color="success" size="lg" href={"/league?name=" + league.name} key={index}>
-                                         {league.name}
-                                      </Button>
-                                   </Tooltip>
-                                ))
-                              : "Fetching list of all leagues..."}
-                        </div>
+                        <div style={{ marginBottom: "10px" }}>{leaguesList ? <LeaguesMap leagues={leaguesList} /> : "Fetching list of all leagues..."}</div>
                      )}
                   </div>
                </GridItem>
@@ -82,5 +85,9 @@ class Leagues extends PureComponent {
       );
    }
 }
+
+Leagues.propTypes = {
+   classes: PropTypes.object.isRequired
+};
 
 export default withStyles(styles)(Leagues);

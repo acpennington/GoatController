@@ -1,6 +1,6 @@
 // role can be one of the following: owner, admin, judge, member, banned
 function addMemberToLeague(league, username, role) {
-   const member = { username, role };
+   const member = { role };
 
    if (!league.allowMultis) member.ips = [];
    if (league.useRatings) {
@@ -9,7 +9,7 @@ function addMemberToLeague(league, username, role) {
       member.rating = 0;
    }
 
-   league.members.push(member);
+   league.members[username] = member;
 }
 
 module.exports = addMemberToLeague;
