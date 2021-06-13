@@ -1,12 +1,11 @@
 {
-   "name": "users_endpoint",
+   "name": "leagues_endpoint",
    "version": "1.0.0",
-   "description": "Users endpoint Lambda functions for AWS",
+   "description": "Leagues endpoint Lambda functions for AWS",
    "main": "index.js",
    "author": "ACP and the Goat Format community",
    "license": "ISC",
    "dependencies": {
-      "bcryptjs": "^2.4.3",
       "jsonwebtoken": "^8.5.1"
    }
 }
