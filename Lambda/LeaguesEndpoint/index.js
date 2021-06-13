@@ -2,7 +2,7 @@ const post = require("./post.js");
 
 // Routes API requests to the appropriate function
 exports.handler = async (event) => {
-   const { body, token, httpmethod, path } = event;
+   const { body, token, httpmethod } = event;
 
    switch (httpmethod) {
       case "POST":

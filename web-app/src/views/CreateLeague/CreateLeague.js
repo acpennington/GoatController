@@ -121,6 +121,11 @@ class CreateLeague extends PureComponent {
       const id = nameToId(body.name);
       body.id = id;
       if (!body.useRatings) deleteAttributes(body, ["center", "kvalue", "decay", "newPlayerBonus"]);
+      else {
+         body.center = Number(body.center);
+         body.kvalue = Number(body.kvalue);
+         body.decay = Number(body.decay);
+      }
 
       const res = await axios.post(API_URL + getApiStage() + "/leagues", body, config);
       if (res.data.statusCode === 200) window.location.href = "/league?id=" + id;
