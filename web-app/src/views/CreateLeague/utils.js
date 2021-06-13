@@ -36,4 +36,8 @@ function nameToId(leagueName) {
    return leagueName.replace(/[^a-zA-Z ]/g, "").replace(/ /g, "_");
 }
 
-export { validUrl, getError, nameToId };
+function deleteAttributes(variable, attributes) {
+   for (const attribute of attributes) delete variable[attribute];
+}
+
+export { validUrl, getError, nameToId, deleteAttributes };

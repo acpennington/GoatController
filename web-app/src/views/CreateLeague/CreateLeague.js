@@ -13,7 +13,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Info from "components/Info/Info.js";
-import { validUrl, getError, nameToId } from "./utils.js";
+import { validUrl, getError, nameToId, deleteAttributes } from "./utils.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import Switch from "@material-ui/core/Switch";
@@ -117,10 +117,10 @@ class CreateLeague extends PureComponent {
       const config = { headers: getAuthHeaders() };
       const body = { ...this.state };
 
-      delete body.badFields;
-      delete body.errors;
+      deleteAttributes(body, ["badFields", "errors"]);
       const id = nameToId(body.name);
       body.id = id;
+      if (!body.useRatings) deleteAttributes(body, ["center", "kvalue", "decay", "newPlayerBonus"]);
 
       const res = await axios.post(API_URL + getApiStage() + "/leagues", body, config);
       if (res.data.statusCode === 200) window.location.href = "/league?id=" + id;
