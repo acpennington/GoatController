@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -45,14 +45,22 @@ export default function Header(props) {
          document.body.getElementsByTagName("header")[0].classList.remove(classes[changeColorOnScroll.color]);
       }
    };
-   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
+   const { color, rightLinks, leftLinks, fixed, absolute } = props;
    const appBarClasses = classNames({
       [classes.appBar]: true,
       [classes[color]]: color,
       [classes.absolute]: absolute,
       [classes.fixed]: fixed
    });
-   const brandComponent = <Button className={classes.title}>{brand}</Button>;
+   const brandComponent = (
+      <Fragment>
+         <img src="Goat_Token_Logo.svg" style={{ height: "2.8em" }} />
+         <Button className={classes.title}>
+            <u>Goat Duels</u>: A Dueling Simulator Just For Goat Format!
+         </Button>
+      </Fragment>
+   );
+
    return (
       <AppBar className={appBarClasses}>
          <Toolbar className={classes.container}>
@@ -103,7 +111,6 @@ Header.propTypes = {
    color: PropTypes.string,
    rightLinks: PropTypes.node,
    leftLinks: PropTypes.node,
-   brand: PropTypes.string,
    fixed: PropTypes.bool,
    absolute: PropTypes.bool,
    // this will cause the sidebar to change the color from
