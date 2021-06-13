@@ -32,4 +32,8 @@ function getError(fieldName) {
    }
 }
 
-export { validUrl, getError };
+function nameToId(leagueName) {
+   return leagueName.replace(/[^a-zA-Z ]/g, "").replace(/ /g, "_");
+}
+
+export { validUrl, getError, nameToId };

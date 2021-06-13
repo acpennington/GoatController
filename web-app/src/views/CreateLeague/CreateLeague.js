@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 import Button from "components/CustomButtons/Button.js";
 import BackButton from "components/CustomButtons/BackButton.js";
@@ -12,7 +13,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Info from "components/Info/Info.js";
-import { validUrl, getError } from "./utils.js";
+import { validUrl, getError, nameToId } from "./utils.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import Switch from "@material-ui/core/Switch";
@@ -22,6 +23,11 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import { FaSave, FaTwitch } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
 import { MdCreate } from "react-icons/md";
+
+import apiErrors from "utils/apiErrors.js";
+import getApiStage from "utils/getApiStage.js";
+import { getAuthHeaders } from "utils/authToken.js";
+import { API_URL } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
@@ -39,6 +45,7 @@ class CreateLeague extends PureComponent {
             social: [],
             ratings: []
          },
+         errors: "test",
          name: "",
          description: "",
          website: "",
@@ -107,7 +114,17 @@ class CreateLeague extends PureComponent {
    };
 
    save = async () => {
-      console.log("saved!");
+      const config = { headers: getAuthHeaders() };
+      const body = { ...this.state };
+
+      delete body.badFields;
+      delete body.errors;
+      const id = nameToId(body.name);
+      body.id = id;
+
+      const res = await axios.post(API_URL + getApiStage() + "/leagues", body, config);
+      if (res.data.statusCode === 200) window.location.href = "/league?id=" + id;
+      else this.setState({ errors: apiErrors(res.data.body.errors) });
    };
 
    render() {
@@ -179,6 +196,9 @@ class CreateLeague extends PureComponent {
                               )
                            }}
                         />
+                        <div style={{ marginTop: "20px", textAlign: "center" }}>
+                           <b>Your league ID will be:</b> {nameToId(name) || "(enter name above to find out)"}
+                        </div>
                      </CardBody>
                      <CardFooter
                         className={classes.cardFooter}
