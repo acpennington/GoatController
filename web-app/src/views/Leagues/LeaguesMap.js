@@ -25,3 +25,5 @@ LeaguesMap.propTypes = {
    classes: PropTypes.object.isRequired,
    leagues: PropTypes.array.isRequired
 };
+
+export default withStyles(styles)(LeaguesMap);

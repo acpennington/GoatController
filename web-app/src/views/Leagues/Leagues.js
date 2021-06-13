@@ -32,6 +32,10 @@ class Leagues extends PureComponent {
       };
    }
 
+   componentDidMount() {
+      // Make API call to the leagues database to get info on each league that the user is a member of
+   }
+
    swapExpanded = () => {
       const { joinExpanded, leaguesList } = this.state;
       if (!joinExpanded && !leaguesList) this.fetchLeaguesList();
@@ -50,7 +54,7 @@ class Leagues extends PureComponent {
                <GridItem xs={12}>
                   <div style={{ textAlign: "center" }}>
                      <h3>Your Leagues</h3>
-                     {yourLeagues.map((league, index))}
+                     {yourLeagues ? <LeaguesMap leagues={yourLeagues} /> : "Fetching list of your leagues..."}
                   </div>
                </GridItem>
                <GridItem xs={12}>
