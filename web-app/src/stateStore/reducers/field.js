@@ -51,11 +51,7 @@ export default function (state = initialState, action) {
          const drawingFromDeck = from.row === DECK && from.zone === -1;
          if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
          const fieldSpell = from.row === FIELD_SPELL;
-         const fromCard = from.cardName
-            ? { name: from.cardName }
-            : fieldSpell
-            ? state[from.player][FIELD_SPELL]
-            : state[from.player][from.row][from.zone];
+         const fromCard = from.cardName ? { name: from.cardName } : fieldSpell ? state[from.player][FIELD_SPELL] : state[from.player][from.row][from.zone];
          if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
          const facedown = fromCard.facedown;
          let settingTrap = false;
@@ -88,8 +84,7 @@ export default function (state = initialState, action) {
 
          if (dynamicZones.includes(from.row)) state[from.player][from.row].splice(from.zone, 1);
          else if (fieldSpell) state[from.player][from.row] = null;
-         else if (from.row === EXTRA_DECK)
-            state[from.player].usedFusions[from.cardName] = state[from.player].usedFusions[from.cardName] + 1 || 1;
+         else if (from.row === EXTRA_DECK) state[from.player].usedFusions[from.cardName] = state[from.player].usedFusions[from.cardName] + 1 || 1;
          else state[from.player][from.row][from.zone] = null;
 
          return { ...state };
@@ -130,14 +125,15 @@ export default function (state = initialState, action) {
          state.hero.handRevealed = !state.hero.handRevealed;
          return { ...state };
       case NEW_SOLO_GAME:
-         const decks = JSON.parse(window.sessionStorage.getItem("decks"));
-         const activeMaindeck = getActiveDeck(decks);
+         const storage = window.sessionStorage;
+         const decks = JSON.parse(storage.getItem("decks"));
+         const active = storage.getItem("activeDeck");
+         const activeMaindeck = decks[active].maindeck;
          const namedCards = shuffle(activeMaindeck).map((card) => ({ name: card }));
 
          const newHand = [];
          for (let i = 0; i < 6; i++) newHand.push(namedCards.pop());
 
-         const storage = window.sessionStorage;
          return {
             villain: {
                sleeves: storage.getItem("opponentsSleeves"),
@@ -171,13 +167,6 @@ export default function (state = initialState, action) {
          return { ...state };
       default:
          return state;
-   }
-}
-
-function getActiveDeck(decks) {
-   for (const deckName in decks) {
-      const deck = decks[deckName];
-      if (deck.active) return deck.maindeck;
    }
 }
 

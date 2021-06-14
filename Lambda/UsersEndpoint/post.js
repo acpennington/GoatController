@@ -53,6 +53,7 @@ async function post(body) {
          sleeves: "Goat.png"
       },
       leagues: [],
+      activeDeck: "Good Ol Goats",
       decks: {
          "Good Ol Goats": defaultDeck
       }

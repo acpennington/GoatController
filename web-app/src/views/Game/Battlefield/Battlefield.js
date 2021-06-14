@@ -48,13 +48,7 @@ class Battlefield extends Component {
                      <YugiohCard height={cardHeight} notFull player={VILLAIN} row={FIELD_SPELL} />
                   </div>
                   <div className={classes.cardRow} style={{ height: size }}>
-                     <YugiohCard
-                        height={cardHeight}
-                        notFull
-                        player={HERO}
-                        row={FIELD_SPELL}
-                        discardPile={discardPile}
-                     />
+                     <YugiohCard height={cardHeight} notFull player={HERO} row={FIELD_SPELL} discardPile={discardPile} />
                      <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={0} discardPile={discardPile} />
                      <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={1} discardPile={discardPile} />
                      <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={2} discardPile={discardPile} />
@@ -91,6 +85,7 @@ function mapStateToProps(state) {
 }
 
 Battlefield.propTypes = {
+   classes: PropTypes.object.isRequired,
    size: PropTypes.number.isRequired,
    solo: PropTypes.bool
 };
