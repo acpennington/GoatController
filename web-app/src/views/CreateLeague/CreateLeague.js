@@ -128,7 +128,8 @@ class CreateLeague extends PureComponent {
       }
 
       const res = await axios.post(API_URL + getApiStage() + "/leagues", body, config);
-      if (res.data.statusCode === 200) window.location.href = "/league?id=" + id;
+      if (res.data.statusCode === 200) console.log(res.data.body);
+      //window.location.href = "/league?id=" + id;
       else this.setState({ errors: apiErrors(res.data.body.errors) });
    };
 

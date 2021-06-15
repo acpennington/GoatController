@@ -1,5 +1,6 @@
 const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
+const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const auth = require("./utils/middleware.js");
 const { todaysDate, plusThirty } = require("./utils/dates.js");
@@ -8,7 +9,7 @@ const addMemberToLeague = require("./utils/addMemberToLeague.js");
 // @route POST api/leagues
 // @desc Create a new league
 // @access Private
-// @db 2 reads, 2 writes
+// @db 1 reads, 2 writes
 async function post(body, token) {
    // Auth validation
    const username = auth(token);
@@ -43,7 +44,7 @@ async function post(body, token) {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
 
-   const params = {
+   params = {
       TableName: "users",
       Key: { username },
       UpdateExpression: "set leagues = list_append(leagues, :league)",
@@ -51,7 +52,8 @@ async function post(body, token) {
    };
    await DynamoDB.update(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
-   });
+   }).promise();
+   return { statusCode: 200, body: { msg: "League successful created" } };
 }
 
 module.exports = post;
