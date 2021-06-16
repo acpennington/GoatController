@@ -47,13 +47,13 @@ async function post(body, token) {
    params = {
       TableName: "users",
       Key: { username },
-      UpdateExpression: "set leagues = list_append(leagues, :league)",
-      ExpressionAttributeValues: { ":league": name }
+      UpdateExpression: "SET leagues = list_append(leagues, :league)",
+      ExpressionAttributeValues: { ":league": [name] }
    };
    await DynamoDB.update(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
-   return { statusCode: 200, body: { msg: "League successful created" } };
+   return { statusCode: 200, body: { msg: "League successfully created" } };
 }
 
 module.exports = post;

@@ -45,7 +45,7 @@ class CreateLeague extends PureComponent {
             social: [],
             ratings: []
          },
-         errors: "test",
+         errors: false,
          name: "",
          description: "",
          website: "",
@@ -127,16 +127,18 @@ class CreateLeague extends PureComponent {
          body.decay = Number(body.decay);
       }
 
+      console.log(API_URL + getApiStage() + "/leagues");
       const res = await axios.post(API_URL + getApiStage() + "/leagues", body, config);
-      if (res.data.statusCode === 200) console.log(res.data.body);
-      //window.location.href = "/league?id=" + id;
-      else this.setState({ errors: apiErrors(res.data.body.errors) });
+      if (res.data.statusCode === 200) window.location.href = "/league?id=" + id;
+      else console.log(res.data.body);
+      this.setState({ errors: apiErrors(res.data.body.errors) });
    };
 
    render() {
       const { classes } = this.props;
       const {
          badFields,
+         errors,
          name,
          description,
          website,
@@ -416,6 +418,7 @@ class CreateLeague extends PureComponent {
                </GridItem>
                <GridItem xs={12}>
                   <div style={{ textAlign: "center", margin: "20px 0px" }}>
+                     {errors && <div style={{ color: "red", marginBottom: "10px" }}>{errors}</div>}
                      <BackButton href="leagues" />
                      <Tooltip
                         title={
