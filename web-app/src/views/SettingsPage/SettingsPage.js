@@ -131,9 +131,7 @@ class SettingsPage extends PureComponent {
                   <div style={{ textAlign: "center" }}>
                      <CustomDropdown
                         buttonText={"Game Background: " + formatFileName(gamebg)}
-                        buttonProps={{
-                           color: "transparent"
-                        }}
+                        buttonProps={{ color: "transparent" }}
                         dropdownList={[...backgrounds.map((bg) => <div onClick={() => this.setBg(bg)}>{formatFileName(bg)}</div>)]}
                      />
                   </div>
