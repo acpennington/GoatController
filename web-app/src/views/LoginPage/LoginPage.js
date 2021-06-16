@@ -16,6 +16,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
+import { decodeQuery } from "./utils.js";
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
 import { API_URL, headers } from "utils/constants.js";
@@ -26,7 +27,7 @@ const useStyles = makeStyles(styles);
 
 const objects = ["settings", "decks"];
 
-export default function LoginPage(props) {
+export default function LoginPage() {
    const query = decodeQuery();
    const [isLogin, setIsLogin] = useState(!query);
    const [cardAnimation, setCardAnimation] = useState("cardHidden");
@@ -187,16 +188,4 @@ export default function LoginPage(props) {
          </GridContainer>
       </PageTemplate>
    );
-}
-
-function decodeQuery() {
-   const urlString = window.location.href;
-   const swappedString = urlString.replace(/_/g, " ");
-   const trimmedString = swappedString.split("?")[1];
-   if (trimmedString) {
-      const [queryName, queryParam] = trimmedString.split("=");
-      if (queryName === "ref") return queryParam.replace(/_/g, " ");
-   }
-
-   return "";
 }

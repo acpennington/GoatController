@@ -1,6 +1,11 @@
 import tooltip from "../tooltipsStyle.js";
 
 const wallStyle = {
+   bigContainer: {
+      width: "calc(100% - 250px)",
+      position: "relative",
+      float: "right"
+   },
    container: {
       overflowY: "auto",
       overflowX: "hidden",
@@ -27,6 +32,9 @@ const wallStyle = {
    namedate: {},
    content: {
       marginTop: "3px"
+   },
+   fullButton: {
+      width: "99%"
    },
    ...tooltip
 };

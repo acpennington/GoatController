@@ -1,8 +1,6 @@
 import React, { PureComponent } from "react";
 
-import Button from "components/CustomButtons/Button.js";
-
-import Tooltip from "@material-ui/core/Tooltip";
+import NavButton from "./NavButton";
 import { FaGamepad, FaWrench, FaSearch, FaChartBar } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { RiSettings4Fill } from "react-icons/ri";
@@ -18,42 +16,30 @@ class SideNavigation extends PureComponent {
 
       return (
          <div className={classes.container} style={{ position: "fixed", width: "250px" }}>
-            <Tooltip id="leagues" title="Find games here!" classes={{ tooltip: classes.tooltip }}>
-               <Button color="primary" size="lg" round style={{ width: "99%" }} href="/leagues">
-                  <FaGamepad /> Leagues
-               </Button>
-            </Tooltip>
-            <Button color="primary" size="lg" round style={{ width: "99%" }} href="/solo">
+            <NavButton href="/leagues" tip="Find games here!">
+               <FaGamepad /> Leagues
+            </NavButton>
+            <NavButton href="/solo">
                <BsFillPersonFill /> Solo Duel
-            </Button>
-            <Tooltip title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
-               <Button size="lg" round style={{ width: "99%" }}>
-                  <FaWrench /> Deck Constructor
-               </Button>
-            </Tooltip>
-            <Tooltip title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
-               <Button size="lg" round style={{ width: "99%" }}>
-                  <FaSearch /> Replay Viewer
-               </Button>
-            </Tooltip>
-            <Tooltip title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
-               <Button size="lg" round style={{ width: "99%" }}>
-                  <FaChartBar /> Big Goat Data
-               </Button>
-            </Tooltip>
-            <Tooltip title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
-               <Button size="lg" round style={{ width: "99%" }}>
-                  <CgProfile /> Profile Viewer
-               </Button>
-            </Tooltip>
-            <Tooltip title="Coming soon!" classes={{ tooltip: classes.tooltip }}>
-               <Button size="lg" round style={{ width: "99%" }}>
-                  <ShoppingCartIcon /> Shop
-               </Button>
-            </Tooltip>
-            <Button color="primary" size="lg" round style={{ width: "99%" }} href="/settings">
+            </NavButton>
+            <NavButton>
+               <FaWrench /> Deck Constructor
+            </NavButton>
+            <NavButton>
+               <FaSearch /> Replay Viewer
+            </NavButton>
+            <NavButton>
+               <FaChartBar /> Big Goat Data
+            </NavButton>
+            <NavButton>
+               <CgProfile /> Profile Viewer
+            </NavButton>
+            <NavButton>
+               <ShoppingCartIcon /> Shop
+            </NavButton>
+            <NavButton href="/settings">
                <RiSettings4Fill /> Settings
-            </Button>
+            </NavButton>
          </div>
       );
    }
