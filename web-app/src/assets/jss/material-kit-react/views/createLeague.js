@@ -6,9 +6,6 @@ const createLeagueStyle = {
       textAlign: "center",
       marginBottom: "30px"
    },
-   center: {
-      textAlign: "center"
-   },
    leagueid: {
       marginTop: "20px",
       textAlign: "center"

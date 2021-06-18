@@ -14,7 +14,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { MdCreate } from "react-icons/md";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import styles from "assets/jss/material-kit-react/views/leagues.js";
 
 const officialUnranked = {
    id: "GoatsDuels_Official_Unranked",
@@ -52,13 +52,13 @@ class Leagues extends PureComponent {
          <PageTemplate>
             <GridContainer justify="center">
                <GridItem xs={12}>
-                  <div style={{ textAlign: "center" }}>
+                  <div className={classes.center}>
                      <h3>Your Leagues</h3>
                      {yourLeagues ? <LeaguesMap leagues={yourLeagues} /> : "Fetching list of your leagues..."}
                   </div>
                </GridItem>
                <GridItem xs={12}>
-                  <div style={{ textAlign: "center" }}>
+                  <div className={classes.center}>
                      <Tooltip
                         id="leagues"
                         title={"Click to " + (joinExpanded ? "collapse list" : "show list of leagues")}
@@ -68,19 +68,19 @@ class Leagues extends PureComponent {
                         <h3 onClick={this.swapExpanded}>Join League {joinExpanded ? <ArrowDropDownIcon /> : <ArrowRightIcon />}</h3>
                      </Tooltip>
                      {joinExpanded && (
-                        <div style={{ marginBottom: "10px" }}>{leaguesList ? <LeaguesMap leagues={leaguesList} /> : "Fetching list of all leagues..."}</div>
+                        <div className={classes.leaguesList}>{leaguesList ? <LeaguesMap leagues={leaguesList} /> : "Fetching list of all leagues..."}</div>
                      )}
                   </div>
                </GridItem>
                <GridItem xs={12}>
-                  <div style={{ textAlign: "center" }}>
+                  <div className={classes.center}>
                      <Button color="primary" size="lg" round href="/createleague">
                         <MdCreate /> Create League
                      </Button>
                   </div>
                </GridItem>
                <GridItem xs={12}>
-                  <div style={{ textAlign: "center", marginTop: "20px" }}>
+                  <div className={classes.bottom}>
                      <BackButton />
                   </div>
                </GridItem>

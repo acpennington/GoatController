@@ -2,9 +2,6 @@ import styles from "./commonPages.js";
 
 const settingsStyle = {
    ...styles,
-   center: {
-      textAlign: "center"
-   },
    centerFlex: {
       textAlign: "center",
       display: "flex",

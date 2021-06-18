@@ -1,6 +1,9 @@
 import tooltip from "../tooltipsStyle.js";
 
 const styles = {
+   center: {
+      textAlign: "center"
+   },
    form: {
       margin: "0"
    },
