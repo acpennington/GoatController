@@ -30,7 +30,7 @@ import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import styles from "assets/jss/material-kit-react/views/createLeague.js";
 
 const charMax = { name: 30, description: 60 };
 const requiredFields = ["info", "ratings"];
@@ -171,7 +171,7 @@ class CreateLeague extends PureComponent {
          <PageTemplate>
             <GridContainer justify="center">
                <GridItem xs={12}>
-                  <h3 style={{ textAlign: "center", marginBottom: "30px" }}>Create a New League</h3>
+                  <h3 className={classes.title}>Create a New League</h3>
                </GridItem>
                <GridItem xs={12} sm={6}>
                   <CardForm classes={classes} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
@@ -209,17 +209,13 @@ class CreateLeague extends PureComponent {
                               )
                            }}
                         />
-                        <div style={{ marginTop: "20px", textAlign: "center" }}>
+                        <div className={classes.leagueid}>
                            <b>Your league ID will be:</b> {nameToId(name) || "(enter name above to find out)"}
                         </div>
                      </CardBody>
                      <CardFooter
                         className={classes.cardFooter}
-                        style={{
-                           textAlign: "center",
-                           padding: "0.9375rem 1.875rem",
-                           color: infoFooter.startsWith("Error") || name.length === 0 || description.length === 0 ? "red" : "black"
-                        }}
+                        style={{ color: infoFooter.startsWith("Error") || name.length === 0 || description.length === 0 ? "red" : "black" }}
                      >
                         {infoFooter}
                      </CardFooter>
@@ -337,14 +333,7 @@ class CreateLeague extends PureComponent {
                            }}
                         />
                      </CardBody>
-                     <CardFooter
-                        className={classes.cardFooter}
-                        style={{
-                           textAlign: "center",
-                           padding: "0.9375rem 1.875rem",
-                           color: socialFooter.startsWith("Error") ? "red" : "black"
-                        }}
-                     >
+                     <CardFooter className={classes.cardFooter} style={{ color: socialFooter.startsWith("Error") ? "red" : "black" }}>
                         {socialFooter}
                      </CardFooter>
                   </CardForm>
@@ -355,7 +344,7 @@ class CreateLeague extends PureComponent {
                         <CardHeader color="primary" className={classes.cardHeader}>
                            <h4>Ratings/Rankings System</h4>
                         </CardHeader>
-                        <CardBody style={{ textAlign: "center" }}>
+                        <CardBody className={classes.center}>
                            <Info content={"This is the rating that all players start at. It is also the long-term average rating."} />
                            <b>Center: </b>
                            <CustomInput
@@ -406,8 +395,6 @@ class CreateLeague extends PureComponent {
                         <CardFooter
                            className={classes.cardFooter}
                            style={{
-                              textAlign: "center",
-                              padding: "0.9375rem 1.875rem",
                               color: ratingsFooter.startsWith("Error") || center.length === 0 || kvalue.length === 0 || decay.length === 0 ? "red" : "black"
                            }}
                         >
@@ -417,8 +404,8 @@ class CreateLeague extends PureComponent {
                   )}
                </GridItem>
                <GridItem xs={12}>
-                  <div style={{ textAlign: "center", margin: "20px 0px" }}>
-                     {errors && <div style={{ color: "red", marginBottom: "10px" }}>{errors}</div>}
+                  <div className={classes.bottom}>
+                     {errors && <div className={classes.errors}>{errors}</div>}
                      <BackButton href="leagues" />
                      <Tooltip
                         title={

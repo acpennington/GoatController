@@ -128,7 +128,7 @@ class SettingsPage extends PureComponent {
          <PageTemplate>
             <GridContainer justify="center">
                <GridItem xs={12}>
-                  <div style={{ textAlign: "center" }}>
+                  <div className={classes.center}>
                      <CustomDropdown
                         buttonText={"Game Background: " + formatFileName(gamebg)}
                         buttonProps={{ color: "transparent" }}
@@ -137,14 +137,7 @@ class SettingsPage extends PureComponent {
                   </div>
                </GridItem>
                <GridItem xs={12}>
-                  <div
-                     style={{
-                        textAlign: "center",
-                        display: "flex",
-                        justifyContent: "center",
-                        marginBottom: "30px"
-                     }}
-                  >
+                  <div className={classes.centerFlex}>
                      <div>
                         <CustomDropdown
                            buttonText={"Sleeves: " + formatFileName(sleeves)}
@@ -194,7 +187,7 @@ class SettingsPage extends PureComponent {
                            }}
                         />
                      </CardBody>
-                     <CardFooter className={classes.cardFooter} style={{ textAlign: "center", padding: "0.9375rem 1.875rem" }}>
+                     <CardFooter className={classes.cardFooter}>
                         It is highly recommended that you link at least one account so that you will be able to recover your password (if forgotten).
                      </CardFooter>
                   </CardForm>
@@ -253,7 +246,7 @@ class SettingsPage extends PureComponent {
                   </CardForm>
                </GridItem>
                <GridItem xs={12}>
-                  <div style={{ textAlign: "center" }}>
+                  <div className={classes.center}>
                      {errors && <Snackbar message={"ERROR: " + errors} color="danger" icon={Warning} />}
                      <BackButton />
                      <Button color={unsaved && (!requirePass || oldPassword) && "primary"} size="lg" round onClick={this.save}>
