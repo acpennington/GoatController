@@ -73,15 +73,11 @@ class Leagues extends PureComponent {
                   </div>
                </GridItem>
                <GridItem xs={12}>
-                  <div className={classes.center}>
+                  <div className={classes.bottom}>
+                     <BackButton />
                      <Button color="primary" size="lg" round href="/createleague">
                         <MdCreate /> Create League
                      </Button>
-                  </div>
-               </GridItem>
-               <GridItem xs={12}>
-                  <div className={classes.bottom}>
-                     <BackButton />
                   </div>
                </GridItem>
             </GridContainer>
