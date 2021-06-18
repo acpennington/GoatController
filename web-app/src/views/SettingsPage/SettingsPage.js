@@ -31,7 +31,7 @@ import { FaSave } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/loginPage.js";
+import styles from "assets/jss/material-kit-react/views/settingsPage.js";
 
 const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
 const sleeveChoices = ["Goat.png", "Exarion.png"];
@@ -188,7 +188,7 @@ class SettingsPage extends PureComponent {
                               onChange: this.setDiscord,
                               endAdornment: (
                                  <InputAdornment position="end">
-                                    <SiDiscord className={classes.inputIconsColor} />
+                                    <SiDiscord size="1.25em" className={classes.inputIconsColor} />
                                  </InputAdornment>
                               )
                            }}
@@ -268,7 +268,7 @@ class SettingsPage extends PureComponent {
 }
 
 SettingsPage.propTypes = {
-   classes: PropTypes.object
+   classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(SettingsPage);

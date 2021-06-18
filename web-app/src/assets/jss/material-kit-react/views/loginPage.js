@@ -10,9 +10,6 @@ const signupPageStyle = {
       textAlign: "center",
       padding: "0"
    },
-   inputIconsColor: {
-      color: "#495057"
-   },
    ...styles
 };
 

@@ -25,6 +25,9 @@ const styles = {
       borderRadius: "6px",
       justifyContent: "center !important"
    },
+   inputIconsColor: {
+      color: "#495057"
+   },
    ...tooltip
 };
 
