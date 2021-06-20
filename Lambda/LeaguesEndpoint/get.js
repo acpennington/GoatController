@@ -9,13 +9,16 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 async function get() {
    const params = {
       TableName: "leagues",
-      ProjectionExpression: "id, name, description"
+      ProjectionExpression: "id, #lname, description",
+      ExpressionAttributeNames: {
+         "#lname": "name"
+      }
    };
 
    const leagues = await DynamoDB.scan(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
-   return { statusCode: 200, body: leagues };
+   return { statusCode: 200, body: leagues.Items };
 }
 
 module.exports = get;
