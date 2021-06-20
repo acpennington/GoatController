@@ -25,7 +25,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
 
-const objects = ["settings", "decks"];
+const objects = ["settings", "decks", "leagues"];
 
 export default function LoginPage() {
    const query = decodeQuery();

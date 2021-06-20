@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 import LeaguesMap from "./LeaguesMap.js";
 import Button from "components/CustomButtons/Button.js";
@@ -12,6 +13,11 @@ import Tooltip from "@material-ui/core/Tooltip";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { MdCreate } from "react-icons/md";
+
+import apiErrors from "utils/apiErrors.js";
+import getApiStage from "utils/getApiStage.js";
+import { getAuthHeaders } from "utils/authToken.js";
+import { API_URL } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/leagues.js";
@@ -27,26 +33,45 @@ class Leagues extends PureComponent {
       super(props);
       this.state = {
          joinExpanded: false,
-         leaguesList: false,
-         yourLeagues: false
+         doneFetching: false,
+         errors: false
       };
    }
 
    componentDidMount() {
-      // Make API call to the leagues database to get info on each league that the user is a member of
+      this.fetchLeaguesList();
    }
 
-   swapExpanded = () => {
-      const { joinExpanded, leaguesList } = this.state;
-      if (!joinExpanded && !leaguesList) this.fetchLeaguesList();
-      this.setState({ joinExpanded: !joinExpanded });
+   fetchLeaguesList = async () => {
+      const config = { headers: getAuthHeaders() };
+
+      const res = await axios.get(API_URL + getApiStage() + "/leagues", config);
+      if (res.data.statusCode === 200) {
+         const leaguesList = res.data.body;
+         const yourLeagues = JSON.parse(window.sessionStorage.getItem("leagues"));
+         this.yourLeagues = [];
+         this.otherLeagues = [];
+         for (const league of leaguesList)
+            if (yourLeagues.includes(league.id)) this.yourLeagues.push(league);
+            else this.otherLeagues.push(league);
+         this.setState({ doneFetching: true });
+      } else this.setState({ errors: apiErrors(res.data.body.errors) });
    };
 
-   fetchLeaguesList = async () => {};
+   swapExpanded = () => this.setState({ joinExpanded: !this.state.joinExpanded });
 
    render() {
       const { classes } = this.props;
-      const { joinExpanded, leaguesList, yourLeagues } = this.state;
+      const { joinExpanded, doneFetching, errors } = this.state;
+      const { yourLeagues, otherLeagues } = this;
+
+      if (errors)
+         return (
+            <PageTemplate>
+               <div className={classes.center}>An unexpectfed error occurred while trying to fetch the list of all leagues: {errors}</div>
+               <div className={classes.center}>Try refreshing the page. If this error continually occurs, please contact the developers of GoatDuels.com.</div>
+            </PageTemplate>
+         );
 
       return (
          <PageTemplate>
@@ -54,7 +79,7 @@ class Leagues extends PureComponent {
                <GridItem xs={12}>
                   <div className={classes.center}>
                      <h3>Your Leagues</h3>
-                     {yourLeagues ? <LeaguesMap leagues={yourLeagues} /> : "Fetching list of your leagues..."}
+                     {doneFetching ? <LeaguesMap leagues={yourLeagues} color="success" /> : "Fetching list of your leagues..."}
                   </div>
                </GridItem>
                <GridItem xs={12}>
@@ -68,7 +93,9 @@ class Leagues extends PureComponent {
                         <h3 onClick={this.swapExpanded}>Join League {joinExpanded ? <ArrowDropDownIcon /> : <ArrowRightIcon />}</h3>
                      </Tooltip>
                      {joinExpanded && (
-                        <div className={classes.leaguesList}>{leaguesList ? <LeaguesMap leagues={leaguesList} /> : "Fetching list of all leagues..."}</div>
+                        <div className={classes.leaguesList}>
+                           {doneFetching ? <LeaguesMap leagues={otherLeagues} color="info" /> : "Fetching list of all leagues..."}
+                        </div>
                      )}
                   </div>
                </GridItem>
