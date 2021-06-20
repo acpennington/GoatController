@@ -6,6 +6,6 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 // @desc Returns name, description, id of specific league
 // @access Public
 // @db 1 read, 0 writes
-async function get() {}
+async function get(id) {}
 
 module.exports = get;

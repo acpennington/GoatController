@@ -94,6 +94,13 @@ const MILL_UNTIL = "Mill_Until";
 const TOKENS = "Make_Tokens";
 const RANDOM_DISCARD = "Random_Discard";
 
+// leagues
+const OFFICIAL_UNRANKED = {
+   id: "GoatsDuels_FunTesting",
+   name: "GoatsDuels Fun/Testing",
+   description: "Set up some fun testing games with your friends here"
+};
+
 export {
    // game settings
    GAME_RATIO,
@@ -178,5 +185,7 @@ export {
    BANISH_ALL,
    MILL_UNTIL,
    TOKENS,
-   RANDOM_DISCARD
+   RANDOM_DISCARD,
+   // leagues
+   OFFICIAL_UNRANKED
 };

@@ -16,17 +16,10 @@ import { MdCreate } from "react-icons/md";
 
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
-import { getAuthHeaders } from "utils/authToken.js";
-import { API_URL } from "utils/constants.js";
+import { API_URL, headers, OFFICIAL_UNRANKED } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/leagues.js";
-
-const officialUnranked = {
-   id: "GoatsDuels_FunTesting",
-   name: "GoatsDuels Fun/Testing",
-   description: "Set up some fun testing games with your friends here"
-};
 
 class Leagues extends PureComponent {
    constructor(props) {
@@ -43,13 +36,13 @@ class Leagues extends PureComponent {
    }
 
    fetchLeaguesList = async () => {
-      const config = { headers: getAuthHeaders() };
+      const config = { headers };
 
       const res = await axios.get(API_URL + getApiStage() + "/leagues", config);
       if (res.data.statusCode === 200) {
          const leaguesList = res.data.body;
          const yourLeagues = JSON.parse(window.sessionStorage.getItem("leagues"));
-         this.yourLeagues = [officialUnranked];
+         this.yourLeagues = [OFFICIAL_UNRANKED];
          this.otherLeagues = [];
          for (const league of leaguesList)
             if (yourLeagues.includes(league.id)) this.yourLeagues.push(league);
