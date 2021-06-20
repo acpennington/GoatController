@@ -23,8 +23,8 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/leagues.js";
 
 const officialUnranked = {
-   id: "GoatsDuels_Official_Unranked",
-   name: "GoatsDuels Official Unranked",
+   id: "GoatsDuels_FunTesting",
+   name: "GoatsDuels Fun/Testing",
    description: "Set up some fun testing games with your friends here"
 };
 
@@ -49,7 +49,7 @@ class Leagues extends PureComponent {
       if (res.data.statusCode === 200) {
          const leaguesList = res.data.body;
          const yourLeagues = JSON.parse(window.sessionStorage.getItem("leagues"));
-         this.yourLeagues = [];
+         this.yourLeagues = [officialUnranked];
          this.otherLeagues = [];
          for (const league of leaguesList)
             if (yourLeagues.includes(league.id)) this.yourLeagues.push(league);
