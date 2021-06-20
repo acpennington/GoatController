@@ -10,8 +10,8 @@ exports.handler = async (event) => {
       case "POST":
          return await post(body, token);
       case "GET":
-         if (body.id) await getOne(body.id);
-         return await getAll();
+         if (body.id) return await getOne(body.id);
+         else return await getAll();
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid HTTP method" }] } };
    }

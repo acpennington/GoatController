@@ -31,7 +31,7 @@ async function post(body, token) {
       ...body,
       goatGold: 0,
       creationDate: todaysDate(),
-      paidUtil: plusThirty(),
+      paidUntil: plusThirty(),
       members: {}
    };
    addMemberToLeague(newLeague, username, "owner");
