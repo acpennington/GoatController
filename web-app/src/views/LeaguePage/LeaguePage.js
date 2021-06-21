@@ -61,7 +61,7 @@ class LeaguePage extends PureComponent {
                <GridItem xs={12}>
                   <div className={classes.center}>
                      <BackButton href="leagues" />
-                     <JoinLeaveButton pending={pending} leave={leave} />
+                     <JoinLeaveButton leagueId={leagueId} pending={pending} leave={leave} />
                   </div>
                </GridItem>
             </GridContainer>

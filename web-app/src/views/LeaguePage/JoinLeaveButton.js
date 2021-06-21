@@ -19,7 +19,7 @@ class JoinLeaveButton extends PureComponent {
    joinOrLeave = async () => {
       const config = { headers: getAuthHeaders() };
 
-      const res = await axios.put(API_URL + getApiStage() + "/leagues?id=" + this.leagueId, config);
+      const res = await axios.put(API_URL + getApiStage() + "/leagues?id=" + this.props.leagueId, config);
       console.log("button clicked");
    };
 
@@ -42,6 +42,7 @@ class JoinLeaveButton extends PureComponent {
 }
 
 JoinLeaveButton.propTypes = {
+   leagueId: PropTypes.string.isRequired,
    pending: PropTypes.bool.isRequired,
    leave: PropTypes.bool.isRequired,
 };
