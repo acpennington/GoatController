@@ -10,6 +10,12 @@ import getApiStage from "utils/getApiStage.js";
 import { API_URL, OFFICIAL_UNRANKED } from "utils/constants.js";
 
 class JoinLeaveButton extends PureComponent {
+   constructor(props) {
+      super(props);
+      const { pending, leave } = this.props;
+      this.state = { pending, leave };
+   }
+
    joinOrLeave = async () => {
       const config = { headers: getAuthHeaders() };
 
@@ -18,18 +24,26 @@ class JoinLeaveButton extends PureComponent {
    };
 
    render() {
-      const { leave } = this.props;
+      const { leave, pending } = this.state;
 
-      return (
-         <Button color={leave ? "danger" : "success"} size="lg" round onClick={this.joinOrLeave}>
-            {leave ? "Leave" : "Join"} League
-         </Button>
-      );
+      if (pending)
+         return (
+            <Button color="warning" size="lg" round>
+               Membership Pending Approval
+            </Button>
+         );
+      else
+         return (
+            <Button color={leave ? "danger" : "success"} size="lg" round onClick={this.joinOrLeave}>
+               {leave ? "Leave" : "Join"} League
+            </Button>
+         );
    }
 }
 
 JoinLeaveButton.propTypes = {
-   leave: PropTypes.bool.isRequired
+   pending: PropTypes.bool.isRequired,
+   leave: PropTypes.bool.isRequired,
 };
 
 export default JoinLeaveButton;

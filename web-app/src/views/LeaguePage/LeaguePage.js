@@ -45,9 +45,9 @@ class LeaguePage extends PureComponent {
 
    render() {
       const { classes } = this.props;
-      const { name, description } = this.state;
+      const { name, description, pending } = this.state;
       const { leagueId } = this;
-      const yourLeagues = JSON.parse(window.sessionStorage.getItem("leagues"));
+      const leave = !pending && JSON.parse(window.sessionStorage.getItem("leagues").includes(leagueId));
 
       return (
          <PageTemplate>
@@ -61,7 +61,7 @@ class LeaguePage extends PureComponent {
                <GridItem xs={12}>
                   <div className={classes.center}>
                      <BackButton href="leagues" />
-                     <JoinLeaveButton leave={yourLeagues.includes(leagueId)} />
+                     <JoinLeaveButton pending={pending} leave={leave} />
                   </div>
                </GridItem>
             </GridContainer>

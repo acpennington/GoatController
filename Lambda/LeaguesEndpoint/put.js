@@ -54,6 +54,7 @@ async function put(id, token) {
    }).promise();
 
    // return statement should go here
+   // if successfully joined, we should return the new role of the user
 }
 
 module.exports = put;
