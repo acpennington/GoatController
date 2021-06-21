@@ -47,7 +47,7 @@ async function put(body, token) {
    const params = {
       TableName: "users",
       Key: { username },
-      UpdateExpression: "set ",
+      UpdateExpression: "SET ",
       ExpressionAttributeValues: {}
    };
 

@@ -13,7 +13,7 @@ async function put(id, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
-   const params = {
+   let params = {
       TableName: "leagues",
       Key: { id }
    };
@@ -22,12 +22,38 @@ async function put(id, token) {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
    const league = result.Item;
+   const leagueMembers = league.members;
 
-   if (league.members[username]) {
-      league.members[username].role = "left";
+   let UpdateExpression;
+   if (leagueMembers[username] && leagueMembers[username].role !== "left") {
+      UpdateExpression = "DELETE leagues :league";
+      leagueMembers[username].role = "left";
    } else {
+      UpdateExpression = "ADD leagues :league";
       addMemberToLeague(league, username);
    }
+
+   params = {
+      TableName: "users",
+      Key: { username },
+      UpdateExpression,
+      ExpressionAttributeValues: { ":league": DynamoDB.createSet([id]) }
+   };
+   await DynamoDB.update(params, (err) => {
+      if (err) return { statusCode: 400, body: { errors: [err] } };
+   }).promise();
+
+   params = {
+      TableName: "leagues",
+      Key: { id },
+      UpdateExpression: "SET members = :updatedmembers",
+      ExpressionAttributeValues: { ":updatedmembers": leagueMembers }
+   };
+   await DynamoDB.update(params, (err) => {
+      if (err) return { statusCode: 400, body: { errors: [err] } };
+   }).promise();
+
+   // return statement should go here
 }
 
 module.exports = put;
