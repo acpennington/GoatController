@@ -24,20 +24,13 @@ class JoinLeaveButton extends PureComponent {
    };
 
    render() {
-      const { leave, pending } = this.state;
+      const { pending, leave } = this.state;
 
-      if (pending)
-         return (
-            <Button color="warning" size="lg" round>
-               Membership Pending Approval
-            </Button>
-         );
-      else
-         return (
-            <Button color={leave ? "danger" : "success"} size="lg" round onClick={this.joinOrLeave}>
-               {leave ? "Leave" : "Join"} League
-            </Button>
-         );
+      return (
+         <Button color={pending ? "warning" : leave ? "danger" : "success"} size="lg" round onClick={pending ? undefined : this.joinOrLeave}>
+            {pending ? "Membership Pending Approval" : (leave ? "Leave" : "Join") + " League"}
+         </Button>
+      );
    }
 }
 
