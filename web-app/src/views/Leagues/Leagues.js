@@ -37,7 +37,9 @@ class Leagues extends PureComponent {
    }
 
    fetchLeaguesList = async () => {
-      const config = { headers: getAuthHeaders() };
+      const config = getAuthHeaders();
+      console.log(JSON.stringify(config));
+      console.log(typeof config);
 
       const res = await axios.get(API_URL + getApiStage() + "/leagues", config);
       if (res.data.statusCode === 200) {
@@ -62,7 +64,7 @@ class Leagues extends PureComponent {
       if (errors)
          return (
             <PageTemplate>
-               <div className={classes.center}>An unexpectfed error occurred while trying to fetch the list of all leagues: {errors}</div>
+               <div className={classes.center}>An unexpected error occurred while trying to fetch the list of all leagues: {errors}</div>
                <div className={classes.center}>Try refreshing the page. If this error continually occurs, please contact the developers of GoatDuels.com.</div>
             </PageTemplate>
          );

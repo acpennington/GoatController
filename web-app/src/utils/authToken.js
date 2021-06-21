@@ -2,7 +2,7 @@ import { headers } from "utils/constants.js";
 
 function getAuthHeaders() {
    headers["x-auth-token"] = window.sessionStorage.getItem("token");
-   return headers;
+   return { headers };
 }
 
 function checkToken() {

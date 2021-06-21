@@ -102,7 +102,7 @@ class SettingsPage extends PureComponent {
          else {
             window.sessionStorage.setItem("settings", JSON.stringify(this.state.settings));
 
-            const config = { headers: getAuthHeaders() };
+            const config = getAuthHeaders();
             let body = { settings };
             if (oldPassword) body.oldPassword = oldPassword;
             if (newPassword) body.newPassword = newPassword;
