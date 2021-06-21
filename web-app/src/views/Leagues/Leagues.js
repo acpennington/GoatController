@@ -15,8 +15,9 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 import { MdCreate } from "react-icons/md";
 
 import apiErrors from "utils/apiErrors.js";
+import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
-import { API_URL, headers, OFFICIAL_UNRANKED } from "utils/constants.js";
+import { API_URL, OFFICIAL_UNRANKED } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/leagues.js";
@@ -36,7 +37,7 @@ class Leagues extends PureComponent {
    }
 
    fetchLeaguesList = async () => {
-      const config = { headers };
+      const config = { headers: getAuthHeaders() };
 
       const res = await axios.get(API_URL + getApiStage() + "/leagues", config);
       if (res.data.statusCode === 200) {

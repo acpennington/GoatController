@@ -52,7 +52,7 @@ async function post(body) {
          gamebg: "Default.png",
          sleeves: "Goat.png"
       },
-      leagues: [],
+      leagues: DynamoDB.createSet(["GoatsDuels_FunTesting"]),
       activeDeck: "Good Ol Goats",
       decks: {
          "Good Ol Goats": defaultDeck

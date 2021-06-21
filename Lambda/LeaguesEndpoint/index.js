@@ -1,6 +1,7 @@
+const post = require("./post.js");
 const getAll = require("./getAll.js");
 const getOne = require("./getOne.js");
-const post = require("./post.js");
+const put = require("./put.js");
 
 // Routes API requests to the appropriate function
 exports.handler = async (event) => {
@@ -10,8 +11,10 @@ exports.handler = async (event) => {
       case "POST":
          return await post(body, token);
       case "GET":
-         if (body.id) return await getOne(body.id);
+         if (body.id) return await getOne(body.id, token);
          else return await getAll();
+      case "PUT":
+         return await put(body.id, token);
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid HTTP method" }] } };
    }

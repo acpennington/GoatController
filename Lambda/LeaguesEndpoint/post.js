@@ -47,8 +47,8 @@ async function post(body, token) {
    params = {
       TableName: "users",
       Key: { username },
-      UpdateExpression: "SET leagues = list_append(leagues, :league)",
-      ExpressionAttributeValues: { ":league": [name] }
+      UpdateExpression: "ADD leagues :league",
+      ExpressionAttributeValues: { ":league": DynamoDB.createSet([name]) }
    };
    await DynamoDB.update(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
