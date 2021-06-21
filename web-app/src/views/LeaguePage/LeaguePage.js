@@ -35,9 +35,8 @@ class LeaguePage extends PureComponent {
 
    fetchLeague = async () => {
       const config = getAuthHeaders();
-      console.log(config.headers["x-auth-token"]);
+
       const res = await axios.get(API_URL + getApiStage() + "/leagues?id=" + this.leagueId, config);
-      console.log(res);
       if (res.data.statusCode === 200) {
          const league = res.data.body;
          this.setState({ ...league });
