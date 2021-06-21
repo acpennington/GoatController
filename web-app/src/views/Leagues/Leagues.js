@@ -38,8 +38,6 @@ class Leagues extends PureComponent {
 
    fetchLeaguesList = async () => {
       const config = getAuthHeaders();
-      console.log(JSON.stringify(config));
-      console.log(typeof config);
 
       const res = await axios.get(API_URL + getApiStage() + "/leagues", config);
       if (res.data.statusCode === 200) {
