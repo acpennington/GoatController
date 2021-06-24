@@ -1,7 +1,8 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
+import Button from "components/CustomButtons/Button.js";
 import JoinLeaveButton from "./JoinLeaveButton.js";
 import BackButton from "components/CustomButtons/BackButton.js";
 import PageTemplate from "components/Header/PageTemplate.js";
@@ -32,6 +33,7 @@ class LeaguePage extends PureComponent {
 
    componentDidMount() {
       if (this.state.name === LOADING) this.fetchLeague();
+      else return; // We should have some statement here to set some more state based on UNOFFICIAL_RANKED settings
    }
 
    fetchLeague = async () => {
@@ -46,8 +48,9 @@ class LeaguePage extends PureComponent {
 
    render() {
       const { classes } = this.props;
-      const { name, description, pending } = this.state;
+      const { name, description, pending, useRatings, useQueue} = this.state;
       const { leagueId } = this;
+
       const leave = !pending && JSON.parse(window.sessionStorage.getItem("leagues").includes(leagueId));
 
       return (
@@ -55,10 +58,25 @@ class LeaguePage extends PureComponent {
             <GridContainer justify="center">
                <GridItem xs={12}>
                   <div className={classes.center}>
-                     <h3>{name}</h3>
+                     <h2>{name}</h2>
                      {description && <h4>{description}</h4>}
+                     {useRatings && <Button href={"/rankings?id=" + leagueId} color="info" size="lg" round>View Rankings</Button>}
                   </div>
                </GridItem>
+               { name !== LOADING &&
+                  <Fragment>
+                     <GridItem xs={12}>
+                        <div className={classes.center}>
+                           <h3>Matchmaking: {useQueue ? "Queue" : "Host/Join"}</h3>
+                        </div>
+                     </GridItem>
+                     <GridItem xs={12}>
+                        <div className={classes.center}>
+                           <h3>League Rules</h3>
+                        </div>
+                     </GridItem>
+                  </Fragment>
+               }
                <GridItem xs={12}>
                   <div className={classes.center}>
                      <BackButton href="leagues" />
