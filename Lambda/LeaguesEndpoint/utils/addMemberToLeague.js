@@ -4,6 +4,7 @@ function addMemberToLeague(league, username, role = false) {
 
    if (!league.allowMultis) member.ips = [];
    if (league.useRatings) {
+      member.lastPlayed = "";
       member.wins = 0;
       member.losses = 0;
       member.rating = 0;
