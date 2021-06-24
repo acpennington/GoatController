@@ -6,10 +6,10 @@ import { BsArrowLeftShort } from "react-icons/bs";
 
 class BackButton extends PureComponent {
    render() {
-      const { href, color } = this.props;
+      const { href, id, color } = this.props;
 
       return (
-         <Button color={color} size="lg" href={"/" + href} round>
+         <Button color={color} size="lg" href={"/" + href + (id ? "?id=" + id : "")} round>
             <BsArrowLeftShort /> To {href}
          </Button>
       );
@@ -18,6 +18,7 @@ class BackButton extends PureComponent {
 
 BackButton.propTypes = {
    href: PropTypes.string,
+   id: PropTypes.string,
    color: PropTypes.string
 };
 

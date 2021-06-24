@@ -23,9 +23,10 @@ class LeaguePage extends PureComponent {
    constructor(props) {
       super(props);
 
-      this.leagueId = decodeQuery() || OFFICIAL_UNRANKED.id;
+      const unrankedId = OFFICIAL_UNRANKED.id;
+      this.leagueId = decodeQuery() || unrankedId;
       this.state = {
-         name: this.leagueId === OFFICIAL_UNRANKED.id ? OFFICIAL_UNRANKED.name : LOADING
+         name: this.leagueId === unrankedId ? OFFICIAL_UNRANKED.name : LOADING
       };
    }
 
@@ -61,7 +62,7 @@ class LeaguePage extends PureComponent {
                <GridItem xs={12}>
                   <div className={classes.center}>
                      <BackButton href="leagues" />
-                     <JoinLeaveButton leagueId={leagueId} pending={pending} leave={leave} />
+                     {leagueId !== OFFICIAL_UNRANKED.id && <JoinLeaveButton leagueId={leagueId} pending={pending} leave={leave} />}
                   </div>
                </GridItem>
             </GridContainer>
