@@ -17,21 +17,34 @@ class JoinLeaveButton extends PureComponent {
    }
 
    joinOrLeave = async () => {
+      const { leagueId } = this.props;
       const config = getAuthHeaders();
       const body = {};
 
-      const res = await axios.put(API_URL + getApiStage() + "/leagues?id=" + this.props.leagueId, body, config);
-      console.log(res);
+      const res = await axios.put(API_URL + getApiStage() + "/leagues?id=" + leagueId, body, config);
+      if (res.data.statusCode === 200) {
+         const role = res.data.body.role;
+         const storage = window.sessionStorage;
+         const leagues = JSON.parse(storage.getItem("leagues"));
+
+         if (role === "left") leagues.splice(leagues.indexOf(leagueId), 1);
+         else leagues.push(leagueId);
+         storage.setItem("leagues", JSON.stringify(leagues));
+
+         this.setState({ leave: !this.state.leave });
+      } else this.setState({ errors: "Error: " + apiErrors(res.data.body.errors) });
    };
 
    render() {
-      const { pending, leave } = this.state;
+      const { pending, leave, errors } = this.state;
 
-      return (
-         <Button color={pending ? "warning" : leave ? "danger" : "success"} size="lg" round onClick={pending ? undefined : this.joinOrLeave}>
-            {pending ? "Membership Pending Approval" : (leave ? "Leave" : "Join") + " League"}
-         </Button>
-      );
+      if (errors) return <span style={{ color: "red" }}>{errors}</span>;
+      else
+         return (
+            <Button color={pending ? "warning" : leave ? "danger" : "success"} size="lg" round onClick={pending ? undefined : this.joinOrLeave}>
+               {pending ? "Membership Pending Approval" : (leave ? "Leave" : "Join") + " League"}
+            </Button>
+         );
    }
 }
 

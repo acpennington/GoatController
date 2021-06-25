@@ -69,7 +69,7 @@ class LeaguePage extends PureComponent {
       const { allowExarion } = this.state;
 
       return (
-         <GridItem xs={12}>
+         <GridItem xs={12} sm={6}>
             <div className={classes.center}>
                <Shadow>
                   <h3>League Rules</h3>
@@ -85,7 +85,7 @@ class LeaguePage extends PureComponent {
 
       const { classes } = this.props;
       return (
-         <GridItem xs={12}>
+         <GridItem xs={12} sm={6}>
             <div className={classes.center}>
                <Shadow>
                   <h3>Social Media</h3>
