@@ -2,6 +2,7 @@
 function addMemberToLeague(league, username, role = false) {
    const { autoApprove, allowMultis, useRatings, useQueue } = league;
 
+   const member = { role: role || (autoApprove ? "member" : "pending") };
    const member = role ? { role } : autoApprove ? { role: "member" } : { role: "pending" };
 
    if (!allowMultis) member.ips = [];
