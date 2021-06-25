@@ -12,8 +12,8 @@ import { API_URL } from "utils/constants.js";
 class JoinLeaveButton extends PureComponent {
    constructor(props) {
       super(props);
-      const { pending, leave } = this.props;
-      this.state = { pending, leave, errors: false };
+      const { leave } = this.props;
+      this.state = { leave, errors: false };
    }
 
    joinOrLeave = async () => {
@@ -36,7 +36,8 @@ class JoinLeaveButton extends PureComponent {
    };
 
    render() {
-      const { pending, leave, errors } = this.state;
+      const { pending } = this.props;
+      const { leave, errors } = this.state;
 
       if (errors) return <span style={{ color: "red" }}>{errors}</span>;
       else

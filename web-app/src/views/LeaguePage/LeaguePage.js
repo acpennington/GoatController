@@ -99,7 +99,7 @@ class LeaguePage extends PureComponent {
    render() {
       const { classes } = this.props;
       const { name, description, members, useRatings } = this.state;
-      const { count, pending, isBanned } = members;
+      const { count, pending, isBanned, isAdmin } = members;
       const { leagueId } = this;
 
       const leave = !pending && JSON.parse(window.sessionStorage.getItem("leagues").includes(leagueId));
@@ -134,7 +134,12 @@ class LeaguePage extends PureComponent {
                <GridItem xs={12}>
                   <div className={classes.bottom}>
                      <BackButton href="leagues" />
-                     {leagueId !== OFFICIAL_UNRANKED.id && !isBanned && <JoinLeaveButton leagueId={leagueId} pending={pending} leave={leave} />}
+                     {leagueId !== OFFICIAL_UNRANKED.id && !isBanned && !isAdmin && <JoinLeaveButton leagueId={leagueId} pending={pending} leave={leave} />}
+                     {isAdmin && (
+                        <Button color="primary" size="lg" round href={"/admin?id=" + leagueId}>
+                           Admin
+                        </Button>
+                     )}
                   </div>
                </GridItem>
             </GridContainer>
