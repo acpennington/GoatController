@@ -2,7 +2,9 @@ import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
+import Shadow from "components/Shadow/Shadow.js";
 import Button from "components/CustomButtons/Button.js";
+import MapStateToButtons from "./MapStateToButtons.js";
 import JoinLeaveButton from "./JoinLeaveButton.js";
 import BackButton from "components/CustomButtons/BackButton.js";
 import PageTemplate from "components/Header/PageTemplate.js";
@@ -16,7 +18,7 @@ import getApiStage from "utils/getApiStage.js";
 import { API_URL, OFFICIAL_UNRANKED } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/leagues.js";
+import styles from "assets/jss/material-kit-react/views/leaguePage.js";
 
 const LOADING = "Loading league...";
 
@@ -27,13 +29,14 @@ class LeaguePage extends PureComponent {
       const unrankedId = OFFICIAL_UNRANKED.id;
       this.leagueId = decodeQuery() || unrankedId;
       this.state = {
-         name: this.leagueId === unrankedId ? OFFICIAL_UNRANKED.name : LOADING
+         name: this.leagueId === unrankedId ? OFFICIAL_UNRANKED.name : LOADING,
+         members: { count: 0, pending: false, isAdmin: false, isBanned: false }
       };
    }
 
    componentDidMount() {
       if (this.state.name === LOADING) this.fetchLeague();
-      else return; // We should have some statement here to set some more state based on UNOFFICIAL_RANKED settings
+      else return; // We should have a statement here to set some more state based on UNOFFICIAL_RANKED settings
    }
 
    fetchLeague = async () => {
@@ -46,9 +49,57 @@ class LeaguePage extends PureComponent {
       } else this.setState({ name: "Error: " + apiErrors(res.data.body.errors) });
    };
 
+   getMatchmaking = () => {
+      const { classes } = this.props;
+      const { useQueue } = this.state;
+
+      return (
+         <GridItem xs={12}>
+            <div className={classes.center}>
+               <Shadow>
+                  <h3>Matchmaking: {useQueue ? "Queue" : "Host/Join"}</h3>
+               </Shadow>
+            </div>
+         </GridItem>
+      );
+   };
+
+   getLeagueRules = () => {
+      const { classes } = this.props;
+      const { allowExarion } = this.state;
+
+      return (
+         <GridItem xs={12}>
+            <div className={classes.center}>
+               <Shadow>
+                  <h3>League Rules</h3>
+               </Shadow>
+            </div>
+         </GridItem>
+      );
+   };
+
+   getSocialMedia = () => {
+      const { discord, twitch, website, youtube } = this.state;
+      if (!discord && !twitch && !website && !youtube) return null;
+
+      const { classes } = this.props;
+      return (
+         <GridItem xs={12}>
+            <div className={classes.center}>
+               <Shadow>
+                  <h3>Social Media</h3>
+               </Shadow>
+               <MapStateToButtons state={{ discord, twitch, website, youtube }} />
+            </div>
+         </GridItem>
+      );
+   };
+
    render() {
       const { classes } = this.props;
-      const { name, description, pending, useRatings, useQueue} = this.state;
+      const { name, description, members, useRatings } = this.state;
+      const { count, pending, isBanned } = members;
       const { leagueId } = this;
 
       const leave = !pending && JSON.parse(window.sessionStorage.getItem("leagues").includes(leagueId));
@@ -58,29 +109,32 @@ class LeaguePage extends PureComponent {
             <GridContainer justify="center">
                <GridItem xs={12}>
                   <div className={classes.center}>
-                     <h2>{name}</h2>
-                     {description && <h4>{description}</h4>}
-                     {useRatings && <Button href={"/rankings?id=" + leagueId} color="info" size="lg" round>View Rankings</Button>}
+                     <Shadow>
+                        <h2>{name}</h2>
+                        {description && (
+                           <h4>
+                              {description} {count && " || " + count + " member" + (count === 1 ? "" : "s") + " in league"}
+                           </h4>
+                        )}
+                     </Shadow>
+                     {useRatings && (
+                        <Button href={"/rankings?id=" + leagueId} color="info" size="lg" round>
+                           View Rankings
+                        </Button>
+                     )}
                   </div>
                </GridItem>
-               { name !== LOADING &&
+               {name !== LOADING && (
                   <Fragment>
-                     <GridItem xs={12}>
-                        <div className={classes.center}>
-                           <h3>Matchmaking: {useQueue ? "Queue" : "Host/Join"}</h3>
-                        </div>
-                     </GridItem>
-                     <GridItem xs={12}>
-                        <div className={classes.center}>
-                           <h3>League Rules</h3>
-                        </div>
-                     </GridItem>
+                     {this.getMatchmaking()}
+                     {this.getLeagueRules()}
+                     {this.getSocialMedia()}
                   </Fragment>
-               }
+               )}
                <GridItem xs={12}>
-                  <div className={classes.center}>
+                  <div className={classes.bottom}>
                      <BackButton href="leagues" />
-                     {leagueId !== OFFICIAL_UNRANKED.id && <JoinLeaveButton leagueId={leagueId} pending={pending} leave={leave} />}
+                     {leagueId !== OFFICIAL_UNRANKED.id && !isBanned && <JoinLeaveButton leagueId={leagueId} pending={pending} leave={leave} />}
                   </div>
                </GridItem>
             </GridContainer>

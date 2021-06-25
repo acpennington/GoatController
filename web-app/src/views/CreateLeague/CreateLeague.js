@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 
 import Button from "components/CustomButtons/Button.js";
+import FieldIcon from "components/FieldIcon/FieldIcon.js";
 import BackButton from "components/CustomButtons/BackButton.js";
 import PageTemplate from "components/Header/PageTemplate.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -17,11 +18,8 @@ import { validUrl, getError, nameToId, deleteAttributes } from "./utils.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import Switch from "@material-ui/core/Switch";
-import YouTube from "@material-ui/icons/YouTube";
-import LanguageIcon from "@material-ui/icons/Language";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { FaSave, FaTwitch } from "react-icons/fa";
-import { SiDiscord } from "react-icons/si";
+import { FaSave } from "react-icons/fa";
 import { MdCreate } from "react-icons/md";
 
 import apiErrors from "utils/apiErrors.js";
@@ -280,7 +278,7 @@ class CreateLeague extends PureComponent {
                               onChange: (event) => this.setSocials({ website: event.target.value }),
                               endAdornment: (
                                  <InputAdornment position="end">
-                                    <LanguageIcon className={classes.inputIconsColor} />
+                                    <FieldIcon field="website" />
                                  </InputAdornment>
                               )
                            }}
@@ -295,7 +293,7 @@ class CreateLeague extends PureComponent {
                               onChange: (event) => this.setSocials({ discord: event.target.value }),
                               endAdornment: (
                                  <InputAdornment position="end">
-                                    <SiDiscord className={classes.inputIconsColor} />
+                                    <FieldIcon field="discord" />
                                  </InputAdornment>
                               )
                            }}
@@ -310,7 +308,7 @@ class CreateLeague extends PureComponent {
                               onChange: (event) => this.setSocials({ youtube: event.target.value }),
                               endAdornment: (
                                  <InputAdornment position="end">
-                                    <YouTube className={classes.inputIconsColor} />
+                                    <FieldIcon field="youtube" />
                                  </InputAdornment>
                               )
                            }}
@@ -325,7 +323,7 @@ class CreateLeague extends PureComponent {
                               onChange: (event) => this.setSocials({ twitch: event.target.value }),
                               endAdornment: (
                                  <InputAdornment position="end">
-                                    <FaTwitch className={classes.inputIconsColor} />
+                                    <FieldIcon field="twitch" />
                                  </InputAdornment>
                               )
                            }}
