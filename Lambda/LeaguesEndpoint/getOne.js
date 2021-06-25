@@ -28,6 +28,7 @@ async function get(id, token) {
    const members = {
       count: Object.keys(league.members).length,
       pending: myInfo && myInfo.role === "pending",
+      isBanned: myInfo && myInfo.role === "banned",
       isAdmin: myInfo && ["owner", "admin"].includes(myInfo.role)
    };
 

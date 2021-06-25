@@ -25,9 +25,16 @@ async function put(id, token) {
    const leagueMembers = league.members;
 
    let UpdateExpression;
-   if (leagueMembers[username] && leagueMembers[username].role !== "left") {
-      UpdateExpression = "DELETE leagues :league";
-      leagueMembers[username].role = "left";
+   if (leagueMembers[username]) {
+      const role = leagueMembers[username].role;
+      if (role === "banned") return { statusCode: 401, body: { errors: [{ msg: "User is banned from this league" }] } };
+      else if (role === "left") {
+         UpdateExpression = "ADD leagues :league";
+         leagueMembers[username].role = "member";
+      } else {
+         UpdateExpression = "DELETE leagues :league";
+         leagueMembers[username].role = "left";
+      }
    } else {
       UpdateExpression = "ADD leagues :league";
       addMemberToLeague(league, username);
@@ -53,8 +60,7 @@ async function put(id, token) {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
 
-   // return statement should go here
-   // if successfully joined, we should return the new role of the user
+   return { statusCode: 200, body: { role: leagueMembers[username].role } };
 }
 
 module.exports = put;
