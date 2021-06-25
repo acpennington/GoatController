@@ -1,9 +1,12 @@
 // role can be one of the following: owner, admin, judge, member, pending, left, banned
 function addMemberToLeague(league, username, role = false) {
-   const member = role ? { role } : league.autoApprove ? { role: "member" } : { role: "pending" };
+   const { autoApprove, allowMultis, useRatings, useQueue } = league;
 
-   if (!league.allowMultis) member.ips = [];
-   if (league.useRatings) {
+   const member = role ? { role } : autoApprove ? { role: "member" } : { role: "pending" };
+
+   if (!allowMultis) member.ips = [];
+   if (useRatings) {
+      if (useQueue) member.lastPlayed = "";
       member.wins = 0;
       member.losses = 0;
       member.rating = 0;

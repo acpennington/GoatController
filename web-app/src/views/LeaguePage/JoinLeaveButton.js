@@ -7,7 +7,7 @@ import Button from "components/CustomButtons/Button.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
-import { API_URL, OFFICIAL_UNRANKED } from "utils/constants.js";
+import { API_URL } from "utils/constants.js";
 
 class JoinLeaveButton extends PureComponent {
    constructor(props) {
