@@ -17,7 +17,7 @@ import { MdCreate } from "react-icons/md";
 import apiErrors from "utils/apiErrors.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
-import { API_URL, OFFICIAL_UNRANKED } from "utils/constants.js";
+import { API_URL } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/leagues.js";
@@ -43,7 +43,7 @@ class Leagues extends PureComponent {
       if (res.data.statusCode === 200) {
          const leaguesList = res.data.body;
          const yourLeagues = JSON.parse(window.sessionStorage.getItem("leagues"));
-         this.yourLeagues = [OFFICIAL_UNRANKED];
+         this.yourLeagues = [];
          this.otherLeagues = [];
          for (const league of leaguesList)
             if (yourLeagues.includes(league.id)) this.yourLeagues.push(league);

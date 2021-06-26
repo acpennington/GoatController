@@ -15,7 +15,7 @@ async function post(body, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
-   const { id, name } = body;
+   const { id, useQueue } = body;
 
    let params = {
       TableName: "leagues",
@@ -32,6 +32,7 @@ async function post(body, token) {
       goatGold: 0,
       creationDate: todaysDate(),
       paidUntil: plusThirty(),
+      matchmaking: useQueue ? [] : {},
       posts: [],
       members: {}
    };

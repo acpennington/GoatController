@@ -2,12 +2,13 @@ import styles from "./commonPages.js";
 
 const leaguesStyle = {
    ...styles,
-   leaguesList: {
-      marginBottom: "10px"
+   matchmaking: {
+      textAlign: "center",
+      marginBottom: "30px"
    },
    bottom: {
       textAlign: "center",
-      marginTop: "30px"
+      marginTop: "10px"
    }
 };
 

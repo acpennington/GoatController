@@ -10,6 +10,9 @@ import BackButton from "components/CustomButtons/BackButton.js";
 import PageTemplate from "components/Header/PageTemplate.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
+import Card from "components/Card/Card.js";
+import CardBody from "components/Card/CardBody.js";
+import CardHeader from "components/Card/CardHeader.js";
 
 import { decodeQuery } from "./utils.js";
 import { getAuthHeaders } from "utils/authToken.js";
@@ -36,12 +39,16 @@ class LeaguePage extends PureComponent {
 
    componentDidMount() {
       if (this.state.name === LOADING) this.fetchLeague();
-      else return; // We should have a statement here to set some more state based on UNOFFICIAL_RANKED settings
+      else this.setState({ description: OFFICIAL_UNRANKED.description, allowExarion: true, autoApprove: true, allowMultis: true, useQueue: false });
    }
+
+   inLeague = () => {
+      const yourLeagues = JSON.parse(window.sessionStorage.getItem("leagues"));
+      return yourLeagues && yourLeagues.includes(this.leagueId);
+   };
 
    fetchLeague = async () => {
       const config = getAuthHeaders();
-
       const res = await axios.get(API_URL + getApiStage() + "/leagues?id=" + this.leagueId, config);
       if (res.data.statusCode === 200) {
          const league = res.data.body;
@@ -49,16 +56,32 @@ class LeaguePage extends PureComponent {
       } else this.setState({ name: "Error: " + apiErrors(res.data.body.errors) });
    };
 
+   joinQueue = () => {
+      console.log("Joined queue");
+   };
+
    getMatchmaking = () => {
       const { classes } = this.props;
       const { useQueue } = this.state;
+      const inLeague = this.inLeague();
 
       return (
          <GridItem xs={12}>
-            <div className={classes.center}>
+            <div className={classes.matchmaking}>
                <Shadow>
                   <h3>Matchmaking: {useQueue ? "Queue" : "Host/Join"}</h3>
                </Shadow>
+               {inLeague ? (
+                  useQueue ? (
+                     <Button color="success" size="lg" round onClick={this.joinQueue}>
+                        Click to Enter the Matchmaking Queue
+                     </Button>
+                  ) : (
+                     "A table of hosted matches will go here"
+                  )
+               ) : (
+                  <Shadow>You must join this league and have your membership approved before you can play any matches.</Shadow>
+               )}
             </div>
          </GridItem>
       );
@@ -66,31 +89,51 @@ class LeaguePage extends PureComponent {
 
    getLeagueRules = () => {
       const { classes } = this.props;
-      const { allowExarion } = this.state;
+      const { allowExarion, allowMultis, autoApprove, useRatings, center, kvalue, decay, newPlayerBonus } = this.state;
 
       return (
          <GridItem xs={12} sm={6}>
             <div className={classes.center}>
-               <Shadow>
-                  <h3>League Rules</h3>
-               </Shadow>
+               <Card>
+                  <CardHeader color="primary" className={classes.cardHeader}>
+                     <h4>League Rules</h4>
+                  </CardHeader>
+                  <CardBody>
+                     {allowMultis ? "Allows multiaccounting." : "Does not allow multiaccounting."}
+                     <br />
+                     {autoApprove ? "New members are automatically approved." : "Requires an admin to manually approve your membership."}
+                     <br />
+                     {allowExarion ? "Exarion Universe is legal for play." : "Exarion Universe is not allowed."}
+                     {useRatings && (
+                        <Fragment>
+                           <br />
+                           <br />
+                           Ratings center {center}, k-value {kvalue}, daily decay {decay}%{newPlayerBonus ? ", new player bonus enabled." : "."}
+                        </Fragment>
+                     )}
+                  </CardBody>
+               </Card>
             </div>
          </GridItem>
       );
    };
 
    getSocialMedia = () => {
+      const { classes } = this.props;
       const { discord, twitch, website, youtube } = this.state;
       if (!discord && !twitch && !website && !youtube) return null;
 
-      const { classes } = this.props;
       return (
          <GridItem xs={12} sm={6}>
             <div className={classes.center}>
-               <Shadow>
-                  <h3>Social Media</h3>
-               </Shadow>
-               <MapStateToButtons state={{ discord, twitch, website, youtube }} />
+               <Card>
+                  <CardHeader color="primary" className={classes.cardHeader}>
+                     <h4>Social Media</h4>
+                  </CardHeader>
+                  <CardBody>
+                     <MapStateToButtons state={{ discord, twitch, website, youtube }} />
+                  </CardBody>
+               </Card>
             </div>
          </GridItem>
       );
@@ -102,7 +145,7 @@ class LeaguePage extends PureComponent {
       const { count, pending, isBanned, isAdmin } = members;
       const { leagueId } = this;
 
-      const leave = !pending && JSON.parse(window.sessionStorage.getItem("leagues").includes(leagueId));
+      const leave = !pending && this.inLeague();
 
       return (
          <PageTemplate>
@@ -113,7 +156,8 @@ class LeaguePage extends PureComponent {
                         <h2>{name}</h2>
                         {description && (
                            <h4>
-                              {description} {count && " || " + count + " member" + (count === 1 ? "" : "s") + " in league"}
+                              {description}
+                              {count > 0 && " || " + count + " member" + (count === 1 ? "" : "s") + " in league"}
                            </h4>
                         )}
                      </Shadow>
