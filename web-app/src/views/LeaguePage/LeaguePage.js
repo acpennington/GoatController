@@ -5,6 +5,7 @@ import axios from "axios";
 import Shadow from "components/Shadow/Shadow.js";
 import Button from "components/CustomButtons/Button.js";
 import MapStateToButtons from "./MapStateToButtons.js";
+import QueueButton from "./QueueButton.js";
 import JoinLeaveButton from "./JoinLeaveButton.js";
 import BackButton from "components/CustomButtons/BackButton.js";
 import PageTemplate from "components/Header/PageTemplate.js";
@@ -33,7 +34,8 @@ class LeaguePage extends PureComponent {
       this.leagueId = decodeQuery() || unrankedId;
       this.state = {
          name: this.leagueId === unrankedId ? OFFICIAL_UNRANKED.name : LOADING,
-         members: { count: 0, pending: false, isAdmin: false, isBanned: false }
+         members: { count: 0, pending: false, isAdmin: false, isBanned: false },
+         webSocket: false
       };
    }
 
@@ -56,13 +58,9 @@ class LeaguePage extends PureComponent {
       } else this.setState({ name: "Error: " + apiErrors(res.data.body.errors) });
    };
 
-   joinQueue = () => {
-      console.log("Joined queue");
-   };
-
    getMatchmaking = () => {
       const { classes } = this.props;
-      const { useQueue } = this.state;
+      const { useQueue, webSocket } = this.state;
       const inLeague = this.inLeague();
 
       return (
@@ -73,9 +71,7 @@ class LeaguePage extends PureComponent {
                </Shadow>
                {inLeague ? (
                   useQueue ? (
-                     <Button color="success" size="lg" round onClick={this.joinQueue}>
-                        Click to Enter the Matchmaking Queue
-                     </Button>
+                     <QueueButton />
                   ) : (
                      "A table of hosted matches will go here"
                   )
