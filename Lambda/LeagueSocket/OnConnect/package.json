@@ -1,0 +1,9 @@
+{
+   "name": "on-connect",
+   "version": "1.0.0",
+   "description": "onconnect Lambda function for GoatDuels League Socket",
+   "main": "src/index.js",
+   "author": "ACP and the Goat Format community",
+   "license": "MIT",
+   "dependencies": {}
+}
