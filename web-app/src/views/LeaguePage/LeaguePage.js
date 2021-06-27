@@ -71,7 +71,7 @@ class LeaguePage extends PureComponent {
                </Shadow>
                {inLeague ? (
                   useQueue ? (
-                     <QueueButton />
+                     <QueueButton leagueId={this.leagueId} />
                   ) : (
                      "A table of hosted matches will go here"
                   )
