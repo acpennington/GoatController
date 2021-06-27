@@ -85,6 +85,7 @@ const phases = [DRAW, STANDBY, MAIN1, BATTLE, MAIN2, END, NEXT_TURN];
 
 // axios
 const API_URL = "https://s97v6wjzec.execute-api.us-east-2.amazonaws.com/";
+const LEAGUE_SOCKET_URL = "wss://6wxdc56ju2.execute-api.us-east-2.amazonaws.com/";
 const headers = { "Content-Type": "application/json" };
 
 // script names
@@ -179,6 +180,7 @@ export {
    phases,
    // axios
    API_URL,
+   LEAGUE_SOCKET_URL,
    headers,
    // script names
    SEARCH_DECK,

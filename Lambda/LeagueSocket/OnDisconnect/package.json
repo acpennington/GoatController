@@ -1,7 +1,7 @@
 {
-   "name": "on-connect",
+   "name": "on-disconnect",
    "version": "1.0.0",
-   "description": "onconnect Lambda function for GoatDuels League Socket",
+   "description": "ondisconnect Lambda function for GoatDuels League Socket",
    "main": "src/index.js",
    "author": "ACP and the Goat Format community",
    "license": "MIT",
