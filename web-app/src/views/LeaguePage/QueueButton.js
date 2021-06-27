@@ -32,13 +32,18 @@ class QueueButton extends PureComponent {
       };
 
       webSocket.onclose = (event) => {
+         this.setState({ webSocket: false });
          console.log("Connection closed");
       };
    };
 
    leaveQueue = () => {
+      const { webSocket } = this.state;
+
+      const token = getAuthHeaders().headers["x-auth-token"];
+      const payload = { action: "LeaveQueue", data: { token, id: this.props.leagueId } };
+      webSocket.send(JSON.stringify(payload));
       this.state.webSocket.close();
-      this.setState({ webSocket: false });
    };
 
    render() {

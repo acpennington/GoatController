@@ -32,9 +32,20 @@ exports.handler = async (event) => {
 
    const api = new AWS.ApiGatewayManagementApi({ endpoint: event.requestContext.domainName + "/" + event.requestContext.stage });
 
-   /*for (let i = 0; i < matchmaking.length; i++) {
-       const connectionId = matchmaking[i].connectionId;
-   }*/
+   // Check for dead connections and delete them
+   for (let i = 0; i < matchmaking.length; ) {
+      const { connectionId, name } = matchmaking[i];
+      if (name === username) matchmaking.splice(i, 1);
+      else {
+         try {
+            await api.postToConnection({ ConnectionId: connectionId, Data: "ping" }).promise();
+            i++;
+         } catch (err) {
+            if (err.statusCode === 410) matchmaking.splice(i, 1);
+            else throw err;
+         }
+      }
+   }
 
    matchmaking.push({ name: username, connectionId: event.requestContext.connectionId });
 
