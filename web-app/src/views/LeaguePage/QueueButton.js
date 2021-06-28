@@ -28,7 +28,7 @@ class QueueButton extends PureComponent {
       };
 
       webSocket.onmessage = (event) => {
-         console.log(event);
+         console.log(JSON.stringify(event.data));
       };
 
       webSocket.onclose = (event) => {

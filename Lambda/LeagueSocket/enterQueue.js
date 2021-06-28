@@ -2,18 +2,12 @@ const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
-const auth = require("./utils/middleware.js");
-
 // @route GET api/leagues
 // @desc Returns name, description, id of all leagues
 // @access Private
 // @db 1 read, 1 writes
-exports.handler = async (event) => {
-   const data = JSON.parse(event.body).data;
-   const { token, id } = data;
-
-   const username = auth(token);
-   if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
+async function enterQueue(id, requestContext, username) {
+   const { domainName, stage, connectionId } = requestContext;
 
    let params = {
       TableName: "leagues",
@@ -30,7 +24,7 @@ exports.handler = async (event) => {
    const { useQueue, matchmaking } = league;
    if (!useQueue) return { statusCode: 400, body: { errors: [{ msg: "League does not use queue for matchmaking" }] } };
 
-   const api = new AWS.ApiGatewayManagementApi({ endpoint: event.requestContext.domainName + "/" + event.requestContext.stage });
+   const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
 
    // Check for dead connections and delete them
    for (let i = 0; i < matchmaking.length; ) {
@@ -47,7 +41,7 @@ exports.handler = async (event) => {
       }
    }
 
-   matchmaking.push({ name: username, connectionId: event.requestContext.connectionId });
+   matchmaking.push({ name: username, connectionId });
 
    params = {
       TableName: "leagues",
@@ -60,7 +54,8 @@ exports.handler = async (event) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
 
-   await api.postToConnection({ ConnectionId: event.requestContext.connectionId, Data: "Joined queue" }).promise();
+   await api.postToConnection({ ConnectionId: connectionId, Data: "Member entered queue" }).promise();
+   return { statusCode: 200, body: "Member entered queue" };
+}
 
-   return { statusCode: 200, body: "Member joined queue." };
-};
+module.exports = enterQueue;
