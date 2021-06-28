@@ -45,7 +45,7 @@ async function enterQueue(id, requestContext, username) {
 
    matchmaking.push({ name: username, connectionId });
 
-   // match players with each other, if applicable
+   // match players with each other, if applicable, sending results to createMatch
 
    params = {
       TableName: "leagues",

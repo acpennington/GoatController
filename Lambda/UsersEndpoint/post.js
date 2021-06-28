@@ -54,6 +54,7 @@ async function post(body) {
       },
       leagues: DynamoDB.createSet(["GoatsDuels_FunTesting"]),
       activeDeck: "Good Ol Goats",
+      activeGame: "",
       decks: {
          "Good Ol Goats": defaultDeck
       }

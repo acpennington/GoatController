@@ -1,7 +1,7 @@
 {
-   "name": "enter_queue",
+   "name": "league_socket",
    "version": "1.0.0",
-   "description": "Leagues endpoint Lambda function for AWS",
+   "description": "League socket Lambda function for AWS",
    "main": "index.js",
    "author": "ACP and the Goat Format community",
    "license": "ISC",
