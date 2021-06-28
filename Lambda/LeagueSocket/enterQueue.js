@@ -2,10 +2,10 @@ const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
-// @route GET api/leagues
-// @desc Returns name, description, id of all leagues
+// @action EnterQueue
+// @desc Adds a member to a league's queue
 // @access Private
-// @db 1 read, 1 writes
+// @db 1 read, 1 write
 async function enterQueue(id, requestContext, username) {
    const { domainName, stage, connectionId } = requestContext;
 
