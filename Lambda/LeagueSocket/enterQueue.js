@@ -2,10 +2,12 @@ const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
+const createMatch = require("./utils/createMatch.js");
+
 // @action EnterQueue
 // @desc Adds a member to a league's queue
 // @access Private
-// @db 1 read, 1 write
+// @db 1 read, 1 write (or more, if creating matches)
 async function enterQueue(id, requestContext, username) {
    const { domainName, stage, connectionId } = requestContext;
 
@@ -21,7 +23,7 @@ async function enterQueue(id, requestContext, username) {
 
    if (!league) return { statusCode: 400, body: { errors: [{ msg: "League " + id + " not found" }] } };
 
-   const { useQueue, matchmaking } = league;
+   const { useQueue, matchmaking, members } = league;
    if (!useQueue) return { statusCode: 400, body: { errors: [{ msg: "League does not use queue for matchmaking" }] } };
 
    const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
@@ -42,6 +44,7 @@ async function enterQueue(id, requestContext, username) {
    }
 
    matchmaking.push({ name: username, connectionId });
+
    // match players with each other, if applicable
 
    params = {
