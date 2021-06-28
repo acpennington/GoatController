@@ -19,7 +19,6 @@ ReactDOM.render(
          <Route path="/leagues" component={Leagues} />
          <Route path="/createleague" component={CreateLeague} />
          <Route path="/game" component={Game} />
-         <Route path="/solo" render={() => <Game solo={true} />} />
          <Route path="/settings" component={SettingsPage} />
          <Route path="/login-page" component={LoginPage} />
          <Route path="/wall" component={Wall} />

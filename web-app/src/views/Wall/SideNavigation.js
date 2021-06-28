@@ -19,7 +19,7 @@ class SideNavigation extends PureComponent {
             <NavButton href="/leagues" tip="Find games here!">
                <FaGamepad /> Leagues
             </NavButton>
-            <NavButton href="/solo">
+            <NavButton href="/game">
                <BsFillPersonFill /> Solo Duel
             </NavButton>
             <NavButton>
