@@ -16,8 +16,7 @@ import styles from "assets/jss/material-kit-react/views/game.js";
 class Game extends Component {
    constructor(props) {
       super(props);
-      checkToken();
-
+      checkToken(true);
       setBodyImage();
 
       this.state = { sizingValue: this.getSizingValue() };

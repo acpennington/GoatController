@@ -6,7 +6,7 @@ import Button from "components/CustomButtons/Button.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
-import { LEAGUE_SOCKET_URL } from "utils/constants.js";
+import { LEAGUE_SOCKET_URL, ENTER_QUEUE, NEW_GAME } from "utils/constants.js";
 
 class QueueButton extends PureComponent {
    constructor(props) {
@@ -17,21 +17,20 @@ class QueueButton extends PureComponent {
    joinQueue = () => {
       const webSocket = new WebSocket(LEAGUE_SOCKET_URL + getApiStage());
 
-      webSocket.onopen = (event) => {
-         console.log("Connection successful");
-
-         const token = getAuthHeaders().headers["x-auth-token"];
-         const payload = { action: "EnterQueue", data: { token, id: this.props.leagueId } };
+      webSocket.onopen = () => {
+         const token = getAuthHeaders(false);
+         const payload = { action: ENTER_QUEUE, data: { token, id: this.props.leagueId } };
          webSocket.send(JSON.stringify(payload));
 
          this.setState({ webSocket });
       };
 
       webSocket.onmessage = (event) => {
-         console.log(event.data);
+         const message = event.data;
+         if (message.action = NEW_GAME) window.location.href = "/game?id="+message.data;
       };
 
-      webSocket.onclose = (event) => {
+      webSocket.onclose = () => {
          this.setState({ webSocket: false });
          console.log("Connection closed");
       };

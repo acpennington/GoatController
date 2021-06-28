@@ -60,6 +60,10 @@ const PREV_PHASE = "PREV_PHASE";
 const RESET_TURN = "RESET_TURN";
 const SHUFFLE_DECK = "SHUFFLE_DECK";
 
+// socket actions
+const ENTER_QUEUE = "EnterQueue";
+const NEW_GAME = "NewGame";
+
 // ItemTypes
 const OFF_FIELD = "offField";
 const allTypes = [MONSTER, ST, FIELD_SPELL, OFF_FIELD + MONSTER, OFF_FIELD + ST, EXTRA_DECK, DECK];
@@ -159,6 +163,9 @@ export {
    PREV_PHASE,
    RESET_TURN,
    SHUFFLE_DECK,
+   // socket actions
+   ENTER_QUEUE,
+   NEW_GAME,
    // ItemTypes
    OFF_FIELD,
    allTypes,
