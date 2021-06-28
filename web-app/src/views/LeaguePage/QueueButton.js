@@ -32,7 +32,6 @@ class QueueButton extends PureComponent {
 
       webSocket.onclose = () => {
          this.setState({ webSocket: false });
-         console.log("Connection closed");
       };
    };
 
