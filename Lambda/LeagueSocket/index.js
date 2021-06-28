@@ -14,6 +14,14 @@ exports.handler = async (event) => {
    switch (action) {
       case "EnterQueue":
          return await enterQueue(id, requestContext, username);
+      case "HostMatchRoom":
+         return;
+      case "EnterMatchRoom":
+         return;
+      case "LeaveMatchRoom":
+         return;
+      case "AcceptChallenger":
+         return;
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid action name" }] } };
    }
