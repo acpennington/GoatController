@@ -8,6 +8,10 @@ function getAuthHeaders() {
 function checkToken() {
    const token = window.sessionStorage.getItem("token");
    if (!token) window.location.href = "/login-page";
+   else {
+      const activeGame = window.sessionStorage.getItem("activeGame");
+      if (activeGame) window.location.href = "/game?id="+activeGame;
+   }
 }
 
-export { getAuthHeaders, checkToken };
+export { getAuthHeaders, checkToken};
