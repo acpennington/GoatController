@@ -32,7 +32,7 @@ class Game extends Component {
    };
 
    render() {
-      const { classes, solo } = this.props;
+      const { classes } = this.props;
       const { sizingValue } = this.state;
 
       return (
@@ -46,7 +46,7 @@ class Game extends Component {
                   }}
                >
                   <LeftPanel />
-                  <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} solo={solo} />
+                  <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} />
                </div>
             </div>
          </Provider>
@@ -55,7 +55,7 @@ class Game extends Component {
 }
 
 Game.propTypes = {
-   solo: PropTypes.bool
+   classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(Game);

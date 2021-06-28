@@ -8,6 +8,8 @@ import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import Hand from "./Hand.js";
 import RightTools from "./RightTools/RightTools.js";
 import { resetSolo } from "stateStore/actions/field.js";
+
+import getLeagueId from "utils/getLeagueId.js";
 import { HERO, VILLAIN, MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -17,11 +19,13 @@ class Battlefield extends Component {
    constructor(props) {
       super(props);
       window.sessionStorage.setItem("opponentsSleeves", "Goat.png");
-      if (props.solo) props.resetSolo();
+
+      this.leagueId = getLeagueId();
+      if (!this.leagueId) props.resetSolo();
    }
 
    render() {
-      const { classes, size, handCounts, discardPile, solo } = this.props;
+      const { classes, size, handCounts, discardPile } = this.props;
       const cardHeight = Math.floor(size - 2);
 
       return (
@@ -67,7 +71,7 @@ class Battlefield extends Component {
                   </div>
                   <Hand player={HERO} handCount={handCounts.hero} size={size} discardPile={discardPile} />
                </div>
-               <RightTools height={cardHeight} discardPile={discardPile} solo={solo} />
+               <RightTools height={cardHeight} discardPile={discardPile} solo={!this.leagueId} />
             </div>
          </DndProvider>
       );
@@ -87,7 +91,6 @@ function mapStateToProps(state) {
 Battlefield.propTypes = {
    classes: PropTypes.object.isRequired,
    size: PropTypes.number.isRequired,
-   solo: PropTypes.bool
 };
 
 export default connect(mapStateToProps, { resetSolo })(withStyles(styles)(Battlefield));

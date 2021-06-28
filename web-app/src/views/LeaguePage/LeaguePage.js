@@ -15,7 +15,7 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 
-import { decodeQuery } from "./utils.js";
+import getLeagueId from "utils/getLeagueId.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
@@ -31,7 +31,7 @@ class LeaguePage extends PureComponent {
       super(props);
 
       const unrankedId = OFFICIAL_UNRANKED.id;
-      this.leagueId = decodeQuery() || unrankedId;
+      this.leagueId = getLeagueId() || unrankedId;
       this.state = {
          name: this.leagueId === unrankedId ? OFFICIAL_UNRANKED.name : LOADING,
          members: { count: 0, pending: false, isAdmin: false, isBanned: false },
