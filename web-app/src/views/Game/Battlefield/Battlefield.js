@@ -9,7 +9,7 @@ import Hand from "./Hand.js";
 import RightTools from "./RightTools/RightTools.js";
 import { resetSolo } from "stateStore/actions/field.js";
 
-import getLeagueId from "utils/getLeagueId.js";
+import getQueryParam from "utils/getQueryParam.js";
 import { HERO, VILLAIN, MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -20,7 +20,7 @@ class Battlefield extends Component {
       super(props);
       window.sessionStorage.setItem("opponentsSleeves", "Goat.png");
 
-      this.leagueId = getLeagueId();
+      this.leagueId = getQueryParam("id");
       if (!this.leagueId) props.resetSolo();
    }
 

@@ -16,9 +16,9 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
-import { decodeQuery } from "./utils.js";
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
+import getQueryParam from "utils/getQueryParam.js";
 import { API_URL, headers } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -28,7 +28,7 @@ const useStyles = makeStyles(styles);
 const objects = ["settings", "decks", "leagues"];
 
 export default function LoginPage() {
-   const query = decodeQuery();
+   const query = getQueryParam("ref");
    const [isLogin, setIsLogin] = useState(!query);
    const [cardAnimation, setCardAnimation] = useState("cardHidden");
    const [errors, setErrors] = useState(false);
