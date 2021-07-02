@@ -34,8 +34,7 @@ class LeaguePage extends PureComponent {
       this.leagueId = getQueryParam("id") || unrankedId;
       this.state = {
          name: this.leagueId === unrankedId ? OFFICIAL_UNRANKED.name : LOADING,
-         members: { count: 0, pending: false, isAdmin: false, isBanned: false },
-         webSocket: false
+         members: { count: 0, pending: false, isAdmin: false, isBanned: false }
       };
    }
 
@@ -60,7 +59,7 @@ class LeaguePage extends PureComponent {
 
    getMatchmaking = () => {
       const { classes } = this.props;
-      const { useQueue, webSocket } = this.state;
+      const { useQueue } = this.state;
       const inLeague = this.inLeague();
 
       return (
