@@ -149,7 +149,7 @@ class LeaguePage extends PureComponent {
                   <div className={classes.center}>
                      <Shadow>
                         <h2>
-                           {name} {logo && <img className={classes.logo} src={logo} />}
+                           {name} {logo && <img className={classes.logo} src={logo} alt={name + " Logo"} />}
                         </h2>
                         {description && (
                            <h4>

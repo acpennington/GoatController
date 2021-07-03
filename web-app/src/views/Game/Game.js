@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Provider } from "react-redux";
 
+import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
+
 import store from "stateStore/gameStore.js";
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
@@ -19,7 +21,7 @@ class Game extends Component {
       checkToken(true);
       setBodyImage();
 
-      this.state = { sizingValue: this.getSizingValue() };
+      this.state = { sizingValue: this.getSizingValue(), webSocket: false };
       window.addEventListener("resize", () => {
          this.setState({ sizingValue: this.getSizingValue() });
       });
@@ -33,29 +35,31 @@ class Game extends Component {
 
    render() {
       const { classes } = this.props;
-      const { sizingValue } = this.state;
+      const { sizingValue, webSocket } = this.state;
 
-      return (
-         <Provider store={store}>
-            <div className={classes.container}>
-               <div
-                  className={classes.innerContainer}
-                  style={{
-                     height: sizingValue,
-                     width: sizingValue * GAME_RATIO
-                  }}
-               >
-                  <LeftPanel />
-                  <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} />
+      if (webSocket)
+         return (
+            <Provider store={store}>
+               <div className={classes.container}>
+                  <div
+                     className={classes.innerContainer}
+                     style={{
+                        height: sizingValue,
+                        width: sizingValue * GAME_RATIO
+                     }}
+                  >
+                     <LeftPanel />
+                     <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} />
+                  </div>
                </div>
-            </div>
-         </Provider>
-      );
+            </Provider>
+         );
+      else return <LoadingSpinner message="Connecting to game..." />;
    }
 }
 
 Game.propTypes = {
    classes: PropTypes.object.isRequired
-}
+};
 
 export default withStyles(styles)(Game);
