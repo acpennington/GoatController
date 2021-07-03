@@ -1,9 +1,3 @@
-const centerPosition = {
-   position: "absolute",
-   height: "42vh",
-   width: "42vw"
-};
-
 const spinnerStyle = {
    container: {
       height: "100vh",
@@ -25,7 +19,9 @@ const spinnerStyle = {
       }
    },
    spinner: {
-      ...centerPosition,
+      position: "absolute",
+      height: "42vh",
+      width: "42vw",
       backgroundImage: 'url("/Goat_Token_Logo.svg")',
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -34,14 +30,6 @@ const spinnerStyle = {
       animationDuration: "2s",
       animationTimingFunction: "ease-in-out",
       animationIterationCount: "infinite"
-   },
-   message: {
-      ...centerPosition,
-      textAlign: "center",
-      lineHeight: "50vh",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center"
    }
 };
 

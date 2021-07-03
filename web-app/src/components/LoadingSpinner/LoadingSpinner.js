@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
 import Shadow from "components/Shadow/Shadow.js";
@@ -13,11 +13,9 @@ class LoadingSpinner extends PureComponent {
       return (
          <div className={classes.container}>
             <div className={classes.spinner}></div>
-            <div className={classes.message}>
-               <Shadow>
-                  <h1>{message || "Loading..."}</h1>
-               </Shadow>
-            </div>
+            <Shadow>
+               <h1>{message || "Loading..."}</h1>
+            </Shadow>
          </div>
       );
    }
