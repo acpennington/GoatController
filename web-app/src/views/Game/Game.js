@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, createContext } from "react";
 import PropTypes from "prop-types";
 
 import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
@@ -6,13 +6,16 @@ import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 
+import getApiStage from "utils/getApiStage.js";
 import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
-import { GAME_RATIO, VILLAIN_HAND_SIZE } from "utils/constants.js";
+import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
+
+export const WebSocketContext = createContext(null);
 
 class Game extends Component {
    constructor(props) {
@@ -23,10 +26,36 @@ class Game extends Component {
       const leagueId = getQueryParams().id;
       this.solo = !leagueId;
 
-      this.state = { sizingValue: this.getSizingValue(), webSocket: false };
+      this.state = {
+         sizingValue: this.getSizingValue(),
+         loading: !!leagueId,
+         lostConnection: false
+      };
+
       window.addEventListener("resize", () => {
          this.setState({ sizingValue: this.getSizingValue() });
       });
+   }
+
+   componentDidMount() {
+      if (!this.solo) {
+         const webSocket = new WebSocket(GAME_SOCKET_URL + getApiStage());
+
+         webSocket.onopen = () => {
+            // send message to the server with gameid
+            this.setState({ loading: false });
+         };
+
+         webSocket.onmessage = (event) => {
+            // dispatch an action to redux
+         };
+
+         webSocket.onclose = () => {
+            this.setState({ lostConnection: true });
+         };
+
+         this.webSocket = webSocket;
+      }
    }
 
    getSizingValue = () => {
@@ -37,25 +66,28 @@ class Game extends Component {
 
    render() {
       const { classes } = this.props;
-      const { sizingValue, webSocket } = this.state;
-      const { solo } = this;
+      const { sizingValue, loading, lostConnection } = this.state;
+      const { solo, webSocket } = this;
 
-      if (webSocket || solo)
+      if (lostConnection) return <LoadingSpinner message="Lost connection. Refresh the page to reconnect." />;
+      if (loading) return <LoadingSpinner message="Connecting to game..." />;
+      else
          return (
-            <div className={classes.container}>
-               <div
-                  className={classes.innerContainer}
-                  style={{
-                     height: sizingValue,
-                     width: sizingValue * GAME_RATIO
-                  }}
-               >
-                  <LeftPanel />
-                  <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} solo={solo} />
+            <WebSocketContext.Provider value={webSocket}>
+               <div className={classes.container}>
+                  <div
+                     className={classes.innerContainer}
+                     style={{
+                        height: sizingValue,
+                        width: sizingValue * GAME_RATIO
+                     }}
+                  >
+                     <LeftPanel />
+                     <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} solo={solo} />
+                  </div>
                </div>
-            </div>
+            </WebSocketContext.Provider>
          );
-      else return <LoadingSpinner message="Connecting to game..." />;
    }
 }
 

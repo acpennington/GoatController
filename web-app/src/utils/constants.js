@@ -60,9 +60,11 @@ const PREV_PHASE = "PREV_PHASE";
 const RESET_TURN = "RESET_TURN";
 const SHUFFLE_DECK = "SHUFFLE_DECK";
 
-// socket actions
+// league socket actions
 const ENTER_QUEUE = "EnterQueue";
 const NEW_GAME = "NewGame";
+
+// game socket actions
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -90,6 +92,7 @@ const phases = [DRAW, STANDBY, MAIN1, BATTLE, MAIN2, END, NEXT_TURN];
 // axios
 const API_URL = "https://s97v6wjzec.execute-api.us-east-2.amazonaws.com/";
 const LEAGUE_SOCKET_URL = "wss://6wxdc56ju2.execute-api.us-east-2.amazonaws.com/";
+const GAME_SOCKET_URL = "wss://piii9xe4hj.execute-api.us-east-2.amazonaws.com/";
 const headers = { "Content-Type": "application/json" };
 
 // script names
@@ -163,9 +166,10 @@ export {
    PREV_PHASE,
    RESET_TURN,
    SHUFFLE_DECK,
-   // socket actions
+   // league socket actions
    ENTER_QUEUE,
    NEW_GAME,
+   // game socket actions
    // ItemTypes
    OFF_FIELD,
    allTypes,
@@ -188,6 +192,7 @@ export {
    // axios
    API_URL,
    LEAGUE_SOCKET_URL,
+   GAME_SOCKET_URL,
    headers,
    // script names
    SEARCH_DECK,
