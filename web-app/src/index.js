@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Switch } from "react-router-dom";
-import { history } from "./stateStore/gameStore.js";
+import store, { history } from "stateStore/gameStore.js";
+import { Provider } from "react-redux";
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 
 import SettingsPage from "views/SettingsPage/SettingsPage.js";
@@ -18,7 +19,14 @@ ReactDOM.render(
          <Route path="/league" component={LeaguePage} />
          <Route path="/leagues" component={Leagues} />
          <Route path="/createleague" component={CreateLeague} />
-         <Route path="/game" component={Game} />
+         <Route
+            path="/game"
+            render={() => (
+               <Provider store={store}>
+                  <Game />
+               </Provider>
+            )}
+         />
          <Route path="/settings" component={SettingsPage} />
          <Route path="/login-page" component={LoginPage} />
          <Route path="/wall" component={Wall} />

@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Provider } from "react-redux";
 
 import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
 
-import store from "stateStore/gameStore.js";
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 
+import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 import { GAME_RATIO, VILLAIN_HAND_SIZE } from "utils/constants.js";
@@ -20,6 +19,9 @@ class Game extends Component {
       super(props);
       checkToken(true);
       setBodyImage();
+
+      const leagueId = getQueryParams().id;
+      this.solo = !leagueId;
 
       this.state = { sizingValue: this.getSizingValue(), webSocket: false };
       window.addEventListener("resize", () => {
@@ -36,23 +38,22 @@ class Game extends Component {
    render() {
       const { classes } = this.props;
       const { sizingValue, webSocket } = this.state;
+      const { solo } = this;
 
-      if (webSocket)
+      if (webSocket || solo)
          return (
-            <Provider store={store}>
-               <div className={classes.container}>
-                  <div
-                     className={classes.innerContainer}
-                     style={{
-                        height: sizingValue,
-                        width: sizingValue * GAME_RATIO
-                     }}
-                  >
-                     <LeftPanel />
-                     <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} />
-                  </div>
+            <div className={classes.container}>
+               <div
+                  className={classes.innerContainer}
+                  style={{
+                     height: sizingValue,
+                     width: sizingValue * GAME_RATIO
+                  }}
+               >
+                  <LeftPanel />
+                  <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} solo={solo} />
                </div>
-            </Provider>
+            </div>
          );
       else return <LoadingSpinner message="Connecting to game..." />;
    }

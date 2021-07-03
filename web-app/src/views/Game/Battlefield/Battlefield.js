@@ -21,11 +21,11 @@ class Battlefield extends Component {
       window.sessionStorage.setItem("opponentsSleeves", "Goat.png");
 
       this.leagueId = getQueryParams().id;
-      if (!this.leagueId) props.resetSolo();
+      if (props.solo) props.resetSolo();
    }
 
    render() {
-      const { classes, size, handCounts, discardPile } = this.props;
+      const { classes, size, handCounts, discardPile, solo } = this.props;
       const cardHeight = Math.floor(size - 2);
 
       return (
@@ -71,7 +71,7 @@ class Battlefield extends Component {
                   </div>
                   <Hand player={HERO} handCount={handCounts.hero} size={size} discardPile={discardPile} />
                </div>
-               <RightTools height={cardHeight} discardPile={discardPile} solo={!this.leagueId} />
+               <RightTools height={cardHeight} discardPile={discardPile} solo={solo} />
             </div>
          </DndProvider>
       );
@@ -90,7 +90,9 @@ function mapStateToProps(state) {
 
 Battlefield.propTypes = {
    classes: PropTypes.object.isRequired,
-   size: PropTypes.number.isRequired
+   size: PropTypes.number.isRequired,
+   solo: PropTypes.bool.isRequired,
+   webSocket: PropTypes.object
 };
 
 export default connect(mapStateToProps, { resetSolo })(withStyles(styles)(Battlefield));
