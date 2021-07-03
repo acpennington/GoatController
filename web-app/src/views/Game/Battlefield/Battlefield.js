@@ -9,7 +9,7 @@ import Hand from "./Hand.js";
 import RightTools from "./RightTools/RightTools.js";
 import { resetSolo } from "stateStore/actions/field.js";
 
-import getQueryParam from "utils/getQueryParam.js";
+import getQueryParams from "utils/getQueryParams.js";
 import { HERO, VILLAIN, MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -20,7 +20,7 @@ class Battlefield extends Component {
       super(props);
       window.sessionStorage.setItem("opponentsSleeves", "Goat.png");
 
-      this.leagueId = getQueryParam("id");
+      this.leagueId = getQueryParams().id;
       if (!this.leagueId) props.resetSolo();
    }
 
@@ -90,7 +90,7 @@ function mapStateToProps(state) {
 
 Battlefield.propTypes = {
    classes: PropTypes.object.isRequired,
-   size: PropTypes.number.isRequired,
+   size: PropTypes.number.isRequired
 };
 
 export default connect(mapStateToProps, { resetSolo })(withStyles(styles)(Battlefield));

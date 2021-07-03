@@ -18,7 +18,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
-import getQueryParam from "utils/getQueryParam.js";
+import getQueryParams from "utils/getQueryParams.js";
 import { API_URL, headers } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -28,7 +28,7 @@ const useStyles = makeStyles(styles);
 const objects = ["settings", "decks", "leagues"];
 
 export default function LoginPage() {
-   const query = getQueryParam("ref");
+   const query = getQueryParams().ref;
    const [isLogin, setIsLogin] = useState(!query);
    const [cardAnimation, setCardAnimation] = useState("cardHidden");
    const [errors, setErrors] = useState(false);
