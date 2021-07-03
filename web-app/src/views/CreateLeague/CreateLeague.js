@@ -46,6 +46,7 @@ class CreateLeague extends PureComponent {
          errors: false,
          name: "",
          description: "",
+         logo: "",
          website: "",
          discord: "",
          twitch: "",
@@ -63,11 +64,12 @@ class CreateLeague extends PureComponent {
    }
 
    setInfos = (updates) => {
-      const { name, description, badFields } = { ...this.state, ...updates };
+      const { name, description, logo, badFields } = { ...this.state, ...updates };
       const badInfoFields = [];
 
       if (name.length > charMax.name) badInfoFields.push("name");
       if (description.length > charMax.description) badInfoFields.push("description");
+      if (logo && (!validUrl(logo) || !(logo.endsWith(".png") || logo.endsWith(".jpg") || logo.endsWith(".gif")))) badInfoFields.push("logo");
 
       this.setState({ badFields: { ...badFields, info: badInfoFields }, ...updates });
    };
@@ -137,6 +139,7 @@ class CreateLeague extends PureComponent {
          errors,
          name,
          description,
+         logo,
          website,
          discord,
          twitch,
@@ -201,6 +204,25 @@ class CreateLeague extends PureComponent {
                               endAdornment: (
                                  <InputAdornment position="end">
                                     <MdCreate className={classes.inputIconsColor} />
+                                 </InputAdornment>
+                              )
+                           }}
+                        />
+                        <CustomInput
+                           labelText="Logo URL"
+                           id="logo"
+                           formControlProps={{ fullWidth: true }}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: logo,
+                              onChange: (event) => this.setInfos({ logo: event.target.value }),
+                              endAdornment: (
+                                 <InputAdornment position="end">
+                                    {logo && !badFields.info.includes("logo") ? (
+                                       <div className={classes.logo} style={{ backgroundImage: 'url("' + logo + '")' }}></div>
+                                    ) : (
+                                       <MdCreate className={classes.inputIconsColor} />
+                                    )}
                                  </InputAdornment>
                               )
                            }}

@@ -13,6 +13,8 @@ function getError(fieldName) {
          return "Your league name contains too many characters.";
       case "description":
          return "Your league description contains too many characters.";
+      case "logo":
+         return "Your logo URL must be a link to an image.";
       case "website":
          return "Invalid website URL. It should look similar to https://domain.com.";
       case "discord":
