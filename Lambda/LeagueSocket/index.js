@@ -1,6 +1,5 @@
 const auth = require("./utils/middleware.js");
 const enterQueue = require("./enterQueue.js");
-const leaveQueue = require("./leaveQueue.js");
 
 exports.handler = async (event) => {
    const { requestContext } = event;
