@@ -4,7 +4,6 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 // @function createMatch
 // @desc Places two players in a match together
-// @access Private
 // @db 0 reads, 3 writes
 async function createMatch(leagueId, players, api) {
    const [player1, player2] = players;

@@ -1,6 +1,7 @@
 const auth = require("./utils/middleware.js");
-// Routes GameSocket Actions
+const joinMatch = require("./JoinMatch.js");
 
+// Routes GameSocket Actions
 exports.handler = async (event) => {
    const { requestContext } = event;
    const body = JSON.parse(event.body);
@@ -12,7 +13,7 @@ exports.handler = async (event) => {
 
    switch (action) {
       case "JoinMatch":
-         return;
+         return await joinMatch();
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid action name" }] } };
    }

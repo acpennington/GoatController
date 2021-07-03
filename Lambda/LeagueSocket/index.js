@@ -1,6 +1,7 @@
 const auth = require("./utils/middleware.js");
 const enterQueue = require("./enterQueue.js");
 
+// Routes LeagueSocket Actions
 exports.handler = async (event) => {
    const { requestContext } = event;
    const body = JSON.parse(event.body);
