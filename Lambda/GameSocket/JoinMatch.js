@@ -3,6 +3,6 @@
 // @access Private
 // @db 0 read, 0 write
 
-async function joinMatch() {}
+async function joinMatch(game, username, requestContext) {}
 
 module.exports = joinMatch;
