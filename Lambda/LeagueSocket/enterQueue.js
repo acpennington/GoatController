@@ -34,7 +34,7 @@ async function enterQueue(id, requestContext, username) {
       if (name === username) matchmaking.splice(i, 1);
       else {
          try {
-            await api.postToConnection({ ConnectionId: connectionId, Data: "ping" }).promise();
+            await api.postToConnection({ ConnectionId: connectionId, Data: JSON.stringify({ msg: "ping" }) }).promise();
             i++;
          } catch (err) {
             if (err.statusCode === 410) matchmaking.splice(i, 1);
@@ -46,26 +46,26 @@ async function enterQueue(id, requestContext, username) {
    matchmaking.push({ name: username, connectionId });
 
    // match players with each other, if possible, and send results to createMatch
-   const [playerA, playerB, playerC ] = matchmaking;
+   const [playerA, playerB, playerC] = matchmaking;
    const mmLength = matchmaking.length;
    if (mmLength === 2) {
       if (!lastPlayed(members, playerA, playerB)) {
-         createMatch(id, [playerA, playerB], api);
+         await createMatch(id, [playerA, playerB], api);
          matchmaking.splice(0, 2);
       }
    } else if (mmLength === 3) {
       if (!lastPlayed(members, playerA, playerB)) {
-         createMatch(id, [playerA, playerB], api);
+         await createMatch(id, [playerA, playerB], api);
          matchmaking.splice(0, 2);
       } else if (!lastPlayed(members, playerA, playerC)) {
-         createMatch(id, [playerA, playerC], api);
+         await createMatch(id, [playerA, playerC], api);
          matchmaking.splice(2, 1);
          matchmaking.splice(0, 1);
       } else {
-         createMatch(id, [playerB, playerC], api);
+         await createMatch(id, [playerB, playerC], api);
          matchmaking.splice(1, 2);
       }
-   } else if (mmLength > 3) return { statusCode: 400, body: { errors: [{msg: "Queue length is erroneously greater than 3"}] } };
+   } else if (mmLength > 3) return { statusCode: 400, body: { errors: [{ msg: "Queue length is erroneously greater than 3" }] } };
 
    params = {
       TableName: "leagues",
@@ -77,14 +77,13 @@ async function enterQueue(id, requestContext, username) {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
 
-   await api.postToConnection({ ConnectionId: connectionId, Data: "Member entered queue" }).promise();
    return { statusCode: 200, body: "Member entered queue" };
 }
 
 function lastPlayed(members, playerA, playerB) {
    const playerAname = playerA.name;
    const playerBname = playerB.name;
-   return (members[playerAname].lastPlayed === playerBname || members[playerBname].lastPlayed === playerAname);
+   return members[playerAname].lastPlayed === playerBname || members[playerBname].lastPlayed === playerAname;
 }
 
 module.exports = enterQueue;

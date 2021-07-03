@@ -11,7 +11,8 @@ const leaguesStyle = {
       marginTop: "10px"
    },
    logo: {
-      height: "1em"
+      height: "1em",
+      marginLeft: "5px"
    }
 };
 

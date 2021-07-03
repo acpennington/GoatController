@@ -69,7 +69,8 @@ class CreateLeague extends PureComponent {
 
       if (name.length > charMax.name) badInfoFields.push("name");
       if (description.length > charMax.description) badInfoFields.push("description");
-      if (logo && (!validUrl(logo) || !(logo.endsWith(".png") || logo.endsWith(".jpg") || logo.endsWith(".gif")))) badInfoFields.push("logo");
+      if (logo && (!validUrl(logo) || !(logo.endsWith(".png") || logo.endsWith(".jpg") || logo.endsWith(".gif") || logo.endsWith(".svg"))))
+         badInfoFields.push("logo");
 
       this.setState({ badFields: { ...badFields, info: badInfoFields }, ...updates });
    };
