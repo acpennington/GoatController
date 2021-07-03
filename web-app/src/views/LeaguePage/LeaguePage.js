@@ -136,7 +136,7 @@ class LeaguePage extends PureComponent {
 
    render() {
       const { classes } = this.props;
-      const { name, description, members, useRatings } = this.state;
+      const { name, description, logo, members, useRatings } = this.state;
       const { count, pending, isBanned, isAdmin } = members;
       const { leagueId } = this;
 
@@ -148,7 +148,9 @@ class LeaguePage extends PureComponent {
                <GridItem xs={12}>
                   <div className={classes.center}>
                      <Shadow>
-                        <h2>{name}</h2>
+                        <h2>
+                           {name} {logo && <img className={classes.logo} src={logo} />}
+                        </h2>
                         {description && (
                            <h4>
                               {description}

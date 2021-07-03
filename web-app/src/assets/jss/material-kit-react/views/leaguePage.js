@@ -9,6 +9,9 @@ const leaguesStyle = {
    bottom: {
       textAlign: "center",
       marginTop: "10px"
+   },
+   logo: {
+      height: "1em"
    }
 };
 
