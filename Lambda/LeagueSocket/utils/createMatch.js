@@ -5,17 +5,16 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 // @function createMatch
 // @desc Places two players in a match together
 // @db 0 reads, 3 writes
-async function createMatch(leagueId, players, api) {
-   const [player1, player2] = players;
+async function createMatch(leagueId, playersParam, api) {
+   const [player1, player2] = playersParam;
    const { name: player1name, connectionId: player1connection } = player1;
    const { name: player2name, connectionId: player2connection } = player2;
 
    const matchId = stripSpecialChars(player1connection) + stripSpecialChars(player2connection);
 
-   const players = {
-      player1name: "",
-      player2name: ""
-   };
+   const players = {};
+   players[player1name] = "";
+   players[player2name] = "";
 
    let params = {
       TableName: "matches",

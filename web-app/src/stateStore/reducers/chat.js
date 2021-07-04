@@ -1,17 +1,14 @@
-import { SYSTEM, ADD_MESSAGE, SYSTEM_MESSAGE, RESET_CHAT } from "utils/constants.js";
+import { ADD_MESSAGE, SET_CHAT_TO, RESET_CHAT } from "utils/constants.js";
 
-const initialState = [
-   { author: SYSTEM, content: "New match started." },
-   { author: SYSTEM, content: "Good luck to both players." }
-];
+const initialState = [];
 
 export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
       case ADD_MESSAGE:
          return [...state, data];
-      case SYSTEM_MESSAGE:
-         return [...state, { author: SYSTEM, content: data }];
+      case SET_CHAT_TO:
+         return data;
       case RESET_CHAT:
          return initialState;
       default:

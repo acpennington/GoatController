@@ -41,36 +41,42 @@ class Game extends Component {
 
    componentDidMount() {
       if (!this.solo) {
-         const webSocket = new WebSocket(GAME_SOCKET_URL + getApiStage());
-
-         webSocket.onopen = () => {
-            console.log("opened");
-            const token = getAuthHeaders(false);
-            const payload = { action: JOIN_MATCH, data: { token, id: this.leagueId } };
-            webSocket.send(JSON.stringify(payload));
-            this.setState({ loading: false });
-         };
-
-         webSocket.onmessage = (event) => {
-            console.log(event.data);
-            const message = JSON.parse(event.data);
-            if (message.action) this.props.dispatch({ type: message.action, data: message.data });
-         };
-
-         webSocket.onclose = () => {
-            this.setState({ lostConnection: true });
-         };
-
-         this.webSocket = webSocket;
+         this.setWebSocket();
       }
    }
+
+   setWebSocket = () => {
+      const webSocket = new WebSocket(GAME_SOCKET_URL + getApiStage());
+
+      webSocket.onopen = () => {
+         const token = getAuthHeaders(false);
+         const payload = { action: JOIN_MATCH, data: { token, id: this.leagueId } };
+         webSocket.send(JSON.stringify(payload));
+         this.setState({ loading: false });
+      };
+
+      webSocket.onmessage = (event) => {
+         console.log(event);
+         const message = JSON.parse(event.data);
+         if (message.action) {
+            this.props.dispatch({ type: message.action, data: message.data });
+         }
+      };
+
+      webSocket.onclose = () => {
+         this.setWebSocket();
+         this.setState({ lostConnection: true });
+      };
+
+      this.webSocket = webSocket;
+   };
 
    render() {
       const { classes } = this.props;
       const { sizingValue, loading, lostConnection } = this.state;
       const { solo, webSocket } = this;
 
-      if (lostConnection) return <LoadingSpinner message="Lost connection. Refresh the page to reconnect." />;
+      if (lostConnection) return <LoadingSpinner message="Lost connection. Attempting to reconnect..." />;
       if (loading) return <LoadingSpinner message="Connecting to game..." />;
       else
          return (

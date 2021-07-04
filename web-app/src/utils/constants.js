@@ -7,7 +7,6 @@ const CARD_RATIO = 1.45;
 // players
 const HERO = "hero";
 const VILLAIN = "villain";
-const SYSTEM = "Server";
 const GAME = "Game";
 
 // special card names
@@ -36,7 +35,7 @@ const toExtraZones = [HAND, ...deckZones];
 
 // actions
 const ADD_MESSAGE = "ADD_MESSAGE";
-const SYSTEM_MESSAGE = "SYSTEM_MESSAGE";
+const SET_CHAT_TO = "SET_CHAT_TO";
 const RESET_CHAT = "RESET_CHAT";
 const MOVE_CARD = "MOVE_CARD";
 const CREATE_TOKEN = "CREATE_TOKEN";
@@ -119,7 +118,6 @@ export {
    // players
    HERO,
    VILLAIN,
-   SYSTEM,
    GAME,
    // special card names
    FACEDOWN_CARD,
@@ -144,7 +142,7 @@ export {
    toExtraZones,
    // actions
    ADD_MESSAGE,
-   SYSTEM_MESSAGE,
+   SET_CHAT_TO,
    RESET_CHAT,
    MOVE_CARD,
    CREATE_TOKEN,

@@ -1,33 +1,41 @@
 // @function sendChatMessage
 // @desc Sends all connected clients a chat message
 // @db 0 reads, 0 writes
-async function sendChatMessage(author, content, players, watchers, api, checkDisconnection = true) {
-   const payload = { action: "ADD_MESSAGE", data: { author, content } };
+async function sendChatMessage(message, players, watchers, api, excludeConnection, checkDisconnections = true) {
+   const payload = { action: "ADD_MESSAGE", data: message };
 
    for (let i = 0; i < watchers.length; i++) {
       const watcherConnection = watchers[i];
-      try {
-         await api.postToConnection({ ConnectionId: watcherConnection, Data: JSON.stringify(payload) }).promise();
-      } catch (err) {
-         if (err.statusCode === 410) {
-            watchers.splice(i, 1);
-            i--;
-         } else throw err;
-      }
-   }
-
-   for (const key in players) {
-      const connection = players[key];
-      if (connection) {
+      if (watcherConnection !== excludeConnection) {
          try {
-            await api.postToConnection({ ConnectionId: connection, Data: JSON.stringify(payload) }).promise();
+            await api.postToConnection({ ConnectionId: watcherConnection, Data: JSON.stringify(payload) }).promise();
          } catch (err) {
-            if (err.statusCode === 410) {
-               players[key] = "";
-               sendChatMessage("Server", key + " disconnected from the match.", players, watchers, api);
+            if (err.statusCode === 410 && checkDisconnections) {
+               watchers.splice(i, 1);
+               i--;
             } else throw err;
          }
       }
+   }
+
+   const badPlayers = [];
+   for (const key in players) {
+      const connection = players[key];
+      if (connection && connection !== excludeConnection) {
+         try {
+            await api.postToConnection({ ConnectionId: connection, Data: JSON.stringify(payload) }).promise();
+         } catch (err) {
+            if (err.statusCode === 410 && checkDisconnections) {
+               players[key] = "";
+               badPlayers.push(key);
+            } else throw err;
+         }
+      }
+   }
+
+   if (badPlayers.length > 0) {
+      const message = { author: "Server", content: badPlayers.join(" and ") + " disconnected from the match." };
+      sendChatMessage(message, players, watchers, api, excludeConnection, false);
    }
 }
 
