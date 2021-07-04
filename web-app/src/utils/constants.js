@@ -65,6 +65,7 @@ const ENTER_QUEUE = "EnterQueue";
 const NEW_GAME = "NewGame";
 
 // game socket actions
+const JOIN_MATCH = "JoinMatch";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -170,6 +171,7 @@ export {
    ENTER_QUEUE,
    NEW_GAME,
    // game socket actions
+   JOIN_MATCH,
    // ItemTypes
    OFF_FIELD,
    allTypes,

@@ -7,11 +7,12 @@ import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 
+import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
 import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
-import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL } from "utils/constants.js";
+import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -24,12 +25,12 @@ class Game extends Component {
       checkToken(true);
       setBodyImage();
 
-      const leagueId = getQueryParams().id;
-      this.solo = !leagueId;
+      this.leagueId = getQueryParams().id;
+      this.solo = !this.leagueId;
 
       this.state = {
          sizingValue: getSizingValue(),
-         loading: !!leagueId,
+         loading: !!this.leagueId,
          lostConnection: false
       };
 
@@ -43,13 +44,15 @@ class Game extends Component {
          const webSocket = new WebSocket(GAME_SOCKET_URL + getApiStage());
 
          webSocket.onopen = () => {
-            // send message to the server with gameid
+            const token = getAuthHeaders(false);
+            const payload = { action: JOIN_MATCH, data: { token, id: this.leagueId } };
+            webSocket.send(JSON.stringify(payload));
             this.setState({ loading: false });
          };
 
          webSocket.onmessage = (event) => {
             const message = JSON.parse(event.data);
-            this.props.dispatch({ type: message.action, data: message.data });
+            if (message.action) this.props.dispatch({ type: message.action, data: message.data });
          };
 
          webSocket.onclose = () => {
