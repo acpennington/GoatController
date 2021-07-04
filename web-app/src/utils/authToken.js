@@ -13,9 +13,9 @@ function checkToken(isGame = false) {
    const token = window.sessionStorage.getItem("token");
    if (!token) window.location.href = "/login-page";
    else if (!isGame) {
-      const activeGame = window.sessionStorage.getItem("activeGame");
-      if (activeGame) window.location.href = "/game?id="+activeGame;
+      const activeMatch = window.sessionStorage.getItem("activeMatch");
+      if (activeMatch) window.location.href = "/game?id=" + activeMatch;
    }
 }
 
-export { getAuthHeaders, checkToken};
+export { getAuthHeaders, checkToken };
