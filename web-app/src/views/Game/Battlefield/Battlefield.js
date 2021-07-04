@@ -18,7 +18,6 @@ import styles from "assets/jss/material-kit-react/views/game.js";
 class Battlefield extends Component {
    constructor(props) {
       super(props);
-      window.sessionStorage.setItem("opponentsSleeves", "Goat.png");
 
       this.leagueId = getQueryParams().id;
       if (props.solo) props.resetSolo();

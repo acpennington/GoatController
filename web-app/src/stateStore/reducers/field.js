@@ -39,8 +39,8 @@ const blankField = {
 };
 
 const initialState = {
-   villain: { ...blankField },
-   hero: { ...blankField }
+   villain: JSON.parse(JSON.stringify(blankField)),
+   hero: JSON.parse(JSON.stringify(blankField))
 };
 
 export default function (state = initialState, action) {
@@ -136,30 +136,13 @@ export default function (state = initialState, action) {
 
          return {
             villain: {
-               sleeves: storage.getItem("opponentsSleeves"),
-               lifepoints: 8000,
-               deck: [],
-               graveyard: [],
-               banished: [],
-               usedFusions: {},
-               hand: [],
-               handRevealed: false,
-               "s/t": [null, null, null, null, null],
-               "field spell": null,
-               monster: [null, null, null, null, null]
+               ...JSON.parse(JSON.stringify(blankField))
             },
             hero: {
+               ...JSON.parse(JSON.stringify(blankField)),
                sleeves: JSON.parse(storage.getItem("settings")).sleeves,
-               lifepoints: 8000,
                deck: namedCards,
-               graveyard: [],
-               banished: [],
-               usedFusions: {},
-               hand: newHand,
-               handRevealed: false,
-               "s/t": [null, null, null, null, null],
-               "field spell": null,
-               monster: [null, null, null, null, null]
+               hand: newHand
             }
          };
       case SHUFFLE_DECK:

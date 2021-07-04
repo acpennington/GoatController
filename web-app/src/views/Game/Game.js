@@ -52,11 +52,10 @@ class Game extends Component {
          const token = getAuthHeaders(false);
          const payload = { action: JOIN_MATCH, data: { token, id: this.leagueId } };
          webSocket.send(JSON.stringify(payload));
-         this.setState({ loading: false });
+         this.setState({ loading: false, lostConnection: false });
       };
 
       webSocket.onmessage = (event) => {
-         console.log(event);
          const message = JSON.parse(event.data);
          if (message.action) {
             this.props.dispatch({ type: message.action, data: message.data });
@@ -64,8 +63,8 @@ class Game extends Component {
       };
 
       webSocket.onclose = () => {
-         this.setWebSocket();
          this.setState({ lostConnection: true });
+         this.setWebSocket();
       };
 
       this.webSocket = webSocket;
