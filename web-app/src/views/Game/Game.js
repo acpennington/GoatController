@@ -1,5 +1,6 @@
 import React, { Component, createContext } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
 
@@ -95,4 +96,4 @@ Game.propTypes = {
    classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Game);
+export default connect()(withStyles(styles)(Game));
