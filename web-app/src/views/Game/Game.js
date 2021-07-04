@@ -48,7 +48,8 @@ class Game extends Component {
          };
 
          webSocket.onmessage = (event) => {
-            // dispatch an action to redux
+            const message = JSON.parse(event.data);
+            this.props.dispatch({ type: message.action, data: message.data });
          };
 
          webSocket.onclose = () => {
@@ -96,4 +97,4 @@ Game.propTypes = {
    classes: PropTypes.object.isRequired
 };
 
-export default connect()(withStyles(styles)(Game));
+export default connect(null, null)(withStyles(styles)(Game));
