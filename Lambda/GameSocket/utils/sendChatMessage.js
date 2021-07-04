@@ -5,7 +5,7 @@ async function sendChatMessage(author, content, players, watchers, api, checkDis
    const payload = { action: "ADD_MESSAGE", data: { author, content } };
 
    for (let i = 0; i < watchers.length; i++) {
-      const watcherConnection = watcher[i];
+      const watcherConnection = watchers[i];
       try {
          await api.postToConnection({ ConnectionId: watcherConnection, Data: JSON.stringify(payload) }).promise();
       } catch (err) {

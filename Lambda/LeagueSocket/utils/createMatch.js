@@ -12,18 +12,20 @@ async function createMatch(leagueId, players, api) {
 
    const matchId = stripSpecialChars(player1connection) + stripSpecialChars(player2connection);
 
+   const players = {
+      player1name: "",
+      player2name: ""
+   };
+
    let params = {
       TableName: "matches",
       Item: {
          id: matchId,
          league: leagueId,
-         players: {
-            player1name: "",
-            player2name: ""
-         },
+         players,
          watchers: [],
          gamestate: [],
-         chat: []
+         chat: [{ author: "Server", content: "New match started. Good luck to both players." }]
       }
    };
    await DynamoDB.put(params, (err) => {

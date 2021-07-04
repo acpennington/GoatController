@@ -12,7 +12,7 @@ const sendChatMessage = require("./utils/sendChatMessage.js");
 async function joinMatch(id, username, requestContext) {
    const { domainName, stage, connectionId } = requestContext;
 
-   const params = {
+   let params = {
       TableName: "matches",
       Key: { id }
    };
@@ -20,19 +20,31 @@ async function joinMatch(id, username, requestContext) {
    const result = await DynamoDB.get(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
-   const game = result.Item;
+   const match = result.Item;
 
-   if (!game) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
+   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
 
    const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
-   const { players, watchers } = game;
+   const { players, watchers } = match;
 
-   if (players[username]) {
+   if (players.hasOwnProperty(username)) {
       players[username] = connectionId;
       await sendChatMessage("Server", username + " has connected to the match.", players, watchers, api);
    } else {
-      return; // Join as a watcher
+      // Join as a watcher
    }
+
+   params = {
+      TableName: "matches",
+      Key: { id },
+      UpdateExpression: "SET players = :players, watchers = :watchers",
+      ExpressionAttributeValues: { ":players": players, ":watchers": watchers }
+   };
+   await DynamoDB.update(params, (err) => {
+      if (err) return { statusCode: 400, body: { errors: [err] } };
+   }).promise();
+
+   return { statusCode: 200, body: "Player joined match" };
 }
 
 module.exports = joinMatch;
