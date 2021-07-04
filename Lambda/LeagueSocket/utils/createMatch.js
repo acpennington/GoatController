@@ -17,10 +17,10 @@ async function createMatch(leagueId, players, api) {
       Item: {
          id: matchId,
          league: leagueId,
-         players: [
-            { name: player1name, connectionId: "" },
-            { name: player2name, connectionId: "" }
-         ],
+         players: {
+            player1name: "",
+            player2name: ""
+         },
          watchers: [],
          gamestate: [],
          chat: []
@@ -51,7 +51,7 @@ async function createMatch(leagueId, players, api) {
 }
 
 function stripSpecialChars(aString) {
-   return aString.replace(/[^a-zA-Z0-9]/g, "");
+   return aString.replace(/[^a-zA-Z0-9_]/g, "");
 }
 
 module.exports = createMatch;
