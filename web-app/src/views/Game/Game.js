@@ -28,13 +28,13 @@ class Game extends Component {
       this.solo = !leagueId;
 
       this.state = {
-         sizingValue: this.getSizingValue(),
+         sizingValue: getSizingValue(),
          loading: !!leagueId,
          lostConnection: false
       };
 
       window.addEventListener("resize", () => {
-         this.setState({ sizingValue: this.getSizingValue() });
+         this.setState({ sizingValue: getSizingValue() });
       });
    }
 
@@ -59,12 +59,6 @@ class Game extends Component {
          this.webSocket = webSocket;
       }
    }
-
-   getSizingValue = () => {
-      const vpw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-      const vph = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-      return Math.min(vpw / GAME_RATIO, vph);
-   };
 
    render() {
       const { classes } = this.props;
@@ -91,6 +85,12 @@ class Game extends Component {
             </WebSocketContext.Provider>
          );
    }
+}
+
+function getSizingValue() {
+   const vpw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+   const vph = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+   return Math.min(vpw / GAME_RATIO, vph);
 }
 
 Game.propTypes = {

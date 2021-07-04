@@ -24,12 +24,12 @@ async function joinMatch(id, username, requestContext) {
 
    if (!game) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
 
+   const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
    const { players, watchers } = game;
+
    if (players[username]) {
       players[username] = connectionId;
-      const allConnections = watchers;
-      for (const key in players) allConnections.push(players[key]);
-      sendChatMessage(username + " has connected to the match.", allConnections);
+      await sendChatMessage("Server", username + " has connected to the match.", players, watchers, api);
    } else {
       return; // Join as a watcher
    }
