@@ -14,26 +14,25 @@ async function joinMatch(id, username, requestContext) {
 
    let params = {
       TableName: "matches",
-      Key: { id }
+      Key: { id },
+      ProjectionExpression: "players, watchers, chat"
    };
 
    const result = await DynamoDB.get(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
    const match = result.Item;
-
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
 
    const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
-   const { players, watchers, chat } = match;
+   let { players, watchers, chat } = match;
 
-   let UpdateExpression = "SET players = :players, watchers = :watchers";
+   let UpdateExpression = "SET players.#name = :connectId, watchers = :watchers";
+   const message = { author: "Server", content: username + " has connected to the match." };
    if (players.hasOwnProperty(username)) {
-      const message = { author: "Server", content: username + " has connected to the match." };
       await sendChatMessage(message, players, watchers, api, connectionId);
-      players[username] = connectionId;
+      UpdateExpression += ", chat = list_append(chat, :messages)";
       chat.push(message);
-      UpdateExpression += ", chat = :chat";
    } else {
       // Join as a watcher
    }
@@ -42,7 +41,8 @@ async function joinMatch(id, username, requestContext) {
       TableName: "matches",
       Key: { id },
       UpdateExpression,
-      ExpressionAttributeValues: { ":players": players, ":watchers": watchers, ":chat": chat }
+      ExpressionAttributeNames: { "#name": username },
+      ExpressionAttributeValues: { ":connectId": connectionId, ":watchers": watchers, ":messages": [message] }
    };
    await DynamoDB.update(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };

@@ -14,8 +14,6 @@ async function createMatch(leagueId, playersParam, api) {
 
    const matchId = stripSpecialChars(player1connection) + stripSpecialChars(player2connection);
 
-   const goingFirstPlayer = Math.random() > 0.5 ? player1name : player2name;
-
    let params = {
       RequestItems: {
          users: {
@@ -27,8 +25,9 @@ async function createMatch(leagueId, playersParam, api) {
    const result = await DynamoDB.batchGet(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
-   const playersInGame = result.Items;
+   const playersInGame = result.Responses.users;
 
+   const goingFirstPlayer = Math.random() > 0.5 ? player1name : player2name;
    const gamestate = {};
    await setGamestate(gamestate, playersInGame[0], goingFirstPlayer);
    await setGamestate(gamestate, playersInGame[1], goingFirstPlayer);
@@ -54,6 +53,10 @@ async function createMatch(leagueId, playersParam, api) {
 
    await updatePlayer(player1name, matchId, api);
    await updatePlayer(player2name, matchId, api);
+
+   const payload = { action: "NewGame", data: matchId };
+   await api.postToConnection({ ConnectionId: player1connection, Data: JSON.stringify(payload) }).promise();
+   await api.postToConnection({ ConnectionId: player2connection, Data: JSON.stringify(payload) }).promise();
 }
 
 function stripSpecialChars(aString) {
@@ -95,9 +98,6 @@ async function updatePlayer(playerName, matchId, api) {
    await DynamoDB.update(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
-
-   const payload = { action: "NewGame", data: matchId };
-   await api.postToConnection({ ConnectionId: player1connection, Data: JSON.stringify(payload) }).promise();
 }
 
 module.exports = createMatch;
