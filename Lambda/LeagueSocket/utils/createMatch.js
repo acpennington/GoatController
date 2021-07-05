@@ -14,10 +14,6 @@ async function createMatch(leagueId, playersParam, api) {
 
    const matchId = stripSpecialChars(player1connection) + stripSpecialChars(player2connection);
 
-   const players = {};
-   players[player1name] = "";
-   players[player2name] = "";
-
    const goingFirstPlayer = Math.random() > 0.5 ? player1name : player2name;
 
    let params = {
@@ -31,11 +27,15 @@ async function createMatch(leagueId, playersParam, api) {
    const result = await DynamoDB.batchGet(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
-   const players = result.Items;
+   const playersInGame = result.Items;
 
    const gamestate = {};
-   await setGamestate(gamestate, players[0], goingFirstPlayer);
-   await setGamestate(gamestate, players[1], goingFirstPlayer);
+   await setGamestate(gamestate, playersInGame[0], goingFirstPlayer);
+   await setGamestate(gamestate, playersInGame[1], goingFirstPlayer);
+
+   const players = {};
+   players[player1name] = "";
+   players[player2name] = "";
 
    params = {
       TableName: "matches",
