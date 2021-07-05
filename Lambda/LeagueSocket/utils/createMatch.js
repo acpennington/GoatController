@@ -2,7 +2,7 @@ const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
-const { blankField } = require("./config/config.js");
+const { blankField } = require("../config/config.js");
 
 // @function createMatch
 // @desc Places two players in a match together
