@@ -24,7 +24,7 @@ async function createMatch(leagueId, playersParam, api) {
       RequestItems: {
          users: {
             Keys: [{ username: player1name }, { username: player2name }],
-            AttributesToGet: ["username", "decks", "activeDeck", "settings"]
+            ProjectionExpression: "username, decks, activeDeck, settings"
          }
       }
    };
