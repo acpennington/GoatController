@@ -1,5 +1,6 @@
 const auth = require("./utils/middleware.js");
 const joinMatch = require("./JoinMatch.js");
+const newChatMessage = require("./NewChatMessage.js");
 
 // Routes GameSocket Actions
 exports.handler = async (event) => {
@@ -14,6 +15,8 @@ exports.handler = async (event) => {
    switch (action) {
       case "JoinMatch":
          return await joinMatch(id, username, requestContext);
+      case "NewChatMessage":
+         return await newChatMessage(id, username, requestContext);
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid action name" }] } };
    }
