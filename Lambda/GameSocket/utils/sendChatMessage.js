@@ -3,6 +3,21 @@
 // @db 0 reads, 0 writes
 async function sendChatMessage(message, players, watchers, api, excludeConnection = "", checkDisconnections = true) {
    const payload = { action: "ADD_MESSAGE", data: message };
+   let badConnection = false;
+
+   for (const key in players) {
+      const connection = players[key];
+      if (connection && connection !== excludeConnection) {
+         try {
+            await api.postToConnection({ ConnectionId: connection, Data: JSON.stringify(payload) }).promise();
+         } catch (err) {
+            if (err.statusCode === 410 && checkDisconnections) {
+               players[key] = "";
+               badConnection = key;
+            } else throw err;
+         }
+      }
+   }
 
    for (let i = 0; i < watchers.length; i++) {
       const watcherConnection = watchers[i];
@@ -18,17 +33,7 @@ async function sendChatMessage(message, players, watchers, api, excludeConnectio
       }
    }
 
-   for (const key in players) {
-      const connection = players[key];
-      if (connection && connection !== excludeConnection) {
-         try {
-            await api.postToConnection({ ConnectionId: connection, Data: JSON.stringify(payload) }).promise();
-         } catch (err) {
-            if (err.statusCode === 410 && checkDisconnections) players[key] = "";
-            else throw err;
-         }
-      }
-   }
+   return badConnection;
 }
 
 module.exports = sendChatMessage;
