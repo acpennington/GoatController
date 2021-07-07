@@ -171,6 +171,7 @@ export {
    NEW_GAME,
    // game socket actions
    JOIN_MATCH,
+   NEW_CHAT_MESSAGE,
    // ItemTypes
    OFF_FIELD,
    allTypes,
