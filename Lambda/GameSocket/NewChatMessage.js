@@ -3,6 +3,7 @@ AWS.config.update({ region: "us-east-2" });
 
 const findMatch = require("./utils/findMatch.js");
 const sendChatMessage = require("./utils/sendChatMessage.js");
+const handleDisconnect = require("./utils/handleDisconnect.js");
 
 // @action NewChatMessage
 // @desc Sends a chat message from one player to the other (and watchers)
@@ -19,10 +20,7 @@ async function newChatMessage(id, username, message, requestContext) {
    if (message.author !== username) return { statusCode: 401, body: { errors: [{ msg: "You are not authorized to send this message" }] } };
 
    const badConnection = await sendChatMessage(message, players, watchers, api, connectionId).promise();
-   if (badConnection) {
-      const disconnectMessage = { author: "Server", content: badConnection + " has disconnected from the match." };
-      await sendChatMessage(disconnectMessage, players, watchers, api, connectionId, false).promise();
-   }
+   if (badConnection) await handleDisconnect(badConnection, players, watchers, api).promise();
 
    return { statusCode: 200, body: "Chat message sent" };
 }
