@@ -2,13 +2,13 @@ const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
-// @function findMatch
-// @desc Finds a match by id and returns it
+// @function findUser
+// @desc Finds a user by username and returns it
 // @db 1 reads, 0 writes
-async function findMatch(id, projection = false) {
+async function findUser(username, projection = false) {
     const params = {
-        TableName: "matches",
-        Key: { id }
+        TableName: "users",
+        Key: { username }
     };
     if (projection) params.ProjectionExpression = projection;
 
@@ -18,4 +18,4 @@ async function findMatch(id, projection = false) {
     return result.Item;
 }
 
-module.exports = findMatch;
+module.export = findUser

@@ -5,13 +5,13 @@ AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const auth = require("./utils/middleware.js");
+const findUser = require("./utils/findUser.js");
 
 // @route PUT api/users
 // @desc Update a part of your user's profile/attributes
 // @access Private
 // @db 1 read, 1 write
 async function put(body, token) {
-   // Auth validation
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
@@ -23,11 +23,8 @@ async function put(body, token) {
          Key: { username }
       };
 
-      const result = await DynamoDB.get(params, (err) => {
-         if (err) return { statusCode: 400, body: { errors: [err] } };
-      }).promise();
-      const user = result.Item;
-      if (!user) return { statusCode: 400, body: { errors: [{ msg: "Username " + username + " not found." }] } };
+      const user = await findUser(username, "hashword").promise();
+      if (!user || (user.statusCode && user.statusCode === 400)) return { statusCode: 400, body: { errors: [{ msg: "User not found" }] } };
 
       const isMatch = await bcrypt.compare(body.oldPassword, user.hashword);
       if (isMatch) {
