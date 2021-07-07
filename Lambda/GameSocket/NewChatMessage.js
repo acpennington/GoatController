@@ -10,7 +10,7 @@ const sendChatMessage = require("./utils/sendChatMessage.js");
 // @db 1 read, 0 write
 async function newChatMessage(id, username, message, requestContext) {
    const match = await findMatch(id, "players, watchers").promise();
-   if (!match || (match.statusCode && match.statusCode === 400)) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
+   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
    const { players, watchers } = match;
 
    const { domainName, stage, connectionId } = requestContext;

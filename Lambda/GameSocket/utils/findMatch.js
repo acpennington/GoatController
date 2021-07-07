@@ -13,7 +13,7 @@ async function findMatch(id, projection = false) {
     if (projection) params.ProjectionExpression = projection;
 
     const result = await DynamoDB.get(params, (err) => {
-        if (err) return { statusCode: 400, body: { errors: [err] } };
+        if (err) return false;
     }).promise();
     return result.Item;
 }

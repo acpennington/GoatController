@@ -11,7 +11,7 @@ const findMatch = require("./utils/findMatch.js");
 // @db 1 read, 1 write
 async function joinMatch(id, username, requestContext) {
    const match = await findMatch(id, "players, watchers, chat").promise();
-   if (!match || (match.statusCode && match.statusCode === 400)) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
+   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
    const { players, watchers, chat } = match;
 
    const { domainName, stage, connectionId } = requestContext;

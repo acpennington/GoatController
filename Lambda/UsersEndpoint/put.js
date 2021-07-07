@@ -19,7 +19,7 @@ async function put(body, token) {
 
    if ("oldPassword" in body) {
       const user = await findUser(username, "hashword").promise();
-      if (!user || (user.statusCode && user.statusCode === 400)) return { statusCode: 400, body: { errors: [{ msg: "User not found" }] } };
+      if (!user) return { statusCode: 400, body: { errors: [{ msg: "User not found" }] } };
 
       const isMatch = await bcrypt.compare(body.oldPassword, user.hashword);
       if (isMatch) {

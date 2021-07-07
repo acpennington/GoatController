@@ -15,7 +15,7 @@ async function put(id, token) {
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
    const league = await findLeague(id, "members");
-   if (!league || (league.statusCode && league.statusCode === 400)) return { statusCode: 400, body: { errors: [{ msg: "League not found" }] } };
+   if (!league) return { statusCode: 400, body: { errors: [{ msg: "League not found" }] } };
    const { members } = league;
 
    let UpdateExpression;
