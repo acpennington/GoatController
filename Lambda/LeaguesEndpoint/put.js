@@ -4,6 +4,7 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const auth = require("./utils/middleware.js");
 const addMemberToLeague = require("./utils/addMemberToLeague.js");
+const findLeague = require("./utils/findLeague.js");
 
 // @route POST api/leagues
 // @desc Adds a user to a league or removes them from it
@@ -13,34 +14,27 @@ async function put(id, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
-   let params = {
-      TableName: "leagues",
-      Key: { id }
-   };
-
-   const result = await DynamoDB.get(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
-   const league = result.Item;
-   const leagueMembers = league.members;
+   const league = await findLeague(id, "members");
+   if (!league || (league.statusCode && league.statusCode === 400)) return { statusCode: 400, body: { errors: [{ msg: "League not found" }] } };
+   const { members } = league;
 
    let UpdateExpression;
-   if (leagueMembers[username]) {
-      const role = leagueMembers[username].role;
+   if (members[username]) {
+      const role = members[username].role;
       if (role === "banned") return { statusCode: 401, body: { errors: [{ msg: "User is banned from this league" }] } };
       else if (role === "left") {
          UpdateExpression = "ADD leagues :league";
-         leagueMembers[username].role = "member";
+         members[username].role = "member";
       } else {
          UpdateExpression = "DELETE leagues :league";
-         leagueMembers[username].role = "left";
+         members[username].role = "left";
       }
    } else {
       UpdateExpression = "ADD leagues :league";
       addMemberToLeague(league, username);
    }
 
-   params = {
+   let params = {
       TableName: "users",
       Key: { username },
       UpdateExpression,
@@ -54,13 +48,13 @@ async function put(id, token) {
       TableName: "leagues",
       Key: { id },
       UpdateExpression: "SET members = :updatedmembers",
-      ExpressionAttributeValues: { ":updatedmembers": leagueMembers }
+      ExpressionAttributeValues: { ":updatedmembers": members }
    };
    await DynamoDB.update(params, (err) => {
       if (err) return { statusCode: 400, body: { errors: [err] } };
    }).promise();
 
-   return { statusCode: 200, body: { role: leagueMembers[username].role } };
+   return { statusCode: 200, body: { role: members[username].role } };
 }
 
 module.exports = put;

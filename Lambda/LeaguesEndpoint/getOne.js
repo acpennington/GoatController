@@ -1,8 +1,5 @@
-const AWS = require("aws-sdk");
-AWS.config.update({ region: "us-east-2" });
-const DynamoDB = new AWS.DynamoDB.DocumentClient();
-
 const auth = require("./utils/middleware.js");
+const findLeague = require("./utils/findLeague.js");
 
 // @route GET api/leagues
 // @desc Returns name, description, id of specific league
@@ -12,17 +9,8 @@ async function get(id, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
-   const params = {
-      TableName: "leagues",
-      Key: { id }
-   };
-
-   const result = await DynamoDB.get(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
-   const league = result.Item;
-
-   if (!league) return { statusCode: 400, body: { errors: [{ msg: "League " + id + " not found" }] } };
+   const league = await findLeague(id, "members").promise();
+   if (league) return { statusCode: 400, body: { errors: [{ msg: "A league with this id already exists" }] } };
 
    const myInfo = league.members[username];
    const members = {

@@ -18,11 +18,6 @@ async function put(body, token) {
    deleteAttributes(body, ["username", "hashword", "goatGold", "joinDate", "lastMatch"]);
 
    if ("oldPassword" in body) {
-      const params = {
-         TableName: "users",
-         Key: { username }
-      };
-
       const user = await findUser(username, "hashword").promise();
       if (!user || (user.statusCode && user.statusCode === 400)) return { statusCode: 400, body: { errors: [{ msg: "User not found" }] } };
 

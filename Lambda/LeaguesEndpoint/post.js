@@ -5,26 +5,19 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 const auth = require("./utils/middleware.js");
 const { todaysDate, plusThirty } = require("./utils/dates.js");
 const addMemberToLeague = require("./utils/addMemberToLeague.js");
+const findLeague = require("./utils/findLeague.js");
 
 // @route POST api/leagues
 // @desc Create a new league
 // @access Private
 // @db 1 reads, 2 writes
 async function post(body, token) {
-   // Auth validation
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
    const { id, useQueue } = body;
 
-   let params = {
-      TableName: "leagues",
-      Key: { id }
-   };
-   let result = await DynamoDB.get(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
-   const league = result.Item;
+   const league = await findLeague(id, "id").promise();
    if (league) return { statusCode: 400, body: { errors: [{ msg: "A league with this id already exists" }] } };
 
    const newLeague = {
@@ -38,7 +31,7 @@ async function post(body, token) {
    };
    addMemberToLeague(newLeague, username, "owner");
 
-   params = {
+   let params = {
       TableName: "leagues",
       Item: { ...newLeague }
    };
