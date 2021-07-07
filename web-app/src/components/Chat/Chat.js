@@ -40,7 +40,7 @@ class Chat extends PureComponent {
             addMessage(author, content);
             const socket = this.context;
             if (socket && socket.api) {
-               const payload = { action: NEW_CHAT_MESSAGE, data: { token: socket.token, id: socket.leagueId, message: { author, content } } };
+               const payload = { action: NEW_CHAT_MESSAGE, data: { token: socket.token, id: socket.matchId, message: { author, content } } };
                socket.api.send(JSON.stringify(payload));
             }
          }

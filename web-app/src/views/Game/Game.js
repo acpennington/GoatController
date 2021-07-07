@@ -25,12 +25,12 @@ class Game extends Component {
       checkToken(true);
       setBodyImage();
 
-      this.socket = { api: false, leagueId: getQueryParams().id, token: getAuthHeaders(false) };
-      this.solo = !this.socket.leagueId;
+      this.socket = { api: false, matchId: getQueryParams().id, token: getAuthHeaders(false) };
+      this.solo = !this.socket.matchId;
 
       this.state = {
          sizingValue: getSizingValue(),
-         loading: !!this.socket.leagueId,
+         loading: !!this.socket.matchId,
          lostConnection: false
       };
 
@@ -46,11 +46,11 @@ class Game extends Component {
    }
 
    setWebSocket = () => {
-      const { token, leagueId } = this.socket;
+      const { token, matchId } = this.socket;
       const webSocket = new WebSocket(GAME_SOCKET_URL + getApiStage());
 
       webSocket.onopen = () => {
-         const payload = { action: JOIN_MATCH, data: { token, id: leagueId } };
+         const payload = { action: JOIN_MATCH, data: { token, id: matchId } };
          webSocket.send(JSON.stringify(payload));
          this.setState({ loading: false, lostConnection: false });
       };
