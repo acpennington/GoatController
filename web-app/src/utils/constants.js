@@ -65,6 +65,7 @@ const NEW_GAME = "NewGame";
 
 // game socket actions
 const JOIN_MATCH = "JoinMatch";
+const NEW_CHAT_MESSAGE = "NewChatMessage";
 
 // ItemTypes
 const OFF_FIELD = "offField";

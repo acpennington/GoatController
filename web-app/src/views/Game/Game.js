@@ -25,12 +25,12 @@ class Game extends Component {
       checkToken(true);
       setBodyImage();
 
-      this.leagueId = getQueryParams().id;
-      this.solo = !this.leagueId;
+      this.socket = { api: false, leagueId: getQueryParams().id, token: getAuthHeaders(false) };
+      this.solo = !this.socket.leagueId;
 
       this.state = {
          sizingValue: getSizingValue(),
-         loading: !!this.leagueId,
+         loading: !!this.socket.leagueId,
          lostConnection: false
       };
 
@@ -46,11 +46,11 @@ class Game extends Component {
    }
 
    setWebSocket = () => {
+      const { token, leagueId } = this.socket;
       const webSocket = new WebSocket(GAME_SOCKET_URL + getApiStage());
 
       webSocket.onopen = () => {
-         const token = getAuthHeaders(false);
-         const payload = { action: JOIN_MATCH, data: { token, id: this.leagueId } };
+         const payload = { action: JOIN_MATCH, data: { token, id: leagueId } };
          webSocket.send(JSON.stringify(payload));
          this.setState({ loading: false, lostConnection: false });
       };
@@ -67,19 +67,19 @@ class Game extends Component {
          this.setWebSocket();
       };
 
-      this.webSocket = webSocket;
+      this.socket.api = webSocket;
    };
 
    render() {
       const { classes } = this.props;
       const { sizingValue, loading, lostConnection } = this.state;
-      const { solo, webSocket } = this;
+      const { solo, socket } = this;
 
       if (lostConnection) return <LoadingSpinner message="Lost connection. Attempting to reconnect..." />;
       if (loading) return <LoadingSpinner message="Connecting to game..." />;
       else
          return (
-            <WebSocketContext.Provider value={webSocket}>
+            <WebSocketContext.Provider value={socket}>
                <div className={classes.container}>
                   <div
                      className={classes.innerContainer}

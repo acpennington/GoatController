@@ -16,7 +16,7 @@ exports.handler = async (event) => {
       case "JoinMatch":
          return await joinMatch(id, username, requestContext);
       case "NewChatMessage":
-         return await newChatMessage(id, username, requestContext);
+         return await newChatMessage(id, username, data.message, requestContext);
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid action name" }] } };
    }

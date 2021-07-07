@@ -19,8 +19,10 @@ async function newChatMessage(id, username, message, requestContext) {
    if (message.author !== username) return { statusCode: 401, body: { errors: [{ msg: "You are not authorized to send this message" }] } };
 
    const badConnection = await sendChatMessage(message, players, watchers, api, connectionId).promise();
-   if (badConnection)
-      await sendChatMessage({ author: "Server", content: badConnection + " has disconnected from the match." }, players, watchers, api, connectionId).promise();
+   if (badConnection) {
+      const disconnectMessage = { author: "Server", content: badConnection + " has disconnected from the match." };
+      await sendChatMessage(disconnectMessage, players, watchers, api, connectionId, false).promise();
+   }
 
    return { statusCode: 200, body: "Chat message sent" };
 }

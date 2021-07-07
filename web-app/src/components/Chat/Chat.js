@@ -12,6 +12,9 @@ import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 import Messages from "./Messages.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
+import { WebSocketContext } from "views/Game/Game.js";
+
+import { NEW_CHAT_MESSAGE } from "utils/constants.js";
 
 const cannedMessages = [
    { message: "Response?", shortcut: "r" },
@@ -29,20 +32,27 @@ class Chat extends PureComponent {
    };
 
    sendMessage = (author, content) => {
+      const { chat, addMessage } = this.props;
       content = content.trim();
       if (content) {
-         const allMessages = this.props.chat;
-         const lastMessage = allMessages[allMessages.length - 1];
-         if (!(lastMessage.author === author && lastMessage.content === content))
-            this.props.addMessage(author, content);
+         const lastMessage = chat[chat.length - 1];
+         if (!(lastMessage.author === author && lastMessage.content === content)) {
+            addMessage(author, content);
+            const socket = this.context;
+            if (socket && socket.api) {
+               const payload = { action: NEW_CHAT_MESSAGE, data: { token: socket.token, id: socket.leagueId, message: { author, content } } };
+               socket.api.send(JSON.stringify(payload));
+            }
+         }
       }
    };
 
    componentDidMount() {
-      if (this.props.name)
+      const { name } = this.props;
+      if (name)
          for (const canned of cannedMessages)
             bind(canned.shortcut, () => {
-               this.sendMessage(this.props.name, canned.message);
+               this.sendMessage(name, canned.message);
             });
    }
 
@@ -55,39 +65,31 @@ class Chat extends PureComponent {
 
       return (
          <div className={classes.container}>
-            <FriendlyScroll
-               id="chatScroll"
-               style={{ position: "absolute", bottom: 0 }}
-               contStyle={{ height: watching ? "100%" : "calc(100% - 85px)" }}
-            >
+            <FriendlyScroll id="chatScroll" style={{ position: "absolute", bottom: 0 }} contStyle={{ height: watching ? "100%" : "calc(100% - 85px)" }}>
                <Messages messages={chat} />
             </FriendlyScroll>
-            {!watching && <Fragment>
-               <CustomInput
-                  id="Message"
-                  white
-                  formControlProps={{
-                     fullWidth: true
-                  }}
-                  inputProps={{
-                     onKeyPress: this.submitMessage,
-                     margin: "dense"
-                  }}
-               />
-               <ButtonRow>
-                  {cannedMessages.map((canned, index) => (
-                     <Button
-                        color="primary"
-                        size="sm"
-                        fullWidth
-                        onClick={() => this.sendMessage(name, canned.message)}
-                        key={index}
-                     >
-                        {canned.message}
-                     </Button>
-                  ))}
-               </ButtonRow>
-            </Fragment>}
+            {!watching && (
+               <Fragment>
+                  <CustomInput
+                     id="Message"
+                     white
+                     formControlProps={{
+                        fullWidth: true
+                     }}
+                     inputProps={{
+                        onKeyPress: this.submitMessage,
+                        margin: "dense"
+                     }}
+                  />
+                  <ButtonRow>
+                     {cannedMessages.map((canned, index) => (
+                        <Button color="primary" size="sm" fullWidth onClick={() => this.sendMessage(name, canned.message)} key={index}>
+                           {canned.message}
+                        </Button>
+                     ))}
+                  </ButtonRow>
+               </Fragment>
+            )}
          </div>
       );
    }
@@ -100,6 +102,8 @@ function mapStateToProps(state) {
 Chat.propTypes = {
    watching: PropTypes.bool,
    name: PropTypes.string
-}
+};
+
+Chat.contextType = WebSocketContext;
 
 export default connect(mapStateToProps, { addMessage })(withStyles(chatStyle)(Chat));
