@@ -20,3 +20,5 @@ async function findMatch(id, ProjectionExpression = false) {
      }).promise();
      return result.Item;
 }
+
+module.exports = findMatch;
