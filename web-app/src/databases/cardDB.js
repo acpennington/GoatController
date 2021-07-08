@@ -579,7 +579,7 @@ const spells = {
    Metamorphosis: {
       cardType: "Spell",
       levelOrSubtype: "Normal",
-      text: "Tribute 1 monster. Special Summon 1 Fusion Monster from your Extra Deck with the same Level as the Tributed monster."
+      text: "Tribute 1 monster; Special Summon 1 Fusion Monster from your Extra Deck with the same Level as the Tributed monster."
    },
    Scapegoat: {
       cardType: "Spell",
