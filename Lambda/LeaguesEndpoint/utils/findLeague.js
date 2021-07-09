@@ -18,4 +18,4 @@ async function findLeague(id, projection = false) {
    return result.Item;
 }
 
-module.export = findLeague;
+module.exports = findLeague;
