@@ -14,6 +14,7 @@ async function createMatch(leagueId, playersParam, api) {
 
    const matchId = stripSpecialChars(player1connection) + stripSpecialChars(player2connection);
 
+   let playersInGame;
    let params = {
       RequestItems: {
          users: {
@@ -22,15 +23,17 @@ async function createMatch(leagueId, playersParam, api) {
          }
       }
    };
-   const result = await DynamoDB.batchGet(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
-   const playersInGame = result.Responses.users;
+   try {
+      const result = await DynamoDB.batchGet(params).promise();
+      playersInGame = result.Responses.users;
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
 
    const goingFirstPlayer = Math.random() > 0.5 ? player1name : player2name;
    const gamestate = {};
-   await setGamestate(gamestate, playersInGame[0], goingFirstPlayer);
-   await setGamestate(gamestate, playersInGame[1], goingFirstPlayer);
+   setGamestate(gamestate, playersInGame[0], goingFirstPlayer);
+   setGamestate(gamestate, playersInGame[1], goingFirstPlayer);
 
    const players = {};
    players[player1name] = "";
@@ -47,12 +50,15 @@ async function createMatch(leagueId, playersParam, api) {
          chat: [{ author: "Server", content: "New match started. " + goingFirstPlayer + " will go first. Good luck to both players." }]
       }
    };
-   await DynamoDB.put(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.put(params).promise();
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
 
-   await updatePlayer(player1name, matchId, api);
-   await updatePlayer(player2name, matchId, api);
+   let updateError = await updatePlayer(player1name, matchId, api);
+   if (!updateError) updateError = await updatePlayer(player2name, matchId, api);
+   if (updateError) return updateError;
 
    const payload = { action: "NewGame", data: matchId };
    await api.postToConnection({ ConnectionId: player1connection, Data: JSON.stringify(payload) }).promise();
@@ -63,7 +69,7 @@ function stripSpecialChars(aString) {
    return aString.replace(/[^a-zA-Z0-9_]/g, "");
 }
 
-async function setGamestate(gamestate, player, goingFirstPlayer) {
+function setGamestate(gamestate, player, goingFirstPlayer) {
    const { username, decks, activeDeck, settings } = player;
    gamestate[username] = JSON.parse(JSON.stringify(blankField));
 
@@ -88,16 +94,20 @@ function shuffle(deck) {
    return deck;
 }
 
-async function updatePlayer(playerName, matchId, api) {
+async function updatePlayer(playerName, matchId) {
    const params = {
       TableName: "users",
       Key: { username: playerName },
       UpdateExpression: "SET activeMatch = :matchid",
       ExpressionAttributeValues: { ":matchid": matchId }
    };
-   await DynamoDB.update(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.update(params).promise();
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
+
+   return false;
 }
 
 module.exports = createMatch;

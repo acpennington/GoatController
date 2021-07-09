@@ -15,10 +15,12 @@ async function get() {
       }
    };
 
-   const leagues = await DynamoDB.scan(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
-   return { statusCode: 200, body: leagues.Items };
+   try {
+      const leagues = await DynamoDB.scan(params).promise();
+      return { statusCode: 200, body: leagues.Items };
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
 }
 
 module.exports = get;

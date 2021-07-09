@@ -9,7 +9,7 @@ async function get(id, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
-   const league = await findLeague(id).promise();
+   const league = await findLeague(id);
    if (!league) return { statusCode: 400, body: { errors: [{ msg: "League not found" }] } };
 
    const myInfo = league.members[username];

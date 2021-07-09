@@ -1,9 +1,5 @@
 const bcrypt = require("bcryptjs");
 
-const AWS = require("aws-sdk");
-AWS.config.update({ region: "us-east-2" });
-const DynamoDB = new AWS.DynamoDB.DocumentClient();
-
 const getJwt = require("../utils/getJwt.js");
 const findUser = require("../utils/findUser.js");
 

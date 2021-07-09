@@ -5,7 +5,7 @@ const sendChatMessage = require("./utils/sendChatMessage.js");
 // @db 0 read, 0 write
 async function handleDisconnect(badConnection, players, watchers, api) {
     const disconnectMessage = { author: "Server", content: badConnection + " has disconnected from the match." };
-    await sendChatMessage(disconnectMessage, players, watchers, api, "", false).promise();
+    await sendChatMessage(disconnectMessage, players, watchers, api, "", false);
 }
 
 module.exports = handleDisconnect;

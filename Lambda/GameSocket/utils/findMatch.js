@@ -12,10 +12,12 @@ async function findMatch(id, projection = false) {
     };
     if (projection) params.ProjectionExpression = projection;
 
-    const result = await DynamoDB.get(params, (err) => {
-        if (err) return false;
-    }).promise();
-    return result.Item;
+    try {
+        const result = await DynamoDB.get(params).promise();
+        return result.Item;
+    } catch (err) {
+        return false;
+    }
 }
 
 module.exports = findMatch;

@@ -65,9 +65,11 @@ async function enterQueue(id, requestContext, username) {
       UpdateExpression: "SET matchmaking = :updatedmatchmaking",
       ExpressionAttributeValues: { ":updatedmatchmaking": matchmaking }
    };
-   await DynamoDB.update(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.update(params).promise();
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
 
    return { statusCode: 200, body: "Member entered queue" };
 }

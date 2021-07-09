@@ -17,7 +17,7 @@ async function post(body, token) {
 
    const { id, useQueue } = body;
 
-   const league = await findLeague(id, "id").promise();
+   const league = await findLeague(id, "id");
    if (league) return { statusCode: 400, body: { errors: [{ msg: "A league with this id already exists" }] } };
 
    const newLeague = {
@@ -35,9 +35,12 @@ async function post(body, token) {
       TableName: "leagues",
       Item: { ...newLeague }
    };
-   await DynamoDB.put(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.put(params).promise();
+   }
+   catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
 
    params = {
       TableName: "users",
@@ -45,9 +48,12 @@ async function post(body, token) {
       UpdateExpression: "ADD leagues :league",
       ExpressionAttributeValues: { ":league": DynamoDB.createSet([id]) }
    };
-   await DynamoDB.update(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.update(params).promise();
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
+
    return { statusCode: 200, body: { msg: "League successfully created" } };
 }
 

@@ -40,9 +40,11 @@ async function put(id, token) {
       UpdateExpression,
       ExpressionAttributeValues: { ":league": DynamoDB.createSet([id]) }
    };
-   await DynamoDB.update(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.update(params).promise();
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
 
    params = {
       TableName: "leagues",
@@ -50,9 +52,11 @@ async function put(id, token) {
       UpdateExpression: "SET members = :updatedmembers",
       ExpressionAttributeValues: { ":updatedmembers": members }
    };
-   await DynamoDB.update(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.update(params).promise();
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
 
    return { statusCode: 200, body: { role: members[username].role } };
 }

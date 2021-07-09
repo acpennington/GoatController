@@ -42,7 +42,6 @@ async function put(body, token) {
       UpdateExpression: "SET ",
       ExpressionAttributeValues: {}
    };
-
    let counter = 0;
    for (const attribute in body) {
       params.UpdateExpression += attribute + " = :var" + counter + ", ";
@@ -51,9 +50,12 @@ async function put(body, token) {
    }
    params.UpdateExpression = params.UpdateExpression.slice(0, -2);
 
-   await DynamoDB.update(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.update(params).promise();
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
+
    return { statusCode: 200, body: { msg: "User successfully updated" } };
 }
 

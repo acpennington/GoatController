@@ -55,10 +55,11 @@ async function post(body) {
       TableName: "users",
       Item: { ...newUser }
    };
-
-   await DynamoDB.put(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.put(params).promise();
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
 
    const token = getJwt(username);
    delete newUser.hashword;

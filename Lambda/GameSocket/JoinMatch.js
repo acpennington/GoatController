@@ -10,7 +10,7 @@ const findMatch = require("./utils/findMatch.js");
 // @access Private
 // @db 1 read, 1 write
 async function joinMatch(id, username, requestContext) {
-   const match = await findMatch(id, "players, watchers, chat").promise();
+   const match = await findMatch(id, "players, watchers, chat");
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
    const { players, watchers, chat } = match;
 
@@ -20,7 +20,7 @@ async function joinMatch(id, username, requestContext) {
    let UpdateExpression = "SET players.#name = :connectId, watchers = :watchers";
    const message = { author: "Server", content: username + " has connected to the match." };
    if (players.hasOwnProperty(username)) {
-      await sendChatMessage(message, players, watchers, api, connectionId).promise();
+      await sendChatMessage(message, players, watchers, api, connectionId);
       UpdateExpression += ", chat = list_append(chat, :messages)";
       chat.push(message);
    } else {
@@ -34,9 +34,12 @@ async function joinMatch(id, username, requestContext) {
       ExpressionAttributeNames: { "#name": username },
       ExpressionAttributeValues: { ":connectId": connectionId, ":watchers": watchers, ":messages": [message] }
    };
-   await DynamoDB.update(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
+   try {
+      await DynamoDB.update(params).promise();
+   }
+   catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
 
    // send whole chat (and later gamestate as well) back to user
    const payload = { action: "SET_CHAT_TO", data: chat };
