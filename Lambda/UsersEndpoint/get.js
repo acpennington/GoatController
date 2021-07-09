@@ -12,7 +12,7 @@ async function get(body) {
    if (username.length < 1) errors.push({ msg: "Username is required" });
    if (errors.length > 0) return { statusCode: 400, body: { errors } };
 
-   const user = await findUser(username, "joinDate").promise();
+   const user = await findUser(username, "joinDate");
    if (!user) return { statusCode: 400, body: { errors: [{ msg: "User not found" }] } };
    else return { statusCode: 200, body: { joinDate: user.joinDate } };
 }

@@ -18,7 +18,7 @@ async function put(body, token) {
    deleteAttributes(body, ["username", "hashword", "goatGold", "joinDate", "lastMatch"]);
 
    if ("oldPassword" in body) {
-      const user = await findUser(username, "hashword").promise();
+      const user = await findUser(username, "hashword");
       if (!user) return { statusCode: 400, body: { errors: [{ msg: "User not found" }] } };
 
       const isMatch = await bcrypt.compare(body.oldPassword, user.hashword);

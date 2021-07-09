@@ -6,16 +6,16 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 // @desc Finds a user by username and returns it
 // @db 1 reads, 0 writes
 async function findUser(username, projection = false) {
-    const params = {
-        TableName: "users",
-        Key: { username }
-    };
-    if (projection) params.ProjectionExpression = projection;
+   const params = {
+      TableName: "users",
+      Key: { username }
+   };
+   if (projection) params.ProjectionExpression = projection;
 
-    const result = await DynamoDB.get(params, (err) => {
-        if (err) return false;
-    }).promise();
-    return result.Item;
+   const result = await DynamoDB.get(params, (err) => {
+      if (err) return false;
+   }).promise();
+   return result.Item;
 }
 
-module.export = findUser
+module.exports = findUser;

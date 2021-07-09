@@ -5,6 +5,7 @@ AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const getJwt = require("../utils/getJwt.js");
+const findUser = require("../utils/findUser.js");
 
 // @route POST api/auth
 // @desc Login/authenticate a user
@@ -13,16 +14,7 @@ const getJwt = require("../utils/getJwt.js");
 async function auth(body) {
    const { username, password } = body;
 
-   const params = {
-      TableName: "users",
-      Key: { username }
-   };
-
-   const result = await DynamoDB.get(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
-   const user = result.Item;
-
+   const user = await findUser(username);
    if (user) {
       const isMatch = await bcrypt.compare(password, user.hashword);
       if (isMatch) {

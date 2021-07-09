@@ -3,6 +3,7 @@ AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const createMatch = require("./utils/createMatch.js");
+const findLeague = require("./utils/findLeague.js");
 
 // @action EnterQueue
 // @desc Adds a member to a league's queue
@@ -11,17 +12,8 @@ const createMatch = require("./utils/createMatch.js");
 async function enterQueue(id, requestContext, username) {
    const { domainName, stage, connectionId } = requestContext;
 
-   let params = {
-      TableName: "leagues",
-      Key: { id }
-   };
-
-   const result = await DynamoDB.get(params, (err) => {
-      if (err) return { statusCode: 400, body: { errors: [err] } };
-   }).promise();
-   const league = result.Item;
-
-   if (!league) return { statusCode: 400, body: { errors: [{ msg: "League " + id + " not found" }] } };
+   const league = await findLeague(id, "useQueue, matchmaking, members");
+   if (!league) return { statusCode: 400, body: { errors: [{ msg: "League not found" }] } };
 
    const { useQueue, matchmaking, members } = league;
    if (!useQueue) return { statusCode: 400, body: { errors: [{ msg: "League does not use queue for matchmaking" }] } };
@@ -67,7 +59,7 @@ async function enterQueue(id, requestContext, username) {
       }
    } else if (mmLength > 3) return { statusCode: 400, body: { errors: [{ msg: "Queue length is erroneously greater than 3" }] } };
 
-   params = {
+   const params = {
       TableName: "leagues",
       Key: { id },
       UpdateExpression: "SET matchmaking = :updatedmatchmaking",

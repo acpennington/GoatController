@@ -6,16 +6,16 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 // @desc Finds a league by id and returns it
 // @db 1 reads, 0 writes
 async function findLeague(id, projection = false) {
-    const params = {
-        TableName: "users",
-        Key: { id }
-    };
-    if (projection) params.ProjectionExpression = projection;
+   const params = {
+      TableName: "leagues",
+      Key: { id }
+   };
+   if (projection) params.ProjectionExpression = projection;
 
-    const result = await DynamoDB.get(params, (err) => {
-        if (err) return false;
-    }).promise();
-    return result.Item;
+   const result = await DynamoDB.get(params, (err) => {
+      if (err) return false;
+   }).promise();
+   return result.Item;
 }
 
-module.export = findLeague
+module.export = findLeague;

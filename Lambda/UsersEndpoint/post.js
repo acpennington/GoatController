@@ -25,7 +25,7 @@ async function post(body) {
    if (password.length < 10) errors.push({ msg: "Password must be at least 10 characters" });
    if (errors.length > 0) return { statusCode: 400, body: { errors } };
 
-   const user = await findUser(username, "username").promise();
+   const user = await findUser(username, "username");
    if (!user) return { statusCode: 400, body: { errors: [{ msg: "User already exists" }] } };
 
    const salt = await bcrypt.genSalt(7);
