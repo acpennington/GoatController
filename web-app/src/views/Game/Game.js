@@ -13,6 +13,7 @@ import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH, CONNECTED } from "utils/constants.js";
+import { resetSolo } from "stateStore/actions/field.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -28,13 +29,15 @@ class Game extends Component {
 
       this.state = {
          sizingValue: getSizingValue(),
-         loading: !!this.socket.matchId,
+         loading: !this.player.solo,
          lostConnection: false
       };
 
       window.addEventListener("resize", () => {
          this.setState({ sizingValue: getSizingValue() });
       });
+
+      if (this.player.solo) props.resetSolo(this.player.name);
    }
 
    componentDidMount() {
@@ -112,4 +115,4 @@ Game.propTypes = {
    classes: PropTypes.object.isRequired
 };
 
-export default connect(null, null)(withStyles(styles)(Game));
+export default connect(null, { resetSolo })(withStyles(styles)(Game));

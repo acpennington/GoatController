@@ -131,8 +131,7 @@ export default function (state = initialState, action) {
          const newHand = [];
          for (let i = 0; i < 6; i++) newHand.push(namedCards.pop());
 
-         const newState = {};
-         newState["villain"] = { ...JSON.parse(JSON.stringify(blankField)) };
+         const newState = { villain: { ...JSON.parse(JSON.stringify(blankField)) } };
          newState[data] = {
             ...JSON.parse(JSON.stringify(blankField)),
             sleeves: JSON.parse(storage.getItem("settings")).sleeves,

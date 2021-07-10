@@ -7,24 +7,13 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import Hand from "./Hand.js";
 import RightTools from "./RightTools/RightTools.js";
-import { resetSolo } from "stateStore/actions/field.js";
 
-import getQueryParams from "utils/getQueryParams.js";
 import { MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK, VILLAIN_HAND_SIZE } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 
 class Battlefield extends Component {
-   constructor(props) {
-      super(props);
-
-      this.leagueId = getQueryParams().id;
-      if (props.player.solo) {
-         props.resetSolo(props.players.hero);
-      }
-   }
-
    render() {
       const { classes, size, handCounts, discardPile, players, player } = this.props;
       const { solo } = player;
@@ -119,4 +108,4 @@ Battlefield.propTypes = {
    webSocket: PropTypes.object
 };
 
-export default connect(mapStateToProps, { resetSolo })(withStyles(styles)(Battlefield));
+export default connect(mapStateToProps)(withStyles(styles)(Battlefield));
