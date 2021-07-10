@@ -58,6 +58,8 @@ class Game extends Component {
          const message = JSON.parse(event.data);
          if (message.action) {
             this.props.dispatch({ type: message.action, data: message.data });
+         } else {
+            console.log(message);
          }
       };
 
