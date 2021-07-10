@@ -115,7 +115,7 @@ class CreateLeague extends PureComponent {
    };
 
    save = async () => {
-      const config = { headers: getAuthHeaders() };
+      const config = getAuthHeaders();
       const body = { ...this.state };
 
       deleteAttributes(body, ["badFields", "errors"]);

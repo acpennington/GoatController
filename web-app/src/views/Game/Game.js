@@ -1,4 +1,4 @@
-import React, { Component, createContext } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -6,6 +6,7 @@ import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
 
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
+import { WebSocketContext } from "./WebSocketContext.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
@@ -16,8 +17,6 @@ import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH } from "util
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
-
-export const WebSocketContext = createContext(null);
 
 class Game extends Component {
    constructor(props) {

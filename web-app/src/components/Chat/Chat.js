@@ -12,7 +12,7 @@ import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 import Messages from "./Messages.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
-import { WebSocketContext } from "views/Game/Game.js";
+import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 import { NEW_CHAT_MESSAGE } from "utils/constants.js";
 
