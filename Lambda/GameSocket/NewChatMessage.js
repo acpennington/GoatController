@@ -10,14 +10,14 @@ const handleDisconnect = require("./utils/handleDisconnect.js");
 // @access Private
 // @db 1 read, 0 write
 async function newChatMessage(id, username, message, requestContext) {
+   if (message.author !== username) return { statusCode: 401, body: { errors: [{ msg: "You are not authorized to send this message" }] } };
+
    const match = await findMatch(id, "players, watchers");
-   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
+   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game not found" }] } };
    const { players, watchers } = match;
 
    const { domainName, stage, connectionId } = requestContext;
    const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
-
-   if (message.author !== username) return { statusCode: 401, body: { errors: [{ msg: "You are not authorized to send this message" }] } };
 
    const badConnection = await sendChatMessage(message, players, watchers, api, connectionId);
    if (badConnection) await handleDisconnect(badConnection, players, watchers, api);

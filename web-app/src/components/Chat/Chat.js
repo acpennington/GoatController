@@ -20,7 +20,8 @@ const cannedMessages = [
    { message: "Response?", shortcut: "r" },
    { message: "Yes", shortcut: "y" },
    { message: "No", shortcut: "n" },
-   { message: "Thinking", shortcut: "t" }
+   { message: "Thinking", shortcut: "t" },
+   { message: "You there?", shortcut: "?" }
 ];
 
 class Chat extends PureComponent {
@@ -36,7 +37,7 @@ class Chat extends PureComponent {
       content = content.trim();
       if (content) {
          const lastMessage = chat[chat.length - 1];
-         if (!(lastMessage.author === author && lastMessage.content === content)) {
+         if (!(lastMessage && lastMessage.author === author && lastMessage.content === content)) {
             addMessage(author, content);
             const socket = this.context;
             if (socket && socket.api) {
@@ -49,11 +50,10 @@ class Chat extends PureComponent {
 
    componentDidMount() {
       const { name } = this.props;
-      if (name)
-         for (const canned of cannedMessages)
-            bind(canned.shortcut, () => {
-               this.sendMessage(name, canned.message);
-            });
+      for (const canned of cannedMessages)
+         bind(canned.shortcut, () => {
+            this.sendMessage(name, canned.message);
+         });
    }
 
    componentWillUnmount() {
@@ -66,7 +66,7 @@ class Chat extends PureComponent {
       return (
          <div className={classes.container}>
             <FriendlyScroll id="chatScroll" style={{ position: "absolute", bottom: 0 }} contStyle={{ height: watching ? "100%" : "calc(100% - 85px)" }}>
-               <Messages messages={chat} />
+               <Messages messages={chat} hero={name} />
             </FriendlyScroll>
             {!watching && (
                <Fragment>
@@ -101,7 +101,8 @@ function mapStateToProps(state) {
 
 Chat.propTypes = {
    watching: PropTypes.bool,
-   name: PropTypes.string
+   name: PropTypes.string.isRequired,
+   classes: PropTypes.object.isRequired
 };
 
 Chat.contextType = WebSocketContext;
