@@ -4,11 +4,6 @@ const VILLAIN_HAND_SIZE = 0.5;
 const MODAL_CARD_SIZE = 0.82;
 const CARD_RATIO = 1.45;
 
-// players
-const HERO = "hero";
-const VILLAIN = "villain";
-const GAME = "Game";
-
 // special card names
 const FACEDOWN_CARD = "Facedown Card";
 
@@ -118,10 +113,6 @@ export {
    VILLAIN_HAND_SIZE,
    MODAL_CARD_SIZE,
    CARD_RATIO,
-   // players
-   HERO,
-   VILLAIN,
-   GAME,
    // special card names
    FACEDOWN_CARD,
    // cardTypes

@@ -1,7 +1,8 @@
 import { Howl } from "howler";
 
-import { MOVE_CARD, CREATE_TOKEN, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME, SHUFFLE_DECK } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
+import { setTurn } from "./turn.js";
+import { MOVE_CARD, CREATE_TOKEN, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME, SHUFFLE_DECK, DRAW } from "utils/constants";
 
 function soundOn() {
    return window.localStorage.getItem("soundOn") === "true";
@@ -64,7 +65,10 @@ function oneLP(player, change) {
 }
 
 function resetSolo(name) {
-   return { type: NEW_SOLO_GAME, data: name };
+   return (dispatch) => {
+      dispatch(setTurn(name, DRAW));
+      dispatch({ type: NEW_SOLO_GAME, data: name });
+   };
 }
 
 function shuffleDeck() {

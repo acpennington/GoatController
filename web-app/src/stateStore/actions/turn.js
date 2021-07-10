@@ -4,12 +4,12 @@ function setTurn(player, phase) {
    return { type: SET_TURN, data: { player, phase } };
 }
 
-function nextPhase() {
-   return { type: NEXT_PHASE };
+function nextPhase(heroPlayer) {
+   return { type: NEXT_PHASE, data: heroPlayer };
 }
 
-function prevPhase() {
-   return { type: PREV_PHASE };
+function prevPhase(heroPlayer) {
+   return { type: PREV_PHASE, data: heroPlayer };
 }
 
 export { setTurn, nextPhase, prevPhase };

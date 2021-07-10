@@ -14,7 +14,6 @@ import Phases from "./Phases.js";
 import LifeBar from "components/LifeBar/LifeBar.js";
 import { adjustLP, resetSolo } from "stateStore/actions/field.js";
 import { prepopLP } from "stateStore/actions/settings.js";
-import { HERO, VILLAIN } from "utils/constants.js";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
@@ -34,12 +33,13 @@ class StandardTools extends PureComponent {
    };
 
    submitMessage = (event) => {
-      this.props.prepopLP(null);
+      const { prepopLP, player, lifepoints } = this.props;
+      prepopLP(null);
       if (event.key === "Enter") {
-         const trimmedMessage = Number(event.target.value.trim());
-         if (trimmedMessage) {
+         const trimmedNumber = Number(event.target.value.trim());
+         if (trimmedNumber) {
             event.target.value = "";
-            this.props.adjustLP(HERO, this.state.LPmode * trimmedMessage, this.props.lifepoints.hero);
+            this.props.adjustLP(player.name, this.state.LPmode * trimmedNumber, lifepoints.hero);
          }
       }
    };
@@ -79,11 +79,11 @@ class StandardTools extends PureComponent {
 
       return (
          <div className={classes.container}>
-            <LifeBar life={lifepoints.villain} player={VILLAIN} />
-            <Phases />
+            <LifeBar life={lifepoints.villain} isHero={false} />
+            <Phases heroPlayer={player.name} />
             <ShowingDiscard discardPile={discardPile} />
             <RevealHandButton name={name} />
-            <LifeBar life={lifepoints.hero} player={HERO} />
+            <LifeBar life={lifepoints.hero} isHero={true} />
             {solo ? (
                <ButtonRow>
                   <Button color="primary" fullWidth round onClick={() => resetSolo(name)}>

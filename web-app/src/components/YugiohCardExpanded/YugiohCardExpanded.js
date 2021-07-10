@@ -6,13 +6,17 @@ import EffectTooltips from "./EffectTooltips.js";
 import CardScript from "./CardScript.js";
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
-import { HERO, FACEDOWN_CARD, SEARCH_DECK, BANISH_ALL } from "utils/constants";
+import { FACEDOWN_CARD, SEARCH_DECK, BANISH_ALL } from "utils/constants";
 
 import { Description } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
 class YugiohCardExpanded extends PureComponent {
+   validScript = (player, scriptName) => {
+      return player === this.props.heroPlayer || scriptName !== SEARCH_DECK;
+   };
+
    render() {
       const { classes, hoverCard, selectedCard, height, width, noButtons, heroPlayer } = this.props;
       const activeCard = selectedCard || hoverCard;
@@ -40,7 +44,7 @@ class YugiohCardExpanded extends PureComponent {
                         <Description />
                         Rulings
                      </Button>
-                     {script && validScript(player, scriptName) && <CardScript script={script} heroPlayer={heroPlayer} />}
+                     {script && this.validScript(player, scriptName) && <CardScript script={script} heroPlayer={heroPlayer} />}
                      {text.includes("/Flip/") && (
                         <CardScript script={BANISH_ALL} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
                      )}
@@ -57,10 +61,6 @@ class YugiohCardExpanded extends PureComponent {
          </div>
       );
    }
-}
-
-function validScript(player, scriptName) {
-   return player === HERO || scriptName !== SEARCH_DECK;
 }
 
 function rename(card) {

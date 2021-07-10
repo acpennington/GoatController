@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
 import { getBools, rowClass, isAcceptable } from "./utils.js";
+import getOtherPlayer from "utils/getOtherPlayer.js";
 import getCardDetails from "utils/getCardDetails.js";
 import CardArt from "./CardArt.js";
 import ZoneLabel from "./ZoneLabel.js";
@@ -17,8 +18,6 @@ import { moveCard, switchPosition } from "stateStore/actions/field.js";
 import { openModal } from "stateStore/actions/settings.js";
 import {
    CARD_RATIO,
-   HERO,
-   VILLAIN,
    FACEDOWN_CARD,
    MONSTER,
    ST,
@@ -45,10 +44,9 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone } = getBools(row, zone);
 
    let { deckCount, card, sleeves, selected, handRevealed } = useSelector((state) => {
-      if (Object.keys(state.field).length === 0) return {};
       const sfPlayer = state.field[player];
       const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
-      const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[isHero ? VILLAIN : HERO].sleeves;
+      const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[getOtherPlayer(player, state.field)].sleeves;
       const selection = state.selectedCard;
       const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
       const handRevealed = sfPlayer.handRevealed;

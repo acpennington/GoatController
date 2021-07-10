@@ -1,16 +1,19 @@
 import React, { Fragment, PureComponent } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
 import Button from "components/CustomButtons/Button.js";
 
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
-import { HERO, phases, NEXT_TURN } from "utils/constants.js";
+import { phases, NEXT_TURN } from "utils/constants.js";
 
 class Phases extends PureComponent {
    componentDidMount() {
-      bind("up", this.props.prevPhase);
-      bind("down", this.props.nextPhase);
+      const { heroPlayer } = this.props;
+
+      bind("up", () => this.props.prevPhase(heroPlayer));
+      bind("down", () => this.props.nextPhase(heroPlayer));
    }
 
    componentWillUnmount() {
@@ -18,10 +21,10 @@ class Phases extends PureComponent {
    }
 
    render() {
-      const { turn, setTurn, nextPhase } = this.props;
+      const { heroPlayer, turn, setTurn, nextPhase } = this.props;
       const { player, phase } = turn;
 
-      const isHeroTurn = player === HERO;
+      const isHeroTurn = player === heroPlayer;
       const myColor = isHeroTurn ? "info" : "danger";
 
       return (
@@ -34,7 +37,7 @@ class Phases extends PureComponent {
                   key={index}
                   onClick={() => {
                      if (isHeroTurn) setTurn(player, aPhase);
-                     else if (phase === NEXT_TURN) nextPhase();
+                     else if (phase === NEXT_TURN) nextPhase(heroPlayer);
                   }}
                >
                   {aPhase}
@@ -48,5 +51,9 @@ class Phases extends PureComponent {
 function mapStateToProps(state) {
    return { turn: state.turn };
 }
+
+Phases.propTypes = {
+   heroPlayer: PropTypes.string.isRequired
+};
 
 export default connect(mapStateToProps, { setTurn, nextPhase, prevPhase })(Phases);

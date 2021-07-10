@@ -1,8 +1,8 @@
 import { openModal } from "./settings";
-import { HERO, DECK } from "utils/constants.js";
+import { DECK } from "utils/constants.js";
 
-function filterDeck(params) {
-   return openModal(HERO, DECK, params);
+function filterDeck(player, params) {
+   return openModal(player, DECK, params);
 }
 
 export { filterDeck };
