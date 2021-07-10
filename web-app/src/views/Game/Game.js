@@ -56,6 +56,7 @@ class Game extends Component {
       };
 
       webSocket.onmessage = (event) => {
+         console.log(event.data);
          const message = JSON.parse(event.data);
          if (message.action) {
             switch (message.action) {
@@ -79,12 +80,12 @@ class Game extends Component {
    };
 
    render() {
-      const { classes } = this.props;
+      const { classes, numPlayers } = this.props;
       const { sizingValue, loading, lostConnection } = this.state;
       const { player, socket } = this;
 
       if (lostConnection) return <LoadingSpinner message="Lost connection. Attempting to reconnect..." />;
-      if (loading) return <LoadingSpinner message="Connecting to game..." />;
+      if (loading || (!player.solo && numPlayers !== 2)) return <LoadingSpinner message="Connecting to game..." />;
       else
          return (
             <WebSocketContext.Provider value={socket}>
@@ -111,8 +112,12 @@ function getSizingValue() {
    return Math.min(vpw / GAME_RATIO, vph);
 }
 
+function mapStateToProps(state) {
+   return { numPlayers: Ibject.keys(state.field).length };
+}
+
 Game.propTypes = {
    classes: PropTypes.object.isRequired
 };
 
-export default connect(null, { resetSolo })(withStyles(styles)(Game));
+export default connect(mapStateToProps, { resetSolo })(withStyles(styles)(Game));
