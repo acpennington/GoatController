@@ -15,6 +15,7 @@ import {
    dynamicZones,
    toExtraZones,
    TRAP,
+   SET_GAMESTATE_TO,
    MOVE_CARD,
    CREATE_TOKEN,
    SWITCH_POSITION,
@@ -43,6 +44,8 @@ const initialState = {};
 export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
+      case SET_GAMESTATE_TO:
+         return data;
       case MOVE_CARD:
          const { from, to } = data;
          const drawingFromDeck = from.row === DECK && from.zone === -1;
