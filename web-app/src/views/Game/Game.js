@@ -113,7 +113,7 @@ function getSizingValue() {
 }
 
 function mapStateToProps(state) {
-   return { numPlayers: Ibject.keys(state.field).length };
+   return { numPlayers: Object.keys(state.field).length };
 }
 
 Game.propTypes = {
