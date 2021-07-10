@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
-
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import { WebSocketContext } from "./WebSocketContext.js";
@@ -13,7 +12,7 @@ import getApiStage from "utils/getApiStage.js";
 import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
-import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH } from "utils/constants.js";
+import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH, CONNECTED } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -25,7 +24,7 @@ class Game extends Component {
       setBodyImage();
 
       this.socket = { api: false, matchId: getQueryParams().id, token: getAuthHeaders(false) };
-      this.solo = !this.socket.matchId;
+      this.player = { name: window.sessionStorage.getItem("username"), solo: !this.socket.matchId };
 
       this.state = {
          sizingValue: getSizingValue(),
@@ -39,7 +38,7 @@ class Game extends Component {
    }
 
    componentDidMount() {
-      if (!this.solo) {
+      if (!this.player.solo) {
          this.setWebSocket();
       }
    }
@@ -51,16 +50,21 @@ class Game extends Component {
       webSocket.onopen = () => {
          const payload = { action: JOIN_MATCH, data: { token, id: matchId } };
          webSocket.send(JSON.stringify(payload));
-         this.setState({ loading: false, lostConnection: false });
       };
 
       webSocket.onmessage = (event) => {
          const message = JSON.parse(event.data);
          if (message.action) {
-            this.props.dispatch({ type: message.action, data: message.data });
-         } else {
-            console.log(message);
-         }
+            switch (message.action) {
+               case CONNECTED:
+                  const payloads = message.data;
+                  payloads.forEach((payload) => this.props.dispatch({ type: payload.action, data: payload.data }));
+                  this.setState({ loading: false, lostConnection: false });
+                  break;
+               default:
+                  this.props.dispatch({ type: message.action, data: message.data });
+            }
+         } else console.log(message);
       };
 
       webSocket.onclose = () => {
@@ -74,7 +78,7 @@ class Game extends Component {
    render() {
       const { classes } = this.props;
       const { sizingValue, loading, lostConnection } = this.state;
-      const { solo, socket } = this;
+      const { player, socket } = this;
 
       if (lostConnection) return <LoadingSpinner message="Lost connection. Attempting to reconnect..." />;
       if (loading) return <LoadingSpinner message="Connecting to game..." />;
@@ -89,8 +93,8 @@ class Game extends Component {
                         width: sizingValue * GAME_RATIO
                      }}
                   >
-                     <LeftPanel />
-                     <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} solo={solo} />
+                     <LeftPanel name={player.name} />
+                     <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} player={player} />
                   </div>
                </div>
             </WebSocketContext.Provider>

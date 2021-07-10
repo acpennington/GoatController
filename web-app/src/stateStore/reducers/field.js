@@ -38,10 +38,7 @@ const blankField = {
    monster: [null, null, null, null, null]
 };
 
-const initialState = {
-   villain: JSON.parse(JSON.stringify(blankField)),
-   hero: JSON.parse(JSON.stringify(blankField))
-};
+const initialState = {};
 
 export default function (state = initialState, action) {
    const { type, data } = action;
@@ -99,8 +96,8 @@ export default function (state = initialState, action) {
          state[tokenPlayer].monster[tokenZone] = { name, inDef };
          return { ...state };
       case SWITCH_POSITION:
-         const { row, zone } = data;
-         const myCard = row === FIELD_SPELL ? state.hero[FIELD_SPELL] : state.hero[row][zone];
+         const { heroPlayer, row, zone } = data;
+         const myCard = row === FIELD_SPELL ? state[heroPlayer][FIELD_SPELL] : state[heroPlayer][row][zone];
          if (row === MONSTER) {
             if (myCard.inDef) {
                if (myCard.facedown) myCard.inDef = false;
@@ -122,7 +119,7 @@ export default function (state = initialState, action) {
          state[player].lifepoints += change;
          return { ...state };
       case REVEAL_HAND:
-         state.hero.handRevealed = !state.hero.handRevealed;
+         state[data].handRevealed = !state[data].handRevealed;
          return { ...state };
       case NEW_SOLO_GAME:
          const storage = window.sessionStorage;
@@ -134,17 +131,15 @@ export default function (state = initialState, action) {
          const newHand = [];
          for (let i = 0; i < 6; i++) newHand.push(namedCards.pop());
 
-         return {
-            villain: {
-               ...JSON.parse(JSON.stringify(blankField))
-            },
-            hero: {
-               ...JSON.parse(JSON.stringify(blankField)),
-               sleeves: JSON.parse(storage.getItem("settings")).sleeves,
-               deck: namedCards,
-               hand: newHand
-            }
+         const newState = {};
+         newState["villain"] = { ...JSON.parse(JSON.stringify(blankField)) };
+         newState[data] = {
+            ...JSON.parse(JSON.stringify(blankField)),
+            sleeves: JSON.parse(storage.getItem("settings")).sleeves,
+            deck: namedCards,
+            hand: newHand
          };
+         return newState;
       case SHUFFLE_DECK:
          state.hero.deck = shuffle(state.hero.deck);
          return { ...state };

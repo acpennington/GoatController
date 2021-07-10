@@ -1,14 +1,6 @@
 import { Howl } from "howler";
 
-import {
-   MOVE_CARD,
-   CREATE_TOKEN,
-   SWITCH_POSITION,
-   ADJUST_LP,
-   REVEAL_HAND,
-   NEW_SOLO_GAME,
-   SHUFFLE_DECK
-} from "utils/constants";
+import { MOVE_CARD, CREATE_TOKEN, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME, SHUFFLE_DECK } from "utils/constants";
 import { clearSelection } from "./selectedCard.js";
 
 function soundOn() {
@@ -46,12 +38,12 @@ function createTokens(player, params) {
    };
 }
 
-function switchPosition(row, zone) {
-   return { type: SWITCH_POSITION, data: { row, zone } };
+function switchPosition(player, row, zone) {
+   return { type: SWITCH_POSITION, data: { heroPlayer: player, row, zone } };
 }
 
-function revealHand() {
-   return { type: REVEAL_HAND };
+function revealHand(player) {
+   return { type: REVEAL_HAND, data: player };
 }
 
 function adjustLP(player, change, currentLP) {
@@ -71,8 +63,8 @@ function oneLP(player, change) {
    return { type: ADJUST_LP, data: { player, change } };
 }
 
-function resetSolo() {
-   return { type: NEW_SOLO_GAME };
+function resetSolo(name) {
+   return { type: NEW_SOLO_GAME, data: name };
 }
 
 function shuffleDeck() {

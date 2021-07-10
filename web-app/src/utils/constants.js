@@ -64,6 +64,7 @@ const ENTER_QUEUE = "EnterQueue";
 const NEW_GAME = "NewGame";
 
 // game socket actions
+const CONNECTED = "CONNECTED";
 const JOIN_MATCH = "JoinMatch";
 const NEW_CHAT_MESSAGE = "NewChatMessage";
 
@@ -170,6 +171,7 @@ export {
    ENTER_QUEUE,
    NEW_GAME,
    // game socket actions
+   CONNECTED,
    JOIN_MATCH,
    NEW_CHAT_MESSAGE,
    // ItemTypes

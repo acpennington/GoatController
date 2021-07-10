@@ -7,6 +7,7 @@ import { bind, unbind } from "mousetrap";
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
+import { getBools, rowClass, isAcceptable } from "./utils.js";
 import getCardDetails from "utils/getCardDetails.js";
 import CardArt from "./CardArt.js";
 import ZoneLabel from "./ZoneLabel.js";
@@ -27,8 +28,6 @@ import {
    EXTRA_DECK,
    GRAVEYARD,
    BANISHED,
-   deckZones,
-   discardZones,
    dndZones,
    dynamicZones,
    OFF_FIELD,
@@ -40,27 +39,16 @@ import {
 
 const useStyles = makeStyles(cardStyle);
 
-function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName, modal }) {
+function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName, modal, isHero }) {
    const classes = useStyles();
    const dispatch = useDispatch();
-   const {
-      discardZone,
-      deckZone,
-      isDeck,
-      isExtraDeck,
-      isDiscardZone,
-      inHand,
-      monsterZone,
-      STzone,
-      fieldZone,
-      isHero
-   } = getBools(player, row, zone);
+   const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone } = getBools(row, zone);
 
    let { deckCount, card, sleeves, selected, handRevealed } = useSelector((state) => {
+      if (Object.keys(state.field).length === 0) return {};
       const sfPlayer = state.field[player];
       const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
-      const sleeves =
-         isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[isHero ? VILLAIN : HERO].sleeves;
+      const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[isHero ? VILLAIN : HERO].sleeves;
       const selection = state.selectedCard;
       const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
       const handRevealed = sfPlayer.handRevealed;
@@ -69,7 +57,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    });
 
    if (isDiscardZone) {
-      const cardLength = card.length;
+      const cardLength = card ? card.length : 0;
       if (cardLength === 0) {
          zone = 0;
          card = false;
@@ -87,9 +75,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
    const type =
-      dynamicZones.includes(row) && row !== DECK
-         ? (levelOrSubtype === FIELD_SPELL && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : ST)
-         : row;
+      dynamicZones.includes(row) && row !== DECK ? (levelOrSubtype === FIELD_SPELL && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : ST) : row;
 
    const [{ isDragging }, drag] = useDrag({
       item: { type, player, row, zone, cardName },
@@ -99,10 +85,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    });
 
    const acceptables =
-      (fieldZone && FIELD_SPELL) ||
-      (monsterZone && [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK]) ||
-      (STzone && [MONSTER, ST, OFF_FIELD + ST]) ||
-      allTypes;
+      (fieldZone && FIELD_SPELL) || (monsterZone && [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK]) || (STzone && [MONSTER, ST, OFF_FIELD + ST]) || allTypes;
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allTypes,
@@ -140,23 +123,16 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    return (
       <div
          ref={dragOrDrop}
-         className={
-            classes[
-               "container" + (inDef ? "Def" : villExtension + (facedown && (STzone || fieldZone) ? "" : rowClass(row)))
-            ]
-         }
+         className={classes["container" + (inDef ? "Def" : villExtension + (facedown && (STzone || fieldZone) ? "" : rowClass(row)))]}
          style={{
             width: Math.floor(height / CARD_RATIO),
             height,
             marginLeft: margin,
             marginRight: margin,
             opacity: (isDragging || blank) && !monsterZone && !STzone && !fieldZone && !isDiscardZone && !isDeck && 0,
-            borderWidth:
-               (blank || facedown || deckZone || isOver || selected || revealed || (!isHero && inHand)) && "3px",
-            borderColor:
-               (isOver && canDrop && OVER_COLOR) || (selected && HERO_SELECTION_COLOR) || (revealed && REVEAL_COLOR),
-            backgroundImage:
-               !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")')
+            borderWidth: (blank || facedown || deckZone || isOver || selected || revealed || (!isHero && inHand)) && "3px",
+            borderColor: (isOver && canDrop && OVER_COLOR) || (selected && HERO_SELECTION_COLOR) || (revealed && REVEAL_COLOR),
+            backgroundImage: !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
          onClick={() => {
             if (!blank && !deckZone && !isDiscardZone) {
@@ -165,11 +141,9 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                   if (isHero) {
                      if (discardZone) {
                         const oppositeDiscard = row === GRAVEYARD ? BANISHED : GRAVEYARD;
-                        dispatch(
-                           moveCard({ from: { player, row, zone }, to: { player, row: oppositeDiscard, zone: 0 } })
-                        );
+                        dispatch(moveCard({ from: { player, row, zone }, to: { player, row: oppositeDiscard, zone: 0 } }));
                      } else if (row === DECK) dispatch(moveCard({ from: { player, row, zone }, to: { player, row: HAND } }));
-                     else dispatch(switchPosition(row, zone));
+                     else dispatch(switchPosition(player, row, zone));
                   }
                   dispatch(clearSelection());
                }
@@ -204,40 +178,6 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    );
 }
 
-function getBools(player, row, zone) {
-   const discardZone = discardZones.includes(row);
-   const deckZone = deckZones.includes(row) && zone === -1;
-   const isDeck = row === DECK && zone === -1;
-   const isExtraDeck = row === EXTRA_DECK && zone === -1;
-   const isDiscardZone = discardZone && zone === -1;
-   const inHand = row === HAND;
-   const monsterZone = row === MONSTER;
-   const STzone = row === ST;
-   const fieldZone = row === FIELD_SPELL;
-   const isHero = player === HERO;
-
-   return { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone, isHero };
-}
-
-function rowClass(row) {
-   switch (row) {
-      case HAND:
-         return "Hand";
-      case MONSTER:
-         return "Mon";
-      case ST:
-         return "ST";
-      case FIELD_SPELL:
-         return "Field";
-      default:
-         return "";
-   }
-}
-
-function isAcceptable(itemType, acceptables) {
-   return acceptables.includes(itemType);
-}
-
 YugiohCard.propTypes = {
    height: PropTypes.number.isRequired,
    notFull: PropTypes.bool,
@@ -246,7 +186,8 @@ YugiohCard.propTypes = {
    zone: PropTypes.number,
    discardPile: PropTypes.string,
    cardName: PropTypes.string,
-   modal: PropTypes.bool
+   modal: PropTypes.bool,
+   isHero: PropTypes.bool
 };
 
 YugiohCard.defaultProps = {

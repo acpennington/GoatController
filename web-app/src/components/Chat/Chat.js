@@ -6,15 +6,15 @@ import { bind, unbind } from "mousetrap";
 import Button from "components/CustomButtons/Button.js";
 import ButtonRow from "components/CustomButtons/ButtonRow.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
-import { withStyles } from "@material-ui/core/styles";
-import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
 import Messages from "./Messages.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
-
 import { NEW_CHAT_MESSAGE } from "utils/constants.js";
+
+import { withStyles } from "@material-ui/core/styles";
+import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
 const cannedMessages = [
    { message: "Response?", shortcut: "r" },

@@ -10,9 +10,9 @@ const findMatch = require("./utils/findMatch.js");
 // @access Private
 // @db 1 read, 1 write
 async function joinMatch(id, username, requestContext) {
-   const match = await findMatch(id, "players, watchers, chat");
+   const match = await findMatch(id, "players, watchers, chat, gamestate");
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
-   const { players, watchers, chat } = match;
+   const { players, watchers, chat, gamestate } = match;
 
    const { domainName, stage, connectionId } = requestContext;
    const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
@@ -36,13 +36,15 @@ async function joinMatch(id, username, requestContext) {
    };
    try {
       await DynamoDB.update(params).promise();
-   }
-   catch (err) {
+   } catch (err) {
       return { statusCode: 400, body: { errors: [err] } };
    }
 
-   // send whole chat (and later gamestate as well) back to user
-   const payload = { action: "SET_CHAT_TO", data: chat };
+   // when the user connects, we send back multiple actions to the client, but all in one message.
+   const payloads = [];
+   payloads.push({ action: "SET_CHAT_TO", data: chat });
+   payloads.push({ action: "SET_GAMESTATE_TO", data: gamestate });
+   const payload = { action: "CONNECTED", data: payloads };
    await api.postToConnection({ ConnectionId: connectionId, Data: JSON.stringify(payload) }).promise();
 
    return { statusCode: 200, body: "Player joined match" };

@@ -7,11 +7,12 @@ import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
 import { moveCard, createTokens, shuffleDeck } from "stateStore/actions/field.js";
 import { filterDeck } from "stateStore/actions/scripts.js";
-import { HERO, GRAVEYARD, HAND, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD } from "utils/constants";
+import { GRAVEYARD, HAND, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD } from "utils/constants";
 import getCardDetails from "utils/getCardDetails.js";
 
 class CardScript extends PureComponent {
    runScript = (name, params) => {
+      const { heroPlayer } = this.props;
       switch (name) {
          case SEARCH_DECK:
             this.props.filterDeck(params);
@@ -23,7 +24,7 @@ class CardScript extends PureComponent {
             this.millUntil(params);
             break;
          case TOKENS:
-            this.props.createTokens(HERO, params);
+            this.props.createTokens(heroPlayer, params);
             break;
          case RANDOM_DISCARD:
             this.randomDiscard();
@@ -34,25 +35,27 @@ class CardScript extends PureComponent {
    };
 
    banishAll = () => {
-      const { moveCard, shuffleDeck } = this.props;
-      const deck = this.props.field.hero.deck;
+      const { moveCard, shuffleDeck, heroPlayer } = this.props;
+      const deck = this.props.field[heroPlayer].deck;
 
       for (let i = 0; i < deck.length; i++) {
          const card = deck[i];
          if (card && card.name === this.props.activeCard.name) {
             moveCard({
-               from: { player: HERO, row: DECK, zone: i },
-               to: { player: HERO, row: BANISHED, zone: 0 }
+               from: { player: heroPlayer, row: DECK, zone: i },
+               to: { player: heroPlayer, row: BANISHED, zone: 0 }
             });
             i--;
          }
       }
-      moveCard({ from: this.props.activeCard, to: { player: HERO, row: BANISHED, zone: 0 } });
+      moveCard({ from: this.props.activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } });
       shuffleDeck();
    };
 
    millUntil = (params) => {
-      const deck = this.props.field.hero.deck;
+      const { field, heroPlayer, moveCard } = this.props;
+      const deck = field[heroPlayer].deck;
+
       for (let i = deck.length - 1, stop = false; i >= 0 && !stop; i--) {
          const card = deck[i];
          const cardDetails = card && getCardDetails(card.name);
@@ -61,20 +64,22 @@ class CardScript extends PureComponent {
             if (isNaN(cardDetails.atk)) stop = true;
          }
 
-         this.props.moveCard({
-            from: { player: HERO, row: DECK, zone: i },
-            to: { player: HERO, row: GRAVEYARD, zone: 0 }
+         moveCard({
+            from: { player: heroPlayer, row: DECK, zone: i },
+            to: { player: heroPlayer, row: GRAVEYARD, zone: 0 }
          });
       }
    };
 
    randomDiscard = () => {
-      const handLength = this.props.field.hero.hand.length;
+      const { field, heroPlayer, moveCard } = this.props;
+      const handLength = field[heroPlayer].hand.length;
+
       if (handLength > 0) {
          const zone = Math.floor(Math.random() * (handLength - 1));
-         this.props.moveCard({
-            from: { player: HERO, row: HAND, zone },
-            to: { player: HERO, row: GRAVEYARD, zone: 0 }
+         moveCard({
+            from: { player: heroPlayer, row: HAND, zone },
+            to: { player: heroPlayer, row: GRAVEYARD, zone: 0 }
          });
       }
    };
@@ -96,8 +101,7 @@ class CardScript extends PureComponent {
 function fieldContains(field, card) {
    switch (card) {
       case "Nobleman of Crossout":
-         for (const zone of field.villain[ST]) if (zone && !zone.facedown && zone.name === card) return true;
-         for (const zone of field.hero[ST]) if (zone && !zone.facedown && zone.name === card) return true;
+         for (const key in field) for (const zone of field[key][ST]) if (zone && !zone.facedown && zone.name === card) return true;
          return false;
       default:
          return false;
@@ -111,7 +115,8 @@ function mapStateToProps(state) {
 CardScript.propTypes = {
    script: PropTypes.string.isRequired,
    variant: PropTypes.string,
-   activeCard: PropTypes.object
+   activeCard: PropTypes.object,
+   heroPlayer: PropTypes.string.isRequired
 };
 
 export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, shuffleDeck })(CardScript);

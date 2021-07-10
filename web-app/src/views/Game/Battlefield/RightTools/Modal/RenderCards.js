@@ -49,7 +49,7 @@ class RenderCards extends Component {
    };
 
    render() {
-      const { classes, cardsLen, height, player, row, cardNames, sub } = this.props;
+      const { classes, cardsLen, height, player, row, cardNames, sub, isHero } = this.props;
 
       const newZoneNumbers = this.filterZones();
       if (!arrIdentical(this.zoneNumbers, newZoneNumbers)) this.zoneNumbers = newZoneNumbers;
@@ -60,7 +60,16 @@ class RenderCards extends Component {
       for (let i = zoneLen - 1; i >= 0; i -= 2) {
          cardDivs.push(
             <div className={classes.cards} key={i}>
-               <YugiohCard height={height} player={player} row={row} zone={zoneNumbers[i]} cardName={cardNames ? cardNames[i] : null} notFull modal />
+               <YugiohCard
+                  height={height}
+                  player={player}
+                  row={row}
+                  zone={zoneNumbers[i]}
+                  cardName={cardNames ? cardNames[i] : null}
+                  notFull
+                  modal
+                  isHero={isHero}
+               />
                {i !== 0 && (
                   <YugiohCard
                      height={height}
@@ -70,6 +79,7 @@ class RenderCards extends Component {
                      cardName={cardNames ? cardNames[zoneNumbers[i - 1]] : null}
                      notFull
                      modal
+                     isHero={isHero}
                   />
                )}
             </div>
@@ -112,9 +122,10 @@ RenderCards.propTypes = {
    height: PropTypes.number.isRequired,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
-   cardNames: PropTypes.array,
+   cardNames: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
    sub: PropTypes.number.isRequired,
-   filter: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+   filter: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+   isHero: PropTypes.bool.isRequired
 };
 
 export default connect(mapStateToProps, { closeModal })(withStyles(styles)(RenderCards));

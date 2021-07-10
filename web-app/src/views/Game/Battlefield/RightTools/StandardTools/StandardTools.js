@@ -8,7 +8,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 
 import Switches from "./Switches.js";
 import ShowingDiscard from "./ShowingDiscard.js";
-import RevealHand from "./RevealHand.js";
+import RevealHandButton from "./RevealHandButton.js";
 import Phases from "./Phases.js";
 
 import LifeBar from "components/LifeBar/LifeBar.js";
@@ -39,13 +39,15 @@ class StandardTools extends PureComponent {
          const trimmedMessage = Number(event.target.value.trim());
          if (trimmedMessage) {
             event.target.value = "";
-            this.props.adjustLP(HERO, this.state.LPmode * trimmedMessage, this.props.heroLP);
+            this.props.adjustLP(HERO, this.state.LPmode * trimmedMessage, this.props.lifepoints.hero);
          }
       }
    };
 
    render() {
-      const { classes, discardPile, heroLP, villainLP, prepopLP, prepopLPvalue, solo, resetSolo } = this.props;
+      const { classes, discardPile, prepopLP, prepopLPvalue, player, resetSolo, lifepoints } = this.props;
+
+      const { name, solo } = player;
       const { LPmode, dontSwap } = this.state;
 
       const LPinputField = document.getElementById(LPinput);
@@ -53,7 +55,7 @@ class StandardTools extends PureComponent {
          if (dontSwap) this.setState({ dontSwap: false });
          else {
             if (prepopLPvalue === "half") {
-               LPinputField.value = Math.floor(heroLP / 2);
+               LPinputField.value = Math.floor(lifepoints.hero / 2);
                if (LPmode !== -1) this.swapLPmode();
             } else {
                LPinputField.value = Math.abs(prepopLPvalue);
@@ -77,14 +79,14 @@ class StandardTools extends PureComponent {
 
       return (
          <div className={classes.container}>
-            <LifeBar life={villainLP} player={VILLAIN} />
+            <LifeBar life={lifepoints.villain} player={VILLAIN} />
             <Phases />
             <ShowingDiscard discardPile={discardPile} />
-            <RevealHand />
-            <LifeBar life={heroLP} player={HERO} />
+            <RevealHandButton name={name} />
+            <LifeBar life={lifepoints.hero} player={HERO} />
             {solo ? (
                <ButtonRow>
-                  <Button color="primary" fullWidth round onClick={resetSolo}>
+                  <Button color="primary" fullWidth round onClick={() => resetSolo(name)}>
                      Reset
                   </Button>
                   <Button color="primary" fullWidth round href="/wall">
@@ -116,17 +118,24 @@ class StandardTools extends PureComponent {
    }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+   const { name } = ownProps.player;
+   const { field, settings } = state;
+
+   const lifepoints = {};
+   for (const key in field)
+      if (key === name) lifepoints.hero = field[key].lifepoints;
+      else lifepoints.villain = field[key].lifepoints;
+
    return {
-      villainLP: state.field.villain.lifepoints,
-      heroLP: state.field.hero.lifepoints,
-      prepopLPvalue: state.settings.prepopLP
+      lifepoints,
+      prepopLPvalue: settings.prepopLP
    };
 }
 
 StandardTools.propTypes = {
    discardPile: PropTypes.string.isRequired,
-   solo: PropTypes.bool
+   player: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps, { adjustLP, prepopLP, resetSolo })(withStyles(styles)(StandardTools));

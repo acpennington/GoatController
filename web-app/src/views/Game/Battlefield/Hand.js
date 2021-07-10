@@ -6,18 +6,17 @@ import { useDrop } from "react-dnd";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { moveCard } from "stateStore/actions/field.js";
-import { VILLAIN_HAND_SIZE, HERO, HAND, allTypes, OVER_COLOR, EXTRA_DECK } from "utils/constants.js";
+import { VILLAIN_HAND_SIZE, HAND, allTypes, OVER_COLOR, EXTRA_DECK } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 
 const useStyles = makeStyles(styles);
 
-function Hand({ player, handCount, size, discardPile }) {
+function Hand({ player, handCount, size, discardPile, isHero }) {
    const classes = useStyles();
    const dispatch = useDispatch();
 
-   const isHero = player === HERO;
    const handSize = size * (isHero && handCount > 9 ? 0.95 : 1);
 
    const [{ isOver, canDrop }, drop] = useDrop({
@@ -34,9 +33,7 @@ function Hand({ player, handCount, size, discardPile }) {
 
    const handList = [];
    for (let i = 0; i < handCount; i++) {
-      handList.push(
-         <YugiohCard height={handSize} player={player} row={HAND} zone={i} discardPile={discardPile} notFull key={i} />
-      );
+      handList.push(<YugiohCard height={handSize} player={player} row={HAND} zone={i} discardPile={discardPile} isHero={isHero} notFull key={i} />);
    }
 
    return (
@@ -58,7 +55,8 @@ function Hand({ player, handCount, size, discardPile }) {
 Hand.propTypes = {
    player: PropTypes.string.isRequired,
    handCount: PropTypes.number.isRequired,
-   size: PropTypes.number.isRequired
+   size: PropTypes.number.isRequired,
+   isHero: PropTypes.bool.isRequired
 };
 
 export default Hand;

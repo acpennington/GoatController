@@ -9,33 +9,28 @@ import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
 class CardArt extends PureComponent {
+   getSubtitle = () => {
+      const { levelOrSubtype, nameHeight } = this.props;
+      if (Number.isInteger(levelOrSubtype)) {
+         const starList = [];
+         for (let i = 0; i < levelOrSubtype; i++) {
+            starList.push(<img src="/cards/svgs/subtypes/star.svg" draggable="false" height={nameHeight * 0.67} alt="yugioh level star" key={i} />);
+         }
+         return <Fragment>{starList}</Fragment>;
+      } else return <img src={"/cards/svgs/subtypes/" + levelOrSubtype + ".svg"} draggable="false" height={nameHeight * 0.8} alt="yugioh subtype" />;
+   };
+
    render() {
-      const {
-         classes,
-         name,
-         nameHeight,
-         cardTypeIcon,
-         levelOrSubtype,
-         atk,
-         def,
-         showNames,
-         villExtension
-      } = this.props;
+      const { classes, name, nameHeight, cardTypeIcon, levelOrSubtype, atk, def, showNames, villExtension } = this.props;
       const isMonster = !isNaN(levelOrSubtype);
 
       return (
          <Fragment>
-            <div
-               className={classes.art}
-               style={{ backgroundImage: 'url("/cards/art/' + compress(name) + '.jpg")' }}
-            >
+            <div className={classes.art} style={{ backgroundImage: 'url("/cards/art/' + compress(name) + '.jpg")' }}>
                <FoilStars nameHeight={nameHeight} />
             </div>
             {showNames && (
-               <div
-                  className={classes["name" + villExtension]}
-                  style={{ fontSize: nameHeight + "px", lineHeight: nameHeight + "px" }}
-               >
+               <div className={classes["name" + villExtension]} style={{ fontSize: nameHeight + "px", lineHeight: nameHeight + "px" }}>
                   {name}
                </div>
             )}
@@ -46,7 +41,7 @@ class CardArt extends PureComponent {
                      lineHeight: nameHeight + "px"
                   }}
                >
-                  {levelOrSubtype !== "Normal" && getSubtitle(levelOrSubtype, nameHeight)}
+                  {levelOrSubtype !== "Normal" && this.getSubtitle()}
                   <img
                      src={"/cards/svgs/attributes/" + cardTypeIcon + ".svg"}
                      draggable="false"
@@ -75,32 +70,6 @@ class CardArt extends PureComponent {
    }
 }
 
-function getSubtitle(starsOrAlt, height) {
-   if (Number.isInteger(starsOrAlt)) {
-      const starList = [];
-      for (let i = 0; i < starsOrAlt; i++) {
-         starList.push(
-            <img
-               src="/cards/svgs/subtypes/star.svg"
-               draggable="false"
-               height={height * 0.67}
-               alt="yugioh level star"
-               key={i}
-            />
-         );
-      }
-      return <Fragment>{starList}</Fragment>;
-   } else
-      return (
-         <img
-            src={"/cards/svgs/subtypes/" + starsOrAlt + ".svg"}
-            draggable="false"
-            height={height * 0.8}
-            alt="yugioh subtype"
-         />
-      );
-}
-
 function mapStateToProps(state) {
    return { showNames: state.settings.showNames };
 }
@@ -113,6 +82,6 @@ CardArt.propTypes = {
    atk: PropTypes.number,
    def: PropTypes.number,
    villExtension: PropTypes.string.isRequired
-}
+};
 
 export default connect(mapStateToProps, {})(withStyles(cardStyle)(CardArt));

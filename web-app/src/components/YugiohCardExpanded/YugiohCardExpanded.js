@@ -14,7 +14,7 @@ import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpand
 
 class YugiohCardExpanded extends PureComponent {
    render() {
-      const { classes, hoverCard, selectedCard, height, width, noButtons } = this.props;
+      const { classes, hoverCard, selectedCard, height, width, noButtons, heroPlayer } = this.props;
       const activeCard = selectedCard || hoverCard;
       const player = activeCard && activeCard.player;
       const cardName = rename(activeCard);
@@ -40,8 +40,10 @@ class YugiohCardExpanded extends PureComponent {
                         <Description />
                         Rulings
                      </Button>
-                     {script && validScript(player, scriptName) && <CardScript script={script} />}
-                     {text.includes("/Flip/") && <CardScript script={BANISH_ALL} variant="Nobleman of Crossout" activeCard={activeCard} />}
+                     {script && validScript(player, scriptName) && <CardScript script={script} heroPlayer={heroPlayer} />}
+                     {text.includes("/Flip/") && (
+                        <CardScript script={BANISH_ALL} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
+                     )}
                   </div>
                )}
                <div className={classes.cardText}>
@@ -70,7 +72,8 @@ YugiohCardExpanded.propTypes = {
    selectedCard: PropTypes.object,
    height: PropTypes.string,
    width: PropTypes.string,
-   noButtons: PropTypes.bool
+   noButtons: PropTypes.bool,
+   heroPlayer: PropTypes.string.isRequired
 };
 
 export default withStyles(cardStyle)(YugiohCardExpanded);
