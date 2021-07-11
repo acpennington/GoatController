@@ -28,7 +28,7 @@ exports.handler = async (event) => {
       case "NewPhase":
          return await newPhase(id, username, data.data, connectionId, api);
       case "PushNextPhase":
-         return await nextPhase(id);
+         return await nextPhase(id, username, connectionId, api);
       case "GamestateChange":
          return;
       case "EntireState":
