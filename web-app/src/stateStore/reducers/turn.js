@@ -13,8 +13,7 @@ export default function (state = initialState, action) {
       case NEXT_PHASE:
          return state.phase === NEXT_TURN ? state : { player: state.player, phase: phases[phases.indexOf(state.phase) + 1] };
       case PREV_PHASE:
-         const phaseNum = phases.indexOf(state.phase);
-         return { player: state.player, phase: phases[phaseNum && phaseNum - 1] };
+         return state.phase === DRAW ? state : { player: state.player, phase: phases[phases.indexOf(state.phase) - 1] };
       case RESET_TURN:
          return initialState;
       default:
