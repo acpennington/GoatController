@@ -1,3 +1,6 @@
+const AWS = require("aws-sdk");
+AWS.config.update({ region: "us-east-2" });
+
 const auth = require("./utils/middleware.js");
 const joinMatch = require("./JoinMatch.js");
 const newChatMessage = require("./NewChatMessage.js");

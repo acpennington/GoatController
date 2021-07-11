@@ -4,9 +4,10 @@ import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
 import Button from "components/CustomButtons/Button.js";
+import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
-import { phases, DRAW, NEXT_TURN } from "utils/constants.js";
+import { phases, DRAW, NEXT_TURN, NEW_PHASE } from "utils/constants.js";
 
 class Phases extends PureComponent {
    componentDidMount() {
@@ -25,10 +26,14 @@ class Phases extends PureComponent {
 
       if (isHeroTurn && phase !== NEXT_TURN) {
          nextPhase();
-         // make websocket api call
+         const socket = this.context;
+         if (socket && socket.api) {
+         }
       } else if (!isHeroTurn && phase === NEXT_TURN) {
          setTurn(heroPlayer, DRAW);
-         // make websocket api call
+         const socket = this.context;
+         if (socket && socket.api) {
+         }
       }
    };
 
@@ -42,15 +47,23 @@ class Phases extends PureComponent {
    };
 
    trySetTurn = (aPhase) => {
-      const { setTurn, turn } = this.props;
+      const { setTurn, turn, heroPlayer } = this.props;
       const { player, phase } = turn;
 
       if (this.isHeroTurn()) {
          setTurn(player, aPhase);
-         // make websocket api call
+         const socket = this.context;
+         if (socket && socket.api) {
+            const payload = { action: NEW_PHASE, data: { token: socket.token, id: socket.matchId, data: { player, phase: aPhase } } };
+            socket.api.send(JSON.stringify(payload));
+         }
       } else if (phase === NEXT_TURN) {
-         setTurn(player, DRAW);
-         // make websocket api call
+         setTurn(heroPlayer, DRAW);
+         const socket = this.context;
+         if (socket && socket.api) {
+            const payload = { action: NEW_PHASE, data: { token: socket.token, id: socket.matchId, data: { player: heroPlayer, phase: DRAW } } };
+            socket.api.send(JSON.stringify(payload));
+         }
       }
    };
 
@@ -88,5 +101,7 @@ function mapStateToProps(state) {
 Phases.propTypes = {
    heroPlayer: PropTypes.string.isRequired
 };
+
+Phases.contextType = WebSocketContext;
 
 export default connect(mapStateToProps, { setTurn, nextPhase, prevPhase })(Phases);
