@@ -41,11 +41,14 @@ async function joinMatch(id, username, requestContext) {
    }
 
    // when the user connects, we send back multiple actions to the client, but all in one message
-   const payloads = [];
-   payloads.push({ action: "SET_CHAT_TO", data: chat });
-   payloads.push({ action: "SET_GAMESTATE_TO", data: gamestate });
-   payloads.push({ action: "SET_TURN", data: turn });
-   const payload = { action: "CONNECTED", data: payloads };
+   const payload = {
+      action: "CONNECTED",
+      data: [
+         { action: "SET_CHAT_TO", data: chat },
+         { action: "SET_GAMESTATE_TO", data: gamestate },
+         { action: "SET_TURN", data: turn }
+      ]
+   };
    await api.postToConnection({ ConnectionId: connectionId, Data: JSON.stringify(payload) }).promise();
 
    return { statusCode: 200, body: "Player joined match" };
