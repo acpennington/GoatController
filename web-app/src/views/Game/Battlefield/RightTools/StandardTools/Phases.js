@@ -57,8 +57,8 @@ class Phases extends PureComponent {
    isHeroTurn = () => this.props.turn.player === this.props.heroPlayer;
 
    render() {
-      const { turn, setTurn } = this.props;
-      const { player, phase } = turn;
+      const { turn } = this.props;
+      const { phase } = turn;
 
       const isHeroTurn = this.isHeroTurn();
       const myColor = isHeroTurn ? "info" : "danger";
