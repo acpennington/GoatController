@@ -6,25 +6,61 @@ import { bind, unbind } from "mousetrap";
 import Button from "components/CustomButtons/Button.js";
 
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
-import { phases, NEXT_TURN } from "utils/constants.js";
+import { phases, DRAW, NEXT_TURN } from "utils/constants.js";
 
 class Phases extends PureComponent {
    componentDidMount() {
-      const { heroPlayer } = this.props;
-
-      bind("up", () => this.props.prevPhase(heroPlayer));
-      bind("down", () => this.props.nextPhase(heroPlayer));
+      bind("up", this.tryPrevPhase);
+      bind("down", this.tryNextPhase);
    }
 
    componentWillUnmount() {
       unbind(["up", "down"]);
    }
 
-   render() {
-      const { heroPlayer, turn, setTurn, nextPhase } = this.props;
+   tryNextPhase = () => {
+      const { nextPhase, turn, heroPlayer } = this.props;
+      const { phase } = turn;
+      const isHeroTurn = this.isHeroTurn();
+
+      if (isHeroTurn && phase !== NEXT_TURN) {
+         nextPhase(heroPlayer);
+         // make websocket api call
+      } else if (!isHeroTurn && phase === NEXT_TURN) {
+         setTurn(heroPlayer, DRAW);
+         // make websocket api call
+      }
+   };
+
+   tryPrevPhase = () => {
+      const { prevPhase, turn } = this.props;
+
+      if (this.isHeroTurn() && turn.phase !== DRAW) {
+         prevPhase(heroPlayer);
+         // make websocket api call
+      }
+   };
+
+   trySetTurn = (aPhase) => {
+      const { setTurn, turn } = this.props;
       const { player, phase } = turn;
 
-      const isHeroTurn = player === heroPlayer;
+      if (this.isHeroTurn()) {
+         setTurn(player, aPhase);
+         // make websocket api call
+      } else if (phase === NEXT_TURN) {
+         setTurn(player, DRAW);
+         // make websocket api call
+      }
+   };
+
+   isHeroTurn = () => this.props.turn.player === this.props.heroPlayer;
+
+   render() {
+      const { turn, setTurn } = this.props;
+      const { player, phase } = turn;
+
+      const isHeroTurn = this.isHeroTurn();
       const myColor = isHeroTurn ? "info" : "danger";
 
       return (
@@ -35,10 +71,7 @@ class Phases extends PureComponent {
                   round
                   style={{ opacity: aPhase === phase || 0.8, border: aPhase === phase && "solid 3px white" }}
                   key={index}
-                  onClick={() => {
-                     if (isHeroTurn) setTurn(player, aPhase);
-                     else if (phase === NEXT_TURN) nextPhase(heroPlayer);
-                  }}
+                  onClick={() => this.trySetTurn(aPhase)}
                >
                   {aPhase}
                </Button>
