@@ -10,9 +10,9 @@ const findMatch = require("./utils/findMatch.js");
 // @access Private
 // @db 1 read, 1 write
 async function joinMatch(id, username, requestContext) {
-   const match = await findMatch(id, "players, watchers, chat, gamestate");
+   const match = await findMatch(id, "players, watchers, chat, gamestate, turn");
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
-   const { players, watchers, chat, gamestate } = match;
+   const { players, watchers, chat, gamestate, turn } = match;
 
    const { domainName, stage, connectionId } = requestContext;
    const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
@@ -40,10 +40,11 @@ async function joinMatch(id, username, requestContext) {
       return { statusCode: 400, body: { errors: [err] } };
    }
 
-   // when the user connects, we send back multiple actions to the client, but all in one message.
+   // when the user connects, we send back multiple actions to the client, but all in one message
    const payloads = [];
    payloads.push({ action: "SET_CHAT_TO", data: chat });
    payloads.push({ action: "SET_GAMESTATE_TO", data: gamestate });
+   payloads.push({ action: "SET_TURN", data: turn });
    const payload = { action: "CONNECTED", data: payloads };
    await api.postToConnection({ ConnectionId: connectionId, Data: JSON.stringify(payload) }).promise();
 
