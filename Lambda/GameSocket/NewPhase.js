@@ -1,6 +1,3 @@
-const AWS = require("aws-sdk");
-AWS.config.update({ region: "us-east-2" });
-
 const findMatch = require("./utils/findMatch.js");
 const handleDisconnect = require("./utils/handleDisconnect.js");
 const sendMultiPayload = require("./utils/sendMultiPayload.js");
