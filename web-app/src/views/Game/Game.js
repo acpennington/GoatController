@@ -12,7 +12,7 @@ import getApiStage from "utils/getApiStage.js";
 import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
-import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH, CONNECTED } from "utils/constants.js";
+import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH, CONNECTED, MULTIPLE_ACTIONS } from "utils/constants.js";
 import { resetSolo } from "stateStore/actions/field.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -58,14 +58,17 @@ class Game extends Component {
       webSocket.onmessage = (event) => {
          const message = JSON.parse(event.data);
          if (message.action) {
+            const payloads = message.data;
             switch (message.action) {
                case CONNECTED:
-                  const payloads = message.data;
                   payloads.forEach((payload) => this.props.dispatch({ type: payload.action, data: payload.data }));
                   this.setState({ loading: false, lostConnection: false });
                   break;
+               case MULTIPLE_ACTIONS:
+                  payloads.forEach((payload) => this.props.dispatch({ type: payload.action, data: payload.data }));
+                  break;
                default:
-                  this.props.dispatch({ type: message.action, data: message.data });
+                  this.props.dispatch({ type: message.action, data: payloads });
             }
          } else console.log(message);
       };

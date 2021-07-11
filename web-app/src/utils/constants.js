@@ -61,6 +61,7 @@ const NEW_GAME = "NewGame";
 
 // game socket actions
 const CONNECTED = "CONNECTED";
+const MULTIPLE_ACTIONS = "MULTIPLE_ACTIONS";
 const JOIN_MATCH = "JoinMatch";
 const NEW_CHAT_MESSAGE = "NewChatMessage";
 
@@ -165,6 +166,7 @@ export {
    NEW_GAME,
    // game socket actions
    CONNECTED,
+   MULTIPLE_ACTIONS,
    JOIN_MATCH,
    NEW_CHAT_MESSAGE,
    // ItemTypes

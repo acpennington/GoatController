@@ -9,13 +9,10 @@ const findMatch = require("./utils/findMatch.js");
 // @desc Connects one of the players to the game
 // @access Private
 // @db 1 read, 1 write
-async function joinMatch(id, username, requestContext) {
+async function joinMatch(id, username, connectionId, api) {
    const match = await findMatch(id, "players, watchers, chat, gamestate, turn");
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
    const { players, watchers, chat, gamestate, turn } = match;
-
-   const { domainName, stage, connectionId } = requestContext;
-   const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
 
    let UpdateExpression = "SET players.#name = :connectId, watchers = :watchers";
    const message = { author: "Server", content: username + " has connected to the match." };
