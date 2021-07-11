@@ -66,6 +66,7 @@ const JOIN_MATCH = "JoinMatch";
 const NEW_CHAT_MESSAGE = "NewChatMessage";
 const NEW_PHASE = "NewPhase";
 const PUSH_NEXT_PHASE = "PushNextPhase";
+const PUSH_PREV_PHASE = "PushPrevPhase";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -173,6 +174,7 @@ export {
    NEW_CHAT_MESSAGE,
    NEW_PHASE,
    PUSH_NEXT_PHASE,
+   PUSH_PREV_PHASE,
    // ItemTypes
    OFF_FIELD,
    allTypes,
