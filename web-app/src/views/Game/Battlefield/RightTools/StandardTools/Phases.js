@@ -20,7 +20,7 @@ class Phases extends PureComponent {
    }
 
    tryNextPhase = () => {
-      const { nextPhase, turn, heroPlayer } = this.props;
+      const { nextPhase, turn } = this.props;
       const { phase } = turn;
       const isHeroTurn = this.isHeroTurn();
 
@@ -28,6 +28,8 @@ class Phases extends PureComponent {
          nextPhase();
          const socket = this.context;
          if (socket && socket.api) {
+            const payload = { action: "", data: { token: socket.token, id: socket.matchId } };
+            socket.api.send(JSON.stringify(payload));
          }
       } else if (!isHeroTurn && phase === NEXT_TURN) this.trySetTurn(DRAW);
    };

@@ -5,6 +5,7 @@ const auth = require("./utils/middleware.js");
 const joinMatch = require("./JoinMatch.js");
 const newChatMessage = require("./NewChatMessage.js");
 const newPhase = require("./NewPhase.js");
+const nextPhase = require("./NextPhase.js");
 
 // Routes GameSocket actions
 exports.handler = async (event) => {
@@ -26,6 +27,8 @@ exports.handler = async (event) => {
          return await newChatMessage(id, username, data.message, connectionId, api);
       case "NewPhase":
          return await newPhase(id, username, data.data, connectionId, api);
+      case "PushNextPhase":
+         return await nextPhase(id);
       case "GamestateChange":
          return;
       case "EntireState":

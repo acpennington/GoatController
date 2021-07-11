@@ -3,7 +3,7 @@ const handleDisconnect = require("./utils/handleDisconnect.js");
 const sendMultiPayload = require("./utils/sendMultiPayload.js");
 const sendChatToOnly = require("./utils/sendChatToOnly.js");
 
-// @action JoinMatch
+// @action NewPhase
 // @desc Sends a payload to others when the turn is set
 // @access Private
 // @db 1 read, 0 writes
