@@ -24,7 +24,7 @@ class Phases extends PureComponent {
       const isHeroTurn = this.isHeroTurn();
 
       if (isHeroTurn && phase !== NEXT_TURN) {
-         nextPhase(heroPlayer);
+         nextPhase();
          // make websocket api call
       } else if (!isHeroTurn && phase === NEXT_TURN) {
          setTurn(heroPlayer, DRAW);
@@ -36,7 +36,7 @@ class Phases extends PureComponent {
       const { prevPhase, turn } = this.props;
 
       if (this.isHeroTurn() && turn.phase !== DRAW) {
-         prevPhase(heroPlayer);
+         prevPhase();
          // make websocket api call
       }
    };
