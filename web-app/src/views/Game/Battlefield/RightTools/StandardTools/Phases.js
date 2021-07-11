@@ -7,7 +7,7 @@ import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
-import { phases, DRAW, NEXT_TURN, NEW_PHASE } from "utils/constants.js";
+import { phases, DRAW, NEXT_TURN, NEW_PHASE, PUSH_NEXT_PHASE } from "utils/constants.js";
 
 class Phases extends PureComponent {
    componentDidMount() {
@@ -28,7 +28,7 @@ class Phases extends PureComponent {
          nextPhase();
          const socket = this.context;
          if (socket && socket.api) {
-            const payload = { action: "", data: { token: socket.token, id: socket.matchId } };
+            const payload = { action: PUSH_NEXT_PHASE, data: { token: socket.token, id: socket.matchId } };
             socket.api.send(JSON.stringify(payload));
          }
       } else if (!isHeroTurn && phase === NEXT_TURN) this.trySetTurn(DRAW);

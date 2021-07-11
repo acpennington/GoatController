@@ -65,6 +65,7 @@ const MULTIPLE_ACTIONS = "MULTIPLE_ACTIONS";
 const JOIN_MATCH = "JoinMatch";
 const NEW_CHAT_MESSAGE = "NewChatMessage";
 const NEW_PHASE = "NewPhase";
+const PUSH_NEXT_PHASE = "PushNextPhase";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -171,6 +172,7 @@ export {
    JOIN_MATCH,
    NEW_CHAT_MESSAGE,
    NEW_PHASE,
+   PUSH_NEXT_PHASE,
    // ItemTypes
    OFF_FIELD,
    allTypes,
