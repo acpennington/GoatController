@@ -76,7 +76,7 @@ function setGamestate(gamestate, player, goingFirstPlayer) {
    const shuffledDeck = shuffle(decks[activeDeck].maindeck);
    const hand = [];
    const drawNumber = goingFirstPlayer === username ? 6 : 5;
-   for (let i = 0; i < drawNumber; i++) hand.push(shuffledDeck.pop());
+   for (let i = 0; i < drawNumber; i++) hand.push({ name: shuffledDeck.pop() });
 
    gamestate[username].sleeves = settings.sleeves;
    gamestate[username].hand = hand;

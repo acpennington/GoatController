@@ -1,7 +1,6 @@
 module.exports = {
    jwtsecret: "DeezNuts69",
    blankField: {
-      sleeves: "Goat.png",
       lifepoints: 8000,
       deck: [],
       graveyard: [],

@@ -37,7 +37,7 @@ class Game extends Component {
          this.setState({ sizingValue: getSizingValue() });
       });
 
-      if (this.player.solo) props.resetSolo(this.player.name);
+      if (this.player.solo) props.dispatch(resetSolo(this.player.name));
    }
 
    componentDidMount() {
@@ -56,7 +56,6 @@ class Game extends Component {
       };
 
       webSocket.onmessage = (event) => {
-         console.log(event.data);
          const message = JSON.parse(event.data);
          if (message.action) {
             switch (message.action) {
@@ -120,4 +119,4 @@ Game.propTypes = {
    classes: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, { resetSolo })(withStyles(styles)(Game));
+export default connect(mapStateToProps, null)(withStyles(styles)(Game));

@@ -26,7 +26,6 @@ import {
 } from "utils/constants.js";
 
 const blankField = {
-   sleeves: "Goat.png",
    lifepoints: 8000,
    deck: [],
    graveyard: [],
