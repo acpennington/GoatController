@@ -29,12 +29,7 @@ class Phases extends PureComponent {
          const socket = this.context;
          if (socket && socket.api) {
          }
-      } else if (!isHeroTurn && phase === NEXT_TURN) {
-         setTurn(heroPlayer, DRAW);
-         const socket = this.context;
-         if (socket && socket.api) {
-         }
-      }
+      } else if (!isHeroTurn && phase === NEXT_TURN) this.trySetTurn(DRAW);
    };
 
    tryPrevPhase = () => {
@@ -51,11 +46,13 @@ class Phases extends PureComponent {
       const { player, phase } = turn;
 
       if (this.isHeroTurn()) {
-         setTurn(player, aPhase);
-         const socket = this.context;
-         if (socket && socket.api) {
-            const payload = { action: NEW_PHASE, data: { token: socket.token, id: socket.matchId, data: { player, phase: aPhase } } };
-            socket.api.send(JSON.stringify(payload));
+         if (phase !== aPhase) {
+            setTurn(player, aPhase);
+            const socket = this.context;
+            if (socket && socket.api) {
+               const payload = { action: NEW_PHASE, data: { token: socket.token, id: socket.matchId, data: { player, phase: aPhase } } };
+               socket.api.send(JSON.stringify(payload));
+            }
          }
       } else if (phase === NEXT_TURN) {
          setTurn(heroPlayer, DRAW);

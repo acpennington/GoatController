@@ -1,14 +1,15 @@
 import { SET_TURN, NEXT_PHASE, PREV_PHASE } from "utils/constants.js";
 
 function setTurn(player, phase) {
+   console.log("setting turn: " + player + ", " + phase);
    return { type: SET_TURN, data: { player, phase } };
 }
 
-function nextPhase(heroPlayer) {
+function nextPhase() {
    return { type: NEXT_PHASE };
 }
 
-function prevPhase(heroPlayer) {
+function prevPhase() {
    return { type: PREV_PHASE };
 }
 

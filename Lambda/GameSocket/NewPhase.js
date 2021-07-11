@@ -20,7 +20,7 @@ async function newPhase(id, username, data, connectionId, api) {
    const badConnection = await sendMultiPayload(payloads, players, watchers, api, connectionId);
    if (badConnection) await handleDisconnect(badConnection, players, watchers, api);
 
-   sendChatToOnly(message, connectionId, api);
+   await sendChatToOnly(message, connectionId, api);
    return { statusCode: 200, body: "Set turn sent" };
 }
 
