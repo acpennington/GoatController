@@ -1,10 +1,22 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
 
-async function sendCardMove(id, username, from, fromCard, to, connectionId, api) {
-   const player = to.player === username ? " their " : to.player + "'s ";
-   const cardName = fromCard.name;
+const HAND = "hand";
+const DECK = "deck";
+const GRAVEYARD = "graveyard";
+const BANISHED = "banished";
 
-   const message = { author: "Server", content: username + " moved " + cardName + " to " + player + to.row + " zone." };
+async function sendCardMove(id, username, from, fromCard, to, msg, connectionId, api) {
+   const player = to.player === username ? " their " : to.player + "'s ";
+   const cardName =
+      (from.row === DECK && to.row === HAND) || (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED)
+         ? "a card from their " + from.row
+         : fromCard.name;
+   const adverb = msg || "";
+
+   const message = {
+      author: "Server",
+      content: username + " " + adverb + " moved " + cardName + " from their " + from.row + " zone to " + player + to.row + " zone."
+   };
    const action = { action: "MOVE_CARD", data: { from, to } };
 
    await actionAndMessage(id, action, message, connectionId, api);

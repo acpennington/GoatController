@@ -48,6 +48,7 @@ export default function (state = initialState, action) {
          return data;
       case MOVE_CARD:
          const { from, to, socket } = data;
+         const oldFromZone = from.zone;
          const drawingFromDeck = from.row === DECK && from.zone === -1;
          if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
          const fieldSpell = from.row === FIELD_SPELL;
@@ -88,7 +89,10 @@ export default function (state = initialState, action) {
          else state[from.player][from.row][from.zone] = null;
 
          if (socket && socket.api) {
-            const payload = { action: SEND_CARD_MOVE, data: { token: socket.token, id: socket.matchId, from, fromCard, to } };
+            const payload = {
+               action: SEND_CARD_MOVE,
+               data: { token: socket.token, id: socket.matchId, from: { ...from, zone: oldFromZone }, fromCard, to, msg: socket.msg }
+            };
             socket.api.send(JSON.stringify(payload));
          }
 

@@ -43,7 +43,7 @@ exports.handler = async (event) => {
       case "SendReveal":
          return await sendReveal(id, username, connectionId, api);
       case "SendCardMove":
-         return await sendCardMove(id, username, data.from, data.fromCard, data.to, connectionId, api);
+         return await sendCardMove(id, username, data.from, data.fromCard, data.to, data.msg, connectionId, api);
       case "EntireState":
          return;
       default:

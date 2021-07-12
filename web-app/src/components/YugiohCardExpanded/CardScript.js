@@ -42,14 +42,17 @@ class CardScript extends PureComponent {
       for (let i = 0; i < deck.length; i++) {
          const card = deck[i];
          if (card && card.name === this.props.activeCard.name) {
-            moveCard({
-               from: { player: heroPlayer, row: DECK, zone: i },
-               to: { player: heroPlayer, row: BANISHED, zone: 0 }
-            });
+            moveCard(
+               {
+                  from: { player: heroPlayer, row: DECK, zone: i },
+                  to: { player: heroPlayer, row: BANISHED, zone: 0 }
+               },
+               this.context
+            );
             i--;
          }
       }
-      moveCard({ from: this.props.activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } });
+      moveCard({ from: this.props.activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }, this.context);
       shuffleDeck();
    };
 
@@ -65,10 +68,13 @@ class CardScript extends PureComponent {
             if (isNaN(cardDetails.atk)) stop = true;
          }
 
-         moveCard({
-            from: { player: heroPlayer, row: DECK, zone: i },
-            to: { player: heroPlayer, row: GRAVEYARD, zone: 0 }
-         });
+         moveCard(
+            {
+               from: { player: heroPlayer, row: DECK, zone: i },
+               to: { player: heroPlayer, row: GRAVEYARD, zone: 0 }
+            },
+            this.context
+         );
       }
    };
 
@@ -78,10 +84,13 @@ class CardScript extends PureComponent {
 
       if (handLength > 0) {
          const zone = Math.floor(Math.random() * (handLength - 1));
-         moveCard({
-            from: { player: heroPlayer, row: HAND, zone },
-            to: { player: heroPlayer, row: GRAVEYARD, zone: 0 }
-         });
+         moveCard(
+            {
+               from: { player: heroPlayer, row: HAND, zone },
+               to: { player: heroPlayer, row: GRAVEYARD, zone: 0 }
+            },
+            { ...this.context, msg: "randomly" }
+         );
       }
    };
 
