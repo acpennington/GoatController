@@ -47,9 +47,10 @@ function revealHand(player) {
    return { type: REVEAL_HAND, data: player };
 }
 
-function adjustLP(player, change, currentLP, socket) {
+function adjustLP(player, change, currentLP, socket = false) {
    if (socket && socket.api) {
-      // make API call
+      const payload = { action: PUSH_PREV_PHASE, data: { token: socket.token, id: socket.matchId, amount: change, currentLP } };
+      socket.api.send(JSON.stringify(payload));
    }
 
    playSound("/sounds/lp.mp3");
