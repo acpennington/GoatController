@@ -69,6 +69,7 @@ const PUSH_NEXT_PHASE = "PushNextPhase";
 const PUSH_PREV_PHASE = "PushPrevPhase";
 const SEND_LP_CHANGE = "SendLpChange";
 const SEND_TOKENS = "SendTokens";
+const SEND_REVEAL = "SendReveal";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -179,6 +180,7 @@ export {
    PUSH_PREV_PHASE,
    SEND_LP_CHANGE,
    SEND_TOKENS,
+   SEND_REVEAL,
    // ItemTypes
    OFF_FIELD,
    allTypes,

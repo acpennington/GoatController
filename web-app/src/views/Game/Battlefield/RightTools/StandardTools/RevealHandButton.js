@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import Button from "components/CustomButtons/Button.js";
 import { revealHand } from "stateStore/actions/field.js";
+import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 class RevealHand extends PureComponent {
    render() {
@@ -11,7 +12,7 @@ class RevealHand extends PureComponent {
 
       return (
          <Button
-            onClick={() => revealHand(name)}
+            onClick={() => revealHand(name, this.context)}
             style={
                handRevealed
                   ? {
@@ -36,5 +37,7 @@ function mapStateToProps(state, ownProps) {
 RevealHand.propTypes = {
    name: PropTypes.string.isRequired
 };
+
+RevealHand.contextType = WebSocketContext;
 
 export default connect(mapStateToProps, { revealHand })(RevealHand);

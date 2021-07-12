@@ -12,7 +12,8 @@ import {
    SHUFFLE_DECK,
    DRAW,
    SEND_LP_CHANGE,
-   SEND_TOKENS
+   SEND_TOKENS,
+   SEND_REVEAL
 } from "utils/constants";
 
 function soundOn() {
@@ -59,7 +60,12 @@ function switchPosition(player, row, zone) {
    return { type: SWITCH_POSITION, data: { heroPlayer: player, row, zone } };
 }
 
-function revealHand(player) {
+function revealHand(player, socket) {
+   if (socket && socket.api) {
+      const payload = { action: SEND_REVEAL, data: { token: socket.token, id: socket.matchId } };
+      socket.api.send(JSON.stringify(payload));
+   }
+
    return { type: REVEAL_HAND, data: player };
 }
 
