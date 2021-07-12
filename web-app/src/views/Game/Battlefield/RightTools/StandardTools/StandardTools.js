@@ -10,7 +10,7 @@ import Switches from "./Switches.js";
 import ShowingDiscard from "./ShowingDiscard.js";
 import RevealHandButton from "./RevealHandButton.js";
 import Phases from "./Phases.js";
-
+import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import LifeBar from "components/LifeBar/LifeBar.js";
 import { adjustLP, resetSolo } from "stateStore/actions/field.js";
 import { prepopLP } from "stateStore/actions/settings.js";
@@ -39,7 +39,7 @@ class StandardTools extends PureComponent {
          const trimmedNumber = Number(event.target.value.trim());
          if (trimmedNumber) {
             event.target.value = "";
-            this.props.adjustLP(player.name, this.state.LPmode * trimmedNumber, lifepoints.hero);
+            this.props.adjustLP(player.name, this.state.LPmode * trimmedNumber, lifepoints.hero, this.context);
          }
       }
    };
@@ -137,5 +137,7 @@ StandardTools.propTypes = {
    discardPile: PropTypes.string.isRequired,
    player: PropTypes.object.isRequired
 };
+
+StandardTools.contextType = WebSocketContext;
 
 export default connect(mapStateToProps, { adjustLP, prepopLP, resetSolo })(withStyles(styles)(StandardTools));

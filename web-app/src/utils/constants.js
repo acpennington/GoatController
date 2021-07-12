@@ -67,6 +67,7 @@ const NEW_CHAT_MESSAGE = "NewChatMessage";
 const NEW_PHASE = "NewPhase";
 const PUSH_NEXT_PHASE = "PushNextPhase";
 const PUSH_PREV_PHASE = "PushPrevPhase";
+const SEND_LP_CHANGE = "SendLpChange";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -175,6 +176,7 @@ export {
    NEW_PHASE,
    PUSH_NEXT_PHASE,
    PUSH_PREV_PHASE,
+   SEND_LP_CHANGE,
    // ItemTypes
    OFF_FIELD,
    allTypes,

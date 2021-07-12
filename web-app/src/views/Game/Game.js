@@ -65,7 +65,7 @@ class Game extends Component {
                   this.setState({ loading: false, lostConnection: false });
                   break;
                case MULTIPLE_ACTIONS:
-                  payloads.forEach((payload) => this.customDispatch({ type: payload.action, data: payload.data }));
+                  payloads.forEach((payload) => this.customDispatch(payload.action, payload.data));
                   break;
                case ADJUST_LP:
                   break;
@@ -83,13 +83,13 @@ class Game extends Component {
       this.socket.api = webSocket;
    };
 
-   customDispatch = (payload) => {
+   customDispatch = (action, data) => {
       const { dispatch } = this.props;
 
-      if (payload.action === ADJUST_LP) {
-         const { player, change, currentLP } = payload.data;
+      if (action === ADJUST_LP) {
+         const { player, change, currentLP } = data;
          dispatch(adjustLP(player, change, currentLP));
-      } else dispatch(payload);
+      } else dispatch({ type: action, data });
    };
 
    render() {

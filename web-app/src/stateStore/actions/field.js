@@ -2,7 +2,7 @@ import { Howl } from "howler";
 
 import { clearSelection } from "./selectedCard.js";
 import { setTurn } from "./turn.js";
-import { MOVE_CARD, CREATE_TOKEN, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME, SHUFFLE_DECK, DRAW } from "utils/constants";
+import { MOVE_CARD, CREATE_TOKEN, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME, SHUFFLE_DECK, DRAW, SEND_LP_CHANGE } from "utils/constants";
 
 function soundOn() {
    return window.localStorage.getItem("soundOn") === "true";
@@ -48,8 +48,10 @@ function revealHand(player) {
 }
 
 function adjustLP(player, change, currentLP, socket = false) {
+   console.log("LP adjusted");
+
    if (socket && socket.api) {
-      const payload = { action: PUSH_PREV_PHASE, data: { token: socket.token, id: socket.matchId, amount: change, currentLP } };
+      const payload = { action: SEND_LP_CHANGE, data: { token: socket.token, id: socket.matchId, amount: change, currentLP } };
       socket.api.send(JSON.stringify(payload));
    }
 
