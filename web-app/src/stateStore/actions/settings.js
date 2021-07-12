@@ -13,11 +13,11 @@ function openModal(player, row, filter = false) {
    return { type: OPEN_MODAL, data: { player, row, filter } };
 }
 
-function closeModal(type) {
+function closeModal(type, player, socket = false) {
    return (dispatch) => {
       dispatch({ type: CLOSE_MODAL });
-      if (type === DECK) dispatch(shuffleDeck());
-   }
+      if (type === DECK) dispatch(shuffleDeck(player, socket));
+   };
 }
 
 function prepopLP(data) {

@@ -1,15 +1,14 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
+const { HAND, DECK, GRAVEYARD, BANISHED } = require("./utils/constants");
 
-const HAND = "hand";
-const DECK = "deck";
-const GRAVEYARD = "graveyard";
-const BANISHED = "banished";
-
-async function sendCardMove(id, username, from, fromCard, to, msg, connectionId, api) {
+async function sendCardMove(id, username, from, fromCard, to, settingTrap, msg, connectionId, api) {
    const player = to.player === username ? " their " : to.player + "'s ";
    const cardName =
-      (from.row === DECK && to.row === HAND) || (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED)
-         ? "a card from their " + from.row
+      settingTrap ||
+      (from.row === DECK && ((to.row === HAND && from.zone === -1) || to.row === DECK)) ||
+      (from.row === HAND && to.row === HAND) ||
+      (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED)
+         ? "a card "
          : fromCard.name;
    const adverb = msg || "";
 

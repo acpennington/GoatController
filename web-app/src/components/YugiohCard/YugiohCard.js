@@ -66,9 +66,10 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       }
    }
 
-   const name = card && card.name;
+   let name = card && card.name;
    const revealed = inHand && handRevealed;
    const facedown = name === FACEDOWN_CARD || deckZone || (card && card.facedown);
+   if (facedown && !isHero) name = FACEDOWN_CARD;
    const inDef = card && card.inDef && monsterZone ? card.inDef : false;
 
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
@@ -142,7 +143,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                         const oppositeDiscard = row === GRAVEYARD ? BANISHED : GRAVEYARD;
                         dispatch(moveCard({ from: { player, row, zone }, to: { player, row: oppositeDiscard, zone: 0 } }, socket));
                      } else if (row === DECK) dispatch(moveCard({ from: { player, row, zone }, to: { player, row: HAND } }, socket));
-                     else dispatch(switchPosition(player, row, zone));
+                     else dispatch(switchPosition(player, row, zone, socket));
                   }
                   dispatch(clearSelection());
                }

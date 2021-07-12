@@ -6,23 +6,22 @@ import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
 import { moveCard, createTokens, shuffleDeck } from "stateStore/actions/field.js";
-import { filterDeck } from "stateStore/actions/scripts.js";
+import { filterDeck, millUntil } from "stateStore/actions/scripts.js";
 
 import { GRAVEYARD, HAND, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD } from "utils/constants";
-import getCardDetails from "utils/getCardDetails.js";
 
 class CardScript extends PureComponent {
    runScript = (name, params) => {
       const { heroPlayer } = this.props;
       switch (name) {
          case SEARCH_DECK:
-            this.props.filterDeck(params);
+            this.props.filterDeck(heroPlayer, params);
             break;
          case BANISH_ALL:
             this.banishAll();
             break;
          case MILL_UNTIL:
-            this.millUntil(params);
+            this.props.millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, this.context);
             break;
          case TOKENS:
             this.props.createTokens(heroPlayer, params, this.context);
@@ -53,29 +52,7 @@ class CardScript extends PureComponent {
          }
       }
       moveCard({ from: this.props.activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }, this.context);
-      shuffleDeck();
-   };
-
-   millUntil = (params) => {
-      const { field, heroPlayer, moveCard } = this.props;
-      const deck = field[heroPlayer].deck;
-
-      for (let i = deck.length - 1, stop = false; i >= 0 && !stop; i--) {
-         const card = deck[i];
-         const cardDetails = card && getCardDetails(card.name);
-
-         if (params === ST) {
-            if (isNaN(cardDetails.atk)) stop = true;
-         }
-
-         moveCard(
-            {
-               from: { player: heroPlayer, row: DECK, zone: i },
-               to: { player: heroPlayer, row: GRAVEYARD, zone: 0 }
-            },
-            this.context
-         );
-      }
+      shuffleDeck(heroPlayer);
    };
 
    randomDiscard = () => {
@@ -131,4 +108,4 @@ CardScript.propTypes = {
 
 CardScript.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, shuffleDeck })(CardScript);
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, shuffleDeck, millUntil })(CardScript);

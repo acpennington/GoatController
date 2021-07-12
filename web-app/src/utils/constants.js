@@ -54,6 +54,7 @@ const NEXT_PHASE = "NEXT_PHASE";
 const PREV_PHASE = "PREV_PHASE";
 const RESET_TURN = "RESET_TURN";
 const SHUFFLE_DECK = "SHUFFLE_DECK";
+const SET_DECK = "SET_DECK";
 
 // league socket actions
 const ENTER_QUEUE = "EnterQueue";
@@ -71,6 +72,9 @@ const SEND_LP_CHANGE = "SendLpChange";
 const SEND_TOKENS = "SendTokens";
 const SEND_REVEAL = "SendReveal";
 const SEND_CARD_MOVE = "SendCardMove";
+const SEND_POS_CHANGE = "SendPosChange";
+const REORDER_DECK = "ReorderDeck";
+const MILL = "Mill";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -168,6 +172,7 @@ export {
    PREV_PHASE,
    RESET_TURN,
    SHUFFLE_DECK,
+   SET_DECK,
    // league socket actions
    ENTER_QUEUE,
    NEW_GAME,
@@ -183,6 +188,9 @@ export {
    SEND_TOKENS,
    SEND_REVEAL,
    SEND_CARD_MOVE,
+   SEND_POS_CHANGE,
+   REORDER_DECK,
+   MILL,
    // ItemTypes
    OFF_FIELD,
    allTypes,

@@ -7,6 +7,7 @@ import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import { WebSocketContext } from "./WebSocketContext.js";
 import { resetSolo, adjustLP, createTokens, moveCard } from "stateStore/actions/field.js";
+import { millUntil } from "stateStore/actions/scripts.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
@@ -22,7 +23,8 @@ import {
    MULTIPLE_ACTIONS,
    ADJUST_LP,
    CREATE_TOKEN,
-   MOVE_CARD
+   MOVE_CARD,
+   MILL_UNTIL
 } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -109,6 +111,11 @@ class Game extends Component {
             case MOVE_CARD:
                dispatch(moveCard(data));
                break;
+            case MILL_UNTIL: {
+               const { player, deck, params } = data;
+               dispatch(millUntil(player, deck, params));
+               break;
+            }
             default:
                dispatch({ type: action, data });
          }

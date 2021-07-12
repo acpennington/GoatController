@@ -23,7 +23,10 @@ import {
    REVEAL_HAND,
    NEW_SOLO_GAME,
    SHUFFLE_DECK,
-   SEND_CARD_MOVE
+   SEND_CARD_MOVE,
+   SEND_POS_CHANGE,
+   REORDER_DECK,
+   SET_DECK
 } from "utils/constants.js";
 
 const blankField = {
@@ -91,7 +94,7 @@ export default function (state = initialState, action) {
          if (socket && socket.api) {
             const payload = {
                action: SEND_CARD_MOVE,
-               data: { token: socket.token, id: socket.matchId, from: { ...from, zone: oldFromZone }, fromCard, to, msg: socket.msg }
+               data: { token: socket.token, id: socket.matchId, from: { ...from, zone: oldFromZone }, fromCard, to, settingTrap, msg: socket.msg }
             };
             socket.api.send(JSON.stringify(payload));
          }
@@ -107,9 +110,9 @@ export default function (state = initialState, action) {
 
          state[tokenPlayer].monster[tokenZone] = { name, inDef };
          return { ...state };
-      case SWITCH_POSITION:
-         const { heroPlayer, row, zone } = data;
-         const myCard = row === FIELD_SPELL ? state[heroPlayer][FIELD_SPELL] : state[heroPlayer][row][zone];
+      case SWITCH_POSITION: {
+         const { player, row, zone, socket } = data;
+         const myCard = row === FIELD_SPELL ? state[player][FIELD_SPELL] : state[player][row][zone];
          if (row === MONSTER) {
             if (myCard.inDef) {
                if (myCard.facedown) myCard.inDef = false;
@@ -125,7 +128,14 @@ export default function (state = initialState, action) {
                else playSound("/sounds/flip.mp3");
             myCard.facedown = !myCard.facedown;
          }
+
+         if (socket && socket.api) {
+            const payload = { action: SEND_POS_CHANGE, data: { token: socket.token, id: socket.matchId, row, zone, cardName: myCard.name } };
+            socket.api.send(JSON.stringify(payload));
+         }
+
          return state;
+      }
       case ADJUST_LP:
          const { player, change } = data;
          state[player].lifepoints += change;
@@ -151,9 +161,23 @@ export default function (state = initialState, action) {
             hand: newHand
          };
          return newState;
-      case SHUFFLE_DECK:
-         state[data].deck = shuffle(state[data].deck);
+      case SHUFFLE_DECK: {
+         const { player, socket } = data;
+         state[player].deck = shuffle(state[player].deck);
+
+         if (socket && socket.api) {
+            const payload = { action: REORDER_DECK, data: { token: socket.token, id: socket.matchId, deck: state[player].deck } };
+            socket.api.send(JSON.stringify(payload));
+         }
+
          return { ...state };
+      }
+      case SET_DECK: {
+         const { player, deck } = data;
+         state[player].deck = deck;
+         playSound("/sounds/shuffle.mp3");
+         return { ...state };
+      }
       default:
          return state;
    }

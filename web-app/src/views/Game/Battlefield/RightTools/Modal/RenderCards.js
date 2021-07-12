@@ -6,6 +6,7 @@ import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import getCardDetails from "utils/getCardDetails.js";
 import { closeModal } from "stateStore/actions/settings.js";
+import { WebSocketContext } from "views/Game/WebSocketContext";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
@@ -17,7 +18,7 @@ class RenderCards extends Component {
    }
 
    filterZones = () => {
-      const { cardsLen, row, filter, cards, closeModal } = this.props;
+      const { cardsLen, row, filter, cards, closeModal, player } = this.props;
       let zoneNumbers = [];
       for (let i = 0; i < cardsLen; i++) zoneNumbers.push(i);
 
@@ -44,7 +45,7 @@ class RenderCards extends Component {
             return true;
          });
 
-      if (zoneNumbers.length === 0) closeModal(row);
+      if (zoneNumbers.length === 0) closeModal(row, player, this.context);
       return zoneNumbers;
    };
 
@@ -127,5 +128,7 @@ RenderCards.propTypes = {
    filter: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
    isHero: PropTypes.bool.isRequired
 };
+
+RenderCards.contextType = WebSocketContext;
 
 export default connect(mapStateToProps, { closeModal })(withStyles(styles)(RenderCards));

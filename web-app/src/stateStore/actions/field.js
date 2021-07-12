@@ -24,7 +24,7 @@ function playSound(soundName) {
    if (soundOn()) new Howl({ src: [soundName] }).play();
 }
 
-function moveCard(data, socket) {
+function moveCard(data, socket = false) {
    data = { ...data, socket };
    return (dispatch) => {
       dispatch({ type: MOVE_CARD, data });
@@ -32,7 +32,7 @@ function moveCard(data, socket) {
    };
 }
 
-function createTokens(player, params, socket) {
+function createTokens(player, params, socket = false) {
    const splitParams = params.split(",");
 
    let count, name, inDef;
@@ -57,11 +57,11 @@ function createTokens(player, params, socket) {
    };
 }
 
-function switchPosition(player, row, zone) {
-   return { type: SWITCH_POSITION, data: { heroPlayer: player, row, zone } };
+function switchPosition(player, row, zone, socket = false) {
+   return { type: SWITCH_POSITION, data: { player, row, zone, socket } };
 }
 
-function revealHand(player, socket) {
+function revealHand(player, socket = false) {
    if (socket && socket.api) {
       const payload = { action: SEND_REVEAL, data: { token: socket.token, id: socket.matchId } };
       socket.api.send(JSON.stringify(payload));
@@ -98,9 +98,9 @@ function resetSolo(name) {
    };
 }
 
-function shuffleDeck() {
+function shuffleDeck(player, socket) {
    playSound("/sounds/shuffle.mp3");
-   return { type: SHUFFLE_DECK };
+   return { type: SHUFFLE_DECK, data: { player, socket } };
 }
 
 export { playSound, moveCard, createTokens, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };

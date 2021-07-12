@@ -1,5 +1,6 @@
 const findMatch = require("./findMatch.js");
 const sendMultiPayload = require("./sendMultiPayload.js");
+const sendPayload = require("./sendPayload.js");
 const handleDisconnect = require("./handleDisconnect.js");
 const sendChatToOnly = require("./sendChatToOnly.js");
 
@@ -11,10 +12,12 @@ async function actionAndMessage(id, action, message, connectionId, api) {
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game not found" }] } };
    const { players, watchers } = match;
 
-   const badConnection = await sendMultiPayload([action, { action: "ADD_MESSAGE", data: message }], players, watchers, api, connectionId);
+   const badConnection = message
+      ? await sendMultiPayload([action, { action: "ADD_MESSAGE", data: message }], players, watchers, api, connectionId)
+      : await sendPayload(action, players, watchers, api, connectionId);
    if (badConnection) await handleDisconnect(badConnection, players, watchers, api);
 
-   await sendChatToOnly(message, connectionId, api);
+   if (message) await sendChatToOnly(message, connectionId, api);
 }
 
 module.exports = actionAndMessage;
