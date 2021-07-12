@@ -6,6 +6,7 @@ import Button from "components/CustomButtons/Button.js";
 import ButtonRow from "components/CustomButtons/ButtonRow.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
+import ConcedeButton from "./ConcedeButton.js";
 import Switches from "./Switches.js";
 import ShowingDiscard from "./ShowingDiscard.js";
 import RevealHandButton from "./RevealHandButton.js";
@@ -94,9 +95,7 @@ class StandardTools extends PureComponent {
                   </Button>
                </ButtonRow>
             ) : (
-               <Button color="primary" fullWidth round>
-                  Concede
-               </Button>
+               <ConcedeButton />
             )}
             <div className={classes.LPbox}>
                <CustomInput

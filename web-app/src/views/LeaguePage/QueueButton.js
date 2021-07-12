@@ -27,7 +27,11 @@ class QueueButton extends PureComponent {
 
       webSocket.onmessage = (event) => {
          const message = JSON.parse(event.data);
-         if (message.action === NEW_GAME) window.location.href = "/game?id=" + message.data;
+         if (message.action === NEW_GAME) {
+            const { data } = message;
+            window.sessionStorage.setItem("activeMatch", data);
+            window.location.href = "/game?id=" + data;
+         }
       };
 
       webSocket.onclose = () => {

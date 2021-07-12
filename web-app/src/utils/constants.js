@@ -49,6 +49,7 @@ const SWITCH_NAMES = "SWITCH_NAMES";
 const OPEN_MODAL = "OPEN_MODAL";
 const CLOSE_MODAL = "CLOSE_MODAL";
 const PREPOP_LP = "PREPOP_LP";
+const CONCEDE_GAME = "CONCEDE_GAME";
 const SET_TURN = "SET_TURN";
 const NEXT_PHASE = "NEXT_PHASE";
 const PREV_PHASE = "PREV_PHASE";
@@ -75,6 +76,8 @@ const SEND_CARD_MOVE = "SendCardMove";
 const SEND_POS_CHANGE = "SendPosChange";
 const REORDER_DECK = "ReorderDeck";
 const MILL = "Mill";
+const PLAYER_CONCEDED = "PlayerConceded";
+const CLEANUP_GAME = "CleanupGame";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -167,6 +170,7 @@ export {
    OPEN_MODAL,
    CLOSE_MODAL,
    PREPOP_LP,
+   CONCEDE_GAME,
    SET_TURN,
    NEXT_PHASE,
    PREV_PHASE,
@@ -191,6 +195,8 @@ export {
    SEND_POS_CHANGE,
    REORDER_DECK,
    MILL,
+   PLAYER_CONCEDED,
+   CLEANUP_GAME,
    // ItemTypes
    OFF_FIELD,
    allTypes,
