@@ -7,6 +7,7 @@ const newChatMessage = require("./NewChatMessage.js");
 const newPhase = require("./NewPhase.js");
 const nextPhase = require("./NextPhase.js");
 const prevPhase = require("./PrevPhase.js");
+const sendLpChange = require("./SendLpChange.js");
 
 // Routes GameSocket actions
 exports.handler = async (event) => {
@@ -32,6 +33,8 @@ exports.handler = async (event) => {
          return await nextPhase(id, username, connectionId, api);
       case "PushPrevPhase":
          return await prevPhase(id, username, connectionId, api);
+      case "SendLpChange":
+         return await sendLpChange(id, username, data.amount, data.currentLP, connectionId, api);
       case "GamestateChange":
          return;
       case "EntireState":
