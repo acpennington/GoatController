@@ -2,11 +2,12 @@ import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
-
 import ScriptName from "./ScriptName.js";
 import { moveCard, createTokens, shuffleDeck } from "stateStore/actions/field.js";
 import { filterDeck } from "stateStore/actions/scripts.js";
+
 import { GRAVEYARD, HAND, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD } from "utils/constants";
 import getCardDetails from "utils/getCardDetails.js";
 
@@ -24,7 +25,7 @@ class CardScript extends PureComponent {
             this.millUntil(params);
             break;
          case TOKENS:
-            this.props.createTokens(heroPlayer, params);
+            this.props.createTokens(heroPlayer, params, this.context);
             break;
          case RANDOM_DISCARD:
             this.randomDiscard();
@@ -118,5 +119,7 @@ CardScript.propTypes = {
    activeCard: PropTypes.object,
    heroPlayer: PropTypes.string.isRequired
 };
+
+CardScript.contextType = WebSocketContext;
 
 export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, shuffleDeck })(CardScript);

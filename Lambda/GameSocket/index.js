@@ -8,6 +8,7 @@ const newPhase = require("./NewPhase.js");
 const nextPhase = require("./NextPhase.js");
 const prevPhase = require("./PrevPhase.js");
 const sendLpChange = require("./SendLpChange.js");
+const sendTokens = require("./SendTokens.js");
 
 // Routes GameSocket actions
 exports.handler = async (event) => {
@@ -35,8 +36,8 @@ exports.handler = async (event) => {
          return await prevPhase(id, username, connectionId, api);
       case "SendLpChange":
          return await sendLpChange(id, username, data.amount, data.currentLP, connectionId, api);
-      case "GamestateChange":
-         return;
+      case "SendTokens":
+         return await sendTokens(id, username, data.params, connectionId, api);
       case "EntireState":
          return;
       default:

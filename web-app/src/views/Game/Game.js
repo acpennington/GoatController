@@ -12,8 +12,8 @@ import getApiStage from "utils/getApiStage.js";
 import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
-import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH, CONNECTED, MULTIPLE_ACTIONS, ADJUST_LP } from "utils/constants.js";
-import { resetSolo, adjustLP } from "stateStore/actions/field.js";
+import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH, CONNECTED, MULTIPLE_ACTIONS, ADJUST_LP, CREATE_TOKEN } from "utils/constants.js";
+import { resetSolo, adjustLP, createTokens } from "stateStore/actions/field.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -67,8 +67,6 @@ class Game extends Component {
                case MULTIPLE_ACTIONS:
                   payloads.forEach((payload) => this.customDispatch(payload.action, payload.data));
                   break;
-               case ADJUST_LP:
-                  break;
                default:
                   this.props.dispatch({ type: message.action, data: payloads });
             }
@@ -86,10 +84,21 @@ class Game extends Component {
    customDispatch = (action, data) => {
       const { dispatch } = this.props;
 
-      if (action === ADJUST_LP) {
-         const { player, change, currentLP } = data;
-         dispatch(adjustLP(player, change, currentLP));
-      } else dispatch({ type: action, data });
+      if (action)
+         switch (action) {
+            case ADJUST_LP: {
+               const { player, change, currentLP } = data;
+               dispatch(adjustLP(player, change, currentLP));
+               break;
+            }
+            case CREATE_TOKEN: {
+               const { player, params } = data;
+               dispatch(createTokens(player, params));
+               break;
+            }
+            default:
+               dispatch({ type: action, data });
+         }
    };
 
    render() {

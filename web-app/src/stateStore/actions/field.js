@@ -2,7 +2,18 @@ import { Howl } from "howler";
 
 import { clearSelection } from "./selectedCard.js";
 import { setTurn } from "./turn.js";
-import { MOVE_CARD, CREATE_TOKEN, SWITCH_POSITION, ADJUST_LP, REVEAL_HAND, NEW_SOLO_GAME, SHUFFLE_DECK, DRAW, SEND_LP_CHANGE } from "utils/constants";
+import {
+   MOVE_CARD,
+   CREATE_TOKEN,
+   SWITCH_POSITION,
+   ADJUST_LP,
+   REVEAL_HAND,
+   NEW_SOLO_GAME,
+   SHUFFLE_DECK,
+   DRAW,
+   SEND_LP_CHANGE,
+   SEND_TOKENS
+} from "utils/constants";
 
 function soundOn() {
    return window.localStorage.getItem("soundOn") === "true";
@@ -19,7 +30,7 @@ function moveCard(data) {
    };
 }
 
-function createTokens(player, params) {
+function createTokens(player, params, socket) {
    const splitParams = params.split(",");
 
    let count, name, inDef;
@@ -31,6 +42,11 @@ function createTokens(player, params) {
    }
 
    playSound("/sounds/specialsummon.mp3");
+
+   if (socket && socket.api) {
+      const payload = { action: SEND_TOKENS, data: { token: socket.token, id: socket.matchId, params } };
+      socket.api.send(JSON.stringify(payload));
+   }
 
    return (dispatch) => {
       for (let i = 0; i < count; i++) {
@@ -48,8 +64,6 @@ function revealHand(player) {
 }
 
 function adjustLP(player, change, currentLP, socket = false) {
-   console.log("LP adjusted");
-
    if (socket && socket.api) {
       const payload = { action: SEND_LP_CHANGE, data: { token: socket.token, id: socket.matchId, amount: change, currentLP } };
       socket.api.send(JSON.stringify(payload));
