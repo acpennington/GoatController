@@ -1,7 +1,4 @@
-const findMatch = require("./utils/findMatch.js");
-const sendMultiPayload = require("./sendMultiPayload.js");
-const sendChatToOnly = require("./sendChatToOnly.js");
-const handleDisconnect = require("./utils/handleDisconnect.js");
+const actionAndMessage = require("./utils/actionAndMessage.js");
 
 // @action NewChatMessage
 // @desc Sends a chat message from one player to the other (and watchers)
