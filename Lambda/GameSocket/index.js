@@ -10,6 +10,7 @@ const prevPhase = require("./PrevPhase.js");
 const sendLpChange = require("./SendLpChange.js");
 const sendTokens = require("./SendTokens.js");
 const sendReveal = require("./SendReveal.js");
+const sendCardMove = require("./SendCardMove.js");
 
 // Routes GameSocket actions
 exports.handler = async (event) => {
@@ -41,6 +42,8 @@ exports.handler = async (event) => {
          return await sendTokens(id, username, data.params, connectionId, api);
       case "SendReveal":
          return await sendReveal(id, username, connectionId, api);
+      case "SendCardMove":
+         return await sendCardMove(id, username, data.from, data.fromCard, data.to, connectionId, api);
       case "EntireState":
          return;
       default:

@@ -24,7 +24,8 @@ function playSound(soundName) {
    if (soundOn()) new Howl({ src: [soundName] }).play();
 }
 
-function moveCard(data) {
+function moveCard(data, socket) {
+   data = { ...data, socket };
    return (dispatch) => {
       dispatch({ type: MOVE_CARD, data });
       dispatch(clearSelection());

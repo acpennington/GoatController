@@ -6,14 +6,24 @@ import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import { WebSocketContext } from "./WebSocketContext.js";
+import { resetSolo, adjustLP, createTokens, moveCard } from "stateStore/actions/field.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
 import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
-import { GAME_RATIO, VILLAIN_HAND_SIZE, GAME_SOCKET_URL, JOIN_MATCH, CONNECTED, MULTIPLE_ACTIONS, ADJUST_LP, CREATE_TOKEN } from "utils/constants.js";
-import { resetSolo, adjustLP, createTokens } from "stateStore/actions/field.js";
+import {
+   GAME_RATIO,
+   VILLAIN_HAND_SIZE,
+   GAME_SOCKET_URL,
+   JOIN_MATCH,
+   CONNECTED,
+   MULTIPLE_ACTIONS,
+   ADJUST_LP,
+   CREATE_TOKEN,
+   MOVE_CARD
+} from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -96,6 +106,9 @@ class Game extends Component {
                dispatch(createTokens(player, params));
                break;
             }
+            case MOVE_CARD:
+               dispatch(moveCard(data));
+               break;
             default:
                dispatch({ type: action, data });
          }

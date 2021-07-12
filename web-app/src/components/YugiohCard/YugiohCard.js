@@ -1,12 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector, useDispatch } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
-import { makeStyles } from "@material-ui/core/styles";
-import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
-
+import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { getBools, rowClass, isAcceptable } from "./utils.js";
 import getOtherPlayer from "utils/getOtherPlayer.js";
 import getCardDetails from "utils/getCardDetails.js";
@@ -36,11 +34,14 @@ import {
    REVEAL_COLOR
 } from "utils/constants.js";
 
+import { makeStyles } from "@material-ui/core/styles";
+import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 const useStyles = makeStyles(cardStyle);
 
 function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName, modal, isHero }) {
    const classes = useStyles();
    const dispatch = useDispatch();
+   const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone } = getBools(row, zone);
 
    let { deckCount, card, sleeves, selected, handRevealed } = useSelector((state) => {
@@ -89,7 +90,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       accept: allTypes,
       canDrop: (item) => isAcceptable(item.type, acceptables),
       drop: (item) => {
-         dispatch(moveCard({ from: item, to: { player, row, zone } }));
+         dispatch(moveCard({ from: item, to: { player, row, zone } }, socket));
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver(),
@@ -108,7 +109,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
 
    if (isHero && selected)
       bind("d", () => {
-         dispatch(moveCard({ from: { player, row, zone }, to: { player, row: discardPile, zone: 0 } }));
+         dispatch(moveCard({ from: { player, row, zone }, to: { player, row: discardPile, zone: 0 } }, socket));
       });
    useEffect(() => {
       return function cleanup() {
@@ -139,8 +140,8 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                   if (isHero) {
                      if (discardZone) {
                         const oppositeDiscard = row === GRAVEYARD ? BANISHED : GRAVEYARD;
-                        dispatch(moveCard({ from: { player, row, zone }, to: { player, row: oppositeDiscard, zone: 0 } }));
-                     } else if (row === DECK) dispatch(moveCard({ from: { player, row, zone }, to: { player, row: HAND } }));
+                        dispatch(moveCard({ from: { player, row, zone }, to: { player, row: oppositeDiscard, zone: 0 } }, socket));
+                     } else if (row === DECK) dispatch(moveCard({ from: { player, row, zone }, to: { player, row: HAND } }, socket));
                      else dispatch(switchPosition(player, row, zone));
                   }
                   dispatch(clearSelection());

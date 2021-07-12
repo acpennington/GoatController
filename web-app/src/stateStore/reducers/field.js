@@ -22,7 +22,8 @@ import {
    ADJUST_LP,
    REVEAL_HAND,
    NEW_SOLO_GAME,
-   SHUFFLE_DECK
+   SHUFFLE_DECK,
+   SEND_CARD_MOVE
 } from "utils/constants.js";
 
 const blankField = {
@@ -46,7 +47,7 @@ export default function (state = initialState, action) {
       case SET_GAMESTATE_TO:
          return data;
       case MOVE_CARD:
-         const { from, to } = data;
+         const { from, to, socket } = data;
          const drawingFromDeck = from.row === DECK && from.zone === -1;
          if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
          const fieldSpell = from.row === FIELD_SPELL;
@@ -85,6 +86,11 @@ export default function (state = initialState, action) {
          else if (fieldSpell) state[from.player][from.row] = null;
          else if (from.row === EXTRA_DECK) state[from.player].usedFusions[from.cardName] = state[from.player].usedFusions[from.cardName] + 1 || 1;
          else state[from.player][from.row][from.zone] = null;
+
+         if (socket && socket.api) {
+            const payload = { action: SEND_CARD_MOVE, data: { token: socket.token, id: socket.matchId, from, fromCard, to } };
+            socket.api.send(JSON.stringify(payload));
+         }
 
          return { ...state };
       case CREATE_TOKEN:
