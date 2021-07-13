@@ -26,7 +26,7 @@ async function post(body) {
    if (errors.length > 0) return { statusCode: 400, body: { errors } };
 
    const user = await findUser(username, "username");
-   if (!user) return { statusCode: 400, body: { errors: [{ msg: "User already exists" }] } };
+   if (user) return { statusCode: 400, body: { errors: [{ msg: "User already exists" }] } };
 
    const salt = await bcrypt.genSalt(7);
    const hashword = await bcrypt.hash(password, salt);

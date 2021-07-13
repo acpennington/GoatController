@@ -179,7 +179,14 @@ export default function LoginPage() {
                   <hr />
                   <CardFooter className={classes.cardFooter}>
                      {isLogin ? "Need an account?" : "Did you mean to login?"}
-                     <Button simple color="primary" size="lg" onClick={() => setIsLogin(!isLogin)}>
+                     <Button
+                        simple
+                        color="primary"
+                        size="lg"
+                        onClick={() => {
+                           if (getApiStage() === "dev") setIsLogin(!isLogin);
+                        }}
+                     >
                         {isLogin ? "Register" : "Login"}
                      </Button>
                   </CardFooter>
