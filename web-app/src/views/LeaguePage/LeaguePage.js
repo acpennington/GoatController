@@ -59,8 +59,9 @@ class LeaguePage extends PureComponent {
 
    getMatchmaking = () => {
       const { classes } = this.props;
-      const { useQueue } = this.state;
-      const inLeague = this.inLeague();
+      const { useQueue, members } = this.state;
+      const { pending } = members;
+      const inLeague = !pending && this.inLeague();
 
       return (
          <GridItem xs={12}>
