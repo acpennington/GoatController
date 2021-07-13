@@ -1,7 +1,7 @@
 // @function sendPayload
 // @desc Sends all connected clients a payload
 // @db 0 reads, 0 writes
-async function sendChatMessage(payload, players, watchers, api, excludeConnection = "", checkDisconnections = true) {
+async function sendPayload(payload, players, watchers, api, excludeConnection = "", checkDisconnections = true) {
    let badConnection = false;
 
    for (const key in players) {
@@ -35,4 +35,4 @@ async function sendChatMessage(payload, players, watchers, api, excludeConnectio
    return badConnection;
 }
 
-module.exports = sendChatMessage;
+module.exports = sendPayload;

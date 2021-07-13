@@ -21,6 +21,7 @@ import {
    JOIN_MATCH,
    CONNECTED,
    MULTIPLE_ACTIONS,
+   REDIRECT,
    ADJUST_LP,
    CREATE_TOKEN,
    MOVE_CARD,
@@ -68,6 +69,7 @@ class Game extends Component {
       };
 
       webSocket.onmessage = (event) => {
+         console.log(event.data);
          const message = JSON.parse(event.data);
          if (message.action) {
             const payloads = message.data;
@@ -78,6 +80,12 @@ class Game extends Component {
                   break;
                case MULTIPLE_ACTIONS:
                   payloads.forEach((payload) => this.customDispatch(payload.action, payload.data));
+                  break;
+               case REDIRECT:
+                  console.log("received redirect");
+                  window.sessionStorage.removeItem("activeMatch");
+                  const domain = getApiStage() === "prod" ? "https://goatduels.com" : "http://localhost:3000";
+                  window.location.href = domain + payloads;
                   break;
                default:
                   this.props.dispatch({ type: message.action, data: payloads });

@@ -1,6 +1,10 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
 const { HAND, DECK, GRAVEYARD, BANISHED } = require("./utils/constants");
 
+// @action SendCardMove
+// @desc Sends a card movement from one player to the other (and watchers)
+// @access Private
+// @db 1 read, 0 writes
 async function sendCardMove(id, username, from, fromCard, to, settingTrap, msg, connectionId, api) {
    const player = to.player === username ? " their " : to.player + "'s ";
    const cardName =

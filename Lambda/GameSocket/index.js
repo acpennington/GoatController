@@ -14,6 +14,8 @@ const sendCardMove = require("./SendCardMove.js");
 const sendPosChange = require("./SendPosChange.js");
 const reorderDeck = require("./ReorderDeck.js");
 const mill = require("./Mill.js");
+const playerConceded = require("./PlayerConceded.js");
+const cleanupGame = require("./CleanupGame.js");
 
 // Routes GameSocket actions
 exports.handler = async (event) => {
@@ -53,6 +55,10 @@ exports.handler = async (event) => {
          return await reorderDeck(id, username, data.deck, connectionId, api);
       case "Mill":
          return await mill(id, username, data.deck, data.params, connectionId, api);
+      case "PlayerConceded":
+         return await playerConceded(id, username, api);
+      case "CleanupGame":
+         return await cleanupGame(id, connectionId, api);
       case "EntireState":
          return;
       default:
