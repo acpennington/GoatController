@@ -14,7 +14,7 @@ async function put(id, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
-   const league = await findLeague(id, "members");
+   const league = await findLeague(id, "members, autoApprove, allowMultis, useRatings, useQueue");
    if (!league) return { statusCode: 400, body: { errors: [{ msg: "League not found" }] } };
    const { members } = league;
 
