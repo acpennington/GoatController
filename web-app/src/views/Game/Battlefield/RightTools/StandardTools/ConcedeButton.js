@@ -8,12 +8,12 @@ import { PLAYER_CONCEDED, CLEANUP_GAME } from "utils/constants.js";
 class ConcedeButton extends PureComponent {
    render() {
       const { concessionLink } = this.props;
-      const color = concessionLink ? "primary" : "danger";
+      const color = concessionLink ? "primary" : "rose";
       const func = concessionLink ? () => quitGame(this.context) : () => concedeGame(this.context);
 
       return (
          <Button color={color} fullWidth round href={concessionLink ? concessionLink : undefined} onClick={func}>
-            {concessionLink ? "Quit" : "Concede"}
+            {concessionLink ? "Quit" : "Concede Game"}
          </Button>
       );
    }

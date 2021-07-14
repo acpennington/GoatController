@@ -56,15 +56,16 @@ export default function (state = initialState, action) {
          if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = from.cardName ? { name: from.cardName } : fieldSpell ? state[from.player][FIELD_SPELL] : state[from.player][from.row][from.zone];
-         if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
          const facedown = fromCard.facedown;
          let settingTrap = false;
 
+         if (fromCard.notOwned && dynamicZones.includes(to.row) && from.player === to.player) to.player = getOtherPlayer(to.player, state);
+         if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
+
          if (!fromCard.name.includes("Token") || to.row === MONSTER || to.row === ST) {
-            if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) {
-               if (fromCard.notOwned) state[getOtherPlayer(from.player, state)].usedFusions[fromCard.name] -= 1;
-               else state[from.player].usedFusions[fromCard.name] -= 1;
-            } else if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
+            if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) 
+               state[to.player].usedFusions[fromCard.name] -= 1;
+            else if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
             else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
             else state[to.player][to.row][to.zone] = { ...fromCard };
          }
