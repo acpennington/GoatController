@@ -66,7 +66,7 @@ class CardScript extends PureComponent {
                from: { player: heroPlayer, row: HAND, zone },
                to: { player: heroPlayer, row: GRAVEYARD, zone: 0 }
             },
-            { ...this.context, msg: "randomly" }
+            { ...this.context, msg: "RANDOMLY" }
          );
       }
    };
