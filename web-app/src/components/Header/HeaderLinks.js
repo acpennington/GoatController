@@ -23,7 +23,7 @@ class HeaderLinks extends PureComponent {
             <ListItem className={classes.listItem}>
                <Tooltip id="FAQ" title="More about GoatDuels.com" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                   <Button
-                     href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+                     href="/faq"
                      color="transparent"
                      target="_blank"
                      className={classes.navLink}
@@ -35,7 +35,7 @@ class HeaderLinks extends PureComponent {
             <ListItem className={classes.listItem}>
                <Tooltip id="rulings" title="Lookup any Goat ruling" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                   <Button
-                     href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+                     href="/rulings"
                      color="transparent"
                      target="_blank"
                      className={classes.navLink}
@@ -46,7 +46,7 @@ class HeaderLinks extends PureComponent {
             </ListItem>
             <ListItem className={classes.listItem}>
                <Tooltip id="facebook" title="Follow us on facebook" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
-                  <Button color="transparent" href="https://www.facebook.com/CreativeTim?ref=creativetim" target="_blank" className={classes.navLink}>
+                  <Button color="transparent" href="https://www.facebook.com/" target="_blank" className={classes.navLink}>
                      <i className={classes.socialIcons + " fab fa-facebook"} />
                   </Button>
                </Tooltip>
@@ -58,7 +58,7 @@ class HeaderLinks extends PureComponent {
                   placement={window.innerWidth > 959 ? "top" : "left"}
                   classes={{ tooltip: classes.tooltip }}
                >
-                  <Button href="https://twitter.com/CreativeTim?ref=creativetim" target="_blank" color="transparent" className={classes.navLink}>
+                  <Button target="_blank" color="transparent" className={classes.navLink}>
                      <SiDiscord className={classes.socialIcons} />
                   </Button>
                </Tooltip>
@@ -72,7 +72,7 @@ class HeaderLinks extends PureComponent {
                >
                   <Button
                      color="transparent"
-                     href="https://www.youtube.com/playlist?list=PL2c0kg0uXCQ4C49FlRlhm2-LO2Q6NGeh7"
+                     href="https://www.youtube.com/allencpennington"
                      target="_blank"
                      className={classes.navLink}
                   >
