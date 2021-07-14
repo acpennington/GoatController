@@ -52,7 +52,8 @@ class JoinLeaveButton extends PureComponent {
 JoinLeaveButton.propTypes = {
    leagueId: PropTypes.string.isRequired,
    pending: PropTypes.bool.isRequired,
-   leave: PropTypes.bool.isRequired
+   leave: PropTypes.bool.isRequired,
+   update: PropTypes.func.isRequired
 };
 
 export default JoinLeaveButton;
