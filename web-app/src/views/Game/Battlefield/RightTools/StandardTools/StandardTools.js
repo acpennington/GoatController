@@ -80,11 +80,6 @@ class StandardTools extends PureComponent {
 
       return (
          <div className={classes.container}>
-            <LifeBar life={lifepoints.villain} isHero={false} />
-            <Phases heroPlayer={player.name} />
-            <ShowingDiscard discardPile={discardPile} />
-            <RevealHandButton name={name} />
-            <LifeBar life={lifepoints.hero} isHero={true} />
             {solo ? (
                <ButtonRow>
                   <Button color="primary" fullWidth round onClick={() => resetSolo(name)}>
@@ -97,6 +92,11 @@ class StandardTools extends PureComponent {
             ) : (
                <ConcedeButton />
             )}
+            <LifeBar life={lifepoints.villain} isHero={false} />
+            <Phases heroPlayer={player.name} />
+            <ShowingDiscard discardPile={discardPile} />
+            <RevealHandButton name={name} />
+            <LifeBar life={lifepoints.hero} isHero={true} />
             <div className={classes.LPbox}>
                <CustomInput
                   id={LPinput}
