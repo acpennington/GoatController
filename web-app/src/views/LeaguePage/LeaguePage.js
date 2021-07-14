@@ -38,7 +38,7 @@ class LeaguePage extends PureComponent {
       };
    }
 
-   componentDidMount() {
+   async componentDidMount() {
       if (this.state.name === LOADING) await this.fetchLeague();
       else this.setState({ description: OFFICIAL_UNRANKED.description, allowExarion: true, autoApprove: true, allowMultis: true, useQueue: false });
    }
