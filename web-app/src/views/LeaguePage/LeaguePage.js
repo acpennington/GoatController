@@ -34,19 +34,25 @@ class LeaguePage extends PureComponent {
       this.leagueId = getQueryParams().id || unrankedId;
       this.state = {
          name: this.leagueId === unrankedId ? OFFICIAL_UNRANKED.name : LOADING,
+         yourLeagues: [],
+         canLeave: false,
          members: { count: 0, pending: false, isAdmin: false, isBanned: false }
       };
    }
 
    async componentDidMount() {
-      if (this.state.name === LOADING) await this.fetchLeague();
+      if (this.state.name === LOADING) {
+         await this.fetchLeague();
+         this.updateCanLeave();
+      }
       else this.setState({ description: OFFICIAL_UNRANKED.description, allowExarion: true, autoApprove: true, allowMultis: true, useQueue: false });
    }
 
-   inLeague = () => {
+   updateCanLeave = () => {
       const yourLeagues = JSON.parse(window.sessionStorage.getItem("leagues"));
-      return yourLeagues && yourLeagues.includes(this.leagueId);
-   };
+      const canLeave = !this.state.members.pending && yourLeagues && yourLeagues.includes(this.leagueId);
+      this.setState({ yourLeagues, canLeave });
+   }
 
    fetchLeague = async () => {
       const config = getAuthHeaders();
@@ -59,9 +65,7 @@ class LeaguePage extends PureComponent {
 
    getMatchmaking = () => {
       const { classes } = this.props;
-      const { useQueue, members } = this.state;
-      const { pending } = members;
-      const inLeague = !pending && this.inLeague();
+      const { useQueue, canLeave } = this.state;
 
       return (
          <GridItem xs={12}>
@@ -69,7 +73,7 @@ class LeaguePage extends PureComponent {
                <Shadow>
                   <h3>Matchmaking: {useQueue ? "Queue" : "Host/Join"}</h3>
                </Shadow>
-               {inLeague ? (
+               {canLeave ? (
                   useQueue ? (
                      <QueueButton leagueId={this.leagueId} />
                   ) : (
@@ -137,11 +141,11 @@ class LeaguePage extends PureComponent {
 
    render() {
       const { classes } = this.props;
-      const { name, description, logo, members, useRatings } = this.state;
+      const { name, description, logo, members, useRatings, canLeave, yourLeagues } = this.state;
       const { count, pending, isBanned, isAdmin } = members;
-      const { leagueId } = this;
+      const { leagueId, getMatchmaking, getLeagueRules, getSocialMedia, updateCanLeave } = this;
 
-      const leave = !pending && this.inLeague();
+      console.log("canleave: "+canLeave);
 
       return (
          <PageTemplate>
@@ -168,15 +172,16 @@ class LeaguePage extends PureComponent {
                </GridItem>
                {name !== LOADING && (
                   <Fragment>
-                     {this.getMatchmaking()}
-                     {this.getLeagueRules()}
-                     {this.getSocialMedia()}
+                     {getMatchmaking()}
+                     {getLeagueRules()}
+                     {getSocialMedia()}
                   </Fragment>
                )}
                <GridItem xs={12}>
                   <div className={classes.bottom}>
                      <BackButton href="leagues" />
-                     {leagueId !== OFFICIAL_UNRANKED.id && !isBanned && !isAdmin && <JoinLeaveButton leagueId={leagueId} pending={pending} leave={leave} />}
+                     {leagueId !== OFFICIAL_UNRANKED.id && !isBanned && !isAdmin && 
+                     <JoinLeaveButton leagueId={leagueId} pending={pending} leave={canLeave} leagues={yourLeagues} update={updateCanLeave} />}
                      {isAdmin && (
                         <Button color="primary" size="lg" round href={"/admin?id=" + leagueId}>
                            Admin

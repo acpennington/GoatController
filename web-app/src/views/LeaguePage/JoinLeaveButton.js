@@ -12,12 +12,11 @@ import { API_URL } from "utils/constants.js";
 class JoinLeaveButton extends PureComponent {
    constructor(props) {
       super(props);
-      const { leave } = this.props;
-      this.state = { leave, errors: false };
+      this.state = { errors: false };
    }
 
    joinOrLeave = async () => {
-      const { leagueId } = this.props;
+      const { leagueId, leagues, update } = this.props;
       const config = getAuthHeaders();
       const body = {};
 
@@ -25,19 +24,20 @@ class JoinLeaveButton extends PureComponent {
       if (res.data.statusCode === 200) {
          const role = res.data.body.role;
          const storage = window.sessionStorage;
-         const leagues = JSON.parse(storage.getItem("leagues"));
 
          if (role === "left") leagues.splice(leagues.indexOf(leagueId), 1);
          else leagues.push(leagueId);
-         storage.setItem("leagues", JSON.stringify(leagues));
 
-         this.setState({ leave: !this.state.leave });
+         storage.setItem("leagues", JSON.stringify(leagues));
+         update();
       } else this.setState({ errors: "Error: " + apiErrors(res.data.body.errors) });
    };
 
    render() {
-      const { pending } = this.props;
-      const { leave, errors } = this.state;
+      const { pending, leave } = this.props;
+      const { errors } = this.state;
+
+      console.log("leave: "+leave);
 
       if (errors) return <span style={{ color: "red" }}>{errors}</span>;
       else
@@ -53,6 +53,7 @@ JoinLeaveButton.propTypes = {
    leagueId: PropTypes.string.isRequired,
    pending: PropTypes.bool.isRequired,
    leave: PropTypes.bool.isRequired,
+   leagues: PropTypes.array.isRequired,
    update: PropTypes.func.isRequired
 };
 
