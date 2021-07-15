@@ -1,14 +1,15 @@
 import { openModal } from "./settings.js";
 import { moveCard, shuffleDeck } from "./field.js";
 
-import { ST, DECK, GRAVEYARD, BANISHED, MILL } from "utils/constants.js";
 import getCardDetails from "utils/getCardDetails.js";
+import getOtherPlayer from "utils/getOtherPlayer.js";
+import { ST, DECK, GRAVEYARD, BANISHED, MILL } from "utils/constants.js";
 
 function filterDeck(player, params) {
    return openModal(player, DECK, params);
 }
 
-function millUntil(player, deck, params, socket) {
+function millUntil(player, deck, params, socket = false) {
    if (socket && socket.api) {
       const payload = { action: MILL, data: { token: socket.token, id: socket.matchId, deck, params } };
       socket.api.send(JSON.stringify(payload));
@@ -28,11 +29,13 @@ function millUntil(player, deck, params, socket) {
    };
 }
 
-function banishAll(field, heroPlayer, activeCard, socket) {
-   const deck = field[heroPlayer].deck;
+function banishAll(field, player, activeCard, socket = false) {
+   const deck = field[player].deck;
+   const otherPlayer = getOtherPlayer(player, field);
+   const otherDeck = field[otherPlayer].deck;
 
    if (socket && socket.api) {
-      // send banishall action to server
+      // send banishall action to server (or just entire gamestate?)
    }
 
    return (dispatch) => {
@@ -41,15 +44,30 @@ function banishAll(field, heroPlayer, activeCard, socket) {
          if (card && card.name === activeCard.name) {
             dispatch(moveCard(
                {
-                  from: { player: heroPlayer, row: DECK, zone: i },
-                  to: { player: heroPlayer, row: BANISHED, zone: 0 }
+                  from: { player, row: DECK, zone: i },
+                  to: { player, row: BANISHED, zone: 0 }
                }
             ));
             i--;
          }
       }
-      dispatch(moveCard({ from: activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }));
-      dispatch(shuffleDeck(heroPlayer));
+      for (let i = 0; i < otherDeck.length; i++) {
+         const card = otherDeck[i];
+         if (card && card.name === activeCard.name) {
+            dispatch(moveCard(
+               {
+                  from: { player: otherPlayer, row: DECK, zone: i },
+                  to: { player: otherPlayer, row: BANISHED, zone: 0 }
+               }
+            ));
+            i--;
+         }
+      }
+
+      // we need to figure out how to make sure that decks do not get desynched here
+      dispatch(moveCard({ from: activeCard, to: { player: player, row: BANISHED, zone: 0 } }));
+      dispatch(shuffleDeck(player));
+      dispatch(shuffleDeck(otherPlayer));
    }
 }
 
