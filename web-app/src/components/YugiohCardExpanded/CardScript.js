@@ -37,6 +37,7 @@ class CardScript extends PureComponent {
    banishAll = () => {
       const { moveCard, shuffleDeck, heroPlayer } = this.props;
       const deck = this.props.field[heroPlayer].deck;
+      const socket = this.context;
 
       for (let i = 0; i < deck.length; i++) {
          const card = deck[i];
@@ -46,13 +47,13 @@ class CardScript extends PureComponent {
                   from: { player: heroPlayer, row: DECK, zone: i },
                   to: { player: heroPlayer, row: BANISHED, zone: 0 }
                },
-               this.context
+               socket
             );
             i--;
          }
       }
-      moveCard({ from: this.props.activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }, this.context);
-      shuffleDeck(heroPlayer);
+      moveCard({ from: this.props.activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }, socket);
+      shuffleDeck(heroPlayer, socket);
    };
 
    randomDiscard = () => {
