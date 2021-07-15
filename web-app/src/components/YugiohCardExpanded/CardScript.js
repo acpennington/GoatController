@@ -5,26 +5,28 @@ import { connect } from "react-redux";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
-import { moveCard, createTokens, shuffleDeck } from "stateStore/actions/field.js";
-import { filterDeck, millUntil } from "stateStore/actions/scripts.js";
+import { moveCard, createTokens } from "stateStore/actions/field.js";
+import { filterDeck, millUntil, banishAll } from "stateStore/actions/scripts.js";
 
-import { GRAVEYARD, HAND, BANISHED, DECK, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD } from "utils/constants";
+import { GRAVEYARD, HAND, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD } from "utils/constants";
 
 class CardScript extends PureComponent {
    runScript = (name, params) => {
       const { heroPlayer } = this.props;
+      const socket = this.context;
       switch (name) {
          case SEARCH_DECK:
             this.props.filterDeck(heroPlayer, params);
             break;
          case BANISH_ALL:
-            this.banishAll();
+            const { field, activeCard, banishAll } = this.props;
+            banishAll(field, heroPlayer, activeCard, socket);
             break;
          case MILL_UNTIL:
-            this.props.millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, this.context);
+            this.props.millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, socket);
             break;
          case TOKENS:
-            this.props.createTokens(heroPlayer, params, this.context);
+            this.props.createTokens(heroPlayer, params, socket);
             break;
          case RANDOM_DISCARD:
             this.randomDiscard();
@@ -32,28 +34,6 @@ class CardScript extends PureComponent {
          default:
             console.log("Error: Undefined card script");
       }
-   };
-
-   banishAll = () => {
-      const { moveCard, shuffleDeck, heroPlayer, activeCard } = this.props;
-      const deck = this.props.field[heroPlayer].deck;
-      const socket = this.context;
-
-      for (let i = 0; i < deck.length; i++) {
-         const card = deck[i];
-         if (card && card.name === activeCard.name) {
-            moveCard(
-               {
-                  from: { player: heroPlayer, row: DECK, zone: i },
-                  to: { player: heroPlayer, row: BANISHED, zone: 0 }
-               },
-               socket
-            );
-            i--;
-         }
-      }
-      moveCard({ from: activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }, socket);
-      shuffleDeck(heroPlayer, socket);
    };
 
    randomDiscard = () => {
@@ -109,4 +89,4 @@ CardScript.propTypes = {
 
 CardScript.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, shuffleDeck, millUntil })(CardScript);
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll })(CardScript);

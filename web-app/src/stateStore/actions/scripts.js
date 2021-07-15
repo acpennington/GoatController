@@ -1,7 +1,7 @@
 import { openModal } from "./settings.js";
-import { moveCard } from "./field.js";
+import { moveCard, shuffleDeck } from "./field.js";
 
-import { ST, DECK, GRAVEYARD, MILL } from "utils/constants.js";
+import { ST, DECK, GRAVEYARD, BANISHED, MILL } from "utils/constants.js";
 import getCardDetails from "utils/getCardDetails.js";
 
 function filterDeck(player, params) {
@@ -28,4 +28,26 @@ function millUntil(player, deck, params, socket) {
    };
 }
 
-export { filterDeck, millUntil };
+function banishAll(field, heroPlayer, activeCard, socket) {
+   const deck = field[heroPlayer].deck;
+
+   return (dispatch) => {
+      for (let i = 0; i < deck.length; i++) {
+         const card = deck[i];
+         if (card && card.name === activeCard.name) {
+            dispatch(moveCard(
+               {
+                  from: { player: heroPlayer, row: DECK, zone: i },
+                  to: { player: heroPlayer, row: BANISHED, zone: 0 }
+               },
+               socket
+            ));
+            i--;
+         }
+      }
+      dispatch(moveCard({ from: activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }, socket));
+      dispatch(shuffleDeck(heroPlayer, socket));
+   }
+}
+
+export { filterDeck, millUntil, banishAll };
