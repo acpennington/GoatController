@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "GoatDuels",
+  "name": "GoatDuels: A Dueling Simulator Just For Goat Format",
   "icons": [
     {
       "src": "favicon.ico",
