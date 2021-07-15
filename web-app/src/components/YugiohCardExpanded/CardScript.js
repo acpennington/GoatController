@@ -35,13 +35,13 @@ class CardScript extends PureComponent {
    };
 
    banishAll = () => {
-      const { moveCard, shuffleDeck, heroPlayer } = this.props;
+      const { moveCard, shuffleDeck, heroPlayer, activeCard } = this.props;
       const deck = this.props.field[heroPlayer].deck;
       const socket = this.context;
 
       for (let i = 0; i < deck.length; i++) {
          const card = deck[i];
-         if (card && card.name === this.props.activeCard.name) {
+         if (card && card.name === activeCard.name) {
             moveCard(
                {
                   from: { player: heroPlayer, row: DECK, zone: i },
@@ -52,7 +52,7 @@ class CardScript extends PureComponent {
             i--;
          }
       }
-      moveCard({ from: this.props.activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }, socket);
+      moveCard({ from: activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }, socket);
       shuffleDeck(heroPlayer, socket);
    };
 
