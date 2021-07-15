@@ -34,10 +34,6 @@ function banishAll(field, player, activeCard, socket = false) {
    const otherPlayer = getOtherPlayer(player, field);
    const otherDeck = field[otherPlayer].deck;
 
-   if (socket && socket.api) {
-      // send banishall action to server (or just entire gamestate?)
-   }
-
    return (dispatch) => {
       for (let i = 0; i < deck.length; i++) {
          const card = deck[i];
@@ -68,6 +64,10 @@ function banishAll(field, player, activeCard, socket = false) {
       dispatch(moveCard({ from: activeCard, to: { player: player, row: BANISHED, zone: 0 } }));
       dispatch(shuffleDeck(player));
       dispatch(shuffleDeck(otherPlayer));
+
+      if (socket && socket.api) {
+         // send banishall action to server (or just entire gamestate?)
+      }
    }
 }
 
