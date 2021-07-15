@@ -31,6 +31,10 @@ function millUntil(player, deck, params, socket) {
 function banishAll(field, heroPlayer, activeCard, socket) {
    const deck = field[heroPlayer].deck;
 
+   if (socket && socket.api) {
+      // send banishall action to server
+   }
+
    return (dispatch) => {
       for (let i = 0; i < deck.length; i++) {
          const card = deck[i];
@@ -39,14 +43,13 @@ function banishAll(field, heroPlayer, activeCard, socket) {
                {
                   from: { player: heroPlayer, row: DECK, zone: i },
                   to: { player: heroPlayer, row: BANISHED, zone: 0 }
-               },
-               socket
+               }
             ));
             i--;
          }
       }
-      dispatch(moveCard({ from: activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }, socket));
-      dispatch(shuffleDeck(heroPlayer, socket));
+      dispatch(moveCard({ from: activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 } }));
+      dispatch(shuffleDeck(heroPlayer));
    }
 }
 
