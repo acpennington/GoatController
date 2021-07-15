@@ -31,6 +31,12 @@ const footer = {
    padding: "5px"
 };
 
+const activePhase = {
+   borderStyle: "solid",
+   borderWidth: "3px",
+   borderColor: "white"
+}
+
 const rightToolsStyle = {
    container: {
       justifyContent: "center",
@@ -89,6 +95,24 @@ const rightToolsStyle = {
    },
    LPbox: {
       marginRight: "3px"
+   },
+   inactivePhase: {
+      opacity: 0.8
+   },
+   activePhase: {
+      ...activePhase
+   },
+   "@keyframes flash": {
+      "50%": {
+         borderColor: "rgb(12,255,12)"
+      }
+   },
+   nextTurnFlashing: {
+      ...activePhase,
+      animationName: "$flash",
+      animationDuration: "0.5s",
+      animationTimingFunction: "step-start",
+      animationIterationCount: "infinite"
    },
    ...tooltip
 };

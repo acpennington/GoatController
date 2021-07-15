@@ -9,6 +9,9 @@ import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
 import { phases, DRAW, NEXT_TURN } from "utils/constants.js";
 
+import { withStyles } from "@material-ui/core/styles";
+import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
+
 class Phases extends PureComponent {
    componentDidMount() {
       bind("up", this.tryPrevPhase);
@@ -34,35 +37,43 @@ class Phases extends PureComponent {
       if (this.isHeroTurn() && turn.phase !== DRAW) prevPhase(this.context);
    };
 
-   trySetTurn = (aPhase) => {
+   trySetTurn = (buttonPhase) => {
       const { setTurn, turn, heroPlayer } = this.props;
       const { player, phase } = turn;
 
       if (this.isHeroTurn()) {
-         if (phase !== aPhase) setTurn(player, aPhase, this.context);
+         if (phase !== buttonPhase) setTurn(player, buttonPhase, this.context);
       } else if (phase === NEXT_TURN) setTurn(heroPlayer, DRAW, this.context);
    };
 
    isHeroTurn = () => this.props.turn.player === this.props.heroPlayer;
 
-   render() {
-      const { turn } = this.props;
-      const { phase } = turn;
+   getClassName = (buttonPhase) => {
+      const currentPhase = this.props.turn.phase;
+      if (buttonPhase === currentPhase) {
+         if (currentPhase === NEXT_TURN) return "nextTurnFlashing";
+         else return "activePhase";
+      }
+      return "inactivePhase";
+   }
 
+   render() {
+      const { classes } = this.props;
       const isHeroTurn = this.isHeroTurn();
       const myColor = isHeroTurn ? "info" : "danger";
 
       return (
          <Fragment>
-            {phases.map((aPhase, index) => (
+            {phases.map((buttonPhase, index) => (
                <Button
                   color={myColor}
                   round
-                  style={{ opacity: aPhase === phase || 0.8, border: aPhase === phase && "solid 3px white" }}
+                  className={classes[this.getClassName(buttonPhase)]}
+                  //style={{ opacity: buttonPhase === phase || 0.8, border: buttonPhase === phase && "solid 3px white" }}
                   key={index}
-                  onClick={() => this.trySetTurn(aPhase)}
+                  onClick={() => this.trySetTurn(buttonPhase)}
                >
-                  {aPhase}
+                  {buttonPhase}
                </Button>
             ))}
          </Fragment>
@@ -75,9 +86,10 @@ function mapStateToProps(state) {
 }
 
 Phases.propTypes = {
-   heroPlayer: PropTypes.string.isRequired
+   heroPlayer: PropTypes.string.isRequired,
+   classes: PropTypes.object.isRequired
 };
 
 Phases.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { setTurn, nextPhase, prevPhase })(Phases);
+export default connect(mapStateToProps, { setTurn, nextPhase, prevPhase })(withStyles(styles)(Phases));
