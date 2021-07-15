@@ -12,29 +12,30 @@ class Messages extends PureComponent {
 
       for (let i = 0; i < messagesLength; i++) {
          const message = messages[messagesLength - 1 - i];
+         const { author, content } = message;
+         const authorIsHero = hero === author;
 
          const prevMessage = messages[messagesLength - 2 - i];
          const nextMessage = messages[messagesLength - 0 - i];
-         const messageAbove = prevMessage && prevMessage.author === message.author;
-         const messageBelow = nextMessage && nextMessage.author === message.author;
+         const messageAbove = prevMessage && prevMessage.author === author;
+         const messageBelow = nextMessage && nextMessage.author === author;
 
          let section = "";
          if (messageAbove && messageBelow) section = "Mid";
          else if (messageAbove) section = "End";
          else if (messageBelow) section = "Start";
 
-         const authorIsHero = hero === message.author;
          messageList.push(
             <div className={classes.messageContainer} key={i}>
                <div className={classes["message" + section + (authorIsHero ? "Hero" : "")]}>
                   {authorIsHero ? (
                      ""
                   ) : (
-                     <Fragment>
-                        <u>{message.author}</u>:
-                     </Fragment>
+                     <span className={classes[author]}>
+                        {author}:
+                     </span>
                   )}{" "}
-                  {message.content}
+                  {content}
                </div>
             </div>
          );

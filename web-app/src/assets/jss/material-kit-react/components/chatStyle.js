@@ -57,6 +57,10 @@ const chatStyle = {
       borderRadius: "15px 4px 15px 15px",
       float: "right",
       backgroundColor: "rgb(0,132,255)"
+   },
+   Server: {
+      color: "yellow",
+      fontWeight: "bold"
    }
 };
 
