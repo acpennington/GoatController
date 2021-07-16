@@ -25,6 +25,7 @@ import {
    NEW_SOLO_GAME,
    SHUFFLE_DECK,
    SEND_CARD_MOVE,
+   SEND_DRAW_PHASE,
    SEND_POS_CHANGE,
    REORDER_DECK,
    SET_DECK,
@@ -126,7 +127,7 @@ export default function (state = initialState, action) {
          }
 
          if (socket && socket.api) {
-            const payload = { action: "", data: { token: socket.token, id: socket.matchId, shouldSkipDraw }};
+            const payload = { action: SEND_DRAW_PHASE, data: { token: socket.token, id: socket.matchId, shouldSkipDraw }};
             socket.api.send(JSON.stringify(payload));
          }
 

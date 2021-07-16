@@ -70,6 +70,7 @@ const SEND_LP_CHANGE = "SendLpChange";
 const SEND_TOKENS = "SendTokens";
 const SEND_REVEAL = "SendReveal";
 const SEND_CARD_MOVE = "SendCardMove";
+const SEND_DRAW_PHASE = "SendDrawPhase";
 const SEND_POS_CHANGE = "SendPosChange";
 const REORDER_DECK = "ReorderDeck";
 const MILL = "Mill";
@@ -187,6 +188,7 @@ export {
    SEND_TOKENS,
    SEND_REVEAL,
    SEND_CARD_MOVE,
+   SEND_DRAW_PHASE,
    SEND_POS_CHANGE,
    REORDER_DECK,
    MILL,
