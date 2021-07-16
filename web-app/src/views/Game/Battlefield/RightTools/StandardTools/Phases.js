@@ -43,7 +43,7 @@ class Phases extends PureComponent {
 
       if (this.isHeroTurn()) {
          if (phase !== buttonPhase) setTurn(player, buttonPhase, this.context);
-      } else if (phase === NEXT_TURN) setTurn(heroPlayer, DRAW, this.context);
+      } else if (phase === NEXT_TURN) setTurn(heroPlayer, DRAW, this.context, player);
    };
 
    isHeroTurn = () => this.props.turn.player === this.props.heroPlayer;

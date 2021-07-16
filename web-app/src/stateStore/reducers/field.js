@@ -17,6 +17,7 @@ import {
    TRAP,
    SET_GAMESTATE_TO,
    MOVE_CARD,
+   DRAW_PHASE_DRAW,
    CREATE_TOKEN,
    SWITCH_POSITION,
    ADJUST_LP,
@@ -111,6 +112,26 @@ export default function (state = initialState, action) {
          }
 
          return { ...state };
+      case DRAW_PHASE_DRAW: {
+         const { player, socket } = data;
+         const shouldSkipDraw = state[player].skippedDraws > 0;
+
+         if (shouldSkipDraw) state[player].skippedDraws -= 1;
+         else {
+            const topDeckZone = state[player][DECK].length - 1;
+            const topCard = state[player][DECK][topDeckZone];
+            state[player][HAND].push(topCard);
+            state[player][DECK].splice(topDeckZone, 1);
+            playSound("/sounds/drawcard.mp3");
+         }
+
+         if (socket && socket.api) {
+            const payload = { action: "", data: { token: socket.token, id: socket.matchId, shouldSkipDraw }};
+            socket.api.send(JSON.stringify(payload));
+         }
+
+         return { ...state };
+      }
       case CREATE_TOKEN:
          const { name, inDef } = data;
          const tokenPlayer = data.player;

@@ -4,6 +4,7 @@ import { clearSelection } from "./selectedCard.js";
 import { setTurn } from "./turn.js";
 import {
    MOVE_CARD,
+   DRAW_PHASE_DRAW,
    CREATE_TOKEN,
    SWITCH_POSITION,
    ADJUST_LP,
@@ -30,6 +31,14 @@ function moveCard(data, socket = false) {
       dispatch({ type: MOVE_CARD, data });
       dispatch(clearSelection());
    };
+}
+
+function drawPhaseDraw(player, socket = false) {
+   return { type: "", data: { player, socket } };
+}
+
+function drawCards(player, count, socket = false) {
+   return { type: DRAW_PHASE_DRAW, data: "" };
 }
 
 function createTokens(player, params, socket = false) {
@@ -103,4 +112,4 @@ function shuffleDeck(player, socket = false, noSound = false) {
    return { type: SHUFFLE_DECK, data: { player, socket } };
 }
 
-export { playSound, moveCard, createTokens, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };
+export { playSound, moveCard, drawPhaseDraw, drawCards, createTokens, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };
