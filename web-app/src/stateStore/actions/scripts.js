@@ -36,10 +36,8 @@ function banishAll(field, player, activeCard, socket = false) {
    const activeCardName = activeCard.name;
 
    return (dispatch) => {
-      console.log(JSON.stringify(activeCard));
       dispatch(moveCard({ from: activeCard, to: { player, row: BANISHED, zone: 0 }, noSound: true }));
 
-      console.log(deck.length);
       for (let i = 0; i < deck.length; i++) {
          const card = deck[i];
          if (card && card.name === activeCardName) {
@@ -53,7 +51,6 @@ function banishAll(field, player, activeCard, socket = false) {
             i--;
          }
       }
-      console.log(otherDeck.length);
       for (let i = 0; i < otherDeck.length; i++) {
          const card = otherDeck[i];
          if (card && card.name === activeCardName) {
