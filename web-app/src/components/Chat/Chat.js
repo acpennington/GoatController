@@ -11,7 +11,6 @@ import Messages from "./Messages.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
-import { NEW_CHAT_MESSAGE } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
@@ -37,14 +36,7 @@ class Chat extends PureComponent {
       content = content.trim();
       if (content) {
          const lastMessage = chat[chat.length - 1];
-         if (!(lastMessage && lastMessage.author === author && lastMessage.content === content)) {
-            addMessage(author, content);
-            const socket = this.context;
-            if (socket && socket.api) {
-               const payload = { action: NEW_CHAT_MESSAGE, data: { token: socket.token, id: socket.matchId, message: { author, content } } };
-               socket.api.send(JSON.stringify(payload));
-            }
-         }
+         if (!(lastMessage && lastMessage.author === author && lastMessage.content === content)) addMessage(author, content, this.context);
       }
    };
 

@@ -7,7 +7,7 @@ import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 import { setTurn } from "stateStore/actions/turn.js";
-import { phases, DRAW, NEXT_TURN } from "utils/constants.js";
+import { phases, DRAW, NEXT_TURN, HAND } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
@@ -23,8 +23,7 @@ class Phases extends PureComponent {
    }
 
    tryNextPhase = () => {
-      const { turn } = this.props;
-      const { phase } = turn;
+      const phase = this.props.turn.phase;
       const isHeroTurn = this.isHeroTurn();
 
       if (isHeroTurn && phase !== NEXT_TURN) this.trySetTurn(phases[phases.indexOf(phase) + 1]);
@@ -32,18 +31,16 @@ class Phases extends PureComponent {
    };
 
    tryPrevPhase = () => {
-      const { turn } = this.props;
-      const { phase } = turn;
-
+      const phase = this.props.turn.phase;
       if (this.isHeroTurn() && phase !== DRAW) this.trySetTurn(phases[phases.indexOf(phase) - 1]);
    };
 
    trySetTurn = (buttonPhase) => {
-      const { setTurn, turn, heroPlayer } = this.props;
+      const { setTurn, turn, heroPlayer, handCount } = this.props;
       const { player, phase } = turn;
 
       if (this.isHeroTurn()) {
-         if (phase !== buttonPhase) setTurn(player, buttonPhase, this.context, player);
+         if (phase !== buttonPhase) setTurn(player, buttonPhase, this.context, player, handCount);
       } else if (phase === NEXT_TURN) setTurn(heroPlayer, DRAW, this.context, player);
    };
 
@@ -82,8 +79,11 @@ class Phases extends PureComponent {
    }
 }
 
-function mapStateToProps(state) {
-   return { turn: state.turn };
+function mapStateToProps(state, ownProps) {
+   return { 
+      turn: state.turn,
+      handCount: state.field[ownProps.heroPlayer][HAND].length
+   };
 }
 
 Phases.propTypes = {
