@@ -6,7 +6,7 @@ import { bind, unbind } from "mousetrap";
 import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
-import { setTurn, nextPhase, prevPhase } from "stateStore/actions/turn.js";
+import { setTurn } from "stateStore/actions/turn.js";
 import { phases, DRAW, NEXT_TURN } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -23,18 +23,19 @@ class Phases extends PureComponent {
    }
 
    tryNextPhase = () => {
-      const { nextPhase, turn } = this.props;
+      const { turn } = this.props;
       const { phase } = turn;
       const isHeroTurn = this.isHeroTurn();
 
-      if (isHeroTurn && phase !== NEXT_TURN) nextPhase(this.context);
+      if (isHeroTurn && phase !== NEXT_TURN) this.trySetTurn(phases[phases.indexOf(phase) + 1]);
       else if (!isHeroTurn && phase === NEXT_TURN) this.trySetTurn(DRAW);
    };
 
    tryPrevPhase = () => {
-      const { prevPhase, turn } = this.props;
+      const { turn } = this.props;
+      const { phase } = turn;
 
-      if (this.isHeroTurn() && turn.phase !== DRAW) prevPhase(this.context);
+      if (this.isHeroTurn() && phase !== DRAW) this.trySetTurn(phases[phases.indexOf(phase) - 1]);
    };
 
    trySetTurn = (buttonPhase) => {
@@ -42,7 +43,7 @@ class Phases extends PureComponent {
       const { player, phase } = turn;
 
       if (this.isHeroTurn()) {
-         if (phase !== buttonPhase) setTurn(player, buttonPhase, this.context);
+         if (phase !== buttonPhase) setTurn(player, buttonPhase, this.context, player);
       } else if (phase === NEXT_TURN) setTurn(heroPlayer, DRAW, this.context, player);
    };
 
@@ -92,4 +93,4 @@ Phases.propTypes = {
 
 Phases.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { setTurn, nextPhase, prevPhase })(withStyles(styles)(Phases));
+export default connect(mapStateToProps, { setTurn })(withStyles(styles)(Phases));

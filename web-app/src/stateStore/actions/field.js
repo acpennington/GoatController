@@ -34,11 +34,11 @@ function moveCard(data, socket = false) {
 }
 
 function drawPhaseDraw(player, socket = false) {
-   return { type: "", data: { player, socket } };
+   return { type: DRAW_PHASE_DRAW, data: { player, socket } };
 }
 
 function drawCards(player, count, socket = false) {
-   return { type: DRAW_PHASE_DRAW, data: "" };
+   return { type: "", data: "" };
 }
 
 function createTokens(player, params, socket = false) {
@@ -102,8 +102,8 @@ function oneLP(player, change) {
 
 function resetSolo(name) {
    return (dispatch) => {
-      dispatch(setTurn(name, DRAW));
       dispatch({ type: NEW_SOLO_GAME, data: name });
+      dispatch(setTurn(name, DRAW));
    };
 }
 

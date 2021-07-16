@@ -52,9 +52,6 @@ const CLOSE_MODAL = "CLOSE_MODAL";
 const PREPOP_LP = "PREPOP_LP";
 const CONCEDE_GAME = "CONCEDE_GAME";
 const SET_TURN = "SET_TURN";
-const NEXT_PHASE = "NEXT_PHASE";
-const PREV_PHASE = "PREV_PHASE";
-const RESET_TURN = "RESET_TURN";
 const SHUFFLE_DECK = "SHUFFLE_DECK";
 const SET_DECK = "SET_DECK";
 
@@ -69,8 +66,6 @@ const REDIRECT = "REDIRECT";
 const JOIN_MATCH = "JoinMatch";
 const NEW_CHAT_MESSAGE = "NewChatMessage";
 const NEW_PHASE = "NewPhase";
-const PUSH_NEXT_PHASE = "PushNextPhase";
-const PUSH_PREV_PHASE = "PushPrevPhase";
 const SEND_LP_CHANGE = "SendLpChange";
 const SEND_TOKENS = "SendTokens";
 const SEND_REVEAL = "SendReveal";
@@ -176,9 +171,6 @@ export {
    PREPOP_LP,
    CONCEDE_GAME,
    SET_TURN,
-   NEXT_PHASE,
-   PREV_PHASE,
-   RESET_TURN,
    SHUFFLE_DECK,
    SET_DECK,
    // league socket actions
@@ -191,8 +183,6 @@ export {
    JOIN_MATCH,
    NEW_CHAT_MESSAGE,
    NEW_PHASE,
-   PUSH_NEXT_PHASE,
-   PUSH_PREV_PHASE,
    SEND_LP_CHANGE,
    SEND_TOKENS,
    SEND_REVEAL,

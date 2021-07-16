@@ -183,7 +183,7 @@ export default function (state = initialState, action) {
          const namedCards = shuffle(activeMaindeck).map((card) => ({ name: card }));
 
          const newHand = [];
-         for (let i = 0; i < 6; i++) newHand.push(namedCards.pop());
+         for (let i = 0; i < 5; i++) newHand.push(namedCards.pop());
 
          const newState = { villain: { ...JSON.parse(JSON.stringify(blankField)) } };
          newState[data] = {
