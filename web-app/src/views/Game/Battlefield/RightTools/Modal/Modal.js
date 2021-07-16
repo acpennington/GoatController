@@ -45,18 +45,16 @@ class Modal extends Component {
    };
 
    render() {
-      const { classes, height, player, row, filter, isExtra, usedFusions, heroPlayer } = this.props;
+      const { classes, height, player, row, filter, isExtra, allFusions, heroPlayer } = this.props;
       const { metaTargets, levelFilter, hfHeights } = this.state;
       const isHero = heroPlayer === player;
 
       const fusionNames =
-         isExtra &&
-         Object.keys(fusions)
-            .filter((name) => !usedFusions[name] || usedFusions[name] < 3)
-            .filter((name) => {
-               const cardDetails = getCardDetails(name);
-               return !cardDetails.noMeta === metaTargets && (!levelFilter || levelFilter === cardDetails.levelOrSubtype);
-            });
+         allFusions &&
+         allFusions.filter((name) => {
+            const cardDetails = getCardDetails(name);
+            return !cardDetails.noMeta === metaTargets && (!levelFilter || levelFilter === cardDetails.levelOrSubtype);
+         });
 
       return (
          <div className={classes.modalContainer}>
@@ -101,7 +99,9 @@ function mapStateToProps(state, ownProps) {
    const { player, row, filter } = ownProps.pile;
    const isExtra = row === EXTRA_DECK;
    const usedFusions = isExtra && state.field[player].usedFusions;
-   return { player, row, filter, isExtra, usedFusions };
+   const allFusions = isExtra && Object.keys(fusions).filter((name) => !usedFusions[name] || usedFusions[name] < 3);
+
+   return { player, row, filter, isExtra, usedFusions, allFusions };
 }
 
 Modal.propTypes = {
