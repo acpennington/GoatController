@@ -11,12 +11,13 @@ const sendLpChange = require("./SendLpChange.js");
 const sendTokens = require("./SendTokens.js");
 const sendReveal = require("./SendReveal.js");
 const sendCardMove = require("./SendCardMove.js");
+const sendDrawPhase = require("./SendDrawPhase");
 const sendPosChange = require("./SendPosChange.js");
 const reorderDeck = require("./ReorderDeck.js");
 const mill = require("./Mill.js");
 const playerConceded = require("./PlayerConceded.js");
 const cleanupGame = require("./CleanupGame.js");
-const sendEntireGamestate = require("./sendEntireGamestate.js");
+const sendEntireGamestate = require("./SendEntireGamestate.js");
 
 // Routes GameSocket actions
 exports.handler = async (event) => {
@@ -25,11 +26,13 @@ exports.handler = async (event) => {
    const { action, data } = body;
    const { id, token } = data;
 
-   const username = auth(token);
-   if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
-
    const { domainName, stage, connectionId } = requestContext;
    const api = new AWS.ApiGatewayManagementApi({ endpoint: domainName + "/" + stage });
+
+   const username = auth(token);
+   if (!username) {
+      return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
+   }
 
    switch (action) {
       case "JoinMatch":
@@ -50,6 +53,8 @@ exports.handler = async (event) => {
          return await sendReveal(id, username, connectionId, api);
       case "SendCardMove":
          return await sendCardMove(id, username, data.from, data.fromCard, data.to, data.settingTrap, data.msg, connectionId, api);
+      case "SendDrawPhase":
+         return await sendDrawPhase(id, username, data.shouldSkipDraw, connectionId, api);
       case "SendPosChange":
          return await sendPosChange(id, username, data.row, data.zone, data.cardName, connectionId, api);
       case "ReorderDeck":
