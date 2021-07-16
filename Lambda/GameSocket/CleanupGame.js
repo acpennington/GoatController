@@ -29,7 +29,7 @@ async function cleanupGame(id, connectionId, api) {
          TableName: "users",
          Key: { username: player },
          UpdateExpression: "SET activeMatch = :none",
-         ExpressionAttributeValues: { ":none": false }
+         ExpressionAttributeValues: { ":none": "" }
       };
       try {
          await DynamoDB.update(params).promise();
