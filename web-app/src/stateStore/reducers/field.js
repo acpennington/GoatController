@@ -26,7 +26,8 @@ import {
    SEND_CARD_MOVE,
    SEND_POS_CHANGE,
    REORDER_DECK,
-   SET_DECK
+   SET_DECK,
+   SEND_ENTIRE_GAMESTATE
 } from "utils/constants.js";
 
 const blankField = {
@@ -48,9 +49,16 @@ export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
       case SET_GAMESTATE_TO:
+         playSound("/sounds/shuffle.mp3");
          return data;
+      case SEND_ENTIRE_GAMESTATE: {
+         const { socket, message } = data;
+         const payload = { action: SEND_ENTIRE_GAMESTATE, data: { token: socket.token, id: socket.matchId, gamestate: state, message } };
+         socket.api.send(JSON.stringify(payload));
+         return state;
+      }
       case MOVE_CARD:
-         const { from, to, socket } = data;
+         const { from, to, socket, noSound } = data;
          const oldFromZone = from.zone;
          const drawingFromDeck = from.row === DECK && from.zone === -1;
          if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
@@ -63,8 +71,7 @@ export default function (state = initialState, action) {
          if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
 
          if (!fromCard.name.includes("Token") || to.row === MONSTER || to.row === ST) {
-            if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) 
-               state[to.player].usedFusions[fromCard.name] -= 1;
+            if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) state[to.player].usedFusions[fromCard.name] -= 1;
             else if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
             else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
             else state[to.player][to.row][to.zone] = { ...fromCard };
@@ -79,13 +86,15 @@ export default function (state = initialState, action) {
             }
          }
 
-         if (to.row === GRAVEYARD) playSound("/sounds/tograve.mp3");
-         else if (to.row === BANISHED) playSound("/sounds/tobanished.mp3");
-         else if (settingTrap || (facedown && from.row !== to.row)) playSound("/sounds/set.mp3");
-         else if (to.row === MONSTER && from.row !== MONSTER && from.row !== ST) playSound("/sounds/summon.mp3");
-         else if (to.row === ST && from.row !== MONSTER && from.row !== ST) playSound("/sounds/activate.mp3");
-         else if (drawingFromDeck) playSound("/sounds/drawcard.mp3");
-         else if (to.row === HAND && from.row !== HAND) playSound("/sounds/tohand.mp3");
+         if (!noSound) {
+            if (to.row === GRAVEYARD) playSound("/sounds/tograve.mp3");
+            else if (to.row === BANISHED) playSound("/sounds/tobanished.mp3");
+            else if (settingTrap || (facedown && from.row !== to.row)) playSound("/sounds/set.mp3");
+            else if (to.row === MONSTER && from.row !== MONSTER && from.row !== ST) playSound("/sounds/summon.mp3");
+            else if (to.row === ST && from.row !== MONSTER && from.row !== ST) playSound("/sounds/activate.mp3");
+            else if (drawingFromDeck) playSound("/sounds/drawcard.mp3");
+            else if (to.row === HAND && from.row !== HAND) playSound("/sounds/tohand.mp3");
+         }
 
          if (dynamicZones.includes(from.row)) state[from.player][from.row].splice(from.zone, 1);
          else if (fieldSpell) state[from.player][from.row] = null;

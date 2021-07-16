@@ -16,6 +16,7 @@ const reorderDeck = require("./ReorderDeck.js");
 const mill = require("./Mill.js");
 const playerConceded = require("./PlayerConceded.js");
 const cleanupGame = require("./CleanupGame.js");
+const sendEntireGamestate = require("./sendEntireGamestate.js");
 
 // Routes GameSocket actions
 exports.handler = async (event) => {
@@ -59,8 +60,8 @@ exports.handler = async (event) => {
          return await playerConceded(id, username, api);
       case "CleanupGame":
          return await cleanupGame(id, connectionId, api);
-      case "EntireState":
-         return;
+      case "SendEntireGamestate":
+         return await sendEntireGamestate(id, data.gamestate, data.message, connectionId, api);
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid action name" }] } };
    }

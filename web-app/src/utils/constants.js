@@ -79,6 +79,7 @@ const REORDER_DECK = "ReorderDeck";
 const MILL = "Mill";
 const PLAYER_CONCEDED = "PlayerConceded";
 const CLEANUP_GAME = "CleanupGame";
+const SEND_ENTIRE_GAMESTATE = "SendEntireGamestate";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -199,6 +200,7 @@ export {
    MILL,
    PLAYER_CONCEDED,
    CLEANUP_GAME,
+   SEND_ENTIRE_GAMESTATE,
    // ItemTypes
    OFF_FIELD,
    allTypes,

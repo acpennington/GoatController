@@ -69,7 +69,6 @@ class Game extends Component {
       };
 
       webSocket.onmessage = (event) => {
-         console.log(event.data);
          const message = JSON.parse(event.data);
          if (message.action) {
             const payloads = message.data;

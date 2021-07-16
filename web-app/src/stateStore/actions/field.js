@@ -98,8 +98,8 @@ function resetSolo(name) {
    };
 }
 
-function shuffleDeck(player, socket) {
-   playSound("/sounds/shuffle.mp3");
+function shuffleDeck(player, socket = false, noSound = false) {
+   if (!noSound) playSound("/sounds/shuffle.mp3");
    return { type: SHUFFLE_DECK, data: { player, socket } };
 }
 
