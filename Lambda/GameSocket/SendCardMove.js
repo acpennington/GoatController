@@ -8,15 +8,13 @@ const { HAND, DECK, GRAVEYARD, BANISHED } = require("./utils/constants");
 async function sendCardMove(id, username, from, fromCard, to, settingTrap, msg, connectionId, api) {
    const player = to.player === username ? " their " : to.player + "'s ";
    const cardName =
-      settingTrap ||
-      (from.row === DECK && ((to.row === HAND && from.zone === -1) || to.row === DECK)) ||
-      (from.row === HAND && to.row === HAND) ||
-      (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED)
+      settingTrap || (from.row === DECK && to.row === HAND && from.zone === -1) || (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED)
          ? "a card "
          : fromCard.name;
    const adverb = msg || "";
+   const noMessage = (from.row === HAND && to.row === HAND) || (from.row === DECK && to.row === DECK);
 
-   const message = {
+   const message = !noMessage && {
       author: "Server",
       content: username + " " + adverb + " moved " + cardName + " from their " + from.row + " zone to " + player + to.row + " zone."
    };
