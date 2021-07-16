@@ -37,6 +37,7 @@ const blankField = {
    banished: [],
    usedFusions: {},
    hand: [],
+   skippedDraws: 0,
    handRevealed: false,
    "s/t": [null, null, null, null, null],
    "field spell": null,
