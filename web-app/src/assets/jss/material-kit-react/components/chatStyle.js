@@ -61,6 +61,10 @@ const chatStyle = {
    Server: {
       color: "yellow",
       fontWeight: "bold"
+   },
+   Game: {
+      color: "yellow",
+      fontWeight: "bold"
    }
 };
 

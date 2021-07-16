@@ -7,7 +7,8 @@ const handleDisconnect = require("./utils/handleDisconnect.js");
 // @access Private
 // @db 1 read, 0 writes
 async function newChatMessage(id, username, message, connectionId, api) {
-   if (message.author !== username) return { statusCode: 401, body: { errors: [{ msg: "You are not authorized to send this message" }] } };
+   if (message.author !== username && message.author !== "Game")
+      return { statusCode: 401, body: { errors: [{ msg: "You are not authorized to send this message" }] } };
 
    const match = await findMatch(id, "players, watchers");
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game not found" }] } };
