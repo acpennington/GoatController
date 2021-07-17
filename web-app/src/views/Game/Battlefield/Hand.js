@@ -1,20 +1,20 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { useDrop } from "react-dnd";
-import { connect } from "react-redux";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
+import { addMessage } from "stateStore/actions/chat.js";
 import { moveCard } from "stateStore/actions/field.js";
 import { WebSocketContext } from "../WebSocketContext";
-import { VILLAIN_HAND_SIZE, HAND, allTypes, OVER_COLOR, EXTRA_DECK, FACEDOWN_CARD } from "utils/constants.js";
+import { VILLAIN_HAND_SIZE, HAND, allTypes, OVER_COLOR, EXTRA_DECK, FACEDOWN_CARD, NEXT_TURN } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 const useStyles = makeStyles(styles);
 
-function Hand({ player, handCount, size, discardPile, isHero, revealed }) {
+function Hand({ player, handCount, size, discardPile, isHero, revealed, phase }) {
    const classes = useStyles();
    const dispatch = useDispatch();
    const socket = useContext(WebSocketContext);
@@ -32,6 +32,13 @@ function Hand({ player, handCount, size, discardPile, isHero, revealed }) {
          canDrop: monitor.canDrop()
       })
    });
+
+   const prevCount = usePrevious(handCount);
+   const shouldDispatch = prevCount === 6 && handCount === 7 && phase === NEXT_TURN;
+   useEffect(() => {
+      if (shouldDispatch) dispatch(addMessage("Game", player + " has " + handCount + " cards in hand. Please discard down to 6."));
+      // eslint-disable-next-line
+   }, [shouldDispatch]);
 
    const cardName = isHero || revealed ? undefined : FACEDOWN_CARD;
    const handList = [];
@@ -57,8 +64,16 @@ function Hand({ player, handCount, size, discardPile, isHero, revealed }) {
    );
 }
 
+function usePrevious(value) {
+   const ref = useRef();
+   useEffect(() => {
+      ref.current = value;
+   });
+   return ref.current;
+}
+
 function mapStateToProps(state, ownProps) {
-   return { revealed: state.field[ownProps.player].handRevealed };
+   return { revealed: state.field[ownProps.player].handRevealed, phase: state.turn.phase };
 }
 
 Hand.propTypes = {
