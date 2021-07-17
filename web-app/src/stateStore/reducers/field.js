@@ -20,6 +20,7 @@ import {
    DRAW_PHASE_DRAW,
    CREATE_TOKEN,
    SWITCH_POSITION,
+   CLEAR_BATTLE,
    ATTACK,
    ADJUST_LP,
    REVEAL_HAND,
@@ -173,6 +174,15 @@ export default function (state = initialState, action) {
 
          return state;
       }
+      case CLEAR_BATTLE:
+         const clearedCards = clearBattle(state);
+         if (clearedCards) {
+            const socket = data;
+            if (socket && socket.api) {
+               console.log("deez nuts");
+            }
+         }
+         return state;
       case ATTACK: {
          const { to, from, socket } = data;
          clearBattle(state);
@@ -229,12 +239,18 @@ export default function (state = initialState, action) {
 }
 
 function clearBattle(field) {
+   let clearedCards = 0;
    for (const player in field) {
       const oneField = field[player];
       for (const monster of oneField.monster) {
-         if (monster && monster.battle) delete monster.battle;
+         if (monster && monster.battle) {
+            delete monster.battle;
+            clearedCards += 1;
+         }
       }
    }
+
+   return clearedCards;
 }
 
 function shuffle(deck) {
