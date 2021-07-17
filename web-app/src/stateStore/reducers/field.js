@@ -196,7 +196,6 @@ export default function (state = initialState, action) {
          if (toCard) state[to.player][to.row][to.zone].battle = DEFENDING;
 
          if (socket && socket.api) {
-            console.log("sent attack");
             const fromName = fromCard.name;
             const toName = toCard ? (toCard.facedown ? "a facedown monster" : toCard.name) : "directly";
             const payload = { action: SEND_ATTACK, data: { token: socket.token, id: socket.matchId, fromName, toName, to, from } };
