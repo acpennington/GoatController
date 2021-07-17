@@ -96,7 +96,7 @@ export default function (state = initialState, action) {
             }
          }
 
-         if (!noSound) {
+         if (!noSound && to.row !== DECK) {
             if (to.row === GRAVEYARD) playSound("/sounds/tograve.mp3");
             else if (to.row === BANISHED) playSound("/sounds/tobanished.mp3");
             else if (settingTrap || (facedown && from.row !== to.row && to.row !== HAND)) playSound("/sounds/set.mp3");
