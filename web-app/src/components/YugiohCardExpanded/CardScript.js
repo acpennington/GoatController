@@ -67,11 +67,8 @@ class CardScript extends PureComponent {
       }
 
       const verb = (number) => (number === 1 ? " was " : " were ");
-      addMessage(
-         "Game",
-         heroPlayer + " flipped a coin " + count + " times. " + heads + verb(heads) + " heads, and " + tails + verb(tails) + "tails.",
-         this.context
-      );
+      const message = heroPlayer + " flipped a coin " + count + " times. " + heads + verb(heads) + " heads, and " + tails + verb(tails) + "tails.";
+      addMessage("Game", message, this.context);
    };
 
    render() {
