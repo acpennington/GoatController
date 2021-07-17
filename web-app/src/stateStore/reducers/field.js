@@ -29,6 +29,8 @@ import {
    SEND_CARD_MOVE,
    SEND_DRAW_PHASE,
    SEND_POS_CHANGE,
+   SEND_ATTACK,
+   SEND_CLEAR,
    REORDER_DECK,
    SET_DECK,
    SEND_ENTIRE_GAMESTATE,
@@ -140,6 +142,7 @@ export default function (state = initialState, action) {
       }
       case CREATE_TOKEN:
          const { name, inDef } = data;
+         clearBattle(state);
          const tokenPlayer = data.player;
          let tokenZone = 0;
 
@@ -150,6 +153,7 @@ export default function (state = initialState, action) {
          return { ...state };
       case SWITCH_POSITION: {
          const { player, row, zone, socket } = data;
+         clearBattle(state);
          const myCard = row === FIELD_SPELL ? state[player][FIELD_SPELL] : state[player][row][zone];
          if (row === MONSTER) {
             if (myCard.inDef) {
@@ -175,20 +179,30 @@ export default function (state = initialState, action) {
          return state;
       }
       case CLEAR_BATTLE:
-         const clearedCards = clearBattle(state);
-         if (clearedCards) {
+         if (clearBattle(state) && data && data.api) {
             const socket = data;
-            if (socket && socket.api) {
-               console.log("deez nuts");
-            }
+            const payload = { action: SEND_CLEAR, data: { token: socket.token, id: socket.matchId } };
+            socket.api.send(JSON.stringify(payload));
          }
          return state;
       case ATTACK: {
          const { to, from, socket } = data;
          clearBattle(state);
 
-         state[from.player][from.row][from.zone].battle = ATTACKING;
-         if (to.row !== HAND) state[to.player][to.row][to.zone].battle = DEFENDING;
+         const fromCard = state[from.player][from.row][from.zone];
+         const toCard = to.row === HAND ? false : state[to.player][to.row][to.zone];
+
+         fromCard.battle = ATTACKING;
+         if (toCard) state[to.player][to.row][to.zone].battle = DEFENDING;
+
+         if (socket && socket.api) {
+            console.log("sent attack");
+            const fromName = fromCard.name;
+            const toName = toCard ? (toCard.facedown ? "a facedown monster" : toCard.name) : "directly";
+            const payload = { action: SEND_ATTACK, data: { token: socket.token, id: socket.matchId, fromName, toName, to, from } };
+            socket.api.send(JSON.stringify(payload));
+         }
+
          return state;
       }
       case ADJUST_LP:

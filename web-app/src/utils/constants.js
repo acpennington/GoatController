@@ -79,6 +79,7 @@ export const SEND_CARD_MOVE = "SendCardMove";
 export const SEND_DRAW_PHASE = "SendDrawPhase";
 export const SEND_POS_CHANGE = "SendPosChange";
 export const SEND_ATTACK = "SendAttack";
+export const SEND_CLEAR = "SendClear";
 export const REORDER_DECK = "ReorderDeck";
 export const MILL = "Mill";
 export const PLAYER_CONCEDED = "PlayerConceded";
