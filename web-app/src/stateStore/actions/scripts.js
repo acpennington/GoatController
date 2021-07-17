@@ -15,8 +15,9 @@ function millUntil(player, deck, params, socket = false) {
       socket.api.send(JSON.stringify(payload));
    }
 
+   const topCard = deck.length - 1;
    return (dispatch) => {
-      for (let i = deck.length - 1, stop = false; i >= 0 && !stop; i--) {
+      for (let i = topCard, stop = false; i >= 0 && !stop; i--) {
          const card = deck[i];
          const cardDetails = card && getCardDetails(card.name);
 
@@ -24,7 +25,7 @@ function millUntil(player, deck, params, socket = false) {
             if (isNaN(cardDetails.atk)) stop = true;
          }
 
-         dispatch(moveCard({ from: { player, row: DECK, zone: i }, to: { player, row: GRAVEYARD, zone: 0 } }));
+         dispatch(moveCard({ from: { player, row: DECK, zone: i }, to: { player, row: GRAVEYARD, zone: 0 }, noSound: i !== topCard }));
       }
    };
 }
