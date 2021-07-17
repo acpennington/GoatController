@@ -396,7 +396,8 @@ const fusions = {
       levelOrSubtype: 8,
       atk: 2600,
       def: 1200,
-      text: 'Machine/Fusion/Effect – "Barrel Dragon" + "Blowback Dragon". <effect=Ignition>Once per turn: You can toss a coin 3 times and destroy as many monsters on the field as possible, but not more than the number of heads.</effect>'
+      text: 'Machine/Fusion/Effect – "Barrel Dragon" + "Blowback Dragon". <effect=Ignition>Once per turn: You can toss a coin 3 times and destroy as many monsters on the field as possible, but not more than the number of heads.</effect>',
+      script: "Flip_Coins:3"
    },
    "Ryu Senshi": {
       cardType: "fusionMonster",

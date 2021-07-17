@@ -6,9 +6,10 @@ import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
 import { moveCard, createTokens } from "stateStore/actions/field.js";
+import { addMessage } from "stateStore/actions/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/scripts.js";
 
-import { GRAVEYARD, HAND, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD } from "utils/constants";
+import { GRAVEYARD, HAND, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS } from "utils/constants";
 
 class CardScript extends PureComponent {
    runScript = (name, params) => {
@@ -31,6 +32,9 @@ class CardScript extends PureComponent {
          case RANDOM_DISCARD:
             this.randomDiscard();
             break;
+         case FLIP_COINS:
+            this.flipCoins(params);
+            break;
          default:
             console.log("Error: Undefined card script");
       }
@@ -50,6 +54,20 @@ class CardScript extends PureComponent {
             { ...this.context, msg: "RANDOMLY" }
          );
       }
+   };
+
+   flipCoins = (count) => {
+      const { heroPlayer, addMessage } = this.props;
+      let heads = 0,
+         tails = 0;
+
+      for (let i = 0; i < count; i++) {
+         if (Math.random() > 0.5) heads++;
+         else tails++;
+      }
+
+      const verb = (number) => (number === 1 ? " was " : " were ");
+      addMessage("Game", heroPlayer + " flipped a coin " + count + " times. " + heads + verb(heads) + " heads, and " + tails + verb(tails) + "tails.");
    };
 
    render() {
@@ -89,4 +107,4 @@ CardScript.propTypes = {
 
 CardScript.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll })(CardScript);
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage })(CardScript);

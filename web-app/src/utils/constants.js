@@ -113,6 +113,7 @@ const BANISH_ALL = "Banish_All";
 const MILL_UNTIL = "Mill_Until";
 const TOKENS = "Make_Tokens";
 const RANDOM_DISCARD = "Random_Discard";
+const FLIP_COINS = "Flip_Coins";
 
 // leagues
 const OFFICIAL_UNRANKED = {
@@ -225,6 +226,7 @@ export {
    MILL_UNTIL,
    TOKENS,
    RANDOM_DISCARD,
+   FLIP_COINS,
    // leagues
    OFFICIAL_UNRANKED
 };
