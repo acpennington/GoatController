@@ -8,7 +8,7 @@ import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
 import { moveCard, attack } from "stateStore/actions/field.js";
 import { WebSocketContext } from "../WebSocketContext";
-import { VILLAIN_HAND_SIZE, HAND, allTypes, OVER_COLOR, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "utils/constants.js";
+import { VILLAIN_HAND_SIZE, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -24,7 +24,7 @@ function Hand({ player, handCount, size, discardPile, isHero, revealed, phase })
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allTypes,
-      canDrop: (item) => item.row !== EXTRA_DECK,
+      canDrop: (item) => item.row !== EXTRA_DECK && (!herosBattlePhase || item.row === MONSTER),
       drop: (item) => {
          if (herosBattlePhase) dispatch(attack({ from: item, to: { player, row: HAND }, socket }));
          else dispatch(moveCard({ from: item, to: { player, row: HAND } }, socket));
