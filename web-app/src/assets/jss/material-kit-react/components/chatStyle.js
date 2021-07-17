@@ -66,7 +66,7 @@ const chatStyle = {
       color: "yellow",
       fontWeight: "bold"
    },
-   Opponent: {
+   opponent: {
       color: "red",
       fontWeight: "bold"
    }

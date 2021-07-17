@@ -28,14 +28,7 @@ class Messages extends PureComponent {
          messageList.push(
             <div className={classes.messageContainer} key={i}>
                <div className={classes["message" + section + (authorIsHero ? "Hero" : "")]}>
-                  {authorIsHero ? (
-                     ""
-                  ) : (
-                     <span className={classes[author]}>
-                        {author}:
-                     </span>
-                  )}{" "}
-                  {content}
+                  {authorIsHero ? "" : <span className={classes[author] || classes.opponent}>{author}:</span>} {content}
                </div>
             </div>
          );

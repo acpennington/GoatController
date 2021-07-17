@@ -34,7 +34,18 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/settingsPage.js";
 
 const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
-const sleeveChoices = ["Goat.png", "Exarion.png"];
+const sleeveChoices = [
+   "Abstract.png",
+   "Black_And_White.png",
+   "Black_Luster_Soldier.png",
+   "Exarion.png",
+   "Ghost_Dog.png",
+   "Goat.png",
+   "Hieroglyphs.png",
+   "My_Pokemans.png",
+   "Space_Canyon.png",
+   "Underwater_Nun.png"
+];
 
 class SettingsPage extends PureComponent {
    constructor(props) {
@@ -138,7 +149,7 @@ class SettingsPage extends PureComponent {
                </GridItem>
                <GridItem xs={12}>
                   <div className={classes.centerFlex}>
-                     <div>
+                     <div className={classes.center}>
                         <CustomDropdown
                            buttonText={"Sleeves: " + formatFileName(sleeves)}
                            buttonProps={{
@@ -146,7 +157,9 @@ class SettingsPage extends PureComponent {
                            }}
                            dropdownList={[...sleeveChoices.map((sleeve) => <div onClick={() => this.setSleeves(sleeve)}>{formatFileName(sleeve)}</div>)]}
                         />
-                        <JustSleeves height={250} sleeves={sleeves} />
+                        <div className={classes.sleeves}>
+                           <JustSleeves height={250} sleeves={sleeves} />
+                        </div>
                      </div>
                   </div>
                </GridItem>

@@ -12,6 +12,11 @@ const settingsStyle = {
       ...styles.cardFooter,
       textAlign: "center",
       padding: "0.9375rem 1.875rem"
+   },
+   sleeves: {
+      textAlign: "center",
+      display: "flex",
+      justifyContent: "center"
    }
 };
 
