@@ -30,7 +30,9 @@ import {
    SEND_POS_CHANGE,
    REORDER_DECK,
    SET_DECK,
-   SEND_ENTIRE_GAMESTATE
+   SEND_ENTIRE_GAMESTATE,
+   ATTACKING,
+   DEFENDING
 } from "utils/constants.js";
 
 const blankField = {
@@ -63,6 +65,7 @@ export default function (state = initialState, action) {
       }
       case MOVE_CARD:
          const { from, to, socket, noSound } = data;
+         clearBattle(state);
          const oldFromZone = from.zone;
          const drawingFromDeck = from.row === DECK && from.zone === -1;
          if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
@@ -170,9 +173,14 @@ export default function (state = initialState, action) {
 
          return state;
       }
-      case ATTACK:
-         console.log("Attack!");
+      case ATTACK: {
+         const { to, from, socket } = data;
+         clearBattle(state);
+
+         state[from.player][from.row][from.zone].battle = ATTACKING;
+         state[to.player][to.row][to.zone].battle = DEFENDING;
          return state;
+      }
       case ADJUST_LP:
          const { player, change } = data;
          state[player].lifepoints += change;
@@ -217,6 +225,15 @@ export default function (state = initialState, action) {
       }
       default:
          return state;
+   }
+}
+
+function clearBattle(field) {
+   for (const player in field) {
+      const oneField = field[player];
+      for (const monster of oneField.monster) {
+         if (monster && monster.battle) delete monster.battle;
+      }
    }
 }
 

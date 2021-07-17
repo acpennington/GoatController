@@ -27,9 +27,8 @@ function playSound(soundName) {
 }
 
 function moveCard(data, socket = false) {
-   data = { ...data, socket };
    return (dispatch) => {
-      dispatch({ type: MOVE_CARD, data });
+      dispatch({ type: MOVE_CARD, data: { ...data, socket } });
       dispatch(clearSelection());
    };
 }
@@ -71,8 +70,8 @@ function switchPosition(player, row, zone, socket = false) {
    return { type: SWITCH_POSITION, data: { player, row, zone, socket } };
 }
 
-function attack() {
-   return { type: ATTACK };
+function attack(data) {
+   return { type: ATTACK, data };
 }
 
 function revealHand(player, socket = false) {

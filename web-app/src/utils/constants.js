@@ -28,6 +28,10 @@ const dndZones = [DECK, ...discardZones];
 const dynamicZones = [HAND, DECK, ...discardZones];
 const toExtraZones = [HAND, ...deckZones];
 
+// battle
+const ATTACKING = "ATTACKING";
+const DEFENDING = "DEFENDING";
+
 // actions
 const ADD_MESSAGE = "ADD_MESSAGE";
 const SET_CHAT_TO = "SET_CHAT_TO";
@@ -150,6 +154,9 @@ export {
    dndZones,
    dynamicZones,
    toExtraZones,
+   // battle
+   ATTACKING,
+   DEFENDING,
    // actions
    ADD_MESSAGE,
    SET_CHAT_TO,

@@ -21,12 +21,13 @@ class CardArt extends PureComponent {
    };
 
    render() {
-      const { classes, name, nameHeight, cardTypeIcon, levelOrSubtype, atk, def, showNames, villExtension } = this.props;
+      const { classes, name, nameHeight, cardTypeIcon, levelOrSubtype, atk, def, showNames, villExtension, battle } = this.props;
       const isMonster = !isNaN(levelOrSubtype);
 
       return (
          <Fragment>
             <div className={classes.art} style={{ backgroundImage: 'url("/cards/art/' + compress(name) + '.jpg")' }}>
+               {battle && <div style={{ position: "absolute", top: 0 }}>{battle}</div>}
                <FoilStars nameHeight={nameHeight} />
             </div>
             {showNames && (
@@ -81,7 +82,8 @@ CardArt.propTypes = {
    levelOrSubtype: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
    atk: PropTypes.number,
    def: PropTypes.number,
-   villExtension: PropTypes.string.isRequired
+   villExtension: PropTypes.string.isRequired,
+   battle: PropTypes.string
 };
 
 export default connect(mapStateToProps, {})(withStyles(cardStyle)(CardArt));
