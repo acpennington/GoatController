@@ -6,9 +6,9 @@ import { useDrop } from "react-dnd";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
-import { moveCard } from "stateStore/actions/field.js";
+import { moveCard, attack } from "stateStore/actions/field.js";
 import { WebSocketContext } from "../WebSocketContext";
-import { VILLAIN_HAND_SIZE, HAND, allTypes, OVER_COLOR, EXTRA_DECK, FACEDOWN_CARD, NEXT_TURN } from "utils/constants.js";
+import { VILLAIN_HAND_SIZE, HAND, allTypes, OVER_COLOR, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -20,12 +20,14 @@ function Hand({ player, handCount, size, discardPile, isHero, revealed, phase })
    const socket = useContext(WebSocketContext);
 
    const handSize = size * (isHero && handCount > 9 ? 0.95 : 1);
+   const herosBattlePhase = phase === BATTLE && !isHero;
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allTypes,
       canDrop: (item) => item.row !== EXTRA_DECK,
       drop: (item) => {
-         dispatch(moveCard({ from: item, to: { player, row: HAND } }, socket));
+         if (herosBattlePhase) dispatch(attack({ from: item, to: { player, row: HAND }, socket }));
+         else dispatch(moveCard({ from: item, to: { player, row: HAND } }, socket));
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver(),
@@ -52,7 +54,7 @@ function Hand({ player, handCount, size, discardPile, isHero, revealed, phase })
       <FriendlyScroll
          id={"hand" + player}
          count={handCount}
-         drop={isHero && drop}
+         drop={(isHero || herosBattlePhase) && drop}
          style={{ overflowY: "hidden" }}
          bgColor={isOver && canDrop && OVER_COLOR + "33"}
          horiz

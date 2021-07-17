@@ -188,7 +188,7 @@ export default function (state = initialState, action) {
          clearBattle(state);
 
          state[from.player][from.row][from.zone].battle = ATTACKING;
-         state[to.player][to.row][to.zone].battle = DEFENDING;
+         if (to.row !== HAND) state[to.player][to.row][to.zone].battle = DEFENDING;
          return state;
       }
       case ADJUST_LP:
