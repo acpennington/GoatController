@@ -92,7 +92,7 @@ export default function (state = initialState, action) {
          if (!noSound) {
             if (to.row === GRAVEYARD) playSound("/sounds/tograve.mp3");
             else if (to.row === BANISHED) playSound("/sounds/tobanished.mp3");
-            else if (settingTrap || (facedown && from.row !== to.row)) playSound("/sounds/set.mp3");
+            else if (settingTrap || (facedown && from.row !== to.row && to.row !== HAND)) playSound("/sounds/set.mp3");
             else if (to.row === MONSTER && from.row !== MONSTER && from.row !== ST) playSound("/sounds/summon.mp3");
             else if (to.row === ST && from.row !== MONSTER && from.row !== ST) playSound("/sounds/activate.mp3");
             else if (drawingFromDeck) playSound("/sounds/drawcard.mp3");
@@ -127,7 +127,7 @@ export default function (state = initialState, action) {
          }
 
          if (socket && socket.api) {
-            const payload = { action: SEND_DRAW_PHASE, data: { token: socket.token, id: socket.matchId, shouldSkipDraw }};
+            const payload = { action: SEND_DRAW_PHASE, data: { token: socket.token, id: socket.matchId, shouldSkipDraw } };
             socket.api.send(JSON.stringify(payload));
          }
 
