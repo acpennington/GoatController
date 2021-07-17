@@ -11,6 +11,7 @@ const sendReveal = require("./SendReveal.js");
 const sendCardMove = require("./SendCardMove.js");
 const sendDrawPhase = require("./SendDrawPhase");
 const sendPosChange = require("./SendPosChange.js");
+const sendAttack = require("./SendAttack.js");
 const reorderDeck = require("./ReorderDeck.js");
 const mill = require("./Mill.js");
 const playerConceded = require("./PlayerConceded.js");
@@ -51,10 +52,14 @@ exports.handler = async (event) => {
          return await sendDrawPhase(id, username, data.shouldSkipDraw, connectionId, api);
       case "SendPosChange":
          return await sendPosChange(id, username, data.row, data.zone, data.cardName, connectionId, api);
+      case "SendAttack":
+         return await sendAttack(id);
       case "ReorderDeck":
          return await reorderDeck(id, username, data.deck, connectionId, api);
       case "Mill":
          return await mill(id, username, data.deck, data.params, connectionId, api);
+      case "SendAttack":
+         return await sendAttack(id);
       case "PlayerConceded":
          return await playerConceded(id, username, api);
       case "CleanupGame":
