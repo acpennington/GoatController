@@ -20,6 +20,7 @@ import {
    DRAW_PHASE_DRAW,
    CREATE_TOKEN,
    SWITCH_POSITION,
+   ATTACK,
    ADJUST_LP,
    REVEAL_HAND,
    NEW_SOLO_GAME,
@@ -169,6 +170,9 @@ export default function (state = initialState, action) {
 
          return state;
       }
+      case ATTACK:
+         console.log("Attack!");
+         return state;
       case ADJUST_LP:
          const { player, change } = data;
          state[player].lifepoints += change;

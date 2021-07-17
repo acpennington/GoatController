@@ -12,7 +12,7 @@ import CardArt from "./CardArt.js";
 import ZoneLabel from "./ZoneLabel.js";
 import { newHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
-import { moveCard, switchPosition } from "stateStore/actions/field.js";
+import { moveCard, switchPosition, attack } from "stateStore/actions/field.js";
 import { openModal } from "stateStore/actions/settings.js";
 import {
    CARD_RATIO,
@@ -31,7 +31,8 @@ import {
    allTypes,
    OVER_COLOR,
    HERO_SELECTION_COLOR,
-   REVEAL_COLOR
+   REVEAL_COLOR,
+   BATTLE
 } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -44,7 +45,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone } = getBools(row, zone);
 
-   let { deckCount, card, sleeves, selected, handRevealed } = useSelector((state) => {
+   let { deckCount, card, sleeves, selected, handRevealed, battlePhase } = useSelector((state) => {
       const sfPlayer = state.field[player];
       const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
       const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[getOtherPlayer(player, state.field)].sleeves;
@@ -52,7 +53,8 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
       const handRevealed = sfPlayer.handRevealed;
       const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
-      return { deckCount, card, sleeves, selected, handRevealed };
+      const battlePhase = state.turn.phase === BATTLE;
+      return { deckCount, card, sleeves, selected, handRevealed, battlePhase };
    });
 
    if (isDiscardZone) {
@@ -84,14 +86,21 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       })
    });
 
+   const blank = ((!card || isDragging) && !deckZone) || !deckCount;
+
    const acceptables =
-      (fieldZone && FIELD_SPELL) || (monsterZone && [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK]) || (STzone && [MONSTER, ST, OFF_FIELD + ST]) || allTypes;
+      (!isHero && !blank && battlePhase && [MONSTER]) ||
+      (fieldZone && FIELD_SPELL) ||
+      (monsterZone && [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK]) ||
+      (STzone && [MONSTER, ST, OFF_FIELD + ST]) ||
+      allTypes;
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allTypes,
       canDrop: (item) => isAcceptable(item.type, acceptables),
       drop: (item) => {
-         dispatch(moveCard({ from: item, to: { player, row, zone } }, socket));
+         if (battlePhase && item.row === MONSTER && monsterZone && !blank) dispatch(attack());
+         else dispatch(moveCard({ from: item, to: { player, row, zone } }, socket));
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver(),
@@ -99,14 +108,12 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       })
    });
 
-   const blank = ((!card || isDragging) && !deckZone) || !deckCount;
-
    let dragOrDrop = useRef(null);
    if (isHero) {
       if (blank && !isDragging) dragOrDrop = drop;
       else if (dndZones.includes(row)) drag(drop(dragOrDrop));
       else if (!isExtraDeck) dragOrDrop = drag;
-   } else if (row === MONSTER && blank) dragOrDrop = drop;
+   } else if (row === MONSTER && (blank || battlePhase)) dragOrDrop = drop;
 
    if (isHero && selected)
       bind("d", () => {

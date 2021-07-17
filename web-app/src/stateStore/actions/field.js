@@ -7,6 +7,7 @@ import {
    DRAW_PHASE_DRAW,
    CREATE_TOKEN,
    SWITCH_POSITION,
+   ATTACK,
    ADJUST_LP,
    REVEAL_HAND,
    NEW_SOLO_GAME,
@@ -70,6 +71,10 @@ function switchPosition(player, row, zone, socket = false) {
    return { type: SWITCH_POSITION, data: { player, row, zone, socket } };
 }
 
+function attack() {
+   return { type: ATTACK };
+}
+
 function revealHand(player, socket = false) {
    if (socket && socket.api) {
       const payload = { action: SEND_REVEAL, data: { token: socket.token, id: socket.matchId } };
@@ -112,4 +117,4 @@ function shuffleDeck(player, socket = false, noSound = false) {
    return { type: SHUFFLE_DECK, data: { player, socket } };
 }
 
-export { playSound, moveCard, drawPhaseDraw, drawCards, createTokens, switchPosition, revealHand, adjustLP, resetSolo, shuffleDeck };
+export { playSound, moveCard, drawPhaseDraw, drawCards, createTokens, switchPosition, attack, revealHand, adjustLP, resetSolo, shuffleDeck };
