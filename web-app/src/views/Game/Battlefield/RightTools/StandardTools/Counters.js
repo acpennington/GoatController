@@ -1,4 +1,5 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
@@ -7,7 +8,7 @@ import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
-class Counters extends PureComponent {
+class Counters extends Component {
    componentDidMount() {
       bind("=", () => this.tryAdjustCounters(1));
       bind("-", () => this.tryAdjustCounters(-1));
@@ -17,7 +18,13 @@ class Counters extends PureComponent {
       unbind(["=", "-"]);
    }
 
-   tryAdjustCounters = (count) => {};
+   shouldComponentUpdate() {
+      return false;
+   }
+
+   tryAdjustCounters = (count) => {
+      console.log(JSON.stringify(this.props.selectedCard));
+   };
 
    render() {
       return (
@@ -33,9 +40,13 @@ class Counters extends PureComponent {
    }
 }
 
-function mapStateToProps(state) {
-   return { selectedCard: "" };
+function mapStateToProps(state, ownProps) {
+   return { selectedCard: state.selectedCard[ownProps.heroPlayer] };
 }
+
+Counters.propTypes = {
+   heroPlayer: PropTypes.string.isRequired
+};
 
 Counters.contextType = WebSocketContext;
 
