@@ -21,8 +21,8 @@ class LeftPanel extends Component {
    }
 }
 
-function mapStateToProps(state) {
-   return { hoverCard: state.hoverCard, selectedCard: state.selectedCard };
+function mapStateToProps(state, ownProps) {
+   return { hoverCard: state.hoverCard, selectedCard: state.selectedCard[ownProps.name] };
 }
 
 LeftPanel.propTypes = {

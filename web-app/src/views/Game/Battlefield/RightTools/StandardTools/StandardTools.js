@@ -6,6 +6,7 @@ import Button from "components/CustomButtons/Button.js";
 import ButtonRow from "components/CustomButtons/ButtonRow.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 
+import Counters from "./Counters.js";
 import ConcedeButton from "./ConcedeButton.js";
 import Switches from "./Switches.js";
 import ShowingDiscard from "./ShowingDiscard.js";
@@ -96,6 +97,7 @@ class StandardTools extends PureComponent {
             <Phases heroPlayer={player.name} />
             <ShowingDiscard discardPile={discardPile} />
             <RevealHandButton name={name} />
+            <Counters />
             <LifeBar life={lifepoints.hero} isHero={true} />
             <div className={classes.LPbox}>
                <CustomInput

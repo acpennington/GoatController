@@ -31,6 +31,7 @@ import {
    allTypes,
    OVER_COLOR,
    HERO_SELECTION_COLOR,
+   VILLAIN_SELECTION_COLOR,
    REVEAL_COLOR,
    BATTLE
 } from "utils/constants.js";
@@ -45,16 +46,21 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone } = getBools(row, zone);
 
-   let { deckCount, card, sleeves, selected, handRevealed, inBattlePhase } = useSelector((state) => {
+   let { deckCount, card, sleeves, selected, heroSelected, villSelected, handRevealed, inBattlePhase } = useSelector((state) => {
       const sfPlayer = state.field[player];
       const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
       const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[getOtherPlayer(player, state.field)].sleeves;
-      const selection = state.selectedCard;
-      const selected = selection && selection.player === player && selection.row === row && selection.zone === zone;
+      const selections = state.selectedCard;
+      const heroPlayer = isHero ? player : getOtherPlayer(player);
+      const villPlayer = isHero ? getOtherPlayer(player) : player;
+      const heroSelection = selections && selections[heroPlayer];
+      const villSelection = selections && selections[villPlayer];
+      const heroSelected = heroSelection && heroSelection.player === player && heroSelection.row === row && heroSelection.zone === zone;
+      const villSelected = villSelection && villSelection.player === player && villSelection.row === row && villSelection.zone === zone;
       const handRevealed = sfPlayer.handRevealed;
       const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
       const inBattlePhase = state.turn.phase === BATTLE;
-      return { deckCount, card, sleeves, selected, handRevealed, inBattlePhase };
+      return { deckCount, card, sleeves, selected, heroSelected, villSelected, handRevealed, inBattlePhase };
    });
 
    if (isDiscardZone) {
@@ -137,13 +143,13 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
             marginLeft: margin,
             marginRight: margin,
             opacity: (isDragging || blank) && !monsterZone && !STzone && !fieldZone && !isDiscardZone && !isDeck && 0,
-            borderWidth: (blank || facedown || deckZone || isOver || selected || revealed || (!isHero && inHand)) && "3px",
-            borderColor: (isOver && canDrop && OVER_COLOR) || (selected && HERO_SELECTION_COLOR) || (revealed && REVEAL_COLOR),
+            borderWidth: (blank || facedown || deckZone || isOver || heroSelected || villSelected || revealed || (!isHero && inHand)) && "3px",
+            borderColor: (isOver && canDrop && OVER_COLOR) || (heroSelected && HERO_SELECTION_COLOR) || (revealed && REVEAL_COLOR),
             backgroundImage: !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
          onClick={() => {
             if (!blank && !deckZone && !isDiscardZone) {
-               if (!selected) dispatch(newSelection(player, row, zone, name));
+               if (!heroSelected) dispatch(newSelection(isHero ? player : getOtherPlayer(player), player, row, zone, name));
                else {
                   if (isHero) {
                      if (discardZone) {
@@ -152,7 +158,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                      } else if (row === DECK) dispatch(moveCard({ from: { player, row, zone }, to: { player, row: HAND } }, socket));
                      else dispatch(switchPosition(player, row, zone, socket));
                   }
-                  dispatch(clearSelection());
+                  dispatch(clearSelection(isHero ? player : getOtherPlayer(player)));
                }
             } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row));
          }}

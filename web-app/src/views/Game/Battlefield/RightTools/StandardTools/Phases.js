@@ -53,7 +53,7 @@ class Phases extends PureComponent {
          else return "activePhase";
       }
       return "inactivePhase";
-   }
+   };
 
    render() {
       const { classes } = this.props;
@@ -63,14 +63,7 @@ class Phases extends PureComponent {
       return (
          <Fragment>
             {phases.map((buttonPhase, index) => (
-               <Button
-                  color={myColor}
-                  round
-                  className={classes[this.getClassName(buttonPhase)]}
-                  //style={{ opacity: buttonPhase === phase || 0.8, border: buttonPhase === phase && "solid 3px white" }}
-                  key={index}
-                  onClick={() => this.trySetTurn(buttonPhase)}
-               >
+               <Button color={myColor} round className={classes[this.getClassName(buttonPhase)]} key={index} onClick={() => this.trySetTurn(buttonPhase)}>
                   {buttonPhase}
                </Button>
             ))}
@@ -80,7 +73,7 @@ class Phases extends PureComponent {
 }
 
 function mapStateToProps(state, ownProps) {
-   return { 
+   return {
       turn: state.turn,
       handCount: state.field[ownProps.heroPlayer][HAND].length
    };

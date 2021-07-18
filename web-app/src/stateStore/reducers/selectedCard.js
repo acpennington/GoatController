@@ -1,14 +1,17 @@
 import { NEW_SELECTION, CLEAR_SELECTION } from "utils/constants.js";
 
-const initialState = null;
+const initialState = {};
 
 export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
       case NEW_SELECTION:
-         return data;
+         const { selectingPlayer, ...rest } = data;
+         state[selectingPlayer] = rest;
+         return state;
       case CLEAR_SELECTION:
-         return initialState;
+         delete state[data];
+         return state;
       default:
          return state;
    }
