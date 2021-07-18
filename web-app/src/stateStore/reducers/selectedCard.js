@@ -10,7 +10,7 @@ export default function (state = initialState, action) {
 
          if (socket && socket.api) {
             if (selectingPlayer === player) {
-               if (state[selectingPlayer].player !== player) {
+               if (state[selectingPlayer] && state[selectingPlayer].player !== player) {
                   const payload = { action: REMOVE_SELECTION, data: { token: socket.token, id: socket.matchId } };
                   socket.api.send(JSON.stringify(payload));
                }
@@ -21,7 +21,7 @@ export default function (state = initialState, action) {
          }
 
          state[selectingPlayer] = { player, ...rest };
-         return state;
+         return { ...state };
       }
       case CLEAR_SELECTION:
          const { player, socket } = data;

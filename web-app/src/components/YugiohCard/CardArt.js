@@ -27,7 +27,11 @@ class CardArt extends PureComponent {
       return (
          <Fragment>
             <div className={classes.art} style={{ backgroundImage: 'url("/cards/art/' + compress(name) + '.jpg")' }}>
-               {battle && <div style={{ position: "absolute", top: 0 }}>{battle}</div>}
+               {battle && (
+                  <div style={{ position: "absolute", top: 0 }}>
+                     <img src={"/battle/" + battle + ".png"} className={classes.battleImg} alt={battle} />
+                  </div>
+               )}
                <FoilStars nameHeight={nameHeight} />
             </div>
             {showNames && (

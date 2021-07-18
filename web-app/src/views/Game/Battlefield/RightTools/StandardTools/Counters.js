@@ -5,8 +5,10 @@ import { bind, unbind } from "mousetrap";
 
 import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
+import { adjustCounters } from "stateStore/actions/field";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
+import { onField } from "utils/constants";
 
 class Counters extends Component {
    componentDidMount() {
@@ -23,7 +25,11 @@ class Counters extends Component {
    }
 
    tryAdjustCounters = (count) => {
-      console.log(JSON.stringify(this.props.selectedCard));
+      const { selectedCard, adjustCounters, heroPlayer } = this.props;
+      if (selectedCard && onField.includes(selectedCard.row) && selectedCard.player === heroPlayer) {
+         const { player, row, zone } = selectedCard;
+         adjustCounters(player, row, zone, count, this.context);
+      }
    };
 
    render() {
@@ -50,4 +56,4 @@ Counters.propTypes = {
 
 Counters.contextType = WebSocketContext;
 
-export default connect(mapStateToProps)(Counters);
+export default connect(mapStateToProps, { adjustCounters })(Counters);

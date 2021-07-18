@@ -17,6 +17,7 @@ const sendSelection = require("./SendSelection.js");
 const removeSelection = require("./RemoveSelection.js");
 const reorderDeck = require("./ReorderDeck.js");
 const mill = require("./Mill.js");
+const sendCounters = require("./SendCounters.js");
 const playerConceded = require("./PlayerConceded.js");
 const cleanupGame = require("./CleanupGame.js");
 const sendEntireGamestate = require("./SendEntireGamestate.js");
@@ -67,6 +68,8 @@ exports.handler = async (event) => {
          return await sendSelection(id, data, connectionId, api);
       case "RemoveSelection":
          return await removeSelection(id, username, connectionId, api);
+      case "SendCounters":
+         return await sendCounters(id, username, data.row, data.zone, data.counters, data.cardName, connectionId, api);
       case "PlayerConceded":
          return await playerConceded(id, username, api);
       case "CleanupGame":

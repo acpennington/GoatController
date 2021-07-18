@@ -15,7 +15,8 @@ import {
    DRAW,
    SEND_LP_CHANGE,
    SEND_TOKENS,
-   SEND_REVEAL
+   SEND_REVEAL,
+   ADJUST_COUNTERS
 } from "utils/constants";
 
 function soundOn() {
@@ -70,6 +71,10 @@ function switchPosition(player, row, zone, socket = false) {
    return { type: SWITCH_POSITION, data: { player, row, zone, socket } };
 }
 
+function adjustCounters(player, row, zone, counters, socket = false) {
+   return { type: ADJUST_COUNTERS, data: { player, row, zone, counters, socket } };
+}
+
 function attack(data) {
    return { type: ATTACK, data };
 }
@@ -116,4 +121,4 @@ function shuffleDeck(player, socket = false, noSound = false) {
    return { type: SHUFFLE_DECK, data: { player, socket } };
 }
 
-export { playSound, moveCard, drawPhaseDraw, drawCards, createTokens, switchPosition, attack, revealHand, adjustLP, resetSolo, shuffleDeck };
+export { playSound, moveCard, drawPhaseDraw, drawCards, createTokens, switchPosition, adjustCounters, attack, revealHand, adjustLP, resetSolo, shuffleDeck };

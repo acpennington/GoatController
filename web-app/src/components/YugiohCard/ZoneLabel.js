@@ -9,23 +9,20 @@ import { DECK, EXTRA_DECK, GRAVEYARD, BANISHED } from "utils/constants.js";
 
 class ZoneLabel extends PureComponent {
    render() {
-      const { zoneLabel, secondaryLabel, villExtension, height, classes } = this.props;
+      const { zoneLabel, counters, secondaryLabel, villExtension, height, classes } = this.props;
 
       return (
          <Fragment>
-            {zoneLabel !== 0 && (
+            {(zoneLabel !== 0 || counters !== 0) && (
                <div
-                  className={classes["zoneLabel" + villExtension]}
+                  className={classes["zoneLabel" + villExtension + (counters ? "Counters" : "")]}
                   style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}
                >
-                  {zoneLabel}
+                  {counters || zoneLabel}
                </div>
             )}
             {secondaryLabel !== 0 && (
-               <div
-                  className={classes["secondaryLabel" + villExtension]}
-                  style={{ fontSize: height / 7.5 + "px", lineHeight: height / 7.5 + "px" }}
-               >
+               <div className={classes["secondaryLabel" + villExtension]} style={{ fontSize: height / 7.5 + "px", lineHeight: height / 7.5 + "px" }}>
                   {secondaryLabel}
                </div>
             )}
@@ -53,6 +50,7 @@ ZoneLabel.propTypes = {
    height: PropTypes.number.isRequired,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
+   counters: PropTypes.number.isRequired,
    isDeck: PropTypes.bool.isRequired,
    isExtraDeck: PropTypes.bool.isRequired,
    isDiscardZone: PropTypes.bool.isRequired,

@@ -27,10 +27,11 @@ export const discardZones = [GRAVEYARD, BANISHED];
 export const dndZones = [DECK, ...discardZones];
 export const dynamicZones = [HAND, DECK, ...discardZones];
 export const toExtraZones = [HAND, ...deckZones];
+export const onField = [MONSTER, ST, FIELD_SPELL];
 
 // battle
-export const ATTACKING = "ATTACKING";
-export const DEFENDING = "DEFENDING";
+export const ATTACKING = "Attacking";
+export const DEFENDING = "Defending";
 
 // actions
 export const ADD_MESSAGE = "ADD_MESSAGE";
@@ -41,6 +42,7 @@ export const MOVE_CARD = "MOVE_CARD";
 export const DRAW_PHASE_DRAW = "DRAW_PHASE_DRAW";
 export const CREATE_TOKEN = "CREATE_TOKEN";
 export const SWITCH_POSITION = "SWITCH_POSITION";
+export const ADJUST_COUNTERS = "ADJUST_COUNTERS";
 export const CLEAR_BATTLE = "CLEAR_BATTLE";
 export const ATTACK = "ATTACK";
 export const ADJUST_LP = "ADJUST_LP";
@@ -87,6 +89,7 @@ export const CLEANUP_GAME = "CleanupGame";
 export const SEND_ENTIRE_GAMESTATE = "SendEntireGamestate";
 export const SEND_SELECTION = "SendSelection";
 export const REMOVE_SELECTION = "RemoveSelection";
+export const SEND_COUNTERS = "SendCounters";
 
 // ItemTypes
 export const OFF_FIELD = "offField";

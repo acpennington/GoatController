@@ -63,8 +63,7 @@ const monsterStats = {
 const zoneLabel = {
    position: "absolute",
    textAlign: "center",
-   filter:
-      "drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black)",
+   filter: "drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black)",
    top: "50%",
    left: "50%",
    transform: "translate(-50%, -50%)",
@@ -73,13 +72,12 @@ const zoneLabel = {
 
 const secondaryLabel = {
    position: "absolute",
-   filter:
-      "drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black)",
+   filter: "drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black) drop-shadow(0px 0px 6px black)",
    top: "0%",
    right: "0%",
    padding: "5px",
    zIndex: 100
-}
+};
 
 const cardStyle = {
    container: {
@@ -184,6 +182,21 @@ const cardStyle = {
       ...zoneLabel,
       transform: "translate(-50%, -50%) rotate(180deg)"
    },
+   zoneLabelCounters: {
+      ...zoneLabel,
+      filter: "",
+      padding: "15%",
+      borderRadius: "100%",
+      backgroundColor: "rgba(0,120,0,0.72)"
+   },
+   zoneLabelVillainCounters: {
+      ...zoneLabel,
+      filter: "",
+      padding: "15%",
+      borderRadius: "100%",
+      backgroundColor: "rgba(0,120,0,0.72)",
+      transform: "translate(-50%, -50%) rotate(180deg)"
+   },
    secondaryLabel,
    secondaryLabelVillain: {
       ...secondaryLabel,
@@ -209,6 +222,10 @@ const cardStyle = {
       animationDuration: "5s",
       animationTimingFunction: "linear",
       animationIterationCount: "infinite"
+   },
+   battleImg: {
+      opacity: 0.9,
+      width: "100%"
    }
 };
 

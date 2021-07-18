@@ -20,6 +20,7 @@ import {
    DRAW_PHASE_DRAW,
    CREATE_TOKEN,
    SWITCH_POSITION,
+   ADJUST_COUNTERS,
    CLEAR_BATTLE,
    ATTACK,
    ADJUST_LP,
@@ -35,7 +36,8 @@ import {
    SET_DECK,
    SEND_ENTIRE_GAMESTATE,
    ATTACKING,
-   DEFENDING
+   DEFENDING,
+   SEND_COUNTERS
 } from "utils/constants.js";
 
 const blankField = {
@@ -68,12 +70,12 @@ export default function (state = initialState, action) {
       }
       case MOVE_CARD:
          const { from, to, socket, noSound } = data;
-         clearBattle(state);
          const oldFromZone = from.zone;
          const drawingFromDeck = from.row === DECK && from.zone === -1;
          if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = from.cardName ? { name: from.cardName } : fieldSpell ? state[from.player][FIELD_SPELL] : state[from.player][from.row][from.zone];
+         if (fromCard.battle) clearBattle(state);
          const facedown = fromCard.facedown;
          let settingTrap = false;
 
@@ -153,8 +155,8 @@ export default function (state = initialState, action) {
          return { ...state };
       case SWITCH_POSITION: {
          const { player, row, zone, socket } = data;
-         clearBattle(state);
          const myCard = row === FIELD_SPELL ? state[player][FIELD_SPELL] : state[player][row][zone];
+         if (myCard.battle) clearBattle(state);
          if (row === MONSTER) {
             if (myCard.inDef) {
                if (myCard.facedown) myCard.inDef = false;
@@ -173,6 +175,23 @@ export default function (state = initialState, action) {
 
          if (socket && socket.api) {
             const payload = { action: SEND_POS_CHANGE, data: { token: socket.token, id: socket.matchId, row, zone, cardName: myCard.name } };
+            socket.api.send(JSON.stringify(payload));
+         }
+
+         return state;
+      }
+      case ADJUST_COUNTERS: {
+         const { player, row, zone, counters, socket } = data;
+         const card = row === FIELD_SPELL ? state[player][FIELD_SPELL] : state[player][row][zone];
+         const currentCounters = card.counters || 0;
+         const newCounters = currentCounters + counters;
+
+         if (newCounters < 0) return state;
+         card.counters = newCounters;
+
+         if (socket && socket.api) {
+            const cardName = card.facedown || !card.name ? "a facedown card" : card.name;
+            const payload = { action: SEND_COUNTERS, data: { token: socket.token, id: socket.matchId, row, zone, counters, cardName } };
             socket.api.send(JSON.stringify(payload));
          }
 

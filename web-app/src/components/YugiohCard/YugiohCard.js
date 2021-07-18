@@ -46,9 +46,10 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone } = getBools(row, zone);
 
-   let { deckCount, card, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase } = useSelector((state) => {
+   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase } = useSelector((state) => {
       const sfPlayer = state.field[player];
       const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
+      const counters = (card && card.counters) || 0;
       const otherPlayer = getOtherPlayer(player, state.field);
       const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[otherPlayer].sleeves;
       const selections = state.selectedCard;
@@ -61,7 +62,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       const handRevealed = sfPlayer.handRevealed;
       const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
       const inBattlePhase = state.turn.phase === BATTLE;
-      return { deckCount, card, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase };
+      return { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase };
    });
 
    if (isDiscardZone) {
@@ -183,11 +184,16 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                battle={card.battle}
             />
          )}
-         {!blank && card && card.battle && facedown && <div>{card.battle}</div>}
+         {!blank && card && card.battle && facedown && (
+            <div>
+               <img src={"/battle/" + card.battle + ".png"} className={classes.battleImg} alt={card.battle} style={{ marginTop: "20%" }} />
+            </div>
+         )}
          <ZoneLabel
             height={height}
             player={player}
             row={row}
+            counters={isDragging ? 0 : counters}
             isDeck={isDeck}
             isExtraDeck={isExtraDeck}
             isDiscardZone={isDiscardZone}
