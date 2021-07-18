@@ -29,7 +29,7 @@ function playSound(soundName) {
 function moveCard(data, socket = false) {
    return (dispatch) => {
       dispatch({ type: MOVE_CARD, data: { ...data, socket } });
-      dispatch(clearSelection(data.to.player));
+      dispatch(clearSelection(data.from.player, socket));
    };
 }
 

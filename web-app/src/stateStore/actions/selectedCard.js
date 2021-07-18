@@ -2,16 +2,16 @@ import { NEW_SELECTION, CLEAR_SELECTION } from "utils/constants.js";
 import { prepopLP } from "./settings.js";
 import getCardDetails from "utils/getCardDetails.js";
 
-function newSelection(selectingPlayer, player, row, zone, name) {
+function newSelection(selectingPlayer, player, row, zone, name, socket = false) {
    return (dispatch) => {
-      dispatch({ type: NEW_SELECTION, data: { selectingPlayer, player, row, zone, name } });
+      dispatch({ type: NEW_SELECTION, data: { selectingPlayer, socket, player, row, zone, name } });
       const card = getCardDetails(name);
       if (card.prepopLP) dispatch(prepopLP(card.prepopLP));
    };
 }
 
-function clearSelection(player) {
-   return { type: CLEAR_SELECTION, data: player };
+function clearSelection(player = false, socket = false) {
+   return { type: CLEAR_SELECTION, data: { player, socket } };
 }
 
 export { newSelection, clearSelection };

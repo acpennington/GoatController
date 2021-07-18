@@ -144,12 +144,16 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
             marginRight: margin,
             opacity: (isDragging || blank) && !monsterZone && !STzone && !fieldZone && !isDiscardZone && !isDeck && 0,
             borderWidth: (blank || facedown || deckZone || isOver || heroSelected || villSelected || revealed || (!isHero && inHand)) && "3px",
-            borderColor: (isOver && canDrop && OVER_COLOR) || (heroSelected && HERO_SELECTION_COLOR) || (revealed && REVEAL_COLOR),
+            borderColor:
+               (isOver && canDrop && OVER_COLOR) ||
+               (heroSelected && HERO_SELECTION_COLOR) ||
+               (villSelected && VILLAIN_SELECTION_COLOR) ||
+               (revealed && REVEAL_COLOR),
             backgroundImage: !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")')
          }}
          onClick={() => {
             if (!blank && !deckZone && !isDiscardZone) {
-               if (!heroSelected) dispatch(newSelection(isHero ? player : getOtherPlayer(player), player, row, zone, name));
+               if (!heroSelected) dispatch(newSelection(isHero ? player : getOtherPlayer(player), player, row, zone, name, socket));
                else {
                   if (isHero) {
                      if (discardZone) {
@@ -158,7 +162,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                      } else if (row === DECK) dispatch(moveCard({ from: { player, row, zone }, to: { player, row: HAND } }, socket));
                      else dispatch(switchPosition(player, row, zone, socket));
                   }
-                  dispatch(clearSelection(isHero ? player : getOtherPlayer(player)));
+                  dispatch(clearSelection(isHero ? player : getOtherPlayer(player), socket));
                }
             } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row));
          }}
