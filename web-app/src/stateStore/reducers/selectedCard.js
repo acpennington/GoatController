@@ -1,4 +1,4 @@
-import { NEW_SELECTION, CLEAR_SELECTION, SEND_SELECTION } from "utils/constants.js";
+import { NEW_SELECTION, CLEAR_SELECTION, SEND_SELECTION, REMOVE_SELECTION } from "utils/constants.js";
 
 const initialState = {};
 
@@ -8,12 +8,11 @@ export default function (state = initialState, action) {
       case NEW_SELECTION: {
          const { selectingPlayer, socket, player, ...rest } = data;
 
-         state[selectingPlayer] = { player, ...rest };
-
-         if (socket && socket.api && selectingPlayer !== player) {
+         if (socket && socket.api) {
             if (selectingPlayer === player) {
-               if (state[player].player !== player) {
-                  // equivalent to clear selection
+               if (state[selectingPlayer].player !== player) {
+                  const payload = { action: REMOVE_SELECTION, data: { token: socket.token, id: socket.matchId } };
+                  socket.api.send(JSON.stringify(payload));
                }
             } else {
                const payload = { action: SEND_SELECTION, data: { token: socket.token, id: socket.matchId, selectingPlayer, player, ...rest } };
@@ -21,13 +20,15 @@ export default function (state = initialState, action) {
             }
          }
 
+         state[selectingPlayer] = { player, ...rest };
          return state;
       }
       case CLEAR_SELECTION:
          const { player, socket } = data;
 
-         if (socket && socket.api && state[player].player !== player) {
-            // send clear
+         if (socket && socket.api && state[player] && state[player].player !== player) {
+            const payload = { action: REMOVE_SELECTION, data: { token: socket.token, id: socket.matchId } };
+            socket.api.send(JSON.stringify(payload));
          }
 
          delete state[player];

@@ -86,6 +86,7 @@ export const PLAYER_CONCEDED = "PlayerConceded";
 export const CLEANUP_GAME = "CleanupGame";
 export const SEND_ENTIRE_GAMESTATE = "SendEntireGamestate";
 export const SEND_SELECTION = "SendSelection";
+export const REMOVE_SELECTION = "RemoveSelection";
 
 // ItemTypes
 export const OFF_FIELD = "offField";

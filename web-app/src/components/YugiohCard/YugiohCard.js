@@ -46,13 +46,14 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone } = getBools(row, zone);
 
-   let { deckCount, card, sleeves, selected, heroSelected, villSelected, handRevealed, inBattlePhase } = useSelector((state) => {
+   let { deckCount, card, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase } = useSelector((state) => {
       const sfPlayer = state.field[player];
       const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
-      const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[getOtherPlayer(player, state.field)].sleeves;
+      const otherPlayer = getOtherPlayer(player, state.field);
+      const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[otherPlayer].sleeves;
       const selections = state.selectedCard;
-      const heroPlayer = isHero ? player : getOtherPlayer(player);
-      const villPlayer = isHero ? getOtherPlayer(player) : player;
+      const heroPlayer = isHero ? player : otherPlayer;
+      const villPlayer = isHero ? otherPlayer : player;
       const heroSelection = selections && selections[heroPlayer];
       const villSelection = selections && selections[villPlayer];
       const heroSelected = heroSelection && heroSelection.player === player && heroSelection.row === row && heroSelection.zone === zone;
@@ -60,7 +61,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       const handRevealed = sfPlayer.handRevealed;
       const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
       const inBattlePhase = state.turn.phase === BATTLE;
-      return { deckCount, card, sleeves, selected, heroSelected, villSelected, handRevealed, inBattlePhase };
+      return { deckCount, card, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase };
    });
 
    if (isDiscardZone) {
@@ -153,7 +154,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
          }}
          onClick={() => {
             if (!blank && !deckZone && !isDiscardZone) {
-               if (!heroSelected) dispatch(newSelection(isHero ? player : getOtherPlayer(player), player, row, zone, name, socket));
+               if (!heroSelected) dispatch(newSelection(heroPlayer, player, row, zone, name, socket));
                else {
                   if (isHero) {
                      if (discardZone) {
@@ -162,7 +163,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                      } else if (row === DECK) dispatch(moveCard({ from: { player, row, zone }, to: { player, row: HAND } }, socket));
                      else dispatch(switchPosition(player, row, zone, socket));
                   }
-                  dispatch(clearSelection(isHero ? player : getOtherPlayer(player), socket));
+                  dispatch(clearSelection(heroPlayer, socket));
                }
             } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row));
          }}

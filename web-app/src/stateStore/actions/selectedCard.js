@@ -10,7 +10,7 @@ function newSelection(selectingPlayer, player, row, zone, name, socket = false) 
    };
 }
 
-function clearSelection(player = false, socket = false) {
+function clearSelection(player, socket = false) {
    return { type: CLEAR_SELECTION, data: { player, socket } };
 }
 
