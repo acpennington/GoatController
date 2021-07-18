@@ -35,13 +35,13 @@ class StandardTools extends PureComponent {
    };
 
    submitMessage = (event) => {
-      const { prepopLP, player, lifepoints } = this.props;
+      const { prepopLP, player, lifepoints, adjustLP } = this.props;
       prepopLP(null);
       if (event.key === "Enter") {
          const trimmedNumber = Number(event.target.value.trim());
          if (trimmedNumber) {
             event.target.value = "";
-            this.props.adjustLP(player.name, this.state.LPmode * trimmedNumber, lifepoints.hero, this.context);
+            adjustLP(player.name, this.state.LPmode * trimmedNumber, lifepoints.hero, this.context);
          }
       }
    };

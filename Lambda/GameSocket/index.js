@@ -44,7 +44,7 @@ exports.handler = async (event) => {
          return await newChatMessage(id, username, data.message, connectionId, api);
       case "NewPhase":
          return await newPhase(id, username, data.data, connectionId, api);
-      case "PushNextPhase":
+      case "SendLpChange":
          return await sendLpChange(id, username, data.amount, data.currentLP, connectionId, api);
       case "SendTokens":
          return await sendTokens(id, username, data.params, connectionId, api);
