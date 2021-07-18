@@ -185,6 +185,7 @@ export default function LoginPage() {
                         size="lg"
                         onClick={() => {
                            if (getApiStage() === "dev") setIsLogin(!isLogin);
+                           else window.location.href = "/beta";
                         }}
                      >
                         {isLogin ? "Register" : "Login"}

@@ -7,6 +7,7 @@ import "assets/scss/material-kit-react.scss?v=1.9.0";
 
 import SettingsPage from "views/SettingsPage/SettingsPage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
+import BetaPage from "views/BetaPage/BetaPage.js";
 import Game from "views/Game/Game.js";
 import Wall from "views/Wall/Wall.js";
 import Leagues from "views/Leagues/Leagues.js";
@@ -29,6 +30,7 @@ ReactDOM.render(
          />
          <Route path="/settings" component={SettingsPage} />
          <Route path="/login-page" component={LoginPage} />
+         <Route path="/beta" component={BetaPage} />
          <Route path="/wall" component={Wall} />
          <Route path="/" component={LoginPage} />
       </Switch>

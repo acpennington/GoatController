@@ -83,8 +83,7 @@ class Game extends Component {
                case REDIRECT:
                   console.log("received redirect");
                   window.sessionStorage.removeItem("activeMatch");
-                  const domain = getApiStage() === "prod" ? "https://goatduels.com" : "http://localhost:3000";
-                  window.location.href = domain + payloads;
+                  window.location.href = payloads;
                   break;
                default:
                   this.props.dispatch({ type: message.action, data: payloads });
