@@ -85,6 +85,7 @@ export const MILL = "Mill";
 export const PLAYER_CONCEDED = "PlayerConceded";
 export const CLEANUP_GAME = "CleanupGame";
 export const SEND_ENTIRE_GAMESTATE = "SendEntireGamestate";
+export const SEND_SELECTION = "SendSelection";
 
 // ItemTypes
 export const OFF_FIELD = "offField";

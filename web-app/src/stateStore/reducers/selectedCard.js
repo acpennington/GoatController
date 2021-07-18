@@ -1,4 +1,4 @@
-import { NEW_SELECTION, CLEAR_SELECTION } from "utils/constants.js";
+import { NEW_SELECTION, CLEAR_SELECTION, SEND_SELECTION } from "utils/constants.js";
 
 const initialState = {};
 
@@ -16,7 +16,8 @@ export default function (state = initialState, action) {
                   // equivalent to clear selection
                }
             } else {
-               // send over my selection
+               const payload = { action: SEND_SELECTION, data: { token: socket.token, id: socket.matchId, selectingPlayer, player, ...rest } };
+               socket.api.send(JSON.stringify(payload));
             }
          }
 
