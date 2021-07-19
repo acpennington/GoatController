@@ -6,10 +6,17 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { closeModal } from "stateStore/actions/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 
+import { DECK } from "utils/constants";
+
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
+import { shuffleDeck } from "stateStore/actions/field";
 
 class ModalHeader extends PureComponent {
+   componentDidUpdate(prevProps) {
+      if (prevProps.row === DECK && this.props.row !== DECK) shuffleDeck(this.props.player, this.context);
+   }
+
    render() {
       const { classes, addName, player, row, closeModal } = this.props;
 

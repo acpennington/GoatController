@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Button from "components/CustomButtons/Button.js";
 import ButtonRow from "components/CustomButtons/ButtonRow.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
+import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 
 import Counters from "./Counters.js";
 import ConcedeButton from "./ConcedeButton.js";
@@ -81,39 +82,41 @@ class StandardTools extends PureComponent {
 
       return (
          <div className={classes.container}>
-            {solo ? (
-               <ButtonRow>
-                  <Button color="primary" fullWidth round onClick={() => resetSolo(name)}>
-                     Reset
-                  </Button>
-                  <Button color="primary" fullWidth round href="/wall">
-                     Quit
-                  </Button>
-               </ButtonRow>
-            ) : (
-               <ConcedeButton />
-            )}
-            <LifeBar life={lifepoints.villain} isHero={false} />
-            <Phases heroPlayer={player.name} />
-            <ShowingDiscard discardPile={discardPile} />
-            <RevealHandButton name={name} />
-            <Counters heroPlayer={player.name} />
-            <LifeBar life={lifepoints.hero} isHero={true} />
-            <div className={classes.LPbox}>
-               <CustomInput
-                  id={LPinput}
-                  white
-                  formControlProps={{
-                     fullWidth: true
-                  }}
-                  inputProps={{
-                     onKeyPress: this.submitMessage,
-                     startAdornment: LPbutton,
-                     margin: "dense"
-                  }}
-               />
-               <Switches />
-            </div>
+            <FriendlyScroll id="standard" flexDirection="column">
+               {solo ? (
+                  <ButtonRow>
+                     <Button color="primary" fullWidth round onClick={() => resetSolo(name)}>
+                        Reset
+                     </Button>
+                     <Button color="primary" fullWidth round href="/wall">
+                        Quit
+                     </Button>
+                  </ButtonRow>
+               ) : (
+                  <ConcedeButton />
+               )}
+               <LifeBar life={lifepoints.villain} isHero={false} />
+               <Phases heroPlayer={player.name} />
+               <ShowingDiscard discardPile={discardPile} />
+               <RevealHandButton name={name} />
+               <Counters heroPlayer={player.name} />
+               <LifeBar life={lifepoints.hero} isHero={true} />
+               <div className={classes.LPbox}>
+                  <CustomInput
+                     id={LPinput}
+                     white
+                     formControlProps={{
+                        fullWidth: true
+                     }}
+                     inputProps={{
+                        onKeyPress: this.submitMessage,
+                        startAdornment: LPbutton,
+                        margin: "dense"
+                     }}
+                  />
+                  <Switches />
+               </div>
+            </FriendlyScroll>
          </div>
       );
    }
