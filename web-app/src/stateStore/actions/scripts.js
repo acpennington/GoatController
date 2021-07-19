@@ -66,7 +66,6 @@ function banishAll(field, player, activeCard, socket = false) {
          }
       }
 
-      // we need to figure out how to make sure that decks do not get desynched here
       dispatch(shuffleDeck(player));
       dispatch(shuffleDeck(otherPlayer, false, true));
 
