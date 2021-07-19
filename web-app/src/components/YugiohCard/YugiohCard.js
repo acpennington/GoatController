@@ -123,7 +123,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       else if (!isExtraDeck) dragOrDrop = drag;
    } else if (row === MONSTER && (blank || inBattlePhase)) dragOrDrop = drop;
 
-   if (isHero && selected)
+   if (isHero && heroSelected)
       bind("d", () => {
          dispatch(moveCard({ from: { player, row, zone }, to: { player, row: discardPile, zone: 0 } }, socket));
       });
