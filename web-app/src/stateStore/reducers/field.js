@@ -214,6 +214,8 @@ export default function (state = initialState, action) {
          fromCard.battle = ATTACKING;
          if (toCard) state[to.player][to.row][to.zone].battle = DEFENDING;
 
+         playSound("/sounds/attack.mp3");
+
          if (socket && socket.api) {
             const fromName = fromCard.name;
             const toName = toCard ? (toCard.facedown ? "a facedown monster" : toCard.name) : "directly";

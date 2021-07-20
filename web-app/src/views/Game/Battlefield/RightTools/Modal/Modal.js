@@ -59,15 +59,15 @@ class Modal extends Component {
       return (
          <div className={classes.modalContainer}>
             <ModalHeader addName={!isExtra} player={player} row={row} />
-            <RenderCards 
-               height={height * MODAL_CARD_SIZE} 
-               player={player} 
-               row={row} 
-               cardNames={fusionNames} 
-               sub={hfHeights} 
-               filter={filter} 
-               isHero={isHero} 
-               autoClose={autoClose} 
+            <RenderCards
+               height={height * MODAL_CARD_SIZE}
+               player={player}
+               row={row}
+               cardNames={fusionNames}
+               sub={hfHeights}
+               filter={filter}
+               isHero={isHero}
+               autoClose={autoClose}
             />
             {isHero && (
                <div id="modalfooter" className={classes["footer" + row.split(" ")[0]]}>

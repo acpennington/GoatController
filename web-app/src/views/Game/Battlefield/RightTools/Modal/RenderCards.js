@@ -14,6 +14,7 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 class RenderCards extends Component {
    constructor(props) {
       super(props);
+      this.originalRow = this.props.row;
       const zoneNumbers = this.filterZones();
       this.state = { zoneNumbers };
       this.originalZoneLen = zoneNumbers.length;
@@ -53,7 +54,8 @@ class RenderCards extends Component {
          });
 
       const zoneLen = zoneNumbers.length;
-      if (zoneLen === 0 || (this.originalZoneLen && autoClose && this.originalZoneLen !== zoneLen)) closeModal(row, player, this.context);
+      if (zoneLen === 0 || (this.originalZoneLen && autoClose && this.originalZoneLen !== zoneLen && this.originalRow === row))
+         closeModal(row, player, this.context);
       return zoneNumbers;
    };
 
