@@ -167,7 +167,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                   dispatch(clearSelection(heroPlayer, socket));
                }
             } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row));
-            else if (isHero && deckZone) dispatch(closeModal(row, player));
+            else if (isHero && deckZone) dispatch(closeModal(row, player, socket));
          }}
          onMouseEnter={() => {
             if (!blank && !deckZone) dispatch(newHover(player, row, zone, name));

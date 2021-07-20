@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { bind, unbind } from "mousetrap";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import { closeModal } from "stateStore/actions/settings.js";
@@ -13,6 +14,14 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 import { shuffleDeck } from "stateStore/actions/field";
 
 class ModalHeader extends PureComponent {
+   componentDidMount() {
+      bind("esc", () => this.props.closeModal(this.props.row, this.props.player, this.context))
+   }
+
+   componentWillUnmount() {
+      unbind(["esc"]);
+   }
+
    componentDidUpdate(prevProps) {
       if (prevProps.row === DECK && this.props.row !== DECK) shuffleDeck(this.props.player, this.context);
    }
