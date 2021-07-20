@@ -14,11 +14,18 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 class RenderCards extends Component {
    constructor(props) {
       super(props);
-      this.zoneNumbers = this.filterZones();
+      const zoneNumbers = this.filterZones();
+      this.state = { zoneNumbers };
+      this.originalZoneLen = zoneNumbers.length;
+   }
+
+   componentDidUpdate() {
+      const newZoneNumbers = this.filterZones();
+      if (!arrIdentical(this.state.zoneNumbers, newZoneNumbers)) this.setState({ zoneNumbers: newZoneNumbers });
    }
 
    filterZones = () => {
-      const { cardsLen, row, filter, cards, closeModal, player } = this.props;
+      const { cardsLen, row, filter, cards, closeModal, player, autoClose } = this.props;
       let zoneNumbers = [];
       for (let i = 0; i < cardsLen; i++) zoneNumbers.push(i);
 
@@ -45,16 +52,14 @@ class RenderCards extends Component {
             return true;
          });
 
-      if (zoneNumbers.length === 0) closeModal(row, player, this.context);
+      const zoneLen = zoneNumbers.length;
+      if (zoneLen === 0 || (this.originalZoneLen && autoClose && this.originalZoneLen !== zoneLen)) closeModal(row, player, this.context);
       return zoneNumbers;
    };
 
    render() {
       const { classes, cardsLen, height, player, row, cardNames, sub, isHero } = this.props;
-
-      const newZoneNumbers = this.filterZones();
-      if (!arrIdentical(this.zoneNumbers, newZoneNumbers)) this.zoneNumbers = newZoneNumbers;
-      const { zoneNumbers } = this;
+      const { zoneNumbers } = this.state;
       const zoneLen = zoneNumbers.length;
 
       const cardDivs = [];

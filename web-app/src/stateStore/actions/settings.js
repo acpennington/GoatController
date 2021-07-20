@@ -9,15 +9,14 @@ function switchNames() {
    return { type: SWITCH_NAMES };
 }
 
-function openModal(player, row, filter = false) {
-   return { type: OPEN_MODAL, data: { player, row, filter } };
+function openModal(player, row, filter = false, autoClose = false) {
+   return { type: OPEN_MODAL, data: { player, row, filter, autoClose } };
 }
 
-function closeModal(type, player, socket = false) {
+function closeModal(row, player, socket = false) {
    return (dispatch) => {
       dispatch({ type: CLOSE_MODAL });
-      if (type === DECK) dispatch(shuffleDeck(player, socket));
-      
+      if (row === DECK) dispatch(shuffleDeck(player, socket));
    };
 }
 

@@ -45,7 +45,7 @@ class Modal extends Component {
    };
 
    render() {
-      const { classes, height, player, row, filter, isExtra, allFusions, heroPlayer } = this.props;
+      const { classes, height, player, row, filter, autoClose, isExtra, allFusions, heroPlayer } = this.props;
       const { metaTargets, levelFilter, hfHeights } = this.state;
       const isHero = heroPlayer === player;
 
@@ -59,7 +59,16 @@ class Modal extends Component {
       return (
          <div className={classes.modalContainer}>
             <ModalHeader addName={!isExtra} player={player} row={row} />
-            <RenderCards height={height * MODAL_CARD_SIZE} player={player} row={row} cardNames={fusionNames} sub={hfHeights} filter={filter} isHero={isHero} />
+            <RenderCards 
+               height={height * MODAL_CARD_SIZE} 
+               player={player} 
+               row={row} 
+               cardNames={fusionNames} 
+               sub={hfHeights} 
+               filter={filter} 
+               isHero={isHero} 
+               autoClose={autoClose} 
+            />
             {isHero && (
                <div id="modalfooter" className={classes["footer" + row.split(" ")[0]]}>
                   {isExtra ? (
@@ -96,12 +105,12 @@ class Modal extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-   const { player, row, filter } = ownProps.pile;
+   const { player, row, filter, autoClose } = ownProps.pile;
    const isExtra = row === EXTRA_DECK;
    const usedFusions = isExtra && state.field[player].usedFusions;
    const allFusions = isExtra && Object.keys(fusions).filter((name) => !usedFusions[name] || usedFusions[name] < 3);
 
-   return { player, row, filter, isExtra, usedFusions, allFusions };
+   return { player, row, filter, autoClose, isExtra, usedFusions, allFusions };
 }
 
 Modal.propTypes = {

@@ -6,7 +6,8 @@ import getOtherPlayer from "utils/getOtherPlayer.js";
 import { ST, DECK, GRAVEYARD, BANISHED, MILL, SEND_ENTIRE_GAMESTATE } from "utils/constants.js";
 
 function filterDeck(player, params) {
-   return openModal(player, DECK, params);
+   const [filter, autoClose] = params.split(";");
+   return openModal(player, DECK, filter, (autoClose && autoClose === "autoClose"));
 }
 
 function millUntil(player, deck, params, socket = false) {
