@@ -10,7 +10,6 @@ import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import Counters from "./Counters.js";
 import ConcedeButton from "./ConcedeButton.js";
 import Switches from "./Switches.js";
-import ShowingDiscard from "./ShowingDiscard.js";
 import RevealHandButton from "./RevealHandButton.js";
 import Phases from "./Phases.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
@@ -48,7 +47,7 @@ class StandardTools extends PureComponent {
    };
 
    render() {
-      const { classes, discardPile, prepopLP, prepopLPvalue, player, resetSolo, lifepoints } = this.props;
+      const { classes, prepopLP, prepopLPvalue, player, resetSolo, lifepoints } = this.props;
 
       const { name, solo } = player;
       const { LPmode, dontSwap } = this.state;
@@ -97,7 +96,6 @@ class StandardTools extends PureComponent {
                )}
                <LifeBar life={lifepoints.villain} isHero={false} />
                <Phases heroPlayer={player.name} />
-               <ShowingDiscard discardPile={discardPile} />
                <RevealHandButton name={name} />
                <Counters heroPlayer={player.name} />
                <LifeBar life={lifepoints.hero} isHero={true} />
@@ -138,7 +136,6 @@ function mapStateToProps(state, ownProps) {
 }
 
 StandardTools.propTypes = {
-   discardPile: PropTypes.string.isRequired,
    player: PropTypes.object.isRequired
 };
 

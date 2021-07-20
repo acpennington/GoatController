@@ -44,10 +44,22 @@ const gameStyle = {
    cardRow: {
       position: "relative",
       display: "flex",
-      width: "100%",
-      margin: "auto",
       overflowX: "auto",
       overflowY: "hidden",
+   },
+   playingField: {
+      position: "relative",
+      display: "flex",
+      flexDirection: "row",
+      width: "100%",
+      flexFlow: "column wrap",
+   },
+   cardColumn: {
+      position: "relative",
+      display: "flex",
+      flexDirection: "column",
+      overflowX: "hidden",
+      overflowY: "auto",
    },
    hand: {
       display: "flex",

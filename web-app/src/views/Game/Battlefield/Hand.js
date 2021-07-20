@@ -14,7 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 const useStyles = makeStyles(styles);
 
-function Hand({ player, handCount, size, discardPile, isHero, revealed, phase }) {
+function Hand({ player, handCount, size, isHero, revealed, phase }) {
    const classes = useStyles();
    const dispatch = useDispatch();
    const socket = useContext(WebSocketContext);
@@ -46,7 +46,7 @@ function Hand({ player, handCount, size, discardPile, isHero, revealed, phase })
    const handList = [];
    for (let i = 0; i < handCount; i++) {
       handList.push(
-         <YugiohCard height={handSize} player={player} row={HAND} zone={i} discardPile={discardPile} isHero={isHero} notFull key={i} cardName={cardName} />
+         <YugiohCard height={handSize} player={player} row={HAND} zone={i} isHero={isHero} notFull key={i} cardName={cardName} />
       );
    }
 
@@ -56,7 +56,9 @@ function Hand({ player, handCount, size, discardPile, isHero, revealed, phase })
          count={handCount}
          drop={(isHero || herosBattlePhase) && drop}
          style={{ overflowY: "hidden" }}
+         contStyle={{ width: "78%", margin: "0 auto" }}
          bgColor={isOver && canDrop && OVER_COLOR + "33"}
+         flexDirection={"row"}
          horiz
       >
          <div className={classes.hand} style={{ height: handSize * (isHero ? 1 : VILLAIN_HAND_SIZE) }}>

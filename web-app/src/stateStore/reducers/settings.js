@@ -1,9 +1,8 @@
-import { GRAVEYARD, BANISHED, SWITCH_DISCARD, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME } from "utils/constants.js";
+import { SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME } from "utils/constants.js";
 
 const initialState = {
    concessionLink: false,
    showNames: false,
-   discardPile: GRAVEYARD,
    modal: null,
    prepopLP: null
 };
@@ -11,10 +10,6 @@ const initialState = {
 export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
-      case SWITCH_DISCARD:
-         if (state.discardPile === GRAVEYARD) state.discardPile = BANISHED;
-         else state.discardPile = GRAVEYARD;
-         return { ...state };
       case SWITCH_NAMES:
          return { ...state, showNames: !state.showNames };
       case OPEN_MODAL:
