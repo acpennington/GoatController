@@ -14,13 +14,10 @@ function openModal(player, row, filter = false) {
 }
 
 function closeModal(type, player, socket = false) {
-   console.log(type);
    return (dispatch) => {
       dispatch({ type: CLOSE_MODAL });
-      if (type === DECK) {
-         dispatch(shuffleDeck(player, socket));
-         console.log("shuffled deck");
-      }
+      if (type === DECK) dispatch(shuffleDeck(player, socket));
+      
    };
 }
 
