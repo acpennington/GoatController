@@ -13,7 +13,7 @@ import ZoneLabel from "./ZoneLabel.js";
 import { newHover } from "stateStore/actions/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
 import { moveCard, switchPosition, attack } from "stateStore/actions/field.js";
-import { openModal } from "stateStore/actions/settings.js";
+import { openModal, closeModal } from "stateStore/actions/settings.js";
 import {
    CARD_RATIO,
    FACEDOWN_CARD,
@@ -167,6 +167,7 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                   dispatch(clearSelection(heroPlayer, socket));
                }
             } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row));
+            else if (isHero && deckZone) dispatch(closeModal(row, player));
          }}
          onMouseEnter={() => {
             if (!blank && !deckZone) dispatch(newHover(player, row, zone, name));
