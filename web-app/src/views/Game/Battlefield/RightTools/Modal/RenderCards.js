@@ -131,7 +131,8 @@ RenderCards.propTypes = {
    cardNames: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
    sub: PropTypes.number.isRequired,
    filter: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-   isHero: PropTypes.bool.isRequired
+   isHero: PropTypes.bool.isRequired,
+   autoClose: PropTypes.bool.isRequired
 };
 
 RenderCards.contextType = WebSocketContext;
