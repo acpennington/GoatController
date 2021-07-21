@@ -12,21 +12,17 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 class RenderCards extends Component {
-   constructor(props) {
-      super(props);
-      this.lastRow = this.props.row;
-      const zoneNumbers = this.filterZones();
-      this.state = { zoneNumbers };
-      this.lastZoneLen = zoneNumbers.length;
-   }
+   componentDidUpdate(prevProps, prevState) {
+      const { autoClose, row, player, closeModal } = this.props;
+      const { zoneLen } = this.state;
+      const lastRow = prevProps.row;
+      const lastZoneLen = prevState.zoneLen;
 
-   componentDidUpdate() {
-      const newZoneNumbers = this.filterZones();
-      if (!arrIdentical(this.state.zoneNumbers, newZoneNumbers)) this.setState({ zoneNumbers: newZoneNumbers });
+      if (zoneLen === 0 || (autoClose && lastZoneLen !== zoneLen && lastRow === row)) closeModal(row, player, this.context);
    }
 
    filterZones = () => {
-      const { cardsLen, row, filter, cards, closeModal, player, autoClose } = this.props;
+      const { cardsLen, filter, cards } = this.props;
       let zoneNumbers = [];
       for (let i = 0; i < cardsLen; i++) zoneNumbers.push(i);
 
@@ -53,18 +49,16 @@ class RenderCards extends Component {
             return true;
          });
 
-      const zoneLen = zoneNumbers.length;
-      if (zoneLen === 0 || (this.lastZoneLen && autoClose && this.lastZoneLen !== zoneLen && this.lastRow === row)) closeModal(row, player, this.context);
-
-      this.lastRow = row;
-      this.lastZoneLen = zoneLen;
       return zoneNumbers;
    };
 
    render() {
       const { classes, cardsLen, height, player, row, cardNames, sub, isHero } = this.props;
-      const { zoneNumbers } = this.state;
-      const zoneLen = zoneNumbers.length;
+      const zoneNumbers = this.filterZones();
+
+      // eslint-disable-next-line
+      this.state = { zoneLen: zoneNumbers.length };
+      const { zoneLen } = this.state;
 
       const cardDivs = [];
       for (let i = zoneLen - 1; i >= 0; i -= 2) {
@@ -108,16 +102,6 @@ class RenderCards extends Component {
          </FriendlyScroll>
       );
    }
-}
-
-function arrIdentical(a1, a2) {
-   let i = a1.length;
-   if (i !== a2.length) return false;
-   while (i--) {
-      if (a1[i] !== a2[i]) return false;
-   }
-
-   return true;
 }
 
 function mapStateToProps(state, ownProps) {

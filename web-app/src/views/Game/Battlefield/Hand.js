@@ -19,7 +19,7 @@ function Hand({ player, handCount, size, isHero, revealed, phase }) {
    const dispatch = useDispatch();
    const socket = useContext(WebSocketContext);
 
-   const handSize = size * (isHero && handCount > 9 ? 0.95 : 1);
+   const handSize = size * (isHero && handCount > 7 ? 0.95 : 1);
    const herosBattlePhase = phase === BATTLE && !isHero;
 
    const [{ isOver, canDrop }, drop] = useDrop({
@@ -56,9 +56,9 @@ function Hand({ player, handCount, size, isHero, revealed, phase }) {
          count={handCount}
          drop={(isHero || herosBattlePhase) && drop}
          style={{ overflowY: "hidden" }}
-         contStyle={{ width: "78%", margin: "0 auto" }}
+         contStyle={{ width: "76%", margin: "0 auto" }}
          bgColor={isOver && canDrop && OVER_COLOR + "33"}
-         flexDirection={"row"}
+         flexDirection="row-reverse"
          horiz
       >
          <div className={classes.hand} style={{ height: handSize * (isHero ? 1 : VILLAIN_HAND_SIZE) }}>
