@@ -63,9 +63,7 @@
 * players: map {
   * user1: string
   * user2: string }
-* watchers: map {
-  * user3: string
-  * etc }
+* watchers: list of strings
 * gamestate: map {
   * user1: gamestate object*
   * user2: gamestate object* }
@@ -77,3 +75,4 @@
   * etc ]
 
 *see blankField in Lambda/LeagueSocket/config/config.js for details on what a "gamestate" object looks like
+Note: The purpose of the players and watchers maps is to store the connection ids of all players connected to the game.
