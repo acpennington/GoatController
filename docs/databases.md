@@ -58,4 +58,22 @@
 *since leagues using the host/join system have not been implemented yet, there is still some stuff to figure out here
 
 # matches
-placeholder, coming soon
+* id: string (primary key)
+* league: string
+* players: map {
+  * user1: string
+  * user2: string }
+* watchers: map {
+  * user3: string
+  * etc }
+* gamestate: map {
+  * user1: gamestate object*
+  * user2: gamestate object* }
+* turn: map {
+  * player: string
+  * phase: string }
+* chat: list of objects [
+  * { author: string, content: string }
+  * etc ]
+
+*see blankField in Lambda/LeagueSocket/config/config.js for details on what a "gamestate" object looks like
