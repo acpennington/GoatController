@@ -39,11 +39,7 @@ const customInputStyle = {
       fontWeight: "400",
       fontSize: "14px",
       lineHeight: "1.42857",
-      top: "10px",
       letterSpacing: "unset",
-      "& + $underline": {
-         marginTop: "0px"
-      }
    },
    labelRootError: {
       color: dangerColor + " !important"
