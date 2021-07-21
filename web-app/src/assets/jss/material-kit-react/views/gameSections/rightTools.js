@@ -8,7 +8,7 @@ const allContainers = {
    flexDirection: "column",
    marginLeft: "4px",
    height: "100%",
-   width: "16%",
+   width: "15%",
    borderRadius: "3px",
    textAlign: "center"
 };
@@ -35,7 +35,7 @@ const activePhase = {
    borderStyle: "solid",
    borderWidth: "3px",
    borderColor: "white"
-}
+};
 
 const rightToolsStyle = {
    container: {
@@ -71,20 +71,17 @@ const rightToolsStyle = {
    footergraveyard: {
       ...footer,
       backgroundPosition: "50% 10%",
-      backgroundImage:
-         'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/KycootheGhostDestroyer.jpg")'
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/KycootheGhostDestroyer.jpg")'
    },
    footerbanished: {
       ...footer,
       backgroundPosition: "50% 40%",
-      backgroundImage:
-         'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReturnfromtheDifferentDimension.jpg")'
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReturnfromtheDifferentDimension.jpg")'
    },
    footerdeck: {
       ...footer,
       backgroundPosition: "50% 40%",
-      backgroundImage:
-         'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReinforcementoftheArmy.jpg")'
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReinforcementoftheArmy.jpg")'
    },
    cards: {
       display: "flex",
