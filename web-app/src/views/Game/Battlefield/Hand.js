@@ -19,7 +19,7 @@ function Hand({ player, handCount, size, isHero, revealed, phase }) {
    const dispatch = useDispatch();
    const socket = useContext(WebSocketContext);
 
-   const handSize = size * (isHero && handCount > 7 ? 0.95 : 1);
+   const handSize = handCount > 7 ? (isHero ? size * 0.95 : size * 0.9) : size;
    const herosBattlePhase = phase === BATTLE && !isHero;
 
    const [{ isOver, canDrop }, drop] = useDrop({
@@ -45,9 +45,7 @@ function Hand({ player, handCount, size, isHero, revealed, phase }) {
    const cardName = isHero || revealed ? undefined : FACEDOWN_CARD;
    const handList = [];
    for (let i = 0; i < handCount; i++) {
-      handList.push(
-         <YugiohCard height={handSize} player={player} row={HAND} zone={i} isHero={isHero} notFull key={i} cardName={cardName} />
-      );
+      handList.push(<YugiohCard height={handSize} player={player} row={HAND} zone={i} isHero={isHero} notFull key={i} cardName={cardName} />);
    }
 
    return (
