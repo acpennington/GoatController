@@ -19,7 +19,7 @@ function Hand({ player, handCount, size, isHero, revealed, phase }) {
    const dispatch = useDispatch();
    const socket = useContext(WebSocketContext);
 
-   const handSize = size * (isHero && handCount > 7 ? 0.95 : 1);
+   const handSize = size * (handCount > 7 ? 0.95 : 1);
    const herosBattlePhase = phase === BATTLE && !isHero;
 
    const [{ isOver, canDrop }, drop] = useDrop({
