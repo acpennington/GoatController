@@ -17,12 +17,12 @@ import { BANISHED } from "utils/constants.js";
 
 class Battlefield extends Component {
    render() {
-      const { classes, size, handCounts, players, player } = this.props;
+      const { classes, handCounts, players, size, player } = this.props;
       const { solo } = player;
       const HERO = players.hero;
       const VILLAIN = players.villain;
       const cardHeight = Math.floor(size - 2);
-      const visibility = solo ? 'hidden' : 'visible';
+      const visibility = solo ? "hidden" : "visible";
 
       return (
          <DndProvider backend={HTML5Backend}>
@@ -31,15 +31,14 @@ class Battlefield extends Component {
                   {solo ? (
                      <div style={{ height: cardHeight * VILLAIN_HAND_SIZE }}></div>
                   ) : (
-                     <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} size={cardHeight} isHero={false} />
+                     <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} size={size} isHero={false} />
                   )}
-                   {/* TODO: why is the additional 5px offset necessary? */}
-                  <div className={classes.playingField} style={{height: `calc(100% - ${cardHeight + cardHeight / 2 + 5}px)` }}>
-                     <div className={classes.cardColumn} style={{top: -cardHeight / 2 + "px"}} >
+                  <div className={classes.playingField} style={{ height: `calc(100% - ${size * 1.5}px)` }}>
+                     <div className={classes.cardColumn} style={{ top: -cardHeight / 2 + "px" }}>
                         <Fragment>
-                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={DECK} style={{visibility}} />
-                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={GRAVEYARD} style={{visibility}} />
-                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={BANISHED} style={{visibility}}/>
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={DECK} style={{ visibility }} />
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={GRAVEYARD} style={{ visibility }} />
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={BANISHED} style={{ visibility }} />
                            <YugiohCard height={cardHeight} notFull player={HERO} row={FIELD_SPELL} isHero />
                            <YugiohCard height={cardHeight} notFull player={HERO} row={EXTRA_DECK} isHero />
                         </Fragment>
@@ -82,10 +81,10 @@ class Battlefield extends Component {
                            <YugiohCard height={cardHeight} player={HERO} row={ST} zone={4} isHero />
                         </div>
                      </div>
-                     <div className={classes.cardColumn} style={{top: -cardHeight / 2 + "px"}} >
+                     <div className={classes.cardColumn} style={{ top: -cardHeight / 2 + "px" }}>
                         <Fragment>
-                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={EXTRA_DECK} style={{visibility}}/>
-                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={FIELD_SPELL} style={{visibility}}/>
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={EXTRA_DECK} style={{ visibility }} />
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={FIELD_SPELL} style={{ visibility }} />
                            <YugiohCard height={cardHeight} notFull player={HERO} row={BANISHED} isHero />
                            <YugiohCard height={cardHeight} notFull player={HERO} row={GRAVEYARD} isHero />
                            <YugiohCard height={cardHeight} notFull player={HERO} row={DECK} isHero />
