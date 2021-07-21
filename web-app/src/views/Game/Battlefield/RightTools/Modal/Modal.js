@@ -28,6 +28,10 @@ class Modal extends Component {
       this.setHfHeights();
    }
 
+   componentDidUpdate() {
+      this.setHfHeights();
+   }
+
    setHfHeights = () => {
       const header = document.getElementById("modalheader");
       const footer = document.getElementById("modalfooter");
