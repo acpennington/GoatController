@@ -46,7 +46,7 @@
 * members: map {
   * user1: map {
     * role: string
-    * ips: list of strings
+    * ips: list of strings (only if allowMultis == false)
     * lastPlayed: string (only if useQueue == true)
     * losses: number (only if useRatings == true)
     * wins: number (only if useRatings == true)
