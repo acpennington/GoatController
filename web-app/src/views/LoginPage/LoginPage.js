@@ -85,7 +85,7 @@ export default function LoginPage() {
 
    return (
       <PageTemplate noToken gap addFooter>
-         <GridContainer justify="center">
+         <GridContainer justifyContent="center" alignItems="center">
             <GridItem xs={12} sm={8} md={4}>
                <CardForm classes={classes} className={classes[cardAnimation]} style={{ backgroundColor: "rgba(255,255,255,0.92)" }}>
                   <CardHeader color="primary" className={classes.cardHeader}>

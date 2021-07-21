@@ -137,7 +137,7 @@ class SettingsPage extends PureComponent {
 
       return (
          <PageTemplate>
-            <GridContainer justify="center">
+            <GridContainer>
                <GridItem xs={12}>
                   <div className={classes.center}>
                      <CustomDropdown

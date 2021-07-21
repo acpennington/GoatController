@@ -44,15 +44,14 @@ class LeaguePage extends PureComponent {
       if (this.state.name === LOADING) {
          await this.fetchLeague();
          this.updateCanLeave();
-      }
-      else this.setState({ description: OFFICIAL_UNRANKED.description, allowExarion: true, autoApprove: true, allowMultis: true, useQueue: false });
+      } else this.setState({ description: OFFICIAL_UNRANKED.description, allowExarion: true, autoApprove: true, allowMultis: true, useQueue: false });
    }
 
    updateCanLeave = () => {
       const yourLeagues = JSON.parse(window.sessionStorage.getItem("leagues"));
       const canLeave = !this.state.members.pending && yourLeagues && yourLeagues.includes(this.leagueId);
       this.setState({ yourLeagues, canLeave });
-   }
+   };
 
    fetchLeague = async () => {
       const config = getAuthHeaders();
@@ -145,11 +144,11 @@ class LeaguePage extends PureComponent {
       const { count, pending, isBanned, isAdmin } = members;
       const { leagueId, getMatchmaking, getLeagueRules, getSocialMedia, updateCanLeave } = this;
 
-      console.log("canleave: "+canLeave);
+      console.log("canleave: " + canLeave);
 
       return (
          <PageTemplate>
-            <GridContainer justify="center">
+            <GridContainer>
                <GridItem xs={12}>
                   <div className={classes.center}>
                      <Shadow>
@@ -180,8 +179,9 @@ class LeaguePage extends PureComponent {
                <GridItem xs={12}>
                   <div className={classes.bottom}>
                      <BackButton href="leagues" />
-                     {leagueId !== OFFICIAL_UNRANKED.id && !isBanned && !isAdmin && 
-                     <JoinLeaveButton leagueId={leagueId} pending={pending} leave={canLeave} leagues={yourLeagues} update={updateCanLeave} />}
+                     {leagueId !== OFFICIAL_UNRANKED.id && !isBanned && !isAdmin && (
+                        <JoinLeaveButton leagueId={leagueId} pending={pending} leave={canLeave} leagues={yourLeagues} update={updateCanLeave} />
+                     )}
                      {isAdmin && (
                         <Button color="primary" size="lg" round href={"/admin?id=" + leagueId}>
                            Admin

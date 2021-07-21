@@ -15,7 +15,7 @@ class BetaPage extends PureComponent {
 
       return (
          <PageTemplate noToken>
-            <GridContainer justify="center">
+            <GridContainer>
                <GridItem xs={12}>
                   <div className={classes.container}>
                      <h2>Join Beta Testing</h2>

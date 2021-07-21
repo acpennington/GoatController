@@ -169,7 +169,7 @@ class CreateLeague extends PureComponent {
 
       return (
          <PageTemplate>
-            <GridContainer justify="center">
+            <GridContainer>
                <GridItem xs={12}>
                   <h3 className={classes.title}>Create a New League</h3>
                </GridItem>
