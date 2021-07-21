@@ -10,7 +10,7 @@ decks: map {
     * wins: number
     * losses: number }
   * deckname2: {}
-  * etc }
+  * etc }<br/>
 goatGold: number<br/>
 hashword: string<br/>
 leagues: set of strings<br/>
@@ -18,7 +18,7 @@ settings: map {
   * gamebg: string
   * sleeves: string
   * email: string
-  * discord: string }
+  * discord: string }<br/>
 verified: boolean
 
 *to be changed later to list of objects, see ticket #147
