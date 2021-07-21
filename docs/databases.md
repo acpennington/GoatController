@@ -1,7 +1,7 @@
 # users
-username: string (primary key)<br/>
-activeDeck: string<br/>
-decks: map {
+* username: string (primary key)
+* activeDeck: string
+* decks: map {
   * deckname1: {
     * decktype: string
     * maindeck: list of strings*
@@ -10,16 +10,16 @@ decks: map {
     * wins: number
     * losses: number }
   * deckname2: {}
-  * etc }<br/>
-goatGold: number<br/>
-hashword: string<br/>
-leagues: set of strings<br/>
-settings: map {
+  * etc }
+* goatGold: number
+* hashword: string
+* leagues: set of strings
+* settings: map {
   * gamebg: string
   * sleeves: string
   * email: string
-  * discord: string }<br/>
-verified: boolean
+  * discord: string }
+* verified: boolean
 
 *to be changed later to list of objects, see ticket #147
 
