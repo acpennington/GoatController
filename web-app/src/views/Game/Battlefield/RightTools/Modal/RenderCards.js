@@ -54,7 +54,6 @@ class RenderCards extends Component {
          });
 
       const zoneLen = zoneNumbers.length;
-      console.log(this.lastRow + " " + row);
       if (zoneLen === 0 || (this.lastZoneLen && autoClose && this.lastZoneLen !== zoneLen && this.lastRow === row)) closeModal(row, player, this.context);
 
       this.lastRow = row;
