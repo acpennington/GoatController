@@ -6,12 +6,12 @@ import { bind, unbind } from "mousetrap";
 import Tooltip from "@material-ui/core/Tooltip";
 import { closeModal } from "stateStore/actions/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
+import { shuffleDeck } from "stateStore/actions/field";
 
 import { DECK } from "utils/constants";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
-import { shuffleDeck } from "stateStore/actions/field";
 
 class ModalHeader extends PureComponent {
    componentDidMount() {
@@ -23,7 +23,7 @@ class ModalHeader extends PureComponent {
    }
 
    componentDidUpdate(prevProps) {
-      if (prevProps.row === DECK && this.props.row !== DECK) shuffleDeck(this.props.player, this.context);
+      if (prevProps.row === DECK && this.props.row !== DECK) this.props.shuffleDeck(this.props.player, this.context);
    }
 
    render() {
@@ -47,4 +47,4 @@ ModalHeader.propTypes = {
 
 ModalHeader.contextType = WebSocketContext;
 
-export default connect(null, { closeModal })(withStyles(styles)(ModalHeader));
+export default connect(null, { closeModal, shuffleDeck })(withStyles(styles)(ModalHeader));
