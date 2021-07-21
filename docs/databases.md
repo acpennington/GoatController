@@ -76,4 +76,4 @@
 
 *see blankField in Lambda/LeagueSocket/config/config.js for details on what a "gamestate" object looks like
 
-Note: The purpose of the players and watchers attributes is to store the connection ids of all players connected to the game.
+Note: The purpose of the players and watchers attributes is to store the connection ids of all users connected to the game.
