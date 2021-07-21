@@ -1,29 +1,29 @@
 # users
-username: string (primary key)
-activeDeck: string
-decks: map
-    {
-        deckname1: {
-            decktype: string,
-            maindeck: list of strings*,
-            sidedeck: list of strings*,
-            visibility: string,
-            wins: number,
-            losses: number
-        },
-        deckname2: {},
-        etc
-    }
-goatGold: number
-hashword: string
-leagues: set of strings
-settings: map
-    {
-        gamebg: string,
-        sleeves: string,
-        email: string,
-        discord: string
-    }
+username: string (primary key)<br/>
+activeDeck: string<br/>
+decks: map<br/>
+    {<br/>
+        deckname1: {<br/>
+            decktype: string,<br/>
+            maindeck: list of strings*,<br/>
+            sidedeck: list of strings*,<br/>
+            visibility: string,<br/>
+            wins: number,<br/>
+            losses: number<br/>
+        },<br/>
+        deckname2: {},<br/>
+        etc<br/>
+    }<br/>
+goatGold: number<br/>
+hashword: string<br/>
+leagues: set of strings<br/>
+settings: map<br/>
+    {<br/>
+        gamebg: string,<br/>
+        sleeves: string,<br/>
+        email: string,<br/>
+        discord: string<br/>
+    }<br/>
 verified: boolean
 
 *to be changed later to list of objects, see ticket #147
