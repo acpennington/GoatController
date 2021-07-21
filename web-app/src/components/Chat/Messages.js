@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
+const DRAW_PHASE_MESSAGE = /set the phase to Draw./;
 class Messages extends PureComponent {
    render() {
       const { classes, messages, hero } = this.props;
@@ -25,13 +26,18 @@ class Messages extends PureComponent {
          else if (messageAbove) section = "End";
          else if (messageBelow) section = "Start";
 
+         const className = classes["message" + section + (authorIsHero ? "Hero" : "")] +
+            (classes[author] ? ` ${classes[author]}` :  "");
          messageList.push(
             <div className={classes.messageContainer} key={i}>
-               <div className={classes["message" + section + (authorIsHero ? "Hero" : "")]}>
-                  {authorIsHero ? "" : <span className={classes[author] || classes.opponent}>{author}:</span>} {content}
+               <div className={className}>
+                  {content}
                </div>
             </div>
          );
+         if (author === 'Server' && DRAW_PHASE_MESSAGE.test(content)) {
+            messageList.push(<hr style={{width: "80%", margin: "10px auto"}} />);
+         }
       }
 
       return messageList;

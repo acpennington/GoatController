@@ -3,11 +3,28 @@ const marginTop = 5;
 const message = {
    position: "relative",
    float: "left",
-   backgroundColor: "rgb(62,64,66)",
+   color: "black",
+   backgroundColor: "rgb(228,230,235)",
    maxWidth: "80%",
    padding: "8px",
    margin: "0px 6px 5px 2px",
    borderRadius: "15px"
+};
+
+const messageHero = {
+   ...message,
+   float: "right",
+   backgroundColor: "rgb(0,132,255)",
+   color: "white",
+};
+
+const messageSystem = {
+   maxWidth: "100%",
+   background: "none",
+   color: "white",
+   padding: "4px",
+   margin: "0px",
+   width: "100%",
 };
 
 const chatStyle = {
@@ -35,41 +52,21 @@ const chatStyle = {
       ...message,
       borderRadius: "4px 15px 15px 15px"
    },
-   messageHero: {
-      ...message,
-      float: "right",
-      backgroundColor: "rgb(0,132,255)"
-   },
+   messageHero,
    messageStartHero: {
-      ...message,
+      ...messageHero,
       borderRadius: "15px 15px 4px 15px",
-      float: "right",
-      backgroundColor: "rgb(0,132,255)"
    },
    messageMidHero: {
-      ...message,
+      ...messageHero,
       borderRadius: "15px 4px 4px 15px",
-      float: "right",
-      backgroundColor: "rgb(0,132,255)"
    },
    messageEndHero: {
-      ...message,
+      ...messageHero,
       borderRadius: "15px 4px 15px 15px",
-      float: "right",
-      backgroundColor: "rgb(0,132,255)"
    },
-   Server: {
-      color: "yellow",
-      fontWeight: "bold"
-   },
-   Game: {
-      color: "yellow",
-      fontWeight: "bold"
-   },
-   opponent: {
-      color: "red",
-      fontWeight: "bold"
-   }
+   Server: messageSystem,
+   Game: messageSystem,
 };
 
 export default chatStyle;
