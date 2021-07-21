@@ -40,7 +40,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 const useStyles = makeStyles(cardStyle);
 
-function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName, modal, isHero }) {
+function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHero, style }) {
    const classes = useStyles();
    const dispatch = useDispatch();
    const socket = useContext(WebSocketContext);
@@ -123,13 +123,18 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
       else if (!isExtraDeck) dragOrDrop = drag;
    } else if (row === MONSTER && (blank || inBattlePhase)) dragOrDrop = drop;
 
-   if (isHero && heroSelected)
+   if (isHero && heroSelected) {
       bind("d", () => {
-         dispatch(moveCard({ from: { player, row, zone }, to: { player, row: discardPile, zone: 0 } }, socket));
+         dispatch(moveCard({ from: { player, row, zone }, to: { player, row: GRAVEYARD, zone: 0 } }, socket));
       });
+      bind("b", () => {
+         dispatch(moveCard({ from: { player, row, zone }, to: { player, row: BANISHED, zone: 0 } }, socket));
+      });
+   }
    useEffect(() => {
       return function cleanup() {
          unbind("d");
+         unbind("b");
       };
    }, []);
 
@@ -151,7 +156,8 @@ function YugiohCard({ height, notFull, player, row, zone, discardPile, cardName,
                (heroSelected && HERO_SELECTION_COLOR) ||
                (villSelected && VILLAIN_SELECTION_COLOR) ||
                (revealed && REVEAL_COLOR),
-            backgroundImage: !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")')
+            backgroundImage: !blank && (facedown ? 'url("/sleeves/' + sleeves + '")' : 'url("/cards/bgs/' + cardType + '.jpg")'),
+            ...style
          }}
          onClick={() => {
             if (!blank && !deckZone && !isDiscardZone) {
@@ -211,10 +217,10 @@ YugiohCard.propTypes = {
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
    zone: PropTypes.number,
-   discardPile: PropTypes.string,
    cardName: PropTypes.string,
    modal: PropTypes.bool,
-   isHero: PropTypes.bool
+   isHero: PropTypes.bool,
+   style: PropTypes.object,
 };
 
 YugiohCard.defaultProps = {

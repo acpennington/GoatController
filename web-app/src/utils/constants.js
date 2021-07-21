@@ -53,7 +53,6 @@ export const NEW_HOVER = "NEW_HOVER";
 export const CLEAR_HOVER = "CLEAR_HOVER";
 export const NEW_SELECTION = "NEW_SELECTION";
 export const CLEAR_SELECTION = "CLEAR_SELECTION";
-export const SWITCH_DISCARD = "SWITCH_DISCARD";
 export const SWITCH_NAMES = "SWITCH_NAMES";
 export const OPEN_MODAL = "OPEN_MODAL";
 export const CLOSE_MODAL = "CLOSE_MODAL";

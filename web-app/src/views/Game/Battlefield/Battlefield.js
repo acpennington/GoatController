@@ -12,14 +12,17 @@ import { MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK, VILLAIN_HAND_SIZE } from "u
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
+import { GRAVEYARD } from "utils/constants.js";
+import { BANISHED } from "utils/constants.js";
 
 class Battlefield extends Component {
    render() {
-      const { classes, size, handCounts, discardPile, players, player } = this.props;
+      const { classes, size, handCounts, players, player } = this.props;
       const { solo } = player;
       const HERO = players.hero;
       const VILLAIN = players.villain;
       const cardHeight = Math.floor(size - 2);
+      const visibility = solo ? 'hidden' : 'visible';
 
       return (
          <DndProvider backend={HTML5Backend}>
@@ -30,53 +33,68 @@ class Battlefield extends Component {
                   ) : (
                      <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} size={cardHeight} isHero={false} />
                   )}
-                  <div className={classes.cardRow} style={{ height: size }}>
-                     {!solo && (
+                   {/* TODO: why is the additional 5px offset necessary? */}
+                  <div className={classes.playingField} style={{height: `calc(100% - ${cardHeight + cardHeight / 2 + 5}px)` }}>
+                     <div className={classes.cardColumn} style={{top: -cardHeight / 2 + "px"}} >
                         <Fragment>
-                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={DECK} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={4} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={3} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={2} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={1} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={0} />
-                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={EXTRA_DECK} />
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={DECK} style={{visibility}} />
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={GRAVEYARD} style={{visibility}} />
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={BANISHED} style={{visibility}}/>
+                           <YugiohCard height={cardHeight} notFull player={HERO} row={FIELD_SPELL} isHero />
+                           <YugiohCard height={cardHeight} notFull player={HERO} row={EXTRA_DECK} isHero />
                         </Fragment>
-                     )}
-                  </div>
-                  <div className={classes.cardRow} style={{ height: size }}>
-                     {!solo && (
+                     </div>
+                     <div className={classes.cardRows}>
+                        <div className={classes.cardRow} style={{ height: size }}>
+                           {!solo && (
+                              <Fragment>
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={4} />
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={3} />
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={2} />
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={1} />
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={0} />
+                              </Fragment>
+                           )}
+                        </div>
+                        <div className={classes.cardRow} style={{ height: size }}>
+                           {!solo && (
+                              <Fragment>
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={4} />
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={3} />
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={2} />
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={1} />
+                                 <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={0} />
+                              </Fragment>
+                           )}
+                        </div>
+                        <div className={classes.cardRow} style={{ height: size }}>
+                           <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={0} isHero />
+                           <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={1} isHero />
+                           <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={2} isHero />
+                           <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={3} isHero />
+                           <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={4} isHero />
+                        </div>
+                        <div className={classes.cardRow} style={{ height: size }}>
+                           <YugiohCard height={cardHeight} player={HERO} row={ST} zone={0} isHero />
+                           <YugiohCard height={cardHeight} player={HERO} row={ST} zone={1} isHero />
+                           <YugiohCard height={cardHeight} player={HERO} row={ST} zone={2} isHero />
+                           <YugiohCard height={cardHeight} player={HERO} row={ST} zone={3} isHero />
+                           <YugiohCard height={cardHeight} player={HERO} row={ST} zone={4} isHero />
+                        </div>
+                     </div>
+                     <div className={classes.cardColumn} style={{top: -cardHeight / 2 + "px"}} >
                         <Fragment>
-                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={discardPile} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={4} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={3} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={2} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={1} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={0} />
-                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={FIELD_SPELL} />
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={EXTRA_DECK} style={{visibility}}/>
+                           <YugiohCard height={cardHeight} notFull player={VILLAIN} row={FIELD_SPELL} style={{visibility}}/>
+                           <YugiohCard height={cardHeight} notFull player={HERO} row={BANISHED} isHero />
+                           <YugiohCard height={cardHeight} notFull player={HERO} row={GRAVEYARD} isHero />
+                           <YugiohCard height={cardHeight} notFull player={HERO} row={DECK} isHero />
                         </Fragment>
-                     )}
+                     </div>
                   </div>
-                  <div className={classes.cardRow} style={{ height: size }}>
-                     <YugiohCard height={cardHeight} notFull player={HERO} row={FIELD_SPELL} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={0} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={1} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={2} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={3} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={4} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} notFull player={HERO} row={discardPile} isHero />
-                  </div>
-                  <div className={classes.cardRow} style={{ height: size }}>
-                     <YugiohCard height={cardHeight} notFull player={HERO} row={EXTRA_DECK} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={0} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={1} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={2} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={3} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={4} discardPile={discardPile} isHero />
-                     <YugiohCard height={cardHeight} notFull player={HERO} row={DECK} isHero />
-                  </div>
-                  <Hand player={HERO} handCount={handCounts[HERO] || 0} size={size} discardPile={discardPile} isHero={true} />
+                  <Hand player={HERO} handCount={handCounts[HERO] || 0} size={size} isHero={true} />
                </div>
-               <RightTools height={cardHeight} discardPile={discardPile} player={player} />
+               <RightTools height={cardHeight} player={player} />
             </div>
          </DndProvider>
       );
@@ -85,7 +103,7 @@ class Battlefield extends Component {
 
 function mapStateToProps(state, ownProps) {
    const { name } = ownProps.player;
-   const { field, settings } = state;
+   const { field } = state;
 
    const handCounts = {};
    const players = { hero: name };
@@ -94,11 +112,7 @@ function mapStateToProps(state, ownProps) {
       if (key !== name) players.villain = key;
    }
 
-   return {
-      handCounts,
-      players,
-      discardPile: settings.discardPile
-   };
+   return { handCounts, players };
 }
 
 Battlefield.propTypes = {

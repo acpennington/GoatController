@@ -26,9 +26,9 @@ const gameStyle = {
    },
    cardsInPlay: {
       position: "relative",
-      flex: "84%",
-      width: "84%",
-      maxWidth: "84%"
+      flex: "85%",
+      width: "85%",
+      maxWidth: "85%"
    },
    chat: {
       borderRadius: "3px",
@@ -44,10 +44,22 @@ const gameStyle = {
    cardRow: {
       position: "relative",
       display: "flex",
-      width: "100%",
-      margin: "auto",
       overflowX: "auto",
-      overflowY: "hidden",
+      overflowY: "hidden"
+   },
+   playingField: {
+      position: "relative",
+      display: "flex",
+      flexDirection: "row",
+      width: "100%",
+      flexFlow: "column wrap"
+   },
+   cardColumn: {
+      position: "relative",
+      display: "flex",
+      flexDirection: "column",
+      overflowX: "hidden",
+      overflowY: "auto"
    },
    hand: {
       display: "flex",

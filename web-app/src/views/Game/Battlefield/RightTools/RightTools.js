@@ -5,18 +5,17 @@ import { useSelector } from "react-redux";
 import Modal from "./Modal/Modal.js";
 import StandardTools from "./StandardTools/StandardTools.js";
 
-function RightTools({ height, discardPile, player }) {
+function RightTools({ height, player }) {
    const modal = useSelector((state) => state.settings.modal);
    return (
       <Fragment>
-         {modal ? <Modal pile={modal} height={height} heroPlayer={player.name} /> : <StandardTools discardPile={discardPile} player={player} />}
+         {modal ? <Modal pile={modal} height={height} heroPlayer={player.name} /> : <StandardTools player={player} />}
       </Fragment>
    );
 }
 
 RightTools.propTypes = {
    height: PropTypes.number.isRequired,
-   discardPile: PropTypes.string.isRequired,
    player: PropTypes.object.isRequired
 };
 
