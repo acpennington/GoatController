@@ -625,7 +625,7 @@ const traps = {
    "Ring of Destruction": {
       cardType: "Trap",
       levelOrSubtype: "Normal",
-      text: "Target 1 face-up monster your opponent controls; destroy that face-up monster, and if you do, inflict damage to both players equal to that target's ATK."
+      text: "Target 1 face-up monster; destroy that face-up monster, and if you do, inflict damage to both players equal to that target's ATK."
    },
    "Sakuretsu Armor": {
       cardType: "Trap",
