@@ -542,7 +542,7 @@ const spells = {
       cardType: "Spell",
       levelOrSubtype: "Normal",
       text: "Draw 1 card, then your opponent gains 1000 LP.",
-      prepopLP: 1000
+      prepopLP: {villain: 1000}
    },
    "Pot of Greed": {
       cardType: "Spell",
@@ -575,7 +575,7 @@ const spells = {
       cardType: "Spell",
       levelOrSubtype: "Equip",
       text: "Equip only to a monster your opponent controls. <effect=Continuous-like>Take control of the equipped monster.</effect> <effect=Trigger-like>During each of your opponent's Standby Phases: They gain 1000 Life Points.</effect>",
-      prepopLP: 1000
+      prepopLP: {villain: 1000}
    },
    Metamorphosis: {
       cardType: "Spell",
