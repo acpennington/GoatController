@@ -1,5 +1,5 @@
 // game settings
-export const GAME_RATIO = 1.8;
+export const GAME_ASPECT_RATIO = 1.8;
 export const VILLAIN_HAND_SIZE = 0.5;
 export const MODAL_CARD_SIZE = 0.82;
 export const CARD_RATIO = 1.45;

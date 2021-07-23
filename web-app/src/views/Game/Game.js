@@ -15,7 +15,7 @@ import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 import {
-   GAME_RATIO,
+   GAME_ASPECT_RATIO,
    VILLAIN_HAND_SIZE,
    GAME_SOCKET_URL,
    JOIN_MATCH,
@@ -142,7 +142,7 @@ class Game extends Component {
                      className={classes.innerContainer}
                      style={{
                         height: sizingValue,
-                        width: sizingValue * GAME_RATIO
+                        width: sizingValue * GAME_ASPECT_RATIO
                      }}
                   >
                      <LeftPanel name={player.name} />
@@ -157,7 +157,7 @@ class Game extends Component {
 function getSizingValue() {
    const vpw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
    const vph = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-   return Math.min(vpw / GAME_RATIO, vph);
+   return Math.min(vpw / GAME_ASPECT_RATIO, vph);
 }
 
 function mapStateToProps(state) {
