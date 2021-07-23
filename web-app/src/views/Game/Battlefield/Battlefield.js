@@ -8,12 +8,10 @@ import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import Hand from "./Hand.js";
 import RightTools from "./RightTools/RightTools.js";
 
-import { MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK, VILLAIN_HAND_HEIGHT_FRACTION } from "utils/constants.js";
+import { MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK, GRAVEYARD, BANISHED, VILLAIN_HAND_HEIGHT_FRACTION } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/game.js";
-import { GRAVEYARD } from "utils/constants.js";
-import { BANISHED } from "utils/constants.js";
+import styles from "assets/jss/material-kit-react/views/game.js"; 
 
 class Battlefield extends Component {
    render() {
