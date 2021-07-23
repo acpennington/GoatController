@@ -11,7 +11,7 @@ import { WebSocketContext } from "../WebSocketContext";
 import { VILLAIN_HAND_HEIGHT_FRACTION, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/game.js";
+import styles from "assets/jss/material-kit-react/views/gameSections/battlefield.js";
 const useStyles = makeStyles(styles);
 
 function Hand({ player, handCount, rowHeight, isHero, revealed, phase }) {

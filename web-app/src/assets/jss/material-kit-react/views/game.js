@@ -11,48 +11,6 @@ const gameStyle = {
       display: "flex",
       flexDirection: "row",
       overflow: "hidden"
-   },
-   cardsInPlay: {
-      position: "relative",
-      flex: "66%",
-      width: "66%",
-      height: "100%"
-   },
-   chat: {
-      borderRadius: "3px",
-      marginTop: "8px",
-      padding: "5px",
-      backgroundColor: "rgba(0,0,0,0.9)",
-      width: "100%",
-      height: "calc(60% - 8px)",
-      overflow: "auto",
-      display: "flex",
-      flexDirection: "column-reverse"
-   },
-   cardRow: {
-      position: "relative",
-      display: "flex",
-      overflowX: "auto",
-      overflowY: "hidden"
-   },
-   playingField: {
-      position: "relative",
-      display: "flex",
-      flexDirection: "row",
-      width: "100%",
-      flexFlow: "column wrap"
-   },
-   cardColumn: {
-      position: "relative",
-      display: "flex",
-      flexDirection: "column",
-      overflowX: "hidden",
-      overflowY: "auto"
-   },
-   hand: {
-      display: "flex",
-      margin: "auto",
-      position: "relative"
    }
 };
 
