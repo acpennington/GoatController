@@ -17,11 +17,11 @@ import { BANISHED } from "utils/constants.js";
 
 class Battlefield extends Component {
    render() {
-      const { classes, handCounts, players, size, player } = this.props;
+      const { classes, handCounts, players, rowHeight, player } = this.props;
       const { solo } = player;
       const HERO = players.hero;
       const VILLAIN = players.villain;
-      const cardHeight = Math.floor(size - 2);
+      const cardHeight = Math.floor(rowHeight - 2);
       const visibility = solo ? "hidden" : "visible";
 
       return (
@@ -31,9 +31,9 @@ class Battlefield extends Component {
                   {solo ? (
                      <div style={{ height: cardHeight * VILLAIN_HAND_SIZE }}></div>
                   ) : (
-                     <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} size={size} isHero={false} />
+                     <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} size={rowHeight} isHero={false} />
                   )}
-                  <div className={classes.playingField} style={{ height: `calc(100% - ${size * 1.5}px)` }}>
+                  <div className={classes.playingField} style={{ height: `calc(100% - ${rowHeight * 1.5}px)` }}>
                      <div className={classes.cardColumn} style={{ top: -cardHeight / 2 + "px" }}>
                         <Fragment>
                            <YugiohCard height={cardHeight} notFull player={VILLAIN} row={DECK} style={{ visibility }} />
@@ -44,7 +44,7 @@ class Battlefield extends Component {
                         </Fragment>
                      </div>
                      <div className={classes.cardRows}>
-                        <div className={classes.cardRow} style={{ height: size }}>
+                        <div className={classes.cardRow} style={{ height: rowHeight }}>
                            {!solo && (
                               <Fragment>
                                  <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={4} />
@@ -55,7 +55,7 @@ class Battlefield extends Component {
                               </Fragment>
                            )}
                         </div>
-                        <div className={classes.cardRow} style={{ height: size }}>
+                        <div className={classes.cardRow} style={{ height: rowHeight }}>
                            {!solo && (
                               <Fragment>
                                  <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={4} />
@@ -66,14 +66,14 @@ class Battlefield extends Component {
                               </Fragment>
                            )}
                         </div>
-                        <div className={classes.cardRow} style={{ height: size }}>
+                        <div className={classes.cardRow} style={{ height: rowHeight }}>
                            <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={0} isHero />
                            <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={1} isHero />
                            <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={2} isHero />
                            <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={3} isHero />
                            <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={4} isHero />
                         </div>
-                        <div className={classes.cardRow} style={{ height: size }}>
+                        <div className={classes.cardRow} style={{ height: rowHeight }}>
                            <YugiohCard height={cardHeight} player={HERO} row={ST} zone={0} isHero />
                            <YugiohCard height={cardHeight} player={HERO} row={ST} zone={1} isHero />
                            <YugiohCard height={cardHeight} player={HERO} row={ST} zone={2} isHero />
@@ -91,7 +91,7 @@ class Battlefield extends Component {
                         </Fragment>
                      </div>
                   </div>
-                  <Hand player={HERO} handCount={handCounts[HERO] || 0} size={size} isHero={true} />
+                  <Hand player={HERO} handCount={handCounts[HERO] || 0} size={rowHeight} isHero={true} />
                </div>
                <RightTools height={cardHeight} player={player} />
             </div>
@@ -117,7 +117,7 @@ function mapStateToProps(state, ownProps) {
 Battlefield.propTypes = {
    classes: PropTypes.object.isRequired,
    player: PropTypes.object.isRequired,
-   size: PropTypes.number.isRequired,
+   rowHeight: PropTypes.number.isRequired,
    webSocket: PropTypes.object
 };
 

@@ -10,12 +10,6 @@ const gameStyle = {
    innerContainer: {
       display: "flex"
    },
-   leftPanel: {
-      flex: "23%",
-      width: "23%",
-      marginRight: "4px",
-      height: "100%"
-   },
    gameplayContainer: {
       flex: "77%",
       width: "77%",

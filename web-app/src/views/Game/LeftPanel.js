@@ -6,7 +6,7 @@ import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded
 import Chat from "components/Chat/Chat.js";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/game.js";
+import styles from "assets/jss/material-kit-react/views/gameSections/leftPanel.js";
 
 class LeftPanel extends Component {
    render() {

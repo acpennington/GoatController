@@ -146,7 +146,7 @@ class Game extends Component {
                      }}
                   >
                      <LeftPanel name={player.name} />
-                     <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} player={player} />
+                     <Battlefield rowHeight={sizingValue / (5 + VILLAIN_HAND_SIZE)} player={player} />
                   </div>
                </div>
             </WebSocketContext.Provider>
