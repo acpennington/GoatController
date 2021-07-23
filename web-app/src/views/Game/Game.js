@@ -16,7 +16,7 @@ import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 import {
    GAME_ASPECT_RATIO,
-   VILLAIN_HAND_SIZE,
+   VILLAIN_HAND_HEIGHT_FRACTION,
    GAME_SOCKET_URL,
    JOIN_MATCH,
    CONNECTED,
@@ -146,7 +146,7 @@ class Game extends Component {
                      }}
                   >
                      <LeftPanel name={player.name} />
-                     <Battlefield rowHeight={sizingValue / (5 + VILLAIN_HAND_SIZE)} player={player} />
+                     <Battlefield rowHeight={sizingValue / (5 + VILLAIN_HAND_HEIGHT_FRACTION)} player={player} />
                   </div>
                </div>
             </WebSocketContext.Provider>

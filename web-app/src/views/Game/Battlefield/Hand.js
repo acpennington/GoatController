@@ -8,7 +8,7 @@ import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/chat.js";
 import { moveCard, attack } from "stateStore/actions/field.js";
 import { WebSocketContext } from "../WebSocketContext";
-import { VILLAIN_HAND_SIZE, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "utils/constants.js";
+import { VILLAIN_HAND_HEIGHT_FRACTION, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -59,7 +59,7 @@ function Hand({ player, handCount, size, isHero, revealed, phase }) {
          flexDirection="row-reverse"
          horiz
       >
-         <div className={classes.hand} style={{ height: handSize * (isHero ? 1 : VILLAIN_HAND_SIZE) }}>
+         <div className={classes.hand} style={{ height: handSize * (isHero ? 1 : VILLAIN_HAND_HEIGHT_FRACTION) }}>
             {handList}
          </div>
       </FriendlyScroll>

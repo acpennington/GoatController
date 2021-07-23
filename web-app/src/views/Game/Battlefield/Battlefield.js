@@ -8,7 +8,7 @@ import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import Hand from "./Hand.js";
 import RightTools from "./RightTools/RightTools.js";
 
-import { MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK, VILLAIN_HAND_SIZE } from "utils/constants.js";
+import { MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK, VILLAIN_HAND_HEIGHT_FRACTION } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
@@ -29,7 +29,7 @@ class Battlefield extends Component {
             <div className={classes.gameplayContainer}>
                <div className={classes.cardsInPlay}>
                   {solo ? (
-                     <div style={{ height: cardHeight * VILLAIN_HAND_SIZE }}></div>
+                     <div style={{ height: cardHeight * VILLAIN_HAND_HEIGHT_FRACTION }}></div>
                   ) : (
                      <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} size={rowHeight} isHero={false} />
                   )}
