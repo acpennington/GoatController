@@ -3,7 +3,9 @@ const battlefieldStyle = {
        position: "relative",
        flex: "66%",
        width: "66%",
-       height: "100%"
+       height: "100%",
+       marginLeft: "0.5%",
+       marginRight: "0.5%"
     },
     cardRow: {
        position: "relative",
