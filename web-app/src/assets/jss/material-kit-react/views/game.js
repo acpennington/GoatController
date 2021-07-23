@@ -8,21 +8,15 @@ const gameStyle = {
       height: "100vh"
    },
    innerContainer: {
-      display: "flex"
-   },
-   gameplayContainer: {
-      flex: "77%",
-      width: "77%",
-      overflow: "hidden",
-      position: "relative",
       display: "flex",
-      height: "100%"
+      flexDirection: "row",
+      overflow: "hidden"
    },
    cardsInPlay: {
       position: "relative",
-      flex: "85%",
-      width: "85%",
-      maxWidth: "85%"
+      flex: "66%",
+      width: "66%",
+      height: "100%"
    },
    chat: {
       borderRadius: "3px",

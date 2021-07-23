@@ -1,14 +1,11 @@
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const allContainers = {
-   position: "absolute",
-   right: 0,
-   flex: "10%",
+   flex: "11%",
    display: "flex",
    flexDirection: "column",
-   marginLeft: "4px",
    height: "100%",
-   width: "15%",
+   width: "11%",
    borderRadius: "3px",
    textAlign: "center"
 };
