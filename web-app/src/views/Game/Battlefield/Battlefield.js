@@ -29,7 +29,7 @@ class Battlefield extends Component {
                   {solo ? (
                      <div style={{ height: cardHeight * VILLAIN_HAND_HEIGHT_FRACTION }}></div>
                   ) : (
-                     <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} size={rowHeight} isHero={false} />
+                     <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} rowHeight={rowHeight} isHero={false} />
                   )}
                   <div className={classes.playingField} style={{ height: `calc(100% - ${rowHeight * 1.5}px)` }}>
                      <div className={classes.cardColumn} style={{ top: -cardHeight / 2 + "px" }}>
@@ -89,7 +89,7 @@ class Battlefield extends Component {
                         </Fragment>
                      </div>
                   </div>
-                  <Hand player={HERO} handCount={handCounts[HERO] || 0} size={rowHeight} isHero={true} />
+                  <Hand player={HERO} handCount={handCounts[HERO] || 0} rowHeight={rowHeight} isHero={true} />
                </div>
                <RightTools height={cardHeight} player={player} />
             </div>

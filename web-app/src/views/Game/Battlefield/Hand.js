@@ -14,12 +14,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/game.js";
 const useStyles = makeStyles(styles);
 
-function Hand({ player, handCount, size, isHero, revealed, phase }) {
+function Hand({ player, handCount, rowHeight, isHero, revealed, phase }) {
    const classes = useStyles();
    const dispatch = useDispatch();
    const socket = useContext(WebSocketContext);
 
-   const handSize = handCount > 7 ? (isHero ? size * 0.95 : size * 0.9) : size;
+   const handRowHeight = handCount > 7 ? (isHero ? rowHeight * 0.95 : rowHeight * 0.9) : rowHeight;
    const herosBattlePhase = phase === BATTLE && !isHero;
 
    const [{ isOver, canDrop }, drop] = useDrop({
@@ -45,7 +45,7 @@ function Hand({ player, handCount, size, isHero, revealed, phase }) {
    const cardName = isHero || revealed ? undefined : FACEDOWN_CARD;
    const handList = [];
    for (let i = 0; i < handCount; i++) {
-      handList.push(<YugiohCard height={handSize} player={player} row={HAND} zone={i} isHero={isHero} notFull key={i} cardName={cardName} />);
+      handList.push(<YugiohCard height={handRowHeight} player={player} row={HAND} zone={i} isHero={isHero} notFull key={i} cardName={cardName} />);
    }
 
    return (
@@ -59,7 +59,7 @@ function Hand({ player, handCount, size, isHero, revealed, phase }) {
          flexDirection="row-reverse"
          horiz
       >
-         <div className={classes.hand} style={{ height: handSize * (isHero ? 1 : VILLAIN_HAND_HEIGHT_FRACTION) }}>
+         <div className={classes.hand} style={{ height: handRowHeight * (isHero ? 1 : VILLAIN_HAND_HEIGHT_FRACTION) }}>
             {handList}
          </div>
       </FriendlyScroll>
@@ -81,7 +81,7 @@ function mapStateToProps(state, ownProps) {
 Hand.propTypes = {
    player: PropTypes.string.isRequired,
    handCount: PropTypes.number.isRequired,
-   size: PropTypes.number.isRequired,
+   rowHeight: PropTypes.number.isRequired,
    isHero: PropTypes.bool.isRequired
 };
 
