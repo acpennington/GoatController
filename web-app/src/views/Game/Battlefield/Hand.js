@@ -20,7 +20,7 @@ function Hand({ player, handCount, rowHeight, isHero, revealed, phase }) {
    const socket = useContext(WebSocketContext);
    const handWidth = rowHeight * 5;
 
-   const handRowHeight = handCount > 7 ? (isHero ? rowHeight * 0.95 : rowHeight * 0.9) : rowHeight;
+   const handRowHeight = handCount > 7 ? (isHero ? rowHeight * 0.95 : rowHeight * 0.9) : rowHeight; // we need to shrink the hand when a scrollbar will appear
    const herosBattlePhase = phase === BATTLE && !isHero;
 
    const [{ isOver, canDrop }, drop] = useDrop({
