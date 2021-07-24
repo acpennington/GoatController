@@ -1,6 +1,7 @@
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
 const allContainers = {
+   position: "relative",
    flex: "12%",
    display: "flex",
    flexDirection: "column",
