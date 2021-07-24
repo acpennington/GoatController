@@ -8,7 +8,8 @@ const allContainers = {
    height: "100%",
    width: "12%",
    borderRadius: "3px",
-   textAlign: "center"
+   textAlign: "center",
+   marginLeft: "3px"
 };
 
 const header = {
