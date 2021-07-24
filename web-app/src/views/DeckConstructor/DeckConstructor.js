@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Provider } from "react-redux";
 
 import ResizableContainer, { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
+import LeftPanel from "./LeftPanel.js";
+import Decklist from "./Decklist.js";
+import SearchResults from "./SearchResults.js";
 
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
@@ -17,7 +20,11 @@ class DeckConstructor extends Component {
    render() {
       return (
          <ResizableContainer>
-            <Provider store={store}></Provider>
+            <Provider store={store}>
+               <LeftPanel />
+               <Decklist />
+               <SearchResults />
+            </Provider>
          </ResizableContainer>
       );
    }
