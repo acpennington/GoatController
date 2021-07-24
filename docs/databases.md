@@ -5,8 +5,8 @@
 -  decks: map {
    -  deckname1: map {
       -  decktype: string
-      -  maindeck: list of maps: { count: 1-3, name: "A Card's Name"}
-      -  sidedeck: list of maps: { count: 1-3, name: "A Card's Name"}
+      -  maindeck: map: { "A Card's Name": 1, etc}
+      -  sidedeck: map: { "A Card's Name": 2, etc}
       -  visibility: string
       -  wins: number
       -  losses: number }
