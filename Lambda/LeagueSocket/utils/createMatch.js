@@ -74,7 +74,7 @@ function setGamestate(gamestate, player, goingFirstPlayer) {
    const { username, decks, activeDeck, settings } = player;
    gamestate[username] = JSON.parse(JSON.stringify(blankField));
 
-   const shuffledDeck = shuffle(decks[activeDeck].maindeck).map((card) => ({ name: card }));
+   const shuffledDeck = shuffle(expandDeck(decks[activeDeck].maindeck));
    const hand = [];
    const drawNumber = goingFirstPlayer === username ? 6 : 5;
    for (let i = 0; i < drawNumber; i++) hand.push(shuffledDeck.pop());
@@ -82,6 +82,17 @@ function setGamestate(gamestate, player, goingFirstPlayer) {
    gamestate[username].sleeves = settings.sleeves;
    gamestate[username].hand = hand;
    gamestate[username].deck = shuffledDeck;
+}
+
+function expandDeck(decklist) {
+   const expandedDeck = [];
+
+   for (const card of decklist) {
+      const { count, name } = card;
+      for (let i = 0; i < count; i++) expandedDeck.push({ name });
+   }
+
+   return expandedDeck;
 }
 
 function shuffle(deck) {

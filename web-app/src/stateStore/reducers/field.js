@@ -237,7 +237,7 @@ export default function (state = initialState, action) {
          const decks = JSON.parse(storage.getItem("decks"));
          const active = storage.getItem("activeDeck");
          const activeMaindeck = decks[active].maindeck;
-         const namedCards = shuffle(activeMaindeck).map((card) => ({ name: card }));
+         const namedCards = shuffle(expandDeck(activeMaindeck));
 
          const newHand = [];
          for (let i = 0; i < 5; i++) newHand.push(namedCards.pop());
@@ -285,6 +285,17 @@ function clearBattle(field) {
    }
 
    return clearedCards;
+}
+
+function expandDeck(decklist) {
+   const expandedDeck = [];
+
+   for (const card of decklist) {
+      const { count, name } = card;
+      for (let i = 0; i < count; i++) expandedDeck.push({ name });
+   }
+
+   return expandedDeck;
 }
 
 function shuffle(deck) {
