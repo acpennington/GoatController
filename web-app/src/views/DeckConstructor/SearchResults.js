@@ -14,7 +14,8 @@ class SearchResults extends Component {
 }
 
 SearchResults.propTypes = {
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   results: PropTypes.array.isRequired
 };
 
 export default withStyles(styles)(SearchResults);

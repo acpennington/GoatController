@@ -12,18 +12,22 @@ import { checkToken } from "utils/authToken.js";
 class DeckConstructor extends Component {
    constructor(props) {
       super(props);
-      checkToken(true);
+      checkToken();
       setBodyImage();
 
       this.username = window.sessionStorage.getItem("username");
    }
 
    render() {
+      const { searchResults } = this.props;
+      const thereAreResults = searchResults.length > 0;
+      const decklistWidth = (thereAreResults ? 100 - 23 - 12 : 100 - 23) + "%";
+
       return (
          <ResizableContainer>
             <LeftPanel name={this.username} />
-            <Decklist />
-            <SearchResults />
+            <Decklist width={decklistWidth} />
+            {thereAreResults && <SearchResults results={searchResults} />}
          </ResizableContainer>
       );
    }

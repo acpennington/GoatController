@@ -7,12 +7,15 @@ import styles from "assets/jss/material-kit-react/views/deckConstructorSections/
 
 class Decklist extends Component {
    render() {
-      return null;
+      const { classes, width } = this.props;
+
+      return <div className={classes.container} style={{ width, flex: width }}></div>;
    }
 }
 
 Decklist.propTypes = {
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   width: PropTypes.string.isRequired
 };
 
 export default withStyles(styles)(Decklist);
