@@ -536,13 +536,13 @@ const spells = {
       cardType: "Spell",
       levelOrSubtype: "Equip",
       text: "Activate this card by paying 800 LP, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. <effect=Continuous-like>When this card is destroyed, destroy the equipped monster.</effect>",
-      prepopLP: -800
+      prepopLP: { hero: -800 }
    },
    "Upstart Goblin": {
       cardType: "Spell",
       levelOrSubtype: "Normal",
       text: "Draw 1 card, then your opponent gains 1000 LP.",
-      prepopLP: {villain: 1000}
+      prepopLP: { villain: 1000 }
    },
    "Pot of Greed": {
       cardType: "Spell",
@@ -558,7 +558,7 @@ const spells = {
       cardType: "Spell",
       levelOrSubtype: "Normal",
       text: "Pay 1000 LP; your opponent discards 1 random card, and if they have any other cards in their hand, discard 1 more card of their choice.",
-      prepopLP: -1000,
+      prepopLP: { hero: -1000 },
       script: "Random_Discard"
    },
    "Heavy Storm": {
@@ -575,7 +575,7 @@ const spells = {
       cardType: "Spell",
       levelOrSubtype: "Equip",
       text: "Equip only to a monster your opponent controls. <effect=Continuous-like>Take control of the equipped monster.</effect> <effect=Trigger-like>During each of your opponent's Standby Phases: They gain 1000 Life Points.</effect>",
-      prepopLP: {villain: 1000}
+      prepopLP: { villain: 1000 }
    },
    Metamorphosis: {
       cardType: "Spell",
@@ -610,7 +610,7 @@ const traps = {
       cardType: "Trap",
       levelOrSubtype: "Counter",
       text: "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card.",
-      prepopLP: "half"
+      prepopLP: { hero: "half" }
    },
    "Mirror Force": {
       cardType: "Trap",
