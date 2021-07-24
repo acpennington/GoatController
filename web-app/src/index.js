@@ -9,6 +9,7 @@ import SettingsPage from "views/SettingsPage/SettingsPage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import BetaPage from "views/BetaPage/BetaPage.js";
 import Game from "views/Game/Game.js";
+import DeckConstructor from "views/DeckConstructor/DeckConstructor.js";
 import Wall from "views/Wall/Wall.js";
 import Leagues from "views/Leagues/Leagues.js";
 import LeaguePage from "views/LeaguePage/LeaguePage.js";
@@ -28,6 +29,7 @@ ReactDOM.render(
                </Provider>
             )}
          />
+         <Route path="/deckconstructor" component={DeckConstructor} />
          <Route path="/settings" component={SettingsPage} />
          <Route path="/login-page" component={LoginPage} />
          <Route path="/beta" component={BetaPage} />
