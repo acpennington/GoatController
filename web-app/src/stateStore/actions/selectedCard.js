@@ -8,9 +8,7 @@ function newSelection(selectingPlayer, player, row, zone, name, socket = false) 
       const card = getCardDetails(name);
       if (card.prepopLP) {
          const isHero = selectingPlayer === player;
-         if (isHero && typeof card.prepopLP !== 'object') {
-            dispatch(prepopLP(card.prepopLP));
-         } else if (isHero && card.prepopLP.hero) {
+         if (isHero && card.prepopLP.hero) {
             dispatch(prepopLP(card.prepopLP.hero));
          } else if (!isHero && card.prepopLP.villain) {
             dispatch(prepopLP(card.prepopLP.villain));
