@@ -13,7 +13,6 @@ class FieldRow extends Component {
       if (divOnly) return <div className={classes.cardRow} style={{ height: rowHeight }}></div>;
 
       const cards = [];
-
       for (let i = 0; i < 5; i++) {
          const card = <YugiohCard height={cardHeight} player={player} row={rowType} isHero={isHero} zone={i} key={i} />;
          if (isHero) cards.push(card);
