@@ -15,8 +15,8 @@ import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 import {
-   GAME_RATIO,
-   VILLAIN_HAND_SIZE,
+   GAME_ASPECT_RATIO,
+   VILLAIN_HAND_HEIGHT_FRACTION,
    GAME_SOCKET_URL,
    JOIN_MATCH,
    CONNECTED,
@@ -142,11 +142,11 @@ class Game extends Component {
                      className={classes.innerContainer}
                      style={{
                         height: sizingValue,
-                        width: sizingValue * GAME_RATIO
+                        width: sizingValue * GAME_ASPECT_RATIO
                      }}
                   >
                      <LeftPanel name={player.name} />
-                     <Battlefield size={sizingValue / (5 + VILLAIN_HAND_SIZE)} player={player} />
+                     <Battlefield rowHeight={sizingValue / (5 + VILLAIN_HAND_HEIGHT_FRACTION)} player={player} />
                   </div>
                </div>
             </WebSocketContext.Provider>
@@ -157,7 +157,7 @@ class Game extends Component {
 function getSizingValue() {
    const vpw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
    const vph = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-   return Math.min(vpw / GAME_RATIO, vph);
+   return Math.min(vpw / GAME_ASPECT_RATIO, vph);
 }
 
 function mapStateToProps(state) {

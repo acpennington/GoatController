@@ -138,14 +138,16 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       };
    }, []);
 
-   const margin = !notFull && (height - height / CARD_RATIO) / 2 + 2;
+   const width = Math.floor(height / CARD_RATIO);
+   const margin = !notFull && (height - width) / 2 + 2; // the +2 is to leave a little space between cards
    const villExtension = isHero || modal ? "" : "Villain";
+
    return (
       <div
          ref={dragOrDrop}
          className={classes["container" + (inDef ? "Def" : villExtension + (facedown && (STzone || fieldZone) ? "" : rowClass(row)))]}
          style={{
-            width: Math.floor(height / CARD_RATIO),
+            width,
             height,
             marginLeft: margin,
             marginRight: margin,
@@ -220,7 +222,7 @@ YugiohCard.propTypes = {
    cardName: PropTypes.string,
    modal: PropTypes.bool,
    isHero: PropTypes.bool,
-   style: PropTypes.object,
+   style: PropTypes.object
 };
 
 YugiohCard.defaultProps = {
