@@ -30,4 +30,4 @@ LeftPanel.propTypes = {
    name: PropTypes.string.isRequired
 };
 
-export default connect(mapStateToProps, {})(withStyles(styles)(LeftPanel));
+export default connect(mapStateToProps)(withStyles(styles)(LeftPanel));
