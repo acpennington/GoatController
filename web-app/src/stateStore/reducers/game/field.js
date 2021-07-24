@@ -288,17 +288,6 @@ function clearBattle(field) {
    return clearedCards;
 }
 
-function expandDeck(decklist) {
-   const expandedDeck = [];
-
-   for (const name in decklist) {
-      const count = decklist[name];
-      for (let i = 0; i < count; i++) expandedDeck.push({ name });
-   }
-
-   return expandedDeck;
-}
-
 function shuffle(deck) {
    for (let i = deck.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * i);
