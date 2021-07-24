@@ -67,7 +67,7 @@ exports.handler = async (event) => {
       case "SendSelection":
          return await sendSelection(id, data, connectionId, api);
       case "RemoveSelection":
-         return await removeSelection(id, username, connectionId, api);
+         return await removeSelection(id, connectionId, api);
       case "SendCounters":
          return await sendCounters(id, username, data.row, data.zone, data.counters, data.cardName, connectionId, api);
       case "PlayerConceded":
