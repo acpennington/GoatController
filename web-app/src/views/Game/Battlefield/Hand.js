@@ -54,7 +54,7 @@ function Hand({ player, handCount, rowHeight, isHero, revealed, phase }) {
          count={handCount}
          drop={(isHero || herosBattlePhase) && drop}
          style={{ overflowY: "hidden" }}
-         contStyle={{ width: "76%", margin: "0 auto" }}
+         contStyle={{ width: "100%", margin: "0 auto" }}
          bgColor={isOver && canDrop && OVER_COLOR + "33"}
          flexDirection="row-reverse"
          horiz

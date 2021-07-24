@@ -138,9 +138,10 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       };
    }, []);
 
-   const margin = !notFull && (height - height / CARD_RATIO) / 2 + 2;
+   const margin = !notFull && (height - height / CARD_RATIO) / 2;
    const villExtension = isHero || modal ? "" : "Villain";
-   return (
+
+   const cardObject = (
       <div
          ref={dragOrDrop}
          className={classes["container" + (inDef ? "Def" : villExtension + (facedown && (STzone || fieldZone) ? "" : rowClass(row)))]}
@@ -209,6 +210,8 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          />
       </div>
    );
+
+   return cardObject; //notFull ? cardObject : <div className={classes.squareContainer}>{cardObject}</div>;
 }
 
 YugiohCard.propTypes = {
@@ -220,7 +223,7 @@ YugiohCard.propTypes = {
    cardName: PropTypes.string,
    modal: PropTypes.bool,
    isHero: PropTypes.bool,
-   style: PropTypes.object,
+   style: PropTypes.object
 };
 
 YugiohCard.defaultProps = {
