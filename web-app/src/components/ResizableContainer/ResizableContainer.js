@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { GAME_ASPECT_RATIO } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/game.js";
+import styles from "assets/jss/material-kit-react/components/resizableContainerStyle.js";
 
 export const SizeContext = createContext(null);
 

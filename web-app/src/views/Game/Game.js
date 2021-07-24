@@ -28,9 +28,6 @@ import {
    MILL_UNTIL
 } from "utils/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/game.js";
-
 class Game extends Component {
    constructor(props) {
       super(props);
@@ -150,4 +147,4 @@ Game.propTypes = {
    classes: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, null)(withStyles(styles)(Game));
+export default connect(mapStateToProps, null)(Game);
