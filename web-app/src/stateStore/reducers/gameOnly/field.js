@@ -1,4 +1,4 @@
-import { playSound } from "../actions/field";
+import { playSound } from "../../actions/field";
 import getCardDetails from "utils/getCardDetails.js";
 import getOtherPlayer from "utils/getOtherPlayer";
 
