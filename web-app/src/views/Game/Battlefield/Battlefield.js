@@ -1,9 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
+import FieldRow from "./FieldRow.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import Hand from "./Hand.js";
 import RightTools from "./RightTools/RightTools.js";
@@ -19,7 +20,7 @@ class Battlefield extends Component {
       const { solo } = player;
       const HERO = players.hero;
       const VILLAIN = players.villain;
-      const cardHeight = Math.floor(rowHeight - 2);
+      const cardHeight = Math.floor(rowHeight - 2); // this is the most straightforward way to leave some space between cards
       const visibility = solo ? "hidden" : "visible";
 
       return (
@@ -38,42 +39,10 @@ class Battlefield extends Component {
                   ) : (
                      <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} rowHeight={rowHeight} isHero={false} />
                   )}
-                  <div className={classes.cardRow} style={{ height: rowHeight }}>
-                     {!solo && (
-                        <Fragment>
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={4} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={3} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={2} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={1} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={ST} zone={0} />
-                        </Fragment>
-                     )}
-                  </div>
-                  <div className={classes.cardRow} style={{ height: rowHeight }}>
-                     {!solo && (
-                        <Fragment>
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={4} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={3} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={2} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={1} />
-                           <YugiohCard height={cardHeight} player={VILLAIN} row={MONSTER} zone={0} />
-                        </Fragment>
-                     )}
-                  </div>
-                  <div className={classes.cardRow} style={{ height: rowHeight }}>
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={0} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={1} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={2} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={3} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={MONSTER} zone={4} isHero />
-                  </div>
-                  <div className={classes.cardRow} style={{ height: rowHeight }}>
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={0} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={1} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={2} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={3} isHero />
-                     <YugiohCard height={cardHeight} player={HERO} row={ST} zone={4} isHero />
-                  </div>
+                  <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={VILLAIN} rowType={ST} divOnly={solo} />
+                  <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={VILLAIN} rowType={MONSTER} divOnly={solo} />
+                  <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={HERO} rowType={MONSTER} isHero />
+                  <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={HERO} rowType={ST} isHero />
                   <Hand player={HERO} handCount={handCounts[HERO] || 0} rowHeight={rowHeight} isHero={true} />
                </div>
                <div className={classes.cardColumn}>

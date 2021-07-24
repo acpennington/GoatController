@@ -138,7 +138,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       };
    }, []);
 
-   const margin = !notFull && (height - height / CARD_RATIO) / 2;
+   const margin = !notFull && (height - height / CARD_RATIO) / 2 + 2; // the +2 is to leave a little space between cards
    const villExtension = isHero || modal ? "" : "Villain";
 
    const cardObject = (
