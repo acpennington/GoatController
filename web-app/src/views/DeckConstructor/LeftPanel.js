@@ -13,7 +13,7 @@ class LeftPanel extends PureComponent {
 
       return (
          <div className={classes.leftPanel}>
-            <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} heroPlayer={name} />
+            <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} heroPlayer={name} noButtons />
          </div>
       );
    }
