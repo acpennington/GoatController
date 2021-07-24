@@ -141,7 +141,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    const margin = !notFull && (height - height / CARD_RATIO) / 2 + 2; // the +2 is to leave a little space between cards
    const villExtension = isHero || modal ? "" : "Villain";
 
-   const cardObject = (
+   return (
       <div
          ref={dragOrDrop}
          className={classes["container" + (inDef ? "Def" : villExtension + (facedown && (STzone || fieldZone) ? "" : rowClass(row)))]}
@@ -210,8 +210,6 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          />
       </div>
    );
-
-   return cardObject; //notFull ? cardObject : <div className={classes.squareContainer}>{cardObject}</div>;
 }
 
 YugiohCard.propTypes = {

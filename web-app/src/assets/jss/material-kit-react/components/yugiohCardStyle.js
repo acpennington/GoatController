@@ -71,14 +71,6 @@ const zoneLabel = {
 };
 
 const cardStyle = {
-   squareContainer: {
-      borderRadius: "8x",
-      borderStyle: "solid",
-      borderWidth: "3px",
-      borderColor: "rgba(0,0,0,.25)",
-      width: "20%",
-      margin: "1px"
-   },
    container: {
       ...container
    },
