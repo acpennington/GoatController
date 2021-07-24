@@ -24,15 +24,14 @@ export default function (state = initialState, action) {
          return { ...state };
       }
       case CLEAR_SELECTION:
-         const { player, socket } = data;
+         const socket = data;
 
-         if (socket && socket.api && state[player] && state[player].player !== player) {
+         if (socket && socket.api) {
             const payload = { action: REMOVE_SELECTION, data: { token: socket.token, id: socket.matchId } };
             socket.api.send(JSON.stringify(payload));
          }
 
-         delete state[player];
-         return state;
+         return {};
       default:
          return state;
    }

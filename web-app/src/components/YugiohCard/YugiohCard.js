@@ -172,7 +172,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
                      } else if (row === DECK) dispatch(moveCard({ from: { player, row, zone }, to: { player, row: HAND } }, socket));
                      else dispatch(switchPosition(player, row, zone, socket));
                   }
-                  dispatch(clearSelection(heroPlayer, socket));
+                  dispatch(clearSelection(socket));
                }
             } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row));
             else if (isHero && deckZone) dispatch(closeModal(row, player, socket));

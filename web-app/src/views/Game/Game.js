@@ -81,7 +81,6 @@ class Game extends Component {
                   payloads.forEach((payload) => this.customDispatch(payload.action, payload.data));
                   break;
                case REDIRECT:
-                  console.log("received redirect");
                   window.sessionStorage.removeItem("activeMatch");
                   window.location.href = payloads;
                   break;
