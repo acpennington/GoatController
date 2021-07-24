@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Switch } from "react-router-dom";
 import store, { history } from "stateStore/gameStore.js";
+import deckStore from "stateStore/deckConstructorStore.js";
 import { Provider } from "react-redux";
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 
@@ -29,7 +30,14 @@ ReactDOM.render(
                </Provider>
             )}
          />
-         <Route path="/deckconstructor" component={DeckConstructor} />
+         <Route
+            path="/deckconstructor"
+            render={() => (
+               <Provider store={deckStore}>
+                  <DeckConstructor />
+               </Provider>
+            )}
+         />
          <Route path="/settings" component={SettingsPage} />
          <Route path="/login-page" component={LoginPage} />
          <Route path="/beta" component={BetaPage} />

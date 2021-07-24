@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import ResizableContainer, { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
@@ -143,8 +142,4 @@ function mapStateToProps(state) {
    return { numPlayers: Object.keys(state.field).length };
 }
 
-Game.propTypes = {
-   classes: PropTypes.object.isRequired
-};
-
-export default connect(mapStateToProps, null)(Game);
+export default connect(mapStateToProps)(Game);

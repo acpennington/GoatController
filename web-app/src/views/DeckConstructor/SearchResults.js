@@ -7,7 +7,9 @@ import styles from "assets/jss/material-kit-react/views/deckConstructorSections/
 
 class SearchResults extends Component {
    render() {
-      return null;
+      const { classes } = this.props;
+
+      return <div className={classes.container}></div>;
    }
 }
 

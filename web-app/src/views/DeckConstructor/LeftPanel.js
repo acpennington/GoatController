@@ -9,11 +9,11 @@ import styles from "assets/jss/material-kit-react/views/deckConstructorSections/
 
 class LeftPanel extends PureComponent {
    render() {
-      const { classes, hoverCard, selectedCard } = this.props;
+      const { classes, name, hoverCard, selectedCard } = this.props;
 
       return (
          <div className={classes.leftPanel}>
-            <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} />
+            <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} heroPlayer={name} />
          </div>
       );
    }
@@ -24,7 +24,8 @@ function mapStateToProps(state, ownProps) {
 }
 
 LeftPanel.propTypes = {
-   classes: PropTypes.object
+   classes: PropTypes.object.isRequired,
+   name: PropTypes.string.isRequired
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(LeftPanel));
