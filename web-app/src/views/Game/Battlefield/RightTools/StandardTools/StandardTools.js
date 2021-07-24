@@ -14,8 +14,8 @@ import RevealHandButton from "./RevealHandButton.js";
 import Phases from "./Phases.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import LifeBar from "components/LifeBar/LifeBar.js";
-import { adjustLP, resetSolo } from "stateStore/actions/field.js";
-import { prepopLP } from "stateStore/actions/settings.js";
+import { adjustLP, resetSolo } from "stateStore/actions/game/field.js";
+import { prepopLP } from "stateStore/actions/shared/settings.js";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 

@@ -1,4 +1,4 @@
-import { playSound } from "../../actions/field";
+import { playSound } from "../../actions/game/field";
 import { DRAW, NEXT_TURN, SET_TURN } from "utils/constants.js";
 
 const initialState = {

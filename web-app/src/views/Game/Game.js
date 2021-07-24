@@ -6,8 +6,8 @@ import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import { WebSocketContext } from "./WebSocketContext.js";
-import { resetSolo, adjustLP, createTokens, moveCard } from "stateStore/actions/field.js";
-import { millUntil } from "stateStore/actions/scripts.js";
+import { resetSolo, adjustLP, createTokens, moveCard } from "stateStore/actions/game/field.js";
+import { millUntil } from "stateStore/actions/game/scripts.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";

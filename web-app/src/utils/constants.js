@@ -13,6 +13,11 @@ export const FUSION_MONSTER = "fusionMonster";
 export const SPELL = "Spell";
 export const TRAP = "Trap";
 
+// card locations
+export const MAINDECK = "MAINDECK";
+export const SIDEDECK = "SIDEDECK";
+export const SEARCH_RESULTS = "SEARCH_RESULTS";
+
 // rows & zones
 export const MONSTER = "monster";
 export const ST = "s/t";
@@ -33,7 +38,7 @@ export const onField = [MONSTER, ST, FIELD_SPELL];
 export const ATTACKING = "Attacking";
 export const DEFENDING = "Defending";
 
-// actions
+// game actions
 export const ADD_MESSAGE = "ADD_MESSAGE";
 export const SET_CHAT_TO = "SET_CHAT_TO";
 export const RESET_CHAT = "RESET_CHAT";
@@ -61,6 +66,9 @@ export const CONCEDE_GAME = "CONCEDE_GAME";
 export const SET_TURN = "SET_TURN";
 export const SHUFFLE_DECK = "SHUFFLE_DECK";
 export const SET_DECK = "SET_DECK";
+
+// deck constructor actions
+export const SET_DECKLIST = "SET_DECKLIST";
 
 // league socket actions
 export const ENTER_QUEUE = "EnterQueue";
@@ -99,6 +107,11 @@ export const OVER_COLOR = "#00FF00";
 export const HERO_SELECTION_COLOR = "#003CFF";
 export const VILLAIN_SELECTION_COLOR = "red";
 export const REVEAL_COLOR = "white";
+export const cardTypeColors = {
+   effectMonster: "rgb(155,86,31)",
+   st: "rgb(21,115,78) rgb(126,38,98) rgb(126,38,98) rgb(21,115,78)",
+   Spell: "rgb(21,115,78)"
+};
 
 // scrolling
 export const BUFFER = 10;

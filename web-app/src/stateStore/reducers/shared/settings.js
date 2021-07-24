@@ -4,7 +4,8 @@ const initialState = {
    concessionLink: false,
    showNames: false,
    modal: null,
-   prepopLP: null
+   prepopLP: null,
+   stackSameName: false
 };
 
 export default function (state = initialState, action) {

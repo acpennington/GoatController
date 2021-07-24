@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
 import Tooltip from "@material-ui/core/Tooltip";
-import { closeModal } from "stateStore/actions/settings.js";
+import { closeModal } from "stateStore/actions/shared/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
-import { shuffleDeck } from "stateStore/actions/field";
+import { shuffleDeck } from "stateStore/actions/game/field";
 
 import { DECK } from "utils/constants";
 
@@ -15,7 +15,7 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 
 class ModalHeader extends PureComponent {
    componentDidMount() {
-      bind("esc", () => this.props.closeModal(this.props.row, this.props.player, this.context))
+      bind("esc", () => this.props.closeModal(this.props.row, this.props.player, this.context));
    }
 
    componentWillUnmount() {

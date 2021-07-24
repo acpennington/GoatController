@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import Button from "components/CustomButtons/Button.js";
-import { revealHand } from "stateStore/actions/field.js";
+import { revealHand } from "stateStore/actions/game/field.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 class RevealHand extends PureComponent {

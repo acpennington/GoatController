@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
-import ResizableContainer, { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
+import ResizableContainer from "components/ResizableContainer/ResizableContainer.js";
 import LeftPanel from "./LeftPanel.js";
 import Decklist from "./Decklist.js";
 import SearchResults from "./SearchResults.js";
@@ -25,9 +27,11 @@ class DeckConstructor extends Component {
 
       return (
          <ResizableContainer>
-            <LeftPanel name={this.username} />
-            <Decklist width={decklistWidth} />
-            {thereAreResults && <SearchResults results={searchResults} />}
+            <DndProvider backend={HTML5Backend}>
+               <LeftPanel name={this.username} />
+               <Decklist width={decklistWidth} player={this.username} />
+               {thereAreResults && <SearchResults results={searchResults} />}
+            </DndProvider>
          </ResizableContainer>
       );
    }

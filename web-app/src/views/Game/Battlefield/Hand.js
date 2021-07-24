@@ -5,8 +5,8 @@ import { useDrop } from "react-dnd";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
-import { addMessage } from "stateStore/actions/chat.js";
-import { moveCard, attack } from "stateStore/actions/field.js";
+import { addMessage } from "stateStore/actions/game/chat.js";
+import { moveCard, attack } from "stateStore/actions/game/field.js";
 import { WebSocketContext } from "../WebSocketContext";
 import { VILLAIN_HAND_HEIGHT_FRACTION, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "utils/constants.js";
 

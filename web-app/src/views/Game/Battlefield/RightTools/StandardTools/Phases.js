@@ -6,7 +6,7 @@ import { bind, unbind } from "mousetrap";
 import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
-import { setTurn } from "stateStore/actions/turn.js";
+import { setTurn } from "stateStore/actions/game/turn.js";
 import { phases, DRAW, NEXT_TURN, HAND } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import getCardDetails from "utils/getCardDetails.js";
-import { closeModal } from "stateStore/actions/settings.js";
+import { closeModal } from "stateStore/actions/shared/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 
 import { withStyles } from "@material-ui/core/styles";

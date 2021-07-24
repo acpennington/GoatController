@@ -1,6 +1,7 @@
-import { playSound } from "../../actions/field";
+import { playSound } from "../../actions/game/field";
 import getCardDetails from "utils/getCardDetails.js";
-import getOtherPlayer from "utils/getOtherPlayer";
+import getOtherPlayer from "utils/getOtherPlayer.js";
+import expandDeck from "utils/expandDeck.js";
 
 import {
    FUSION_MONSTER,

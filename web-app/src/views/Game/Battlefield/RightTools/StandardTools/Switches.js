@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import Switch from "@material-ui/core/Switch";
 
-import { switchNames } from "stateStore/actions/settings.js";
+import { switchNames } from "stateStore/actions/shared/settings.js";
 
 class Switches extends PureComponent {
    constructor(props) {
@@ -34,20 +34,10 @@ class Switches extends PureComponent {
 
       return (
          <Fragment>
-            <Switch
-               checked={soundOn}
-               onChange={(event) => this.flipSound(event)}
-               color="primary"
-               style={{ color: "#9c27b0" }}
-            />
+            <Switch checked={soundOn} onChange={(event) => this.flipSound(event)} color="primary" style={{ color: "#9c27b0" }} />
             Sound {soundOn ? "On" : "Off"}
             <br />
-            <Switch
-               checked={showNames}
-               onChange={(event) => this.flipNames(event)}
-               color="primary"
-               style={{ color: "#9c27b0" }}
-            />
+            <Switch checked={showNames} onChange={(event) => this.flipNames(event)} color="primary" style={{ color: "#9c27b0" }} />
             Show Card Names
          </Fragment>
       );

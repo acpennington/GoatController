@@ -17,13 +17,7 @@ class FriendlyScroll extends Component {
 
       return (
          <div className={classes.wholeContainer} style={contStyle}>
-            <ArrowButtons 
-               ref={this.child}
-               id={id}
-               count={count}
-               horiz={horiz}
-               flexDirection={flexDirection}
-            />
+            <ArrowButtons ref={this.child} id={id} count={count} horiz={horiz} flexDirection={flexDirection} />
             <div
                id={id}
                className={classes["childrenContainer" + (horiz ? "Horiz" : "")]}
@@ -45,7 +39,7 @@ FriendlyScroll.propTypes = {
    countStyle: PropTypes.object,
    horiz: PropTypes.bool,
    bgcolor: PropTypes.string,
-   flexDirection: PropTypes.string,
+   flexDirection: PropTypes.string
 };
 
 FriendlyScroll.defaultProps = {

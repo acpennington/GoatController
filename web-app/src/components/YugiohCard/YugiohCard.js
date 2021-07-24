@@ -10,10 +10,10 @@ import getOtherPlayer from "utils/getOtherPlayer.js";
 import getCardDetails from "utils/getCardDetails.js";
 import CardArt from "./CardArt.js";
 import ZoneLabel from "./ZoneLabel.js";
-import { newHover } from "stateStore/actions/hoverCard.js";
-import { newSelection, clearSelection } from "stateStore/actions/selectedCard.js";
-import { moveCard, switchPosition, attack } from "stateStore/actions/field.js";
-import { openModal, closeModal } from "stateStore/actions/settings.js";
+import { newHover } from "stateStore/actions/shared/hoverCard.js";
+import { newSelection, clearSelection } from "stateStore/actions/shared/selectedCard.js";
+import { moveCard, switchPosition, attack } from "stateStore/actions/game/field.js";
+import { openModal, closeModal } from "stateStore/actions/shared/settings.js";
 import {
    CARD_RATIO,
    FACEDOWN_CARD,
