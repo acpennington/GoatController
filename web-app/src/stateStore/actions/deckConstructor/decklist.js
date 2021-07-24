@@ -1,7 +1,11 @@
-import { SET_DECKLIST } from "utils/constants";
+import { SET_DECKLIST, TRANSFER_CARD } from "utils/constants";
 
 function setDecklist(decklist) {
    return { type: SET_DECKLIST, data: decklist };
 }
 
-export { setDecklist };
+function transferCard(cardName, to, from) {
+   return { type: TRANSFER_CARD, data: { to, from, cardName } };
+}
+
+export { setDecklist, transferCard };

@@ -23,6 +23,7 @@ const decklistStyles = {
    listContainer: {
       display: "flex",
       flexFlow: "row wrap",
+      justifyContent: "center",
       width: "100%",
       minHeight: "100px"
    }

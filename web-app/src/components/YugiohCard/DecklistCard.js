@@ -6,10 +6,9 @@ import { bind, unbind } from "mousetrap";
 
 import getCardDetails from "utils/getCardDetails.js";
 import CardArt from "./CardArt.js";
-import ZoneLabel from "./ZoneLabel.js";
 import { newHover } from "stateStore/actions/shared/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/shared/selectedCard.js";
-import { cardTypeColors, CARD_RATIO, HERO_SELECTION_COLOR } from "utils/constants.js";
+import { CARD_RATIO, HERO_SELECTION_COLOR } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
@@ -54,11 +53,8 @@ function YugiohCard({ height, location, name, quantity, player, zone }) {
             backgroundImage: 'url("/cards/bgs/' + cardType + '.jpg")'
          }}
          onClick={() => {
-            if (!heroSelected) dispatch(newSelection(false, false, false, zone, name));
-            else {
-               dispatch();
-               dispatch(clearSelection());
-            }
+            if (!heroSelected) dispatch(newSelection(player, player, false, zone, name));
+            else dispatch(clearSelection());
          }}
          onMouseEnter={() => dispatch(newHover(false, false, zone, name))}
       >
@@ -70,7 +66,7 @@ function YugiohCard({ height, location, name, quantity, player, zone }) {
             atk={atk}
             def={def}
          />
-         {quantity && (
+         {quantity !== 1 && (
             <div className={classes["zoneLabel"]} style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}>
                {quantity}
             </div>

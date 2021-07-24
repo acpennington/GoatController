@@ -14,9 +14,10 @@ export const SPELL = "Spell";
 export const TRAP = "Trap";
 
 // card locations
-export const MAINDECK = "MAINDECK";
-export const SIDEDECK = "SIDEDECK";
+export const MAINDECK = "Maindeck";
+export const SIDEDECK = "Sidedeck";
 export const SEARCH_RESULTS = "SEARCH_RESULTS";
+export const allLocations = [MAINDECK, SIDEDECK, SEARCH_RESULTS];
 
 // rows & zones
 export const MONSTER = "monster";
@@ -69,6 +70,7 @@ export const SET_DECK = "SET_DECK";
 
 // deck constructor actions
 export const SET_DECKLIST = "SET_DECKLIST";
+export const TRANSFER_CARD = "TRANSFER_CARD";
 
 // league socket actions
 export const ENTER_QUEUE = "EnterQueue";
