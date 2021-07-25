@@ -41,7 +41,7 @@ async function post(body) {
       lastMatch: "Never",
       settings: {
          gamebg: "Default.png",
-         sleeves: "Goat.png",
+         sleeves: "Default.png",
          foilAnimations: true
       },
       leagues: DynamoDB.createSet(["GoatsDuels_FunTesting"]),
