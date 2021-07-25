@@ -43,8 +43,6 @@ class ArrowButtons extends PureComponent {
       const { flexDirection } = this.props;
       const { element } = this;
 
-      console.log("scrolled right");
-
       if (flexDirection === "column") element.scroll({ left: element.scrollWidth, top: element.scrollHeight, behavior: "smooth" });
       else element.scroll({ left: 0, top: 0, behavior: "smooth" });
    };
@@ -52,8 +50,6 @@ class ArrowButtons extends PureComponent {
    scrollLeft = () => {
       const { flexDirection } = this.props;
       const { element } = this;
-
-      console.log("scrolled left");
 
       if (flexDirection === "column") element.scroll({ left: 0, top: 0, behavior: "smooth" });
       element.scroll({ left: -element.scrollWidth, top: -element.scrollHeight, behavior: "smooth" });

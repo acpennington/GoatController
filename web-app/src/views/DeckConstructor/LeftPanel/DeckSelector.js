@@ -22,6 +22,15 @@ import { API_URL } from "utils/constants.js";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/leftPanel.js";
 
+const blankDeck = {
+   wins: 0,
+   losses: 0,
+   maindeck: {},
+   sidedeck: {},
+   visibility: "private",
+   deckType: "Unknown"
+};
+
 class DeckSelector extends PureComponent {
    constructor(props) {
       super(props);
@@ -44,14 +53,24 @@ class DeckSelector extends PureComponent {
    saveDeck = () => {};
 
    createDeck = async () => {
-      this.setState({ deckName: "" });
+      const { deckName } = this.state;
       const config = getAuthHeaders();
-      const body = { ...this.state };
+      const body = { deckName };
 
       const res = await axios.post(API_URL + getApiStage() + "/users/deck", body, config);
-      console.log(JSON.stringify(res));
+      if (res.data.statusCode === 200) {
+         const { loadDeck, setDecklist } = this.props;
+         const storage = window.sessionStorage;
 
-      // TODO add new deck to sessionStorage and switch to it
+         const decks = this.getDecks();
+         decks[deckName] = blankDeck;
+
+         storage.setItem("decks", JSON.stringify(decks));
+         loadDeck(deckName);
+         setDecklist(blankDeck);
+      }
+
+      this.setState({ deckName: "" });
    };
 
    render() {

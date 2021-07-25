@@ -9,7 +9,8 @@ export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
       case SET_DECKLIST:
-         return data;
+         console.log(JSON.stringify(data));
+         return { ...data };
       case TRANSFER_CARD:
          const { to, from, cardName } = data;
 

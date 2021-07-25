@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from "react";
 import PropTypes from "prop-types";
-import { connect, useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useDrop } from "react-dnd";
 
 import DecklistCard from "components/YugiohCard/DecklistCard.js";
@@ -15,7 +15,9 @@ import styles from "assets/jss/material-kit-react/views/deckConstructorSections/
 
 function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
    const dispatch = useDispatch();
-   const stackSameName = useSelector((state) => state.settings.stackSameName);
+   const { stackSameName, deckLoaded } = useSelector((state) => {
+      return { stackSameName: state.settings.stackSameName, deckLoaded: state.settings.deckLoaded };
+   });
    const size = useContext(SizeContext);
    const cardHeight = ((size / 6.5) * sliderValue) / 50;
    const cards = [];
@@ -52,7 +54,7 @@ function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
    return (
       <Fragment>
          <h4 className={classes.deckLabel}>
-            {capitalize(name)}: {cardCount}
+            {deckLoaded} — {capitalize(name)}: {cardCount}
          </h4>
          <div className={classes.listContainer} ref={drop} style={{ backgroundColor: isOver && canDrop && OVER_COLOR + "33" }}>
             {cards}
@@ -78,10 +80,6 @@ function typeToNumber(type) {
    }
 }
 
-function mapStateToProps(state) {
-   return { stackSameName: state.settings.stackSameName };
-}
-
 DeckPile.propTypes = {
    classes: PropTypes.object.isRequired,
    player: PropTypes.string.isRequired,
@@ -90,4 +88,4 @@ DeckPile.propTypes = {
    sliderValue: PropTypes.number.isRequired
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(DeckPile));
+export default withStyles(styles)(DeckPile);
