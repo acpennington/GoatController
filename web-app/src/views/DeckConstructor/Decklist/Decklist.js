@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Slider from "@material-ui/core/Slider";
 
 import DeckPile from "./DeckPile";
+import Switches from "./Switches.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 
@@ -41,7 +42,8 @@ class Decklist extends Component {
          <div id="decklistContainer" className={classes.container} style={{ width, flex: width }}>
             <div id="resizeCards" className={classes.resizeCards}>
                Resize cards:
-               <Slider value={sliderValue} onChange={this.sliderChange} aria-labelledby="continuous-slider" style={{ width: "25%" }} />
+               <Slider value={sliderValue} onChange={this.sliderChange} aria-labelledby="continuous-slider" style={{ width: "20%" }} />
+               <Switches />
             </div>
             <div className={classes.allCards} style={{ height: maxHeight + "px" }}>
                <FriendlyScroll id="decklist" flexDirection="column" style={{ flexFlow: "row wrap", maxHeight: maxHeight - 6 + "px" }}>

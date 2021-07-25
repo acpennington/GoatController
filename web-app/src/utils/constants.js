@@ -14,8 +14,8 @@ export const SPELL = "Spell";
 export const TRAP = "Trap";
 
 // card locations
-export const MAINDECK = "Maindeck";
-export const SIDEDECK = "Sidedeck";
+export const MAINDECK = "maindeck";
+export const SIDEDECK = "sidedeck";
 export const SEARCH_RESULTS = "SEARCH_RESULTS";
 export const allLocations = [MAINDECK, SIDEDECK, SEARCH_RESULTS];
 

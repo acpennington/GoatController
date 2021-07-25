@@ -13,6 +13,8 @@ export default function (state = initialState, action) {
       case TRANSFER_CARD:
          const { to, from, cardName } = data;
 
+         if (to === from) return state;
+
          if (state.hasOwnProperty(to)) {
             if (state[to].hasOwnProperty(cardName)) state[to][cardName] += 1;
             else state[to][cardName] = 1;
@@ -22,6 +24,8 @@ export default function (state = initialState, action) {
             if (state[from][cardName] === 1) delete state[from][cardName];
             else state[from][cardName] -= 1;
          }
+
+         console.log(JSON.stringify(state));
 
          return { ...state };
       default:

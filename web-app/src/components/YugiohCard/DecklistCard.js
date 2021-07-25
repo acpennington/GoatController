@@ -67,7 +67,7 @@ function YugiohCard({ height, location, name, quantity, player, zone }) {
             def={def}
          />
          {quantity !== 1 && (
-            <div className={classes["zoneLabel"]} style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}>
+            <div className={classes.zoneLabel} style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}>
                {quantity}
             </div>
          )}

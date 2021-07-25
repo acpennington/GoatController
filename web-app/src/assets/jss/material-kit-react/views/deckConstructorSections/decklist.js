@@ -7,7 +7,8 @@ const decklistStyles = {
    resizeCards: {
       flex: "0%",
       textAlign: "center",
-      maxHeight: "2em"
+      maxHeight: "2em",
+      marginBottom: "2px"
    },
    allCards: {
       flex: "100%",
@@ -25,7 +26,7 @@ const decklistStyles = {
       flexFlow: "row wrap",
       justifyContent: "center",
       width: "100%",
-      minHeight: "100px"
+      minHeight: "120px"
    }
 };
 

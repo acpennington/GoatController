@@ -1,11 +1,12 @@
 import React, { Fragment, useContext } from "react";
 import PropTypes from "prop-types";
-import { connect, useSelector } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { useDrop } from "react-dnd";
 
 import DecklistCard from "components/YugiohCard/DecklistCard.js";
-import getCardDetails from "utils/getCardDetails.js";
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
+import { transferCard } from "stateStore/actions/deckConstructor/decklist";
+import getCardDetails from "utils/getCardDetails.js";
 
 import { EFFECT_MONSTER, SPELL, TRAP, SIDEDECK, OVER_COLOR, allLocations } from "utils/constants";
 
@@ -13,13 +14,18 @@ import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
 
 function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
+   const dispatch = useDispatch();
    const stackSameName = useSelector((state) => state.settings.stackSameName);
    const size = useContext(SizeContext);
    const cardHeight = ((size / 6.5) * sliderValue) / 50;
    const cards = [];
 
    const cardKeys = Object.keys(cardsMap);
-   cardKeys.sort((a, b) => typeToNumber(getCardDetails(b).cardType) - typeToNumber(getCardDetails(a).cardType));
+   cardKeys.sort((a, b) => {
+      const deetsA = getCardDetails(a);
+      const deetsB = getCardDetails(b);
+      return typeToNumber(deetsB.cardType) - typeToNumber(deetsA.cardType);
+   });
    let cardCount = 0;
 
    for (let i = 0; i < cardKeys.length; i++) {
@@ -35,8 +41,8 @@ function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allLocations,
-      canDrop: (item) => name !== SIDEDECK || cardCount < 15,
-      drop: (item) => {},
+      canDrop: () => name !== SIDEDECK || cardCount < 15,
+      drop: (item) => dispatch(transferCard(item.name, name, item.type)),
       collect: (monitor) => ({
          isOver: !!monitor.isOver(),
          canDrop: monitor.canDrop()
@@ -46,13 +52,17 @@ function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
    return (
       <Fragment>
          <h4 className={classes.deckLabel}>
-            {name}: {cardCount}
+            {capitalize(name)}: {cardCount}
          </h4>
          <div className={classes.listContainer} ref={drop} style={{ backgroundColor: isOver && canDrop && OVER_COLOR + "33" }}>
             {cards}
          </div>
       </Fragment>
    );
+}
+
+function capitalize(string) {
+   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function typeToNumber(type) {

@@ -4,8 +4,8 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 import ResizableContainer from "components/ResizableContainer/ResizableContainer.js";
-import LeftPanel from "./LeftPanel.js";
-import Decklist from "./Decklist.js";
+import LeftPanel from "./LeftPanel/LeftPanel.js";
+import Decklist from "./Decklist/Decklist.js";
 import SearchResults from "./SearchResults.js";
 
 import setBodyImage from "utils/setBodyImage.js";
