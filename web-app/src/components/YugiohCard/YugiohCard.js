@@ -194,8 +194,8 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
             />
          )}
          {!blank && card && card.battle && facedown && (
-            <div>
-               <img src={"/battle/" + card.battle + ".png"} className={classes.battleImg} alt={card.battle} style={{ marginTop: "20%" }} />
+            <div className={classes.battleImgContainer}>
+               <img src={"/battle/" + card.battle + ".png"} className={classes.battleImg} alt={card.battle} />
             </div>
          )}
          <ZoneLabel
