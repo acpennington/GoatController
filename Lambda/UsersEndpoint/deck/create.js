@@ -3,12 +3,12 @@ AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const { blankDeck } = require("../config/config.js");
-const auth = require("./utils/middleware.js");
+const auth = require("../utils/middleware.js");
 
 // @route POST api/users
 // @desc Create a blank deck with a specified name
 // @access Private
-// @db 0 read, 1 write
+// @db 0 reads, 1 write
 async function create(body, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
