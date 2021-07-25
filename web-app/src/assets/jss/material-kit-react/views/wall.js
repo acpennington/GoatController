@@ -3,8 +3,9 @@ import tooltip from "../tooltipsStyle.js";
 const wallStyle = {
    bigContainer: {
       width: "calc(100% - 250px)",
+      maxWidth: "690px",
       position: "relative",
-      float: "right"
+      left: "275px"
    },
    container: {
       overflowY: "auto",
