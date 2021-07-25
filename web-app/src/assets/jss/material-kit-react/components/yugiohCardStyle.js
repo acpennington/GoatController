@@ -208,9 +208,17 @@ const cardStyle = {
       animationTimingFunction: "linear",
       animationIterationCount: "infinite"
    },
+   battleImgContainer: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      height: "100%",
+      zIndex: 1,
+   },
    battleImg: {
       opacity: 0.9,
-      width: "100%"
+      width: "90%"
    }
 };
 

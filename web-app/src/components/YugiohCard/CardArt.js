@@ -28,7 +28,7 @@ class CardArt extends PureComponent {
          <Fragment>
             <div className={classes.art} style={{ backgroundImage: 'url("/cards/art/' + compress(name) + '.jpg")' }}>
                {battle && (
-                  <div style={{ position: "absolute", top: 0 }}>
+                  <div className={classes.battleImgContainer} style={{ position: "absolute", top: 0, background: "rgba(0,0,0,0.5)" }}>
                      <img src={"/battle/" + battle + ".png"} className={classes.battleImg} alt={battle} />
                   </div>
                )}
