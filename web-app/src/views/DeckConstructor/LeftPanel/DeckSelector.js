@@ -1,18 +1,23 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 import { connect } from "react-redux";
 
+import CustomInput from "components/CustomInput/CustomInput.js";
 import GenericFinder from "components/CardFinder/GenericFinder.js";
 import ButtonRow from "components/CustomButtons/ButtonRow";
 import Button from "components/CustomButtons/Button.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 import { loadDeck } from "stateStore/actions/shared/settings.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
 
 import { FaSave } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import { IoMdCreate } from "react-icons/io";
+
+import getApiStage from "utils/getApiStage.js";
+import { getAuthHeaders } from "utils/authToken.js";
+import { API_URL } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/leftPanel.js";
@@ -20,7 +25,7 @@ import styles from "assets/jss/material-kit-react/views/deckConstructorSections/
 class DeckSelector extends PureComponent {
    constructor(props) {
       super(props);
-      this.state = { deckName: "" };
+      this.state = { deckName: "deeznuts" };
    }
 
    getDecks = () => JSON.parse(window.sessionStorage.getItem("decks"));
@@ -38,14 +43,14 @@ class DeckSelector extends PureComponent {
 
    saveDeck = () => {};
 
-   setDeckName = (event) => {
-      if (event.key === "Enter") {
-         this.createDeck();
-         event.target.value = "";
-      } else this.setState({ deckName: event.target.value });
-   };
+   createDeck = async () => {
+      this.setState({ deckName: "" });
+      const config = getAuthHeaders();
+      const body = { ...this.state };
 
-   createDeck = () => {};
+      const res = await axios.post(API_URL + getApiStage() + "/users/deck", body, config);
+      console.log(JSON.stringify(res));
+   };
 
    render() {
       const { classes, activeDeck } = this.props;
@@ -81,7 +86,9 @@ class DeckSelector extends PureComponent {
                      fullWidth: true
                   }}
                   inputProps={{
-                     onKeyPress: this.setDeckName,
+                     value: this.state.deckName,
+                     onChange: (event) => this.setState({ deckName: event.target.value }),
+                     onKeyPress: (event) => event.key === "Enter" && this.createDeck(),
                      margin: "dense"
                   }}
                />
