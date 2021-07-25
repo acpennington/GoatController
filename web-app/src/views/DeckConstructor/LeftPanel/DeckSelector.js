@@ -8,7 +8,7 @@ import GenericFinder from "components/CardFinder/GenericFinder.js";
 import ButtonRow from "components/CustomButtons/ButtonRow";
 import Button from "components/CustomButtons/Button.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
-import { loadDeck } from "stateStore/actions/shared/settings.js";
+import { loadDeck, setUnsaved } from "stateStore/actions/shared/settings.js";
 
 import { FaSave } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
@@ -46,35 +46,72 @@ class DeckSelector extends PureComponent {
       setDecklist(decks[value]);
    };
 
-   deleteDeck = () => {};
+   deleteDeck = async () => {
+      const { deckLoaded, loadDeck, setDecklist } = this.props;
+      const config = getAuthHeaders();
+      const body = { deckName: deckLoaded };
+
+      const res = await axios.delete(API_URL + getApiStage() + "/users/deck", { data: body, ...config });
+      if (res.data.statusCode === 200) {
+         const storage = window.sessionStorage;
+         const decks = this.getDecks();
+         delete decks[deckLoaded];
+         storage.setItem("decks", JSON.stringify(decks));
+
+         const deckNames = Object.keys(decks);
+         const nextDeckName = deckNames[0];
+         loadDeck(nextDeckName);
+         setDecklist(decks[nextDeckName]);
+      }
+   };
 
    setActiveDeck = () => {};
 
-   saveDeck = () => {};
+   saveDeck = async () => {
+      const { decklist, setUnsaved, deckLoaded } = this.props;
+      const { maindeck, sidedeck } = decklist;
+
+      const config = getAuthHeaders();
+      const body = { deckName: deckLoaded, maindeck, sidedeck };
+
+      const res = await axios.put(API_URL + getApiStage() + "/users/deck", body, config);
+      if (res.data.statusCode === 200) {
+         const storage = window.sessionStorage;
+         const decks = this.getDecks();
+         decks[deckLoaded] = decklist;
+         storage.setItem("decks", JSON.stringify(decks));
+
+         setUnsaved(false);
+
+         console.log("deck saved");
+      }
+   };
 
    createDeck = async () => {
       const { deckName } = this.state;
-      const config = getAuthHeaders();
-      const body = { deckName };
+      if (deckName.length > 0) {
+         const config = getAuthHeaders();
+         const body = { deckName };
 
-      const res = await axios.post(API_URL + getApiStage() + "/users/deck", body, config);
-      if (res.data.statusCode === 200) {
-         const { loadDeck, setDecklist } = this.props;
-         const storage = window.sessionStorage;
+         const res = await axios.post(API_URL + getApiStage() + "/users/deck", body, config);
+         if (res.data.statusCode === 200) {
+            const { loadDeck, setDecklist } = this.props;
+            const storage = window.sessionStorage;
 
-         const decks = this.getDecks();
-         decks[deckName] = blankDeck;
+            const decks = this.getDecks();
+            decks[deckName] = blankDeck;
 
-         storage.setItem("decks", JSON.stringify(decks));
-         loadDeck(deckName);
-         setDecklist(blankDeck);
+            storage.setItem("decks", JSON.stringify(decks));
+            loadDeck(deckName);
+            setDecklist(blankDeck);
+         }
+
+         this.setState({ deckName: "" });
       }
-
-      this.setState({ deckName: "" });
    };
 
    render() {
-      const { classes, activeDeck } = this.props;
+      const { classes, deckLoaded, unsavedChanges } = this.props;
       const decks = this.getDecks();
 
       const options = [];
@@ -84,21 +121,25 @@ class DeckSelector extends PureComponent {
          <div className={classes.deckSelector}>
             <div className={classes.buttonRow}>
                <ButtonRow>
-                  <Button color="primary" fullWidth round onClick={this.deleteDeck}>
-                     <MdDeleteForever /> Delete
-                  </Button>
+                  {Object.keys(decks).length > 1 && (
+                     <Button color="primary" fullWidth round onClick={this.deleteDeck}>
+                        <MdDeleteForever /> Delete
+                     </Button>
+                  )}
                   <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
                      <BsStarFill /> Set Active
                   </Button>
-                  <Button color="primary" fullWidth round onClick={this.saveDeck}>
-                     <FaSave /> Save
-                  </Button>
+                  {unsavedChanges && (
+                     <Button color="primary" fullWidth round onClick={this.saveDeck}>
+                        <FaSave /> Save
+                     </Button>
+                  )}
                </ButtonRow>
             </div>
-            <GenericFinder value={activeDeck} options={options} onChange={this.loadDeck} />
+            <GenericFinder value={deckLoaded} options={options} onChange={this.loadDeck} />
             <div className={classes.newDeck}>
                <Button color="success" round onClick={this.createDeck}>
-                  <IoMdCreate /> Create New Deck
+                  <IoMdCreate /> New Deck
                </Button>
                <CustomInput
                   id="Message"
@@ -120,11 +161,11 @@ class DeckSelector extends PureComponent {
 }
 
 function mapStateToProps(state) {
-   return { activeDeck: state.settings.deckLoaded };
+   return { deckLoaded: state.settings.deckLoaded, unsavedChanges: state.settings.unsavedChanges, decklist: state.decklist };
 }
 
 DeckSelector.propTypes = {
    classes: PropTypes.object.isRequired
 };
 
-export default connect(mapStateToProps, { setDecklist, loadDeck })(withStyles(styles)(DeckSelector));
+export default connect(mapStateToProps, { setDecklist, loadDeck, setUnsaved })(withStyles(styles)(DeckSelector));

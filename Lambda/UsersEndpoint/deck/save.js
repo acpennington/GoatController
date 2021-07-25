@@ -2,25 +2,23 @@ const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
-const { blankDeck } = require("../config/config.js");
 const auth = require("../utils/middleware.js");
 
-// @route POST api/users/deck
+// @route PUT api/users/deck
 // @desc Create a blank deck with a specified name
 // @access Private
 // @db 0 reads, 1 write
-async function create(body, token) {
+async function save(body, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
-   const { deckName } = body;
+   const { deckName, maindeck, sidedeck } = body;
    const params = {
       TableName: "users",
       Key: { username },
-      UpdateExpression: "SET decks.#name = :blank",
+      UpdateExpression: "SET decks.#name.maindeck = :main, decks.#name.sidedeck = :side",
       ExpressionAttributeNames: { "#name": deckName },
-      ExpressionAttributeValues: { ":blank": blankDeck },
-      ConditionExpression: "attribute_not_exists(decks.#name)"
+      ExpressionAttributeValues: { ":main": maindeck, ":side": sidedeck }
    };
 
    try {
@@ -32,4 +30,4 @@ async function create(body, token) {
    return { statusCode: 200, body: { msg: "Blank deck created" } };
 }
 
-module.exports = create;
+module.exports = save;

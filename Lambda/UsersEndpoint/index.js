@@ -3,6 +3,8 @@ const get = require("./get.js");
 const put = require("./put.js");
 const auth = require("./auth/auth.js");
 const create = require("./deck/create.js");
+const deleteDeck = require("./deck/delete.js");
+const save = require("./deck/save.js");
 
 // Routes API requests to the appropriate function
 exports.handler = async (event) => {
@@ -16,7 +18,10 @@ exports.handler = async (event) => {
       case "GET":
          return await get(body);
       case "PUT":
+         if (path === "/users/deck") return await save(body, token);
          return await put(body, token);
+      case "DELETE":
+         return await deleteDeck(body, token);
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid HTTP method" }] } };
    }

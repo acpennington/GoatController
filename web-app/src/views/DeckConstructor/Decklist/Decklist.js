@@ -33,8 +33,6 @@ class Decklist extends Component {
       const { maindeck, sidedeck } = decklist;
       const { sliderValue } = this.state;
 
-      console.log("decklist rendered");
-
       const containerDiv = document.getElementById("decklistContainer");
       const resizeCardsDiv = document.getElementById("resizeCards");
       const maxHeight = containerDiv && resizeCardsDiv ? containerDiv.offsetHeight - resizeCardsDiv.offsetHeight : 0;

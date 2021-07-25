@@ -9,7 +9,6 @@ export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
       case SET_DECKLIST:
-         console.log(JSON.stringify(data));
          return { ...data };
       case TRANSFER_CARD:
          const { to, from, cardName } = data;
@@ -25,8 +24,6 @@ export default function (state = initialState, action) {
             if (state[from][cardName] === 1) delete state[from][cardName];
             else state[from][cardName] -= 1;
          }
-
-         console.log(JSON.stringify(state));
 
          return { ...state };
       default:
