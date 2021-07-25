@@ -1,9 +1,10 @@
+const { blankDeck } = require("../config/config.js");
 const auth = require("./utils/middleware.js");
 
 // @route POST api/users
 // @desc Create a blank deck with a specified name
 // @access Private
-// @db 1 read, 1 write
+// @db 0 read, 1 write
 async function create(body, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
@@ -12,8 +13,20 @@ async function create(body, token) {
 
    const params = {
       TableName: "users",
-      Key: { username }
+      Key: { username },
+      UpdateExpression: "SET decks.#name = :blank",
+      ExpressionAttributeNames: { "#name": deckName },
+      ExpressionAttributeValues: { ":blank": blankDeck },
+      ConditionExpression: "attribute_not_exists(decks.#name)"
    };
+
+   try {
+      await DynamoDB.update(params).promise();
+   } catch (err) {
+      return { statusCode: 400, body: { errors: [err] } };
+   }
+
+   return { statusCode: 200, body: { msg: "Blank deck created" } };
 }
 
 module.exports = create;
