@@ -2,14 +2,14 @@ const { MONSTER, SPELL_TRAP, FIELD_SPELL, HAND, DECK, EXTRA_DECK, GRAVEYARD, BAN
 
 function display(rowOrZone) {
   switch (rowOrZone) {
-    case MONSTER: return "monster";
-    case SPELL_TRAP: return "s/t";
-    case FIELD_SPELL: return "field spell";
+    case MONSTER: return "Monster";
+    case SPELL_TRAP: return "Spell & Trap";
+    case FIELD_SPELL: return "Field Spell";
     case HAND: return "hand";
-    case DECK: return "deck";
+    case DECK: return "Deck";
     case EXTRA_DECK: return "Fusion Deck";
-    case GRAVEYARD: return "graveyard";
-    case BANISHED: return "banished";
+    case GRAVEYARD: return "Graveyard";
+    case BANISHED: return "banished cards";
     default: return rowOrZone;
   }
 }

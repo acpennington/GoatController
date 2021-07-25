@@ -39,7 +39,7 @@ function Hand({ player, handCount, rowHeight, isHero, revealed, phase }) {
    const prevCount = usePrevious(handCount);
    const shouldDispatch = prevCount === 6 && handCount === 7 && phase === NEXT_TURN;
    useEffect(() => {
-      if (shouldDispatch) dispatch(addMessage("Game", player + " has " + handCount + " cards in hand. Please discard down to 6."));
+     if (shouldDispatch) dispatch(addMessage("Game", `${player} has ${handCount} cards in hand. Please discard down to 6.`));
       // eslint-disable-next-line
    }, [shouldDispatch]);
 

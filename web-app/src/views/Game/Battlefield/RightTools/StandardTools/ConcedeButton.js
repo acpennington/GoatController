@@ -13,7 +13,7 @@ class ConcedeButton extends PureComponent {
 
       return (
          <Button color={color} round href={concessionLink ? concessionLink : undefined} onClick={func} style={{ marginBottom: "15px" }}>
-            {concessionLink ? "Quit" : "Concede Game"}
+            {concessionLink ? "Quit" : "Concede Duel"}
          </Button>
       );
    }

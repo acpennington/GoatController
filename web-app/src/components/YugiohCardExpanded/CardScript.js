@@ -13,15 +13,14 @@ import { GRAVEYARD, HAND, SPELL_TRAP, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKEN
 
 class CardScript extends PureComponent {
    runScript = (name, params) => {
-      const { heroPlayer } = this.props;
+      const { field, activeCard, banishAll, heroPlayer, variant } = this.props;
       const socket = this.context;
       switch (name) {
          case SEARCH_DECK:
             this.props.filterDeck(heroPlayer, params);
             break;
          case BANISH_ALL:
-            const { field, activeCard, banishAll } = this.props;
-            banishAll(field, heroPlayer, activeCard, socket);
+            banishAll(field, heroPlayer, activeCard, variant, socket);
             break;
          case MILL_UNTIL:
             this.props.millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, socket);
@@ -51,6 +50,7 @@ class CardScript extends PureComponent {
                from: { player: heroPlayer, row: HAND, zone },
                to: { player: heroPlayer, row: GRAVEYARD, zone: 0 }
             },
+            // NOTE: this gets turned into <b>randomly</b> by the client.
             { ...this.context, msg: "RANDOMLY" }
          );
       }
@@ -66,8 +66,7 @@ class CardScript extends PureComponent {
          else tails++;
       }
 
-      const verb = (number) => (number === 1 ? " was " : " were ");
-      const message = heroPlayer + " flipped a coin " + count + " times. " + heads + verb(heads) + " heads, and " + tails + verb(tails) + "tails.";
+      const message = `${heroPlayer} flipped ${count} coins; ${heads} came up heads and ${tails} came up tails.`
       addMessage("Game", message, this.context);
    };
 

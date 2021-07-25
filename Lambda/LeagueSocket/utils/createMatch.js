@@ -48,7 +48,7 @@ async function createMatch(leagueId, playersParam, api) {
          watchers: [],
          gamestate,
          turn: { player: goingFirstPlayer, phase: "Draw" },
-         chat: [{ author: "Server", content: "New match started. " + goingFirstPlayer + " will go first. Good luck to both players." }]
+         chat: [{ author: "Server", content: `New Match started. ${goingFirstPlayer} will go first. Good luck to both Duelists.` }]
       }
    };
    try {

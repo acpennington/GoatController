@@ -123,7 +123,7 @@ class Game extends Component {
       const { player, socket } = this;
 
       if (lostConnection) return <LoadingSpinner message="Lost connection. Attempting to reconnect..." />;
-      if (loading || (!player.solo && numPlayers !== 2)) return <LoadingSpinner message="Connecting to game..." />;
+      if (loading || (!player.solo && numPlayers !== 2)) return <LoadingSpinner message="Connecting to Match..." />;
       else
          return (
             <WebSocketContext.Provider value={socket}>

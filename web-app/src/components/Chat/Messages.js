@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -10,6 +10,15 @@ class Messages extends PureComponent {
       const { classes, messages, hero } = this.props;
       const messagesLength = messages.length;
       const messageList = [];
+
+      const bold = msg => {
+         const rtn = [];
+         const i = msg.indexOf('RANDOMLY');
+         rtn.push(<Fragment key={1}>{msg.slice(0, i)}</Fragment>);
+         rtn.push(<b>randomly</b>);
+         rtn.push(<Fragment key={2}>{msg.slice(i + 8)}</Fragment>);
+         return rtn;
+      };
 
       for (let i = 0; i < messagesLength; i++) {
          const message = messages[messagesLength - 1 - i];
@@ -31,7 +40,7 @@ class Messages extends PureComponent {
          messageList.push(
             <div className={classes.messageContainer} key={i}>
                <div className={className}>
-                  {content}
+                  {content.includes("RANDOMLY") && author === 'Server' ? bold(content): content}
                </div>
             </div>
          );
