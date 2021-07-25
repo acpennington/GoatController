@@ -25,7 +25,7 @@ import styles from "assets/jss/material-kit-react/views/deckConstructorSections/
 class DeckSelector extends PureComponent {
    constructor(props) {
       super(props);
-      this.state = { deckName: "deeznuts" };
+      this.state = { deckName: "" };
    }
 
    getDecks = () => JSON.parse(window.sessionStorage.getItem("decks"));
@@ -50,6 +50,8 @@ class DeckSelector extends PureComponent {
 
       const res = await axios.post(API_URL + getApiStage() + "/users/deck", body, config);
       console.log(JSON.stringify(res));
+
+      // TODO add new deck to sessionStorage and switch to it
    };
 
    render() {
