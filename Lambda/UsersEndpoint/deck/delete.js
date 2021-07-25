@@ -5,7 +5,7 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 const auth = require("../utils/middleware.js");
 
 // @route DELETE api/users/deck
-// @desc Create a blank deck with a specified name
+// @desc Delete a deck with a specified name
 // @access Private
 // @db 0 reads, 1 write
 async function deleteDeck(body, token) {

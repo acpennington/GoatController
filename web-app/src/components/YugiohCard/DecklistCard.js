@@ -8,7 +8,8 @@ import getCardDetails from "utils/getCardDetails.js";
 import CardArt from "./CardArt.js";
 import { newHover } from "stateStore/actions/shared/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/shared/selectedCard.js";
-import { CARD_RATIO, HERO_SELECTION_COLOR } from "utils/constants.js";
+import { transferCard } from "stateStore/actions/deckConstructor/decklist.js";
+import { CARD_RATIO, HERO_SELECTION_COLOR, MAINDECK, SEARCH_RESULTS, SIDEDECK } from "utils/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
@@ -28,13 +29,21 @@ function YugiohCard({ height, location, name, quantity, player, zone }) {
       })
    });
 
-   bind("d", () => {
-      dispatch();
-   });
+   if (heroSelected) {
+      bind("d", () => {
+         dispatch(transferCard(name, SEARCH_RESULTS, location));
+      });
+      bind("m", () => {
+         dispatch(transferCard(name, MAINDECK, location));
+      });
+      bind("s", () => {
+         dispatch(transferCard(name, SIDEDECK, location));
+      });
+   }
 
    useEffect(() => {
       return function cleanup() {
-         unbind("d");
+         unbind(["d", "m", "s"]);
       };
    }, []);
 

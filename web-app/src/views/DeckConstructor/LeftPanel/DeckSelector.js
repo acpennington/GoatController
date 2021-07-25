@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -65,7 +65,15 @@ class DeckSelector extends PureComponent {
       }
    };
 
-   setActiveDeck = () => {};
+   setActiveDeck = async () => {
+      const { deckLoaded } = this.props;
+      const config = getAuthHeaders();
+      const body = { deckName: deckLoaded };
+
+      const res = await axios.patch(API_URL + getApiStage() + "/users/deck", body, config);
+      if (res.data.statusCode === 200) {
+      }
+   };
 
    saveDeck = async () => {
       const { decklist, setUnsaved, deckLoaded } = this.props;
@@ -115,18 +123,23 @@ class DeckSelector extends PureComponent {
       const options = [];
       for (const deck in decks) options.push({ name: deck, value: deck });
 
+      const activeDeck = window.sessionStorage.getItem("activeDeck");
+      const deckIsActive = deckLoaded === activeDeck;
+
       return (
          <div className={classes.deckSelector}>
             <div className={classes.buttonRow}>
                <ButtonRow>
-                  {Object.keys(decks).length > 1 && (
-                     <Button color="primary" fullWidth round onClick={this.deleteDeck}>
-                        <MdDeleteForever /> Delete
-                     </Button>
+                  {!deckIsActive && (
+                     <Fragment>
+                        <Button color="primary" fullWidth round onClick={this.deleteDeck}>
+                           <MdDeleteForever /> Delete
+                        </Button>
+                        <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
+                           <BsStarFill /> Set Active
+                        </Button>
+                     </Fragment>
                   )}
-                  <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
-                     <BsStarFill /> Set Active
-                  </Button>
                   {unsavedChanges && (
                      <Button color="primary" fullWidth round onClick={this.saveDeck}>
                         <FaSave /> Save

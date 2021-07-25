@@ -22,6 +22,8 @@ exports.handler = async (event) => {
          return await put(body, token);
       case "DELETE":
          return await deleteDeck(body, token);
+      case "PATCH":
+         return;
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid HTTP method" }] } };
    }
