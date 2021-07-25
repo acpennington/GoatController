@@ -13,6 +13,7 @@ import { MAINDECK, SIDEDECK } from "utils/constants";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
+import BackButton from "components/CustomButtons/BackButton";
 
 class Decklist extends Component {
    constructor(props) {
@@ -40,6 +41,7 @@ class Decklist extends Component {
       return (
          <div id="decklistContainer" className={classes.container} style={{ width, flex: width }}>
             <div id="resizeCards" className={classes.resizeCards}>
+               <BackButton href="wall" size="md" />
                Resize cards:
                <Slider value={sliderValue} onChange={this.sliderChange} aria-labelledby="continuous-slider" style={{ width: "20%" }} />
                <Switches />

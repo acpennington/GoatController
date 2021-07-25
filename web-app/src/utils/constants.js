@@ -73,6 +73,8 @@ export const SET_DECKLIST = "SET_DECKLIST";
 export const TRANSFER_CARD = "TRANSFER_CARD";
 export const LOAD_DECK = "LOAD_DECK";
 export const SET_UNSAVED = "SET_UNSAVED";
+export const NEW_RESULTS = "NEW_RESULTS";
+export const RERENDER_SEARCH = "RERENDER_SEARCH";
 
 // league socket actions
 export const ENTER_QUEUE = "EnterQueue";

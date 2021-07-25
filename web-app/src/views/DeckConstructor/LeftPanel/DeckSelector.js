@@ -82,8 +82,6 @@ class DeckSelector extends PureComponent {
          storage.setItem("decks", JSON.stringify(decks));
 
          setUnsaved(false);
-
-         console.log("deck saved");
       }
    };
 

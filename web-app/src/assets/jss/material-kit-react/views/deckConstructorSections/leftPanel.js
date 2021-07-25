@@ -22,6 +22,14 @@ const leftPanelStyle = {
       marginTop: "3px",
       display: "flex",
       flexDirection: "row"
+   },
+   byName: {
+      display: "flex",
+      flexDirection: "row"
+   },
+   quickFind: {
+      textAlign: "right",
+      paddingRight: "5px"
    }
 };
 

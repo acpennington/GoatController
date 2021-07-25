@@ -1,23 +1,5 @@
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
-const header = {
-   width: "100%",
-   padding: "8px 5px",
-   border: "solid 2px black",
-   backgroundPosition: "center",
-   backgroundRepeat: "no-repeat",
-   backgroundSize: "cover",
-   borderRadius: "3px"
-};
-
-const footer = {
-   ...header,
-   position: "absolute",
-   width: "100%",
-   bottom: 0,
-   padding: "5px"
-};
-
 const searchResultsStyle = {
    container: {
       position: "relative",
@@ -31,9 +13,21 @@ const searchResultsStyle = {
       marginLeft: "3px",
       backgroundColor: "rgba(0, 0, 0, 0.82)"
    },
+   header: {
+      width: "100%",
+      padding: "8px 5px",
+      border: "solid 2px black",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+      borderRadius: "3px",
+      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReinforcementoftheArmy.jpg")'
+   },
    cards: {
       display: "flex",
-      justifyContent: "center"
+      width: "100%",
+      justifyContent: "center",
+      flexFlow: "row wrap"
    },
    ...tooltip
 };

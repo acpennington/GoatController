@@ -7,7 +7,7 @@ const decklistStyles = {
    resizeCards: {
       flex: "0%",
       textAlign: "center",
-      maxHeight: "2em",
+      maxHeight: "5em",
       marginBottom: "5px"
    },
    allCards: {
