@@ -1,7 +1,6 @@
+import { cardTypeColors } from "utils/constants";
+const { effectMonster, st, Spell } = cardTypeColors;
 const borderColor = "rgb(5,10,30)";
-const monsterColor = "rgb(155,86,31)";
-const stColor = "rgb(21,115,78) rgb(126,38,98) rgb(126,38,98) rgb(21,115,78)";
-const fieldColor = "rgb(21,115,78)";
 
 const container = {
    margin: "1px",
@@ -79,15 +78,15 @@ const cardStyle = {
    },
    containerMon: {
       ...container,
-      borderColor: monsterColor
+      borderColor: effectMonster
    },
    containerST: {
       ...container,
-      borderColor: stColor
+      borderColor: st
    },
    containerField: {
       ...container,
-      borderColor: fieldColor
+      borderColor: Spell
    },
    containerVillain: {
       ...container,
@@ -101,17 +100,17 @@ const cardStyle = {
    containerVillainMon: {
       ...container,
       transform: "rotate(180deg)",
-      borderColor: monsterColor
+      borderColor: effectMonster
    },
    containerVillainST: {
       ...container,
       transform: "rotate(180deg)",
-      borderColor: stColor
+      borderColor: st
    },
    containerVillainField: {
       ...container,
       transform: "rotate(180deg)",
-      borderColor: fieldColor
+      borderColor: Spell
    },
    containerDef: {
       ...container,

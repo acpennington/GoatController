@@ -8,7 +8,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 
 import Messages from "./Messages.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
-import { addMessage } from "stateStore/actions/chat.js";
+import { addMessage } from "stateStore/actions/game/chat.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 import { withStyles } from "@material-ui/core/styles";

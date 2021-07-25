@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import ResizableContainer, { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import LoadingSpinner from "components/LoadingSpinner/LoadingSpinner.js";
 import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import { WebSocketContext } from "./WebSocketContext.js";
-import { resetSolo, adjustLP, createTokens, moveCard } from "stateStore/actions/field.js";
-import { millUntil } from "stateStore/actions/scripts.js";
+import { resetSolo, adjustLP, createTokens, moveCard } from "stateStore/actions/game/field.js";
+import { millUntil } from "stateStore/actions/game/scripts.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
@@ -15,7 +15,6 @@ import getQueryParams from "utils/getQueryParams.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 import {
-   GAME_ASPECT_RATIO,
    VILLAIN_HAND_HEIGHT_FRACTION,
    GAME_SOCKET_URL,
    JOIN_MATCH,
@@ -28,9 +27,6 @@ import {
    MILL_UNTIL
 } from "utils/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/game.js";
-
 class Game extends Component {
    constructor(props) {
       super(props);
@@ -41,14 +37,9 @@ class Game extends Component {
       this.player = { name: window.sessionStorage.getItem("username"), solo: !this.socket.matchId };
 
       this.state = {
-         sizingValue: getSizingValue(),
          loading: !this.player.solo,
          lostConnection: false
       };
-
-      window.addEventListener("resize", () => {
-         this.setState({ sizingValue: getSizingValue() });
-      });
 
       if (this.player.solo) props.dispatch(resetSolo(this.player.name));
    }
@@ -127,8 +118,8 @@ class Game extends Component {
    };
 
    render() {
-      const { classes, numPlayers } = this.props;
-      const { sizingValue, loading, lostConnection } = this.state;
+      const { numPlayers } = this.props;
+      const { loading, lostConnection } = this.state;
       const { player, socket } = this;
 
       if (lostConnection) return <LoadingSpinner message="Lost connection. Attempting to reconnect..." />;
@@ -136,35 +127,19 @@ class Game extends Component {
       else
          return (
             <WebSocketContext.Provider value={socket}>
-               <div className={classes.container}>
-                  <div
-                     className={classes.innerContainer}
-                     style={{
-                        height: sizingValue,
-                        width: sizingValue * GAME_ASPECT_RATIO
-                     }}
-                  >
-                     <LeftPanel name={player.name} />
-                     <Battlefield rowHeight={sizingValue / (5 + VILLAIN_HAND_HEIGHT_FRACTION)} player={player} />
-                  </div>
-               </div>
+               <ResizableContainer>
+                  <LeftPanel name={player.name} />
+                  <SizeContext.Consumer>
+                     {(value) => <Battlefield rowHeight={value / (5 + VILLAIN_HAND_HEIGHT_FRACTION)} player={player} />}
+                  </SizeContext.Consumer>
+               </ResizableContainer>
             </WebSocketContext.Provider>
          );
    }
-}
-
-function getSizingValue() {
-   const vpw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-   const vph = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-   return Math.min(vpw / GAME_ASPECT_RATIO, vph);
 }
 
 function mapStateToProps(state) {
    return { numPlayers: Object.keys(state.field).length };
 }
 
-Game.propTypes = {
-   classes: PropTypes.object.isRequired
-};
-
-export default connect(mapStateToProps, null)(withStyles(styles)(Game));
+export default connect(mapStateToProps)(Game);

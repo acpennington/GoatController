@@ -86,8 +86,12 @@ CardArt.propTypes = {
    levelOrSubtype: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
    atk: PropTypes.number,
    def: PropTypes.number,
-   villExtension: PropTypes.string.isRequired,
+   villExtension: PropTypes.string,
    battle: PropTypes.string
+};
+
+CardArt.defaultProps = {
+   villExtension: ""
 };
 
 export default connect(mapStateToProps, {})(withStyles(cardStyle)(CardArt));

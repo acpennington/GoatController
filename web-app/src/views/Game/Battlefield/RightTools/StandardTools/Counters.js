@@ -5,7 +5,7 @@ import { bind, unbind } from "mousetrap";
 
 import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
-import { adjustCounters } from "stateStore/actions/field";
+import { adjustCounters } from "stateStore/actions/game/field";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 import { onField } from "utils/constants";

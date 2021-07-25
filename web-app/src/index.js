@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Switch } from "react-router-dom";
 import store, { history } from "stateStore/gameStore.js";
+import deckStore from "stateStore/deckConstructorStore.js";
 import { Provider } from "react-redux";
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 
@@ -9,6 +10,7 @@ import SettingsPage from "views/SettingsPage/SettingsPage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import BetaPage from "views/BetaPage/BetaPage.js";
 import Game from "views/Game/Game.js";
+import DeckConstructor from "views/DeckConstructor/DeckConstructor.js";
 import Wall from "views/Wall/Wall.js";
 import Leagues from "views/Leagues/Leagues.js";
 import LeaguePage from "views/LeaguePage/LeaguePage.js";
@@ -25,6 +27,14 @@ ReactDOM.render(
             render={() => (
                <Provider store={store}>
                   <Game />
+               </Provider>
+            )}
+         />
+         <Route
+            path="/deckconstructor"
+            render={() => (
+               <Provider store={deckStore}>
+                  <DeckConstructor />
                </Provider>
             )}
          />

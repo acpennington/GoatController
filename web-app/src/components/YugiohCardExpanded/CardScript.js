@@ -5,9 +5,9 @@ import { connect } from "react-redux";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
-import { moveCard, createTokens } from "stateStore/actions/field.js";
-import { addMessage } from "stateStore/actions/chat.js";
-import { filterDeck, millUntil, banishAll } from "stateStore/actions/scripts.js";
+import { moveCard, createTokens } from "stateStore/actions/game/field.js";
+import { addMessage } from "stateStore/actions/game/chat.js";
+import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
 
 import { GRAVEYARD, HAND, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS } from "utils/constants";
 

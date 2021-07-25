@@ -22,7 +22,7 @@ class SideNavigation extends PureComponent {
             <NavButton href="/game">
                <BsFillPersonFill /> Solo Duel
             </NavButton>
-            <NavButton>
+            <NavButton href="/deckconstructor">
                <FaWrench /> Deck Constructor
             </NavButton>
             <NavButton>

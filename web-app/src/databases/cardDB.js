@@ -440,7 +440,8 @@ const monsters = {
       levelOrSubtype: 8,
       atk: 3000,
       def: 2500,
-      text: "Warrior/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn, you can activate 1 of these effects. ● <effect=Ignition>Target 1 monster on the field; banish it. This card cannot attack the turn this effect is activated.</effect> ● <effect=Trigger>If this attacking card destroys an opponent's monster by battle: It can make a second attack in a row.</effect>"
+      text: "Warrior/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn, you can activate 1 of these effects. ● <effect=Ignition>Target 1 monster on the field; banish it. This card cannot attack the turn this effect is activated.</effect> ● <effect=Trigger>If this attacking card destroys an opponent's monster by battle: It can make a second attack in a row.</effect>",
+      limit: 1
    },
    "Airknight Parshath": {
       cardType: "effectMonster",
@@ -473,7 +474,8 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 1800,
       def: 1300,
-      text: "Aqua/Effect – <effect=Ignition>Once per turn: You can discard 1 WATER monster to the Graveyard to target 1 card on the field; return it to the hand.</effect>"
+      text: "Aqua/Effect – <effect=Ignition>Once per turn: You can discard 1 WATER monster to the Graveyard to target 1 card on the field; return it to the hand.</effect>",
+      limit: 2
    },
    "Breaker the Magical Warrior": {
       cardType: "effectMonster",
@@ -481,7 +483,8 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 1600,
       def: 1000,
-      text: "Spellcaster/Effect – <effect=Trigger>If this card is Normal Summoned: Place 1 Spell Counter on it (max. 1).</effect> <effect=Continuous>Gains 300 ATK for each Spell Counter on it.</effect> <effect=Ignition>You can remove 1 Spell Counter from this card, then target 1 Spell/Trap on the field; destroy that target.</effect>"
+      text: "Spellcaster/Effect – <effect=Trigger>If this card is Normal Summoned: Place 1 Spell Counter on it (max. 1).</effect> <effect=Continuous>Gains 300 ATK for each Spell Counter on it.</effect> <effect=Ignition>You can remove 1 Spell Counter from this card, then target 1 Spell/Trap on the field; destroy that target.</effect>",
+      limit: 1
    },
    Tsukuyomi: {
       cardType: "effectMonster",
@@ -498,7 +501,8 @@ const monsters = {
       atk: 1000,
       def: 600,
       text: "Fiend/Effect – <effect=Trigger>If this card is sent from the field to the GY: Add 1 monster with 1500 or less ATK from your Deck to your hand.</effect>",
-      script: "Search_Deck:atk<1500;autoClose"
+      script: "Search_Deck:atk<1500;autoClose",
+      limit: 1
    },
    "Sinister Serpent": {
       cardType: "effectMonster",
@@ -506,7 +510,8 @@ const monsters = {
       levelOrSubtype: 1,
       atk: 300,
       def: 250,
-      text: "Reptile/Effect – <effect=Trigger>During your Standby Phase, if this card is in your Graveyard: You can return it to your hand.</effect>"
+      text: "Reptile/Effect – <effect=Trigger>During your Standby Phase, if this card is in your Graveyard: You can return it to your hand.</effect>",
+      limit: 1
    },
    "Tribe-Infecting Virus": {
       cardType: "effectMonster",
@@ -514,7 +519,8 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 1600,
       def: 1000,
-      text: "Aqua/Effect – <effect=Ignition>Discard 1 card, then declare 1 Type of monster; Destroy all face-up monsters of the declared Type on the field.</effect>"
+      text: "Aqua/Effect – <effect=Ignition>Discard 1 card, then declare 1 Type of monster; Destroy all face-up monsters of the declared Type on the field.</effect>",
+      limit: 1
    },
    "Morphing Jar": {
       cardType: "effectMonster",
@@ -522,7 +528,8 @@ const monsters = {
       levelOrSubtype: 2,
       atk: 700,
       def: 600,
-      text: "Rock/Flip/Effect – <effect=Trigger>FLIP: Both players discard their entire hands, then draw 5 cards.</effect>"
+      text: "Rock/Flip/Effect – <effect=Trigger>FLIP: Both players discard their entire hands, then draw 5 cards.</effect>",
+      limit: 1
    }
 };
 
@@ -536,46 +543,54 @@ const spells = {
       cardType: "Spell",
       levelOrSubtype: "Equip",
       text: "Activate this card by paying 800 LP, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. <effect=Continuous-like>When this card is destroyed, destroy the equipped monster.</effect>",
-      prepopLP: { hero: -800 }
+      prepopLP: { hero: -800 },
+      limit: 1
    },
    "Upstart Goblin": {
       cardType: "Spell",
       levelOrSubtype: "Normal",
       text: "Draw 1 card, then your opponent gains 1000 LP.",
-      prepopLP: { villain: 1000 }
+      prepopLP: { villain: 1000 },
+      limit: 2
    },
    "Pot of Greed": {
       cardType: "Spell",
       levelOrSubtype: "Normal",
-      text: "Draw 2 cards."
+      text: "Draw 2 cards.",
+      limit: 1
    },
    "Graceful Charity": {
       cardType: "Spell",
       levelOrSubtype: "Normal",
-      text: "Draw 3 cards, then discard 2 cards."
+      text: "Draw 3 cards, then discard 2 cards.",
+      limit: 1
    },
    "Delinquent Duo": {
       cardType: "Spell",
       levelOrSubtype: "Normal",
       text: "Pay 1000 LP; your opponent discards 1 random card, and if they have any other cards in their hand, discard 1 more card of their choice.",
       prepopLP: { hero: -1000 },
-      script: "Random_Discard"
+      script: "Random_Discard",
+      limit: 1
    },
    "Heavy Storm": {
       cardType: "Spell",
       levelOrSubtype: "Normal",
-      text: "Destroy all Spell and Trap Cards on the field."
+      text: "Destroy all Spell and Trap Cards on the field.",
+      limit: 1
    },
    "Mystical Space Typhoon": {
       cardType: "Spell",
       levelOrSubtype: "Quick-Play",
-      text: "Target 1 Spell/Trap on the field; destroy that target."
+      text: "Target 1 Spell/Trap on the field; destroy that target.",
+      limit: 1
    },
    "Snatch Steal": {
       cardType: "Spell",
       levelOrSubtype: "Equip",
       text: "Equip only to a monster your opponent controls. <effect=Continuous-like>Take control of the equipped monster.</effect> <effect=Trigger-like>During each of your opponent's Standby Phases: They gain 1000 Life Points.</effect>",
-      prepopLP: { villain: 1000 }
+      prepopLP: { villain: 1000 },
+      limit: 1
    },
    Metamorphosis: {
       cardType: "Spell",
@@ -596,7 +611,8 @@ const spells = {
    "Nobleman of Crossout": {
       cardType: "Spell",
       levelOrSubtype: "Normal",
-      text: "Target 1 face-down monster on the field; destroy that target, and if you do, banish it, then, if it was a Flip monster, each player banishes all cards from their Deck with that monster's name."
+      text: "Target 1 face-down monster on the field; destroy that target, and if you do, banish it, then, if it was a Flip monster, each player banishes all cards from their Deck with that monster's name.",
+      limit: 2
    }
 };
 
@@ -604,7 +620,8 @@ const traps = {
    "Call of the Haunted": {
       cardType: "Trap",
       levelOrSubtype: "Continuous",
-      text: "Activate this card by targeting 1 monster in your GY; Special Summon that target in Attack Position. <effect=Continuous-like>When this card leaves the field, destroy that monster.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>"
+      text: "Activate this card by targeting 1 monster in your GY; Special Summon that target in Attack Position. <effect=Continuous-like>When this card leaves the field, destroy that monster.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>",
+      limit: 1
    },
    "Solemn Judgment": {
       cardType: "Trap",
@@ -615,17 +632,20 @@ const traps = {
    "Mirror Force": {
       cardType: "Trap",
       levelOrSubtype: "Normal",
-      text: "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters."
+      text: "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.",
+      limit: 1
    },
    "Torrential Tribute": {
       cardType: "Trap",
       levelOrSubtype: "Normal",
-      text: "When a monster(s) is Summoned: Destroy all monsters on the field."
+      text: "When a monster(s) is Summoned: Destroy all monsters on the field.",
+      limit: 1
    },
    "Ring of Destruction": {
       cardType: "Trap",
       levelOrSubtype: "Normal",
-      text: "Target 1 face-up monster; destroy that face-up monster, and if you do, inflict damage to both players equal to that target's ATK."
+      text: "Target 1 face-up monster; destroy that face-up monster, and if you do, inflict damage to both players equal to that target's ATK.",
+      limit: 1
    },
    "Sakuretsu Armor": {
       cardType: "Trap",

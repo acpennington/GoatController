@@ -1,45 +1,29 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
-import SelectSearch, { fuzzySearch } from "react-select-search";
+import GenericFinder from "./GenericFinder.js";
 
-import { nonfusions, cards } from "databases/cardDB.js"
-
-import "./style.css";
+import { nonfusions, cards } from "databases/cardDB.js";
 
 class CardFinder extends PureComponent {
-    render() {
-        const { value, withFusions, onChange } = this.props;
+   render() {
+      const { withFusions, onChange } = this.props;
 
-        const cardList = [];
-        const cardKeys = Object.keys(withFusions ? cards : nonfusions);
-        cardKeys.sort();
+      const cardList = [];
+      const cardKeys = Object.keys(withFusions ? cards : nonfusions);
+      cardKeys.sort();
 
-        for (const card of cardKeys) {
-            cardList.push({ name: card, value: card })
-        }
+      for (const card of cardKeys) {
+         cardList.push({ name: card, value: card });
+      }
 
-        return (
-            <SelectSearch
-                printOptions="always"
-                search
-                filterOptions={fuzzySearch}
-                options={cardList}
-                value={value}
-                onChange={onChange}
-                name="Cards"
-                autoComplete="on"
-                emptyMessage="Not found"
-                placeholder="Type to search"
-            />
-        );
-    }
+      return <GenericFinder value={null} options={cardList} onChange={onChange} />;
+   }
 }
 
 CardFinder.propTypes = {
-    value: PropTypes.string,
-    withFusions: PropTypes.bool,
-    onChange: PropTypes.func
-}
+   withFusions: PropTypes.bool,
+   onChange: PropTypes.func
+};
 
 export default CardFinder;

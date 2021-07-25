@@ -2,10 +2,10 @@ import { createBrowserHistory } from "history";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { routerMiddleware } from "connected-react-router";
-import rootReducer from "./reducers/index.js";
+import rootReducer from "./reducers/gameCombine.js";
 
 export const history = createBrowserHistory();
 
-const store = createStore(rootReducer(history), applyMiddleware(routerMiddleware(history), thunk));
+const gameStore = createStore(rootReducer(history), applyMiddleware(routerMiddleware(history), thunk));
 
-export default store;
+export default gameStore;
