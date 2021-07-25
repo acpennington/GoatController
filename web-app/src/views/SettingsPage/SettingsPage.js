@@ -35,6 +35,8 @@ import styles from "assets/jss/material-kit-react/views/settingsPage.js";
 
 const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
 const sleeveChoices = [
+   "Default.png",
+   "Anime.png",
    "Abstract.png",
    "Black_And_White.png",
    "Black_Luster_Soldier.png",
@@ -130,7 +132,7 @@ class SettingsPage extends PureComponent {
       const { classes } = this.props;
       const { settings, unsaved, requirePass, errors, oldPassword } = this.state;
 
-      const sleeves = settings ? settings.sleeves : "Goat.png";
+      const sleeves = settings ? settings.sleeves : "Default.png";
       const email = settings ? settings.email : null;
       const discord = settings ? settings.discord : null;
       const gamebg = settings ? settings.gamebg : "Default.png";
