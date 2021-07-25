@@ -36,7 +36,6 @@ import styles from "assets/jss/material-kit-react/views/settingsPage.js";
 const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
 const sleeveChoices = [
    "Default.png",
-   "Anime.png",
    "Abstract.png",
    "Black_And_White.png",
    "Black_Luster_Soldier.png",
