@@ -177,14 +177,17 @@ const cardStyle = {
       ...zoneLabel,
       filter: "",
       padding: "15%",
-      borderRadius: "100%",
+      borderRadius: "50%",
+      width: "2em",
+      height: "2em",
       backgroundColor: "rgba(0,120,0,0.72)"
    },
    zoneLabelVillainCounters: {
       ...zoneLabel,
       filter: "",
-      padding: "15%",
-      borderRadius: "100%",
+      borderRadius: "50%",
+      width: "2em",
+      height: "2em",
       backgroundColor: "rgba(0,120,0,0.72)",
       transform: "translate(-50%, -50%) rotate(180deg)"
    },
