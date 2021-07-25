@@ -1,5 +1,13 @@
 module.exports = {
    jwtsecret: "DeezNuts69",
+   blankDeck: {
+      wins: 0,
+      losses: 0,
+      maindeck: {},
+      sidedeck: {},
+      visibility: "private",
+      deckType: "Unknown"
+   },
    defaultDeck: {
       decktype: "Goat Control",
       visibility: "private",

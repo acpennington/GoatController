@@ -18,6 +18,7 @@ class LeftPanel extends PureComponent {
             <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} heroPlayer={name} noButtons />
             <div className={classes.bottomContainer}>
                <DeckSelector activeDeck={null} deckNames={null} />
+               <hr />
                <CardSearch />
             </div>
          </div>

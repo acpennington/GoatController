@@ -2,6 +2,7 @@ const post = require("./post.js");
 const get = require("./get.js");
 const put = require("./put.js");
 const auth = require("./auth/auth.js");
+const create = require("./deck/create.js");
 
 // Routes API requests to the appropriate function
 exports.handler = async (event) => {
@@ -10,6 +11,7 @@ exports.handler = async (event) => {
    switch (httpmethod) {
       case "POST":
          if (path === "/users/auth") return await auth(body);
+         else if (path === "/users/deck") return await create(body);
          else return await post(body);
       case "GET":
          return await get(body);

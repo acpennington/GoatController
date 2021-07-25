@@ -13,10 +13,15 @@ const leftPanelStyle = {
       height: "calc(60% - " + marginTop + "px)"
    },
    deckSelector: {
-      marginBottom: "5px"
+      marginBottom: "10px"
    },
    buttonRow: {
       marginBottom: "5px"
+   },
+   newDeck: {
+      marginTop: "3px",
+      display: "flex",
+      flexDirection: "row"
    }
 };
 

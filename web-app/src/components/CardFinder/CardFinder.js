@@ -7,7 +7,7 @@ import { nonfusions, cards } from "databases/cardDB.js";
 
 class CardFinder extends PureComponent {
    render() {
-      const { value, withFusions, onChange } = this.props;
+      const { withFusions, onChange } = this.props;
 
       const cardList = [];
       const cardKeys = Object.keys(withFusions ? cards : nonfusions);
@@ -17,12 +17,11 @@ class CardFinder extends PureComponent {
          cardList.push({ name: card, value: card });
       }
 
-      return <GenericFinder value={value} options={cardList} onChange={onChange} />;
+      return <GenericFinder value={null} options={cardList} onChange={onChange} />;
    }
 }
 
 CardFinder.propTypes = {
-   value: PropTypes.string,
    withFusions: PropTypes.bool,
    onChange: PropTypes.func
 };
