@@ -56,7 +56,7 @@ export default function Header(props) {
       <Button className={classes.title}>
          <img src="Goat_Token_Logo.svg" style={{ height: "2.4em", marginRight: "8px" }} alt="Goat Duels logo" />
          Goat Duels
-         {document.documentElement.clientWidth > 1205 && ": A Dueling Simulator Just For Goat Format!"}
+         {document.documentElement.clientWidth > 1205 && ": A Dueling Simulator Just for Goat Format!"}
       </Button>
    );
 
