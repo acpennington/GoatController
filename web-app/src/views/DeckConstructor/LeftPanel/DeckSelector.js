@@ -72,6 +72,9 @@ class DeckSelector extends PureComponent {
 
       const res = await axios.patch(API_URL + getApiStage() + "/users/deck", body, config);
       if (res.data.statusCode === 200) {
+         const storage = window.sessionStorage;
+         storage.setItem("activeDeck", deckLoaded);
+         this.forceUpdate();
       }
    };
 

@@ -5,6 +5,7 @@ const auth = require("./auth/auth.js");
 const create = require("./deck/create.js");
 const deleteDeck = require("./deck/delete.js");
 const save = require("./deck/save.js");
+const active = require("./deck/active.js");
 
 // Routes API requests to the appropriate function
 exports.handler = async (event) => {
@@ -23,7 +24,7 @@ exports.handler = async (event) => {
       case "DELETE":
          return await deleteDeck(body, token);
       case "PATCH":
-         return;
+         return await active(body, token);
       default:
          return { statusCode: 400, body: { errors: [{ msg: "Invalid HTTP method" }] } };
    }

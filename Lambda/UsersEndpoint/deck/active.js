@@ -2,7 +2,6 @@ const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
-const { blankDeck } = require("../config/config.js");
 const auth = require("../utils/middleware.js");
 
 // @route PATCH api/users/deck
