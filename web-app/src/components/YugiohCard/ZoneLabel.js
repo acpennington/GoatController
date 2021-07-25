@@ -10,13 +10,14 @@ import { DECK, EXTRA_DECK } from "utils/constants.js";
 class ZoneLabel extends PureComponent {
    render() {
       const { zoneLabel, counters, villExtension, height, classes } = this.props;
+      const size = `${height / (zoneLabel === EXTRA_DECK ? 6.5 : 5)}px`;
 
       return (
          <Fragment>
             {(zoneLabel !== 0 || counters !== 0) && (
                <div
                   className={classes["zoneLabel" + villExtension + (counters ? "Counters" : "")]}
-                  style={{ fontSize: height / 5 + "px", lineHeight: height / 5 + "px" }}
+                  style={{ fontSize: size, lineHeight: size }}
                >
                   {counters || zoneLabel}
                </div>
