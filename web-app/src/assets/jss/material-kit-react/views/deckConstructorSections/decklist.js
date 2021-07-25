@@ -8,7 +8,7 @@ const decklistStyles = {
       flex: "0%",
       textAlign: "center",
       maxHeight: "2em",
-      marginBottom: "2px"
+      marginBottom: "5px"
    },
    allCards: {
       flex: "100%",

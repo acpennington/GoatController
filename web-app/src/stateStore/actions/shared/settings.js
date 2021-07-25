@@ -1,5 +1,5 @@
 import { shuffleDeck } from "../game/field.js";
-import { DECK, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP } from "utils/constants.js";
+import { DECK, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, LOAD_DECK } from "utils/constants.js";
 
 function switchNames() {
    return { type: SWITCH_NAMES };
@@ -20,4 +20,8 @@ function prepopLP(data) {
    return { type: PREPOP_LP, data };
 }
 
-export { switchNames, openModal, closeModal, prepopLP };
+function loadDeck(data) {
+   return { type: LOAD_DECK, data };
+}
+
+export { switchNames, openModal, closeModal, prepopLP, loadDeck };

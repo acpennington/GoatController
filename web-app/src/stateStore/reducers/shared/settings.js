@@ -1,11 +1,12 @@
-import { SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME } from "utils/constants.js";
+import { SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME, LOAD_DECK } from "utils/constants.js";
 
 const initialState = {
    concessionLink: false,
    showNames: false,
    modal: null,
    prepopLP: null,
-   stackSameName: false
+   stackSameName: false,
+   deckLoaded: window.sessionStorage.getItem("activeDeck")
 };
 
 export default function (state = initialState, action) {
@@ -23,6 +24,8 @@ export default function (state = initialState, action) {
          return { ...state, prepopLP: data };
       case CONCEDE_GAME:
          return { ...state, concessionLink: data };
+      case LOAD_DECK:
+         return { ...state, deckLoaded: data };
       default:
          return state;
    }

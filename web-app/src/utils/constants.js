@@ -71,6 +71,7 @@ export const SET_DECK = "SET_DECK";
 // deck constructor actions
 export const SET_DECKLIST = "SET_DECKLIST";
 export const TRANSFER_CARD = "TRANSFER_CARD";
+export const LOAD_DECK = "LOAD_DECK";
 
 // league socket actions
 export const ENTER_QUEUE = "EnterQueue";

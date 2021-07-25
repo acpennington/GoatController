@@ -22,8 +22,7 @@ class Decklist extends Component {
 
       const storage = window.sessionStorage;
       const decks = JSON.parse(storage.getItem("decks"));
-      const activeDeckName = storage.getItem("activeDeck");
-      const activeDeck = decks[activeDeckName];
+      const activeDeck = decks[props.deckLoaded];
       props.setDecklist(activeDeck);
    }
 
@@ -57,7 +56,7 @@ class Decklist extends Component {
 }
 
 function mapStateToProps(state) {
-   return { decklist: state.decklist };
+   return { decklist: state.decklist, deckLoaded: state.settings.deckLoaded };
 }
 
 Decklist.propTypes = {

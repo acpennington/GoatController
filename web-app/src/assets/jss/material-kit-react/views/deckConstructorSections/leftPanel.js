@@ -11,6 +11,12 @@ const leftPanelStyle = {
       backgroundColor: "rgba(0,0,0,0.9)",
       width: "100%",
       height: "calc(60% - " + marginTop + "px)"
+   },
+   deckSelector: {
+      marginBottom: "5px"
+   },
+   buttonRow: {
+      marginBottom: "5px"
    }
 };
 
