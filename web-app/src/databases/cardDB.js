@@ -432,7 +432,8 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 1400,
       def: 800,
-      text: "Fairy/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 LIGHT monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>"
+      text: "Fairy/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 LIGHT monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>",
+      script: "Search_Deck:atk<1500,attribute=Light;autoClose"
    },
    "Black Luster Soldier - Envoy of the Beginning": {
       cardType: "effectMonster",
