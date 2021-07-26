@@ -19,7 +19,9 @@ function YugiohCard({ height, location, name, quantity, player, zone }) {
    const classes = useStyles();
    const dispatch = useDispatch();
 
-   const heroSelected = useSelector((state) => state.selectedCard[player] && state.selectedCard[player].zone === zone);
+   const heroSelected = useSelector(
+      (state) => state.selectedCard[player] && state.selectedCard[player].zone === zone && state.selectedCard[player].row === location
+   );
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
    const [{ isDragging }, drag] = useDrag({
@@ -62,10 +64,10 @@ function YugiohCard({ height, location, name, quantity, player, zone }) {
             backgroundImage: 'url("/cards/bgs/' + cardType + '.jpg")'
          }}
          onClick={() => {
-            if (!heroSelected) dispatch(newSelection(player, player, false, zone, name));
+            if (!heroSelected) dispatch(newSelection(player, player, location, zone, name));
             else dispatch(clearSelection());
          }}
-         onMouseEnter={() => dispatch(newHover(false, false, zone, name))}
+         onMouseEnter={() => dispatch(newHover(player, location, zone, name))}
       >
          <CardArt
             name={name}

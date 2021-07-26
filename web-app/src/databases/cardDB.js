@@ -530,6 +530,79 @@ const monsters = {
       def: 600,
       text: "Rock/Flip/Effect – <effect=Trigger>FLIP: Both players discard their entire hands, then draw 5 cards.</effect>",
       limit: 1
+   },
+   "Asura Priest": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 4,
+      atk: 1700,
+      def: 1200,
+      text: "Fairy/Spirit/Effect – Cannot be Special Summoned. <effect=Trigger>During the End Phase of the turn this card is Normal Summoned or flipped face-up: Return it to the hand.</effect> <effect=Continuous>This card can attack all monsters your opponent controls once each.</effect>"
+   },
+   "Kycoo the Ghost Destroyer": {
+      cardType: "effectMonster",
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 1800,
+      def: 700,
+      text: "Spellcaster/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent: You can target up to 2 monsters in their GY; banish those targets.</effect> <effect=Continuous>Your opponent cannot banish cards from either GY.</effect>"
+   },
+   "D.D. Warrior Lady": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 4,
+      atk: 1500,
+      def: 1600,
+      text: "Warrior/Effect – <effect=Trigger>After damage calculation, when this card battles an opponent's monster: You can banish that monster, also banish this card.</effect>",
+      limit: 1
+   },
+   "Chaos Sorcerer": {
+      cardType: "effectMonster",
+      attribute: "Dark",
+      levelOrSubtype: 6,
+      atk: 2300,
+      def: 2000,
+      text: "Spellcaster/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. <effect=Ignition>Once per turn: You can target 1 face-up monster on the field; banish that target. This card cannot attack the turn you activate this effect.</effect>"
+   },
+   "Dekoichi the Battlechanted Locomotive": {
+      cardType: "effectMonster",
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1000,
+      text: 'Machine/Effect – <effect=Trigger>FLIP: Draw 1 card, then draw 1 additional card for each face-up "Bokoichi the Freightening Car" you control.</effect>'
+   },
+   "Jowgen the Spiritualist": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 3,
+      atk: 200,
+      def: 1300,
+      text: "Spellcaster/Effect – <effect=Ignition>You can discard 1 random card from your hand to the Graveyard; destroy all Special Summoned monsters on the field. Neither player can Special Summon monsters.</effect>"
+   },
+   "Mystic Swordsman LV2": {
+      cardType: "effectMonster",
+      attribute: "Earth",
+      levelOrSubtype: 2,
+      atk: 900,
+      def: 0,
+      text: 'Warrior/Effect – <effect=Trigger>At the start of the Damage Step, if this card attacked a face-down Defense Position monster: Destroy that monster.</effect> <effect=Trigger>During the End Phase, if this card destroyed a monster by battle this turn: You can send this face-up card to the Graveyard; Special Summon 1 "Mystic Swordsman LV4" from your hand or Deck.</effect>'
+   },
+   "Roulette Barrel": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 4,
+      atk: 1000,
+      def: 2000,
+      text: "Machine/Effect – <effect=Ignition>Once per turn: You can roll a six-sided die twice, choose 1 result, and destroy 1 monster on the field whose Level is equal to that result.</effect>"
+   },
+   "Zaborg the Thunder Monarch": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 5,
+      atk: 2400,
+      def: 1000,
+      text: "Thunder/Effect – <effect=Trigger>If this card is Tribute Summoned: Target 1 monster on the field; destroy that target.</effect>"
    }
 };
 
@@ -613,6 +686,17 @@ const spells = {
       levelOrSubtype: "Normal",
       text: "Target 1 face-down monster on the field; destroy that target, and if you do, banish it, then, if it was a Flip monster, each player banishes all cards from their Deck with that monster's name.",
       limit: 2
+   },
+   "Creature Swap": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text: "Each player chooses 1 monster they control and switches control of those monsters with each other. Those monsters cannot change their battle positions for the rest of this turn.",
+      limit: 2
+   },
+   "Smashing Ground": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text: "Destroy the 1 face-up monster your opponent controls that has the highest DEF (your choice, if tied)."
    }
 };
 
@@ -656,6 +740,16 @@ const traps = {
       cardType: "Trap",
       levelOrSubtype: "Normal",
       text: "Target 1 Spell/Trap your opponent controls; destroy that target, then you can Set 1 Spell/Trap from your hand."
+   },
+   "Trap Dustshoot": {
+      cardType: "Trap",
+      levelOrSubtype: "Normal",
+      text: "Activate only if your opponent has 4 or more cards in their hand. Look at your opponent's hand, select 1 Monster Card in it, and return that card to its owner's Deck."
+   },
+   "Royal Decree": {
+      cardType: "Trap",
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Negate all other Trap effects on the field.</effect>"
    }
 };
 
