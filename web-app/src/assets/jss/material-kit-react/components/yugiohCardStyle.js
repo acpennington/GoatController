@@ -69,6 +69,18 @@ const zoneLabel = {
    zIndex: 100
 };
 
+const zoneLabelCounters = {
+   ...zoneLabel,
+   filter: "",
+   padding: "15%",
+   borderRadius: "50%",
+   width: "2em",
+   height: "2em",
+   fontWeight: "bolder",
+   color: "black",
+   backgroundColor: "white"
+};
+
 const cardStyle = {
    container: {
       ...container
@@ -172,23 +184,17 @@ const cardStyle = {
       ...zoneLabel,
       transform: "translate(-50%, -50%) rotate(180deg)"
    },
-   zoneLabelCounters: {
-      ...zoneLabel,
-      filter: "",
-      padding: "15%",
-      borderRadius: "50%",
-      width: "2em",
-      height: "2em",
-      backgroundColor: "rgba(0,120,0,0.72)"
-   },
+   zoneLabelCounters,
    zoneLabelVillainCounters: {
-      ...zoneLabel,
-      filter: "",
-      borderRadius: "50%",
-      width: "2em",
-      height: "2em",
-      backgroundColor: "rgba(0,120,0,0.72)",
+      ...zoneLabelCounters,
       transform: "translate(-50%, -50%) rotate(180deg)"
+   },
+   counterImg: {
+      position: "absolute",
+      top: "0px",
+      left: "0px",
+      width: "2em",
+      height: "2em"
    },
    "@keyframes foil": {
       "0%": {
