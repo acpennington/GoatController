@@ -48,6 +48,9 @@ const sleeveChoices = [
    "Underwater_Nun.png"
 ];
 
+
+const IMG_URL = /^https?:\/\/.*\.(Pp][Nn][Gg]|[Jj][Pp][Ee]?[Gg])$/;
+
 class SettingsPage extends PureComponent {
    constructor(props) {
       super(props);
@@ -69,6 +72,13 @@ class SettingsPage extends PureComponent {
       window.sessionStorage.setItem("settings", JSON.stringify(settings));
       this.setState({ settings, unsaved: true });
       setBodyImage();
+   };
+
+   setBgUrl = (event) => {
+      const url = event.target.value;
+      if (IMG_URL.test(url)) {
+         this.setBg(url);
+      }
    };
 
    setSleeves = (sleeves) => {
@@ -142,9 +152,21 @@ class SettingsPage extends PureComponent {
                <GridItem xs={12}>
                   <div className={classes.center}>
                      <CustomDropdown
-                        buttonText={"Game Background: " + formatFileName(gamebg)}
+                        buttonText={`Game Background: ${gamebg.startsWith("http") ? "Custom" : formatFileName(gamebg)}`}
                         buttonProps={{ color: "transparent" }}
                         dropdownList={[...backgrounds.map((bg) => <div onClick={() => this.setBg(bg)}>{formatFileName(bg)}</div>)]}
+                     />
+                     <CustomInput
+                           labelText="Custom Background URL"
+                           id="bgUrl"
+                           white
+                           labelProps={{style: {left: "0.9em"}}}
+                           formControlProps={{style: {width: "50%"}}}
+                           inputProps={{
+                              type: "text",
+                              defaultValue: gamebg.startsWith("http") ? gamebg : "",
+                              onChange: this.setBgUrl,
+                           }}
                      />
                   </div>
                </GridItem>
