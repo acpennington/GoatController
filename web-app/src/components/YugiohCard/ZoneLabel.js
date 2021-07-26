@@ -19,7 +19,8 @@ class ZoneLabel extends PureComponent {
                   className={classes["zoneLabel" + villExtension + (counters ? "Counters" : "")]}
                   style={{ fontSize: size, lineHeight: size }}
                >
-                  {counters || zoneLabel}
+                  <div>{counters || zoneLabel}</div>
+                  {(counters ? <img className={classes.counterImg} src="/battle/Counter.png" alt="Counter" /> : '')}
                </div>
             )}
          </Fragment>
