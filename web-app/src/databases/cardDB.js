@@ -570,7 +570,7 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 1400,
       def: 1000,
-      text: 'Machine/Effect – <effect=Trigger>FLIP: Draw 1 card, then draw 1 additional card for each face-up "Bokoichi the Freightening Car" you control.</effect>'
+      text: 'Machine/Flip/Effect – <effect=Trigger>FLIP: Draw 1 card, then draw 1 additional card for each face-up "Bokoichi the Freightening Car" you control.</effect>'
    },
    "Jowgen the Spiritualist": {
       cardType: "effectMonster",
