@@ -9,8 +9,8 @@ module.exports = {
       hand: [],
       skippedDraws: 0,
       handRevealed: false,
-      "s/t": [null, null, null, null, null],
-      "field spell": null,
+      spellTrap: [null, null, null, null, null],
+      fieldSpell: null,
       monster: [null, null, null, null, null]
    }
 };

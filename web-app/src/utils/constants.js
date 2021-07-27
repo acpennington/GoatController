@@ -8,7 +8,6 @@ export const CARD_RATIO = 1.45;
 export const FACEDOWN_CARD = "Facedown Card";
 
 // cardTypes
-export const NORMAL_MONSTER = "normalMonster";
 export const EFFECT_MONSTER = "effectMonster";
 export const FUSION_MONSTER = "fusionMonster";
 export const SPELL = "Spell";
@@ -22,11 +21,11 @@ export const allLocations = [MAINDECK, SIDEDECK, SEARCH_RESULTS];
 
 // rows & zones
 export const MONSTER = "monster";
-export const ST = "s/t";
-export const FIELD_SPELL = "Field";
+export const SPELL_TRAP = "spellTrap";
+export const FIELD_SPELL = "fieldSpell";
 export const HAND = "hand";
 export const DECK = "deck";
-export const EXTRA_DECK = "Fusion Deck";
+export const EXTRA_DECK = "extraDeck";
 export const deckZones = [DECK, EXTRA_DECK];
 export const GRAVEYARD = "graveyard";
 export const BANISHED = "banished";
@@ -34,7 +33,7 @@ export const discardZones = [GRAVEYARD, BANISHED];
 export const dndZones = [DECK, ...discardZones];
 export const dynamicZones = [HAND, DECK, ...discardZones];
 export const toExtraZones = [HAND, ...deckZones];
-export const onField = [MONSTER, ST, FIELD_SPELL];
+export const onField = [MONSTER, SPELL_TRAP, FIELD_SPELL];
 
 // battle
 export const ATTACKING = "Attacking";
@@ -107,7 +106,7 @@ export const SEND_COUNTERS = "SendCounters";
 
 // ItemTypes
 export const OFF_FIELD = "offField";
-export const allTypes = [MONSTER, ST, FIELD_SPELL, OFF_FIELD + MONSTER, OFF_FIELD + ST, EXTRA_DECK, DECK];
+export const allTypes = [MONSTER, SPELL_TRAP, FIELD_SPELL, OFF_FIELD + MONSTER, OFF_FIELD + SPELL_TRAP, EXTRA_DECK, DECK];
 
 // colors
 export const OVER_COLOR = "#00FF00";

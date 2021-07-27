@@ -9,7 +9,7 @@ import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import Hand from "./Hand.js";
 import RightTools from "./RightTools/RightTools.js";
 
-import { MONSTER, ST, FIELD_SPELL, DECK, EXTRA_DECK, GRAVEYARD, BANISHED, VILLAIN_HAND_HEIGHT_FRACTION } from "utils/constants.js";
+import { MONSTER, SPELL_TRAP, FIELD_SPELL, DECK, EXTRA_DECK, GRAVEYARD, BANISHED, VILLAIN_HAND_HEIGHT_FRACTION } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/battlefield.js";
@@ -39,10 +39,10 @@ class Battlefield extends Component {
                   ) : (
                      <Hand player={VILLAIN} handCount={handCounts[VILLAIN] || 0} rowHeight={rowHeight} isHero={false} />
                   )}
-                  <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={VILLAIN} rowType={ST} divOnly={solo} />
+                  <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={VILLAIN} rowType={SPELL_TRAP} divOnly={solo} />
                   <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={VILLAIN} rowType={MONSTER} divOnly={solo} />
                   <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={HERO} rowType={MONSTER} isHero />
-                  <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={HERO} rowType={ST} isHero />
+                  <FieldRow rowHeight={rowHeight} cardHeight={cardHeight} player={HERO} rowType={SPELL_TRAP} isHero />
                   <Hand player={HERO} handCount={handCounts[HERO] || 0} rowHeight={rowHeight} isHero={true} />
                </div>
                <div className={classes.cardColumn}>

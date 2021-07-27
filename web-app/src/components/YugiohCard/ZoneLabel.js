@@ -6,6 +6,7 @@ import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
 import { DECK, EXTRA_DECK } from "utils/constants.js";
+import display from "utils/display.js";
 
 class ZoneLabel extends PureComponent {
    render() {
@@ -19,7 +20,7 @@ class ZoneLabel extends PureComponent {
                   className={classes["zoneLabel" + villExtension + (counters ? "Counters" : "")]}
                   style={{ fontSize: size, lineHeight: size }}
                >
-                  <div>{counters || zoneLabel}</div>
+                  <div>{counters || display(zoneLabel)}</div>
                   {(counters ? <img className={classes.counterImg} src="/battle/Counter.png" alt="Counter" /> : '')}
                </div>
             )}

@@ -18,7 +18,7 @@ import {
    CARD_RATIO,
    FACEDOWN_CARD,
    MONSTER,
-   ST,
+   SPELL_TRAP,
    FIELD_SPELL,
    HAND,
    DECK,
@@ -84,8 +84,9 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
 
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
-   const type =
-      dynamicZones.includes(row) && row !== DECK ? (levelOrSubtype === FIELD_SPELL && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : ST) : row;
+   const type = dynamicZones.includes(row) && row !== DECK
+      ? (levelOrSubtype === FIELD_SPELL && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : SPELL_TRAP)
+      : row;
 
    const [{ isDragging }, drag] = useDrag({
       item: { type, player, row, zone, cardName },
@@ -99,8 +100,8 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    const acceptables =
       (!isHero && !blank && inBattlePhase && [MONSTER]) ||
       (fieldZone && FIELD_SPELL) ||
-      (monsterZone && [MONSTER, ST, OFF_FIELD + MONSTER, EXTRA_DECK]) ||
-      (STzone && [MONSTER, ST, OFF_FIELD + ST]) ||
+      (monsterZone && [MONSTER, SPELL_TRAP, OFF_FIELD + MONSTER, EXTRA_DECK]) ||
+      (STzone && [MONSTER, SPELL_TRAP, OFF_FIELD + SPELL_TRAP]) ||
       allTypes;
 
    const [{ isOver, canDrop }, drop] = useDrop({

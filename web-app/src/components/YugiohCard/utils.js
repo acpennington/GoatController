@@ -1,4 +1,4 @@
-import { MONSTER, ST, FIELD_SPELL, HAND, DECK, EXTRA_DECK, deckZones, discardZones } from "utils/constants.js";
+import { MONSTER, SPELL_TRAP, FIELD_SPELL, HAND, DECK, EXTRA_DECK, deckZones, discardZones } from "utils/constants.js";
 
 function getBools(row, zone) {
    const discardZone = discardZones.includes(row);
@@ -8,7 +8,7 @@ function getBools(row, zone) {
    const isDiscardZone = discardZone && zone === -1;
    const inHand = row === HAND;
    const monsterZone = row === MONSTER;
-   const STzone = row === ST;
+   const STzone = row === SPELL_TRAP;
    const fieldZone = row === FIELD_SPELL;
 
    return { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone };
@@ -20,7 +20,7 @@ function rowClass(row) {
          return "Hand";
       case MONSTER:
          return "Mon";
-      case ST:
+      case SPELL_TRAP:
          return "ST";
       case FIELD_SPELL:
          return "Field";

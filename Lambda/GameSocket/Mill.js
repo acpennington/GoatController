@@ -1,15 +1,16 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
+const display = require("./utils/display");
 
-// @action NewPhase
-// @desc Sends a payload to others when the turn is set
+// @action Mill
+// @desc Sends a payload to others about a card being milled
 // @access Private
 // @db 1 read, 0 writes
 async function mill(id, username, deck, params, connectionId, api) {
-   const message = { author: "Server", content: username + " milled until a " + params + "." };
-   const action = { action: "Mill_Until", data: { player: username, deck, params } };
+   const message = { author: "Server", content: `${username} milled until a ${display(params)}.` };
+   const action = { action: "MILL", data: { player: username, deck, params } };
 
    await actionAndMessage(id, action, message, connectionId, api);
-   return { statusCode: 200, body: "Set turn sent" };
+   return { statusCode: 200, body: "Card milled" };
 }
 
 module.exports = mill;

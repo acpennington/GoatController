@@ -6,7 +6,7 @@ import expandDeck from "utils/expandDeck.js";
 import {
    FUSION_MONSTER,
    MONSTER,
-   ST,
+   SPELL_TRAP,
    HAND,
    GRAVEYARD,
    BANISHED,
@@ -43,16 +43,16 @@ import {
 
 const blankField = {
    lifepoints: 8000,
-   deck: [],
-   graveyard: [],
-   banished: [],
+   [DECK]: [],
+   [GRAVEYARD]: [],
+   [BANISHED]: [],
    usedFusions: {},
-   hand: [],
+   [HAND]: [],
    skippedDraws: 0,
    handRevealed: false,
-   "s/t": [null, null, null, null, null],
-   "field spell": null,
-   monster: [null, null, null, null, null]
+   [MONSTER]: [null, null, null, null, null],
+   [SPELL_TRAP]: [null, null, null, null, null],
+   [FIELD_SPELL]: null,
 };
 
 const initialState = {};
@@ -83,7 +83,7 @@ export default function (state = initialState, action) {
          if (fromCard.notOwned && dynamicZones.includes(to.row) && from.player === to.player) to.player = getOtherPlayer(to.player, state);
          if (from.player !== to.player) fromCard.notOwned = !fromCard.notOwned;
 
-         if (!fromCard.name.includes("Token") || to.row === MONSTER || to.row === ST) {
+         if (!fromCard.name.includes("Token") || to.row === MONSTER || to.row === SPELL_TRAP) {
             if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) state[to.player].usedFusions[fromCard.name] -= 1;
             else if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
             else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
@@ -91,10 +91,10 @@ export default function (state = initialState, action) {
          }
 
          if (to.row === MONSTER && facedown) state[to.player][MONSTER][to.zone].inDef = true;
-         else if (to.row === ST && !facedown) {
-            const cardDetails = getCardDetails(state[to.player][ST][to.zone].name);
+         else if (to.row === SPELL_TRAP && !facedown) {
+            const cardDetails = getCardDetails(state[to.player][SPELL_TRAP][to.zone].name);
             if (cardDetails.cardType === TRAP) {
-               state[to.player][ST][to.zone].facedown = true;
+               state[to.player][SPELL_TRAP][to.zone].facedown = true;
                settingTrap = true;
             }
          }
@@ -103,8 +103,8 @@ export default function (state = initialState, action) {
             if (to.row === GRAVEYARD) playSound("/sounds/tograve.mp3");
             else if (to.row === BANISHED) playSound("/sounds/tobanished.mp3");
             else if (settingTrap || (facedown && from.row !== to.row && to.row !== HAND)) playSound("/sounds/set.mp3");
-            else if (to.row === MONSTER && from.row !== MONSTER && from.row !== ST) playSound("/sounds/summon.mp3");
-            else if (to.row === ST && from.row !== MONSTER && from.row !== ST) playSound("/sounds/activate.mp3");
+            else if (to.row === MONSTER && from.row !== MONSTER && from.row !== SPELL_TRAP) playSound("/sounds/summon.mp3");
+            else if (to.row === SPELL_TRAP && from.row !== MONSTER && from.row !== SPELL_TRAP) playSound("/sounds/activate.mp3");
             else if (drawingFromDeck) playSound("/sounds/drawcard.mp3");
             else if (to.row === HAND && from.row !== HAND) playSound("/sounds/tohand.mp3");
          }
