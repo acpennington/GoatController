@@ -44,7 +44,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    const classes = useStyles();
    const dispatch = useDispatch();
    const socket = useContext(WebSocketContext);
-   const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone } = getBools(row, zone);
+   const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone } = getBools(row, zone);
 
    let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase } = useSelector((state) => {
       const sfPlayer = state.field[player];
@@ -101,7 +101,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       (!isHero && !blank && inBattlePhase && [MONSTER]) ||
       (fieldZone && FIELD_SPELL) ||
       (monsterZone && [MONSTER, SPELL_TRAP, OFF_FIELD + MONSTER, EXTRA_DECK]) ||
-      (STzone && [MONSTER, SPELL_TRAP, OFF_FIELD + SPELL_TRAP]) ||
+      (spellTrapZone && [MONSTER, SPELL_TRAP, OFF_FIELD + SPELL_TRAP]) ||
       allTypes;
 
    const [{ isOver, canDrop }, drop] = useDrop({
@@ -146,13 +146,13 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    return (
       <div
          ref={dragOrDrop}
-         className={classes["container" + (inDef ? "Def" : villExtension + (facedown && (STzone || fieldZone) ? "" : rowClass(row)))]}
+         className={classes["container" + (inDef ? "Def" : villExtension + (facedown && (spellTrapZone || fieldZone) ? "" : rowClass(row)))]}
          style={{
             width,
             height,
             marginLeft: margin,
             marginRight: margin,
-            opacity: (isDragging || blank) && !monsterZone && !STzone && !fieldZone && !isDiscardZone && !isDeck && 0,
+            opacity: (isDragging || blank) && !monsterZone && !spellTrapZone && !fieldZone && !isDiscardZone && !isDeck && 0,
             borderWidth: (blank || facedown || deckZone || isOver || heroSelected || villSelected || revealed || (!isHero && inHand)) && "3px",
             borderColor:
                (isOver && canDrop && OVER_COLOR) ||

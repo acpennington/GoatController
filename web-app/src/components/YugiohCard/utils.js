@@ -8,10 +8,10 @@ function getBools(row, zone) {
    const isDiscardZone = discardZone && zone === -1;
    const inHand = row === HAND;
    const monsterZone = row === MONSTER;
-   const STzone = row === SPELL_TRAP;
+   const spellTrapZone = row === SPELL_TRAP;
    const fieldZone = row === FIELD_SPELL;
 
-   return { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, STzone, fieldZone };
+   return { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone };
 }
 
 function rowClass(row) {
@@ -19,9 +19,9 @@ function rowClass(row) {
       case HAND:
          return "Hand";
       case MONSTER:
-         return "Mon";
+         return "Monster";
       case SPELL_TRAP:
-         return "ST";
+         return "SpellTrap";
       case FIELD_SPELL:
          return "Field";
       default:

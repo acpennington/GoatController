@@ -88,11 +88,11 @@ const cardStyle = {
    containerHand: {
       ...container
    },
-   containerMon: {
+   containerMonster: {
       ...container,
       borderColor: effectMonster
    },
-   containerST: {
+   containerSpellTrap: {
       ...container,
       borderColor: st
    },
@@ -109,12 +109,12 @@ const cardStyle = {
       top: "100%",
       transform: "translateY(-100%) rotate(180deg)"
    },
-   containerVillainMon: {
+   containerVillainMonster: {
       ...container,
       transform: "rotate(180deg)",
       borderColor: effectMonster
    },
-   containerVillainST: {
+   containerVillainSpellTrap: {
       ...container,
       transform: "rotate(180deg)",
       borderColor: st
@@ -128,11 +128,11 @@ const cardStyle = {
       ...container,
       transform: "rotate(90deg)"
    },
-   iconsMon: {
+   iconsMonster: {
       paddingTop: "3%",
       ...icons
    },
-   iconsST: {
+   iconsSpellTrap: {
       paddingTop: "14%",
       ...icons
    },
