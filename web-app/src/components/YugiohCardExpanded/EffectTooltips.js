@@ -10,6 +10,9 @@ class EffectTooltips extends PureComponent {
    render() {
       const { text, classes } = this.props;
 
+      // NOTE: safe given we control all the card text as it comes from cardDB.js
+      const br = s => <span dangerouslySetInnerHTML={{__html: s.replace(/●/g, '<br />●')}}></span>;
+
       let rtn = [];
       let remainingText = text;
 
@@ -18,7 +21,7 @@ class EffectTooltips extends PureComponent {
          const splitString = remainingText.split("<effect=");
          const firstPart = splitString.shift();
          splitString.join("<effect=");
-         if (firstPart) rtn.push(<Fragment key={id++}>{firstPart}</Fragment>);
+         if (firstPart) rtn.push(<Fragment key={id++}>{br(firstPart)}</Fragment>);
 
          const secondSplit = splitString.join("<effect=").split("</effect>");
          const secondPart = secondSplit.shift();
@@ -28,13 +31,13 @@ class EffectTooltips extends PureComponent {
          if (effectText)
             rtn.push(
                <Tooltip title={effectType + " Effect"} classes={{ tooltip: classes.tooltip }} key={id++}>
-                  <span className={classes.underhover}>{effectText}</span>
+                  <span className={classes.underhover}>{br(effectText)}</span>
                </Tooltip>
             );
          remainingText = thirdPart;
       }
 
-      if (remainingText) rtn.push(<Fragment key={id++}>{remainingText}</Fragment>);
+      if (remainingText) rtn.push(<Fragment key={id++}>{br(remainingText)}</Fragment>);
       return rtn;
    }
 }

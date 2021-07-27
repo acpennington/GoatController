@@ -51,11 +51,9 @@ class YugiohCardExpanded extends PureComponent {
                   </div>
                )}
                <div className={classes.cardText}>
-                  <strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]
-                  <br />
-                  <EffectTooltips text={text} />
-                  <br />
-                  {attribute && "ATK " + atk + " / DEF " + def}
+                  <div><strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]</div>
+                  <div style={{margin: "2px 0", lineHeight: "1.3em"}}><EffectTooltips text={text} /></div>
+                  <div>{attribute && `ATK ${atk} / DEF ${def}`}</div>
                </div>
             </div>
          </div>
