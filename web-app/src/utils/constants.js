@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // game settings
 export const GAME_ASPECT_RATIO = 1.8;
 export const VILLAIN_HAND_HEIGHT_FRACTION = 0.5;
