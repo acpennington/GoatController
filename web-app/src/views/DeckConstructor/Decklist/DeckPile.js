@@ -8,7 +8,7 @@ import { SizeContext } from "components/ResizableContainer/ResizableContainer.js
 import { transferCard } from "stateStore/actions/deckConstructor/decklist";
 import getCardDetails from "utils/getCardDetails.js";
 
-import { EFFECT_MONSTER, SPELL, TRAP, SIDEDECK, OVER_COLOR, allLocations } from "utils/constants";
+import { NORMAL_MONSTER, EFFECT_MONSTER, RITUAL_MONSTER, SPELL, TRAP, SIDEDECK, OVER_COLOR, allLocations } from "utils/constants";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
@@ -69,7 +69,11 @@ function capitalize(string) {
 
 function typeToNumber(type) {
    switch (type) {
+      case NORMAL_MONSTER:
+         return 5
       case EFFECT_MONSTER:
+         return 4;
+      case RITUAL_MONSTER:
          return 3;
       case SPELL:
          return 2;
