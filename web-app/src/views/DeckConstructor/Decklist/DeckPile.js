@@ -8,7 +8,7 @@ import { SizeContext } from "components/ResizableContainer/ResizableContainer.js
 import { transferCard } from "stateStore/actions/deckConstructor/decklist";
 import getCardDetails from "utils/getCardDetails.js";
 
-import { EFFECT_MONSTER, SPELL, TRAP, SIDEDECK, OVER_COLOR, allLocations } from "utils/constants";
+import { orderedCardTypes, SIDEDECK, OVER_COLOR, allLocations } from "utils/constants";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
@@ -26,7 +26,7 @@ function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
    cardKeys.sort((a, b) => {
       const deetsA = getCardDetails(a);
       const deetsB = getCardDetails(b);
-      return typeToNumber(deetsB.cardType) - typeToNumber(deetsA.cardType);
+      return orderedCardTypes.indexOf(deetsA.cardType) - orderedCardTypes.indexOf(deetsB.cardType);
    });
    let cardCount = 0;
 
@@ -65,19 +65,6 @@ function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
 
 function capitalize(string) {
    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function typeToNumber(type) {
-   switch (type) {
-      case EFFECT_MONSTER:
-         return 3;
-      case SPELL:
-         return 2;
-      case TRAP:
-         return 1;
-      default:
-         return 0;
-   }
 }
 
 DeckPile.propTypes = {

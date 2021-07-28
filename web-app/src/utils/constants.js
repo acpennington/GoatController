@@ -10,9 +10,11 @@ export const FACEDOWN_CARD = "Facedown Card";
 // cardTypes
 export const NORMAL_MONSTER = "normalMonster";
 export const EFFECT_MONSTER = "effectMonster";
+export const RITUAL_MONSTER = "ritualMonster";
 export const FUSION_MONSTER = "fusionMonster";
 export const SPELL = "Spell";
 export const TRAP = "Trap";
+export const orderedCardTypes = [NORMAL_MONSTER, EFFECT_MONSTER, RITUAL_MONSTER, SPELL, TRAP];
 
 // card locations
 export const MAINDECK = "maindeck";
