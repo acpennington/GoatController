@@ -9,7 +9,7 @@ import { moveCard, createTokens } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
 
-import { GRAVEYARD, HAND, ST, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS } from "utils/constants";
+import { GRAVEYARD, HAND, SPELL_TRAP, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS } from "utils/constants";
 
 class CardScript extends PureComponent {
    runScript = (name, params) => {
@@ -88,7 +88,7 @@ class CardScript extends PureComponent {
 function fieldContains(field, card) {
    switch (card) {
       case "Nobleman of Crossout":
-         for (const key in field) for (const zone of field[key][ST]) if (zone && !zone.facedown && zone.name === card) return true;
+         for (const key in field) for (const zone of field[key][SPELL_TRAP]) if (zone && !zone.facedown && zone.name === card) return true;
          return false;
       default:
          return false;

@@ -41,7 +41,7 @@ class CardArt extends PureComponent {
             )}
             <div className={classes.lowerHalf}>
                <div
-                  className={classes["icons" + (isMonster ? "Mon" : "ST")]}
+                  className={classes["icons" + (isMonster ? "Monster" : "SpellTrap")]}
                   style={{
                      lineHeight: nameHeight + "px"
                   }}

@@ -3263,7 +3263,7 @@ const monsters = {
       atk: 200,
       def: 700,
       text: "Insect/Flip/Effect – <effect=Trigger>FLIP: Excavate cards from the top of your Deck until you excavate a Spell/Trap, then add that card to your hand, also send the remaining cards to the GY.</effect>",
-      script: "Mill_Until:s/t"
+      script: "Mill_Until:spellTrap"
    },
    "Abyss Soldier": {
       cardType: "effectMonster",

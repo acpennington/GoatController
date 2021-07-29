@@ -3,7 +3,7 @@ import { moveCard, shuffleDeck } from "./field.js";
 
 import getCardDetails from "utils/getCardDetails.js";
 import getOtherPlayer from "utils/getOtherPlayer.js";
-import { ST, DECK, GRAVEYARD, BANISHED, MILL, SEND_ENTIRE_GAMESTATE } from "utils/constants.js";
+import { SPELL_TRAP, DECK, GRAVEYARD, BANISHED, MILL, SEND_ENTIRE_GAMESTATE } from "utils/constants.js";
 
 function filterDeck(player, params) {
    const [filter, autoClose] = params.split(";");
@@ -22,7 +22,7 @@ function millUntil(player, deck, params, socket = false) {
          const card = deck[i];
          const cardDetails = card && getCardDetails(card.name);
 
-         if (params === ST) {
+         if (params === SPELL_TRAP) {
             if (isNaN(cardDetails.atk)) stop = true;
          }
 
