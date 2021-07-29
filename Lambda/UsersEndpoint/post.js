@@ -9,6 +9,8 @@ const getJwt = require("./utils/getJwt.js");
 const todaysDate = require("./utils/todaysDate.js");
 const findUser = require("./utils/findUser.js");
 
+const RESERVED = ['Server', 'Game'];
+
 // @route POST api/users
 // @desc Register a user
 // @access Public
@@ -21,6 +23,7 @@ async function post(body) {
    if (username.length < 1) errors.push({ msg: "Username is required" });
    else if (username.trim() !== username) errors.push({ msg: "Username cannot start or end with a space" });
    else if (!/^([a-z0-9 ]+)$/i.test(username)) errors.push({ msg: "Username must contain only letters, numbers, and spaces" });
+   else if (RESERVED.includes(username)) errors.push({ msg: "Username is reserved" });
 
    if (password.length < 10) errors.push({ msg: "Password must be at least 10 characters" });
    if (errors.length > 0) return { statusCode: 400, body: { errors } };
