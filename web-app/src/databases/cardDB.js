@@ -45,7 +45,7 @@ const fusions = {
       levelOrSubtype: 8,
       atk: 2900,
       def: 2400,
-      text: 'Spellcaster/Fusion/Effect – "Dark Magician" + "Buster Blader". Must be Fusion Summoned. <effect=Quick>When a Spell Card is activated (Quick Effect): You can discard 1 card; negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Gains 500 ATK for each Dragon monster on the field and in the GY.</effect>',
+      text: 'Spellcaster/Fusion/Effect – "Dark Magician" + "Buster Blader". Must be Fusion Summoned. <effect=Quick>When a Spell Card is activated (Quick Effect): You can discard 1 card; negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Gains 500 ATK for each Dragon monster on the field and in the Graveyard.</effect>',
       noMeta: true
    },
    "Deepsea Shark": {
@@ -296,7 +296,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2200,
       def: 1900,
-      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Y-Dragon Head". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the GY. <effect=Ignition>You can discard 1 card, then target 1 face-up Spell/Trap your opponent controls; destroy that target.</effect>',
+      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Y-Dragon Head". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the Graveyard. <effect=Ignition>You can discard 1 card, then target 1 face-up Spell/Trap your opponent controls; destroy that target.</effect>',
       noMeta: true
    },
    "XYZ-Dragon Cannon": {
@@ -305,7 +305,7 @@ const fusions = {
       levelOrSubtype: 8,
       atk: 2800,
       def: 2600,
-      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Y-Dragon Head" + "Z-Metal Tank". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the GY. <effect=Ignition>You can discard 1 card, then target 1 card your opponent controls; destroy that target.</effect>',
+      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Y-Dragon Head" + "Z-Metal Tank". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the Graveyard. <effect=Ignition>You can discard 1 card, then target 1 card your opponent controls; destroy that target.</effect>',
       noMeta: true
    },
    "XZ-Tank Cannon": {
@@ -314,7 +314,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2400,
       def: 2100,
-      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Z-Metal Tank". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the GY. <effect=Ignition>You can discard 1 card, then target 1 face-down Spell/Trap your opponent controls; destroy that target.</effect>',
+      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Z-Metal Tank". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the Graveyard. <effect=Ignition>You can discard 1 card, then target 1 face-down Spell/Trap your opponent controls; destroy that target.</effect>',
       noMeta: true
    },
    "YZ-Tank Dragon": {
@@ -323,7 +323,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2100,
       def: 2200,
-      text: 'Machine/Fusion/Effect – "Y-Dragon Head" + "Z-Metal Tank". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the GY. <effect=Ignition>You can discard 1 card, then target 1 face-down monster your opponent controls; destroy that target.</effect>',
+      text: 'Machine/Fusion/Effect – "Y-Dragon Head" + "Z-Metal Tank". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the Graveyard. <effect=Ignition>You can discard 1 card, then target 1 face-down monster your opponent controls; destroy that target.</effect>',
       noMeta: true
    },
    "Dragoness the Wicked Knight": {
@@ -380,7 +380,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2200,
       def: 1500,
-      text: 'Warrior/Fusion/Effect – "Dark Blade" + "Pitch-Dark Dragon". <effect=Trigger>When this card inflicts battle damage to your opponent: You can target up to 3 monsters in their GY; banish those targets.</effect>'
+      text: 'Warrior/Fusion/Effect – "Dark Blade" + "Pitch-Dark Dragon". <effect=Trigger>When this card inflicts battle damage to your opponent: You can target up to 3 monsters in their Graveyard; banish those targets.</effect>'
    },
    "The Last Warrior from Another Planet": {
       cardType: "fusionMonster",
@@ -405,7 +405,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2000,
       def: 1200,
-      text: 'Warrior/Fusion/Effect – "Warrior Dai Grepher" + "Spirit Ryu". A Fusion Summon of this card can only be done with the above Fusion Materials. <effect=Quick>When a Normal Trap Card is activated (Quick Effect): You can pay 1000 LP; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell Card that targets this card and destroy it.</effect>'
+      text: 'Warrior/Fusion/Effect – "Warrior Dai Grepher" + "Spirit Ryu". A Fusion Summon of this card can only be done with the above Fusion Materials. <effect=Quick>When a Normal Trap Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell Card that targets this card and destroy it.</effect>'
    },
    "Dark Balter the Terrible": {
       cardType: "fusionMonster",
@@ -413,7 +413,7 @@ const fusions = {
       levelOrSubtype: 5,
       atk: 2000,
       def: 1200,
-      text: 'Fiend/Fusion/Effect – "Possessed Dark Soul" + "Frontier Wiseman". A Fusion Summon of this monster can only be conducted with the above Fusion Material Monsters. <effect=Quick>When a Normal Spell Card is activated (Quick Effect): You can pay 1000 LP; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>The effect of an Effect Monster that this monster destroys as a result of battle is negated.</effect>'
+      text: 'Fiend/Fusion/Effect – "Possessed Dark Soul" + "Frontier Wiseman". A Fusion Summon of this monster can only be conducted with the above Fusion Material Monsters. <effect=Quick>When a Normal Spell Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>The effect of an Effect Monster that this monster destroys as a result of battle is negated.</effect>'
    },
    "Thousand-Eyes Restrict": {
       cardType: "fusionMonster",
@@ -3237,7 +3237,7 @@ const monsters = {
       levelOrSubtype: 8,
       atk: 3000,
       def: 2500,
-      text: "Warrior/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn, you can activate 1 of these effects. ● <effect=Ignition>Target 1 monster on the field; banish it. This card cannot attack the turn this effect is activated.</effect> ● <effect=Trigger>If this attacking card destroys an opponent's monster by battle: It can make a second attack in a row.</effect>",
+      text: "Warrior/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your Graveyard. Once per turn, you can activate 1 of these effects. ● <effect=Ignition>Target 1 monster on the field; banish it. This card cannot attack the turn this effect is activated.</effect> ● <effect=Trigger>If this attacking card destroys an opponent's monster by battle: It can make a second attack in a row.</effect>",
       limit: 1
    },
    "Airknight Parshath": {
@@ -3254,7 +3254,7 @@ const monsters = {
       levelOrSubtype: 1,
       atk: 300,
       def: 400,
-      text: "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Target 1 Spell in your GY; add that target to your hand.</effect>"
+      text: "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Target 1 Spell in your Graveyard; add that target to your hand.</effect>"
    },
    "Magical Merchant": {
       cardType: "effectMonster",
@@ -3262,7 +3262,7 @@ const monsters = {
       levelOrSubtype: 1,
       atk: 200,
       def: 700,
-      text: "Insect/Flip/Effect – <effect=Trigger>FLIP: Excavate cards from the top of your Deck until you excavate a Spell/Trap, then add that card to your hand, also send the remaining cards to the GY.</effect>",
+      text: "Insect/Flip/Effect – <effect=Trigger>FLIP: Excavate cards from the top of your Deck until you excavate a Spell/Trap, then add that card to your hand, also send the remaining cards to the Graveyard.</effect>",
       script: "Mill_Until:spellTrap"
    },
    "Abyss Soldier": {
@@ -3297,7 +3297,7 @@ const monsters = {
       levelOrSubtype: 3,
       atk: 1000,
       def: 600,
-      text: "Fiend/Effect – <effect=Trigger>If this card is sent from the field to the GY: Add 1 monster with 1500 or less ATK from your Deck to your hand.</effect>",
+      text: "Fiend/Effect – <effect=Trigger>If this card is sent from the field to the Graveyard: Add 1 monster with 1500 or less ATK from your Deck to your hand.</effect>",
       script: "Search_Deck:atk<1500;autoClose",
       limit: 1
    },
@@ -3342,7 +3342,7 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 1800,
       def: 700,
-      text: "Spellcaster/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent: You can target up to 2 monsters in their GY; banish those targets.</effect> <effect=Continuous>Your opponent cannot banish cards from either GY.</effect>"
+      text: "Spellcaster/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent: You can target up to 2 monsters in their Graveyard; banish those targets.</effect> <effect=Continuous>Your opponent cannot banish cards from either Graveyard.</effect>"
    },
    "D.D. Warrior Lady": {
       cardType: "effectMonster",
@@ -3359,7 +3359,7 @@ const monsters = {
       levelOrSubtype: 6,
       atk: 2300,
       def: 2000,
-      text: "Spellcaster/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. <effect=Ignition>Once per turn: You can target 1 face-up monster on the field; banish that target. This card cannot attack the turn you activate this effect.</effect>"
+      text: "Spellcaster/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your Graveyard. <effect=Ignition>Once per turn: You can target 1 face-up monster on the field; banish that target. This card cannot attack the turn you activate this effect.</effect>"
    },
    "Dekoichi the Battlechanted Locomotive": {
       cardType: "effectMonster",
@@ -3412,14 +3412,14 @@ const spells = {
    "Premature Burial": {
       cardType: "Spell",
       levelOrSubtype: "Equip",
-      text: "Activate this card by paying 800 LP, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. <effect=Continuous-like>When this card is destroyed, destroy the equipped monster.</effect>",
+      text: "Activate this card by paying 800 Life Points, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. <effect=Continuous-like>When this card is destroyed, destroy the equipped monster.</effect>",
       prepopLP: { hero: -800 },
       limit: 1
    },
    "Upstart Goblin": {
       cardType: "Spell",
       levelOrSubtype: "Normal",
-      text: "Draw 1 card, then your opponent gains 1000 LP.",
+      text: "Draw 1 card, then your opponent gains 1000 Life Points.",
       prepopLP: { villain: 1000 },
       limit: 2
    },
@@ -3438,7 +3438,7 @@ const spells = {
    "Delinquent Duo": {
       cardType: "Spell",
       levelOrSubtype: "Normal",
-      text: "Pay 1000 LP; your opponent discards 1 random card, and if they have any other cards in their hand, discard 1 more card of their choice.",
+      text: "Pay 1000 Life Points; your opponent discards 1 random card, and if they have any other cards in their hand, discard 1 more card of their choice.",
       prepopLP: { hero: -1000 },
       script: "Random_Discard",
       limit: 1
@@ -3501,13 +3501,13 @@ const traps = {
    "Call of the Haunted": {
       cardType: "Trap",
       levelOrSubtype: "Continuous",
-      text: "Activate this card by targeting 1 monster in your GY; Special Summon that target in Attack Position. <effect=Continuous-like>When this card leaves the field, destroy that monster.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>",
+      text: "Activate this card by targeting 1 monster in your Graveyard; Special Summon that target in Attack Position. <effect=Continuous-like>When this card leaves the field, destroy that monster.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>",
       limit: 1
    },
    "Solemn Judgment": {
       cardType: "Trap",
       levelOrSubtype: "Counter",
-      text: "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your LP; negate the Summon or activation, and if you do, destroy that card.",
+      text: "When a monster(s) would be Summoned, OR a Spell/Trap Card is activated: Pay half your Life Points; negate the Summon or activation, and if you do, destroy that card.",
       prepopLP: { hero: "half" }
    },
    "Mirror Force": {
