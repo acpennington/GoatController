@@ -8,6 +8,7 @@ export const CARD_RATIO = 1.45;
 export const FACEDOWN_CARD = "Facedown Card";
 
 // cardTypes
+export const NORMAL_MONSTER = "normalMonster";
 export const EFFECT_MONSTER = "effectMonster";
 export const RITUAL_MONSTER = "ritualMonster";
 export const FUSION_MONSTER = "fusionMonster";
