@@ -3196,7 +3196,7 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 1500,
       def: 800,
-      text: "Fish/Effect - As long as this card remains face-up on your side of the field, increase your Life Points by 800 points during each of your Standby Phases.",
+      text: "Fish/Effect - <effect=Trigger>As long as this card remains face-up on your side of the field, increase your Life Points by 800 points during each of your Standby Phases.</effect>",
       prepopLP: {hero: 800}
     },
     "Hysteric Fairy": {
@@ -3205,8 +3205,8 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 1800,
       def: 500,
-      text: "Fairy/Effect - Tribute 2 monsters on your side of the field to increase your Life Points by 1000 points.",
-      prepopLP: {hero: 100}
+      text: "Fairy/Effect - <effect=Ignition>Tribute 2 monsters on your side of the field to increase your Life Points by 1000 points.</effect>",
+      prepopLP: {hero: 1000}
     },
     "Nuvia the Wicked": {
       cardType: "effectMonster",
@@ -3214,7 +3214,7 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 2000,
       def: 800,
-      text: "Fiend/Effect - If this monster is Normal Summoned, destroy this card. If your opponent controls any monster, decrease the ATK of this card by 200 points for each monster on your opponent's side of the field."
+      text: "Fiend/Effect - <effect=Trigger>If this monster is Normal Summoned, destroy this card.</effect> <effect=Continuous>If your opponent controls any monster, decrease the ATK of this card by 200 points for each monster on your opponent's side of the field.</effect>"
     },
     "The Forgiving Maiden": {
       cardType: "effectMonster",
@@ -3222,7 +3222,7 @@ const monsters = {
       levelOrSubtype: 4,
       atk: 850,
       def: 2000,
-      text: "Fairy/Effect - Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand."
+      text: "Fairy/Effect - <effect=Ignition>Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand.</effect>"
     },
    "Shining Angel": {
       cardType: "effectMonster",
