@@ -14,9 +14,6 @@ import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpand
 
 class YugiohCardExpanded extends PureComponent {
    validScript = (activeCard, cardPlayer, script) => {
-      console.log(JSON.stringify(activeCard));
-      console.log(JSON.stringify(script));
-
       const { heroPlayer } = this.props;
       const { displayCondition } = script;
       if (displayCondition) {
@@ -62,7 +59,7 @@ class YugiohCardExpanded extends PureComponent {
                      </Button>
                      {script && this.validScript(activeCard, player, script) && <CardScript script={script} heroPlayer={heroPlayer} />}
                      {text.includes("/Flip/") && (
-                        <CardScript script={BANISH_ALL} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
+                        <CardScript script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
                      )}
                   </div>
                )}

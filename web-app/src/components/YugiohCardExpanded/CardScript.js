@@ -99,7 +99,7 @@ function mapStateToProps(state) {
 }
 
 CardScript.propTypes = {
-   script: PropTypes.string.isRequired,
+   script: PropTypes.object.isRequired,
    variant: PropTypes.string,
    activeCard: PropTypes.object,
    heroPlayer: PropTypes.string.isRequired
