@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
-import getCardDetails from "utils/getCardDetails.js";
+import checkParams from "utils/checkParams.js";
 import { closeModal } from "stateStore/actions/shared/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 
@@ -28,24 +28,9 @@ class RenderCards extends Component {
 
       if (filter)
          zoneNumbers = zoneNumbers.filter((numb) => {
-            const cardName = cards[numb].name;
-            const cardDetails = getCardDetails(cardName);
-
-            for (const paramName in filter) {
-               const singleParam = filter[paramName];
-               const { operator, value } = singleParam;
-               switch (operator) {
-                  case ">":
-                     if (!(cardDetails[paramName] && cardDetails[paramName] >= value)) return false;
-                     break;
-                  case "<":
-                     if (!(cardDetails[paramName] && cardDetails[paramName] <= value)) return false;
-                     break;
-                  default:
-                     if (!(cardDetails[paramName] && cardDetails[paramName] === value)) return false;
-               }
-            }
-            return true;
+            const card = cards[numb];
+            const { fail } = checkParams(card, filter);
+            return fail.length === 0;
          });
 
       return zoneNumbers;

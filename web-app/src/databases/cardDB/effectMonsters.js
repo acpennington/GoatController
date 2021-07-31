@@ -1,4 +1,4 @@
-import { HERO, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD } from "utils/constants";
+import { HERO, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL, TRAP } from "utils/constants";
 
 const effectMonsters = {
    "Cure Mermaid": {
@@ -92,7 +92,19 @@ const effectMonsters = {
       atk: 200,
       def: 700,
       text: "Insect/Flip/Effect – <effect=Trigger>FLIP: Excavate cards from the top of your Deck until you excavate a Spell/Trap, then add that card to your hand, also send the remaining cards to the Graveyard.</effect>",
-      script: "Mill_Until:spellTrap"
+      script: {
+         name: MILL_UNTIL,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: {
+            cardType: {
+               operator: "OR",
+               value: [SPELL, TRAP]
+            }
+         }
+      }
    },
    "Abyss Soldier": {
       cardType: EFFECT_MONSTER,

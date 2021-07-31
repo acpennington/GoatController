@@ -22,6 +22,12 @@ function millUntil(player, deck, params, socket = false) {
          const card = deck[i];
          const cardDetails = card && getCardDetails(card.name);
 
+         for (const paramName in params) {
+            let allParamsMet = true;
+            const singleParam = params[paramName];
+            const { operator, value } = singleParam;
+         }
+
          if (params === SPELL_TRAP) {
             if (isNaN(cardDetails.atk)) stop = true;
          }
