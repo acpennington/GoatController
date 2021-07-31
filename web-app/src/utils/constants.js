@@ -24,8 +24,8 @@ export const allLocations = [MAINDECK, SIDEDECK, SEARCH_RESULTS];
 
 // rows & zones
 export const MONSTER = "monster";
-export const SPELL_TRAP = "s/t";
-export const FIELD_SPELL = "field spell";
+export const SPELL_TRAP = "spellTrap";
+export const FIELD_SPELL = "fieldSpell";
 export const HAND = "hand";
 export const DECK = "deck";
 export const EXTRA_DECK = "extraDeck";
