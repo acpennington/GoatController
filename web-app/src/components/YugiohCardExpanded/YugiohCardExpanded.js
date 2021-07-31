@@ -22,7 +22,8 @@ class YugiohCardExpanded extends PureComponent {
                const playerLegal = displayCondition.players.includes(cardPlayer === heroPlayer ? HERO : VILLAIN);
                if (!playerLegal) return false;
             } else {
-               const doesConditionMatch = displayCondition[condition] === activeCard[condition];
+               // eslint-disable-next-line
+               const doesConditionMatch = displayCondition[condition] == activeCard[condition];
                if (!doesConditionMatch) return false;
             }
          }
