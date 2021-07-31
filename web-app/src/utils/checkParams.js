@@ -20,6 +20,10 @@ export default function checkParams(card, params) {
             if (cardDetails[paramName] && cardDetails[paramName] <= value) pass.push(paramName);
             else fail.push(paramName);
             break;
+         case "OR":
+            if (cardDetails[paramName] && value.includes(cardDetails[paramName])) pass.push(paramName);
+            else fail.push(paramName);
+            break;
          default:
             if (cardDetails[paramName] && cardDetails[paramName] === value) pass.push(paramName);
             else fail.push(paramName);
