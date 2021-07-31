@@ -38,10 +38,6 @@ function drawPhaseDraw(player, socket = false) {
    return { type: DRAW_PHASE_DRAW, data: { player, socket } };
 }
 
-function drawCards(player, count, socket = false) {
-   return { type: "", data: "" };
-}
-
 function createTokens(player, params, socket = false) {
    const splitParams = params.split(",");
 
