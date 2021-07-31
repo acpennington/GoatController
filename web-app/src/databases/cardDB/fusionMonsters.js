@@ -1,3 +1,5 @@
+import { HERO, MONSTER, FLIP_COINS } from "utils/constants.js";
+
 const fusions = {
    Bickuribox: {
       cardType: "fusionMonster",
@@ -397,7 +399,14 @@ const fusions = {
       atk: 2600,
       def: 1200,
       text: 'Machine/Fusion/Effect – "Barrel Dragon" + "Blowback Dragon". <effect=Ignition>Once per turn: You can toss a coin 3 times and destroy as many monsters on the field as possible, but not more than the number of heads.</effect>',
-      script: "Flip_Coins:3"
+      script: {
+         name: FLIP_COINS,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: 3
+      }
    },
    "Ryu Senshi": {
       cardType: "fusionMonster",
