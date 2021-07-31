@@ -43,7 +43,7 @@ class Chat extends PureComponent {
       if (content === EFFECT_MESSAGE && heroSelected) {
          const { row, zone } = heroSelected;
          const card = row === FIELD_SPELL ? heroField[FIELD_SPELL] : heroField[row][zone];
-         if (row !== HAND && !card.facedown) content = "Activate the effect of " + card.name + ".";
+         if (row !== HAND && !card.facedown) content = "Activate the effect of <<" + card.name + ">>.";
       }
 
       if (content) {
