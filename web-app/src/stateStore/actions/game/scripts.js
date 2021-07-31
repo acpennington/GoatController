@@ -1,13 +1,13 @@
 import { openModal } from "../shared/settings.js";
 import { moveCard, shuffleDeck } from "./field.js";
 
-import getCardDetails from "utils/getCardDetails.js";
+import checkParams from "utils/checkParams.js";
 import getOtherPlayer from "utils/getOtherPlayer.js";
-import { SPELL_TRAP, DECK, GRAVEYARD, BANISHED, MILL, SEND_ENTIRE_GAMESTATE } from "utils/constants.js";
+import { DECK, GRAVEYARD, BANISHED, MILL, SEND_ENTIRE_GAMESTATE } from "utils/constants.js";
 
-function filterDeck(player, params) {
-   const [filter, autoClose] = params.split(";");
-   return openModal(player, DECK, filter, autoClose && autoClose === "autoClose");
+function filterDeck(player, script) {
+   const { params, autoClose } = script;
+   return openModal(player, DECK, params, autoClose);
 }
 
 function millUntil(player, deck, params, socket = false) {
@@ -20,11 +20,8 @@ function millUntil(player, deck, params, socket = false) {
    return (dispatch) => {
       for (let i = topCard, stop = false; i >= 0 && !stop; i--) {
          const card = deck[i];
-         const cardDetails = card && getCardDetails(card.name);
-
-         if (params === SPELL_TRAP) {
-            if (isNaN(cardDetails.atk)) stop = true;
-         }
+         const { fail } = checkParams(card, params);
+         if (fail.length === 0) stop = true;
 
          dispatch(moveCard({ from: { player, row: DECK, zone: i }, to: { player, row: GRAVEYARD, zone: 0 }, noSound: i !== topCard }));
       }

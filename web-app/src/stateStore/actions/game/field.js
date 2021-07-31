@@ -39,15 +39,8 @@ function drawPhaseDraw(player, socket = false) {
 }
 
 function createTokens(player, params, socket = false) {
-   const splitParams = params.split(",");
-
-   let count, name, inDef;
-   for (const param of splitParams) {
-      const [variable, value] = param.split("=");
-      if (variable === "count") count = Number(value);
-      else if (variable === "name") name = value;
-      else if (variable === "pos") inDef = value !== "atk";
-   }
+   const { count, name, pos } = params;
+   const inDef = pos === "def";
 
    playSound("/sounds/specialsummon.mp3");
 

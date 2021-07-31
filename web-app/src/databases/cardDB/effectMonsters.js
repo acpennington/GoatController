@@ -1,6 +1,8 @@
+import { HERO, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL, TRAP } from "utils/constants";
+
 const effectMonsters = {
    "Cure Mermaid": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Water",
       levelOrSubtype: 4,
       atk: 1500,
@@ -9,7 +11,7 @@ const effectMonsters = {
       prepopLP: { hero: 800 }
    },
    "Hysteric Fairy": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 4,
       atk: 1800,
@@ -18,7 +20,7 @@ const effectMonsters = {
       prepopLP: { hero: 1000 }
    },
    "Nuvia the Wicked": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 4,
       atk: 2000,
@@ -26,7 +28,7 @@ const effectMonsters = {
       text: "Fiend/Effect - <effect=Trigger>If this monster is Normal Summoned, destroy this card.</effect> <effect=Continuous>If your opponent controls any monster, decrease the ATK of this card by 200 points for each monster on your opponent's side of the field.</effect>"
    },
    "The Forgiving Maiden": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 4,
       atk: 850,
@@ -34,16 +36,32 @@ const effectMonsters = {
       text: "Fairy/Effect - <effect=Ignition>Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand.</effect>"
    },
    "Shining Angel": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 4,
       atk: 1400,
       def: 800,
       text: "Fairy/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 LIGHT monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>",
-      script: "Search_Deck:atk<1500,attribute=Light;autoClose"
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: "1500"
+            },
+            attribute: {
+               value: "Light"
+            }
+         },
+         autoClose: true
+      }
    },
    "Black Luster Soldier - Envoy of the Beginning": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 8,
       atk: 3000,
@@ -52,7 +70,7 @@ const effectMonsters = {
       limit: 1
    },
    "Airknight Parshath": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 5,
       atk: 1900,
@@ -60,7 +78,7 @@ const effectMonsters = {
       text: "Fairy/Effect – <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage.</effect> <effect=Trigger>If this card inflicts battle damage to your opponent: Draw 1 card.</effect>"
    },
    "Magician of Faith": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 1,
       atk: 300,
@@ -68,16 +86,29 @@ const effectMonsters = {
       text: "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Target 1 Spell in your Graveyard; add that target to your hand.</effect>"
    },
    "Magical Merchant": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 1,
       atk: 200,
       def: 700,
       text: "Insect/Flip/Effect – <effect=Trigger>FLIP: Excavate cards from the top of your Deck until you excavate a Spell/Trap, then add that card to your hand, also send the remaining cards to the Graveyard.</effect>",
-      script: "Mill_Until:spellTrap"
+      script: {
+         name: MILL_UNTIL,
+         message: "Spell or Trap",
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: {
+            cardType: {
+               operator: "OR",
+               value: [SPELL, TRAP]
+            }
+         }
+      }
    },
    "Abyss Soldier": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Water",
       levelOrSubtype: 4,
       atk: 1800,
@@ -86,7 +117,7 @@ const effectMonsters = {
       limit: 2
    },
    "Breaker the Magical Warrior": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 4,
       atk: 1600,
@@ -95,7 +126,7 @@ const effectMonsters = {
       limit: 1
    },
    Tsukuyomi: {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 4,
       atk: 1100,
@@ -103,17 +134,30 @@ const effectMonsters = {
       text: "Spellcaster/Effect – Cannot be Special Summoned. <effect=Trigger>If this card is Normal Summoned or flipped face-up: Target 1 face-up monster on the field; change that target to face-down Defense Position.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>"
    },
    Sangan: {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 3,
       atk: 1000,
       def: 600,
       text: "Fiend/Effect – <effect=Trigger>If this card is sent from the field to the Graveyard: Add 1 monster with 1500 or less ATK from your Deck to your hand.</effect>",
-      script: "Search_Deck:atk<1500;autoClose",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: "1500"
+            }
+         },
+         autoClose: true
+      },
       limit: 1
    },
    "Sinister Serpent": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Water",
       levelOrSubtype: 1,
       atk: 300,
@@ -122,7 +166,7 @@ const effectMonsters = {
       limit: 1
    },
    "Tribe-Infecting Virus": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Water",
       levelOrSubtype: 4,
       atk: 1600,
@@ -131,7 +175,7 @@ const effectMonsters = {
       limit: 1
    },
    "Morphing Jar": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 2,
       atk: 700,
@@ -140,7 +184,7 @@ const effectMonsters = {
       limit: 1
    },
    "Asura Priest": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 4,
       atk: 1700,
@@ -148,7 +192,7 @@ const effectMonsters = {
       text: "Fairy/Spirit/Effect – Cannot be Special Summoned. <effect=Trigger>During the End Phase of the turn this card is Normal Summoned or flipped face-up: Return it to the hand.</effect> <effect=Continuous>This card can attack all monsters your opponent controls once each.</effect>"
    },
    "Kycoo the Ghost Destroyer": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 4,
       atk: 1800,
@@ -156,7 +200,7 @@ const effectMonsters = {
       text: "Spellcaster/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent: You can target up to 2 monsters in their Graveyard; banish those targets.</effect> <effect=Continuous>Your opponent cannot banish cards from either Graveyard.</effect>"
    },
    "D.D. Warrior Lady": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 4,
       atk: 1500,
@@ -165,7 +209,7 @@ const effectMonsters = {
       limit: 1
    },
    "Chaos Sorcerer": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 6,
       atk: 2300,
@@ -173,7 +217,7 @@ const effectMonsters = {
       text: "Spellcaster/Effect – Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your Graveyard. <effect=Ignition>Once per turn: You can target 1 face-up monster on the field; banish that target. This card cannot attack the turn you activate this effect.</effect>"
    },
    "Dekoichi the Battlechanted Locomotive": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 4,
       atk: 1400,
@@ -181,7 +225,7 @@ const effectMonsters = {
       text: 'Machine/Flip/Effect – <effect=Trigger>FLIP: Draw 1 card, then draw 1 additional card for each face-up "Bokoichi the Freightening Car" you control.</effect>'
    },
    "Jowgen the Spiritualist": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 3,
       atk: 200,
@@ -189,7 +233,7 @@ const effectMonsters = {
       text: "Spellcaster/Effect – <effect=Ignition>You can discard 1 random card from your hand to the Graveyard; destroy all Special Summoned monsters on the field. Neither player can Special Summon monsters.</effect>"
    },
    "Mystic Swordsman LV2": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 2,
       atk: 900,
@@ -197,7 +241,7 @@ const effectMonsters = {
       text: 'Warrior/Effect – <effect=Trigger>At the start of the Damage Step, if this card attacked a face-down Defense Position monster: Destroy that monster.</effect> <effect=Trigger>During the End Phase, if this card destroyed a monster by battle this turn: You can send this face-up card to the Graveyard; Special Summon 1 "Mystic Swordsman LV4" from your hand or Deck.</effect>'
    },
    "Roulette Barrel": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 4,
       atk: 1000,
@@ -205,7 +249,7 @@ const effectMonsters = {
       text: "Machine/Effect – <effect=Ignition>Once per turn: You can roll a six-sided die twice, choose 1 result, and destroy 1 monster on the field whose Level is equal to that result.</effect>"
    },
    "Zaborg the Thunder Monarch": {
-      cardType: "effectMonster",
+      cardType: EFFECT_MONSTER,
       attribute: "Light",
       levelOrSubtype: 5,
       atk: 2400,

@@ -12,21 +12,22 @@ import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/script
 import { GRAVEYARD, HAND, SPELL_TRAP, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS } from "utils/constants";
 
 class CardScript extends PureComponent {
-   runScript = (name, params) => {
-      const { field, activeCard, banishAll, heroPlayer, variant } = this.props;
+   runScript = (script) => {
+      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens } = this.props;
+      const { name, params } = script;
       const socket = this.context;
       switch (name) {
          case SEARCH_DECK:
-            this.props.filterDeck(heroPlayer, params);
+            filterDeck(heroPlayer, script);
             break;
          case BANISH_ALL:
             banishAll(field, heroPlayer, activeCard, variant, socket);
             break;
          case MILL_UNTIL:
-            this.props.millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, socket);
+            millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, socket);
             break;
          case TOKENS:
-            this.props.createTokens(heroPlayer, params, socket);
+            createTokens(heroPlayer, params, socket);
             break;
          case RANDOM_DISCARD:
             this.randomDiscard();
@@ -66,19 +67,18 @@ class CardScript extends PureComponent {
          else tails++;
       }
 
-      const message = `${heroPlayer} flipped ${count} coins; ${heads} came up heads and ${tails} came up tails.`
+      const message = `${heroPlayer} flipped ${count} coins; ${heads} came up heads and ${tails} came up tails.`;
       addMessage("Game", message, this.context);
    };
 
    render() {
       const { script, variant, field } = this.props;
-      const [name, params] = script.split(":");
 
       if (variant && !fieldContains(field, variant)) return <Fragment></Fragment>;
 
       return (
-         <Button color="primary" onClick={() => this.runScript(name, params)}>
-            <ScriptName scriptName={name} />
+         <Button color="primary" onClick={() => this.runScript(script)}>
+            <ScriptName scriptName={script.name} />
          </Button>
       );
    }
@@ -99,7 +99,7 @@ function mapStateToProps(state) {
 }
 
 CardScript.propTypes = {
-   script: PropTypes.string.isRequired,
+   script: PropTypes.object.isRequired,
    variant: PropTypes.string,
    activeCard: PropTypes.object,
    heroPlayer: PropTypes.string.isRequired

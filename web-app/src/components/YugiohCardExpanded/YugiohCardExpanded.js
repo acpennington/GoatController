@@ -6,15 +6,29 @@ import EffectTooltips from "./EffectTooltips.js";
 import CardScript from "./CardScript.js";
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
-import { FACEDOWN_CARD, SEARCH_DECK, BANISH_ALL } from "utils/constants";
+import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN } from "utils/constants";
 
 import { Description } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
 class YugiohCardExpanded extends PureComponent {
-   validScript = (player, scriptName) => {
-      return player === this.props.heroPlayer || scriptName !== SEARCH_DECK;
+   validScript = (activeCard, cardPlayer, script) => {
+      const { heroPlayer } = this.props;
+      const { displayCondition } = script;
+      if (displayCondition) {
+         for (const condition in displayCondition) {
+            if (condition === "players") {
+               const playerLegal = displayCondition.players.includes(cardPlayer === heroPlayer ? HERO : VILLAIN);
+               if (!playerLegal) return false;
+            } else {
+               const doesConditionMatch = displayCondition[condition] === activeCard[condition];
+               if (!doesConditionMatch) return false;
+            }
+         }
+      }
+
+      return true;
    };
 
    render() {
@@ -26,7 +40,6 @@ class YugiohCardExpanded extends PureComponent {
       if (!cardName) return <div className={classes.largePic}></div>;
 
       const { cardType, attribute, levelOrSubtype, atk, def, text, script } = getCardDetails(cardName);
-      const scriptName = script && script.split(":")[0];
 
       return (
          <div
@@ -44,15 +57,19 @@ class YugiohCardExpanded extends PureComponent {
                         <Description />
                         Rulings
                      </Button>
-                     {script && this.validScript(player, scriptName) && <CardScript script={script} heroPlayer={heroPlayer} />}
+                     {script && this.validScript(activeCard, player, script) && <CardScript script={script} heroPlayer={heroPlayer} />}
                      {text.includes("/Flip/") && (
-                        <CardScript script={BANISH_ALL} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
+                        <CardScript script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
                      )}
                   </div>
                )}
                <div className={classes.cardText}>
-                  <div><strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]</div>
-                  <div style={{margin: "2px 0", lineHeight: "1.3em"}}><EffectTooltips text={text} /></div>
+                  <div>
+                     <strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]
+                  </div>
+                  <div style={{ margin: "2px 0", lineHeight: "1.3em" }}>
+                     <EffectTooltips text={text} />
+                  </div>
                   <div>{attribute && `ATK ${atk} / DEF ${def}`}</div>
                </div>
             </div>
