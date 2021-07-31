@@ -127,7 +127,20 @@ const effectMonsters = {
       atk: 1000,
       def: 600,
       text: "Fiend/Effect – <effect=Trigger>If this card is sent from the field to the Graveyard: Add 1 monster with 1500 or less ATK from your Deck to your hand.</effect>",
-      script: "Search_Deck:atk<1500;autoClose",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: "1500"
+            }
+         },
+         autoClose: true
+      },
       limit: 1
    },
    "Sinister Serpent": {
