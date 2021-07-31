@@ -9,7 +9,7 @@ async function reorderDeck(id, username, deck, connectionId, api) {
    const action = { action: "SET_DECK", data: { player: username, deck } };
 
    await actionAndMessage(id, action, message, connectionId, api);
-   return { statusCode: 200, body: "LP adjusted" };
+   return { statusCode: 200, body: "Deck reordered" };
 }
 
 module.exports = reorderDeck;

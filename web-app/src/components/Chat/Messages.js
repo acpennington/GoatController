@@ -15,33 +15,47 @@ const DRAW_PHASE_MESSAGE = /set the phase to Draw./;
 class Messages extends PureComponent {
    transformCard = (msg) => {
       const { hero, newSelection, newHover } = this.props;
-      const [before, remaining] = msg.split("<<");
-      const [cardName, after] = remaining ? remaining.split(">>") : [null, null];
+      let rtn = [];
+      let remainingText = msg;
+      let id = 0;
 
-      let trueCardName = cardName;
-      if (cardName) {
-         const cardList = Object.keys(cards);
-         if (!cardList.includes(cardName)) {
-            const fuse = new Fuse(cardList, { threshold: 0.3 });
-            const results = fuse.search(cardName);
-            const firstResult = results.length > 0 && results[0].item;
-            if (firstResult) trueCardName = firstResult;
+      while (remainingText.includes("<<")) {
+         const splitString = remainingText.split("<<");
+         const firstPart = splitString.shift();
+         splitString.join("<<");
+         if (firstPart) rtn.push(<Fragment key={id++}>{firstPart}</Fragment>);
+
+         const secondSplit = splitString.join("<<").split(">>");
+         const secondPart = secondSplit.shift();
+         const thirdPart = secondSplit.join(">>");
+
+         if (secondPart) {
+            let cardName = secondPart;
+            const cardList = Object.keys(cards);
+            if (!cardList.includes(cardName)) {
+               const fuse = new Fuse(cardList, { threshold: 0.3 });
+               const results = fuse.search(cardName);
+               const firstResult = results.length > 0 && results[0].item;
+               if (firstResult) cardName = firstResult;
+            }
+
+            rtn.push(
+               <span
+                  style={{ textDecoration: "underline" }}
+                  onMouseOver={() => newHover(hero, null, null, cardName)}
+                  onClick={() => newSelection(hero, hero, null, null, cardName)}
+                  key={id++}
+               >
+                  {cardName}
+               </span>
+            );
          }
+
+         remainingText = thirdPart;
       }
 
-      return (
-         <Fragment>
-            {before}
-            <span
-               style={{ textDecoration: "underline" }}
-               onMouseOver={() => newHover(hero, null, null, trueCardName)}
-               onClick={() => newSelection(hero, hero, null, null, trueCardName)}
-            >
-               {trueCardName}
-            </span>
-            {after}
-         </Fragment>
-      );
+      if (remainingText) rtn.push(<Fragment key={id++}>{remainingText}</Fragment>);
+      return rtn;
    };
 
    bold = (msg) => {
