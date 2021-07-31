@@ -45,7 +45,7 @@ class ScriptName extends PureComponent {
                </Fragment>
             );
          default:
-            return <Fragment>{scriptName.replace(/_/g, " ")}</Fragment>;
+            return <Fragment>{scriptName && scriptName.replace(/_/g, " ")}</Fragment>;
       }
    }
 }

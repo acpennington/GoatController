@@ -1,6 +1,8 @@
+import { HERO, MONSTER, FLIP_COINS, FUSION_MONSTER } from "utils/constants.js";
+
 const fusions = {
    Bickuribox: {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 7,
       atk: 2300,
@@ -8,7 +10,7 @@ const fusions = {
       text: 'Fiend/Fusion – "Crass Clown" + "Dream Clown"'
    },
    "Black Skull Dragon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 9,
       atk: 3200,
@@ -16,7 +18,7 @@ const fusions = {
       text: 'Dragon/Fusion – "Summoned Skull" + "Red-Eyes Black Dragon". (This card is always treated as an "Archfiend" card.)'
    },
    "Charubin the Fire Knight": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Fire",
       levelOrSubtype: 3,
       atk: 1100,
@@ -24,7 +26,7 @@ const fusions = {
       text: 'Pyro/Fusion – "Monster Egg" + "Hinotama Soul"'
    },
    "Cyber Saurus": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 5,
       atk: 1800,
@@ -32,7 +34,7 @@ const fusions = {
       text: 'Machine/Fusion – "Blast Juggler" + "Two-Headed King Rex"'
    },
    "Dark Flare Knight": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 6,
       atk: 2200,
@@ -40,7 +42,7 @@ const fusions = {
       text: 'Warrior/Fusion/Effect – "Dark Magician" + "Flame Swordsman". <effect=Continuous>You take no Battle Damage from battles involving this card.</effect> <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: Special Summon 1 "Mirage Knight" from your hand or Deck.</effect>'
    },
    "Dark Paladin": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 8,
       atk: 2900,
@@ -49,7 +51,7 @@ const fusions = {
       noMeta: true
    },
    "Deepsea Shark": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Water",
       levelOrSubtype: 5,
       atk: 1900,
@@ -57,7 +59,7 @@ const fusions = {
       text: 'Fish/Fusion – "Bottom Dweller" + "Tongyo"'
    },
    "Elemental HERO Flame Wingman": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Wind",
       levelOrSubtype: 6,
       atk: 2100,
@@ -66,7 +68,7 @@ const fusions = {
       noMeta: true
    },
    "Elemental HERO Thunder Giant": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 6,
       atk: 2400,
@@ -75,7 +77,7 @@ const fusions = {
       noMeta: true
    },
    "Empress Judge": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 6,
       atk: 2100,
@@ -83,7 +85,7 @@ const fusions = {
       text: 'Warrior/Fusion – "Queen\'s Double" + "Hibikime"'
    },
    "Flame Ghost": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 3,
       atk: 1000,
@@ -91,7 +93,7 @@ const fusions = {
       text: 'Zombie/Fusion – "Skull Servant" + "Dissolverock"'
    },
    "Flame Swordsman": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Fire",
       levelOrSubtype: 5,
       atk: 1800,
@@ -99,7 +101,7 @@ const fusions = {
       text: 'Warrior/Fusion – "Flame Manipulator" + "Masaki the Legendary Swordsman"'
    },
    "Flower Wolf": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 5,
       atk: 1800,
@@ -107,7 +109,7 @@ const fusions = {
       text: 'Beast/Fusion – "Silver Fang" + "Darkworld Thorns"'
    },
    Fusionist: {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 3,
       atk: 900,
@@ -115,7 +117,7 @@ const fusions = {
       text: 'Beast/Fusion – "Petit Angel" + "Mystical Sheep #2"'
    },
    "Gaia the Dragon Champion": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Wind",
       levelOrSubtype: 7,
       atk: 2600,
@@ -123,7 +125,7 @@ const fusions = {
       text: 'Dragon/Fusion – "Gaia The Fierce Knight" + "Curse of Dragon"'
    },
    "Giltia the D. Knight": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 5,
       atk: 1850,
@@ -131,7 +133,7 @@ const fusions = {
       text: 'Warrior/Fusion – "Guardian of the Labyrinth" + "Protector of the Throne"'
    },
    "Humanoid Worm Drake": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Water",
       levelOrSubtype: 7,
       atk: 2200,
@@ -139,7 +141,7 @@ const fusions = {
       text: 'Aqua/Fusion – "Worm Drake" + "Humanoid Slime"'
    },
    "Kaminari Attack": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Wind",
       levelOrSubtype: 5,
       atk: 1900,
@@ -147,7 +149,7 @@ const fusions = {
       text: 'Thunder/Fusion – "Ocubeam" + "Mega Thunderball"'
    },
    "Karbonala Warrior": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 4,
       atk: 1500,
@@ -155,7 +157,7 @@ const fusions = {
       text: 'Warrior/Fusion – "M-Warrior #1" + "M-Warrior #2"'
    },
    "Kwagar Hercules": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 6,
       atk: 1900,
@@ -163,7 +165,7 @@ const fusions = {
       text: 'Insect/Fusion – "Kuwagata α" + "Hercules Beetle"'
    },
    "Labyrinth Tank": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 7,
       atk: 2400,
@@ -171,7 +173,7 @@ const fusions = {
       text: 'Machine/Fusion – "Giga-Tech Wolf" + "Cannon Soldier"'
    },
    "Master of Oz": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 9,
       atk: 4200,
@@ -179,7 +181,7 @@ const fusions = {
       text: 'Beast/Fusion – "Big Koala" + "Des Kangaroo"'
    },
    "Metal Dragon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Wind",
       levelOrSubtype: 6,
       atk: 1850,
@@ -187,7 +189,7 @@ const fusions = {
       text: 'Machine/Fusion – "Steel Ogre Grotto #1" + "Lesser Dragon"'
    },
    "Mokey Mokey King": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 6,
       atk: 300,
@@ -195,7 +197,7 @@ const fusions = {
       text: 'Fairy/Fusion/Effect – "Mokey Mokey" + "Mokey Mokey" + "Mokey Mokey". <effect=Trigger>When this card is removed from the field, you can Special Summon as many "Mokey Mokey" as possible from your Graveyard.</effect>'
    },
    "Musician King": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 5,
       atk: 1750,
@@ -203,7 +205,7 @@ const fusions = {
       text: 'Spellcaster/Fusion – "Witch of the Black Forest" + "Lady of Faith"'
    },
    "Punished Eagle": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Wind",
       levelOrSubtype: 6,
       atk: 2100,
@@ -211,7 +213,7 @@ const fusions = {
       text: 'Winged Beast/Fusion – "Blue-Winged Crown" + "Niwatori"'
    },
    "Rabid Horseman": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 6,
       atk: 2000,
@@ -219,7 +221,7 @@ const fusions = {
       text: 'Beast-Warrior/Fusion – "Battle Ox" + "Mystic Horseman"'
    },
    "Roaring Ocean Snake": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Water",
       levelOrSubtype: 6,
       atk: 2100,
@@ -227,7 +229,7 @@ const fusions = {
       text: 'Aqua/Fusion – "Mystic Lamp" + "Hyosube"'
    },
    Sanwitch: {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 6,
       atk: 2100,
@@ -235,7 +237,7 @@ const fusions = {
       text: 'Spellcaster/Fusion – "Sangan" + "Witch of the Black Forest"'
    },
    "Skull Knight": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 7,
       atk: 2650,
@@ -243,7 +245,7 @@ const fusions = {
       text: 'Spellcaster/Fusion – "Tainted Wisdom" + "Ancient Brain"'
    },
    "St. Joan": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 7,
       atk: 2800,
@@ -251,7 +253,7 @@ const fusions = {
       text: 'Fairy/Fusion – "The Forgiving Maiden" + "Darklord Marie"'
    },
    "Super Robolady": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 6,
       atk: 1200,
@@ -259,7 +261,7 @@ const fusions = {
       text: 'Machine/Fusion/Effect – "Robolady" + "Roboyarou". <effect=Ignition>You can Special Summon "Super Roboyarou" by returning this card from the field to the Extra Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>In addition, increase the ATK of this monster by 1000 points during the Damage Step when this monster inflicts Direct Damage to your opponent\'s Life Points.</effect>'
    },
    "Super Roboyarou": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 6,
       atk: 1200,
@@ -267,7 +269,7 @@ const fusions = {
       text: 'Machine/Fusion/Effect – "Roboyarou" + "Robolady". <effect=Ignition>You can Special Summon "Super Robolady" by returning this card from the field to the Extra Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>In addition, increase the ATK of this monster by 1000 points during the Damage Step when this monster battles with a monster.</effect>'
    },
    "Thousand Dragon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Wind",
       levelOrSubtype: 7,
       atk: 2400,
@@ -275,7 +277,7 @@ const fusions = {
       text: 'Dragon/Fusion – "Time Wizard" + "Baby Dragon"'
    },
    "Twin-Headed Thunder Dragon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 7,
       atk: 2800,
@@ -283,7 +285,7 @@ const fusions = {
       text: 'Thunder/Fusion – "Thunder Dragon" + "Thunder Dragon"'
    },
    "Warrior of Tradition": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 6,
       atk: 1900,
@@ -291,7 +293,7 @@ const fusions = {
       text: 'Warrior/Fusion – "Sonic Maid" + "Beautiful Headhuntress"'
    },
    "XY-Dragon Cannon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 6,
       atk: 2200,
@@ -300,7 +302,7 @@ const fusions = {
       noMeta: true
    },
    "XYZ-Dragon Cannon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 8,
       atk: 2800,
@@ -309,7 +311,7 @@ const fusions = {
       noMeta: true
    },
    "XZ-Tank Cannon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 6,
       atk: 2400,
@@ -318,7 +320,7 @@ const fusions = {
       noMeta: true
    },
    "YZ-Tank Dragon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 6,
       atk: 2100,
@@ -327,7 +329,7 @@ const fusions = {
       noMeta: true
    },
    "Dragoness the Wicked Knight": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Wind",
       levelOrSubtype: 3,
       atk: 1200,
@@ -335,7 +337,7 @@ const fusions = {
       text: 'Warrior/Fusion – "Armaill" + "One-Eyed Shield Dragon"'
    },
    "King Dragun": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "",
       levelOrSubtype: 7,
       atk: 2400,
@@ -343,7 +345,7 @@ const fusions = {
       text: 'Dragon/Fusion/Effect – "Lord of D." + "Divine Dragon Ragnarok". <effect=Continuous>Your opponent cannot target Dragon monsters with card effects.</effect> <effect=Ignition>Once per turn: You can Special Summon 1 Dragon monster from your hand.</effect>'
    },
    "Darkfire Dragon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 4,
       atk: 1500,
@@ -351,7 +353,7 @@ const fusions = {
       text: 'Dragon/Effect – "Firegrass" + "Petit Dragon"'
    },
    "Ojama King": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Light",
       levelOrSubtype: 6,
       atk: 0,
@@ -359,7 +361,7 @@ const fusions = {
       text: 'Beast/Fusion/Effect – "Ojama Green" + "Ojama Yellow" + "Ojama Black". <effect=Continuous>Select up to 3 of your opponent\'s Monster Card Zones. The selected zones cannot be used.</effect>'
    },
    "Reaper on the Nightmare": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 5,
       atk: 800,
@@ -367,7 +369,7 @@ const fusions = {
       text: 'Zombie/Fusion/Effect – "Spirit Reaper" + "Nightmare Horse". <effect=Continuous>This card is not destroyed as a result of battle.</effect> <effect=Continuous>After resolving a card effect that targets this face-up card, destroy this card.</effect> <effect=Continuous>This card can attack your opponent directly.</effect> <effect=Trigger>When this card inflicts battle damage to your opponent by a direct attack: Discard 1 random card from their hand.</effect>'
    },
    "Fiend Skull Dragon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Wind",
       levelOrSubtype: 5,
       atk: 2000,
@@ -375,7 +377,7 @@ const fusions = {
       text: 'Dragon/Fusion/Effect – "Cave Dragon" + "Lesser Fiend". (This card is always treated as an "Archfiend" card.) A Fusion Summon of this card can only be done with the above Fusion Material Monsters. <effect=Continuous>Negate the effects of Flip Effect Monsters.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap Card.</effect>'
    },
    "Dark Blade the Dragon Knight": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 6,
       atk: 2200,
@@ -383,7 +385,7 @@ const fusions = {
       text: 'Warrior/Fusion/Effect – "Dark Blade" + "Pitch-Dark Dragon". <effect=Trigger>When this card inflicts battle damage to your opponent: You can target up to 3 monsters in their Graveyard; banish those targets.</effect>'
    },
    "The Last Warrior from Another Planet": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 7,
       atk: 2350,
@@ -391,16 +393,23 @@ const fusions = {
       text: 'Warrior/Fusion/Effect – "Zombyra the Dark" + "Maryokutai". <effect=Trigger>If this card is Special Summoned: Destroy all other monsters you control.</effect> <effect=Continuous>Neither player can Summon monsters.</effect>'
    },
    "Gatling Dragon": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 8,
       atk: 2600,
       def: 1200,
       text: 'Machine/Fusion/Effect – "Barrel Dragon" + "Blowback Dragon". <effect=Ignition>Once per turn: You can toss a coin 3 times and destroy as many monsters on the field as possible, but not more than the number of heads.</effect>',
-      script: "Flip_Coins:3"
+      script: {
+         name: FLIP_COINS,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: 3
+      }
    },
    "Ryu Senshi": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Earth",
       levelOrSubtype: 6,
       atk: 2000,
@@ -408,7 +417,7 @@ const fusions = {
       text: 'Warrior/Fusion/Effect – "Warrior Dai Grepher" + "Spirit Ryu". A Fusion Summon of this card can only be done with the above Fusion Materials. <effect=Quick>When a Normal Trap Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell Card that targets this card and destroy it.</effect>'
    },
    "Dark Balter the Terrible": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 5,
       atk: 2000,
@@ -416,7 +425,7 @@ const fusions = {
       text: 'Fiend/Fusion/Effect – "Possessed Dark Soul" + "Frontier Wiseman". A Fusion Summon of this monster can only be conducted with the above Fusion Material Monsters. <effect=Quick>When a Normal Spell Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>The effect of an Effect Monster that this monster destroys as a result of battle is negated.</effect>'
    },
    "Thousand-Eyes Restrict": {
-      cardType: "fusionMonster",
+      cardType: FUSION_MONSTER,
       attribute: "Dark",
       levelOrSubtype: 1,
       atk: 0,
