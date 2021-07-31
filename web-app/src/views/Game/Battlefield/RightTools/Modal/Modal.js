@@ -8,7 +8,7 @@ import ShortcutFooter from "./ShortcutFooter.js";
 
 import getCardDetails from "utils/getCardDetails";
 import { EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
-import { fusions } from "databases/cardDB.js";
+import { fusions } from "databases/cardDB/index.js";
 
 import Button from "components/CustomButtons/Button.js";
 import Switch from "@material-ui/core/Switch";

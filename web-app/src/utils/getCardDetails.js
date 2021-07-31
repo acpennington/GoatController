@@ -1,4 +1,4 @@
-import { cards, tokens } from "databases/cardDB.js";
+import { cards, tokens } from "databases/cardDB/index.js";
 
 const emptyCard = {
    cardType: null,
