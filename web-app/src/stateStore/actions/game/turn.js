@@ -13,7 +13,7 @@ function setTurn(player, phase, socket = false, oldPlayer = false, handCount = 0
       if (player === oldPlayer && phase !== BATTLE) dispatch({ type: CLEAR_BATTLE, data: socket });
       if (phase === DRAW && player !== oldPlayer) dispatch(drawPhaseDraw(player, socket));
       else if (phase === NEXT_TURN && handCount > 6) {
-         const message = player + " has " + handCount + " cards in hand. Please discard down to 6.";
+         const message = `${player} has ${handCount} cards in hand. Please discard down to 6.`;
          dispatch(addMessage("Game", message, socket));
       }
    };

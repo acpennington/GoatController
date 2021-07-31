@@ -219,7 +219,7 @@ export default function (state = initialState, action) {
 
          if (socket && socket.api) {
             const fromName = fromCard.name;
-            const toName = toCard ? (toCard.facedown ? "a facedown monster" : toCard.name) : "directly";
+            const toName = toCard ? (toCard.facedown ? "a facedown Monster" : toCard.name) : "directly";
             const payload = { action: SEND_ATTACK, data: { token: socket.token, id: socket.matchId, fromName, toName, to, from } };
             socket.api.send(JSON.stringify(payload));
          }

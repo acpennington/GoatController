@@ -11,11 +11,11 @@ const findMatch = require("./utils/findMatch.js");
 // @db 1 read, 1 write
 async function joinMatch(id, username, connectionId, api) {
    const match = await findMatch(id, "players, watchers, chat, gamestate, turn");
-   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game " + id + " not found" }] } };
+   if (!match) return { statusCode: 400, body: { errors: [{ msg: `Match ${id} not found` }] } };
    const { players, watchers, chat, gamestate, turn } = match;
 
    let UpdateExpression = "SET players.#name = :connectId, watchers = :watchers";
-   const message = { author: "Server", content: username + " has connected to the match." };
+   const message = { author: "Server", content: `${username} has connected to the Match.` };
    if (players.hasOwnProperty(username)) {
       await sendChatMessage(message, players, watchers, api, connectionId);
       UpdateExpression += ", chat = list_append(chat, :messages)";
@@ -48,7 +48,7 @@ async function joinMatch(id, username, connectionId, api) {
    };
    await api.postToConnection({ ConnectionId: connectionId, Data: JSON.stringify(payload) }).promise();
 
-   return { statusCode: 200, body: "Player joined match" };
+   return { statusCode: 200, body: "Player joined Match" };
 }
 
 module.exports = joinMatch;

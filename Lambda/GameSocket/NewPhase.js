@@ -5,7 +5,7 @@ const actionAndMessage = require("./utils/actionAndMessage.js");
 // @access Private
 // @db 1 read, 0 writes
 async function newPhase(id, username, data, connectionId, api) {
-   const message = { author: "Server", content: username + " set the phase to " + data.phase + "." };
+   const message = { author: "Server", content: `${username} set the Phase to ${data.phase}.` };
    const action = { action: "SET_TURN", data };
 
    await actionAndMessage(id, action, message, connectionId, api);

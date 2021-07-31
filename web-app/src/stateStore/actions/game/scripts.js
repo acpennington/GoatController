@@ -31,7 +31,7 @@ function millUntil(player, deck, params, socket = false) {
    };
 }
 
-function banishAll(field, player, activeCard, socket = false) {
+function banishAll(field, player, activeCard, variant, socket = false) {
    const deck = field[player].deck;
    const otherPlayer = getOtherPlayer(player, field);
    const otherDeck = field[otherPlayer].deck;
@@ -73,7 +73,7 @@ function banishAll(field, player, activeCard, socket = false) {
       if (socket && socket.api)
          dispatch({
             type: SEND_ENTIRE_GAMESTATE,
-            data: { socket, message: player + " resolved Nobleman. All copies of " + activeCardName + " were banished." }
+            data: { socket, message: `${player} resolved ${variant}. All copies of ${activeCardName} were banished.` }
          });
    };
 }

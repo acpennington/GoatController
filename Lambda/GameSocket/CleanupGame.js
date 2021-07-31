@@ -11,7 +11,7 @@ const findMatch = require("./utils/findMatch.js");
 // @db 1 read, 3 writes
 async function cleanupGame(id, connectionId, api) {
    const match = await findMatch(id, "players, league");
-   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Game not found" }] } };
+   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Match not found" }] } };
 
    const params = {
       TableName: "matches",
@@ -40,7 +40,7 @@ async function cleanupGame(id, connectionId, api) {
 
    const payload = { action: "REDIRECT", data: "/league?id=" + league };
    await sendPayload(payload, players, [], api, connectionId, false);
-   return { statusCode: 200, body: "Game cleaned up" };
+   return { statusCode: 200, body: "Match cleaned up" };
 }
 
 module.exports = cleanupGame;

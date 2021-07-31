@@ -18,7 +18,7 @@ function getShortcut(row) {
        case GRAVEYARD:
           return "Double-click a card to banish it.";
        case BANISHED:
-          return "Double-click a card to move it back to your graveyard.";
+          return "Double-click a card to move it back to your Graveyard.";
        case DECK:
           return "Double-click a card to add it to your hand.";
        default:

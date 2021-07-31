@@ -1,6 +1,8 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
-const { HAND, DECK, GRAVEYARD, BANISHED } = require("./utils/constants");
+const { HAND, DECK, GRAVEYARD, BANISHED, SPELL_TRAP, FIELD_SPELL } = require("./utils/constants");
 const display = require("./utils/display");
+
+const ZONES = [MONSTER, SPELL_TRAP, FIELD_SPELL];
 
 // @action SendCardMove
 // @desc Sends a card movement from one player to the other (and watchers)
@@ -12,12 +14,15 @@ async function sendCardMove(id, username, from, fromCard, to, settingTrap, msg, 
       (from.row === DECK && to.row === HAND && from.zone === -1) ||
       (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED);
    const cardName = unknown ? "a card " : fromCard.name;
-   const adverb = msg || "";
+   const adverb = ` ${msg} ` || " ";
    const noMessage = (from.row === HAND && to.row === HAND) || (from.row === DECK && to.row === DECK);
+
+   const fromZone = ZONES.includes(from.row) ? `${display(from.row)} Zone` : display(from.row);
+   const toZone = ZONES.includes(to.row) ? `${display(to.row)} Zone` : display(to.row);
 
    const message = !noMessage && {
       author: "Server",
-      content: `${username} ${adverb} moved ${cardName} from their ${display(from.row)} zone to ${player}${display(to.row)} zone.`
+      content: `${username}${adverb}moved ${cardName} from their ${fromZone} to ${player} ${toZone}.`
    };
    const action = { action: "MOVE_CARD", data: { from, to } };
 
