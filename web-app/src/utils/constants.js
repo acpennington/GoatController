@@ -4,6 +4,10 @@ export const VILLAIN_HAND_HEIGHT_FRACTION = 0.5;
 export const MODAL_CARD_SIZE = 0.82;
 export const CARD_RATIO = 1.45;
 
+// player
+export const HERO = "HERO";
+export const VILLAIN = "VILLAIN";
+
 // special card names
 export const FACEDOWN_CARD = "Facedown Card";
 

@@ -12,12 +12,13 @@ import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/script
 import { GRAVEYARD, HAND, SPELL_TRAP, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS } from "utils/constants";
 
 class CardScript extends PureComponent {
-   runScript = (name, params) => {
+   runScript = (script) => {
       const { field, activeCard, banishAll, heroPlayer, variant } = this.props;
+      const { name, params } = script;
       const socket = this.context;
       switch (name) {
          case SEARCH_DECK:
-            this.props.filterDeck(heroPlayer, params);
+            this.props.filterDeck(heroPlayer, script);
             break;
          case BANISH_ALL:
             banishAll(field, heroPlayer, activeCard, variant, socket);
@@ -66,19 +67,18 @@ class CardScript extends PureComponent {
          else tails++;
       }
 
-      const message = `${heroPlayer} flipped ${count} coins; ${heads} came up heads and ${tails} came up tails.`
+      const message = `${heroPlayer} flipped ${count} coins; ${heads} came up heads and ${tails} came up tails.`;
       addMessage("Game", message, this.context);
    };
 
    render() {
       const { script, variant, field } = this.props;
-      const [name, params] = script.split(":");
 
       if (variant && !fieldContains(field, variant)) return <Fragment></Fragment>;
 
       return (
-         <Button color="primary" onClick={() => this.runScript(name, params)}>
-            <ScriptName scriptName={name} />
+         <Button color="primary" onClick={() => this.runScript(script)}>
+            <ScriptName scriptName={script.name} />
          </Button>
       );
    }

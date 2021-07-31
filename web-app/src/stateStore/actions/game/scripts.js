@@ -5,9 +5,9 @@ import getCardDetails from "utils/getCardDetails.js";
 import getOtherPlayer from "utils/getOtherPlayer.js";
 import { SPELL_TRAP, DECK, GRAVEYARD, BANISHED, MILL, SEND_ENTIRE_GAMESTATE } from "utils/constants.js";
 
-function filterDeck(player, params) {
-   const [filter, autoClose] = params.split(";");
-   return openModal(player, DECK, filter, autoClose && autoClose === "autoClose");
+function filterDeck(player, script) {
+   const { params, autoClose } = script;
+   return openModal(player, DECK, params, autoClose);
 }
 
 function millUntil(player, deck, params, socket = false) {

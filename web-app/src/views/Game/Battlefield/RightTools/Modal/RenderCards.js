@@ -30,20 +30,19 @@ class RenderCards extends Component {
          zoneNumbers = zoneNumbers.filter((numb) => {
             const cardName = cards[numb].name;
             const cardDetails = getCardDetails(cardName);
-            const filters = filter.split(",");
 
-            for (const singleFilter of filters) {
-               const operator = singleFilter.includes(">") ? ">" : singleFilter.includes("<") ? "<" : "=";
-               const [deet, comparator] = singleFilter.split(operator);
+            for (const paramName in filter) {
+               const singleParam = filter[paramName];
+               const { operator, value } = singleParam;
                switch (operator) {
                   case ">":
-                     if (!(cardDetails[deet] && cardDetails[deet] >= comparator)) return false;
+                     if (!(cardDetails[paramName] && cardDetails[paramName] >= value)) return false;
                      break;
                   case "<":
-                     if (!(cardDetails[deet] && cardDetails[deet] <= comparator)) return false;
+                     if (!(cardDetails[paramName] && cardDetails[paramName] <= value)) return false;
                      break;
                   default:
-                     if (!(cardDetails[deet] && cardDetails[deet] === comparator)) return false;
+                     if (!(cardDetails[paramName] && cardDetails[paramName] === value)) return false;
                }
             }
             return true;
