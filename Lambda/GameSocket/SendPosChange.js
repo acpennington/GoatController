@@ -5,7 +5,7 @@ async function sendPosChange(id, username, row, zone, cardName, connectionId, ap
    const handFlip = row === HAND;
    const switchType = row === MONSTER ? "switched the battle position of" : "flipped";
 
-   const message = !handFlip && { author: "Server", content: `${username} ${switchType} ${cardName}.` };
+   const message = !handFlip && { author: "Server", content: `${username} ${switchType} <<${cardName}>>.` };
    const action = { action: "SWITCH_POSITION", data: { player: username, row, zone } };
 
    await actionAndMessage(id, action, message, connectionId, api);

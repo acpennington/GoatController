@@ -5,7 +5,8 @@ const actionAndMessage = require("./utils/actionAndMessage.js");
 // @access Private
 // @db 1 read, 0 writes
 async function sendAttack(id, username, toName, fromName, to, from, connectionId, api) {
-   const message = { author: "Server", content: `${username} attacked ${toName} with ${fromName}.` };
+   const attackTarget = toName !== "directly" && toName !== "a facedown Monster" ? "<<" + toName + ">>" : toName;
+   const message = { author: "Server", content: `${username} attacked ${attackTarget} with <<${fromName}>>.` };
    const action = { action: "ATTACK", data: { to, from } };
 
    await actionAndMessage(id, action, message, connectionId, api);

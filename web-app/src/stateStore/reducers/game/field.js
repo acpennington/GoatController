@@ -52,7 +52,7 @@ const blankField = {
    handRevealed: false,
    [MONSTER]: [null, null, null, null, null],
    [SPELL_TRAP]: [null, null, null, null, null],
-   [FIELD_SPELL]: null,
+   [FIELD_SPELL]: null
 };
 
 const initialState = {};
