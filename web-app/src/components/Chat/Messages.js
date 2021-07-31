@@ -5,6 +5,7 @@ import Fuse from "fuse.js";
 
 import { newHover } from "stateStore/actions/shared/hoverCard";
 import { newSelection } from "stateStore/actions/shared/selectedCard";
+import { cards } from "databases/cardDB";
 
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
@@ -17,8 +18,16 @@ class Messages extends PureComponent {
       const [before, remaining] = msg.split("<<");
       const [cardName, after] = remaining ? remaining.split(">>") : [null, null];
 
-      const fuse = new Fuse();
-      const trueCardName = cardName; // todo use fuse.js for fuzzysearch
+      let trueCardName = cardName;
+      if (cardName) {
+         const cardList = Object.keys(cards);
+         if (!cardList.includes(cardName)) {
+            const fuse = new Fuse(cardList, { threshold: 0.3 });
+            const results = fuse.search(cardName);
+            const firstResult = results.length > 0 && results[0].item;
+            if (firstResult) trueCardName = firstResult;
+         }
+      }
 
       return (
          <Fragment>
