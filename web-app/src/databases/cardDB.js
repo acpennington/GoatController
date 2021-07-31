@@ -810,14 +810,6 @@ const vanillas =  {
    def: 1200,
    text: "Dinosaur - A powerful dragon with teeth that can grind almost anything to dust."
  },
- "Cure Mermaid": {
-   cardType: "normalMonster",
-   attribute: "Water",
-   levelOrSubtype: 4,
-   atk: 1500,
-   def: 800,
-   text: "Fish - As long as this card remains face-up on your side of the field, increase your Life Points by 800 points during each of your Standby Phases."
- },
  "Curse of Dragon": {
    cardType: "normalMonster",
    attribute: "Dark",
@@ -1530,14 +1522,6 @@ const vanillas =  {
    def: 2800,
    text: "Dragon - A dragon created from a massive diamond that sparkles with blinding light."
  },
- "Hysteric Fairy": {
-   cardType: "normalMonster",
-   attribute: "Light",
-   levelOrSubtype: 4,
-   atk: 1800,
-   def: 500,
-   text: "Fairy - Tribute 2 monsters on your side of the field to increase your Life Points by 1000 points."
- },
  "Illusionist Faceless Mage": {
    cardType: "normalMonster",
    attribute: "Dark",
@@ -2113,14 +2097,6 @@ const vanillas =  {
    atk: 900,
    def: 800,
    text: "Winged Beast - Swallows enemies whole and uses their essence as energy."
- },
- "Nuvia the Wicked": {
-   cardType: "normalMonster",
-   attribute: "Dark",
-   levelOrSubtype: 4,
-   atk: 2000,
-   def: 800,
-   text: "Fiend - If this monster is Normal Summoned, destroy this card. If your opponent controls any monster, decrease the ATK of this card by 200 points for each monster on your opponent's side of the field."
  },
  Octoberser: {
    cardType: "normalMonster",
@@ -2834,14 +2810,6 @@ const vanillas =  {
    def: 700,
    text: "Fiend - This gentlemanly creature is extremely wicked, feared by man and fiend alike."
  },
- "The Forgiving Maiden": {
-   cardType: "normalMonster",
-   attribute: "Light",
-   levelOrSubtype: 4,
-   atk: 850,
-   def: 2000,
-   text: "Fairy - Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand."
- },
  "The Furious Sea King": {
    cardType: "normalMonster",
    attribute: "Water",
@@ -3222,6 +3190,40 @@ const vanillas =  {
 
 const monsters = {
    ...vanillas,
+   "Cure Mermaid": {
+      cardType: "effectMonster",
+      attribute: "Water",
+      levelOrSubtype: 4,
+      atk: 1500,
+      def: 800,
+      text: "Fish/Effect - <effect=Trigger>As long as this card remains face-up on your side of the field, increase your Life Points by 800 points during each of your Standby Phases.</effect>",
+      prepopLP: {hero: 800}
+    },
+    "Hysteric Fairy": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 4,
+      atk: 1800,
+      def: 500,
+      text: "Fairy/Effect - <effect=Ignition>Tribute 2 monsters on your side of the field to increase your Life Points by 1000 points.</effect>",
+      prepopLP: {hero: 1000}
+    },
+    "Nuvia the Wicked": {
+      cardType: "effectMonster",
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 2000,
+      def: 800,
+      text: "Fiend/Effect - <effect=Trigger>If this monster is Normal Summoned, destroy this card.</effect> <effect=Continuous>If your opponent controls any monster, decrease the ATK of this card by 200 points for each monster on your opponent's side of the field.</effect>"
+    },
+    "The Forgiving Maiden": {
+      cardType: "effectMonster",
+      attribute: "Light",
+      levelOrSubtype: 4,
+      atk: 850,
+      def: 2000,
+      text: "Fairy/Effect - <effect=Ignition>Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand.</effect>"
+    },
    "Shining Angel": {
       cardType: "effectMonster",
       attribute: "Light",
