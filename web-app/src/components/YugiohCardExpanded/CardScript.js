@@ -9,7 +9,7 @@ import { moveCard, createTokens } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
 
-import { GRAVEYARD, HAND, SPELL_TRAP, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS } from "utils/constants";
+import { GRAVEYARD, HAND, SPELL_TRAP, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS, ROLL_DICE } from "utils/constants";
 
 class CardScript extends PureComponent {
    runScript = (script) => {
@@ -34,6 +34,9 @@ class CardScript extends PureComponent {
             break;
          case FLIP_COINS:
             this.flipCoins(params);
+            break;
+         case ROLL_DICE:
+            this.rollDice(params);
             break;
          default:
             console.log("Error: Undefined card script");
@@ -68,6 +71,22 @@ class CardScript extends PureComponent {
       }
 
       const message = `${heroPlayer} flipped ${count} coins; ${heads} came up heads and ${tails} came up tails.`;
+      addMessage("Game", message, this.context);
+   };
+
+   rollDice = (count) => {
+      const { heroPlayer, addMessage } = this.props;
+      const results = [];
+
+      for (let i = 0; i < count; i++) results.push(Math.ceil(Math.random() * 6));
+
+      const message =
+         heroPlayer +
+         " rolled " +
+         (count === 1 ? " a die." : count + " dice.") +
+         " The result" +
+         (count === 1 ? " was " + results[0] : "s were " + results[0] + " and " + results[1]) +
+         ".";
       addMessage("Game", message, this.context);
    };
 

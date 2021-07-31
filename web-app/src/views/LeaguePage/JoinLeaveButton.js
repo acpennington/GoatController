@@ -37,8 +37,6 @@ class JoinLeaveButton extends PureComponent {
       const { pending, leave } = this.props;
       const { errors } = this.state;
 
-      console.log("leave: "+leave);
-
       if (errors) return <span style={{ color: "red" }}>{errors}</span>;
       else
          return (

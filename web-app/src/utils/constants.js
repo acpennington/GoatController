@@ -152,6 +152,7 @@ export const MILL_UNTIL = "MILL_UNTIL";
 export const TOKENS = "MAKE_TOKENS";
 export const RANDOM_DISCARD = "RANDOM_DISCARD";
 export const FLIP_COINS = "FLIP_COINS";
+export const ROLL_DICE = "ROLL_DICE";
 
 // leagues
 export const OFFICIAL_UNRANKED = {

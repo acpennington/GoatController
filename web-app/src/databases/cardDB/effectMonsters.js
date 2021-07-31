@@ -1,4 +1,4 @@
-import { HERO, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL, TRAP } from "utils/constants";
+import { HERO, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL, TRAP, ROLL_DICE } from "utils/constants";
 
 const effectMonsters = {
    "Cure Mermaid": {
@@ -246,7 +246,15 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 1000,
       def: 2000,
-      text: "Machine/Effect – <effect=Ignition>Once per turn: You can roll a six-sided die twice, choose 1 result, and destroy 1 monster on the field whose Level is equal to that result.</effect>"
+      text: "Machine/Effect – <effect=Ignition>Once per turn: You can roll a six-sided die twice, choose 1 result, and destroy 1 monster on the field whose Level is equal to that result.</effect>",
+      script: {
+         name: ROLL_DICE,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: 2
+      }
    },
    "Zaborg the Thunder Monarch": {
       cardType: EFFECT_MONSTER,

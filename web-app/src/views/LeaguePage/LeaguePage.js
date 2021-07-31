@@ -144,8 +144,6 @@ class LeaguePage extends PureComponent {
       const { count, pending, isBanned, isAdmin } = members;
       const { leagueId, getMatchmaking, getLeagueRules, getSocialMedia, updateCanLeave } = this;
 
-      console.log("canleave: " + canLeave);
-
       return (
          <PageTemplate>
             <GridContainer>

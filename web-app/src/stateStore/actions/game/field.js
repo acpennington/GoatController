@@ -110,4 +110,4 @@ function shuffleDeck(player, socket = false, noSound = false) {
    return { type: SHUFFLE_DECK, data: { player, socket } };
 }
 
-export { playSound, moveCard, drawPhaseDraw, drawCards, createTokens, switchPosition, adjustCounters, attack, revealHand, adjustLP, resetSolo, shuffleDeck };
+export { playSound, moveCard, drawPhaseDraw, createTokens, switchPosition, adjustCounters, attack, revealHand, adjustLP, resetSolo, shuffleDeck };
