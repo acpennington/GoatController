@@ -1,5 +1,5 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
-const { HAND, DECK, GRAVEYARD, BANISHED, SPELL_TRAP, FIELD_SPELL } = require("./utils/constants");
+const { HAND, DECK, GRAVEYARD, BANISHED, MONSTER, SPELL_TRAP, FIELD_SPELL } = require("./utils/constants");
 const display = require("./utils/display");
 
 const ZONES = [MONSTER, SPELL_TRAP, FIELD_SPELL];
@@ -10,9 +10,8 @@ const ZONES = [MONSTER, SPELL_TRAP, FIELD_SPELL];
 // @db 1 read, 0 writes
 async function sendCardMove(id, username, from, fromCard, to, settingTrap, msg, connectionId, api) {
    const player = to.player === username ? " their " : to.player + "'s ";
-   const unknown = settingTrap ||
-      (from.row === DECK && to.row === HAND && from.zone === -1) ||
-      (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED);
+   const unknown =
+      settingTrap || (from.row === DECK && to.row === HAND && from.zone === -1) || (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED);
    const cardName = unknown ? "a card " : fromCard.name;
    const adverb = ` ${msg} ` || " ";
    const noMessage = (from.row === HAND && to.row === HAND) || (from.row === DECK && to.row === DECK);
