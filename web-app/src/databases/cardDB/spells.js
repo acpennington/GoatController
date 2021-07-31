@@ -1,4 +1,4 @@
-import { SPELL, RANDOM_DISCARD, VILLAIN, SPELL_TRAP } from "utils/constants.js";
+import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, TOKENS } from "utils/constants.js";
 
 const spells = {
    Necrovalley: {
@@ -41,7 +41,7 @@ const spells = {
          name: RANDOM_DISCARD,
          displayCondition: {
             players: [VILLAIN],
-            row: [SPELL_TRAP]
+            row: SPELL_TRAP
          }
       },
       limit: 1
@@ -74,7 +74,18 @@ const spells = {
       cardType: SPELL,
       levelOrSubtype: "Quick-Play",
       text: 'Special Summon 4 "Sheep Tokens" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. They cannot be Tributed for a Tribute Summon. You cannot Summon other monsters the turn you activate this card (but you can Normal Set).',
-      script: "Make_Tokens:count=4,name=Sheep Token,pos=def"
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            name: "Sheep Token",
+            pos: "def",
+            count: 4
+         }
+      }
    },
    "Book of Moon": {
       cardType: SPELL,

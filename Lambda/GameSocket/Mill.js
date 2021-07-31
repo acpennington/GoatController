@@ -10,7 +10,7 @@ async function mill(id, username, deck, params, connectionId, api) {
    const cardType = params.cardType && params.cardType.operator === "OR" ? "Spell or Trap" : "Normal Summon Monster";
 
    const message = { author: "Server", content: `${username} milled until a ${cardType} card.` };
-   const action = { action: "MILL", data: { player: username, deck, params } };
+   const action = { action: "MILL_UNTIL", data: { player: username, deck, params } };
 
    await actionAndMessage(id, action, message, connectionId, api);
    return { statusCode: 200, body: "Card milled" };

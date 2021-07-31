@@ -146,12 +146,12 @@ export const GAME_SOCKET_URL = "wss://piii9xe4hj.execute-api.us-east-2.amazonaws
 export const headers = { "Content-Type": "application/json" };
 
 // script names
-export const SEARCH_DECK = "Search_Deck";
-export const BANISH_ALL = "Banish_All";
-export const MILL_UNTIL = "Mill_Until";
-export const TOKENS = "Make_Tokens";
-export const RANDOM_DISCARD = "Random_Discard";
-export const FLIP_COINS = "Flip_Coins";
+export const SEARCH_DECK = "SEARCH_DECK";
+export const BANISH_ALL = "BANISH_ALL";
+export const MILL_UNTIL = "MILL_UNTIL";
+export const TOKENS = "MAKE_TOKENS";
+export const RANDOM_DISCARD = "RANDOM_DISCARD";
+export const FLIP_COINS = "FLIP_COINS";
 
 // leagues
 export const OFFICIAL_UNRANKED = {
