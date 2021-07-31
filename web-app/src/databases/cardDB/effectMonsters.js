@@ -94,6 +94,7 @@ const effectMonsters = {
       text: "Insect/Flip/Effect – <effect=Trigger>FLIP: Excavate cards from the top of your Deck until you excavate a Spell/Trap, then add that card to your hand, also send the remaining cards to the Graveyard.</effect>",
       script: {
          name: MILL_UNTIL,
+         message: "Spell or Trap",
          displayCondition: {
             players: [HERO],
             row: MONSTER
