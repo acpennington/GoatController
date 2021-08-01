@@ -110,6 +110,7 @@ export const SEND_ENTIRE_GAMESTATE = "SendEntireGamestate";
 export const SEND_SELECTION = "SendSelection";
 export const REMOVE_SELECTION = "RemoveSelection";
 export const SEND_COUNTERS = "SendCounters";
+export const SEND_DND = "SendDnd";
 
 // ItemTypes
 export const OFF_FIELD = "offField";
@@ -153,6 +154,7 @@ export const TOKENS = "MAKE_TOKENS";
 export const RANDOM_DISCARD = "RANDOM_DISCARD";
 export const FLIP_COINS = "FLIP_COINS";
 export const ROLL_DICE = "ROLL_DICE";
+export const DISCARD_AND_DRAW = "DISCARD_AND_DRAW";
 
 // leagues
 export const OFFICIAL_UNRANKED = {

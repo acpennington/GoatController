@@ -16,7 +16,9 @@ import {
    SEND_LP_CHANGE,
    SEND_TOKENS,
    SEND_REVEAL,
-   ADJUST_COUNTERS
+   ADJUST_COUNTERS,
+   DISCARD_AND_DRAW,
+   SEND_DND
 } from "utils/constants";
 
 function soundOn() {
@@ -110,4 +112,26 @@ function shuffleDeck(player, socket = false, noSound = false) {
    return { type: SHUFFLE_DECK, data: { player, socket } };
 }
 
-export { playSound, moveCard, drawPhaseDraw, createTokens, switchPosition, adjustCounters, attack, revealHand, adjustLP, resetSolo, shuffleDeck };
+function discardAndDraw(player, count, socket = false) {
+   if (socket && socket.api) {
+      const payload = { action: SEND_DND, data: { token: socket.token, id: socket.matchId, count } };
+      socket.api.send(JSON.stringify(payload));
+   }
+
+   return { type: DISCARD_AND_DRAW, data: { player, count } };
+}
+
+export {
+   playSound,
+   moveCard,
+   drawPhaseDraw,
+   createTokens,
+   switchPosition,
+   adjustCounters,
+   attack,
+   revealHand,
+   adjustLP,
+   resetSolo,
+   shuffleDeck,
+   discardAndDraw
+};

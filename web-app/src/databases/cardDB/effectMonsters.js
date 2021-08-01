@@ -1,4 +1,4 @@
-import { HERO, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL, TRAP, ROLL_DICE } from "utils/constants";
+import { HERO, VILLAIN, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL, TRAP, ROLL_DICE, DISCARD_AND_DRAW } from "utils/constants";
 
 const effectMonsters = {
    "Cure Mermaid": {
@@ -181,6 +181,14 @@ const effectMonsters = {
       atk: 700,
       def: 600,
       text: "Rock/Flip/Effect – <effect=Trigger>FLIP: Both players discard their entire hands, then draw 5 cards.</effect>",
+      script: {
+         name: DISCARD_AND_DRAW,
+         displayCondition: {
+            players: [HERO, VILLAIN],
+            row: MONSTER
+         },
+         params: 5
+      },
       limit: 1
    },
    "Asura Priest": {

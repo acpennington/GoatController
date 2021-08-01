@@ -5,15 +5,27 @@ import { connect } from "react-redux";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
-import { moveCard, createTokens } from "stateStore/actions/game/field.js";
+import { moveCard, createTokens, discardAndDraw } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
 
-import { GRAVEYARD, HAND, SPELL_TRAP, SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS, ROLL_DICE } from "utils/constants";
+import {
+   GRAVEYARD,
+   HAND,
+   SPELL_TRAP,
+   SEARCH_DECK,
+   BANISH_ALL,
+   MILL_UNTIL,
+   TOKENS,
+   RANDOM_DISCARD,
+   FLIP_COINS,
+   ROLL_DICE,
+   DISCARD_AND_DRAW
+} from "utils/constants";
 
 class CardScript extends PureComponent {
    runScript = (script) => {
-      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens } = this.props;
+      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw } = this.props;
       const { name, params } = script;
       const socket = this.context;
       switch (name) {
@@ -37,6 +49,9 @@ class CardScript extends PureComponent {
             break;
          case ROLL_DICE:
             this.rollDice(params);
+            break;
+         case DISCARD_AND_DRAW:
+            discardAndDraw(heroPlayer, params, socket);
             break;
          default:
             console.log("Error: Undefined card script");
@@ -126,4 +141,4 @@ CardScript.propTypes = {
 
 CardScript.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage })(CardScript);
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw })(CardScript);

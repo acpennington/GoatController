@@ -38,7 +38,8 @@ import {
    SEND_ENTIRE_GAMESTATE,
    ATTACKING,
    DEFENDING,
-   SEND_COUNTERS
+   SEND_COUNTERS,
+   DISCARD_AND_DRAW
 } from "utils/constants.js";
 
 const blankField = {
@@ -233,6 +234,20 @@ export default function (state = initialState, action) {
       case REVEAL_HAND:
          state[data].handRevealed = !state[data].handRevealed;
          return { ...state };
+      case DISCARD_AND_DRAW: {
+         let { player, count } = data;
+         const field = state[player];
+         if (count === "same") count = state[player].hand.length;
+
+         field.graveyard.push(...field.hand);
+         field.hand = [];
+
+         for (let i = 0; i < count; i++) if (field.deck.length > 0) field.hand.push(field.deck.pop());
+
+         playSound(count === 0 ? "/sounds/tograve.mp3" : "/sounds/drawcard.mp3");
+
+         return { ...state };
+      }
       case NEW_SOLO_GAME:
          const storage = window.sessionStorage;
          const decks = JSON.parse(storage.getItem("decks"));

@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import { FaSearch, FaDice } from "react-icons/fa";
 import { BiDownload } from "react-icons/bi";
 import { CgCardHearts } from "react-icons/cg";
-import { GiTwoCoins } from "react-icons/gi";
+import { GiTwoCoins, GiCardPlay } from "react-icons/gi";
 import FindInPageIcon from "@material-ui/icons/FindInPage";
 
-import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, FLIP_COINS, ROLL_DICE } from "utils/constants";
+import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, FLIP_COINS, ROLL_DICE, DISCARD_AND_DRAW } from "utils/constants";
 
 class ScriptName extends PureComponent {
    render() {
@@ -48,6 +48,12 @@ class ScriptName extends PureComponent {
             return (
                <Fragment>
                   <FaDice /> Roll Dice
+               </Fragment>
+            );
+         case DISCARD_AND_DRAW:
+            return (
+               <Fragment>
+                  <GiCardPlay /> Discard and Draw
                </Fragment>
             );
          default:
