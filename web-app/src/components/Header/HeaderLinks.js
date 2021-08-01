@@ -7,6 +7,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 import { Description, Help, YouTube } from "@material-ui/icons";
 import { SiDiscord } from "react-icons/si";
+import { GiTwoCoins } from "react-icons/gi";
 import People from "@material-ui/icons/People";
 
 import Button from "components/CustomButtons/Button.js";
@@ -16,30 +17,20 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 
 class HeaderLinks extends PureComponent {
    render() {
-      const { classes, loggedInAs } = this.props;
+      const { classes, loggedInAs, goatGold } = this.props;
 
       return (
          <List className={classes.list}>
             <ListItem className={classes.listItem}>
                <Tooltip id="FAQ" title="More about GoatDuels.com" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
-                  <Button
-                     href="/faq"
-                     color="transparent"
-                     target="_blank"
-                     className={classes.navLink}
-                  >
+                  <Button href="/faq" color="transparent" target="_blank" className={classes.navLink}>
                      <Help className={classes.icons} /> FAQ
                   </Button>
                </Tooltip>
             </ListItem>
             <ListItem className={classes.listItem}>
                <Tooltip id="rulings" title="Lookup any Goat ruling" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
-                  <Button
-                     href="/rulings"
-                     color="transparent"
-                     target="_blank"
-                     className={classes.navLink}
-                  >
+                  <Button href="/rulings" color="transparent" target="_blank" className={classes.navLink}>
                      <Description className={classes.icons} /> Card Rulings
                   </Button>
                </Tooltip>
@@ -70,12 +61,7 @@ class HeaderLinks extends PureComponent {
                   placement={window.innerWidth > 959 ? "top" : "left"}
                   classes={{ tooltip: classes.tooltip }}
                >
-                  <Button
-                     color="transparent"
-                     href="https://www.youtube.com/allencpennington"
-                     target="_blank"
-                     className={classes.navLink}
-                  >
+                  <Button color="transparent" href="https://www.youtube.com/allencpennington" target="_blank" className={classes.navLink}>
                      <YouTube className={classes.socialIcons} />
                   </Button>
                </Tooltip>
@@ -85,6 +71,20 @@ class HeaderLinks extends PureComponent {
                   <Tooltip id="settings" title="Account settings" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                      <Button color="transparent" className={classes.navLink} href="/settings">
                         <People /> {loggedInAs}
+                     </Button>
+                  </Tooltip>
+               </ListItem>
+            )}
+            {goatGold !== null && (
+               <ListItem className={classes.listItem}>
+                  <Tooltip
+                     id="shop"
+                     title={goatGold + " Goat Gold"}
+                     placement={window.innerWidth > 959 ? "top" : "left"}
+                     classes={{ tooltip: classes.tooltip }}
+                  >
+                     <Button color="transparent" className={classes.navLink} href="/shop">
+                        <GiTwoCoins color="gold" /> {goatGold}
                      </Button>
                   </Tooltip>
                </ListItem>

@@ -16,7 +16,9 @@ class PageTemplate extends Component {
       super(props);
       if (!this.props.noToken) checkToken();
 
-      this.username = window.sessionStorage.getItem("username");
+      const storage = window.sessionStorage;
+      this.username = storage.getItem("username");
+      this.goatGold = storage.getItem("goatGold");
       setBodyImage();
    }
 
@@ -28,7 +30,7 @@ class PageTemplate extends Component {
             <Header
                absolute
                color="transparent"
-               rightLinks={<HeaderLinks loggedInAs={this.username} />}
+               rightLinks={<HeaderLinks loggedInAs={this.username} goatGold={this.goatGold} />}
                fixed
                changeColorOnScroll={{
                   height: 100,
