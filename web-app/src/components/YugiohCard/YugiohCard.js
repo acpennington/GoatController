@@ -84,7 +84,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
 
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
-   const type = dynamicZones.includes(row) && row !== DECK
+   const type = dynamicZones.includes(row)
       ? (levelOrSubtype === FIELD_SPELL && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : SPELL_TRAP)
       : row;
 
