@@ -21,7 +21,7 @@ import setBodyImage from "utils/setBodyImage.js";
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
 import { getAuthHeaders } from "utils/authToken.js";
-import { API_URL } from "utils/constants.js";
+import { API_URL, backgrounds } from "utils/constants.js";
 
 import Warning from "@material-ui/icons/Warning";
 import Email from "@material-ui/icons/Email";
@@ -33,7 +33,6 @@ import { SiDiscord } from "react-icons/si";
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/settingsPage.js";
 
-const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
 const sleeveChoices = [
    "Default.png",
    "Abstract.png",
@@ -47,7 +46,6 @@ const sleeveChoices = [
    "Space_Canyon.png",
    "Underwater_Nun.png"
 ];
-
 
 const IMG_URL = /^https?:\/\/.*\.(Pp][Nn][Gg]|[Jj][Pp][Ee]?[Gg])$/;
 
@@ -157,16 +155,16 @@ class SettingsPage extends PureComponent {
                         dropdownList={[...backgrounds.map((bg) => <div onClick={() => this.setBg(bg)}>{formatFileName(bg)}</div>)]}
                      />
                      <CustomInput
-                           labelText="Custom Background URL"
-                           id="bgUrl"
-                           white
-                           labelProps={{style: {left: "0.9em"}}}
-                           formControlProps={{style: {width: "50%"}}}
-                           inputProps={{
-                              type: "text",
-                              defaultValue: gamebg.startsWith("http") ? gamebg : "",
-                              onChange: this.setBgUrl,
-                           }}
+                        labelText="Custom Background URL"
+                        id="bgUrl"
+                        white
+                        labelProps={{ style: { left: "0.9em" } }}
+                        formControlProps={{ style: { width: "50%" } }}
+                        inputProps={{
+                           type: "text",
+                           defaultValue: gamebg.startsWith("http") ? gamebg : "",
+                           onChange: this.setBgUrl
+                        }}
                      />
                   </div>
                </GridItem>
