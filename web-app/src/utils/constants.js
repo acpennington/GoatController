@@ -21,6 +21,70 @@ export const SPELL = "Spell";
 export const TRAP = "Trap";
 export const orderedCardTypes = [NORMAL_MONSTER, EFFECT_MONSTER, RITUAL_MONSTER, SPELL, TRAP];
 
+// monster attributes
+export const DARK = "Dark";
+export const EARTH = "Earth";
+export const FIRE = "Fire";
+export const LIGHT = "Light";
+export const WATER = "Water";
+export const WIND = "Wind";
+export const allAttributes = [DARK, EARTH, FIRE, LIGHT, WATER, WIND];
+
+// monster types
+export const AQUA = "Aqua";
+export const BEAST = "Beast";
+export const BEAST_WARRIOR = "Beast-Warrior";
+export const DINOSAUR = "Dinosaur";
+export const DRAGON = "Dragon";
+export const FAIRY = "Fairy";
+export const FIEND = "Fiend";
+export const FISH = "Fish";
+export const INSECT = "Insect";
+export const MACHINE = "Machine";
+export const PLANT = "Plant";
+export const PYRO = "Pyro";
+export const REPTILE = "Reptile";
+export const ROCK = "Rock";
+export const SEA_SERPENT = "Sea Serpent";
+export const SPELLCASTER = "Spellcaster";
+export const THUNDER = "Thunder";
+export const WARRIOR = "Warrior";
+export const WINGED_BEAST = "Winged Beast";
+export const ZOMBIE = "Zombie";
+export const allMonsterTypes = [
+   AQUA,
+   BEAST,
+   BEAST_WARRIOR,
+   DINOSAUR,
+   DRAGON,
+   FAIRY,
+   FIEND,
+   FISH,
+   INSECT,
+   MACHINE,
+   PLANT,
+   PYRO,
+   REPTILE,
+   ROCK,
+   SEA_SERPENT,
+   SPELLCASTER,
+   THUNDER,
+   WARRIOR,
+   WINGED_BEAST,
+   ZOMBIE
+];
+
+// cardSubtypes
+export const NORMAL = "Normal";
+export const CONTINUOUS = "Continuous";
+export const COUNTER = "Counter";
+export const EQUIP = "Equip";
+export const FIELD = "Field";
+export const QUICKPLAY = "Quick-Play";
+export const allSubtypes = [NORMAL, CONTINUOUS, COUNTER, EQUIP, FIELD, QUICKPLAY];
+export const spellSubtypes = [NORMAL, CONTINUOUS, EQUIP, FIELD, QUICKPLAY];
+export const trapSubtypes = [NORMAL, CONTINUOUS, COUNTER];
+
 // card locations
 export const MAINDECK = "maindeck";
 export const SIDEDECK = "sidedeck";
@@ -28,7 +92,7 @@ export const SEARCH_RESULTS = "SEARCH_RESULTS";
 export const allLocations = [MAINDECK, SIDEDECK, SEARCH_RESULTS];
 
 // rows & zones
-export const MONSTER = "monster";
+export const MONSTER = "Monster";
 export const SPELL_TRAP = "spellTrap";
 export const FIELD_SPELL = "fieldSpell";
 export const HAND = "hand";

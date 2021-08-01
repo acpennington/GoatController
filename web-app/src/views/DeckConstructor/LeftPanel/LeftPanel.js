@@ -17,10 +17,10 @@ class LeftPanel extends PureComponent {
       return (
          <div className={classes.leftPanel}>
             <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} heroPlayer={name} noButtons />
-
             <div className={classes.bottomContainer}>
-               <FriendlyScroll id="leftPanel" flexDirection="column">
+               <FriendlyScroll id="leftPanel" flexDirection="column" contStyle={{ height: "100%" }} style={{ height: "100%" }}>
                   <DeckSelector activeDeck={null} deckNames={null} />
+                  <hr style={{ width: "100%" }} />
                   <CardSearch />
                </FriendlyScroll>
             </div>

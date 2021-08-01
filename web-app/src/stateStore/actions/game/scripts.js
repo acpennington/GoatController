@@ -70,7 +70,7 @@ function banishAll(field, player, activeCard, variant, socket = false) {
       if (socket && socket.api)
          dispatch({
             type: SEND_ENTIRE_GAMESTATE,
-            data: { socket, message: `${player} resolved ${variant}. All copies of ${activeCardName} were banished.` }
+            data: { socket, message: `${player} resolved <<${variant}>>. All copies of <<${activeCardName}>> were banished.` }
          });
    };
 }

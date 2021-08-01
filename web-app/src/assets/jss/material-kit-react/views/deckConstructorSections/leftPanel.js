@@ -1,8 +1,10 @@
-import importedLeft from "../gameSections/leftPanel";
+import importedLeft from "../gameSections/leftPanel.js";
+import commonPages from "../commonPages.js";
 
 const marginTop = 5;
 
 const leftPanelStyle = {
+   ...commonPages,
    ...importedLeft,
    bottomContainer: {
       borderRadius: "3px",
@@ -18,18 +20,25 @@ const leftPanelStyle = {
    buttonRow: {
       marginBottom: "5px"
    },
-   newDeck: {
-      marginTop: "3px",
+   flexRow: {
+      marginTop: "5px",
+      marginBottom: "5px",
+      marginLeft: "2px",
+      marginRight: "2px",
       display: "flex",
       flexDirection: "row"
    },
-   byName: {
-      display: "flex",
-      flexDirection: "row"
-   },
-   quickFind: {
+   descSpan: {
       textAlign: "right",
       paddingRight: "5px"
+   },
+   betweenSpan: {
+      marginLeft: "8px",
+      marginRight: "8px",
+      paddingTop: "6px",
+      flex: "50%",
+      textAlign: "center",
+      whiteSpace: "nowrap"
    }
 };
 

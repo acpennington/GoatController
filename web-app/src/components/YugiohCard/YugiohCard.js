@@ -106,7 +106,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allTypes,
-      canDrop: (item) => isAcceptable(item.type, acceptables) && !(item.row === DECK && isDeck),
+      canDrop: (item) => isAcceptable(item.type, acceptables) && !(item.row === DECK && row === DECK),
       drop: (item) => {
          if (inBattlePhase && item.row === MONSTER && monsterZone && !blank) dispatch(attack({ from: item, to: { player, row, zone }, socket }));
          else dispatch(moveCard({ from: item, to: { player, row, zone } }, socket));

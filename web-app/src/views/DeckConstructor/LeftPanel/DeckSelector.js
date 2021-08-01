@@ -151,16 +151,14 @@ class DeckSelector extends PureComponent {
                </ButtonRow>
             </div>
             <GenericFinder value={deckLoaded} options={options} onChange={this.loadDeck} />
-            <div className={classes.newDeck}>
+            <div className={classes.flexRow}>
                <Button color="success" round onClick={this.createDeck}>
                   <IoMdCreate /> New Deck
                </Button>
                <CustomInput
                   id="Message"
                   white
-                  formControlProps={{
-                     fullWidth: true
-                  }}
+                  formControlProps={{ fullWidth: true }}
                   inputProps={{
                      value: this.state.deckName,
                      onChange: (event) => this.setState({ deckName: event.target.value }),

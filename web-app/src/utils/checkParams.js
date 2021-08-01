@@ -7,8 +7,12 @@ export default function checkParams(card, params) {
    const cardName = card.name;
    const cardDetails = getCardDetails(cardName);
 
-   for (const paramName in params) {
+   for (let paramName in params) {
       const singleParam = params[paramName];
+
+      // this is a hacky way to allow multiple searches of the same param type
+      if (paramName.endsWith("2")) paramName = paramName.slice(0, -1);
+
       const { operator, value } = singleParam;
       const cardParam = paramName === "name" ? cardName : cardDetails[paramName];
 
@@ -25,6 +29,9 @@ export default function checkParams(card, params) {
             break;
          case "TYPEMATCH":
             paramPassed = cardParam && (cardParam.startsWith(value) || cardParam.includes(value + "/"));
+            break;
+         case "CONTAINS":
+            paramPassed = cardParam && cardParam.toLowerCase().includes(value.toLowerCase());
             break;
          default:
             paramPassed = cardParam && cardParam === value;

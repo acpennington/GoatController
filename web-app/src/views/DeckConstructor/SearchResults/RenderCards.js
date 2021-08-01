@@ -21,8 +21,6 @@ class RenderCards extends Component {
       const { searchResults, maindeck, sidedeck } = this.props;
       const cardsToRender = {};
 
-      console.log(searchResults.length);
-
       for (const cardName of searchResults) {
          const quantity = (getCardDetails(cardName).limit || 3) - (maindeck[cardName] || 0) - (sidedeck[cardName] || 0);
          if (quantity > 0) cardsToRender[cardName] = quantity;
@@ -47,7 +45,7 @@ class RenderCards extends Component {
       }
 
       return (
-         <div className={classes.cards} style={{ height }}>
+         <div className={classes.cards} style={cards.length > 12 ? { height } : {}}>
             {cards}
          </div>
       );
