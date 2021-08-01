@@ -1,4 +1,4 @@
-import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, TOKENS } from "utils/constants.js";
+import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, TOKENS, SEARCH_DECK } from "utils/constants.js";
 
 const spells = {
    Necrovalley: {
@@ -108,6 +108,26 @@ const spells = {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Destroy the 1 face-up monster your opponent controls that has the highest DEF (your choice, if tied)."
+   },
+   "Reinforcement of the Army": {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Add 1 Level 4 or lower Warrior monster from your Deck to your hand.",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            text: {
+               operator: "TYPEMATCH",
+               value: "Warrior"
+            }
+         },
+         autoClose: true
+      },
+      limit: 2
    }
 };
 

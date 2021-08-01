@@ -271,6 +271,88 @@ const effectMonsters = {
       atk: 2400,
       def: 1000,
       text: "Thunder/Effect – <effect=Trigger>If this card is Tribute Summoned: Target 1 monster on the field; destroy that target.</effect>"
+   },
+   "Blade Knight": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Light",
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 1000,
+      text: "Warrior/Effect – <effect=Continuous>While you have 1 or less cards in your hand, this card gains 400 ATK.</effect> <effect=Continuous>If you control no other monsters, the effects of Flip monsters destroyed by battle with this card are negated.</effect>"
+   },
+   "Don Zaloog": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1500,
+      text: "Warrior/Effect – <effect=Trigger>When this card inflicts Battle Damage to your opponent, you can activate 1 of these effects: ● Discard 1 random card from their hand. ● Send the top 2 cards of their Deck to the Graveyard.</effect>"
+   },
+   "Exiled Force": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Earth",
+      levelOrSubtype: 4,
+      atk: 1000,
+      def: 1000,
+      text: "Warrior/Effect – <effect=Ignition>You can Tribute this card to target 1 monster on the field; destroy that target.</effect>",
+      limit: 1
+   },
+   "Ninja Grandmaster Sasuke": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Light",
+      levelOrSubtype: 4,
+      atk: 1800,
+      def: 1000,
+      text: "Warrior/Effect – <effect=Trigger>At the start of the Damage Step, if this card attacks a face-up Defense Position monster: Destroy that monster.</effect>"
+   },
+   "Skilled Dark Magician": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 1900,
+      def: 1700,
+      text: 'Spellcaster/Effect – <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect> <effect=Ignition>You can Tribute this card with 3 Spell Counters on it; Special Summon 1 "Dark Magician" from your hand, Deck, or GY.</effect>',
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            name: {
+               value: "Dark Magician"
+            }
+         },
+         autoClose: true
+      }
+   },
+   "Thunder Dragon": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Light",
+      levelOrSubtype: 5,
+      atk: 1600,
+      def: 1500,
+      text: 'Thunder/Effect – You can discard this card; add up to 2 "Thunder Dragon" from your Deck to your hand.',
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            name: {
+               value: "Thunder Dragon"
+            }
+         }
+      }
+   },
+   "Zombyra the Dark": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 2100,
+      def: 200,
+      text: "Warrior/Effect – <effect=Continuous>Cannot attack your opponent directly.</effect> <effect=Trigger>If this card destroys a monster by battle: This card loses 200 ATK.</effect>"
    }
 };
 

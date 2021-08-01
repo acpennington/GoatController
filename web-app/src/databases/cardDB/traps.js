@@ -50,6 +50,16 @@ const traps = {
       cardType: TRAP,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Negate all other Trap effects on the field.</effect>"
+   },
+   "Jar of Greed": {
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Draw 1 card."
+   },
+   "Raigeki Break": {
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Discard 1 card, then target 1 card on the field; destroy it."
    }
 };
 

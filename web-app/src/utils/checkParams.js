@@ -10,24 +10,28 @@ export default function checkParams(card, params) {
    for (const paramName in params) {
       const singleParam = params[paramName];
       const { operator, value } = singleParam;
+      const cardParam = paramName === "name" ? cardName : cardDetails[paramName];
 
+      let paramPassed;
       switch (operator) {
          case ">":
-            if (cardDetails[paramName] && cardDetails[paramName] >= value) pass.push(paramName);
-            else fail.push(paramName);
+            paramPassed = cardParam && cardParam >= value;
             break;
          case "<":
-            if (cardDetails[paramName] && cardDetails[paramName] <= value) pass.push(paramName);
-            else fail.push(paramName);
+            paramPassed = cardParam && cardParam <= value;
             break;
          case "OR":
-            if (cardDetails[paramName] && value.includes(cardDetails[paramName])) pass.push(paramName);
-            else fail.push(paramName);
+            paramPassed = cardParam && value.includes(cardParam);
+            break;
+         case "TYPEMATCH":
+            paramPassed = cardParam && (cardParam.startsWith(value) || cardParam.includes(value + "/"));
             break;
          default:
-            if (cardDetails[paramName] && cardDetails[paramName] === value) pass.push(paramName);
-            else fail.push(paramName);
+            paramPassed = cardParam && cardParam === value;
       }
+
+      if (paramPassed) pass.push(paramName);
+      else fail.push(paramName);
    }
 
    return { pass, fail };
