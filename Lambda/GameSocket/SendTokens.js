@@ -5,8 +5,7 @@ const actionAndMessage = require("./utils/actionAndMessage.js");
 // @access Private
 // @db 1 read, 0 writes
 async function sendTokens(id, username, params, connectionId, api) {
-   const count = params.match(/\d+/);
-   const message = { author: "Server", content: `${username} Special Summoned ${count} Tokens.` };
+   const message = { author: "Server", content: `${username} Special Summoned ${params.count} Tokens.` };
    const action = { action: "CREATE_TOKEN", data: { player: username, params } };
 
    await actionAndMessage(id, action, message, connectionId, api);

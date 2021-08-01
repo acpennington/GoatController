@@ -12,5 +12,6 @@ export default function setBodyImage() {
    } else {
       url = `/backgrounds/${settings.gamebg}`;
    }
+
    body.style.backgroundImage = `url("${url}")`;
 }

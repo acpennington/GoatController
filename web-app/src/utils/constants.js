@@ -42,6 +42,7 @@ export const dndZones = [DECK, ...discardZones];
 export const dynamicZones = [HAND, DECK, ...discardZones];
 export const toExtraZones = [HAND, ...deckZones];
 export const onField = [MONSTER, SPELL_TRAP, FIELD_SPELL];
+export const allCardTypes = [MONSTER, NORMAL_MONSTER, EFFECT_MONSTER, RITUAL_MONSTER, SPELL_TRAP, SPELL, TRAP];
 
 // battle
 export const ATTACKING = "Attacking";

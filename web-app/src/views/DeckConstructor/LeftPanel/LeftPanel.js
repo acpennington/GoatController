@@ -2,6 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
 import DeckSelector from "./DeckSelector.js";
 import CardSearch from "./CardSearch.js";
@@ -16,10 +17,12 @@ class LeftPanel extends PureComponent {
       return (
          <div className={classes.leftPanel}>
             <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} heroPlayer={name} noButtons />
+
             <div className={classes.bottomContainer}>
-               <DeckSelector activeDeck={null} deckNames={null} />
-               <hr />
-               <CardSearch />
+               <FriendlyScroll id="leftPanel" flexDirection="column">
+                  <DeckSelector activeDeck={null} deckNames={null} />
+                  <CardSearch />
+               </FriendlyScroll>
             </div>
          </div>
       );
