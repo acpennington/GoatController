@@ -150,7 +150,7 @@ export default function (state = initialState, action) {
          const tokenPlayer = data.player;
          let tokenZone = 0;
 
-         for (; tokenZone < 5; tokenZone++) if (state[tokenPlayer][[MONSTER]][tokenZone] === null) break;
+         for (; tokenZone < 5; tokenZone++) if (state[tokenPlayer][MONSTER][tokenZone] === null) break;
          if (tokenZone > 4) return state;
 
          state[tokenPlayer][[MONSTER]][tokenZone] = { name, inDef };
