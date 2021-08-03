@@ -1,4 +1,4 @@
-import { playSound } from "../../actions/game/field";
+import { playSound } from "../../actions/game/field.js";
 import getCardDetails from "utils/getCardDetails.js";
 import getOtherPlayer from "utils/getOtherPlayer.js";
 import expandDeck from "utils/expandDeck.js";
@@ -150,10 +150,10 @@ export default function (state = initialState, action) {
          const tokenPlayer = data.player;
          let tokenZone = 0;
 
-         for (; tokenZone < 5; tokenZone++) if (state[tokenPlayer].monster[tokenZone] === null) break;
+         for (; tokenZone < 5; tokenZone++) if (state[tokenPlayer][[MONSTER]][tokenZone] === null) break;
          if (tokenZone > 4) return state;
 
-         state[tokenPlayer].monster[tokenZone] = { name, inDef };
+         state[tokenPlayer][[MONSTER]][tokenZone] = { name, inDef };
          return { ...state };
       case SWITCH_POSITION: {
          const { player, row, zone, socket } = data;
@@ -161,9 +161,14 @@ export default function (state = initialState, action) {
          if (myCard.battle) clearBattle(state);
          if (row === MONSTER) {
             if (myCard.inDef) {
-               if (myCard.facedown) myCard.inDef = false;
-               playSound("/sounds/flip.mp3");
-               myCard.facedown = !myCard.facedown;
+               if (myCard.name.includes("Token")) {
+                  myCard.inDef = false;
+                  playSound("/sounds/todef.mp3");
+               } else {
+                  if (myCard.facedown) myCard.inDef = false;
+                  playSound("/sounds/flip.mp3");
+                  myCard.facedown = !myCard.facedown;
+               }
             } else {
                playSound("/sounds/todef.mp3");
                myCard.inDef = true;
@@ -289,10 +294,11 @@ export default function (state = initialState, action) {
 }
 
 function clearBattle(field) {
+   console.log(JSON.stringify(field));
    let clearedCards = 0;
    for (const player in field) {
       const oneField = field[player];
-      for (const monster of oneField.monster) {
+      for (const monster of oneField[MONSTER]) {
          if (monster && monster.battle) {
             delete monster.battle;
             clearedCards += 1;
