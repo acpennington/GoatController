@@ -5,8 +5,9 @@ import { bind, unbind } from "mousetrap";
 
 import Tooltip from "@material-ui/core/Tooltip";
 import { closeModal } from "stateStore/actions/shared/settings.js";
-import { WebSocketContext } from "views/Game/WebSocketContext";
-import { shuffleDeck } from "stateStore/actions/game/field";
+import { WebSocketContext } from "views/Game/WebSocketContext.js";
+import { shuffleDeck } from "stateStore/actions/game/field.js";
+import display from "utils/display";
 
 import { DECK } from "utils/constants";
 
@@ -31,8 +32,8 @@ class ModalHeader extends PureComponent {
 
       return (
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
-            <div id="modalheader" className={classes["header" + row.split(" ")[0]]} onClick={() => closeModal(row, player, this.context)}>
-               Viewing {addName && player + "'s"} {row}
+            <div id="modalheader" className={classes["header" + row]} onClick={() => closeModal(row, player, this.context)}>
+               Viewing {addName && player + "'s"} {display(row)}
             </div>
          </Tooltip>
       );
