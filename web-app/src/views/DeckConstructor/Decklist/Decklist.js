@@ -8,12 +8,13 @@ import DeckPile from "./DeckPile";
 import Switches from "./Switches.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
+import BackButton from "components/CustomButtons/BackButton.js";
+import Shadow from "components/Shadow/Shadow.js";
 
 import { MAINDECK, SIDEDECK } from "utils/constants";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
-import BackButton from "components/CustomButtons/BackButton";
 
 class Decklist extends Component {
    constructor(props) {
@@ -41,10 +42,12 @@ class Decklist extends Component {
       return (
          <div id="decklistContainer" className={classes.container} style={{ width, flex: width }}>
             <div id="resizeCards" className={classes.resizeCards}>
-               <BackButton href="wall" size="md" />
-               Resize cards:
-               <Slider value={sliderValue} onChange={this.sliderChange} aria-labelledby="continuous-slider" style={{ width: "20%" }} />
-               <Switches />
+               <Shadow style={{ width: "100%" }}>
+                  <BackButton href="wall" size="md" />
+                  <span style={{ marginLeft: "20px" }}>Resize cards:</span>
+                  <Slider value={sliderValue} onChange={this.sliderChange} aria-labelledby="continuous-slider" style={{ width: "20%", marginRight: "12px" }} />
+                  <Switches />
+               </Shadow>
             </div>
             <div className={classes.allCards} style={{ height: maxHeight + "px" }}>
                <FriendlyScroll id="decklist" flexDirection="column" style={{ flexFlow: "row wrap", maxHeight: maxHeight - 6 + "px" }}>

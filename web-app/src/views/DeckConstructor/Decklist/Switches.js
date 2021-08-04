@@ -25,8 +25,8 @@ class Switches extends PureComponent {
 
       return (
          <Fragment>
-            <Switch checked={showNames} onChange={(event) => this.flipNames(event)} color="primary" style={{ color: "#9c27b0", marginLeft: "10px" }} />
-            Show Card Names
+            <Switch checked={showNames} onChange={(event) => this.flipNames(event)} color="primary" style={{ color: "#9c27b0" }} />
+            <span>Show Card Names</span>
          </Fragment>
       );
    }

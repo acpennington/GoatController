@@ -1,9 +1,10 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 
 import Switch from "@material-ui/core/Switch";
 
 import { switchNames } from "stateStore/actions/shared/settings.js";
+import Shadow from "components/Shadow/Shadow";
 
 class Switches extends PureComponent {
    constructor(props) {
@@ -33,13 +34,13 @@ class Switches extends PureComponent {
       const { soundOn } = this.state;
 
       return (
-         <Fragment>
+         <Shadow>
             <Switch checked={soundOn} onChange={(event) => this.flipSound(event)} color="primary" style={{ color: "#9c27b0" }} />
             Sound {soundOn ? "On" : "Off"}
             <br />
             <Switch checked={showNames} onChange={(event) => this.flipNames(event)} color="primary" style={{ color: "#9c27b0" }} />
             Show Card Names
-         </Fragment>
+         </Shadow>
       );
    }
 }
