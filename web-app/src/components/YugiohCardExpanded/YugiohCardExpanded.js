@@ -5,7 +5,7 @@ import Button from "components/CustomButtons/Button.js";
 import EffectTooltips from "./EffectTooltips.js";
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
-import { FACEDOWN_CARD } from "utils/constants";
+import { FACEDOWN_CARD, NORMAL_MONSTER } from "utils/constants";
 
 import { Description } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
@@ -31,7 +31,7 @@ class YugiohCardExpanded extends PureComponent {
             }}
          >
             <div className={classes.contentContainer}>
-               {!noButtons && (
+               {!noButtons && cardType !== NORMAL_MONSTER && (
                   <div className={classes.buttons}>
                      <Button color="primary">
                         <Description />
@@ -63,8 +63,7 @@ YugiohCardExpanded.propTypes = {
    selectedCard: PropTypes.object,
    height: PropTypes.string,
    width: PropTypes.string,
-   noButtons: PropTypes.bool,
-   heroPlayer: PropTypes.string.isRequired
+   noButtons: PropTypes.bool
 };
 
 export default withStyles(cardStyle)(YugiohCardExpanded);
