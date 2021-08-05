@@ -3,43 +3,23 @@ import PropTypes from "prop-types";
 
 import Button from "components/CustomButtons/Button.js";
 import EffectTooltips from "./EffectTooltips.js";
-import CardScript from "./CardScript.js";
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
-import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN } from "utils/constants";
+import { FACEDOWN_CARD } from "utils/constants";
 
 import { Description } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
 class YugiohCardExpanded extends PureComponent {
-   validScript = (activeCard, cardPlayer, script) => {
-      const { heroPlayer } = this.props;
-      const { displayCondition } = script;
-      if (displayCondition) {
-         for (const condition in displayCondition) {
-            if (condition === "players") {
-               const playerLegal = displayCondition.players.includes(cardPlayer === heroPlayer ? HERO : VILLAIN);
-               if (!playerLegal) return false;
-            } else {
-               const doesConditionMatch = displayCondition[condition] === activeCard[condition];
-               if (!doesConditionMatch) return false;
-            }
-         }
-      }
-
-      return true;
-   };
-
    render() {
-      const { classes, hoverCard, selectedCard, height, width, noButtons, heroPlayer } = this.props;
+      const { classes, hoverCard, selectedCard, height, width, noButtons } = this.props;
       const activeCard = selectedCard || hoverCard;
-      const player = activeCard && activeCard.player;
       const cardName = rename(activeCard);
 
       if (!cardName) return <div className={classes.largePic}></div>;
 
-      const { cardType, attribute, levelOrSubtype, atk, def, text, script } = getCardDetails(cardName);
+      const { cardType, attribute, levelOrSubtype, atk, def, text } = getCardDetails(cardName);
 
       return (
          <div
@@ -57,10 +37,6 @@ class YugiohCardExpanded extends PureComponent {
                         <Description />
                         Rulings
                      </Button>
-                     {script && this.validScript(activeCard, player, script) && <CardScript script={script} heroPlayer={heroPlayer} />}
-                     {text.includes("/Flip/") && (
-                        <CardScript script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
-                     )}
                   </div>
                )}
                <div className={classes.cardText}>

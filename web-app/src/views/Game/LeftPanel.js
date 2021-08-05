@@ -14,7 +14,7 @@ class LeftPanel extends Component {
 
       return (
          <div className={classes.leftPanel}>
-            <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} heroPlayer={name} />
+            <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} />
             <Chat name={name} />
          </div>
       );

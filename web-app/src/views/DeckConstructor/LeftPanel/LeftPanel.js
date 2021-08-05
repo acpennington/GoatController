@@ -12,11 +12,11 @@ import styles from "assets/jss/material-kit-react/views/deckConstructorSections/
 
 class LeftPanel extends PureComponent {
    render() {
-      const { classes, name, hoverCard, selectedCard } = this.props;
+      const { classes, hoverCard, selectedCard } = this.props;
 
       return (
          <div className={classes.leftPanel}>
-            <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} heroPlayer={name} noButtons />
+            <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} />
             <div className={classes.bottomContainer}>
                <FriendlyScroll id="leftPanel" flexDirection="column" contStyle={{ height: "100%" }} style={{ height: "100%" }}>
                   <DeckSelector activeDeck={null} deckNames={null} />
@@ -34,8 +34,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 LeftPanel.propTypes = {
-   classes: PropTypes.object.isRequired,
-   name: PropTypes.string.isRequired
+   classes: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(LeftPanel));

@@ -1,3 +1,5 @@
+import { DIVIDER_HEIGHT } from "utils/constants";
+
 const battlefieldStyle = {
    cardsInPlay: {
       flex: "65%",
@@ -30,6 +32,12 @@ const battlefieldStyle = {
       display: "flex",
       margin: "auto",
       position: "relative"
+   },
+   fieldDivider: {
+      height: DIVIDER_HEIGHT + "px",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center"
    }
 };
 

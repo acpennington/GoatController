@@ -24,7 +24,8 @@ import {
    ADJUST_LP,
    CREATE_TOKEN,
    MOVE_CARD,
-   MILL_UNTIL
+   MILL_UNTIL,
+   DIVIDER_HEIGHT
 } from "utils/constants.js";
 
 class Game extends Component {
@@ -130,7 +131,13 @@ class Game extends Component {
                <ResizableContainer>
                   <LeftPanel name={player.name} />
                   <SizeContext.Consumer>
-                     {(value) => <Battlefield rowHeight={value / (5 + VILLAIN_HAND_HEIGHT_FRACTION)} player={player} />}
+                     {(value) => (
+                        <Battlefield
+                           columnHeight={value / (5 + VILLAIN_HAND_HEIGHT_FRACTION)}
+                           rowHeight={(value - DIVIDER_HEIGHT) / (5 + VILLAIN_HAND_HEIGHT_FRACTION)}
+                           player={player}
+                        />
+                     )}
                   </SizeContext.Consumer>
                </ResizableContainer>
             </WebSocketContext.Provider>

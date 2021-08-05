@@ -3,6 +3,7 @@ export const GAME_ASPECT_RATIO = 1.8;
 export const VILLAIN_HAND_HEIGHT_FRACTION = 0.5;
 export const MODAL_CARD_SIZE = 0.82;
 export const CARD_RATIO = 1.45;
+export const DIVIDER_HEIGHT = 40;
 export const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
 
 // player
