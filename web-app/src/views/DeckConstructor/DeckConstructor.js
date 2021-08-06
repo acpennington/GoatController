@@ -5,8 +5,8 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 import ResizableContainer from "components/ResizableContainer/ResizableContainer.js";
 import LeftPanel from "./LeftPanel/LeftPanel.js";
+import RightPanel from "./RightPanel/RightPanel.js";
 import Decklist from "./Decklist/Decklist.js";
-import SearchResults from "./SearchResults/SearchResults.js";
 
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
@@ -30,7 +30,7 @@ class DeckConstructor extends Component {
             <DndProvider backend={HTML5Backend}>
                <LeftPanel />
                <Decklist width={decklistWidth} player={this.username} />
-               {thereAreResults && <SearchResults player={this.username} />}
+               <RightPanel player={this.username} />
             </DndProvider>
          </ResizableContainer>
       );
