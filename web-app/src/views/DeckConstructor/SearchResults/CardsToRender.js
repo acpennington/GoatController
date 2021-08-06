@@ -6,7 +6,6 @@ import RenderCards from "components/RenderCards/RenderCards.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import getCardDetails from "utils/getCardDetails";
-import { SEARCH_RESULTS } from "utils/constants.js";
 
 class CardsToRender extends Component {
    componentDidUpdate() {
@@ -16,23 +15,23 @@ class CardsToRender extends Component {
 
    updateResults = () => {
       const { searchResults, maindeck, sidedeck } = this.props;
-      const cardsToRender = {};
+      const cardsToRender = [];
 
       for (const cardName of searchResults) {
          const quantity = (getCardDetails(cardName).limit || 3) - (maindeck[cardName] || 0) - (sidedeck[cardName] || 0);
-         if (quantity > 0) cardsToRender[cardName] = quantity;
+         if (quantity > 0) cardsToRender.push({ name: cardName, quantity });
       }
 
       return cardsToRender;
    };
 
    render() {
-      const { player, height } = this.props;
+      const { player, maxHeight } = this.props;
 
       const cardHeight = this.context / 7;
       const cardsToRender = this.updateResults();
 
-      return <RenderCards cardsToRender={cardsToRender} height={height} cardHeight={cardHeight} player={player} decklist />;
+      return <RenderCards cardsToRender={cardsToRender} maxHeight={maxHeight} cardHeight={cardHeight} player={player} decklist />;
    }
 }
 
@@ -42,7 +41,7 @@ function mapStateToProps(state) {
 
 CardsToRender.propTypes = {
    player: PropTypes.string.isRequired,
-   height: PropTypes.number.isRequired
+   maxHeight: PropTypes.number.isRequired
 };
 
 CardsToRender.contextType = SizeContext;

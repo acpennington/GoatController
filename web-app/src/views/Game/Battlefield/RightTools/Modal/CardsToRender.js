@@ -3,15 +3,12 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
-import YugiohCard from "components/YugiohCard/YugiohCard.js";
+import RenderCards from "components/RenderCards/RenderCards.js";
 import checkParams from "utils/checkParams.js";
 import { closeModal } from "stateStore/actions/shared/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 
-import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
-
-class RenderCards extends Component {
+class CardsToRender extends Component {
    componentDidUpdate(prevProps, prevState) {
       const { autoClose, row, player, closeModal } = this.props;
       const { zoneLen } = this.state;
@@ -36,77 +33,56 @@ class RenderCards extends Component {
       return zoneNumbers;
    };
 
-   render() {
-      const { classes, cardsLen, height, player, row, cardNames, sub, isHero } = this.props;
+   updateResults = () => {
+      const { cardNames } = this.props;
       const zoneNumbers = this.filterZones();
+      const cardsToRender = [];
 
       // eslint-disable-next-line
       this.state = { zoneLen: zoneNumbers.length };
       const { zoneLen } = this.state;
 
-      const cardDivs = [];
-      for (let i = zoneLen - 1; i >= 0; i -= 2) {
-         cardDivs.push(
-            <div className={classes.cards} key={i}>
-               <YugiohCard
-                  height={height}
-                  player={player}
-                  row={row}
-                  zone={zoneNumbers[i]}
-                  cardName={cardNames ? cardNames[i] : null}
-                  notFull
-                  modal
-                  isHero={isHero}
-               />
-               {i !== 0 && (
-                  <YugiohCard
-                     height={height}
-                     player={player}
-                     row={row}
-                     zone={zoneNumbers[i - 1]}
-                     cardName={cardNames ? cardNames[zoneNumbers[i - 1]] : null}
-                     notFull
-                     modal
-                     isHero={isHero}
-                  />
-               )}
-            </div>
-         );
+      for (let i = zoneLen - 1; i >= 0; i -= 1) {
+         const card = { zone: zoneNumbers[i] };
+         if (cardNames) card.name = cardNames[i];
+         cardsToRender.push(card);
       }
 
+      return cardsToRender;
+   };
+
+   render() {
+      const { height, player, row, maxHeight, isHero } = this.props;
+      const cardsToRender = this.updateResults();
+      const { zoneLen } = this.state;
+
       return (
-         <FriendlyScroll
-            id={"modal" + player + row}
-            count={zoneLen}
-            flexDirection="column"
-            style={{ overflowY: cardsLen > 12 ? "auto" : "hidden" }}
-            contStyle={{ height: "calc(100% - " + sub + "px)" }}
-         >
-            {cardDivs}
+         <FriendlyScroll id={"modal" + player + row} count={zoneLen} flexDirection="column" style={{ maxHeight: maxHeight - 6 + "px" }}>
+            <RenderCards cardsToRender={cardsToRender} maxHeight={maxHeight} cardHeight={height} player={player} row={row} isHero={isHero} />
          </FriendlyScroll>
       );
    }
 }
 
 function mapStateToProps(state, ownProps) {
-   const { player, row, filter, cardNames } = ownProps;
+   const { player, row, cardNames, filter } = ownProps;
    const cards = filter && state.field[player][row];
    const cardsLen = cardNames ? cardNames.length : state.field[player][row].length;
    return { cards, cardsLen };
 }
 
-RenderCards.propTypes = {
+CardsToRender.propTypes = {
    cardsLen: PropTypes.number.isRequired,
    height: PropTypes.number.isRequired,
    player: PropTypes.string.isRequired,
    row: PropTypes.string.isRequired,
    cardNames: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-   sub: PropTypes.number.isRequired,
+   maxHeight: PropTypes.number.isRequired,
    filter: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
    isHero: PropTypes.bool.isRequired,
    autoClose: PropTypes.bool.isRequired
 };
 
-RenderCards.contextType = WebSocketContext;
+CardsToRender.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { closeModal })(withStyles(styles)(RenderCards));
+export default connect(mapStateToProps, { closeModal })(CardsToRender);

@@ -2,7 +2,7 @@ import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import RenderCards from "./RenderCards.js";
+import RenderCards from "./CardsToRender.js";
 import ModalHeader from "./ModalHeader.js";
 import ShortcutFooter from "./ShortcutFooter.js";
 
@@ -25,18 +25,20 @@ class Modal extends Component {
    }
 
    componentDidMount() {
-      this.setHfHeights();
+      this.setMaxHeight();
    }
 
    componentDidUpdate() {
-      this.setHfHeights();
+      this.setMaxHeight();
    }
 
-   setHfHeights = () => {
-      const header = document.getElementById("modalheader");
-      const footer = document.getElementById("modalfooter");
-      const newHeights = (header ? header.offsetHeight : 0) + (footer ? footer.offsetHeight : 0);
-      if (newHeights !== this.state.hfHeights) this.setState({ hfHeights: newHeights });
+   setMaxHeight = () => {
+      const containerDiv = document.getElementById("modalcontainer");
+      const headerDiv = document.getElementById("modalheader");
+      const footerDiv = document.getElementById("modalfooter");
+      const footerHeight = footerDiv ? footerDiv.offsetHeight : 0;
+      const maxHeight = containerDiv && headerDiv ? containerDiv.offsetHeight - headerDiv.offsetHeight - footerHeight : 0;
+      if (maxHeight !== this.state.maxHeight) this.setState({ maxHeight });
    };
 
    flipSwitch = (event) => {
@@ -46,7 +48,7 @@ class Modal extends Component {
 
    render() {
       const { classes, height, player, row, filter, autoClose, isExtra, allFusions, heroPlayer } = this.props;
-      const { metaTargets, levelFilter, hfHeights } = this.state;
+      const { metaTargets, levelFilter, maxHeight } = this.state;
       const isHero = heroPlayer === player;
 
       const fusionNames =
@@ -57,20 +59,20 @@ class Modal extends Component {
          });
 
       return (
-         <div className={classes.modalContainer}>
+         <div className={classes.modalContainer} id="modalcontainer">
             <ModalHeader addName={!isExtra} player={player} row={row} />
             <RenderCards
                height={height * MODAL_CARD_SIZE}
                player={player}
                row={row}
                cardNames={fusionNames}
-               sub={hfHeights}
+               maxHeight={maxHeight || 0}
                filter={filter}
                isHero={isHero}
                autoClose={autoClose}
             />
             {isHero && (
-               <div id="modalfooter" className={classes["footer" + row.split(" ")[0]]}>
+               <div id="modalfooter" className={classes["footer" + row]}>
                   {isExtra ? (
                      <Fragment>
                         <Switch checked={metaTargets} onChange={(event) => this.flipSwitch(event)} color="primary" style={{ color: "#9c27b0" }} />

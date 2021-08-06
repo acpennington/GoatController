@@ -42,7 +42,7 @@ function SearchResults({ classes, player }) {
             style={{ maxHeight: maxHeight - 6 + "px", backgroundColor: isOver && canDrop && OVER_COLOR + "33" }}
             drop={drop}
          >
-            <CardsToRender player={player} height={maxHeight} />
+            <CardsToRender player={player} maxHeight={maxHeight} />
          </FriendlyScroll>
       </div>
    );

@@ -23,13 +23,6 @@ const searchResultsStyle = {
       borderRadius: "3px",
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReinforcementoftheArmy.jpg")'
    },
-   cards: {
-      display: "flex",
-      width: "100%",
-      height: "100%",
-      justifyContent: "center",
-      flexFlow: "row wrap"
-   },
    ...tooltip
 };
 
