@@ -41,6 +41,10 @@ const yugiohCardExpandedStyle = {
          textDecoration: "underline"
       }
    },
+   tooltipsBox: {
+      margin: "2px 0",
+      lineHeight: "1.3em"
+   },
    ...tooltip
 };
 

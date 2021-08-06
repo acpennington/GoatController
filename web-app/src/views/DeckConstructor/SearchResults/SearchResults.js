@@ -5,8 +5,8 @@ import { useDrop } from "react-dnd";
 import useForceUpdate from "use-force-update";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll";
-import SearchHeader from "./SearchHeader";
-import RenderCards from "./RenderCards";
+import SearchHeader from "./SearchHeader.js";
+import CardsToRender from "./CardsToRender.js";
 import { transferCard } from "stateStore/actions/deckConstructor/decklist";
 
 import { allLocations, SEARCH_RESULTS, OVER_COLOR } from "utils/constants";
@@ -42,7 +42,7 @@ function SearchResults({ classes, player }) {
             style={{ maxHeight: maxHeight - 6 + "px", backgroundColor: isOver && canDrop && OVER_COLOR + "33" }}
             drop={drop}
          >
-            <RenderCards player={player} height={maxHeight} />
+            <CardsToRender player={player} height={maxHeight} />
          </FriendlyScroll>
       </div>
    );

@@ -2,16 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import DecklistCard from "components/YugiohCard/DecklistCard.js";
+import RenderCards from "components/RenderCards/RenderCards.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import getCardDetails from "utils/getCardDetails";
 import { SEARCH_RESULTS } from "utils/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/deckConstructorSections/searchResults.js";
-
-class RenderCards extends Component {
+class CardsToRender extends Component {
    componentDidUpdate() {
       const cardsToRender = this.updateResults();
       if (Object.keys(cardsToRender).length < 1) this.props.newResults([]);
@@ -30,25 +27,12 @@ class RenderCards extends Component {
    };
 
    render() {
-      const { classes, player, height } = this.props;
+      const { player, height } = this.props;
 
       const cardHeight = this.context / 7;
       const cardsToRender = this.updateResults();
 
-      const cards = [];
-      let i = 0;
-      for (const cardName in cardsToRender) {
-         cards.push(
-            <DecklistCard height={cardHeight} player={player} location={SEARCH_RESULTS} name={cardName} quantity={cardsToRender[cardName]} zone={i} key={i} />
-         );
-         i++;
-      }
-
-      return (
-         <div className={classes.cards} style={cards.length > 12 ? { height } : {}}>
-            {cards}
-         </div>
-      );
+      return <RenderCards cardsToRender={cardsToRender} height={height} cardHeight={cardHeight} player={player} decklist />;
    }
 }
 
@@ -56,12 +40,11 @@ function mapStateToProps(state) {
    return { searchResults: state.searchResults, maindeck: state.decklist.maindeck, sidedeck: state.decklist.sidedeck };
 }
 
-RenderCards.propTypes = {
-   classes: PropTypes.object.isRequired,
+CardsToRender.propTypes = {
    player: PropTypes.string.isRequired,
    height: PropTypes.number.isRequired
 };
 
-RenderCards.contextType = SizeContext;
+CardsToRender.contextType = SizeContext;
 
-export default connect(mapStateToProps, { newResults })(withStyles(styles)(RenderCards));
+export default connect(mapStateToProps, { newResults })(CardsToRender);

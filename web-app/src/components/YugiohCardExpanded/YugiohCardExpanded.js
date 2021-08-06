@@ -8,6 +8,7 @@ import getCardDetails from "utils/getCardDetails.js";
 import { FACEDOWN_CARD, NORMAL_MONSTER } from "utils/constants";
 
 import { Description } from "@material-ui/icons";
+
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
@@ -43,7 +44,7 @@ class YugiohCardExpanded extends PureComponent {
                   <div>
                      <strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]
                   </div>
-                  <div style={{ margin: "2px 0", lineHeight: "1.3em" }}>
+                  <div className={classes.tooltipsBox}>
                      <EffectTooltips text={text} />
                   </div>
                   <div>{attribute && `ATK ${atk} / DEF ${def}`}</div>
