@@ -38,13 +38,17 @@ const sleeveChoices = [
    "Abstract.png",
    "Black_And_White.png",
    "Black_Luster_Soldier.png",
+   "Curse_of_Fiend.png",
    "Exarion.png",
    "Ghost_Dog.png",
    "Goat.png",
    "Hieroglyphs.png",
+   "Lavitz.png",
    "My_Pokemans.png",
+   "Slaying_the_Dragon.png",
    "Space_Canyon.png",
-   "Underwater_Nun.png"
+   "Underwater_Nun.png",
+   "Weeb_Shit.png"
 ];
 
 const IMG_URL = /^https?:\/\/.*\.(Pp][Nn][Gg]|[Jj][Pp][Ee]?[Gg])$/;
