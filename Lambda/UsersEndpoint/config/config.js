@@ -5,12 +5,12 @@ module.exports = {
       losses: 0,
       maindeck: {},
       sidedeck: {},
-      visibility: "private",
+      public: false,
       deckType: "Unknown"
    },
    defaultDeck: {
       decktype: "Goat Control",
-      visibility: "private",
+      public: false,
       wins: 0,
       losses: 0,
       maindeck: {
