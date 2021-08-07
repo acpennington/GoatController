@@ -6,6 +6,7 @@ const create = require("./deck/create.js");
 const deleteDeck = require("./deck/delete.js");
 const save = require("./deck/save.js");
 const active = require("./deck/active.js");
+const getDeck = require("./deck/get.js");
 
 // Routes API requests to the appropriate function
 exports.handler = async (event) => {
@@ -17,7 +18,8 @@ exports.handler = async (event) => {
          else if (path === "/users/deck") return await create(body, token);
          else return await post(body);
       case "GET":
-         return await get(body);
+         if (path === "/users/deck") return await getDeck(body);
+         else return await get(body);
       case "PUT":
          if (path === "/users/deck") return await save(body, token);
          return await put(body, token);
