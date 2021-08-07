@@ -16,6 +16,7 @@ import Leagues from "views/Leagues/Leagues.js";
 import LeaguePage from "views/LeaguePage/LeaguePage.js";
 import CreateLeague from "views/CreateLeague/CreateLeague.js";
 import FusionsPage from "views/FusionsPage.js/FusionsPage";
+import ShareableDeck from "views/ShareableDeck/ShareableDeck.js";
 
 ReactDOM.render(
    <Router history={history}>
@@ -44,6 +45,14 @@ ReactDOM.render(
             render={() => (
                <Provider store={deckStore}>
                   <FusionsPage />
+               </Provider>
+            )}
+         />
+         <Route
+            path="/deck"
+            render={() => (
+               <Provider store={deckStore}>
+                  <ShareableDeck />
                </Provider>
             )}
          />
