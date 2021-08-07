@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { bind, unbind } from "mousetrap";
 
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
@@ -24,6 +25,16 @@ import {
 } from "utils/constants";
 
 class CardScript extends PureComponent {
+   componentDidMount() {
+      const { variant, script } = this.props;
+
+      if (!variant) bind("s", () => this.runScript(script));
+   }
+
+   componentWillUnmount() {
+      unbind(["s"]);
+   }
+
    runScript = (script) => {
       const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw } = this.props;
       const { name, params } = script;
@@ -134,9 +145,9 @@ function mapStateToProps(state) {
 
 CardScript.propTypes = {
    script: PropTypes.object.isRequired,
+   heroPlayer: PropTypes.string.isRequired,
    variant: PropTypes.string,
-   activeCard: PropTypes.object,
-   heroPlayer: PropTypes.string.isRequired
+   activeCard: PropTypes.object
 };
 
 CardScript.contextType = WebSocketContext;
