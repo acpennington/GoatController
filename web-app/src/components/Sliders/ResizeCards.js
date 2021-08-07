@@ -6,7 +6,7 @@ import { setCardSize } from "stateStore/actions/shared/settings";
 import Slider from "@material-ui/core/Slider";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/deckConstructorSections/rightPanel.js";
+import styles from "assets/jss/material-kit-react/components/resizeCardsStyle.js";
 
 class ResizeCards extends PureComponent {
    sliderChange = (event, newValue) => this.props.setCardSize(newValue);

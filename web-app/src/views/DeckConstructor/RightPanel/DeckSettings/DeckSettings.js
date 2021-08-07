@@ -3,7 +3,7 @@ import React, { PureComponent } from "react";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import Button from "components/CustomButtons/Button.js";
 import DeckSelector from "./DeckSelector.js";
-import ResizeCards from "./ResizeCards.js";
+import ResizeCards from "components/Sliders/ResizeCards.js";
 import BackButton from "components/CustomButtons/BackButton.js";
 import ShowCardNames from "components/Switches/ShowCardNames.js";
 import StackSameName from "components/Switches/StackSameName.js";
