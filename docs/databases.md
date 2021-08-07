@@ -1,13 +1,14 @@
 # users
 
 -  username: string (primary key)
+-  banned: boolean
 -  activeDeck: string
 -  decks: map {
    -  deckname1: map {
       -  decktype: string
       -  maindeck: map: { "A Card's Name": 1, etc}
       -  sidedeck: map: { "A Card's Name": 2, etc}
-      -  visibility: string
+      -  public: false
       -  wins: number
       -  losses: number }
    -  deckname2: {}

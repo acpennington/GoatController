@@ -38,6 +38,7 @@ async function post(body) {
       username,
       hashword,
       referredby,
+      banned: false,
       verified: false,
       goatGold: 0,
       joinDate: todaysDate(),
