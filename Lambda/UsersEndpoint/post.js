@@ -9,7 +9,7 @@ const getJwt = require("./utils/getJwt.js");
 const todaysDate = require("./utils/todaysDate.js");
 const findUser = require("./utils/findUser.js");
 
-const RESERVED = ['Server', 'Game'];
+const RESERVED = ["Server", "Game"];
 
 // @route POST api/users
 // @desc Register a user
@@ -49,7 +49,7 @@ async function post(body) {
       },
       leagues: DynamoDB.createSet(["GoatsDuels_FunTesting"]),
       activeDeck: "Good Ol Goats",
-      activeGame: "",
+      activeMatch: "",
       decks: {
          "Good Ol Goats": defaultDeck
       }
