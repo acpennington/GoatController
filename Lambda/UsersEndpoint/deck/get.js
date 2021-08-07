@@ -1,3 +1,5 @@
+const findUser = require("../utils/findUser.js");
+
 // @route GET api/users/deck
 // @desc Gets a deck it is is public
 // @access Public
