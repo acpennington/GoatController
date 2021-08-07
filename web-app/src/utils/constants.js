@@ -146,6 +146,7 @@ export const SET_DECK = "SET_DECK";
 
 // deck constructor actions
 export const SET_DECKLIST = "SET_DECKLIST";
+export const SET_PUBLIC = "SET_PUBLIC";
 export const TRANSFER_CARD = "TRANSFER_CARD";
 export const SET_STACK = "SET_STACK";
 export const LOAD_DECK = "LOAD_DECK";

@@ -22,7 +22,7 @@ class Sound extends PureComponent {
 
       return (
          <div>
-            <Switch checked={soundOn} onChange={(event) => this.flipSound(event)} color="primary" style={{ color: "#9c27b0" }} />
+            <Switch checked={soundOn} onChange={this.flipSound} color="primary" style={{ color: "#9c27b0" }} />
             Sound {soundOn ? "On" : "Off"}
          </div>
       );

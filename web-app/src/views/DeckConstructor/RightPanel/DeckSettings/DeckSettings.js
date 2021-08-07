@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import Button from "components/CustomButtons/Button.js";
@@ -15,7 +16,7 @@ import styles from "assets/jss/material-kit-react/views/deckConstructorSections/
 
 class DeckSettings extends PureComponent {
    render() {
-      const { classes } = this.props;
+      const { classes, player } = this.props;
 
       return (
          <div className={classes.container}>
@@ -29,11 +30,15 @@ class DeckSettings extends PureComponent {
                <ResizeCards />
                <ShowCardNames />
                <StackSameName />
-               <DeckSelector />
+               <DeckSelector player={player} />
             </FriendlyScroll>
          </div>
       );
    }
 }
+
+DeckSettings.propTypes = {
+   player: PropTypes.string.isRequired
+};
 
 export default withStyles(styles)(DeckSettings);

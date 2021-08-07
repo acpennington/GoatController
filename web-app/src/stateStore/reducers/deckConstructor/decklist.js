@@ -1,8 +1,9 @@
-import { SET_DECKLIST, TRANSFER_CARD } from "utils/constants";
+import { SET_DECKLIST, SET_PUBLIC, TRANSFER_CARD } from "utils/constants.js";
 
 const initialState = {
    maindeck: {},
-   sidedeck: {}
+   sidedeck: {},
+   public: false
 };
 
 export default function (state = initialState, action) {
@@ -10,6 +11,8 @@ export default function (state = initialState, action) {
    switch (type) {
       case SET_DECKLIST:
          return { ...data };
+      case SET_PUBLIC:
+         return { ...state, public: data };
       case TRANSFER_CARD:
          const { to, from, cardName } = data;
 

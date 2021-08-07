@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 import CustomInput from "components/CustomInput/CustomInput.js";
 import GenericFinder from "components/CardFinder/GenericFinder.js";
+import Visibility from "components/Switches/Visibility.js";
 import ButtonRow from "components/CustomButtons/ButtonRow";
 import Button from "components/CustomButtons/Button.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
@@ -93,7 +94,7 @@ class DeckSelector extends PureComponent {
          storage.setItem("decks", JSON.stringify(decks));
 
          setUnsaved(false);
-      }
+      } else console.log(JSON.stringify(res));
    };
 
    undoChanges = () => {
@@ -128,7 +129,7 @@ class DeckSelector extends PureComponent {
    };
 
    render() {
-      const { classes, deckLoaded, unsavedChanges } = this.props;
+      const { classes, deckLoaded, unsavedChanges, player } = this.props;
       const decks = this.getDecks();
 
       const options = [];
@@ -163,6 +164,7 @@ class DeckSelector extends PureComponent {
                )}
             </div>
             <GenericFinder value={deckLoaded} options={options} onChange={this.loadDeck} />
+            <Visibility player={player} />
             <div className={classes.flexRow}>
                <Button color="success" round onClick={this.createDeck}>
                   <IoMdCreate /> New Deck
@@ -192,7 +194,8 @@ function mapStateToProps(state) {
 }
 
 DeckSelector.propTypes = {
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   player: PropTypes.string.isRequired
 };
 
 export default connect(mapStateToProps, { setDecklist, loadDeck, setUnsaved })(withStyles(styles)(DeckSelector));

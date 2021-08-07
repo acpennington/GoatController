@@ -9,7 +9,7 @@ class RightPanel extends Component {
    render() {
       const { thereAreResults, player } = this.props;
 
-      return <Fragment>{thereAreResults ? <SearchResults player={player} /> : <DeckSettings />}</Fragment>;
+      return <Fragment>{thereAreResults ? <SearchResults player={player} /> : <DeckSettings player={player} />}</Fragment>;
    }
 }
 
