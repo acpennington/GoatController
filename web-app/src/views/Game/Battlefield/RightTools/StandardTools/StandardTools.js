@@ -9,13 +9,15 @@ import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 
 import Counters from "./Counters.js";
 import ConcedeButton from "./ConcedeButton.js";
-import Switches from "./Switches.js";
 import RevealHandButton from "./RevealHandButton.js";
 import Phases from "./Phases.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import LifeBar from "components/LifeBar/LifeBar.js";
 import { adjustLP, resetSolo } from "stateStore/actions/game/field.js";
 import { prepopLP } from "stateStore/actions/shared/settings.js";
+import ShowCardNames from "components/Switches/ShowCardNames.js";
+import Shadow from "components/Shadow/Shadow.js";
+import Sound from "components/Switches/Sound.js";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
@@ -112,7 +114,10 @@ class StandardTools extends PureComponent {
                         margin: "dense"
                      }}
                   />
-                  <Switches />
+                  <Shadow>
+                     <Sound />
+                     <ShowCardNames />
+                  </Shadow>
                </div>
             </FriendlyScroll>
          </div>
