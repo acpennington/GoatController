@@ -175,7 +175,7 @@ class DeckSelector extends PureComponent {
                      value: this.state.deckName,
                      onChange: (event) => {
                         const deckName = event.target.value;
-                        if (/^([a-z0-9 ]+)$/i.test(deckName)) this.setState({ deckName });
+                        if (deckName === "" || /^([a-z0-9 ]+)$/i.test(deckName)) this.setState({ deckName });
                      },
                      onKeyPress: (event) => event.key === "Enter" && this.createDeck(),
                      margin: "dense"
