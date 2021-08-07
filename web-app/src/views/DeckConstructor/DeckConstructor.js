@@ -7,14 +7,9 @@ import LeftPanel from "./LeftPanel/LeftPanel.js";
 import RightPanel from "./RightPanel/RightPanel.js";
 import Decklist from "./Decklist/Decklist.js";
 
-import setBodyImage from "utils/setBodyImage.js";
-import { checkToken } from "utils/authToken.js";
-
 class DeckConstructor extends Component {
    constructor(props) {
       super(props);
-      checkToken();
-      setBodyImage();
 
       this.username = window.sessionStorage.getItem("username");
    }

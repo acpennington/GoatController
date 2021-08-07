@@ -2,6 +2,8 @@ import React, { Component, createContext } from "react";
 import PropTypes from "prop-types";
 
 import { GAME_ASPECT_RATIO } from "utils/constants.js";
+import setBodyImage from "utils/setBodyImage.js";
+import { checkToken } from "utils/authToken.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/components/resizableContainerStyle.js";
@@ -11,6 +13,8 @@ export const SizeContext = createContext(null);
 class ResizableContainer extends Component {
    constructor(props) {
       super(props);
+      setBodyImage();
+      checkToken(props.isGame);
 
       this.state = { sizingValue: getSizingValue() };
       window.addEventListener("resize", () => {
@@ -41,7 +45,8 @@ function getSizingValue() {
 }
 
 ResizableContainer.propTypes = {
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   isGame: PropTypes.bool
 };
 
 export default withStyles(styles)(ResizableContainer);

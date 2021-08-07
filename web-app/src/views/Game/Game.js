@@ -12,8 +12,6 @@ import { millUntil } from "stateStore/actions/game/scripts.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
 import getQueryParams from "utils/getQueryParams.js";
-import setBodyImage from "utils/setBodyImage.js";
-import { checkToken } from "utils/authToken.js";
 import {
    VILLAIN_HAND_HEIGHT_FRACTION,
    GAME_SOCKET_URL,
@@ -31,8 +29,6 @@ import {
 class Game extends Component {
    constructor(props) {
       super(props);
-      checkToken(true);
-      setBodyImage();
 
       this.socket = { api: false, matchId: getQueryParams().id, token: getAuthHeaders(false) };
       this.player = { name: window.sessionStorage.getItem("username"), solo: !this.socket.matchId };
@@ -128,7 +124,7 @@ class Game extends Component {
       else
          return (
             <WebSocketContext.Provider value={socket}>
-               <ResizableContainer>
+               <ResizableContainer isGame>
                   <LeftPanel name={player.name} />
                   <SizeContext.Consumer>
                      {(value) => (

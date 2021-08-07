@@ -1,10 +1,10 @@
 import React, { PureComponent } from "react";
 
-import PageTemplate from "components/Header/PageTemplate";
+import ResizableContainer from "components/ResizableContainer/ResizableContainer.js";
 
 class FusionsPage extends PureComponent {
    render() {
-      return <PageTemplate noToken></PageTemplate>;
+      return <ResizableContainer></ResizableContainer>;
    }
 }
 
