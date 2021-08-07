@@ -6,6 +6,7 @@ import ResizableContainer from "components/ResizableContainer/ResizableContainer
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
 import RenderFusions from "./RenderFusions.js";
+import ShowCardNames from "components/Switches/ShowCardNames.js";
 
 import { HERO } from "utils/constants.js";
 
@@ -32,6 +33,9 @@ class FusionsPage extends PureComponent {
                         Adding Fusion Monsters to your Fusion Deck is not part of the deck-building process. It's all done for you! To the right, you will see a
                         list of every Goat Format legal Fusion Monster, just in case you need it for reference.
                      </h4>
+                     <div className={classes.center}>
+                        <ShowCardNames />
+                     </div>
                   </FriendlyScroll>
                </div>
             </div>
