@@ -12,13 +12,17 @@ async function save(body, token) {
    const username = auth(token);
    if (!username) return { statusCode: 401, body: { errors: [{ msg: "Unauthorized, token invalid" }] } };
 
-   const { deckName, maindeck, sidedeck } = body;
+   const { deckName, maindeck, sidedeck, public } = body;
+   let UpdateExpression = "SET ";
+   if (maindeck) UpdateExpression += "decks.#name.maindeck = :main, decks.#name.sidedeck = :side";
+   else if (public || public === false) UpdateExpression += "decks.#name.public = :public";
+
    const params = {
       TableName: "users",
       Key: { username },
-      UpdateExpression: "SET decks.#name.maindeck = :main, decks.#name.sidedeck = :side",
+      UpdateExpression,
       ExpressionAttributeNames: { "#name": deckName },
-      ExpressionAttributeValues: { ":main": maindeck, ":side": sidedeck }
+      ExpressionAttributeValues: { ":main": maindeck, ":side": sidedeck, ":public": public }
    };
 
    try {
