@@ -47,7 +47,7 @@ class FusionsPage extends PureComponent {
    }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
    return { hoverCard: state.hoverCard, selectedCard: state.selectedCard[HERO] };
 }
 
