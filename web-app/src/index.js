@@ -15,6 +15,7 @@ import Wall from "views/Wall/Wall.js";
 import Leagues from "views/Leagues/Leagues.js";
 import LeaguePage from "views/LeaguePage/LeaguePage.js";
 import CreateLeague from "views/CreateLeague/CreateLeague.js";
+import FusionsPage from "views/FusionsPage.js/FusionsPage";
 
 ReactDOM.render(
    <Router history={history}>
@@ -38,6 +39,7 @@ ReactDOM.render(
                </Provider>
             )}
          />
+         <Route path="/fusions" component={FusionsPage} />
          <Route path="/settings" component={SettingsPage} />
          <Route path="/login-page" component={LoginPage} />
          <Route path="/beta" component={BetaPage} />
