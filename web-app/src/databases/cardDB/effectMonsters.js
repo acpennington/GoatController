@@ -353,6 +353,75 @@ const effectMonsters = {
       atk: 2100,
       def: 200,
       text: "Warrior/Effect – <effect=Continuous>Cannot attack your opponent directly.</effect> <effect=Trigger>If this card destroys a monster by battle: This card loses 200 ATK.</effect>"
+   },
+   "Armed Dragon LV5": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Wind",
+      levelOrSubtype: 5,
+      atk: 2400,
+      def: 1700,
+      text: 'Dragon/Effect – <effect=Ignition>You can send 1 monster from your hand to the GY, then target 1 monster your opponent controls with ATK less than or equal to the sent monster\'s ATK; destroy that target.</effect> <effect=Trigger>During the End Phase, if this card destroyed a monster by battle this turn: You can send this card to the GY; Special Summon 1 "Armed Dragon LV7" from your hand or Deck.</effect>',
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            name: {
+               value: "Armed Dragon LV7"
+            }
+         },
+         autoClose: true
+      }
+   },
+   "Cave Dragon": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Wind",
+      levelOrSubtype: 4,
+      atk: 2000,
+      def: 100,
+      text: "Dragon/Effect – Cannot be Normal Summoned while you control a monster. <effect=Continuous>This card cannot declare an attack unless you control another Dragon-Type monster.</effect>"
+   },
+   "Different Dimension Dragon": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Light",
+      levelOrSubtype: 5,
+      atk: 1200,
+      def: 1500,
+      text: "Dragon/Effect – <effect=Continuous>This card cannot be destroyed by Spell/Trap effects that do not target it.</effect> <effect=Continuous>This card cannot be destroyed by battle with a monster that has 1900 or less ATK.</effect>"
+   },
+   "Fusilier Dragon, the Dual-Mode Beast": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Dark",
+      levelOrSubtype: 7,
+      atk: 2800,
+      def: 2000,
+      text: "Machine/Effect – You can Normal Summon/Set this card without Tributing, but its original ATK and DEF become halved."
+   },
+   "Mirage Dragon": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Light",
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 600,
+      text: "Dragon/Effect – <effect=Continuous>Your opponent cannot activate Trap Cards during the Battle Phase.</effect>"
+   },
+   "Rare Metal Dragon": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 2400,
+      def: 1200,
+      text: "Dragon/Effect – This card cannot be Normal Summoned or Set."
+   },
+   "Tyrant Dragon": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Dark",
+      levelOrSubtype: 4,
+      atk: 2900,
+      def: 2500,
+      text: "Dragon/Effect – <effect=Trigger>During your Battle Phase, if your opponent controls a monster after this card's first attack, this card can make a second attack.</effect> <effect=Trigger>Negate any Trap effects that target this card, and if you do, destroy that Trap Card.</effect> This card cannot be Special Summoned from the Graveyard, unless you Tribute 1 Dragon-Type monster."
    }
 };
 

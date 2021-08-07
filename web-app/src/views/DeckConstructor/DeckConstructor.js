@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
@@ -21,15 +20,11 @@ class DeckConstructor extends Component {
    }
 
    render() {
-      const { searchResults } = this.props;
-      const thereAreResults = searchResults.length > 0;
-      const decklistWidth = (thereAreResults ? 100 - 23 - 12 : 100 - 23) + "%";
-
       return (
          <ResizableContainer>
             <DndProvider backend={HTML5Backend}>
                <LeftPanel />
-               <Decklist width={decklistWidth} player={this.username} />
+               <Decklist player={this.username} />
                <RightPanel player={this.username} />
             </DndProvider>
          </ResizableContainer>
@@ -37,8 +32,4 @@ class DeckConstructor extends Component {
    }
 }
 
-function mapStateToProps(state) {
-   return { searchResults: state.searchResults };
-}
-
-export default connect(mapStateToProps)(DeckConstructor);
+export default DeckConstructor;

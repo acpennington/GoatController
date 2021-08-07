@@ -1,9 +1,11 @@
 // game settings
 export const GAME_ASPECT_RATIO = 1.8;
 export const VILLAIN_HAND_HEIGHT_FRACTION = 0.5;
-export const MODAL_CARD_SIZE = 0.81;
+export const MODAL_CARD_SIZE = 0.85;
 export const CARD_RATIO = 1.45;
 export const DIVIDER_HEIGHT = 40;
+export const LEFT_PANEL_SIZE = 23;
+export const RIGHT_PANEL_SIZE = 14;
 export const backgrounds = ["Default.png", "Sorcerer_In_Space.png", "Thousand_Eyes_Goats.png"];
 
 // player
@@ -145,8 +147,10 @@ export const SET_DECK = "SET_DECK";
 // deck constructor actions
 export const SET_DECKLIST = "SET_DECKLIST";
 export const TRANSFER_CARD = "TRANSFER_CARD";
+export const SET_STACK = "SET_STACK";
 export const LOAD_DECK = "LOAD_DECK";
 export const SET_UNSAVED = "SET_UNSAVED";
+export const SET_CARDSIZE = "SET_CARDSIZE";
 export const NEW_RESULTS = "NEW_RESULTS";
 export const RERENDER_SEARCH = "RERENDER_SEARCH";
 

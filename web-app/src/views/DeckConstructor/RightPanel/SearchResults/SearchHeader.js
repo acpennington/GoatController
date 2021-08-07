@@ -8,7 +8,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/deckConstructorSections/searchResults.js";
+import styles from "assets/jss/material-kit-react/views/deckConstructorSections/rightPanel.js";
 
 class SearchHeader extends Component {
    componentDidMount() {

@@ -1,4 +1,4 @@
-import { SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME, LOAD_DECK, SET_UNSAVED } from "utils/constants.js";
+import { SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK } from "utils/constants.js";
 
 const initialState = {
    concessionLink: false,
@@ -7,7 +7,8 @@ const initialState = {
    prepopLP: null,
    stackSameName: false,
    deckLoaded: window.sessionStorage.getItem("activeDeck"),
-   unsavedChanges: false
+   unsavedChanges: false,
+   cardSize: 50.5
 };
 
 export default function (state = initialState, action) {
@@ -25,10 +26,14 @@ export default function (state = initialState, action) {
          return { ...state, prepopLP: data };
       case CONCEDE_GAME:
          return { ...state, concessionLink: data };
+      case SET_STACK:
+         return { ...state, stackSameName: data };
       case LOAD_DECK:
          return { ...state, deckLoaded: data };
       case SET_UNSAVED:
          return { ...state, unsavedChanges: data };
+      case SET_CARDSIZE:
+         return { ...state, cardSize: data };
       default:
          return state;
    }

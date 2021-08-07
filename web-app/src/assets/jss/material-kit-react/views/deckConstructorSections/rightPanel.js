@@ -1,13 +1,17 @@
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
+import commonDeckConstructor from "./deckConstructorCommon.js";
 
-const searchResultsStyle = {
+import { RIGHT_PANEL_SIZE } from "utils/constants.js";
+
+const rightPanelStyle = {
+   ...commonDeckConstructor,
    container: {
       position: "relative",
-      flex: "12%",
+      flex: RIGHT_PANEL_SIZE + "%",
       display: "flex",
       flexDirection: "column",
       height: "100%",
-      width: "12%",
+      width: RIGHT_PANEL_SIZE + "%",
       borderRadius: "3px",
       textAlign: "center",
       marginLeft: "3px",
@@ -23,7 +27,17 @@ const searchResultsStyle = {
       borderRadius: "3px",
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReinforcementoftheArmy.jpg")'
    },
+   deckSelector: {
+      marginTop: "10px",
+      marginBottom: "10px"
+   },
+   resizeHalf: {
+      flex: "50%",
+      width: "50%",
+      textAlign: "right",
+      padding: "2px"
+   },
    ...tooltip
 };
 
-export default searchResultsStyle;
+export default rightPanelStyle;

@@ -2,13 +2,14 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import DeckSettings from "./DeckSettings/DeckSettings.js";
 import SearchResults from "./SearchResults/SearchResults.js";
 
 class RightPanel extends Component {
    render() {
       const { thereAreResults, player } = this.props;
 
-      return <Fragment>{thereAreResults ? <SearchResults player={player} /> : null}</Fragment>;
+      return <Fragment>{thereAreResults ? <SearchResults player={player} /> : <DeckSettings />}</Fragment>;
    }
 }
 

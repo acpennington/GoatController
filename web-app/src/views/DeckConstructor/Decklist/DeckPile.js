@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { useSelector, useDispatch } from "react-redux";
 import { useDrop } from "react-dnd";
@@ -8,18 +8,18 @@ import { SizeContext } from "components/ResizableContainer/ResizableContainer.js
 import { transferCard } from "stateStore/actions/deckConstructor/decklist";
 import getCardDetails from "utils/getCardDetails.js";
 
-import { orderedCardTypes, SIDEDECK, OVER_COLOR, allLocations } from "utils/constants";
+import { orderedCardTypes, SIDEDECK, OVER_COLOR, allLocations } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
 
-function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
+function DeckPile({ classes, name, player, cardCount }) {
    const dispatch = useDispatch();
-   const { stackSameName, deckLoaded } = useSelector((state) => {
-      return { stackSameName: state.settings.stackSameName, deckLoaded: state.settings.deckLoaded };
+   const { stackSameName, cardSize, cardsMap } = useSelector((state) => {
+      return { stackSameName: state.settings.stackSameName, cardSize: state.settings.cardSize, cardsMap: state.decklist[name] };
    });
    const size = useContext(SizeContext);
-   const cardHeight = ((size / 6.5) * sliderValue) / 50;
+   const cardHeight = ((size / 6.5) * cardSize) / 50;
    const cards = [];
 
    const cardKeys = Object.keys(cardsMap);
@@ -28,12 +28,10 @@ function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
       const deetsB = getCardDetails(b);
       return orderedCardTypes.indexOf(deetsA.cardType) - orderedCardTypes.indexOf(deetsB.cardType);
    });
-   let cardCount = 0;
 
    for (let i = 0; i < cardKeys.length; i++) {
       const cardName = cardKeys[i];
       const quantity = cardsMap[cardName];
-      cardCount += quantity;
 
       if (stackSameName) cards.push(<DecklistCard height={cardHeight} player={player} location={name} name={cardName} quantity={quantity} zone={i} key={i} />);
       else
@@ -52,27 +50,17 @@ function DeckPile({ classes, name, player, cardsMap, sliderValue }) {
    });
 
    return (
-      <Fragment>
-         <h4 className={classes.deckLabel}>
-            {deckLoaded} — {capitalize(name)}: {cardCount}
-         </h4>
-         <div className={classes.listContainer} ref={drop} style={{ backgroundColor: isOver && canDrop && OVER_COLOR + "33" }}>
-            {cards}
-         </div>
-      </Fragment>
+      <div className={classes.listContainer} ref={drop} style={{ backgroundColor: isOver && canDrop && OVER_COLOR + "33" }}>
+         {cards}
+      </div>
    );
-}
-
-function capitalize(string) {
-   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 DeckPile.propTypes = {
    classes: PropTypes.object.isRequired,
    player: PropTypes.string.isRequired,
    name: PropTypes.string.isRequired,
-   cardsMap: PropTypes.object.isRequired,
-   sliderValue: PropTypes.number.isRequired
+   cardCount: PropTypes.number
 };
 
 export default withStyles(styles)(DeckPile);

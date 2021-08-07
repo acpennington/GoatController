@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -10,7 +10,7 @@ import Button from "components/CustomButtons/Button.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 import { loadDeck, setUnsaved } from "stateStore/actions/shared/settings.js";
 
-import { FaSave } from "react-icons/fa";
+import { FaSave, FaUndo } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import { IoMdCreate } from "react-icons/io";
@@ -20,7 +20,7 @@ import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
-import styles from "assets/jss/material-kit-react/views/deckConstructorSections/leftPanel.js";
+import styles from "assets/jss/material-kit-react/views/deckConstructorSections/rightPanel.js";
 
 const blankDeck = {
    wins: 0,
@@ -96,6 +96,14 @@ class DeckSelector extends PureComponent {
       }
    };
 
+   undoChanges = () => {
+      const { deckLoaded, setDecklist } = this.props;
+
+      const decks = JSON.parse(window.sessionStorage.getItem("decks"));
+      const activeDeck = decks[deckLoaded];
+      setDecklist(activeDeck);
+   };
+
    createDeck = async () => {
       const { deckName } = this.state;
       if (deckName.length > 0) {
@@ -131,24 +139,28 @@ class DeckSelector extends PureComponent {
 
       return (
          <div className={classes.deckSelector}>
+            <h3>Decks</h3>
             <div className={classes.buttonRow}>
-               <ButtonRow>
-                  {!deckIsActive && (
-                     <Fragment>
-                        <Button color="primary" fullWidth round onClick={this.deleteDeck}>
-                           <MdDeleteForever /> Delete
-                        </Button>
-                        <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
-                           <BsStarFill /> Set Active
-                        </Button>
-                     </Fragment>
-                  )}
-                  {unsavedChanges && (
+               {!deckIsActive && (
+                  <ButtonRow>
+                     <Button color="primary" fullWidth round onClick={this.deleteDeck}>
+                        <MdDeleteForever /> Delete
+                     </Button>
+                     <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
+                        <BsStarFill /> Set Active
+                     </Button>
+                  </ButtonRow>
+               )}
+               {unsavedChanges && (
+                  <ButtonRow>
                      <Button color="primary" fullWidth round onClick={this.saveDeck}>
                         <FaSave /> Save
                      </Button>
-                  )}
-               </ButtonRow>
+                     <Button color="primary" fullWidth round onClick={this.undoChanges}>
+                        <FaUndo /> Undo
+                     </Button>
+                  </ButtonRow>
+               )}
             </div>
             <GenericFinder value={deckLoaded} options={options} onChange={this.loadDeck} />
             <div className={classes.flexRow}>
@@ -161,7 +173,10 @@ class DeckSelector extends PureComponent {
                   formControlProps={{ fullWidth: true }}
                   inputProps={{
                      value: this.state.deckName,
-                     onChange: (event) => this.setState({ deckName: event.target.value }),
+                     onChange: (event) => {
+                        const deckName = event.target.value;
+                        if (/^([a-z0-9 ]+)$/i.test(deckName)) this.setState({ deckName });
+                     },
                      onKeyPress: (event) => event.key === "Enter" && this.createDeck(),
                      margin: "dense"
                   }}

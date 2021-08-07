@@ -1,9 +1,11 @@
-import { DIVIDER_HEIGHT } from "utils/constants";
+import { DIVIDER_HEIGHT, RIGHT_PANEL_SIZE, LEFT_PANEL_SIZE } from "utils/constants";
+
+const battlefieldWidth = 100 - RIGHT_PANEL_SIZE - LEFT_PANEL_SIZE + "%";
 
 const battlefieldStyle = {
    cardsInPlay: {
-      flex: "65%",
-      width: "65%",
+      flex: battlefieldWidth,
+      width: battlefieldWidth,
       height: "100%",
       display: "flex",
       flexDirection: "row",

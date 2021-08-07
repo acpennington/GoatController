@@ -1,13 +1,13 @@
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
-import { BANISHED, DECK, EXTRA_DECK, GRAVEYARD } from "utils/constants.js";
+import { BANISHED, DECK, EXTRA_DECK, GRAVEYARD, RIGHT_PANEL_SIZE } from "utils/constants.js";
 
 const allContainers = {
    position: "relative",
-   flex: "12%",
+   flex: RIGHT_PANEL_SIZE + "%",
    display: "flex",
    flexDirection: "column",
    height: "100%",
-   width: "12%",
+   width: RIGHT_PANEL_SIZE + "%",
    borderRadius: "3px",
    textAlign: "center",
    marginLeft: "3px"

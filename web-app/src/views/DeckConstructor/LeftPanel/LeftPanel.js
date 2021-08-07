@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
-import DeckSelector from "./DeckSelector.js";
 import CardSearch from "./CardSearch.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -19,8 +18,6 @@ class LeftPanel extends PureComponent {
             <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} />
             <div className={classes.bottomContainer}>
                <FriendlyScroll id="leftPanel" flexDirection="column" contStyle={{ height: "100%" }} style={{ height: "100%" }}>
-                  <DeckSelector activeDeck={null} deckNames={null} />
-                  <hr style={{ width: "100%" }} />
                   <CardSearch />
                </FriendlyScroll>
             </div>

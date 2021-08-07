@@ -1,17 +1,18 @@
+import { RIGHT_PANEL_SIZE, LEFT_PANEL_SIZE } from "utils/constants";
+
+const decklistWidth = 100 - RIGHT_PANEL_SIZE - LEFT_PANEL_SIZE + "%";
+
 const decklistStyles = {
    container: {
       height: "100%",
       display: "flex",
-      flexDirection: "column"
-   },
-   resizeCards: {
-      flex: "0%",
-      textAlign: "center",
-      maxHeight: "5em",
-      marginBottom: "5px"
+      flexDirection: "column",
+      width: decklistWidth,
+      flex: decklistWidth
    },
    allCards: {
       flex: "100%",
+      height: "100%",
       justifyContent: "center",
       backgroundColor: "rgba(0,0,0,0.85)",
       borderRadius: "3px",

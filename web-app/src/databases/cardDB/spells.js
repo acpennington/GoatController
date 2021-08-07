@@ -128,6 +128,11 @@ const spells = {
          autoClose: true
       },
       limit: 2
+   },
+   "Stamping Destruction": {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "If you control a Dragon monster: Target 1 Spell/Trap on the field; destroy that target, and if you do, inflict 500 damage to its controller."
    }
 };
 
