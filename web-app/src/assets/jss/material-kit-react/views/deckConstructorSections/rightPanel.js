@@ -31,12 +31,6 @@ const rightPanelStyle = {
       marginTop: "10px",
       marginBottom: "10px"
    },
-   resizeHalf: {
-      flex: "50%",
-      width: "50%",
-      textAlign: "right",
-      padding: "2px"
-   },
    ...tooltip
 };
 
