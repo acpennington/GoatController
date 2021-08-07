@@ -5,7 +5,8 @@ import Button from "components/CustomButtons/Button.js";
 import DeckSelector from "./DeckSelector.js";
 import ResizeCards from "./ResizeCards.js";
 import BackButton from "components/CustomButtons/BackButton.js";
-import Switches from "./Switches.js";
+import ShowCardNames from "components/Switches/ShowCardNames.js";
+import StackSameName from "components/Switches/StackSameName.js";
 
 import { IoMdHelpCircle } from "react-icons/io";
 
@@ -26,7 +27,8 @@ class DeckSettings extends PureComponent {
                   <IoMdHelpCircle style={{ marginLeft: "5px" }} />
                </Button>
                <ResizeCards />
-               <Switches />
+               <ShowCardNames />
+               <StackSameName />
                <DeckSelector />
             </FriendlyScroll>
          </div>
