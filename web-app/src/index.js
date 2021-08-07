@@ -39,7 +39,14 @@ ReactDOM.render(
                </Provider>
             )}
          />
-         <Route path="/fusions" component={FusionsPage} />
+         <Route
+            path="/fusions"
+            render={() => (
+               <Provider store={deckStore}>
+                  <FusionsPage />
+               </Provider>
+            )}
+         />
          <Route path="/settings" component={SettingsPage} />
          <Route path="/login-page" component={LoginPage} />
          <Route path="/beta" component={BetaPage} />

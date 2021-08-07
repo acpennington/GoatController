@@ -14,7 +14,7 @@ class ResizableContainer extends Component {
    constructor(props) {
       super(props);
       setBodyImage();
-      checkToken(props.isGame);
+      if (!props.noToken) checkToken(props.isGame);
 
       this.state = { sizingValue: getSizingValue() };
       window.addEventListener("resize", () => {
@@ -46,7 +46,8 @@ function getSizingValue() {
 
 ResizableContainer.propTypes = {
    classes: PropTypes.object.isRequired,
-   isGame: PropTypes.bool
+   isGame: PropTypes.bool,
+   noToken: PropTypes.bool
 };
 
 export default withStyles(styles)(ResizableContainer);

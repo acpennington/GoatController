@@ -28,7 +28,7 @@ class RenderCards extends Component {
       }
 
       return (
-         <div className={classes.cards} style={cards.length > 12 ? { height: maxHeight } : {}}>
+         <div className={classes.cards} style={cards.length > 12 && maxHeight ? { height: maxHeight } : {}}>
             {cards}
          </div>
       );
@@ -37,7 +37,7 @@ class RenderCards extends Component {
 
 RenderCards.propTypes = {
    classes: PropTypes.object.isRequired,
-   maxHeight: PropTypes.number.isRequired,
+   maxHeight: PropTypes.number,
    cardHeight: PropTypes.number.isRequired,
    cardsToRender: PropTypes.array.isRequired,
    player: PropTypes.string.isRequired,
