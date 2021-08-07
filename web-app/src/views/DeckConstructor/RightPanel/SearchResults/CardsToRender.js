@@ -28,7 +28,7 @@ class CardsToRender extends Component {
    render() {
       const { player, maxHeight } = this.props;
 
-      const cardHeight = this.context / 7;
+      const cardHeight = this.context / 6.05; // this is a magic number to make 2 cards per row take up whole container
       const cardsToRender = this.updateResults();
 
       return <RenderCards cardsToRender={cardsToRender} maxHeight={maxHeight} cardHeight={cardHeight} player={player} decklist />;

@@ -57,7 +57,7 @@ class CardsToRender extends Component {
       const { zoneLen } = this.state;
 
       return (
-         <FriendlyScroll id={"modal" + player + row} count={zoneLen} flexDirection="column" style={{ maxHeight: maxHeight - 6 + "px" }}>
+         <FriendlyScroll id={"modal" + player + row} count={zoneLen} flexDirection="column" style={{ maxHeight: maxHeight + "px" }}>
             <RenderCards cardsToRender={cardsToRender} maxHeight={maxHeight} cardHeight={height} player={player} row={row} isHero={isHero} />
          </FriendlyScroll>
       );
