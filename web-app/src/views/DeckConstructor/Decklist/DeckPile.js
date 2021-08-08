@@ -13,7 +13,7 @@ import { orderedCardTypes, SIDEDECK, OVER_COLOR, allLocations } from "utils/cons
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
 
-function DeckPile({ classes, name, player, cardCount }) {
+function DeckPile({ classes, name, player, cardCount, noDrop }) {
    const dispatch = useDispatch();
    const { stackSameName, cardSize, cardsMap } = useSelector((state) => {
       return { stackSameName: state.settings.stackSameName, cardSize: state.settings.cardSize, cardsMap: state.decklist[name] };
@@ -33,15 +33,27 @@ function DeckPile({ classes, name, player, cardCount }) {
       const cardName = cardKeys[i];
       const quantity = cardsMap[cardName];
 
-      if (stackSameName) cards.push(<DecklistCard height={cardHeight} player={player} location={name} name={cardName} quantity={quantity} zone={i} key={i} />);
+      if (stackSameName)
+         cards.push(<DecklistCard height={cardHeight} player={player} location={name} name={cardName} quantity={quantity} zone={i} noDrop={noDrop} key={i} />);
       else
          for (let j = 0; j < quantity; j++)
-            cards.push(<DecklistCard height={cardHeight} player={player} location={name} name={cardName} quantity={1} zone={i * 4 + j} key={i * 4 + j} />);
+            cards.push(
+               <DecklistCard
+                  height={cardHeight}
+                  player={player}
+                  location={name}
+                  name={cardName}
+                  quantity={1}
+                  zone={i * 4 + j}
+                  noDrop={noDrop}
+                  key={i * 4 + j}
+               />
+            );
    }
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allLocations,
-      canDrop: () => name !== SIDEDECK || cardCount < 15,
+      canDrop: () => !noDrop && (name !== SIDEDECK || cardCount < 15),
       drop: (item) => dispatch(transferCard(item.name, name, item.type)),
       collect: (monitor) => ({
          isOver: !!monitor.isOver(),
@@ -60,7 +72,8 @@ DeckPile.propTypes = {
    classes: PropTypes.object.isRequired,
    player: PropTypes.string.isRequired,
    name: PropTypes.string.isRequired,
-   cardCount: PropTypes.number
+   cardCount: PropTypes.number,
+   noDrop: PropTypes.bool
 };
 
 export default withStyles(styles)(DeckPile);

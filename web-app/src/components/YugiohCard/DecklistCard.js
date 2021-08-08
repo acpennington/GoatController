@@ -15,7 +15,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 const useStyles = makeStyles(cardStyle);
 
-function YugiohCard({ height, location, name, quantity, player, zone }) {
+function YugiohCard({ height, location, name, quantity, player, zone, noDrop }) {
    const classes = useStyles();
    const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ function YugiohCard({ height, location, name, quantity, player, zone }) {
    const [{ isDragging }, drag] = useDrag({
       item: { type: location, name },
       end: (item, monitor) => {
-         if (!monitor.didDrop()) dispatch(transferCard(item.name, SEARCH_RESULTS, item.type));
+         if (!monitor.didDrop() && !noDrop) dispatch(transferCard(item.name, SEARCH_RESULTS, item.type));
       },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
@@ -95,7 +95,8 @@ YugiohCard.propTypes = {
    name: PropTypes.string.isRequired,
    quantity: PropTypes.number.isRequired,
    zone: PropTypes.number.isRequired,
-   player: PropTypes.string.isRequired
+   player: PropTypes.string.isRequired,
+   noDrop: PropTypes.bool
 };
 
 export default YugiohCard;

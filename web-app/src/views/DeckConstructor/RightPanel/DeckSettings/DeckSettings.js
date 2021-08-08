@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import Button from "components/CustomButtons/Button.js";
@@ -16,12 +17,12 @@ import styles from "assets/jss/material-kit-react/views/deckConstructorSections/
 
 class DeckSettings extends PureComponent {
    render() {
-      const { classes, player } = this.props;
+      const { classes, player, sharing, deckLoaded } = this.props;
 
       return (
          <div className={classes.container}>
             <FriendlyScroll id="deckSettings" flexDirection="column">
-               <BackButton href="wall" size="lg" />
+               {!sharing && <BackButton href="wall" size="lg" />}
                <Button color="info" size="lg" round href="/fusions" target="_blank">
                   <IoMdHelpCircle />
                   Fusions
@@ -30,15 +31,21 @@ class DeckSettings extends PureComponent {
                <ResizeCards />
                <ShowCardNames />
                <StackSameName />
-               <DeckSelector player={player} />
+               {sharing ? <h3>{deckLoaded}</h3> : <DeckSelector player={player} />}
             </FriendlyScroll>
          </div>
       );
    }
 }
 
+function mapStateToProps(state) {
+   return { deckLoaded: state.settings.deckLoaded };
+}
+
 DeckSettings.propTypes = {
-   player: PropTypes.string.isRequired
+   classes: PropTypes.object.isRequired,
+   player: PropTypes.string.isRequired,
+   sharing: PropTypes.bool
 };
 
-export default withStyles(styles)(DeckSettings);
+export default connect(mapStateToProps)(withStyles(styles)(DeckSettings));

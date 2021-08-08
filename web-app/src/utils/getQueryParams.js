@@ -1,3 +1,5 @@
+const replaceParams = ["ref", "user", "name"];
+
 function getQueryParams() {
    const params = {};
    const urlString = window.location.href;
@@ -8,7 +10,7 @@ function getQueryParams() {
    const paramsArray = paramsOnly.split("&");
    paramsArray.forEach((param) => {
       const [variable, value] = param.split("=");
-      const newValue = variable === "ref" ? value.replace(/_/g, " ") : value;
+      const newValue = replaceParams.includes(variable) ? value.replace(/_/g, " ") : value;
       params[variable] = newValue;
    });
 

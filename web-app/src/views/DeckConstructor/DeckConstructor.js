@@ -18,7 +18,7 @@ class DeckConstructor extends Component {
       return (
          <ResizableContainer>
             <DndProvider backend={HTML5Backend}>
-               <LeftPanel />
+               <LeftPanel player={this.username} />
                <Decklist player={this.username} />
                <RightPanel player={this.username} />
             </DndProvider>

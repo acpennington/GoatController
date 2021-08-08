@@ -16,14 +16,16 @@ class Decklist extends Component {
    constructor(props) {
       super(props);
 
-      const storage = window.sessionStorage;
-      const decks = JSON.parse(storage.getItem("decks"));
-      const activeDeck = decks[props.deckLoaded];
-      props.setDecklist(activeDeck);
+      if (!props.sharing) {
+         const storage = window.sessionStorage;
+         const decks = JSON.parse(storage.getItem("decks"));
+         const activeDeck = decks[props.deckLoaded];
+         props.setDecklist(activeDeck);
+      }
    }
 
    render() {
-      const { classes, player, decklist } = this.props;
+      const { classes, player, decklist, sharing } = this.props;
       const { maindeck, sidedeck } = decklist;
 
       const mainCount = cardCount(maindeck);
@@ -41,9 +43,9 @@ class Decklist extends Component {
                   count={mainCount * sideCount}
                   style={{ flexFlow: "row wrap", maxHeight: maxHeight - 6 + "px" }}
                >
-                  <DeckPile player={player} name={MAINDECK} />
+                  <DeckPile player={player} name={MAINDECK} noDrop={sharing} />
                   <DeckDivider mainCount={mainCount} sideCount={sideCount} />
-                  <DeckPile player={player} name={SIDEDECK} count={sideCount} />
+                  <DeckPile player={player} name={SIDEDECK} count={sideCount} noDrop={sharing} />
                </FriendlyScroll>
             </div>
          </div>
@@ -67,7 +69,8 @@ function mapStateToProps(state) {
 
 Decklist.propTypes = {
    classes: PropTypes.object.isRequired,
-   player: PropTypes.string.isRequired
+   player: PropTypes.string.isRequired,
+   sharing: PropTypes.bool
 };
 
 export default connect(mapStateToProps, { setDecklist })(withStyles(styles)(Decklist));
