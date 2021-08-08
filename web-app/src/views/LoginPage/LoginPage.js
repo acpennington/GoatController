@@ -32,7 +32,7 @@ export default function LoginPage() {
    const [isLogin, setIsLogin] = useState(!query);
    const [cardAnimation, setCardAnimation] = useState("cardHidden");
    const [errors, setErrors] = useState(false);
-   const [username, setUsername] = useState("");
+   const [username, setUsername] = useState(window.localStorage.getItem("username") || "");
    const usernameEvent = (event) => {
       setUsername(event.target.value);
    };
@@ -61,8 +61,12 @@ export default function LoginPage() {
          if (res.data.statusCode === 200) {
             const data = res.data.body;
             const storage = window.sessionStorage;
+            const local = window.localStorage;
 
             for (const item in data) {
+               if (item === "username") local.setItem("username", data[item]);
+               if (item === "settings") local.setItem("gamebg", data[item].gamebg);
+
                if (objects.includes(item)) storage.setItem(item, JSON.stringify(data[item]));
                else storage.setItem(item, data[item]);
             }
@@ -100,6 +104,7 @@ export default function LoginPage() {
                         id="username"
                         formControlProps={{ fullWidth: true }}
                         inputProps={{
+                           defaultValue: username,
                            onChange: usernameEvent,
                            onKeyPress: enterToSubmit,
                            type: "text",

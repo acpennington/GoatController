@@ -5,13 +5,14 @@ export default function setBodyImage() {
    const settings = JSON.parse(window.sessionStorage.getItem("settings"));
 
    let url;
-   if (!settings) {
-      url = "/backgrounds/" + backgrounds[Math.floor(Math.random() * backgrounds.length)];
-   } else if (settings.gamebg.startsWith("http")) {
-      url = settings.gamebg;
-   } else {
-      url = `/backgrounds/${settings.gamebg}`;
-   }
+   if (!settings || !settings.gamebg) {
+      const storedBg = window.localStorage.getItem("gamebg");
+      url = storedBg ? evalGamebg(storedBg) : "/backgrounds/" + backgrounds[Math.floor(Math.random() * backgrounds.length)];
+   } else url = evalGamebg(settings.gamebg);
 
    body.style.backgroundImage = `url("${url}")`;
+}
+
+function evalGamebg(gamebg) {
+   return gamebg.startsWith("http") ? gamebg : `/backgrounds/${gamebg}`;
 }
