@@ -14,15 +14,24 @@ async function save(body, token) {
 
    const { deckName, maindeck, sidedeck, isPublic } = body;
    let UpdateExpression = "SET ";
-   if (maindeck) UpdateExpression += "decks.#name.maindeck = :main, decks.#name.sidedeck = :side";
-   else if (isPublic || isPublic === false) UpdateExpression += "decks.#name.public = :public";
+   const ExpressionAttributeNames = { "#name": deckName };
+   let ExpressionAttributeValues = {};
+
+   if (maindeck) {
+      UpdateExpression += "decks.#name.maindeck = :main, decks.#name.sidedeck = :side";
+      ExpressionAttributeValues = { ":main": maindeck, ":side": sidedeck };
+   } else if (isPublic || isPublic === false) {
+      UpdateExpression += "decks.#name.#isPublic = :public";
+      ExpressionAttributeNames["#isPublic"] = "public";
+      ExpressionAttributeValues = { ":public": isPublic };
+   }
 
    const params = {
       TableName: "users",
       Key: { username },
       UpdateExpression,
-      ExpressionAttributeNames: { "#name": deckName },
-      ExpressionAttributeValues: { ":main": maindeck, ":side": sidedeck, ":public": isPublic }
+      ExpressionAttributeNames,
+      ExpressionAttributeValues
    };
 
    try {
