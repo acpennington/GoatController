@@ -44,7 +44,7 @@ function mapStateToProps(state) {
 
 DeckSettings.propTypes = {
    classes: PropTypes.object.isRequired,
-   player: PropTypes.string.isRequired,
+   player: PropTypes.string,
    sharing: PropTypes.bool
 };
 

@@ -24,6 +24,10 @@ class Decklist extends Component {
       }
    }
 
+   componentDidMount() {
+      if (this.props.sharing) this.forceUpdate();
+   }
+
    render() {
       const { classes, player, decklist, sharing } = this.props;
       const { maindeck, sidedeck } = decklist;
@@ -45,7 +49,7 @@ class Decklist extends Component {
                >
                   <DeckPile player={player} name={MAINDECK} noDrop={sharing} />
                   <DeckDivider mainCount={mainCount} sideCount={sideCount} />
-                  <DeckPile player={player} name={SIDEDECK} count={sideCount} noDrop={sharing} />
+                  <DeckPile player={player} name={SIDEDECK} cardCount={sideCount} noDrop={sharing} />
                </FriendlyScroll>
             </div>
          </div>

@@ -34,7 +34,7 @@ function YugiohCard({ height, location, name, quantity, player, zone, noDrop }) 
       })
    });
 
-   if (heroSelected) {
+   if (heroSelected && !noDrop) {
       bind("d", () => {
          dispatch(transferCard(name, SEARCH_RESULTS, location));
       });

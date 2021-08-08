@@ -53,7 +53,7 @@ function DeckPile({ classes, name, player, cardCount, noDrop }) {
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allLocations,
-      canDrop: () => !noDrop && (name !== SIDEDECK || cardCount < 15),
+      canDrop: () => name !== SIDEDECK || cardCount < 15,
       drop: (item) => dispatch(transferCard(item.name, name, item.type)),
       collect: (monitor) => ({
          isOver: !!monitor.isOver(),
@@ -62,7 +62,7 @@ function DeckPile({ classes, name, player, cardCount, noDrop }) {
    });
 
    return (
-      <div className={classes.listContainer} ref={drop} style={{ backgroundColor: isOver && canDrop && OVER_COLOR + "33" }}>
+      <div className={classes.listContainer} ref={noDrop ? null : drop} style={{ backgroundColor: isOver && canDrop && OVER_COLOR + "33" }}>
          {cards}
       </div>
    );
