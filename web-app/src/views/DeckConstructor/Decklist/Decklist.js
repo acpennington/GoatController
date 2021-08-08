@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import DeckDivider from "./DeckDivider.js";
 import DeckPile from "./DeckPile.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
+import cardCount from "utils/cardCount.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 
 import { MAINDECK, SIDEDECK } from "utils/constants";
@@ -55,16 +56,6 @@ class Decklist extends Component {
          </div>
       );
    }
-}
-
-function cardCount(cardsMap) {
-   let count = 0;
-
-   Object.keys(cardsMap).forEach((cardName) => {
-      count += cardsMap[cardName];
-   });
-
-   return count;
 }
 
 function mapStateToProps(state) {

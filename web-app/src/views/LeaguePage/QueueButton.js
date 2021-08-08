@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import Shadow from "components/Shadow/Shadow.js";
 import Button from "components/CustomButtons/Button.js";
+import isMainLegal from "utils/isMainLegal.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
@@ -12,6 +13,8 @@ class QueueButton extends PureComponent {
    constructor(props) {
       super(props);
       this.state = { webSocket: false };
+
+      this.legalMain = isMainLegal();
    }
 
    joinQueue = () => {
@@ -48,9 +51,15 @@ class QueueButton extends PureComponent {
 
       return (
          <Fragment>
-            <Button color={webSocket ? "danger" : "success"} size="lg" round onClick={webSocket ? this.leaveQueue : this.joinQueue}>
-               Click to {webSocket ? "Leave" : "Enter"} the Matchmaking Queue
-            </Button>
+            {this.legalMain ? (
+               <Button color={webSocket ? "danger" : "success"} size="lg" round onClick={webSocket ? this.leaveQueue : this.joinQueue}>
+                  Click to {webSocket ? "Leave" : "Enter"} the Matchmaking Queue
+               </Button>
+            ) : (
+               <Button color="warning" size="lg" round>
+                  Illegal Deck: Your Maindeck Must Contain 40+ Cards
+               </Button>
+            )}
             {webSocket && <Shadow>Finding you a match...</Shadow>}
          </Fragment>
       );

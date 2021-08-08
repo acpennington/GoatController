@@ -58,6 +58,7 @@ class LeaguePage extends PureComponent {
       const res = await axios.get(API_URL + getApiStage() + "/leagues?id=" + this.leagueId, config);
       if (res.data.statusCode === 200) {
          const league = res.data.body;
+         console.log(JSON.stringify(league));
          this.setState({ ...league });
       } else this.setState({ name: "Error: " + apiErrors(res.data.body.errors) });
    };

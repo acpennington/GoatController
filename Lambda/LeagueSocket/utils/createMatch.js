@@ -32,8 +32,8 @@ async function createMatch(leagueId, playersParam, api) {
 
    const goingFirstPlayer = Math.random() > 0.5 ? player1name : player2name;
    const gamestate = {};
-   setGamestate(gamestate, playersInGame[0], goingFirstPlayer);
-   setGamestate(gamestate, playersInGame[1], goingFirstPlayer);
+   if (!setGamestate(gamestate, playersInGame[0], goingFirstPlayer)) return { statusCode: 400, body: { errors: [{ msg: "Illegal deck" }] } };
+   if (!setGamestate(gamestate, playersInGame[1], goingFirstPlayer)) return { statusCode: 400, body: { errors: [{ msg: "Illegal deck" }] } };
 
    const players = {};
    players[player1name] = "";
@@ -74,7 +74,10 @@ function setGamestate(gamestate, player, goingFirstPlayer) {
    const { username, decks, activeDeck, settings } = player;
    gamestate[username] = JSON.parse(JSON.stringify(blankField));
 
-   const shuffledDeck = shuffle(expandDeck(decks[activeDeck].maindeck));
+   const expandedMain = expandDeck(decks[activeDeck].maindeck);
+   if (expandedMain.length < 40) return false;
+   const shuffledDeck = shuffle(expandedMain);
+
    const hand = [];
    const drawNumber = goingFirstPlayer === username ? 6 : 5;
    for (let i = 0; i < drawNumber; i++) hand.push(shuffledDeck.pop());
@@ -82,6 +85,8 @@ function setGamestate(gamestate, player, goingFirstPlayer) {
    gamestate[username].sleeves = settings.sleeves;
    gamestate[username].hand = hand;
    gamestate[username].deck = shuffledDeck;
+
+   return true;
 }
 
 function expandDeck(decklist) {

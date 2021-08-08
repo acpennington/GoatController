@@ -13,11 +13,12 @@ async function get(id, token) {
    if (!league) return { statusCode: 400, body: { errors: [{ msg: "League not found" }] } };
 
    const myInfo = league.members[username];
+   const role = myInfo && myInfo.role;
    const members = {
       count: Object.keys(league.members).length,
-      pending: myInfo && myInfo.role === "pending",
-      isBanned: myInfo && myInfo.role === "banned",
-      isAdmin: myInfo && ["owner", "admin"].includes(myInfo.role)
+      pending: role === "pending",
+      isBanned: role === "banned",
+      isAdmin: ["owner", "admin"].includes(role)
    };
 
    deleteAttributes(league, ["members", "paidUntil", "goatGold"]);
