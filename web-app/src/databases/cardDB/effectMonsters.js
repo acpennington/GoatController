@@ -1,9 +1,9 @@
-import { HERO, VILLAIN, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL, TRAP, ROLL_DICE, DISCARD_AND_DRAW } from "utils/constants";
+import { HERO, VILLAIN, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL, TRAP, ROLL_DICE, DISCARD_AND_DRAW, DARK, LIGHT, WATER, FIRE, EARTH, WIND } from "utils/constants";
 
 const effectMonsters = {
    "Cure Mermaid": {
       cardType: EFFECT_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1500,
       def: 800,
@@ -12,7 +12,7 @@ const effectMonsters = {
    },
    "Hysteric Fairy": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1800,
       def: 500,
@@ -21,7 +21,7 @@ const effectMonsters = {
    },
    "Nuvia the Wicked": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 2000,
       def: 800,
@@ -29,7 +29,7 @@ const effectMonsters = {
    },
    "The Forgiving Maiden": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 850,
       def: 2000,
@@ -37,7 +37,7 @@ const effectMonsters = {
    },
    "Shining Angel": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1400,
       def: 800,
@@ -54,7 +54,32 @@ const effectMonsters = {
                value: "1500"
             },
             attribute: {
-               value: "Light"
+               value: LIGHT
+            }
+         },
+         autoClose: true
+      }
+   },
+   "Mystic Tomato": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1100,
+      text: "Fairy/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 DARK monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: "1500"
+            },
+            attribute: {
+               value: DARK
             }
          },
          autoClose: true
@@ -62,7 +87,7 @@ const effectMonsters = {
    },
    "Black Luster Soldier - Envoy of the Beginning": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 8,
       atk: 3000,
       def: 2500,
@@ -71,7 +96,7 @@ const effectMonsters = {
    },
    "Airknight Parshath": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 5,
       atk: 1900,
       def: 1400,
@@ -79,7 +104,7 @@ const effectMonsters = {
    },
    "Magician of Faith": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 1,
       atk: 300,
       def: 400,
@@ -87,7 +112,7 @@ const effectMonsters = {
    },
    "Magical Merchant": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 1,
       atk: 200,
       def: 700,
@@ -109,7 +134,7 @@ const effectMonsters = {
    },
    "Abyss Soldier": {
       cardType: EFFECT_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1300,
@@ -118,7 +143,7 @@ const effectMonsters = {
    },
    "Breaker the Magical Warrior": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1000,
@@ -127,7 +152,7 @@ const effectMonsters = {
    },
    Tsukuyomi: {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1100,
       def: 1400,
@@ -135,7 +160,7 @@ const effectMonsters = {
    },
    Sangan: {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1000,
       def: 600,
@@ -158,7 +183,7 @@ const effectMonsters = {
    },
    "Sinister Serpent": {
       cardType: EFFECT_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 1,
       atk: 300,
       def: 250,
@@ -167,7 +192,7 @@ const effectMonsters = {
    },
    "Tribe-Infecting Virus": {
       cardType: EFFECT_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1000,
@@ -193,7 +218,7 @@ const effectMonsters = {
    },
    "Asura Priest": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1200,
@@ -201,7 +226,7 @@ const effectMonsters = {
    },
    "Kycoo the Ghost Destroyer": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1800,
       def: 700,
@@ -209,7 +234,7 @@ const effectMonsters = {
    },
    "D.D. Warrior Lady": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1600,
@@ -218,7 +243,7 @@ const effectMonsters = {
    },
    "Chaos Sorcerer": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 6,
       atk: 2300,
       def: 2000,
@@ -226,7 +251,7 @@ const effectMonsters = {
    },
    "Dekoichi the Battlechanted Locomotive": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1000,
@@ -234,7 +259,7 @@ const effectMonsters = {
    },
    "Jowgen the Spiritualist": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 3,
       atk: 200,
       def: 1300,
@@ -250,7 +275,7 @@ const effectMonsters = {
    },
    "Roulette Barrel": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1000,
       def: 2000,
@@ -266,7 +291,7 @@ const effectMonsters = {
    },
    "Zaborg the Thunder Monarch": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 5,
       atk: 2400,
       def: 1000,
@@ -274,7 +299,7 @@ const effectMonsters = {
    },
    "Blade Knight": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1000,
@@ -282,7 +307,7 @@ const effectMonsters = {
    },
    "Don Zaloog": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1500,
@@ -299,7 +324,7 @@ const effectMonsters = {
    },
    "Ninja Grandmaster Sasuke": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1000,
@@ -307,7 +332,7 @@ const effectMonsters = {
    },
    "Skilled Dark Magician": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1900,
       def: 1700,
@@ -328,7 +353,7 @@ const effectMonsters = {
    },
    "Thunder Dragon": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 5,
       atk: 1600,
       def: 1500,
@@ -348,7 +373,7 @@ const effectMonsters = {
    },
    "Zombyra the Dark": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 2100,
       def: 200,
@@ -356,7 +381,7 @@ const effectMonsters = {
    },
    "Armed Dragon LV5": {
       cardType: EFFECT_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 5,
       atk: 2400,
       def: 1700,
@@ -377,7 +402,7 @@ const effectMonsters = {
    },
    "Cave Dragon": {
       cardType: EFFECT_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 2000,
       def: 100,
@@ -385,7 +410,7 @@ const effectMonsters = {
    },
    "Different Dimension Dragon": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 5,
       atk: 1200,
       def: 1500,
@@ -393,7 +418,7 @@ const effectMonsters = {
    },
    "Fusilier Dragon, the Dual-Mode Beast": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2800,
       def: 2000,
@@ -401,7 +426,7 @@ const effectMonsters = {
    },
    "Mirage Dragon": {
       cardType: EFFECT_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1600,
       def: 600,
@@ -409,7 +434,7 @@ const effectMonsters = {
    },
    "Rare Metal Dragon": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 2400,
       def: 1200,
@@ -417,7 +442,7 @@ const effectMonsters = {
    },
    "Tyrant Dragon": {
       cardType: EFFECT_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 2900,
       def: 2500,

@@ -1,9 +1,9 @@
-import { HERO, MONSTER, FLIP_COINS, FUSION_MONSTER } from "utils/constants.js";
+import { HERO, MONSTER, FLIP_COINS, FUSION_MONSTER, DARK, LIGHT, WATER, FIRE, EARTH, WIND } from "utils/constants.js";
 
 const fusions = {
    Bickuribox: {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2300,
       def: 2000,
@@ -11,7 +11,7 @@ const fusions = {
    },
    "Black Skull Dragon": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 9,
       atk: 3200,
       def: 2500,
@@ -19,7 +19,7 @@ const fusions = {
    },
    "Charubin the Fire Knight": {
       cardType: FUSION_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 3,
       atk: 1100,
       def: 800,
@@ -27,7 +27,7 @@ const fusions = {
    },
    "Cyber Saurus": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1800,
       def: 1400,
@@ -35,7 +35,7 @@ const fusions = {
    },
    "Dark Flare Knight": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 6,
       atk: 2200,
       def: 800,
@@ -43,7 +43,7 @@ const fusions = {
    },
    "Dark Paladin": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 8,
       atk: 2900,
       def: 2400,
@@ -52,7 +52,7 @@ const fusions = {
    },
    "Deepsea Shark": {
       cardType: FUSION_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 5,
       atk: 1900,
       def: 1600,
@@ -60,7 +60,7 @@ const fusions = {
    },
    "Elemental HERO Flame Wingman": {
       cardType: FUSION_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 6,
       atk: 2100,
       def: 1200,
@@ -69,7 +69,7 @@ const fusions = {
    },
    "Elemental HERO Thunder Giant": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 6,
       atk: 2400,
       def: 1500,
@@ -78,7 +78,7 @@ const fusions = {
    },
    "Empress Judge": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 2100,
       def: 1700,
@@ -86,7 +86,7 @@ const fusions = {
    },
    "Flame Ghost": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1000,
       def: 800,
@@ -94,7 +94,7 @@ const fusions = {
    },
    "Flame Swordsman": {
       cardType: FUSION_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 5,
       atk: 1800,
       def: 1600,
@@ -102,7 +102,7 @@ const fusions = {
    },
    "Flower Wolf": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1800,
       def: 1400,
@@ -110,7 +110,7 @@ const fusions = {
    },
    Fusionist: {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 900,
       def: 700,
@@ -118,7 +118,7 @@ const fusions = {
    },
    "Gaia the Dragon Champion": {
       cardType: FUSION_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 7,
       atk: 2600,
       def: 2100,
@@ -126,7 +126,7 @@ const fusions = {
    },
    "Giltia the D. Knight": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 5,
       atk: 1850,
       def: 1500,
@@ -134,7 +134,7 @@ const fusions = {
    },
    "Humanoid Worm Drake": {
       cardType: FUSION_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 7,
       atk: 2200,
       def: 2000,
@@ -142,7 +142,7 @@ const fusions = {
    },
    "Kaminari Attack": {
       cardType: FUSION_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 5,
       atk: 1900,
       def: 1400,
@@ -150,7 +150,7 @@ const fusions = {
    },
    "Karbonala Warrior": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1200,
@@ -158,7 +158,7 @@ const fusions = {
    },
    "Kwagar Hercules": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 1900,
       def: 1700,
@@ -166,7 +166,7 @@ const fusions = {
    },
    "Labyrinth Tank": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2400,
       def: 2400,
@@ -174,7 +174,7 @@ const fusions = {
    },
    "Master of Oz": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 9,
       atk: 4200,
       def: 3700,
@@ -182,7 +182,7 @@ const fusions = {
    },
    "Metal Dragon": {
       cardType: FUSION_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 6,
       atk: 1850,
       def: 1700,
@@ -190,7 +190,7 @@ const fusions = {
    },
    "Mokey Mokey King": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 6,
       atk: 300,
       def: 100,
@@ -198,7 +198,7 @@ const fusions = {
    },
    "Musician King": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 5,
       atk: 1750,
       def: 1500,
@@ -206,7 +206,7 @@ const fusions = {
    },
    "Punished Eagle": {
       cardType: FUSION_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 6,
       atk: 2100,
       def: 1800,
@@ -214,7 +214,7 @@ const fusions = {
    },
    "Rabid Horseman": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 2000,
       def: 1700,
@@ -222,7 +222,7 @@ const fusions = {
    },
    "Roaring Ocean Snake": {
       cardType: FUSION_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 6,
       atk: 2100,
       def: 1800,
@@ -230,7 +230,7 @@ const fusions = {
    },
    Sanwitch: {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 6,
       atk: 2100,
       def: 1800,
@@ -238,7 +238,7 @@ const fusions = {
    },
    "Skull Knight": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2650,
       def: 2250,
@@ -246,7 +246,7 @@ const fusions = {
    },
    "St. Joan": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 7,
       atk: 2800,
       def: 2000,
@@ -254,7 +254,7 @@ const fusions = {
    },
    "Super Robolady": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 1200,
       def: 500,
@@ -262,7 +262,7 @@ const fusions = {
    },
    "Super Roboyarou": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 1200,
       def: 500,
@@ -270,7 +270,7 @@ const fusions = {
    },
    "Thousand Dragon": {
       cardType: FUSION_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 7,
       atk: 2400,
       def: 2000,
@@ -278,7 +278,7 @@ const fusions = {
    },
    "Twin-Headed Thunder Dragon": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 7,
       atk: 2800,
       def: 2100,
@@ -286,7 +286,7 @@ const fusions = {
    },
    "Warrior of Tradition": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 1900,
       def: 1700,
@@ -294,7 +294,7 @@ const fusions = {
    },
    "XY-Dragon Cannon": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 6,
       atk: 2200,
       def: 1900,
@@ -303,7 +303,7 @@ const fusions = {
    },
    "XYZ-Dragon Cannon": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 8,
       atk: 2800,
       def: 2600,
@@ -312,7 +312,7 @@ const fusions = {
    },
    "XZ-Tank Cannon": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 6,
       atk: 2400,
       def: 2100,
@@ -321,7 +321,7 @@ const fusions = {
    },
    "YZ-Tank Dragon": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 6,
       atk: 2100,
       def: 2200,
@@ -330,7 +330,7 @@ const fusions = {
    },
    "Dragoness the Wicked Knight": {
       cardType: FUSION_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 1200,
       def: 900,
@@ -346,7 +346,7 @@ const fusions = {
    },
    "Darkfire Dragon": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1250,
@@ -354,7 +354,7 @@ const fusions = {
    },
    "Ojama King": {
       cardType: FUSION_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 6,
       atk: 0,
       def: 3000,
@@ -362,7 +362,7 @@ const fusions = {
    },
    "Reaper on the Nightmare": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 800,
       def: 600,
@@ -370,7 +370,7 @@ const fusions = {
    },
    "Fiend Skull Dragon": {
       cardType: FUSION_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 5,
       atk: 2000,
       def: 1200,
@@ -378,7 +378,7 @@ const fusions = {
    },
    "Dark Blade the Dragon Knight": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 6,
       atk: 2200,
       def: 1500,
@@ -386,7 +386,7 @@ const fusions = {
    },
    "The Last Warrior from Another Planet": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 7,
       atk: 2350,
       def: 2300,
@@ -394,7 +394,7 @@ const fusions = {
    },
    "Gatling Dragon": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 8,
       atk: 2600,
       def: 1200,
@@ -410,7 +410,7 @@ const fusions = {
    },
    "Ryu Senshi": {
       cardType: FUSION_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 2000,
       def: 1200,
@@ -418,7 +418,7 @@ const fusions = {
    },
    "Dark Balter the Terrible": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 2000,
       def: 1200,
@@ -426,7 +426,7 @@ const fusions = {
    },
    "Thousand-Eyes Restrict": {
       cardType: FUSION_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 0,
       def: 0,

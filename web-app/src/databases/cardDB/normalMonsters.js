@@ -1,9 +1,9 @@
-import { NORMAL_MONSTER } from "utils/constants.js";
+import { NORMAL_MONSTER, DARK, LIGHT, WATER, FIRE, EARTH, WIND  } from "utils/constants.js";
 
 const normalMonsters = {
    "7 Colored Fish": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1800,
       def: 800,
@@ -11,7 +11,7 @@ const normalMonsters = {
    },
    "Acrobat Monkey": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1000,
       def: 1800,
@@ -19,7 +19,7 @@ const normalMonsters = {
    },
    Aitsu: {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 5,
       atk: 100,
       def: 100,
@@ -27,7 +27,7 @@ const normalMonsters = {
    },
    "Alpha The Magnet Warrior": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1700,
@@ -35,7 +35,7 @@ const normalMonsters = {
    },
    "Amphibian Beast": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 6,
       atk: 2400,
       def: 2000,
@@ -43,7 +43,7 @@ const normalMonsters = {
    },
    "Ancient Brain": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1000,
       def: 700,
@@ -51,7 +51,7 @@ const normalMonsters = {
    },
    "Ancient Elf": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1450,
       def: 1200,
@@ -59,7 +59,7 @@ const normalMonsters = {
    },
    "Ancient Lizard Warrior": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1100,
@@ -67,7 +67,7 @@ const normalMonsters = {
    },
    "Ancient One of the Deep Forest": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 1800,
       def: 1900,
@@ -75,7 +75,7 @@ const normalMonsters = {
    },
    Ansatsu: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1700,
       def: 1200,
@@ -83,7 +83,7 @@ const normalMonsters = {
    },
    "Aqua Madoor": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1200,
       def: 2000,
@@ -91,7 +91,7 @@ const normalMonsters = {
    },
    "Archfiend Marmot of Nefariousness": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 2,
       atk: 400,
       def: 600,
@@ -99,7 +99,7 @@ const normalMonsters = {
    },
    "Archfiend Soldier": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1900,
       def: 1500,
@@ -107,7 +107,7 @@ const normalMonsters = {
    },
    Armaill: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 700,
       def: 1300,
@@ -115,7 +115,7 @@ const normalMonsters = {
    },
    "Armored Lizard": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1200,
@@ -123,7 +123,7 @@ const normalMonsters = {
    },
    "Armored Starfish": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 850,
       def: 1400,
@@ -131,7 +131,7 @@ const normalMonsters = {
    },
    "Armored Zombie": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1500,
       def: 0,
@@ -139,7 +139,7 @@ const normalMonsters = {
    },
    "Axe Raider": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1150,
@@ -147,7 +147,7 @@ const normalMonsters = {
    },
    "Baby Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 1200,
       def: 700,
@@ -155,7 +155,7 @@ const normalMonsters = {
    },
    "Baron of the Fiend Sword": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1550,
       def: 800,
@@ -163,7 +163,7 @@ const normalMonsters = {
    },
    "Basic Insect": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 2,
       atk: 500,
       def: 700,
@@ -171,7 +171,7 @@ const normalMonsters = {
    },
    "Battle Footballer": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1000,
       def: 2100,
@@ -179,7 +179,7 @@ const normalMonsters = {
    },
    "Battle Ox": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1000,
@@ -187,7 +187,7 @@ const normalMonsters = {
    },
    "Battle Steer": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1800,
       def: 1300,
@@ -195,7 +195,7 @@ const normalMonsters = {
    },
    "Bean Soldier": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1300,
@@ -203,7 +203,7 @@ const normalMonsters = {
    },
    "Beast of Talwar": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 6,
       atk: 2400,
       def: 2150,
@@ -211,7 +211,7 @@ const normalMonsters = {
    },
    "Beautiful Headhuntress": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1600,
       def: 800,
@@ -219,7 +219,7 @@ const normalMonsters = {
    },
    "Beaver Warrior": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1500,
@@ -227,7 +227,7 @@ const normalMonsters = {
    },
    "Beta The Magnet Warrior": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1600,
@@ -235,7 +235,7 @@ const normalMonsters = {
    },
    "Big Koala": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 7,
       atk: 2700,
       def: 2000,
@@ -243,7 +243,7 @@ const normalMonsters = {
    },
    "Bio-Mage": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 3,
       atk: 1150,
       def: 1000,
@@ -251,7 +251,7 @@ const normalMonsters = {
    },
    "Blackland Fire Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1500,
       def: 800,
@@ -259,7 +259,7 @@ const normalMonsters = {
    },
    "Blazing Inpachi": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1850,
       def: 0,
@@ -267,7 +267,7 @@ const normalMonsters = {
    },
    "Blue-Eyes White Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 8,
       atk: 3000,
       def: 2500,
@@ -275,7 +275,7 @@ const normalMonsters = {
    },
    "Blue-Winged Crown": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1200,
@@ -283,7 +283,7 @@ const normalMonsters = {
    },
    "Bokoichi the Freightening Car": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 2,
       atk: 500,
       def: 500,
@@ -291,7 +291,7 @@ const normalMonsters = {
    },
    Boneheimer: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 3,
       atk: 850,
       def: 400,
@@ -299,7 +299,7 @@ const normalMonsters = {
    },
    "Bottom Dweller": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 5,
       atk: 1650,
       def: 1700,
@@ -307,7 +307,7 @@ const normalMonsters = {
    },
    Burglar: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 850,
       def: 800,
@@ -315,7 +315,7 @@ const normalMonsters = {
    },
    "Celtic Guardian": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1200,
@@ -323,7 +323,7 @@ const normalMonsters = {
    },
    "Charcoal Inpachi": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 1,
       atk: 100,
       def: 2100,
@@ -331,7 +331,7 @@ const normalMonsters = {
    },
    "Chu-Ske the Mouse Fighter": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1200,
       def: 0,
@@ -339,7 +339,7 @@ const normalMonsters = {
    },
    "Claw Reacher": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1000,
       def: 800,
@@ -347,7 +347,7 @@ const normalMonsters = {
    },
    "Clown Zombie": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 2,
       atk: 1350,
       def: 0,
@@ -355,7 +355,7 @@ const normalMonsters = {
    },
    "Corroding Shark": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1100,
       def: 700,
@@ -363,7 +363,7 @@ const normalMonsters = {
    },
    "Cosmo Queen": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 8,
       atk: 2900,
       def: 2450,
@@ -371,7 +371,7 @@ const normalMonsters = {
    },
    "Crawling Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1600,
       def: 1400,
@@ -379,7 +379,7 @@ const normalMonsters = {
    },
    "Crawling Dragon #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1200,
@@ -387,7 +387,7 @@ const normalMonsters = {
    },
    "Curse of Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 2000,
       def: 1500,
@@ -395,7 +395,7 @@ const normalMonsters = {
    },
    "Cyber Falcon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1200,
@@ -403,7 +403,7 @@ const normalMonsters = {
    },
    "Cyber Soldier of Darkworld": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1200,
@@ -411,7 +411,7 @@ const normalMonsters = {
    },
    "D. Human": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1100,
@@ -419,7 +419,7 @@ const normalMonsters = {
    },
    "D.D. Trainer": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 100,
       def: 2000,
@@ -427,7 +427,7 @@ const normalMonsters = {
    },
    "Dancing Elf": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 1,
       atk: 300,
       def: 200,
@@ -435,7 +435,7 @@ const normalMonsters = {
    },
    "Dark Assailant": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1200,
@@ -443,7 +443,7 @@ const normalMonsters = {
    },
    "Dark Bat": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 1000,
       def: 1000,
@@ -451,7 +451,7 @@ const normalMonsters = {
    },
    "Dark Blade": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1500,
@@ -459,7 +459,7 @@ const normalMonsters = {
    },
    "Dark Gray": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 800,
       def: 900,
@@ -467,7 +467,7 @@ const normalMonsters = {
    },
    "Dark King of the Abyss": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1200,
       def: 800,
@@ -475,7 +475,7 @@ const normalMonsters = {
    },
    "Dark Magician": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2500,
       def: 2100,
@@ -483,7 +483,7 @@ const normalMonsters = {
    },
    "Dark Titan of Terror": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1100,
@@ -491,7 +491,7 @@ const normalMonsters = {
    },
    "Dark Witch": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 5,
       atk: 1800,
       def: 1700,
@@ -499,7 +499,7 @@ const normalMonsters = {
    },
    "Darkfire Soldier #1": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1150,
@@ -507,7 +507,7 @@ const normalMonsters = {
    },
    "Darkfire Soldier #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1100,
@@ -515,7 +515,7 @@ const normalMonsters = {
    },
    "Darkworld Thorns": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1200,
       def: 900,
@@ -523,7 +523,7 @@ const normalMonsters = {
    },
    "Destroyer Golem": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1000,
@@ -531,7 +531,7 @@ const normalMonsters = {
    },
    "Dharma Cannon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 2,
       atk: 900,
       def: 500,
@@ -539,7 +539,7 @@ const normalMonsters = {
    },
    "Disk Magician": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1350,
       def: 1000,
@@ -547,7 +547,7 @@ const normalMonsters = {
    },
    Dissolverock: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 900,
       def: 1000,
@@ -555,7 +555,7 @@ const normalMonsters = {
    },
    "Divine Dragon Ragnarok": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1000,
@@ -563,7 +563,7 @@ const normalMonsters = {
    },
    Dokuroyaiba: {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 3,
       atk: 1000,
       def: 400,
@@ -571,7 +571,7 @@ const normalMonsters = {
    },
    "Doma The Angel of Silence": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 1600,
       def: 1400,
@@ -579,7 +579,7 @@ const normalMonsters = {
    },
    "Dragon Zombie": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1600,
       def: 0,
@@ -587,7 +587,7 @@ const normalMonsters = {
    },
    "Drooling Lizard": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 900,
       def: 800,
@@ -595,7 +595,7 @@ const normalMonsters = {
    },
    "Earthbound Spirit": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 500,
       def: 2000,
@@ -603,7 +603,7 @@ const normalMonsters = {
    },
    "Elemental HERO Avian": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 1000,
       def: 1000,
@@ -611,7 +611,7 @@ const normalMonsters = {
    },
    "Elemental HERO Burstinatrix": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 3,
       atk: 1200,
       def: 800,
@@ -619,7 +619,7 @@ const normalMonsters = {
    },
    "Elemental HERO Clayman": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 800,
       def: 2000,
@@ -627,7 +627,7 @@ const normalMonsters = {
    },
    "Elemental HERO Sparkman": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1400,
@@ -635,7 +635,7 @@ const normalMonsters = {
    },
    "Empress Mantis": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 6,
       atk: 2200,
       def: 1400,
@@ -643,7 +643,7 @@ const normalMonsters = {
    },
    "Enchanting Mermaid": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 3,
       atk: 1200,
       def: 900,
@@ -651,7 +651,7 @@ const normalMonsters = {
    },
    "Fairy's Gift": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1000,
@@ -659,7 +659,7 @@ const normalMonsters = {
    },
    "Faith Bird": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1100,
@@ -667,7 +667,7 @@ const normalMonsters = {
    },
    "Feral Imp": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1400,
@@ -675,7 +675,7 @@ const normalMonsters = {
    },
    "Fiend Reflection #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1100,
       def: 1400,
@@ -683,7 +683,7 @@ const normalMonsters = {
    },
    "Fiend Scorpion": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 2,
       atk: 900,
       def: 200,
@@ -691,7 +691,7 @@ const normalMonsters = {
    },
    "Fire Kraken": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1500,
@@ -699,7 +699,7 @@ const normalMonsters = {
    },
    Firegrass: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 2,
       atk: 700,
       def: 600,
@@ -707,7 +707,7 @@ const normalMonsters = {
    },
    Fireyarou: {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1000,
@@ -715,7 +715,7 @@ const normalMonsters = {
    },
    "Flame Cerebrus": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 6,
       atk: 2100,
       def: 1800,
@@ -723,7 +723,7 @@ const normalMonsters = {
    },
    "Flame Champion": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 5,
       atk: 1900,
       def: 1300,
@@ -731,7 +731,7 @@ const normalMonsters = {
    },
    "Flame Dancer": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 2,
       atk: 550,
       def: 450,
@@ -739,7 +739,7 @@ const normalMonsters = {
    },
    "Flame Manipulator": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 3,
       atk: 900,
       def: 1000,
@@ -747,7 +747,7 @@ const normalMonsters = {
    },
    "Flying Fish": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 800,
       def: 500,
@@ -755,7 +755,7 @@ const normalMonsters = {
    },
    "Flying Kamakiri #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1500,
       def: 800,
@@ -763,7 +763,7 @@ const normalMonsters = {
    },
    "Flying Penguin": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1000,
@@ -771,7 +771,7 @@ const normalMonsters = {
    },
    "Frenzied Panda": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1000,
@@ -779,7 +779,7 @@ const normalMonsters = {
    },
    "Gadget Soldier": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 6,
       atk: 1800,
       def: 2000,
@@ -787,7 +787,7 @@ const normalMonsters = {
    },
    Gagagigo: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1850,
       def: 1000,
@@ -795,7 +795,7 @@ const normalMonsters = {
    },
    "Gaia The Fierce Knight": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 7,
       atk: 2300,
       def: 2100,
@@ -803,7 +803,7 @@ const normalMonsters = {
    },
    "Gamma The Magnet Warrior": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1800,
@@ -811,7 +811,7 @@ const normalMonsters = {
    },
    "Garnecia Elefantis": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 7,
       atk: 2400,
       def: 2000,
@@ -819,7 +819,7 @@ const normalMonsters = {
    },
    Garoozis: {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 5,
       atk: 1800,
       def: 1500,
@@ -827,7 +827,7 @@ const normalMonsters = {
    },
    "Gazelle the King of Mythical Beasts": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1200,
@@ -835,7 +835,7 @@ const normalMonsters = {
    },
    "Gemini Elf": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1900,
       def: 900,
@@ -843,7 +843,7 @@ const normalMonsters = {
    },
    "Giant Flea": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1200,
@@ -851,7 +851,7 @@ const normalMonsters = {
    },
    "Giant Red Seasnake": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1800,
       def: 800,
@@ -859,7 +859,7 @@ const normalMonsters = {
    },
    "Giant Soldier of Stone": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1300,
       def: 2000,
@@ -867,7 +867,7 @@ const normalMonsters = {
    },
    "Giant Turtle Who Feeds on Flames": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 5,
       atk: 1400,
       def: 1800,
@@ -875,7 +875,7 @@ const normalMonsters = {
    },
    "Giga Gagagigo": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 5,
       atk: 2450,
       def: 1500,
@@ -883,7 +883,7 @@ const normalMonsters = {
    },
    "Giga-Tech Wolf": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1400,
@@ -891,7 +891,7 @@ const normalMonsters = {
    },
    Gigobyte: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 1,
       atk: 350,
       def: 300,
@@ -899,7 +899,7 @@ const normalMonsters = {
    },
    "Girochin Kuwagata": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1000,
@@ -907,7 +907,7 @@ const normalMonsters = {
    },
    "Goblin Calligrapher": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 400,
       def: 400,
@@ -915,7 +915,7 @@ const normalMonsters = {
    },
    "Gogiga Gagagigo": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 8,
       atk: 2950,
       def: 2800,
@@ -923,7 +923,7 @@ const normalMonsters = {
    },
    Gradius: {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1200,
       def: 800,
@@ -931,7 +931,7 @@ const normalMonsters = {
    },
    "Grand Tiki Elder": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1500,
       def: 800,
@@ -939,7 +939,7 @@ const normalMonsters = {
    },
    "Great Angus": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1800,
       def: 600,
@@ -947,7 +947,7 @@ const normalMonsters = {
    },
    "Great White": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1600,
       def: 800,
@@ -955,7 +955,7 @@ const normalMonsters = {
    },
    "Green Phantom King": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 500,
       def: 1600,
@@ -963,7 +963,7 @@ const normalMonsters = {
    },
    "Ground Attacker Bugroth": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1000,
@@ -971,7 +971,7 @@ const normalMonsters = {
    },
    "Guardian of the Labyrinth": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1000,
       def: 1200,
@@ -979,7 +979,7 @@ const normalMonsters = {
    },
    "Guardian of the Throne Room": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1650,
       def: 1600,
@@ -987,7 +987,7 @@ const normalMonsters = {
    },
    "Gyakutenno Megami": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 6,
       atk: 1800,
       def: 2000,
@@ -995,7 +995,7 @@ const normalMonsters = {
    },
    "Hard Armor": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 300,
       def: 1200,
@@ -1003,7 +1003,7 @@ const normalMonsters = {
    },
    "Harpie Girl": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 2,
       atk: 500,
       def: 500,
@@ -1011,7 +1011,7 @@ const normalMonsters = {
    },
    "Harpie Lady": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1400,
@@ -1019,7 +1019,7 @@ const normalMonsters = {
    },
    "Headless Knight": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1450,
       def: 1700,
@@ -1027,7 +1027,7 @@ const normalMonsters = {
    },
    "Hercules Beetle": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1500,
       def: 2000,
@@ -1035,7 +1035,7 @@ const normalMonsters = {
    },
    Hibikime: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1450,
       def: 1000,
@@ -1043,7 +1043,7 @@ const normalMonsters = {
    },
    "High Tide Gyojin": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1650,
       def: 1300,
@@ -1051,7 +1051,7 @@ const normalMonsters = {
    },
    "Hinotama Soul": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 2,
       atk: 600,
       def: 500,
@@ -1059,7 +1059,7 @@ const normalMonsters = {
    },
    "Hitotsu-Me Giant": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1000,
@@ -1067,7 +1067,7 @@ const normalMonsters = {
    },
    "Humanoid Slime": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 800,
       def: 2000,
@@ -1075,7 +1075,7 @@ const normalMonsters = {
    },
    "Hunter Spider": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1600,
       def: 1400,
@@ -1083,7 +1083,7 @@ const normalMonsters = {
    },
    Hyosube: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1500,
       def: 900,
@@ -1091,7 +1091,7 @@ const normalMonsters = {
    },
    Hyozanryu: {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 7,
       atk: 2100,
       def: 2800,
@@ -1099,7 +1099,7 @@ const normalMonsters = {
    },
    "Illusionist Faceless Mage": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 1200,
       def: 2200,
@@ -1107,7 +1107,7 @@ const normalMonsters = {
    },
    Inpachi: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1900,
@@ -1115,7 +1115,7 @@ const normalMonsters = {
    },
    "Insect Knight": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1900,
       def: 1500,
@@ -1123,7 +1123,7 @@ const normalMonsters = {
    },
    "Island Turtle": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1100,
       def: 2000,
@@ -1131,7 +1131,7 @@ const normalMonsters = {
    },
    Jellyfish: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1500,
@@ -1139,7 +1139,7 @@ const normalMonsters = {
    },
    "Judge Man": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 2200,
       def: 1500,
@@ -1147,7 +1147,7 @@ const normalMonsters = {
    },
    Kabazauls: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1500,
@@ -1155,7 +1155,7 @@ const normalMonsters = {
    },
    "Kagemusha of the Blue Flame": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 2,
       atk: 800,
       def: 400,
@@ -1163,7 +1163,7 @@ const normalMonsters = {
    },
    "Killer Needle": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1000,
@@ -1171,7 +1171,7 @@ const normalMonsters = {
    },
    "King Fog": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1000,
       def: 900,
@@ -1179,7 +1179,7 @@ const normalMonsters = {
    },
    "King of Yamimakai": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 2000,
       def: 1530,
@@ -1187,7 +1187,7 @@ const normalMonsters = {
    },
    Kojikocy: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1200,
@@ -1195,7 +1195,7 @@ const normalMonsters = {
    },
    "Koumori Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1200,
@@ -1203,7 +1203,7 @@ const normalMonsters = {
    },
    Kozaky: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 400,
       def: 400,
@@ -1211,7 +1211,7 @@ const normalMonsters = {
    },
    Kumootoko: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 700,
       def: 1400,
@@ -1219,7 +1219,7 @@ const normalMonsters = {
    },
    Kurama: {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 800,
       def: 800,
@@ -1227,7 +1227,7 @@ const normalMonsters = {
    },
    "Kuwagata α": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1250,
       def: 1000,
@@ -1235,7 +1235,7 @@ const normalMonsters = {
    },
    "La Jinn the Mystical Genie of the Lamp": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1000,
@@ -1243,7 +1243,7 @@ const normalMonsters = {
    },
    "Labyrinth Wall": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 0,
       def: 3000,
@@ -1251,7 +1251,7 @@ const normalMonsters = {
    },
    "Lady of Faith": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 3,
       atk: 1100,
       def: 800,
@@ -1259,7 +1259,7 @@ const normalMonsters = {
    },
    Larvas: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 800,
       def: 1000,
@@ -1267,7 +1267,7 @@ const normalMonsters = {
    },
    "Launcher Spider": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 7,
       atk: 2200,
       def: 2500,
@@ -1275,7 +1275,7 @@ const normalMonsters = {
    },
    "Left Arm of the Forbidden One": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 200,
       def: 300,
@@ -1283,7 +1283,7 @@ const normalMonsters = {
    },
    "Left Leg of the Forbidden One": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 200,
       def: 300,
@@ -1291,7 +1291,7 @@ const normalMonsters = {
    },
    Leogun: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1750,
       def: 1550,
@@ -1299,7 +1299,7 @@ const normalMonsters = {
    },
    "Lesser Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1000,
@@ -1307,7 +1307,7 @@ const normalMonsters = {
    },
    "Lightning Conger": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 3,
       atk: 350,
       def: 750,
@@ -1315,7 +1315,7 @@ const normalMonsters = {
    },
    "Liquid Beast": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 3,
       atk: 950,
       def: 800,
@@ -1323,7 +1323,7 @@ const normalMonsters = {
    },
    "Lizard Soldier": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 1100,
       def: 800,
@@ -1331,7 +1331,7 @@ const normalMonsters = {
    },
    "Lord of the Lamp": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1200,
@@ -1339,7 +1339,7 @@ const normalMonsters = {
    },
    "Luster Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1900,
       def: 1600,
@@ -1347,7 +1347,7 @@ const normalMonsters = {
    },
    "Luster Dragon #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 6,
       atk: 2400,
       def: 1400,
@@ -1355,7 +1355,7 @@ const normalMonsters = {
    },
    "M-Warrior #1": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1000,
       def: 500,
@@ -1363,7 +1363,7 @@ const normalMonsters = {
    },
    "M-Warrior #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 500,
       def: 1000,
@@ -1371,7 +1371,7 @@ const normalMonsters = {
    },
    "Mad Dog of Darkness": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1900,
       def: 1400,
@@ -1379,7 +1379,7 @@ const normalMonsters = {
    },
    "Magical Ghost": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1400,
@@ -1387,7 +1387,7 @@ const normalMonsters = {
    },
    "Maiden of the Moonlight": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1300,
@@ -1395,7 +1395,7 @@ const normalMonsters = {
    },
    "Mammoth Graveyard": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1200,
       def: 800,
@@ -1403,7 +1403,7 @@ const normalMonsters = {
    },
    "Man Eater": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 2,
       atk: 800,
       def: 600,
@@ -1411,7 +1411,7 @@ const normalMonsters = {
    },
    "Man-Eating Treasure Chest": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1000,
@@ -1419,7 +1419,7 @@ const normalMonsters = {
    },
    "Masaki the Legendary Swordsman": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1100,
       def: 1100,
@@ -1427,7 +1427,7 @@ const normalMonsters = {
    },
    "Master & Expert": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1000,
@@ -1435,7 +1435,7 @@ const normalMonsters = {
    },
    "Master Kyonshee": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1750,
       def: 1000,
@@ -1443,7 +1443,7 @@ const normalMonsters = {
    },
    "Mechanical Snail": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 800,
       def: 1000,
@@ -1451,7 +1451,7 @@ const normalMonsters = {
    },
    Mechanicalchaser: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1850,
       def: 800,
@@ -1459,7 +1459,7 @@ const normalMonsters = {
    },
    "Meda Bat": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 2,
       atk: 800,
       def: 400,
@@ -1467,7 +1467,7 @@ const normalMonsters = {
    },
    "Mega Thunderball": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 2,
       atk: 750,
       def: 600,
@@ -1475,7 +1475,7 @@ const normalMonsters = {
    },
    "Megasonic Eye": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 1500,
       def: 1800,
@@ -1483,7 +1483,7 @@ const normalMonsters = {
    },
    "Melchid the Four-Face Beast": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1200,
@@ -1491,7 +1491,7 @@ const normalMonsters = {
    },
    "Metal Armored Bug": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 8,
       atk: 2800,
       def: 1500,
@@ -1499,7 +1499,7 @@ const normalMonsters = {
    },
    "Metal Fish": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 5,
       atk: 1600,
       def: 1900,
@@ -1507,7 +1507,7 @@ const normalMonsters = {
    },
    "Mighty Guard": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 500,
       def: 1200,
@@ -1515,7 +1515,7 @@ const normalMonsters = {
    },
    Mikazukinoyaiba: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2200,
       def: 2350,
@@ -1523,7 +1523,7 @@ const normalMonsters = {
    },
    "Millennium Shield": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 0,
       def: 3000,
@@ -1531,7 +1531,7 @@ const normalMonsters = {
    },
    Misairuzame: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 5,
       atk: 1400,
       def: 1600,
@@ -1539,7 +1539,7 @@ const normalMonsters = {
    },
    "Mokey Mokey": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 1,
       atk: 300,
       def: 100,
@@ -1547,7 +1547,7 @@ const normalMonsters = {
    },
    "Molten Behemoth": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 5,
       atk: 1000,
       def: 2200,
@@ -1555,7 +1555,7 @@ const normalMonsters = {
    },
    "Monster Egg": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 600,
       def: 900,
@@ -1563,7 +1563,7 @@ const normalMonsters = {
    },
    Morinphen: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 1550,
       def: 1300,
@@ -1571,7 +1571,7 @@ const normalMonsters = {
    },
    "Mr. Volcano": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 5,
       atk: 2100,
       def: 1300,
@@ -1579,7 +1579,7 @@ const normalMonsters = {
    },
    "Mystic Clown": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1000,
@@ -1587,7 +1587,7 @@ const normalMonsters = {
    },
    "Mystic Horseman": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1550,
@@ -1595,7 +1595,7 @@ const normalMonsters = {
    },
    "Mystical Elf": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 800,
       def: 2000,
@@ -1603,7 +1603,7 @@ const normalMonsters = {
    },
    "Mystical Sheep #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 800,
       def: 1000,
@@ -1611,7 +1611,7 @@ const normalMonsters = {
    },
    "Mystical Shine Ball": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 2,
       atk: 500,
       def: 500,
@@ -1619,7 +1619,7 @@ const normalMonsters = {
    },
    "Nekogal #1": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1100,
       def: 900,
@@ -1627,7 +1627,7 @@ const normalMonsters = {
    },
    Nemuriko: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 800,
       def: 700,
@@ -1635,7 +1635,7 @@ const normalMonsters = {
    },
    "Neo Aqua Madoor": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 6,
       atk: 1200,
       def: 3000,
@@ -1643,7 +1643,7 @@ const normalMonsters = {
    },
    "Neo Bug": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1700,
@@ -1651,7 +1651,7 @@ const normalMonsters = {
    },
    "Neo the Magic Swordsman": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1000,
@@ -1659,7 +1659,7 @@ const normalMonsters = {
    },
    "Nin-Ken Dog": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1000,
@@ -1667,7 +1667,7 @@ const normalMonsters = {
    },
    Niwatori: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 900,
       def: 800,
@@ -1675,7 +1675,7 @@ const normalMonsters = {
    },
    Octoberser: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 5,
       atk: 1600,
       def: 1400,
@@ -1683,7 +1683,7 @@ const normalMonsters = {
    },
    Ocubeam: {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 5,
       atk: 1550,
       def: 1650,
@@ -1691,7 +1691,7 @@ const normalMonsters = {
    },
    "Ogre of the Black Shadow": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1400,
@@ -1699,7 +1699,7 @@ const normalMonsters = {
    },
    "Ojama Black": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 2,
       atk: 0,
       def: 1000,
@@ -1707,7 +1707,7 @@ const normalMonsters = {
    },
    "Ojama Green": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 2,
       atk: 0,
       def: 1000,
@@ -1715,7 +1715,7 @@ const normalMonsters = {
    },
    "Ojama Yellow": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 2,
       atk: 0,
       def: 1000,
@@ -1723,7 +1723,7 @@ const normalMonsters = {
    },
    "One-Eyed Shield Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 700,
       def: 1300,
@@ -1731,7 +1731,7 @@ const normalMonsters = {
    },
    "Oni Tank T-34": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1700,
@@ -1739,7 +1739,7 @@ const normalMonsters = {
    },
    "Oppressed People": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 1,
       atk: 400,
       def: 2000,
@@ -1747,7 +1747,7 @@ const normalMonsters = {
    },
    Opticlops: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1700,
@@ -1755,7 +1755,7 @@ const normalMonsters = {
    },
    "Oscillo Hero": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1250,
       def: 700,
@@ -1763,7 +1763,7 @@ const normalMonsters = {
    },
    Overdrive: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1500,
@@ -1771,7 +1771,7 @@ const normalMonsters = {
    },
    "Pale Beast": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1200,
@@ -1779,7 +1779,7 @@ const normalMonsters = {
    },
    "Parrot Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 5,
       atk: 2000,
       def: 1300,
@@ -1787,7 +1787,7 @@ const normalMonsters = {
    },
    Peacock: {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 5,
       atk: 1700,
       def: 1500,
@@ -1795,7 +1795,7 @@ const normalMonsters = {
    },
    "People Running About": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 2,
       atk: 600,
       def: 600,
@@ -1803,7 +1803,7 @@ const normalMonsters = {
    },
    "Petit Angel": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 3,
       atk: 600,
       def: 900,
@@ -1811,7 +1811,7 @@ const normalMonsters = {
    },
    "Petit Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 2,
       atk: 600,
       def: 700,
@@ -1819,7 +1819,7 @@ const normalMonsters = {
    },
    "Petit Moth": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 1,
       atk: 300,
       def: 200,
@@ -1827,7 +1827,7 @@ const normalMonsters = {
    },
    "Pharaoh's Servant": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 2,
       atk: 900,
       def: 0,
@@ -1835,7 +1835,7 @@ const normalMonsters = {
    },
    "Pharaonic Protector": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 2,
       atk: 900,
       def: 0,
@@ -1843,7 +1843,7 @@ const normalMonsters = {
    },
    "Prevent Rat": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 500,
       def: 2000,
@@ -1851,7 +1851,7 @@ const normalMonsters = {
    },
    "Protector of the Throne": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 800,
       def: 1500,
@@ -1859,7 +1859,7 @@ const normalMonsters = {
    },
    "Psychic Kappa": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 2,
       atk: 400,
       def: 1000,
@@ -1867,7 +1867,7 @@ const normalMonsters = {
    },
    "Queen Bird": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 5,
       atk: 1200,
       def: 2000,
@@ -1875,7 +1875,7 @@ const normalMonsters = {
    },
    "Queen of Autumn Leaves": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1800,
       def: 1500,
@@ -1883,7 +1883,7 @@ const normalMonsters = {
    },
    "Ray & Temperature": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 3,
       atk: 1000,
       def: 1000,
@@ -1891,7 +1891,7 @@ const normalMonsters = {
    },
    "Red Archery Girl": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1500,
@@ -1899,7 +1899,7 @@ const normalMonsters = {
    },
    "Red-Eyes Black Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2400,
       def: 2000,
@@ -1907,7 +1907,7 @@ const normalMonsters = {
    },
    "Right Arm of the Forbidden One": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 200,
       def: 300,
@@ -1915,7 +1915,7 @@ const normalMonsters = {
    },
    "Right Leg of the Forbidden One": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 200,
       def: 300,
@@ -1923,7 +1923,7 @@ const normalMonsters = {
    },
    Robolady: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 450,
       def: 900,
@@ -1931,7 +1931,7 @@ const normalMonsters = {
    },
    "Robotic Knight": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1800,
@@ -1939,7 +1939,7 @@ const normalMonsters = {
    },
    Roboyarou: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 900,
       def: 450,
@@ -1947,7 +1947,7 @@ const normalMonsters = {
    },
    "Rock Ogre Grotto #1": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 800,
       def: 1200,
@@ -1955,7 +1955,7 @@ const normalMonsters = {
    },
    "Rogue Doll": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1000,
@@ -1963,7 +1963,7 @@ const normalMonsters = {
    },
    "Root Water": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 3,
       atk: 900,
       def: 800,
@@ -1971,7 +1971,7 @@ const normalMonsters = {
    },
    "Rude Kaiser": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1800,
       def: 1600,
@@ -1979,7 +1979,7 @@ const normalMonsters = {
    },
    "Ryu-Kishin": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1000,
       def: 500,
@@ -1987,7 +1987,7 @@ const normalMonsters = {
    },
    "Ryu-Kishin Powered": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1200,
@@ -1995,7 +1995,7 @@ const normalMonsters = {
    },
    "Ryu-Ran": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 7,
       atk: 2200,
       def: 2600,
@@ -2003,7 +2003,7 @@ const normalMonsters = {
    },
    "Saggi the Dark Clown": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 600,
       def: 1500,
@@ -2011,7 +2011,7 @@ const normalMonsters = {
    },
    "Sand Stone": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1300,
       def: 1600,
@@ -2019,7 +2019,7 @@ const normalMonsters = {
    },
    "Science Soldier": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 800,
       def: 800,
@@ -2027,7 +2027,7 @@ const normalMonsters = {
    },
    "Sea Serpent Warrior of Darkness": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1500,
@@ -2035,7 +2035,7 @@ const normalMonsters = {
    },
    "Sealmaster Meisei": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1100,
       def: 900,
@@ -2043,7 +2043,7 @@ const normalMonsters = {
    },
    Seiyaryu: {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 7,
       atk: 2500,
       def: 2300,
@@ -2051,7 +2051,7 @@ const normalMonsters = {
    },
    "Serpent Night Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2350,
       def: 2400,
@@ -2059,7 +2059,7 @@ const normalMonsters = {
    },
    Shapesnatch: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 1200,
       def: 1700,
@@ -2067,7 +2067,7 @@ const normalMonsters = {
    },
    "Shining Abyss": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1800,
@@ -2075,7 +2075,7 @@ const normalMonsters = {
    },
    "Shining Friendship": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1100,
@@ -2083,7 +2083,7 @@ const normalMonsters = {
    },
    "Silver Fang": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1200,
       def: 800,
@@ -2091,7 +2091,7 @@ const normalMonsters = {
    },
    "Skull Dog Marron": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1350,
       def: 2000,
@@ -2099,7 +2099,7 @@ const normalMonsters = {
    },
    "Skull Mariner": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1600,
       def: 900,
@@ -2107,7 +2107,7 @@ const normalMonsters = {
    },
    "Skull Red Bird": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1550,
       def: 1200,
@@ -2115,7 +2115,7 @@ const normalMonsters = {
    },
    "Skull Servant": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 300,
       def: 200,
@@ -2123,7 +2123,7 @@ const normalMonsters = {
    },
    "Sky Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 6,
       atk: 1900,
       def: 1800,
@@ -2131,7 +2131,7 @@ const normalMonsters = {
    },
    "Sky Scout": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1800,
       def: 600,
@@ -2139,7 +2139,7 @@ const normalMonsters = {
    },
    "Sleeping Lion": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 700,
       def: 1700,
@@ -2147,7 +2147,7 @@ const normalMonsters = {
    },
    "Slime Toad": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 2,
       atk: 700,
       def: 500,
@@ -2155,7 +2155,7 @@ const normalMonsters = {
    },
    "Slot Machine": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2000,
       def: 2300,
@@ -2163,7 +2163,7 @@ const normalMonsters = {
    },
    "Sonic Duck": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 1700,
       def: 700,
@@ -2171,7 +2171,7 @@ const normalMonsters = {
    },
    "Sonic Maid": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1200,
       def: 900,
@@ -2179,7 +2179,7 @@ const normalMonsters = {
    },
    "Sorcerer of the Doomed": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1450,
       def: 1200,
@@ -2187,7 +2187,7 @@ const normalMonsters = {
    },
    "Soul Tiger": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 0,
       def: 2100,
@@ -2195,7 +2195,7 @@ const normalMonsters = {
    },
    Souleater: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1200,
       def: 0,
@@ -2203,7 +2203,7 @@ const normalMonsters = {
    },
    "Souls of the Forgotten": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 2,
       atk: 900,
       def: 200,
@@ -2211,7 +2211,7 @@ const normalMonsters = {
    },
    "Space Mambo": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1000,
@@ -2219,7 +2219,7 @@ const normalMonsters = {
    },
    "Spherous Lady": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 400,
       def: 1400,
@@ -2227,7 +2227,7 @@ const normalMonsters = {
    },
    "Spike Seadra": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 5,
       atk: 1600,
       def: 1300,
@@ -2235,7 +2235,7 @@ const normalMonsters = {
    },
    Spikebot: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 1800,
       def: 1700,
@@ -2243,7 +2243,7 @@ const normalMonsters = {
    },
    "Spirit of the Books": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1200,
@@ -2251,7 +2251,7 @@ const normalMonsters = {
    },
    "Spirit of the Harp": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 800,
       def: 2000,
@@ -2259,7 +2259,7 @@ const normalMonsters = {
    },
    "Steel Ogre Grotto #1": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1400,
       def: 1800,
@@ -2267,7 +2267,7 @@ const normalMonsters = {
    },
    "Steel Ogre Grotto #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 6,
       atk: 1900,
       def: 2200,
@@ -2275,7 +2275,7 @@ const normalMonsters = {
    },
    "Stone Ogre Grotto": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1600,
       def: 1500,
@@ -2283,7 +2283,7 @@ const normalMonsters = {
    },
    "Stuffed Animal": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1200,
       def: 900,
@@ -2291,7 +2291,7 @@ const normalMonsters = {
    },
    "Succubus Knight": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 1650,
       def: 1300,
@@ -2299,7 +2299,7 @@ const normalMonsters = {
    },
    "Summoned Skull": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 6,
       atk: 2500,
       def: 1200,
@@ -2307,7 +2307,7 @@ const normalMonsters = {
    },
    "Swordsman of Landstar": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 500,
       def: 1200,
@@ -2315,7 +2315,7 @@ const normalMonsters = {
    },
    Swordstalker: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 6,
       atk: 2000,
       def: 1600,
@@ -2323,7 +2323,7 @@ const normalMonsters = {
    },
    Takriminos: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1200,
@@ -2331,7 +2331,7 @@ const normalMonsters = {
    },
    Takuhee: {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1450,
       def: 1000,
@@ -2339,7 +2339,7 @@ const normalMonsters = {
    },
    "Terra the Terrible": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1300,
@@ -2347,7 +2347,7 @@ const normalMonsters = {
    },
    "Terrorking Salmon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 5,
       atk: 2400,
       def: 1000,
@@ -2355,7 +2355,7 @@ const normalMonsters = {
    },
    "The 13th Grave": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1200,
       def: 900,
@@ -2363,7 +2363,7 @@ const normalMonsters = {
    },
    "The All-Seeing White Tiger": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 1300,
       def: 500,
@@ -2371,7 +2371,7 @@ const normalMonsters = {
    },
    "The Dragon Dwelling in the Cave": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1300,
       def: 2000,
@@ -2379,7 +2379,7 @@ const normalMonsters = {
    },
    "The Earl of Demise": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 5,
       atk: 2000,
       def: 700,
@@ -2387,7 +2387,7 @@ const normalMonsters = {
    },
    "The Furious Sea King": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 3,
       atk: 800,
       def: 700,
@@ -2395,7 +2395,7 @@ const normalMonsters = {
    },
    "The Gross Ghost of Fled Dreams": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1800,
@@ -2403,7 +2403,7 @@ const normalMonsters = {
    },
    "The Illusory Gentleman": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1600,
@@ -2411,7 +2411,7 @@ const normalMonsters = {
    },
    "The Judgement Hand": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1400,
       def: 700,
@@ -2419,7 +2419,7 @@ const normalMonsters = {
    },
    "The Portrait's Secret": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1500,
@@ -2427,7 +2427,7 @@ const normalMonsters = {
    },
    "The Statue of Easter Island": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1100,
       def: 1400,
@@ -2435,7 +2435,7 @@ const normalMonsters = {
    },
    "Thousand-Eyes Idol": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 1,
       atk: 0,
       def: 0,
@@ -2443,7 +2443,7 @@ const normalMonsters = {
    },
    "Three-Headed Geedo": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1400,
@@ -2451,7 +2451,7 @@ const normalMonsters = {
    },
    "Three-Legged Zombies": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1100,
       def: 800,
@@ -2459,7 +2459,7 @@ const normalMonsters = {
    },
    "Tiger Axe": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1100,
@@ -2467,7 +2467,7 @@ const normalMonsters = {
    },
    Tongyo: {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1350,
       def: 800,
@@ -2475,7 +2475,7 @@ const normalMonsters = {
    },
    "Toon Alligator": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 800,
       def: 1600,
@@ -2483,7 +2483,7 @@ const normalMonsters = {
    },
    Trent: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1500,
       def: 1800,
@@ -2491,7 +2491,7 @@ const normalMonsters = {
    },
    "Tri-Horned Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 8,
       atk: 2850,
       def: 2350,
@@ -2499,7 +2499,7 @@ const normalMonsters = {
    },
    "Trial of Nightmare": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1300,
       def: 900,
@@ -2507,7 +2507,7 @@ const normalMonsters = {
    },
    "Tripwire Beast": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1300,
@@ -2515,7 +2515,7 @@ const normalMonsters = {
    },
    "Turtle Bird": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 6,
       atk: 1900,
       def: 1700,
@@ -2523,7 +2523,7 @@ const normalMonsters = {
    },
    "Turtle Tiger": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1000,
       def: 1500,
@@ -2531,7 +2531,7 @@ const normalMonsters = {
    },
    "Turu-Purun": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 2,
       atk: 450,
       def: 500,
@@ -2539,7 +2539,7 @@ const normalMonsters = {
    },
    "Twin Long Rods #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 3,
       atk: 850,
       def: 700,
@@ -2547,7 +2547,7 @@ const normalMonsters = {
    },
    "Twin-Headed Fire Dragon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 6,
       atk: 2200,
       def: 1700,
@@ -2555,7 +2555,7 @@ const normalMonsters = {
    },
    "Two-Headed King Rex": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1200,
@@ -2563,7 +2563,7 @@ const normalMonsters = {
    },
    "Two-Mouth Darkruler": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 3,
       atk: 900,
       def: 700,
@@ -2571,7 +2571,7 @@ const normalMonsters = {
    },
    Tyhone: {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1400,
@@ -2579,7 +2579,7 @@ const normalMonsters = {
    },
    "Tyhone #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 6,
       atk: 1700,
       def: 1900,
@@ -2587,7 +2587,7 @@ const normalMonsters = {
    },
    "United Resistance": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 3,
       atk: 1000,
       def: 400,
@@ -2595,7 +2595,7 @@ const normalMonsters = {
    },
    "Unknown Warrior of Fiend": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 3,
       atk: 1000,
       def: 500,
@@ -2603,7 +2603,7 @@ const normalMonsters = {
    },
    Uraby: {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 800,
@@ -2611,7 +2611,7 @@ const normalMonsters = {
    },
    "Ushi Oni": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 6,
       atk: 2150,
       def: 1950,
@@ -2619,7 +2619,7 @@ const normalMonsters = {
    },
    "Warrior Dai Grepher": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1600,
@@ -2627,7 +2627,7 @@ const normalMonsters = {
    },
    "Warrior of Zera": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1600,
       def: 1600,
@@ -2635,7 +2635,7 @@ const normalMonsters = {
    },
    "Water Magician": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1000,
@@ -2643,7 +2643,7 @@ const normalMonsters = {
    },
    "Water Omotics": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1200,
@@ -2651,7 +2651,7 @@ const normalMonsters = {
    },
    Wattkid: {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 3,
       atk: 1000,
       def: 500,
@@ -2659,7 +2659,7 @@ const normalMonsters = {
    },
    "Whiptail Crow": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1650,
       def: 1600,
@@ -2667,7 +2667,7 @@ const normalMonsters = {
    },
    "Winged Dragon, Guardian of the Fortress #1": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1200,
@@ -2675,7 +2675,7 @@ const normalMonsters = {
    },
    "Winged Dragon, Guardian of the Fortress #2": {
       cardType: NORMAL_MONSTER,
-      attribute: "Wind",
+      attribute: WIND,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1000,
@@ -2683,7 +2683,7 @@ const normalMonsters = {
    },
    Wingweaver: {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 7,
       atk: 2750,
       def: 2400,
@@ -2691,7 +2691,7 @@ const normalMonsters = {
    },
    "Witty Phantom": {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1300,
@@ -2699,7 +2699,7 @@ const normalMonsters = {
    },
    "Wolf Axwielder": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1650,
       def: 1000,
@@ -2707,7 +2707,7 @@ const normalMonsters = {
    },
    "Woodborg Inpachi": {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 5,
       atk: 500,
       def: 2500,
@@ -2715,7 +2715,7 @@ const normalMonsters = {
    },
    "Worm Drake": {
       cardType: NORMAL_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1400,
       def: 1500,
@@ -2723,7 +2723,7 @@ const normalMonsters = {
    },
    "Wow Warrior": {
       cardType: NORMAL_MONSTER,
-      attribute: "Water",
+      attribute: WATER,
       levelOrSubtype: 4,
       atk: 1250,
       def: 900,
@@ -2731,7 +2731,7 @@ const normalMonsters = {
    },
    "X-Head Cannon": {
       cardType: NORMAL_MONSTER,
-      attribute: "Light",
+      attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1500,
@@ -2739,7 +2739,7 @@ const normalMonsters = {
    },
    Yamadron: {
       cardType: NORMAL_MONSTER,
-      attribute: "Fire",
+      attribute: FIRE,
       levelOrSubtype: 5,
       atk: 1600,
       def: 1800,
@@ -2747,7 +2747,7 @@ const normalMonsters = {
    },
    Yaranzo: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1500,
@@ -2755,7 +2755,7 @@ const normalMonsters = {
    },
    Zoa: {
       cardType: NORMAL_MONSTER,
-      attribute: "Dark",
+      attribute: DARK,
       levelOrSubtype: 7,
       atk: 2600,
       def: 1900,
