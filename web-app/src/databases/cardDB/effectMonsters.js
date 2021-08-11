@@ -1,4 +1,4 @@
-import { HERO, VILLAIN, EFFECT_MONSTER, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL, TRAP, ROLL_DICE, DISCARD_AND_DRAW, DARK, LIGHT, WATER, FIRE, EARTH, WIND } from "utils/constants";
+import { HERO, VILLAIN, EFFECT_MONSTER, RANDOM_DISCARD, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL_TRAP, SPELL, TRAP, ROLL_DICE, DISCARD_AND_DRAW, DARK, LIGHT, WATER, FIRE, EARTH, WIND } from "utils/constants";
 
 const effectMonsters = {
    "Cure Mermaid": {
@@ -363,7 +363,14 @@ const effectMonsters = {
       levelOrSubtype: 3,
       atk: 200,
       def: 1300,
-      text: "Spellcaster/Effect – <effect=Ignition>You can discard 1 random card from your hand to the Graveyard; destroy all Special Summoned monsters on the field. Neither player can Special Summon monsters.</effect>"
+      text: "Spellcaster/Effect – <effect=Ignition>You can discard 1 random card from your hand to the Graveyard; destroy all Special Summoned monsters on the field. Neither player can Special Summon monsters.</effect>",
+      script: {
+         name: RANDOM_DISCARD,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         }
+      },
    },
    "Mystic Swordsman LV2": {
       cardType: EFFECT_MONSTER,
