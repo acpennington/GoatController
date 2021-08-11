@@ -66,7 +66,7 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 1400,
       def: 1100,
-      text: "Fairy/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 DARK monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>",
+      text: "Plant/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 DARK monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>",
       script: {
          name: SEARCH_DECK,
          displayCondition: {
@@ -80,6 +80,106 @@ const effectMonsters = {
             },
             attribute: {
                value: DARK
+            }
+         },
+         autoClose: true
+      }
+   },
+   "Giant Rat": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1450,
+      text: "Beast/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 EARTH monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: "1500"
+            },
+            attribute: {
+               value: EARTH
+            }
+         },
+         autoClose: true
+      }
+   },
+   "Mother Grizzly": {
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1000,
+      text: "Beast-Warrior/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 WATER monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: "1500"
+            },
+            attribute: {
+               value: WATER
+            }
+         },
+         autoClose: true
+      }
+   },
+   "UFO Turtle": {
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1200,
+      text: "Machine/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 FIRE monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: "1500"
+            },
+            attribute: {
+               value: FIRE
+            }
+         },
+         autoClose: true
+      }
+   },
+   "Flying Kamakiri #1": {
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 900,
+      text: "Insect/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 WIND monster with 1500 or less ATK from your Deck, in face-up Attack Position.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: "1500"
+            },
+            attribute: {
+               value: WIND
             }
          },
          autoClose: true
