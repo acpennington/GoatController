@@ -1,113 +1,161 @@
 import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, TOKENS, SEARCH_DECK } from "utils/constants.js";
 
 const spells = {
+   "Blue Medicine": {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Gain 400 Life Points.",
+      prepopLP: { hero: 400 }
+    },
+    "Dian Keto the Cure Master": {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Gain 1000 Life Points.",
+      prepopLP: { hero: 1000 }
+    },
+    "Goblin Thief": {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Inflict 500 damage to your opponent and gain 500 LP.",
+      prepopLP: { hero: 500, villain: -500 }
+    },
+    Hinotama: {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Inflict 500 damage to your opponent.",
+      prepopLP: { villain: -500 }
+    },
+    Ookazi: {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Inflict 800 damage to your opponent.",
+      prepopLP: { villain: -800 }
+    },
+    Raimei: {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Inflict 300 damage to your opponent.",
+      prepopLP: { villain: -300 }
+    },
+    "Red Medicine": {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Gain 500 Life Points.",
+      prepopLP: { hero: 500 }
+    },
+    "Tremendous Fire": {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Take 500 damage and inflict 1000 damage to your opponent.",
+      prepopLP: { hero: -500, villain: -1000 }
+    },
    "A Wingbeat of Giant Dragon": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Return 1 Level 5 or higher Dragon-Type monster you control to the hand, and if you do, destroy all Spell and Trap Cards on the field."
     },
     "Acid Rain": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Destroy all face-up Machine monsters on the field."
     },
     "Amazoness Spellcaster": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Target 1 \"Amazoness\" monster you control and 1 face-up monster your opponent controls; switch the original ATK of those targets until the end of this turn."
     },
     "Block Attack": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Target 1 face-up Attack Position monster your opponent controls; change that target to face-up Defense Position."
     },
     "Book of Taiyou": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Target 1 face-down monster on the field; change that target to face-up Attack Position."
     },
     "Dark-Piercing Light": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "If your opponent controls a face-down Defense Position monster(s): Change all face-down Defense Position monsters your opponent controls to face-up Defense Position."
     },
     "Double Snare": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Target 1 face-up card on the field whose effect includes negating Traps' effects; destroy that target."
     },
     "Eternal Rest": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Destroy all equipped monsters."
     },
     "Fengsheng Mirror": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Look at your opponent's hand and discard 1 Spirit monster from their hand (if any)."
     },
     "Giant Trunade": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Return all Spell and Trap Cards on the field to the hand."
     },
     "Gravedigger Ghoul": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Target up to 2 monsters in your opponent's GY; banish them."
     },
     "Gryphon's Feather Duster": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Destroy all other Spells and Traps you control, and if you do, gain 500 Life Points for each card destroyed."
     },
     "Mind Control": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Target 1 monster your opponent controls; until the End Phase, take control of that target, but it cannot declare an attack or be Tributed."
     },
     "Restructer Revolution": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Inflict 200 damage to your opponent for each card in their hand."
     },
     "Secret Pass to the Treasures": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Target 1 face-up monster you control with 1000 or less ATK; That face-up monster can attack directly this turn"
     },
     "Soul Reversal": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Quick-Play",
       text: "Target 1 Flip monster in your Graveyard; add that target to the top of the Deck."
     },
     "Spirit Elimination": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Until the End Phase, if a monster(s) in the Graveyard would be banished: Banish an equal number of monsters on your side of the field instead."
     },
     "The Reliable Guardian": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Quick-Play",
       text: "Target 1 face-up monster on the field; it gains 700 DEF until the end of this turn."
     },
     "Thousand Energy": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Face-up Level 2 Normal Monsters (except Tokens) you control gain 1000 ATK/DEF until the End Phase. Destroy all face-up Level 2 Normal Monsters you control during the End Phase."
     },
     Timidity: {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Neither player can destroy Set Spells/Traps until your opponent's next End Phase."
     },
     "Token Thanksgiving": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Destroy all tokens on the field, and if you do, gain 800 Life Points for each token destroyed."
     },
     "Triangle Power": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Face-up Level 1 Normal Monsters (except Tokens) you control gain 2000 ATK/DEF until the End Phase. Destroy all face-up Level 2 Normal Monsters you control during the End Phase."
     },
