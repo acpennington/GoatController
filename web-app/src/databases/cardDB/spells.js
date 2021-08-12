@@ -1,6 +1,37 @@
 import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, TOKENS, SEARCH_DECK } from "utils/constants.js";
 
 const spells = {
+   "Jade Insect Whistle": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text: "Your opponent places 1 Insect monster from their Deck on top of their Deck.",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [VILLAIN],
+            row: SPELL_TRAP
+         },
+         params: {
+            text: {
+               operator: "TYPEMATCH",
+               value: "Insect"
+            }
+         },
+         autoClose: true
+      },
+    },
+    "The Inexperienced Spy": {
+      cardType: "Spell",
+      levelOrSubtype: "Normal",
+      text: "Look at 1 random card in your opponent's hand.",
+      script: {
+         name: RANDOM_DISCARD,
+         displayCondition: {
+            players: [VILLAIN],
+            row: SPELL_TRAP
+         }
+      }
+    },
    "Blue Medicine": {
       cardType: SPELL,
       levelOrSubtype: "Normal",
