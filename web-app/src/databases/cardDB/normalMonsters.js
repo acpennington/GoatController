@@ -1,4 +1,4 @@
-import { NORMAL_MONSTER, DARK, LIGHT, WATER, FIRE, EARTH, WIND  } from "utils/constants.js";
+import { NORMAL_MONSTER, DARK, LIGHT, WATER, FIRE, EARTH, WIND } from "utils/constants.js";
 
 const normalMonsters = {
    "7 Colored Fish": {

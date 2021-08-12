@@ -1,4 +1,24 @@
-import { HERO, VILLAIN, EFFECT_MONSTER, RANDOM_DISCARD, SEARCH_DECK, GRAVEYARD, MILL_UNTIL, MONSTER, SPELL_TRAP, SPELL, TRAP, ROLL_DICE, DISCARD_AND_DRAW, DARK, LIGHT, WATER, FIRE, EARTH, WIND } from "utils/constants";
+import {
+   HERO,
+   VILLAIN,
+   EFFECT_MONSTER,
+   RANDOM_DISCARD,
+   SEARCH_DECK,
+   GRAVEYARD,
+   MILL_UNTIL,
+   MONSTER,
+   SPELL_TRAP,
+   SPELL,
+   TRAP,
+   ROLL_DICE,
+   DISCARD_AND_DRAW,
+   DARK,
+   LIGHT,
+   WATER,
+   FIRE,
+   EARTH,
+   WIND
+} from "utils/constants";
 
 const effectMonsters = {
    "3-Hump Lacooda": {
@@ -7,257 +27,257 @@ const effectMonsters = {
       levelOrSubtype: 3,
       atk: 500,
       def: 1500,
-      text: "Beast/Effect – <effect=Ignition>If you control 3 \"3-Hump Lacooda\": You can Tribute 2 of them; draw 3 cards.</effect>"
-    },
-    "8-Claws Scorpion": {
+      text: 'Beast/Effect – <effect=Ignition>If you control 3 "3-Hump Lacooda": You can Tribute 2 of them; draw 3 cards.</effect>'
+   },
+   "8-Claws Scorpion": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 2,
       atk: 300,
       def: 200,
       text: "Insect/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>When this card attacks an opponent's face-down Defense Position monster, during damage calculation: This card's ATK becomes 2400 during that damage calculation only.</effect>"
-    },
-    "Absorbing Kid from the Sky": {
+   },
+   "Absorbing Kid from the Sky": {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 4,
       atk: 1300,
       def: 1000,
       text: "Fairy/Effect – <effect=Trigger>When this card destroys a monster by battle and sends it to the Graveyard: Gain Life Points equal to that monster's original Level x300.</effect>"
-    },
-    "Amazoness Fighter": {
+   },
+   "Amazoness Fighter": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1500,
       def: 1300,
       text: "Warrior/Effect – <effect=Continuous>You take no battle damage from attacks involving this card.</effect>"
-    },
-    "Amazoness Paladin": {
+   },
+   "Amazoness Paladin": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1700,
       def: 300,
-      text: "Warrior/Effect – <effect=Continuous>This card gains 100 ATK for each \"Amazoness\" monster you control.</effect>"
-    },
-    "Amazoness Tiger": {
+      text: 'Warrior/Effect – <effect=Continuous>This card gains 100 ATK for each "Amazoness" monster you control.</effect>'
+   },
+   "Amazoness Tiger": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1100,
       def: 1500,
-      text: "Beast/Effect – <effect=Continuous>You can only control 1 \"Amazoness Tiger\".</effect> <effect=Continuous> This card gains 400 ATK for each \"Amazoness\" monster you control.</effect> <effect=Continuous>Your opponent cannot attack any face-up \"Amazoness\" monsters, except this one.</effect>"
-    },
-    "Arcane Archer of the Forest": {
+      text: 'Beast/Effect – <effect=Continuous>You can only control 1 "Amazoness Tiger".</effect> <effect=Continuous> This card gains 400 ATK for each "Amazoness" monster you control.</effect> <effect=Continuous>Your opponent cannot attack any face-up "Amazoness" monsters, except this one.</effect>'
+   },
+   "Arcane Archer of the Forest": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 3,
       atk: 900,
       def: 1400,
       text: "Warrior/Effect – <effect=Continuous>If you control a Plant monster, this card cannot be attacked.</effect> <effect=Ignition>You can Tribute 1 Plant monster, then target 1 Spell/Trap on the field; destroy that target.</effect>"
-    },
-    "Archfiend of Gilfer": {
+   },
+   "Archfiend of Gilfer": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 6,
       atk: 2200,
       def: 2500,
       text: "Fiend/Effect – <effect=Trigger>When this card is sent to the Graveyard: You can target 1 face-up monster on the field; equip that target with this card.</effect> <effect=Continuous-like>That monster loses 500 ATK while equipped with this card.</effect>"
-    },
-    "Armed Samurai - Ben Kei": {
+   },
+   "Armed Samurai - Ben Kei": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 4,
       atk: 500,
       def: 800,
       text: "Warrior/Effect – <effect=Continuous>For each Equip Card equipped to this card, it gains 1 additional attack during each Battle Phase.</effect>"
-    },
-    "Aswan Apparition": {
+   },
+   "Aswan Apparition": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 3,
       atk: 500,
       def: 500,
       text: "Fiend/Effect – <effect=Trigger>If this card inflicts Battle Damage to your opponent: You can target 1 Trap in your Graveyard; place it on top of your Deck.</effect>"
-    },
-    "Atomic Firefly": {
+   },
+   "Atomic Firefly": {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 1,
       atk: 100,
       def: 200,
       text: "Insect/Effect – <effect=Trigger>If this card is destroyed by battle, and was face-up at the start of the Damage Step: The player who destroyed it takes 1000 damage.</effect>"
-    },
-    "Avatar of The Pot": {
+   },
+   "Avatar of The Pot": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1200,
       def: 1300,
-      text: "Rock/Effect – <effect=Ignition>Send 1 \"Pot of Greed\" from your hand to the Graveyard; draw 3 cards.</effect>"
-    },
-    "Balloon Lizard": {
+      text: 'Rock/Effect – <effect=Ignition>Send 1 "Pot of Greed" from your hand to the Graveyard; draw 3 cards.</effect>'
+   },
+   "Balloon Lizard": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 500,
       def: 1900,
       text: "Reptile/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Place 1 counter on this card.</effect> <effect=Trigger>When this card is destroyed: Your opponent takes 400 damage for each of the counters that were on it.</effect>"
-    },
-    "Batteryman AA": {
+   },
+   "Batteryman AA": {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 3,
       atk: 0,
       def: 0,
-      text: "Thunder/Effect – <effect=Continuous>If all \"Batteryman AA\"(s) you control are in Attack Position, this card gains 1000 ATK for each.</effect> <effect=Continuous>If all \"Batteryman AA\"(s) you control are in Defense Position, this card gains 1000 DEF for each.</effect>"
-    },
-    "Berserk Dragon": {
+      text: 'Thunder/Effect – <effect=Continuous>If all "Batteryman AA"(s) you control are in Attack Position, this card gains 1000 ATK for each.</effect> <effect=Continuous>If all "Batteryman AA"(s) you control are in Defense Position, this card gains 1000 DEF for each.</effect>'
+   },
+   "Berserk Dragon": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 8,
       atk: 3500,
       def: 0,
-      text: "Zombie/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned with \"A Deal with Dark Ruler\" and cannot be Special Summoned by other ways.</effect> <effect=Continuous>This card can attack all monsters your opponent controls once each.</effect> <effect=Continuous>During each of your End Phases, this card loses 500 ATK.</effect>"
-    },
-    "Blade Rabbit": {
+      text: 'Zombie/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned with "A Deal with Dark Ruler" and cannot be Special Summoned by other ways.</effect> <effect=Continuous>This card can attack all monsters your opponent controls once each.</effect> <effect=Continuous>During each of your End Phases, this card loses 500 ATK.</effect>'
+   },
+   "Blade Rabbit": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 2,
       atk: 400,
       def: 300,
       text: "Beast/Effect – <effect=Trigger>When this card is changed from Attack Position to face-up Defense Position: Target 1 monster your opponent controls; destroy that target.</effect>"
-    },
-    "Blindly Loyal Goblin": {
+   },
+   "Blindly Loyal Goblin": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1500,
       text: "Warrior/Effect – <effect=Continuous>Control of this face-up card cannot switch.</effect>"
-    },
-    "Boar Soldier": {
+   },
+   "Boar Soldier": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 2000,
       def: 500,
       text: "Beast-Warrior/Effect – <effect=Trigger>If this card is Normal Summoned: Destroy this card.</effect> <effect=Continuous>If your opponent controls a monster(s), this card loses 1000 ATK.</effect>"
-    },
-    "Burning Algae": {
+   },
+   "Burning Algae": {
       cardType: EFFECT_MONSTER,
       attribute: FIRE,
       levelOrSubtype: 3,
       atk: 500,
       def: 1500,
       text: "Pyro/Effect – <effect=Trigger>When this card is sent to the Graveyard: Your opponent gains 1000 Life Points.</effect>"
-    },
-    "Cannonball Spear Shellfish": {
+   },
+   "Cannonball Spear Shellfish": {
       cardType: EFFECT_MONSTER,
       attribute: WATER,
       levelOrSubtype: 2,
       atk: 1000,
       def: 1000,
-      text: "Aqua/Effect – <effect=Continuous>If \"Umi\" is on the field, this card is unaffected by Spell effects.</effect>"
-    },
-    "Cat's Ear Tribe": {
+      text: 'Aqua/Effect – <effect=Continuous>If "Umi" is on the field, this card is unaffected by Spell effects.</effect>'
+   },
+   "Cat's Ear Tribe": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 1,
       atk: 200,
       def: 100,
       text: "Beast-Warrior/Effect – <effect=Continuous>During your opponent's Battle Phase, if a monster(s) your opponent controls battles this card, that monster's original ATK becomes 200 during damage calculation only.</effect>"
-    },
-    "Chaos Command Magician": {
+   },
+   "Chaos Command Magician": {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 6,
       atk: 2400,
       def: 1900,
       text: "Spellcaster/Effect – <effect=Continuous>Effects of monsters that target this 1 card are negated.</effect>"
-    },
-    "Chiron the Mage": {
+   },
+   "Chiron the Mage": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1800,
       def: 1000,
       text: "Beast-Warrior/Effect – <effect=Ignition>Once per turn: You can discard 1 Spell Card, then target 1 Spell/Trap Card your opponent controls; destroy that target.</effect>"
-    },
-    "Chopman the Desperate Outlaw": {
+   },
+   "Chopman the Desperate Outlaw": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 3,
       atk: 1100,
       def: 500,
       text: "Zombie/Effect – <effect=Trigger>When this card is Flip Summoned: You can target 1 Equip Spell in your Graveyard; equip it to this card.</effect>"
-    },
-    "Crass Clown": {
+   },
+   "Crass Clown": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 4,
       atk: 1350,
       def: 1400,
       text: "Fiend/Effect – <effect=Trigger>When this card is changed from Defense Position to Attack Position: Target 1 monster your opponent controls; return that target to the hand.</effect>"
-    },
-    "Creeping Doom Manta": {
+   },
+   "Creeping Doom Manta": {
       cardType: EFFECT_MONSTER,
       attribute: WATER,
       levelOrSubtype: 3,
       atk: 1300,
       def: 1200,
       text: "Fish/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated.</effect>"
-    },
-    "D.D. Assailant": {
+   },
+   "D.D. Assailant": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1600,
       text: "Warrior/Effect – <effect=Trigger>After damage calculation, when this card is destroyed by battle with an opponent's monster: Banish that monster, also banish this card.</effect>"
-    },
-    "D.D. Crazy Beast": {
+   },
+   "D.D. Crazy Beast": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1400,
       def: 1400,
       text: "Beast/Effect – <effect=Trigger>If this card destroys an opponent's monster by battle, after damage calculation: Banish it.</effect>"
-    },
-    "Dancing Fairy": {
+   },
+   "Dancing Fairy": {
       cardType: EFFECT_MONSTER,
       attribute: WIND,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1000,
       text: "Fairy/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Gain 1000 Life Points. This card must be in face-up Defense Position to activate and to resolve this effect.</effect>"
-    },
-    "Dark Cat with White Tail": {
+   },
+   "Dark Cat with White Tail": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 2,
       atk: 800,
       def: 500,
       text: "Beast/Flip/Effect – <effect=Trigger>FLIP: Target 2 monsters your opponent controls and 1 monster you control; return those targets to the hand.</effect>"
-    },
-    "Dark Elf": {
+   },
+   "Dark Elf": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 4,
       atk: 2000,
       def: 800,
       text: "Spellcaster/Effect – <effect=Continuous>This card cannot declare an attack unless you pay 1000 Life Points.</effect>"
-    },
-    "Dark Jeroid": {
+   },
+   "Dark Jeroid": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1500,
       text: "Fiend/Effect – <effect=Trigger>When this card is Summoned: Target 1 face-up monster on the field; it loses 800 ATK.</effect>"
-    },
-    "Dark Scorpion Burglars": {
+   },
+   "Dark Scorpion Burglars": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 4,
@@ -277,128 +297,128 @@ const effectMonsters = {
          },
          autoClose: true
       }
-    },
-    "Despair from the Dark": {
+   },
+   "Despair from the Dark": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 8,
       atk: 2800,
       def: 3000,
       text: "Zombie/Effect – <effect=Trigger>When this card is sent from your hand or Deck to your Graveyard by an opponent's card effect: Special Summon this card.</effect>"
-    },
-    "Dimension Jar": {
+   },
+   "Dimension Jar": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 2,
       atk: 200,
       def: 200,
       text: "Machine/Flip/Effect – <effect=Trigger>FLIP: Both players can banish up to 3 cards from their opponent's Graveyard.</effect>"
-    },
-    "Double Coston": {
+   },
+   "Double Coston": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1650,
       text: "Zombie/Effect – <effect=Continuous>This card can be treated as 2 Tributes for the Tribute Summon of a DARK monster.</effect>"
-    },
-    "Dragon Manipulator": {
+   },
+   "Dragon Manipulator": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 3,
       atk: 700,
       def: 800,
       text: "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 1 Dragon monster your opponent controls; take control of that target until the end of this turn.</effect>"
-    },
-    "Dream Clown": {
+   },
+   "Dream Clown": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1200,
       def: 900,
       text: "Warrior/Effect – <effect=Trigger>When this card is changed from Attack Position to Defense Position: Target 1 monster your opponent controls; destroy that target.</effect>"
-    },
-    Dreamsprite: {
+   },
+   Dreamsprite: {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 2,
       atk: 300,
       def: 200,
       text: "Plant/Effect – <effect=Trigger>Before damage calculation, if this card is targeted for an attack: Target 1 other monster you control; switch the attack target to that target, then apply damage calculation.</effect>"
-    },
-    "Eagle Eye": {
+   },
+   "Eagle Eye": {
       cardType: EFFECT_MONSTER,
       attribute: WIND,
       levelOrSubtype: 3,
       atk: 1300,
       def: 1200,
       text: "Winged Beast/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated.</effect>"
-    },
-    "Electric Lizard": {
+   },
+   "Electric Lizard": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 3,
       atk: 850,
       def: 800,
       text: "Thunder/Effect – <effect=Trigger>If this card was attacked by a non Zombie monster, after damage calculation: Next turn, that monster cannot attack.</effect>"
-    },
-    "Electric Snake": {
+   },
+   "Electric Snake": {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 3,
       atk: 800,
       def: 900,
       text: "Thunder/Effect – <effect=Trigger>When this card is discarded your hand to the Graveyard by an opponent's card effect: Draw 2 cards.</effect>"
-    },
-    "Elephant Statue of Blessing": {
+   },
+   "Elephant Statue of Blessing": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1500,
       def: 0,
       text: "Rock/Effect – <effect=Trigger>When this card is sent from your hand to your Graveyard by an opponent's card effect: Gain 2000 Life Points.</effect>"
-    },
-    "Elephant Statue of Disaster": {
+   },
+   "Elephant Statue of Disaster": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 3,
       atk: 1500,
       def: 0,
       text: "Rock/Effect – <effect=Trigger>When this card is sent from your hand to your Graveyard by an opponent's card effect: Inflict 2000 damage to your opponent.</effect>"
-    },
-    "Emes the Infinity": {
+   },
+   "Emes the Infinity": {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 7,
       atk: 2500,
       def: 2000,
       text: "Machine/Effect – <effect=Trigger>If this card destroys an opponent's monster by battle and sends it to the Graveyard: This card gains 700 ATK.</effect>"
-    },
-    "Emissary of the Oasis": {
+   },
+   "Emissary of the Oasis": {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 3,
       atk: 600,
       def: 400,
       text: "Spellcaster/Effect – <effect=Continuous>While you control a Level 3 or lower Normal Monster, your opponent cannot target this card for an attack.</effect> <effect=Continuous>Any battle damage to the controller of this card from battles involving a Level 3 or lower Normal Monster becomes 0.</effect>"
-    },
-    "Fairy King Truesdale": {
+   },
+   "Fairy King Truesdale": {
       cardType: EFFECT_MONSTER,
       attribute: WATER,
       levelOrSubtype: 6,
       atk: 2200,
       def: 1500,
       text: "Plant/Effect – <effect=Continuous>While this card is in Defense Position, Plant monsters you control gain 500 ATK/DEF.</effect>"
-    },
-    "Fear from the Dark": {
+   },
+   "Fear from the Dark": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 4,
       atk: 1700,
       def: 1500,
       text: "Zombie/Effect – <effect=Trigger>When this card is sent from your hand or Deck to your Graveyard by an opponent's card effect: Special Summon this card.</effect>"
-    },
-    "Fire Princess": {
+   },
+   "Fire Princess": {
       cardType: EFFECT_MONSTER,
       attribute: FIRE,
       levelOrSubtype: 4,
@@ -406,94 +426,94 @@ const effectMonsters = {
       def: 1500,
       text: "Pyro/Effect – <effect=Continuous>Each time you gain Life Points, inflict 500 damage to your opponent.</effect>",
       prepopLP: { villain: 500 }
-    },
-    Firebird: {
+   },
+   Firebird: {
       cardType: EFFECT_MONSTER,
       attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1000,
       def: 800,
       text: "Winged Beast/Effect – <effect=Trigger>If a Winged-Beast monster(s) you control is destroyed: This card gains 500 ATK.</effect>"
-    },
-    "Fushi No Tori": {
+   },
+   "Fushi No Tori": {
       cardType: EFFECT_MONSTER,
       attribute: FIRE,
       levelOrSubtype: 4,
       atk: 1200,
       def: 0,
       text: "Winged Beast/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>When this card inflicts battle damage to your opponent: Gain Life Points equal to the battle damage inflicted.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>"
-    },
-    "Ghost Knight of Jackal": {
+   },
+   "Ghost Knight of Jackal": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1700,
       def: 1600,
       text: "Beast-Warrior/Effect – <effect=Trigger>When this card destroys an opponent's monster by battle and sends it to the Graveyard: You can target that destroyed monster in your opponent's Graveyard; Special Summon that target to your side of the field in face-up Defense Position.</effect>"
-    },
-    "Giant Axe Mummy": {
+   },
+   "Giant Axe Mummy": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1700,
       def: 2000,
       text: "Zombie/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is attacked by an opponent's monster whose ATK is lower than this card's DEF: Destroy the attacking monster at the end of the Damage Step.</effect>"
-    },
-    "Goblin Attack Force": {
+   },
+   "Goblin Attack Force": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 2300,
       def: 0,
       text: "Warrior/Effect – <effect=Continuous>If this card attacks, it is changed to Defense Position at the end of the Battle Phase, and its battle position cannot be changed until the end of your next turn.</effect>"
-    },
-    "Goblin King": {
+   },
+   "Goblin King": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 1,
       atk: 0,
       def: 0,
       text: "Fiend/Effect – <effect=Continuous>While you control another Fiend monster, this card cannot be attacked.</effect> <effect=Continuous>This card's ATK/DEF become equal to the number of other Fiend monsters on the field x 1000.</effect>"
-    },
-    "Goblin of Greed": {
+   },
+   "Goblin of Greed": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1000,
       def: 1800,
       text: "Fiend/Effect – <effect=Continuous>Neither player can activate cards or effects that would make them discard a card(s) as a cost.</effect>"
-    },
-    "Gora Turtle": {
+   },
+   "Gora Turtle": {
       cardType: EFFECT_MONSTER,
       attribute: WATER,
       levelOrSubtype: 3,
       atk: 1100,
       def: 1100,
       text: "Aqua/Effect – <effect=Continuous>Monsters with 1900 or more ATK cannot attack.</effect>"
-    },
-    "Gora Turtle of Illusion": {
+   },
+   "Gora Turtle of Illusion": {
       cardType: EFFECT_MONSTER,
       attribute: WATER,
       levelOrSubtype: 4,
       atk: 1200,
       def: 1400,
       text: "Aqua/Effect – <effect=Continuous>Negate any of your opponent's Spell/Trap effects that target this face-up card.</effect>"
-    },
-    "Gravekeeper's Guard": {
+   },
+   "Gravekeeper's Guard": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 4,
       atk: 1000,
       def: 1900,
       text: "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Target 1 monster your opponent controls; return that target to the hand.</effect>"
-    },
-    "Gravekeeper's Spy": {
+   },
+   "Gravekeeper's Spy": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 4,
       atk: 1200,
       def: 2000,
-      text: "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Special Summon 1 \"Gravekeeper's\" monster with 1500 or less ATK from your Deck</effect>",
+      text: 'Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Special Summon 1 "Gravekeeper\'s" monster with 1500 or less ATK from your Deck</effect>',
       script: {
          name: SEARCH_DECK,
          displayCondition: {
@@ -507,56 +527,56 @@ const effectMonsters = {
             }
          },
          autoClose: true
-      },
-    },
-    "Great Long Nose": {
+      }
+   },
+   "Great Long Nose": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 5,
       atk: 1900,
       def: 1700,
       text: "Beast-Warrior/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>If this card inflicts battle damage to your opponent: Your opponent skips their next Battle Phase.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>"
-    },
-    "Great Maju Garzett": {
+   },
+   "Great Maju Garzett": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 6,
       atk: 0,
       def: 0,
       text: "Fiend/Effect – <effect=Continuous>This card's ATK becomes twice 1 monster Tributed for the Tribute Summon of this card.</effect>"
-    },
-    Greenkappa: {
+   },
+   Greenkappa: {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
       levelOrSubtype: 3,
       atk: 650,
       def: 900,
       text: "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 2 Set Spell/Trap Cards on the field; destroy those targets.</effect>"
-    },
-    "Guardian Angel Joan": {
+   },
+   "Guardian Angel Joan": {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 7,
       atk: 2800,
       def: 2000,
       text: "Fairy/Effect – <effect=Trigger>When this card destroys a monster by battle and sends it to the Graveyard: Gain Life Points equal to the original ATK of that destroyed monster in the Graveyard.</effect>"
-    },
-    "Guardian Sphinx": {
+   },
+   "Guardian Sphinx": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 5,
       atk: 1700,
       def: 2400,
       text: "Rock/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>When this card is Flip Summoned: Return all monsters your opponent controls to the hand.</effect>"
-    },
-    "Gyaku-Gire Panda": {
+   },
+   "Gyaku-Gire Panda": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 3,
       atk: 800,
       def: 1600,
       text: "Beast/Effect – <effect=Continuous>Gains 500 ATK for each monster your opponent controls.</effect> <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent."
-    },
+   },
    "Cure Mermaid": {
       cardType: EFFECT_MONSTER,
       attribute: WATER,
@@ -926,7 +946,7 @@ const effectMonsters = {
             players: [HERO],
             row: MONSTER
          }
-      },
+      }
    },
    "Mystic Swordsman LV2": {
       cardType: EFFECT_MONSTER,
