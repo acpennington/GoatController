@@ -47,7 +47,7 @@ const fusions = {
       levelOrSubtype: 8,
       atk: 2900,
       def: 2400,
-      text: 'Spellcaster/Fusion/Effect – "Dark Magician" + "Buster Blader". Must be Fusion Summoned. <effect=Quick>When a Spell Card is activated (Quick Effect): You can discard 1 card; negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Gains 500 ATK for each Dragon monster on the field and in the Graveyard.</effect>',
+      text: 'Spellcaster/Fusion/Effect – "Dark Magician" + "Buster Blader". <effect=Summon>Must be Fusion Summoned.</effect> <effect=Quick>When a Spell Card is activated (Quick Effect): You can discard 1 card; negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Gains 500 ATK for each Dragon monster on the field and in the Graveyard.</effect>',
       noMeta: true
    },
    "Deepsea Shark": {
@@ -64,7 +64,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2100,
       def: 1200,
-      text: 'Warrior/Fusion/Effect – "Elemental HERO Avian" + "Elemental HERO Burstinatrix". Must be Fusion Summoned and cannot be Special Summoned by other ways. <effect=Trigger>When this card destroys a monster by battle and sends it to the Graveyard: Inflict damage to your opponent equal to the ATK of the destroyed monster in the Graveyard.</effect>',
+      text: 'Warrior/Fusion/Effect – "Elemental HERO Avian" + "Elemental HERO Burstinatrix". <effect=Summon>Must be Fusion Summoned.</effect> <effect=Trigger>When this card destroys a monster by battle and sends it to the Graveyard: Inflict damage to your opponent equal to the ATK of the destroyed monster in the Graveyard.</effect>',
       noMeta: true
    },
    "Elemental HERO Thunder Giant": {
@@ -73,7 +73,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2400,
       def: 1500,
-      text: 'Warrior/Fusion/Effect – "Elemental HERO Sparkman" + "Elemental HERO Clayman". Must be Fusion Summoned and cannot be Special Summoned by other ways. <effect=Ignition>Once per turn: You can discard 1 card to target 1 face-up monster on the field with original ATK less than the ATK of this card; destroy that target.</effect>',
+      text: 'Warrior/Fusion/Effect – "Elemental HERO Sparkman" + "Elemental HERO Clayman". <effect=Summon>Must be Fusion Summoned.</effect> <effect=Ignition>Once per turn: You can discard 1 card to target 1 face-up monster on the field with original ATK less than the ATK of this card; destroy that target.</effect>',
       noMeta: true
    },
    "Empress Judge": {
@@ -298,7 +298,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2200,
       def: 1900,
-      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Y-Dragon Head". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the Graveyard. <effect=Ignition>You can discard 1 card, then target 1 face-up Spell/Trap your opponent controls; destroy that target.</effect>',
+      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Y-Dragon Head". <effect=Summon>Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-up Spell/Trap your opponent controls; destroy that target.</effect>',
       noMeta: true
    },
    "XYZ-Dragon Cannon": {
@@ -307,7 +307,7 @@ const fusions = {
       levelOrSubtype: 8,
       atk: 2800,
       def: 2600,
-      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Y-Dragon Head" + "Z-Metal Tank". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the Graveyard. <effect=Ignition>You can discard 1 card, then target 1 card your opponent controls; destroy that target.</effect>',
+      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Y-Dragon Head" + "Z-Metal Tank". <effect=Summon>Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 card your opponent controls; destroy that target.</effect>',
       noMeta: true
    },
    "XZ-Tank Cannon": {
@@ -316,7 +316,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2400,
       def: 2100,
-      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Z-Metal Tank". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the Graveyard. <effect=Ignition>You can discard 1 card, then target 1 face-down Spell/Trap your opponent controls; destroy that target.</effect>',
+      text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Z-Metal Tank". <effect=Summon>Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-down Spell/Trap your opponent controls; destroy that target.</effect>',
       noMeta: true
    },
    "YZ-Tank Dragon": {
@@ -325,7 +325,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2100,
       def: 2200,
-      text: 'Machine/Fusion/Effect – "Y-Dragon Head" + "Z-Metal Tank". Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".) Cannot be Special Summoned from the Graveyard. <effect=Ignition>You can discard 1 card, then target 1 face-down monster your opponent controls; destroy that target.</effect>',
+      text: 'Machine/Fusion/Effect – "Y-Dragon Head" + "Z-Metal Tank". <effect=Summon>Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-down monster your opponent controls; destroy that target.</effect>',
       noMeta: true
    },
    "Dragoness the Wicked Knight": {
@@ -374,7 +374,7 @@ const fusions = {
       levelOrSubtype: 5,
       atk: 2000,
       def: 1200,
-      text: 'Dragon/Fusion/Effect – "Cave Dragon" + "Lesser Fiend". (This card is always treated as an "Archfiend" card.) A Fusion Summon of this card can only be done with the above Fusion Material Monsters. <effect=Continuous>Negate the effects of Flip Effect Monsters.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap Card.</effect>'
+      text: 'Dragon/Fusion/Effect – "Cave Dragon" + "Lesser Fiend". <effect=Condition>(This card is always treated as an "Archfiend" card.)</effect> <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Material Monsters.</effect> <effect=Continuous>Negate the effects of Flip Effect Monsters.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap Card.</effect>'
    },
    "Dark Blade the Dragon Knight": {
       cardType: FUSION_MONSTER,
@@ -414,7 +414,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2000,
       def: 1200,
-      text: 'Warrior/Fusion/Effect – "Warrior Dai Grepher" + "Spirit Ryu". A Fusion Summon of this card can only be done with the above Fusion Materials. <effect=Quick>When a Normal Trap Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell Card that targets this card and destroy it.</effect>'
+      text: 'Warrior/Fusion/Effect – "Warrior Dai Grepher" + "Spirit Ryu". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Trap Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell Card that targets this card and destroy it.</effect>'
    },
    "Dark Balter the Terrible": {
       cardType: FUSION_MONSTER,
@@ -422,7 +422,7 @@ const fusions = {
       levelOrSubtype: 5,
       atk: 2000,
       def: 1200,
-      text: 'Fiend/Fusion/Effect – "Possessed Dark Soul" + "Frontier Wiseman". A Fusion Summon of this monster can only be conducted with the above Fusion Material Monsters. <effect=Quick>When a Normal Spell Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>The effect of an Effect Monster that this monster destroys as a result of battle is negated.</effect>'
+      text: 'Fiend/Fusion/Effect – "Possessed Dark Soul" + "Frontier Wiseman". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Spell Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>The effect of an Effect Monster that this monster destroys as a result of battle is negated.</effect>'
    },
    "Thousand-Eyes Restrict": {
       cardType: FUSION_MONSTER,

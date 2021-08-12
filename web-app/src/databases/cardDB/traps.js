@@ -1,11 +1,74 @@
-import { TRAP } from "utils/constants";
+import { TRAP, VILLAIN, SEARCH_DECK, SPELL_TRAP } from "utils/constants";
 
 const traps = {
+   "Astral Barrier": {
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Trigger-like>If your opponent's monster attacks a monster you control: You can make the attack a direct attack instead.</effect>"
+    },
+   "Arsenal Robber": {
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Your opponent selects 1 Equip Spell Card from his/her Deck and sends it to the Graveyard.",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [VILLAIN],
+            row: SPELL_TRAP
+         },
+         params: {
+            levelOrSubtype: {
+               value: "Equip"
+            }
+         },
+         autoClose: true
+      }
+    },
+    "Bad Reaction to Simochi": {
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Any effect that would make your opponent gain Life Points inflicts the same amount of damage to them, instead.</effect>"
+    },
+    "Bottomless Shifting Sand": {
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Trigger-like>Once per turn, during your opponent's End Phase: Destroy the face-up monster(s) on the field with the highest ATK.</effect> <effect=Continuous-like>During your Standby Phase, if you have 4 or less cards in your hand, destroy this card.</effect>"
+    },
    "Destruction Ring": {
       cardType: TRAP,
       levelOrSubtype: "Normal",
       text: "Target 1 face-up monster you control; destroy that face-up monster, and if you do, each player takes 1000 damage.",
       prepopLP: { hero: -1000, villain: -1000 }
+    },
+    "Des Counterblow": {
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Trigger-like>When a monster inflicts battle damage by a direct attack: Destroy that monster.</effect>"
+    },
+    "Dragon Capture Jar": {
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Change all face-up Dragon-Type monsters on the field to Defense Position, also they cannot change their battle positions.</effect>"
+    },
+    "Enervating Mist": {
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Your opponent's hand size limit becomes 5.</effect>"
+    },
+    "Fatal Abacus": {
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>When a monster(s) is sent from the field to the Graveyard: Inflict 500 damage per card to its owner.</effect>"
+    },
+    "Graverobber's Retribution": {
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Trigger-like>Once per turn, during your Standby Phase: Your opponent takes 100 damage for each of their banished monsters.</effect>"
+    },
+    "Gravity Bind": {
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Level 4 or higher monsters cannot attack.</effect>"
     },
    "A Feint Plan": {
       cardType: TRAP,
@@ -20,7 +83,7 @@ const traps = {
     "Assault on GHQ": {
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "Target 1 monster you control; destroy that monster, then send 2 cards from the top of your opponent's Deck to the GY."
+      text: "Target 1 monster you control; destroy that monster, then send 2 cards from the top of your opponent's Deck to the Graveyard."
     },
     "Beast Soul Swap": {
       cardType: TRAP,
@@ -68,7 +131,7 @@ const traps = {
       levelOrSubtype: "Normal",
       text: "Declare 2 monster Attributes; your opponent chooses 1 of them and destroys all monsters on the field with that Attribute."
     },
-    "Energy Drain": {
+    "EnerGraveyard Drain": {
       cardType: TRAP,
       levelOrSubtype: "Normal",
       text: "Target 1 face-up monster you control; until the end of this turn, it gains 200 ATK/DEF for each card in your opponent's hand."
@@ -91,7 +154,7 @@ const traps = {
     Graverobber: {
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "Target 1 Spell in your opponent's GY; add it to your hand. If you use it, take 2000 damage immediately after. During the end phase, if you did not use it, send it to the Graveyard.",
+      text: "Target 1 Spell in your opponent's Graveyard; add it to your hand. If you use it, take 2000 damage immediately after. During the end phase, if you did not use it, send it to the Graveyard.",
       prepopLP: { hero: -2000 }
     },
     "Interdimensional Matter Transporter": {

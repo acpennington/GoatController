@@ -2,7 +2,7 @@ import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, TOKENS, SEARCH_DECK }
 
 const spells = {
    "Jade Insect Whistle": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Your opponent places 1 Insect monster from their Deck on top of their Deck.",
       script: {
@@ -18,10 +18,10 @@ const spells = {
             }
          },
          autoClose: true
-      },
+      }
     },
     "The Inexperienced Spy": {
-      cardType: "Spell",
+      cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Look at 1 random card in your opponent's hand.",
       script: {
@@ -31,6 +31,32 @@ const spells = {
             row: SPELL_TRAP
          }
       }
+    },
+    Demotion: {
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>The equipped monster has its Level reduced by 2.</effect>"
+    },
+    "Dragon Treasure": {
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>Equip only to a Dragon monster. It gains 300 ATK/DEF.</effect>"
+    },
+    "Final Countdown": {
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Pay 2000 Life Points. <effect=Lingering>After 20 turns have passed (counting the turn you activate this card as the 1st turn), you win the Duel.</effect>",
+      prepopLP: { hero: 2000 }
+    },
+    "Follow Wind": {
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>Equip only to a Winged-Beast monster. It gains 300 ATK/DEF.</effect>"
+    },
+    "Germ Infection": {
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>Equip only to a non-Machine monster. During its controller's Standby Phase, it loses 300 ATK.</effect>"
     },
    "Blue Medicine": {
       cardType: SPELL,
@@ -133,7 +159,7 @@ const spells = {
     "Gravedigger Ghoul": {
       cardType: SPELL,
       levelOrSubtype: "Normal",
-      text: "Target up to 2 monsters in your opponent's GY; banish them."
+      text: "Target up to 2 monsters in your opponent's Graveyard; banish them."
     },
     "Gryphon's Feather Duster": {
       cardType: SPELL,
@@ -170,7 +196,7 @@ const spells = {
       levelOrSubtype: "Quick-Play",
       text: "Target 1 face-up monster on the field; it gains 700 DEF until the end of this turn."
     },
-    "Thousand Energy": {
+    "Thousand EnerGraveyard": {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Face-up Level 2 Normal Monsters (except Tokens) you control gain 1000 ATK/DEF until the End Phase. Destroy all face-up Level 2 Normal Monsters you control during the End Phase."
@@ -189,6 +215,37 @@ const spells = {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Face-up Level 1 Normal Monsters (except Tokens) you control gain 2000 ATK/DEF until the End Phase. Destroy all face-up Level 2 Normal Monsters you control during the End Phase."
+    },
+    "Ballista of Rampart Smashing": {
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>If the equipped monster attacks a face-down Defense Position monster, it gains 1500 ATK during damage calculation only.</effect>"
+    },
+    "Beast Fangs": {
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>Equip only to a Beast monster. It gains 300 ATK/DEF.</effect>"
+    },
+    "Blessings of the Nile": {
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Trigger-like>Each time a card(s) is discarded from your hand to the Graveyard by an opponent's card effect: Gain 1000 Life Points.</effect>"
+    },
+    "Book of Secret Arts": {
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>Equip only to a Spellcaster monster. It gains 300 ATK/DEF.</effect>"
+    },
+    "Chain EnerGraveyard": {
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Each player must pay 500 Life Points per card to Normal Summon, Special Summon, Set or activate cards from his/her respective hand.</effect>",
+      prepopLP: { hero: -500, villain: -500 }
+    },
+    "Chorus of Sanctuary": {
+      cardType: SPELL,
+      levelOrSubtype: "Field",
+      text: "<effect=Continuous-like>Defense Position monsters gain 500 DEF.</effect>"
     },
    Necrovalley: {
       cardType: SPELL,

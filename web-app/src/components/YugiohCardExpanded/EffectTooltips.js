@@ -28,12 +28,14 @@ class EffectTooltips extends PureComponent {
          const thirdPart = secondSplit.join("</effect>");
 
          const [effectType, effectText] = secondPart.split(">");
-         if (effectText)
+         if (effectText) {
+            const postfix = effectType === "Summon" ? " Condition" : effectType === "Condition" ? "" : " Effect";
             rtn.push(
-               <Tooltip title={effectType + " Effect"} classes={{ tooltip: classes.tooltip }} key={id++}>
+               <Tooltip title={effectType + postfix} classes={{ tooltip: classes.tooltip }} key={id++}>
                   <span className={classes.underhover}>{br(effectText)}</span>
                </Tooltip>
             );
+         }
          remainingText = thirdPart;
       }
 
