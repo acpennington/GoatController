@@ -21,6 +21,321 @@ import {
 } from "utils/constants";
 
 const effectMonsters = {
+   "Ryu Kokki": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 6,
+      atk: 2400,
+      def: 2000,
+      text: "Zombie/Effect – <effect=Trigger>At the end of the Damage Step, if this card battled a Warrior or Spellcaster monster: Destroy that monster.</effect>"
+    },
+    "Ryu-Kishin Clown": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 800,
+      def: 500,
+      text: "Fiend/Effect – <effect=Trigger>When this card is Summoned: Target 1 face-up monster on the field; change its battle position.</effect>"
+    },
+    "Sasuke Samurai": {
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 2,
+      atk: 500,
+      def: 800,
+      text: "Warrior/Effect – <effect=Trigger>At the start of the Damage Step, if this card attacks a face-down Defense Position monster: Destroy that face-down monster.</effect>"
+    },
+    "Sasuke Samurai #3": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 1000,
+      text: "Warrior/Effect – <effect=Trigger>When this card inflicts Battle Damage to your opponent: Your opponent draws cards until their hand has 7 cards.</effect>"
+    },
+    "Servant of Catabolism": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 3,
+      atk: 700,
+      def: 500,
+      text: "Aqua/Effect – <effect=Continuous>This card can attack directly.</effect>"
+    },
+    Shadowslayer: {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 200,
+      text: "Fiend/Effect – <effect=Continuous>If all monsters your opponent controls are in Defense Position, this card can attack directly.</effect>"
+    },
+    "Skull-Mark Ladybug": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 500,
+      def: 1500,
+      text: "Insect/Effect – <effect=Trigger>When this card is sent to the Graveyard: Gain 1000 Life Points.</effect>",
+      prepopLP: { hero: 1000 }
+    },
+    "Slate Warrior": {
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 4,
+      atk: 1900,
+      def: 400,
+      text: "Fiend/Flip/Effect – <effect=Trigger>FLIP: This card gains 500 ATK/DEF.</effect> <effect=Trigger>If this card is destroyed by battle: The monster that destroyed it loses 500 ATK/DEF</effect>"
+    },
+    "Spirit Caller": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 1000,
+      text: "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: You can target 1 Level 3 or lower Normal Monster in your Graveyard; Special Summon that target.</effect>"
+    },
+    "Sonic Jammer": {
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 2,
+      atk: 350,
+      def: 650,
+      text: "Machine/Flip/Effect – <effect=Trigger>FLIP: Your opponent cannot activate any Spells until the end of the next turn.</effect>"
+    },
+    "Spirit of the Breeze": {
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 3,
+      atk: 0,
+      def: 1800,
+      text: "Fairy/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Gain 1000 Life Points. This card must be in face-up Defense Position to activate and to resolve this effect.</effect>",
+      prepopLP: { hero: 1000 }
+    },
+    "Star Boy": {
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 2,
+      atk: 550,
+      def: 500,
+      text: "Aqua/Effect – <effect=Continuous>All WATER monsters gain 500 ATK and all FIRE monsters lose 400 ATK.</effect>"
+    },
+    "Stealth Bird": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 700,
+      def: 1700,
+      text: "Winged Beast/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>When this card is Flip Summoned: Inflict 1000 damage to your opponent.</effect>"
+    },
+    "Stone Statue of the Aztecs": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 300,
+      def: 2000,
+      text: "Rock/Effect – <effect=Continuous>Double any Battle Damage your opponent takes when they attack this monster.</effect>"
+    },
+    Supply: {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1300,
+      def: 800,
+      text: "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 2 monsters in your Graveyard that were sent there for a Fusion Summon; return those targets to your hand.</effect>"
+    },
+    "Susa Soldier": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 2000,
+      def: 1600,
+      text: "Thunder/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Continuous>Battle Damage this card inflicts to your opponent is halved.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>"
+    },
+    "Swamp Battleguard": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 5,
+      atk: 1800,
+      def: 1500,
+      text: "Warrior/Effect – <effect=Continuous>Gains 500 ATK for each \"Lava Battleguard\" you control.</effect>"
+    },
+    "Swift Gaia the Fierce Knight": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 7,
+      atk: 2300,
+      def: 2100,
+      text: "Warrior/Effect – <effect=Summon>If this is the only card in your hand, you can Normal Summon it without Tributing.</effect>"
+    },
+    "Tactical Espionage Expert": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 1300,
+      def: 1200,
+      text: "Warrior/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated</effect>."
+    },
+    Teva: {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 5,
+      atk: 2000,
+      def: 1500,
+      text: "Warrior/Effect – <effect=Trigger>When this card is Tribute Summoned: Your opponent cannot declare an attack during their next turn.</effect>"
+    },
+    "The Agent of Wisdom - Mercury": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 0,
+      def: 1700,
+      text: "Fairy/Effect – <effect=Trigger>During your Standby Phase, if you controlled this face-up card and had no cards in your hand at the end of the opponent's last End Phase: Draw 1 card.</effect>"
+    },
+    "The Bistro Butcher": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1800,
+      def: 1000,
+      text: "Fiend/Effect – <effect=Trigger>When this card inflicts Battle Damage to your opponent: Your opponent draws 2 cards.</effect>"
+    },
+    "The Fiend Megacyber": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 6,
+      atk: 2200,
+      def: 1200,
+      text: "Warrior/Effect – <effect=Summon>If your opponent controls at least 2 more monsters than you do, you can Special Summon this card (from your hand).</effect>"
+    },
+    "The Hunter with 7 Weapons": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 600,
+      text: "Warrior/Effect – <effect=Trigger>When this card is Normal Summoned: Declare 1 Type.</effect> <effect=Trigger>When this card battles a monster of that Type: This card gains 1000 ATK during Damage Calculation only.</effect>"
+    },
+    "The Immortal of Thunder": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 1500,
+      def: 1300,
+      text: "Thunder/Flip/Effect – <effect=Trigger>Gain 3000 Life Points.</effect> <effect=Trigger>When this card is sent from the field to the Graveyard: Take 5000 damage.</effect>",
+      prepopLP: { hero: 3000 }
+    },
+    "The Kick Man": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 1300,
+      def: 300,
+      text: "Zombie/Effect – <effect=Trigger>When this card is Special Summoned: You can target 1 legal Equip Spell in your Graveyard; equip it to this card.</effect>"
+    },
+    "The Legendary Fisherman": {
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 5,
+      atk: 1850,
+      def: 1600,
+      text: "Warrior/Effect – <effect=Continuous>While \"Umi\" is on the field, this card is unaffected by Spell effects and cannot be targeted for attacks, but does not prevent your opponent from attacking you directly.</effect>"
+    },
+    "The Thing in the Crater": {
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 4,
+      atk: 1000,
+      def: 1200,
+      text: "Pyro/Effect – <effect=Trigger>When this card is destroyed and sent to the Graveyard: You can Special Summon 1 Pyro monster from your hand.</effect>"
+    },
+    "The Unhappy Maiden": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 1,
+      atk: 0,
+      def: 100,
+      text: "Spellcaster/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: End the Battle Phase.</effect>"
+    },
+    "The Wicked Worm Beast": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 1400,
+      def: 700,
+      text: "Beast/Effect – <effect=Trigger>Once per turn, during your End Phase: Return this face-up card you control to the hand.</effect>"
+    },
+    "Thousand Needles": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1000,
+      def: 1800,
+      text: "Beast/Effect – <effect=Trigger>When this Defense Position card is attacked by a monster with lower ATK than this card's DEF: Destroy that monster at the end of the Damage Step.</effect>"
+    },
+    "Thunder Nyan Nyan": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 1900,
+      def: 800,
+      text: "Thunder/Effect – <effect=Continuous>If you control a non-LIGHT monster, destroy this card.</effect>"
+    },
+    "Twin-Headed Wolf": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1500,
+      def: 1000,
+      text: "Fiend/Effect – <effect=Continuous>If you control another Fiend, negate the effects of Flip monsters destroyed by battle with this card.</effect>"
+    },
+    "Twinheaded Beast": {
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 6,
+      atk: 1700,
+      def: 1900,
+      text: "Beast/Effect – <effect=Continuous>This card can make a second attack during each Battle Phase.</effect>"
+    },
+    "Two Thousand Needles": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 5,
+      atk: 2000,
+      def: 1800,
+      text: "Beast/Effect – <effect=Trigger>When this Defense Position card is attacked by a monster with lower ATK than this card's DEF: Destroy that monster at the end of the Damage Step.</effect>"
+    },
+    "Ultimate Obedient Fiend": {
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 10,
+      atk: 3500,
+      def: 3000,
+      text: "Fiend/Effect – <effect=Continuous>Cannot attack unless you control no other cards and you have no cards in your hand.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>"
+    },
+    "Vampire Baby": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 700,
+      def: 1000,
+      text: "Zombie/Effect – <effect=Trigger>At the end of the Battle Phase, if this card destroyed a monster by battle and sent it to the Graveyard this turn: You can Special Summon that monster to your side of the field</effect>."
+    },
+    "White Magician Pikeru": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 2,
+      atk: 1200,
+      def: 0,
+      text: "Spellcaster/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Gain 400 Life Points for each monster you control.</effect>"
+    },
+    "Witch's Apprentice": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 550,
+      def: 500,
+      text: "Spellcaster/Effect – <effect=Continuous>All DARK monsters gain 500 ATK and all LIGHT monsters lose 400 ATK.</effect>"
+    },
    "3-Hump Lacooda": {
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
@@ -251,7 +566,8 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 1700,
       def: 1000,
-      text: "Fairy/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Gain 1000 Life Points. This card must be in face-up Defense Position to activate and to resolve this effect.</effect>"
+      text: "Fairy/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Gain 1000 Life Points. This card must be in face-up Defense Position to activate and to resolve this effect.</effect>",
+      prepopLP: { hero: 1000 }
    },
    "Dark Cat with White Tail": {
       cardType: EFFECT_MONSTER,
@@ -425,7 +741,7 @@ const effectMonsters = {
       atk: 1300,
       def: 1500,
       text: "Pyro/Effect – <effect=Continuous>Each time you gain Life Points, inflict 500 damage to your opponent.</effect>",
-      prepopLP: { villain: 500 }
+      prepopLP: { villain: -500 }
    },
    Firebird: {
       cardType: EFFECT_MONSTER,
@@ -611,6 +927,267 @@ const effectMonsters = {
       def: 2000,
       text: "Fairy/Effect – <effect=Ignition>Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand.</effect>"
    },
+   "Hade-Hane": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 6,
+      atk: 900,
+      def: 1000,
+      text: "Beast/Flip/Effect – <effect=Trigger>FLIP: You can target up to 3 monsters on the field; return those targets to the hand.</effect>"
+    },
+    "Hand of Nephthys": {
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 2,
+      atk: 600,
+      def: 600,
+      text: "Spellcaster/Effect – <effect=Ignition>You can Tribute this card and 1 other monster; Special Summon 1 \"Sacred Phoenix of Nephthys\" from your hand or Deck.</effect>"
+    },
+    "Harpie Lady Sisters": {
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 6,
+      atk: 1950,
+      def: 2100,
+      text: "Winged Beast/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned with \"Elegant Egotist\".</effect>"
+    },
+    "Hayabusa Knight": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 700,
+      text: "Warrior/Effect – <effect=Continuous>This card can make a second attack during each Battle Phase.</effect>"
+    },
+    "Helping Robo for Combat": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 0,
+      text: "Machine/Effect – <effect=Trigger>When this card destroys an opponent's monster by battle: Draw 1 card, then return 1 card from your hand to the bottom of the Deck.</effect>"
+    },
+    Hyena: {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 300,
+      text: "Beast/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon any number of \"Hyena\" from your Deck.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            name: {
+               value: "Hyena"
+            }
+         }
+      }
+    },
+    "Inaba White Rabbit": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 700,
+      def: 500,
+      text: "Beast/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Continuous>This card can attack directly.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>"
+    },
+    "Invasion of Flames": {
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 3,
+      atk: 1300,
+      def: 1200,
+      text: "Pyro/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated.</effect>"
+    },
+    "Jinzo #7": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 500,
+      def: 400,
+      text: "Machine/Effect – <effect=Continuous>This card can attack directly.</effect>"
+    },
+    "Kaiser Sea Horse": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 1700,
+      def: 1650,
+      text: "Sea Serpent/Effect – <effect=Continuous>This card can be treated as 2 Tributes for the Tribute Summon of a LIGHT monster.</effect>"
+    },
+    "Kangaroo Champ": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 800,
+      def: 700,
+      text: "Beast/Effect – <effect=Trigger>If this card battles a monster: that monster is changed to Defense Position after damage calculation.</effect>"
+    },
+    Keldo: {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1200,
+      def: 1600,
+      text: "Fairy/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: Target 2 cards in your opponent's Graveyard; shuffle them into the Deck.</effect>"
+    },
+    Kiseitai: {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 300,
+      def: 800,
+      text: "Fiend/Effect – <effect=Trigger>When your opponent's monster attacks this face-down Defense Position card: This card becomes an Equip Spell equipped to the attacking monster.</effect> <effect=Trigger-like>Once per turn, during your opponent's Standby Phase: Gain Life Points equal to half the equipped monster's ATK.</effect>"
+    },
+    "Lady Ninja Yae": {
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 3,
+      atk: 1100,
+      def: 200,
+      text: "Warrior/Effect – <effect=Ignition>You can discard 1 WIND monster to the Graveyard; return all Spells/Traps your opponent controls to the hand.</effect>"
+    },
+    "Lava Battleguard": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 5,
+      atk: 1550,
+      def: 1800,
+      text: "Warrior/Effect – <effect=Continuous>Gains 500 ATK for each \"Swamp Battleguard\" you control.</effect>"
+    },
+    Leghul: {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 1,
+      atk: 300,
+      def: 350,
+      text: "Insect/Effect – <effect=Continuous>This card can attack directly.</effect>"
+    },
+    "Mad Sword Beast": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1200,
+      text: "Dinosaur/Effect – <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
+    },
+    "Magical Plant Mandragola": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 500,
+      def: 200,
+      text: "Spellcaster/Flip/Effect – <effect=Flip>FLIP: Place 1 Spell Counter on each face-up card on the field that you can place a Spell Counter on.</effect>"
+    },
+    "Maha Vailo": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 1550,
+      def: 1400,
+      text: "Spellcaster/Effect – <effect=Continuous>Gains 500 ATK for each Equip Card equipped to this card.</effect>"
+    },
+    "Maju Garzett": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 7,
+      atk: 0,
+      def: 0,
+      text: "Fiend/Effect – <effect=Continuous>This Tribute Summoned card's ATK becomes the 2 Tributed monsters' combined original ATKs.</effect>"
+    },
+    "Masked Dragon": {
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 3,
+      atk: 1400,
+      def: 1100,
+      text: "Dragon/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 Dragon-Type monster with 1500 or less ATK from your Deck.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: 1500
+            },
+            text: {
+               operator: "TYPEMATCH",
+               value: "Dragon"
+            }
+         },
+         autoClose: true
+      }
+    },
+    "Mefist the Infernal General": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 5,
+      atk: 1800,
+      def: 1700,
+      text: "Fiend/Effect – <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Trigger>When this card inflicts battle damage to your opponent: Discard 1 random card from their hand.</effect>",
+      script: {
+         name: RANDOM_DISCARD,
+         displayCondition: {
+            players: [VILLAIN],
+            row: MONSTER
+         }
+      },
+    },
+    "Milus Radiant": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 1,
+      atk: 300,
+      def: 250,
+      text: "Beast/Effect – <effect=Continuous>All EARTH monsters on the field gain 500 ATK, also all WIND monsters on the field lose 400 ATK.</effect>"
+    },
+    "Mysterious Puppeteer": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1000,
+      def: 1500,
+      text: "Warrior/Effect – <effect=Trigger>If a monster is Normal or Flip Summoned: Gain 500 Life Points.</effect>"
+    },
+    "Mystical Knight of Jackal": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 7,
+      atk: 2700,
+      def: 1200,
+      text: "Beast-Warrior/Effect – <effect=Trigger>When this card destroys a monster by battle and sends it to your opponent's Graveyard: You can return it to the top of the Deck.</effect>"
+    },
+    "Needle Burrower": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 5,
+      atk: 1700,
+      def: 1700,
+      text: "Machine/Effect – <effect=Trigger>When this card destroys a monster by battle and sends it to the Graveyard: Inflict damage to your opponent equal to the monster's original Level x 500.</effect>"
+    },
+    "Neko Mane King": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 1,
+      atk: 0,
+      def: 0,
+      text: "Beast/Effect – <effect=Trigger>During your opponent's turn, when this card in your possession is sent to your Graveyard by an opponent's card effect: It becomes the End Phase of this turn.</effect>"
+    },
+    "Nightmare Horse": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 500,
+      def: 400,
+      text: "Zombie/Effect – <effect=Continuous>This card can attack directly.</effect>"
+    },
    "Shining Angel": {
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
@@ -627,7 +1204,7 @@ const effectMonsters = {
          params: {
             atk: {
                operator: "<",
-               value: "1500"
+               value: 1500
             },
             attribute: {
                value: LIGHT
@@ -652,7 +1229,7 @@ const effectMonsters = {
          params: {
             atk: {
                operator: "<",
-               value: "1500"
+               value: 1500
             },
             attribute: {
                value: DARK
@@ -677,7 +1254,7 @@ const effectMonsters = {
          params: {
             atk: {
                operator: "<",
-               value: "1500"
+               value: 1500
             },
             attribute: {
                value: EARTH
@@ -702,7 +1279,7 @@ const effectMonsters = {
          params: {
             atk: {
                operator: "<",
-               value: "1500"
+               value: 1500
             },
             attribute: {
                value: WATER
@@ -727,7 +1304,7 @@ const effectMonsters = {
          params: {
             atk: {
                operator: "<",
-               value: "1500"
+               value: 1500
             },
             attribute: {
                value: FIRE
@@ -752,7 +1329,7 @@ const effectMonsters = {
          params: {
             atk: {
                operator: "<",
-               value: "1500"
+               value: 1500
             },
             attribute: {
                value: WIND
@@ -850,7 +1427,7 @@ const effectMonsters = {
          params: {
             atk: {
                operator: "<",
-               value: "1500"
+               value: 1500
             }
          },
          autoClose: true
@@ -872,7 +1449,7 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 1600,
       def: 1000,
-      text: "Aqua/Effect – <effect=Ignition>Discard 1 card, then declare 1 Type of monster; Destroy all face-up monsters of the declared Type on the field.</effect>",
+      text: "Aqua/Effect – <effect=Ignition>You can discard 1 card, then declare 1 Type of monster; Destroy all face-up monsters of the declared Type on the field.</effect>",
       limit: 1
    },
    "Morphing Jar": {
@@ -1013,6 +1590,137 @@ const effectMonsters = {
       def: 1000,
       text: "Warrior/Effect – <effect=Trigger>At the start of the Damage Step, if this card attacks a face-up Defense Position monster: Destroy that monster.</effect>"
    },
+   "Nobleman-Eater Bug": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 5,
+      atk: 900,
+      def: 1200,
+      text: "Insect/Flip/Effect – <effect=Trigger>FLIP: Target 2 monsters on the field; destroy them</effect>"
+    },
+    "Nubian Guard": {
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 2,
+      atk: 500,
+      def: 500,
+      text: "Warrior/Effect – <effect=Trigger>If this card inflicts battle damage to your opponent: You can target 1 Continuous Spell in your Graveyard; return it on the top of the Deck.</effect>"
+    },
+    "Old Vindictive Magician": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 450,
+      def: 600,
+      text: "Spellcaster/Flip/Effect – <effect=Flip>FLIP: Target 1 monster your opponent controls; destroy that target.</effect>"
+    },
+    Ooguchi: {
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 1,
+      atk: 300,
+      def: 250,
+      text: "Aqua/Effect – <effect=Continuous>This card can attack directly.</effect>"
+    },
+    "Patrician of Darkness": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 5,
+      atk: 2000,
+      def: 1400,
+      text: "Zombie/Effect – <effect=Continuous>You choose the attack targets for your opponent's attacks.</effect>"
+    },
+    "Penguin Soldier": {
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 2,
+      atk: 750,
+      def: 500,
+      text: "Aqua/Flip/Effect – <effect=Trigger>FLIP: You can target up to 2 monsters on the field; return those targets to the hand.</effect>"
+    },
+    "Piranha Army": {
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 2,
+      atk: 800,
+      def: 200,
+      text: "Fish/Effect – <effect=Continuous>Damage this card inflicts by direct attacks is doubled.</effect>"
+    },
+    "Pitch-Black Warwolf": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 600,
+      text: "Beast-Warrior/Effect – <effect=Continuous>Your opponent cannot activate Trap Cards during the Battle Phase.</effect>"
+    },
+    "Pixie Knight": {
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 2,
+      atk: 1300,
+      def: 200,
+      text: "Spellcaster/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: Your opponent targets 1 Spell in your Graveyard; place that card on top of the Deck.</effect>"
+    },
+    "Poison Mummy": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1000,
+      def: 1800,
+      text: "Zombie/Flip/Effect – <effect=Flip>FLIP: Inflict 500 damage to your opponent</effect>.",
+      prepopLP: { villain: -500 }
+    },
+    "Protector of the Sanctuary": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1100,
+      def: 1900,
+      text: "Fiend/Effect – <effect=Continuous>Your opponent cannot draw cards except during Draw Phases</effect>.",
+      limit: 1
+    },
+    "Queen's Double": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 1,
+      atk: 350,
+      def: 300,
+      text: "Warrior/Effect – <effect=Continuous>This card can attack directly.</effect>"
+    },
+    "Rainbow Flower": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 2,
+      atk: 400,
+      def: 500,
+      text: "Plant/Effect – <effect=Continuous>This card can attack directly.</effect>"
+    },
+    "Regenerating Mummy": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1800,
+      def: 1500,
+      text: "Zombie/Effect – <effect=Trigger>When this card is sent from your hand to your Graveyard by an opponent's card effect: Return this card to the hand.</effect>"
+    },
+    "Revival Jam": {
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 4,
+      atk: 1500,
+      def: 500,
+      text: "Aqua/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can pay 1000 Life Points; Special Summon it in face-up Defense Position during your next Standby Phase.</effect>",
+      prepopLP: { hero: -1000 }
+    },
+    "Rocket Jumper": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 800,
+      text: "Rock/Effect – <effect=Continuous>If your opponent only controls Defense Position monsters, this card can attack directly.</effect>"
+    },
    "Skilled Dark Magician": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
@@ -1105,7 +1813,7 @@ const effectMonsters = {
       levelOrSubtype: 7,
       atk: 2800,
       def: 2000,
-      text: "Machine/Effect – You can Normal Summon/Set this card without Tributing, but its original ATK and DEF become halved."
+      text: "Machine/Effect – You can Normal Summon/Set this card without Tributing, but its original ATK/DEF become halved."
    },
    "Mirage Dragon": {
       cardType: EFFECT_MONSTER,
@@ -1113,7 +1821,7 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 1600,
       def: 600,
-      text: "Dragon/Effect – <effect=Continuous>Your opponent cannot activate Trap Cards during the Battle Phase.</effect>"
+      text: "Dragon/Effect – <effect=Continuous>Your opponent cannot activate Traps during the Battle Phase.</effect>"
    },
    "Rare Metal Dragon": {
       cardType: EFFECT_MONSTER,
@@ -1125,11 +1833,11 @@ const effectMonsters = {
    },
    "Tyrant Dragon": {
       cardType: EFFECT_MONSTER,
-      attribute: DARK,
-      levelOrSubtype: 4,
+      attribute: FIRE,
+      levelOrSubtype: 8,
       atk: 2900,
       def: 2500,
-      text: "Dragon/Effect – <effect=Trigger>During your Battle Phase, if your opponent controls a monster after this card's first attack, this card can make a second attack.</effect> <effect=Trigger>Negate any Trap effects that target this card, and if you do, destroy that Trap Card.</effect> This card cannot be Special Summoned from the Graveyard, unless you Tribute 1 Dragon-Type monster."
+      text: "Dragon/Effect – <effect=Continuous>During your Battle Phase, if your opponent controls a monster after this card's first attack, this card can make a second attack.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap.</effect> <effect=Summon>This card cannot be Special Summoned from the GY, unless you Tribute 1 Dragon monster.</effect>"
    }
 };
 

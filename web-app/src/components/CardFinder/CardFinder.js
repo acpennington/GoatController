@@ -13,6 +13,8 @@ class CardFinder extends PureComponent {
       const cardKeys = Object.keys(withFusions ? cards : nonfusions);
       cardKeys.sort();
 
+      console.log(cardKeys.length / 1800 * 100 + "% of Goat Format legal cards loaded.");
+
       for (const card of cardKeys) {
          cardList.push({ name: card, value: card });
       }

@@ -26,5 +26,11 @@ Notes regarding cards labeled "easy".
 - Balloon Lizard: See D.D. Dynamite.
 - Cobra Jar: Will require its own token and script.
 - Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
+- Maharaghi: Will require significant scripting
+- Outstanding Dog Marron: Requires shuffle button (see ticket #227)
+- Recycle: Requires some sort of bottom of the deck script.
+- Roc from the Valley of Haze: Requires shuffle button (see ticket #227)
+- It is debatable (and almost entirely irrelevant) as to whether or not Tyler the Great Warrior is legal in Goat Format. It has not been added for now.
+- White Magician Pikeru: See D.D. Dynamite.
 
 Note: Only cards from A-G have been evaluated so far.

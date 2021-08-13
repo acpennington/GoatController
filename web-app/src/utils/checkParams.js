@@ -28,7 +28,7 @@ export default function checkParams(card, params) {
             paramPassed = cardParam && value.includes(cardParam);
             break;
          case "TYPEMATCH":
-            paramPassed = cardParam && (cardParam.startsWith(value) || cardParam.includes(value + "/"));
+            paramPassed = cardParam && (cardParam.startsWith(value + "/") || cardParam.startsWith(value + " –"));
             break;
          case "CONTAINS":
             paramPassed = cardParam && cardParam.toLowerCase().includes(value.toLowerCase());
