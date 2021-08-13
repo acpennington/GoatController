@@ -16,30 +16,27 @@ export default function checkParams(card, params) {
       const { operator, value } = singleParam;
       const cardParam = paramName === "name" ? cardName : cardDetails[paramName];
 
-      let paramPassed;
-      switch (operator) {
-         case ">":
-            paramPassed = cardParam && cardParam >= value;
-            break;
-         case "<":
-            paramPassed = cardParam && cardParam <= value;
-            break;
-         case "OR":
-            paramPassed = cardParam && value.includes(cardParam);
-            break;
-         case "TYPEMATCH":
-            paramPassed = cardParam && (cardParam.startsWith(value + "/") || cardParam.startsWith(value + " –"));
-            break;
-         case "CONTAINS":
-            paramPassed = cardParam && cardParam.toLowerCase().includes(value.toLowerCase());
-            break;
-         default:
-            paramPassed = cardParam && cardParam === value;
-      }
-
-      if (paramPassed) pass.push(paramName);
+      if (paramPassed(cardParam, value, operator)) pass.push(paramName);
       else fail.push(paramName);
    }
 
    return { pass, fail };
+}
+
+function paramPassed(cardParam, value, operator) {
+   switch (operator) {
+      case ">":
+         return cardParam && cardParam >= value;
+      case "<":
+         return cardParam && cardParam <= value;
+      case "OR":
+         return cardParam && value.includes(cardParam);
+      case "TYPEMATCH":
+         return cardParam && (cardParam.startsWith(value + "/") || cardParam.startsWith(value + " –"));
+      case "CONTAINS":
+         // split is a hacky way to avoid searching monster types
+         return cardParam && (cardParam.includes("–") ? cardParam.split("–")[1] : cardParam).toLowerCase().includes(value.toLowerCase());
+      default:
+         return cardParam && cardParam === value;
+   }
 }
