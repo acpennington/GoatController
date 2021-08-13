@@ -34,8 +34,10 @@ function paramPassed(cardParam, value, operator) {
       case "TYPEMATCH":
          return cardParam && (cardParam.startsWith(value + "/") || cardParam.startsWith(value + " –"));
       case "CONTAINS":
-         // split is a hacky way to avoid searching monster types
-         return cardParam && (cardParam.includes("–") ? cardParam.split("–")[1] : cardParam).toLowerCase().includes(value.toLowerCase());
+         if (cardParam && cardParam.includes("–")) {
+            const [labelPart, effectPart] = cardParam.split("–");
+            return labelPart.includes("Effect") && effectPart.toLowerCase().includes(value.toLowerCase());
+         } else return cardParam && cardParam.toLowerCase().includes(value.toLowerCase());
       default:
          return cardParam && cardParam === value;
    }
