@@ -10,6 +10,8 @@ import { moveCard, createTokens, discardAndDraw } from "stateStore/actions/game/
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
 
+import Tooltip from "@material-ui/core/Tooltip";
+
 import {
    GRAVEYARD,
    HAND,
@@ -23,6 +25,9 @@ import {
    ROLL_DICE,
    DISCARD_AND_DRAW
 } from "utils/constants";
+
+import { withStyles } from "@material-ui/core/styles";
+import styles from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
 class CardScript extends PureComponent {
    componentDidMount() {
@@ -117,15 +122,18 @@ class CardScript extends PureComponent {
    };
 
    render() {
-      const { script, variant, field } = this.props;
+      const { classes, script, variant, field } = this.props;
+      const { tooltip } = script;
 
       if (variant && !fieldContains(field, variant)) return <Fragment></Fragment>;
 
-      return (
+      const button = (
          <Button color="primary" onClick={() => this.runScript(script)}>
             <ScriptName scriptName={script.name} />
          </Button>
       );
+
+      return tooltip ? <Tooltip title={tooltip} classes={{ tooltip: classes.tooltip }}>{button}</Tooltip>: button;
    }
 }
 
@@ -144,6 +152,7 @@ function mapStateToProps(state) {
 }
 
 CardScript.propTypes = {
+   classes: PropTypes.object.isRequired,
    script: PropTypes.object.isRequired,
    heroPlayer: PropTypes.string.isRequired,
    variant: PropTypes.string,
@@ -152,4 +161,4 @@ CardScript.propTypes = {
 
 CardScript.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw })(CardScript);
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw })(withStyles(styles)(CardScript));

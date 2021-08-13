@@ -11,14 +11,12 @@ The following cards were labeled "basic" but are not.
 - Fruits of Kozaky's Studies: Requires scripting
 - Gift of the Mystical Elf: See D.D. Dynamite notes.
 - Graverobber: Already added, but its text not may be correct.
-- Jade Insect Whistle: Added, but could use some resolution notes (see ticket #226)
 - Ray of Hope: Requires shuffle script
 - Reckless Greed: Requires draw skip script
 - Reload: Requires shuffle script
 - Restructer Revolution: See D.D. Dynamite notes
 - Solar Ray: See D.D. Dynamite notes
 - Spellbook Organization: Requires significant scripting
-- The Inexperienced Spy: Added, but could use some resolution notes (see ticket #226)
 - The Spell Absorbing Life: See D.D. Dynamite notes
 
 # Easy
