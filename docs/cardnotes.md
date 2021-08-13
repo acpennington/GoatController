@@ -8,12 +8,12 @@ The following cards were labeled "basic" but are not.
 - D.D. Dynamite: This card has been added. However, we could prehaps consider more complicated prepopLP parameters to handle cases like these in the future (see ticket #225).
 - Dark Designator: This will require very complex scripting (or perhaps just let villain view their entire deck).
 - Fiend's Hand Mirror: It is possible that this card's PSCT may be incorrect, but this is not a big concern.
-- Fruits of Kozaky's Studies: Requires scripting
+- Fruits of Kozaky's Studies: Requires script to look at top 3
 - Gift of the Mystical Elf: See D.D. Dynamite notes.
 - Graverobber: Already added, but its text not may be correct.
-- Ray of Hope: Requires shuffle script
+- Ray of Hope: Requires shuffle button (see ticket #227)
 - Reckless Greed: Requires draw skip script
-- Reload: Requires shuffle script
+- Reload: Requires shuffle button (see ticket #227)
 - Restructer Revolution: See D.D. Dynamite notes
 - Solar Ray: See D.D. Dynamite notes
 - Spellbook Organization: Requires significant scripting
@@ -30,5 +30,3 @@ Notes regarding cards labeled "easy".
 - Roc from the Valley of Haze: Requires shuffle button (see ticket #227)
 - It is debatable (and almost entirely irrelevant) as to whether or not Tyler the Great Warrior is legal in Goat Format. It has not been added for now.
 - White Magician Pikeru: See D.D. Dynamite.
-
-Note: Only cards from A-G have been evaluated so far.
