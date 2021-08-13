@@ -7,6 +7,7 @@ const spells = {
       text: "Your opponent places 1 Insect monster from their Deck on top of their Deck.",
       script: {
          name: SEARCH_DECK,
+         tooltip: "Search your deck for an Insect monster, then put it in your Graveyard, and move it to the top of your Deck.",
          displayCondition: {
             players: [VILLAIN],
             row: SPELL_TRAP
@@ -26,6 +27,7 @@ const spells = {
       text: "Look at 1 random card in your opponent's hand.",
       script: {
          name: RANDOM_DISCARD,
+         tooltip: "Discard a random card, then add it it back to your hand to reveal it to your opponent.",
          displayCondition: {
             players: [VILLAIN],
             row: SPELL_TRAP
