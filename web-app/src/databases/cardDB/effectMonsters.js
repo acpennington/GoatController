@@ -1728,6 +1728,22 @@ const effectMonsters = {
       def: 800,
       text: "Rock/Effect – <effect=Continuous>If your opponent only controls Defense Position monsters, this card can attack directly.</effect>"
    },
+   "Berserk Gorilla": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 2000,
+      def: 1000,
+      text: "Beast/Effect - <effect=Continuous>If this card is in face-up Defense Position, destroy this card.</effect> <effect=Continuous>This card must attack if able.</effect>"
+   },
+   "Bazoo the Soul-Eater": {
+      cardType: EFFECT_MONSTER,
+      attribute: "Earth",
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 900,
+      text: "Beast/Effect - <effect=Ignition>Once per turn: You can banish up to 3 monsters from your Graveyard; this card gains 300 ATK for each, until the end of your opponent's turn.</effect>"
+   },
    "Skilled Dark Magician": {
       cardType: EFFECT_MONSTER,
       attribute: DARK,
