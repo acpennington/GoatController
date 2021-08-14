@@ -211,7 +211,7 @@ const normalTraps = {
       text: "Discard 1 card, then target 1 card on the field; destroy it."
    },
    "Widespread Ruin": {
-      cardType: "Trap",
+      cardType: TRAP,
       levelOrSubtype: "Normal",
       text: "When an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied)."
    }
