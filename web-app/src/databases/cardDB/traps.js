@@ -24,6 +24,12 @@ const traps = {
          autoClose: true
       }
    },
+   "Return from the Different Dimension": {
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Pay half your Life Points; Special Summon as many of your banished monsters as possible. During the End Phase, banish all monsters that were Special Summoned by this effect.",
+      prepopLP: { hero: "half" }
+   },
    "Bad Reaction to Simochi": {
       cardType: TRAP,
       levelOrSubtype: "Continuous",
