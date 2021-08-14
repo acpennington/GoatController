@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import ScriptButton from "./ScriptButton.js";
 import getCardDetails from "utils/getCardDetails.js";
 
-import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, FIELD_SPELL } from "utils/constants";
+import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN } from "utils/constants";
 
 class CardScript extends PureComponent {
    validScript = (activeCard, cardPlayer, script) => {
