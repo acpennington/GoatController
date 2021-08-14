@@ -1,9 +1,11 @@
-import fusions from "./fusionMonsters.js";
-import vanillas from "./normalMonsters.js";
-import rituals from "./ritualMonsters.js";
-import effectMonsters from "./effectMonsters.js";
-import spells from "./spells.js";
-import traps from "./traps.js";
+import fusions from "./monsters/fusionMonsters.js";
+import vanillas from "./monsters/normalMonsters.js";
+import rituals from "./monsters/ritualMonsters.js";
+import effectMonsters from "./monsters/effectMonsters.js";
+
+import spells from "./spells/spells.js";
+import traps from "./traps/traps.js";
+
 import tokens from "./tokens.js";
 
 const monsters = { ...vanillas, ...rituals, ...effectMonsters };
