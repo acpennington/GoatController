@@ -78,7 +78,7 @@ const traps = {
    "Jam Defender": {
       cardType: TRAP,
       levelOrSubtype: "Continuous",
-      text: '<effect=Trigger-like>When an opponent\'s monster declares an attack on a monster you control: You can target 1 "Revival Jam" you control; switch the attack target to that target</effect>.'
+      text: '<effect=Trigger-like>When an opponent\'s monster declares an attack on a monster you control: You can target 1 "Revival Jam" you control; switch the attack target to that target.</effect>'
    },
    "Life Absorbing Machine": {
       cardType: TRAP,
