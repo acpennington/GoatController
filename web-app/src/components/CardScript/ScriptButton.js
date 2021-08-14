@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
@@ -125,7 +125,7 @@ class CardScript extends PureComponent {
       const { classes, script, variant, field } = this.props;
       const { tooltip } = script;
 
-      if (variant && !fieldContains(field, variant)) return <Fragment></Fragment>;
+      if (variant && !fieldContains(field, variant)) return null;
 
       const button = (
          <Button color="primary" onClick={() => this.runScript(script)}>
@@ -133,7 +133,13 @@ class CardScript extends PureComponent {
          </Button>
       );
 
-      return tooltip ? <Tooltip title={tooltip} classes={{ tooltip: classes.tooltip }}>{button}</Tooltip>: button;
+      return tooltip ? (
+         <Tooltip title={tooltip} classes={{ tooltip: classes.tooltip }}>
+            {button}
+         </Tooltip>
+      ) : (
+         button
+      );
    }
 }
 
@@ -161,4 +167,6 @@ CardScript.propTypes = {
 
 CardScript.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw })(withStyles(styles)(CardScript));
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw })(
+   withStyles(styles)(CardScript)
+);

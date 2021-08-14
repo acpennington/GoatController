@@ -43,7 +43,7 @@ class Messages extends PureComponent {
                <span
                   style={{ textDecoration: "underline" }}
                   onMouseOver={() => newHover(hero, null, null, cardName)}
-                  onClick={() => newSelection(hero, hero, null, null, cardName)}
+                  onClick={() => newSelection(hero, hero, null, null, cardName, true)}
                   key={id++}
                >
                   {cardName}

@@ -164,7 +164,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          }}
          onClick={() => {
             if (!blank && !deckZone && !isDiscardZone) {
-               if (!heroSelected) dispatch(newSelection(heroPlayer, player, row, zone, name, socket));
+               if (!heroSelected) dispatch(newSelection(heroPlayer, player, row, zone, name, facedown, socket));
                else {
                   if (isHero) {
                      if (discardZone) {
@@ -179,7 +179,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
             else if (isHero && deckZone) dispatch(closeModal(row, player, socket));
          }}
          onMouseEnter={() => {
-            if (!blank && !deckZone) dispatch(newHover(player, row, zone, name));
+            if (!blank && !deckZone) dispatch(newHover(player, row, zone, name, facedown));
          }}
       >
          {!blank && !facedown && (

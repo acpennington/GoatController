@@ -5,13 +5,14 @@ import { connect } from "react-redux";
 import ScriptButton from "./ScriptButton.js";
 import getCardDetails from "utils/getCardDetails.js";
 
-import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN } from "utils/constants";
+import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, FIELD_SPELL } from "utils/constants";
 
 class CardScript extends PureComponent {
    validScript = (activeCard, cardPlayer, script) => {
       const { heroPlayer } = this.props;
       const { displayCondition } = script;
       if (displayCondition) {
+         if (activeCard.facedown) return false;
          for (const condition in displayCondition) {
             if (condition === "players") {
                const playerLegal = displayCondition.players.includes(cardPlayer === heroPlayer ? HERO : VILLAIN);
@@ -27,9 +28,8 @@ class CardScript extends PureComponent {
    };
 
    render() {
-      const { hoverCard, selectedCard, heroPlayer } = this.props;
+      const { activeCard, heroPlayer } = this.props;
 
-      const activeCard = selectedCard || hoverCard;
       const player = activeCard && activeCard.player;
       const cardName = rename(activeCard);
 
@@ -57,7 +57,7 @@ CardScript.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-   return { hoverCard: state.hoverCard, selectedCard: state.selectedCard[ownProps.heroPlayer] };
+   return { activeCard: state.selectedCard[ownProps.heroPlayer] || state.hoverCard };
 }
 
 export default connect(mapStateToProps)(CardScript);
