@@ -172,17 +172,17 @@ const spells = {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Monsters you control are not destroyed by battle if they battle a monster with the same ATK.</effect>"
-    },
-    "Laser Cannon Armor": {
+   },
+   "Laser Cannon Armor": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>Equip only to an Insect monster. It gains 300 ATK/DEF.</effect>"
-    },
-    "Machine Conversion Factory": {
+   },
+   "Machine Conversion Factory": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>Equip only to a Machine monster. It gains 300 ATK/DEF.</effect>"
-    },
+   },
    "Mind Control": {
       cardType: SPELL,
       levelOrSubtype: "Normal",
@@ -237,18 +237,18 @@ const spells = {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>Equip only to a Fairy monster. It gains 300 ATK/DEF.</effect>"
-    },
-    "Spring of Rebirth": {
+   },
+   "Spring of Rebirth": {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Trigger-like>When a monster(s) return from the field to the hand: Gain 500 Life Points.</effect>",
       prepopLP: { hero: 500 }
-    },
-    Stumbling: {
+   },
+   Stumbling: {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Trigger-like>If a monster is Summoned: Change it to Defense Position.</effect>"
-    },
+   },
    "Ballista of Rampart Smashing": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
@@ -284,86 +284,86 @@ const spells = {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Ignition-like>You can Tribute 1 monster; inflict 400 damage to your opponent.</effect>"
-    },
-    "Metalsilver Armor": {
+   },
+   "Metalsilver Armor": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>If you control the equipped monster, your opponent cannot activate cards or effects that target exactly 1 monster, except the equipped monster.</effect>"
-    },
-    "Morale Boost": {
+   },
+   "Morale Boost": {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Each time an Equip Spell is equipped, its controller gains 1000 Life Points.</effect> <effect=Continuous-like>Each time an Equip Spell leaves the field, its controller takes 1000 damage.</effect>"
-    },
-    Pandemonium: {
+   },
+   Pandemonium: {
       cardType: SPELL,
       levelOrSubtype: "Field",
       text: '<effect=Continuous-like>Neither player has to pay Life Points during the Standby Phase for "Archfiend" monsters.</effect> <effect=Trigger-like>If an "Archfiend" monster(s) is destroyed and sent to the Graveyard (except by battle): that player can add 1 "Archfiend" monster from their Deck to the hand with a lower Level than the destroyed monster\'s.</effect>'
-    },
-    "Paralyzing Potion": {
+   },
+   "Paralyzing Potion": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>Equip only to a non-Machine monster. It cannot attack.</effect>"
-    },
-    "Raise Body Heat": {
+   },
+   "Raise Body Heat": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>Equip only to a Dinosaur monster. It gains 300 ATK/DEF.</effect>"
-    },
-    "Raregold Armor": {
+   },
+   "Raregold Armor": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>Your opponent cannot attack monsters except the equipped monster.</effect>"
-    },
-    "The Dark Door": {
+   },
+   "The Dark Door": {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Only 1 monster can attack during each Battle Phase.</effect>"
-    },
-    "Hieroglyph Lithograph": {
+   },
+   "Hieroglyph Lithograph": {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "<effect=Lingering>Pay 1000 Life Points; during this Duel, your hand size limit becomes 7.</effect>",
       prepopLP: { hero: -1000 }
-    },
-    "Horn of Light": {
+   },
+   "Horn of Light": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>The equipped monster gains 800 DEF.</effect> <effect=Trigger-like>When this card is sent from the field to the Graveyard: You can pay 500 Life Points; return it to the top of the Deck.</effect>",
       prepopLP: { hero: -500 }
-    },
-    "Horn of the Unicorn": {
+   },
+   "Horn of the Unicorn": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>The equipped monster gains 700 ATK/DEF.</effect> <effect=Trigger-like>When this card is sent from the field to the Graveyard: Return it to the top of the Deck.</effect>"
-    },
-    Toll: {
+   },
+   Toll: {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Players must pay 500 Life Points to declare an attack.</effect>",
       prepopLP: { hero: 500, villain: 500 }
-    },
-    "Toon World": {
+   },
+   "Toon World": {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "Activate this card by paying 1000 Life Points.",
       prepopLP: { hero: 1000 }
-    },
-    "Vengeful Bog Spirit": {
+   },
+   "Vengeful Bog Spirit": {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Monsters cannot attack the turn they are Summoned.</effect>"
-    },
-    "Vile Germs": {
+   },
+   "Vile Germs": {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>Equip only to a Plant monster. It gains 300 ATK/DEF.</effect>"
-    },
-    "Yellow Luster Shield": {
+   },
+   "Yellow Luster Shield": {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>All monsters you control gain 300 DEF.</effect>"
-    },
+   },
    Necrovalley: {
       cardType: SPELL,
       levelOrSubtype: "Field",
@@ -486,6 +486,10 @@ const spells = {
             text: {
                operator: "TYPEMATCH",
                value: "Warrior"
+            },
+            levelOrSubtype: {
+               operator: "<",
+               value: 4
             }
          },
          autoClose: true

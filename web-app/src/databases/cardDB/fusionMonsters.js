@@ -1,4 +1,4 @@
-import { HERO, MONSTER, FLIP_COINS, FUSION_MONSTER, DARK, LIGHT, WATER, FIRE, EARTH, WIND } from "utils/constants.js";
+import { HERO, VILLAIN, MONSTER, FLIP_COINS, FUSION_MONSTER, DARK, LIGHT, WATER, FIRE, EARTH, WIND, RANDOM_DISCARD } from "utils/constants.js";
 
 const fusions = {
    Bickuribox: {
@@ -366,7 +366,14 @@ const fusions = {
       levelOrSubtype: 5,
       atk: 800,
       def: 600,
-      text: 'Zombie/Fusion/Effect – "Spirit Reaper" + "Nightmare Horse". <effect=Continuous>This card is not destroyed as a result of battle.</effect> <effect=Continuous>After resolving a card effect that targets this face-up card, destroy this card.</effect> <effect=Continuous>This card can attack directly.</effect> <effect=Trigger>When this card inflicts battle damage to your opponent by a direct attack: Discard 1 random card from their hand.</effect>'
+      text: 'Zombie/Fusion/Effect – "Spirit Reaper" + "Nightmare Horse". <effect=Continuous>This card is not destroyed as a result of battle.</effect> <effect=Continuous>After resolving a card effect that targets this face-up card, destroy this card.</effect> <effect=Continuous>This card can attack directly.</effect> <effect=Trigger>When this card inflicts battle damage to your opponent by a direct attack: Discard 1 random card from their hand.</effect>',
+      script: {
+         name: RANDOM_DISCARD,
+         displayCondition: {
+            players: [VILLAIN],
+            row: MONSTER
+         }
+      }
    },
    "Fiend Skull Dragon": {
       cardType: FUSION_MONSTER,
