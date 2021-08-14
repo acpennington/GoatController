@@ -173,7 +173,7 @@ const effectMonsters = {
       levelOrSubtype: 3,
       atk: 1300,
       def: 1200,
-      text: "Warrior/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated</effect>."
+      text: "Warrior/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated.</effect>"
    },
    Teva: {
       cardType: EFFECT_MONSTER,
@@ -318,7 +318,7 @@ const effectMonsters = {
       levelOrSubtype: 3,
       atk: 700,
       def: 1000,
-      text: "Zombie/Effect – <effect=Trigger>At the end of the Battle Phase, if this card destroyed a monster by battle and sent it to the Graveyard this turn: You can Special Summon that monster to your side of the field</effect>."
+      text: "Zombie/Effect – <effect=Trigger>At the end of the Battle Phase, if this card destroyed a monster by battle and sent it to the Graveyard this turn: You can Special Summon that monster to your side of the field.</effect>"
    },
    "White Magician Pikeru": {
       cardType: EFFECT_MONSTER,
@@ -1603,7 +1603,7 @@ const effectMonsters = {
       levelOrSubtype: 5,
       atk: 900,
       def: 1200,
-      text: "Insect/Flip/Effect – <effect=Trigger>FLIP: Target 2 monsters on the field; destroy them</effect>"
+      text: "Insect/Flip/Effect – <effect=Trigger>FLIP: Target as many monsters on the field as possible, but no more than 2; destroy them.</effect>"
    },
    "Nubian Guard": {
       cardType: EFFECT_MONSTER,
@@ -1675,7 +1675,7 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 1000,
       def: 1800,
-      text: "Zombie/Flip/Effect – <effect=Flip>FLIP: Inflict 500 damage to your opponent</effect>.",
+      text: "Zombie/Flip/Effect – <effect=Flip>FLIP: Inflict 500 damage to your opponent.</effect>",
       prepopLP: { villain: -500 }
    },
    "Protector of the Sanctuary": {
@@ -1684,7 +1684,7 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 1100,
       def: 1900,
-      text: "Fiend/Effect – <effect=Continuous>Your opponent cannot draw cards except during Draw Phases</effect>.",
+      text: "Fiend/Effect – <effect=Continuous>Your opponent cannot draw cards except during Draw Phases.</effect>",
       limit: 1
    },
    "Queen's Double": {
