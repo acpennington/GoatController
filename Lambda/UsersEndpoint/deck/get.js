@@ -4,7 +4,7 @@ const findUser = require("../utils/findUser.js");
 // @desc Gets a deck it is is public
 // @access Public
 // @db 1 reads, 0 write
-async function save(body) {
+async function getDeck(body) {
    const { username, deckName } = body;
 
    const user = await findUser(username, "decks");
@@ -14,4 +14,4 @@ async function save(body) {
    else return { statusCode: 200, body: { deck } };
 }
 
-module.exports = save;
+module.exports = getDeck;
