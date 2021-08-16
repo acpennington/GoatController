@@ -2,6 +2,7 @@ import { HERO, RITUAL_MONSTER, SEARCH_DECK, GRAVEYARD, MONSTER, ROLL_DICE, DARK,
 
 const ritualMonsters = {
    "Black Luster Soldier": {
+      id: "05405694",
       cardType: RITUAL_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 8,
@@ -10,6 +11,7 @@ const ritualMonsters = {
       text: 'Warrior/Ritual - You can Ritual Summon this card with "Black Luster Ritual".'
    },
    "Crab Turtle": {
+      id: "91782219",
       cardType: RITUAL_MONSTER,
       attribute: WATER,
       levelOrSubtype: 8,
@@ -18,6 +20,7 @@ const ritualMonsters = {
       text: 'Aqua/Ritual - You can Ritual Summon this card with "Turtle Oath".'
    },
    "Dark Master - Zorc": {
+      id: "97642679",
       cardType: RITUAL_MONSTER,
       attribute: DARK,
       levelOrSubtype: 8,
@@ -34,6 +37,7 @@ const ritualMonsters = {
       }
    },
    Dokurorider: {
+      id: "99721536",
       cardType: RITUAL_MONSTER,
       attribute: DARK,
       levelOrSubtype: 6,
@@ -42,6 +46,7 @@ const ritualMonsters = {
       text: 'Zombie/Ritual - You can Ritual Summon this card with "Revival of Dokurorider".'
    },
    "Elemental Mistress Doriado": {
+      id: "99414168",
       cardType: RITUAL_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 3,
@@ -50,6 +55,7 @@ const ritualMonsters = {
       text: 'Spellcaster/Effect/Ritual - <effect=Summon>Must be Ritual Summoned with "Doriado\'s Blessing" and cannot be Ritual Summoned by other ways.</effect> <effect=Continuous>The Attribute of this card is also treated as WIND, WATER, FIRE, and EARTH while it is face-up on the field</effect>'
    },
    "Hungry Burger": {
+      id: "30243636",
       cardType: RITUAL_MONSTER,
       attribute: DARK,
       levelOrSubtype: 6,
@@ -58,6 +64,7 @@ const ritualMonsters = {
       text: 'Warrior/Ritual - You can Ritual Summon this card with "Hamburger Recipe".'
    },
    "Legendary Flame Lord": {
+      id: "60258960",
       cardType: RITUAL_MONSTER,
       attribute: FIRE,
       levelOrSubtype: 7,
@@ -66,6 +73,7 @@ const ritualMonsters = {
       text: 'Spellcaster/Effect/Ritual - <effect=Summon>You can Ritual Summon this card with "Incandescent Ordeal".</effect> <effect=Continuous>Each time a Spell is activated, place 1 Spell Counter on this card immediately after it resolves.</effect> <effect=Ignition>You can remove 3 Spell Counters from this card; destroy all monsters on the field, except this card.</effect>'
    },
    "Paladin of White Dragon": {
+      id: "73398797",
       cardType: RITUAL_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 4,
@@ -87,6 +95,7 @@ const ritualMonsters = {
       }
    },
    "Performance of Sword": {
+      id: "04849037",
       cardType: RITUAL_MONSTER,
       attribute: EARTH,
       levelOrSubtype: 6,
@@ -95,6 +104,7 @@ const ritualMonsters = {
       text: 'Warrior/Ritual - You can Ritual Summon this card with "Commencement Dance".'
    },
    Relinquished: {
+      id: "64631466",
       cardType: RITUAL_MONSTER,
       attribute: DARK,
       levelOrSubtype: 1,
@@ -103,6 +113,7 @@ const ritualMonsters = {
       text: "Spellcaster/Effect/Ritual - <effect=Summon>You can Ritual Summon this card with \"Black Illusion Ritual\".</effect> <effect=Ignition>Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max 1). This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>This card's ATK/DEF become equal to that equipped monster's.</effect> <effect=Continuous>If this card would be destroyed by battle, destroy that equipped monster instead.</effect> <effect=Trigger>When an equipped monster is destroyed by this effect: Inflict damage to your opponent equal to the battle damage that you took.</effect>"
    },
    "Reshef the Dark Being": {
+      id: "62420419",
       cardType: RITUAL_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 8,
@@ -111,6 +122,7 @@ const ritualMonsters = {
       text: 'Fiend/Effect/Ritual - <effect=Summon>Must be Ritual Summoned with "Final Ritual of the Ancients" and cannot be Ritual Summoned by other ways.</effect> <effect=Ignition>Once per turn: You can discard 1 Spell from your hand, then target 1 monster your opponent controls; take control of that target until the end of this turn.</effect>'
    },
    "Shinato, King of a Higher Plane": {
+      id: "86327225",
       cardType: RITUAL_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 8,
@@ -119,6 +131,7 @@ const ritualMonsters = {
       text: 'Fairy/Effect/Ritual - <effect=Summon>Must be Ritual Summoned with "Shinato\'s Ark" and cannot be Ritual Summoned by other ways.</effect> <effect=Trigger>When this card destroys a Defense Position monster by battle and sends it to the Graveyard: Inflict damage to your opponent equal to its original ATK.</effect>'
    },
    "Skull Guardian": {
+      id: "03627449",
       cardType: RITUAL_MONSTER,
       attribute: LIGHT,
       levelOrSubtype: 7,
@@ -127,6 +140,7 @@ const ritualMonsters = {
       text: 'Warrior/Ritual - You can Ritual Summon this card with "Novox\'s Prayer".'
    },
    "The Masked Beast": {
+      id: "49064413",
       cardType: RITUAL_MONSTER,
       attribute: DARK,
       levelOrSubtype: 8,
