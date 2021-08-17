@@ -1,4 +1,4 @@
-import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, SEARCH_DECK } from "utils/constants.js";
+import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, SEARCH_DECK, DISCARD_AND_DRAW } from "utils/constants.js";
 
 const normalSpells = {
    "Jade Insect Whistle": {
@@ -326,6 +326,21 @@ const normalSpells = {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "If you control a Dragon monster: Target 1 Spell/Trap on the field; destroy that target, and if you do, inflict 500 damage to its controller."
+   },
+   "Card Destruction": {
+      id: "72892473",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Both players discard as many cards as possible from their hands, then each player draws the same number of cards they discarded.",
+      script: {
+         name: DISCARD_AND_DRAW,
+         displayCondition: {
+            players: [HERO, VILLAIN],
+            row: SPELL_TRAP
+         },
+         params: "same"
+      },
+      limit: 1
    }
 };
 

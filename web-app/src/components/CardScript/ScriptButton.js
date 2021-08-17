@@ -24,7 +24,7 @@ import {
    FLIP_COINS,
    ROLL_DICE,
    DISCARD_AND_DRAW
-} from "utils/constants";
+} from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";

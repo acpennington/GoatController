@@ -30,3 +30,6 @@ Notes regarding cards labeled "easy".
 - Roc from the Valley of Haze: Requires shuffle button (see ticket #227)
 - It is debatable (and almost entirely irrelevant) as to whether or not Tyler the Great Warrior is legal in Goat Format. It has not been added for now.
 - White Magician Pikeru: See D.D. Dynamite.
+
+# User Requested Cards
+- Cyber Jar: Will require some sort of script to make this work.
