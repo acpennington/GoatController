@@ -2055,6 +2055,24 @@ const effectMonsters = {
       atk: 2900,
       def: 2500,
       text: "Dragon/Effect – <effect=Continuous>During your Battle Phase, if your opponent controls a monster after this card's first attack, this card can make a second attack.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap.</effect> <effect=Summon>This card cannot be Special Summoned from the GY, unless you Tribute 1 Dragon monster.</effect>"
+   },
+   "Mataza the Zapper": {
+      id: "22609617",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 1300,
+      def: 800,
+      text: "Warrior/Effect – <effect=Continuous>This card can make a second attack during each Battle Phase.</effect> <effect=Continuous>Control of this face-up card on the field cannot switch.</effect>"
+   },
+   "King Tiger Wanghu": {
+      id: "83986578",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1700,
+      def: 1000,
+      text: "Beast/Effect – <effect=Trigger>When a monster(s) with 1400 or less ATK is Normal Summoned or Special Summoned: Destroy that monster(s) with 1400 or less ATK. This card must be face-up on the field to activate and to resolve this effect.</effect>"
    }
 };
 
