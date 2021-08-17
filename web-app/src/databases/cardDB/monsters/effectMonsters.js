@@ -1055,7 +1055,8 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 850,
       def: 2000,
-      text: "Fairy/Effect – <effect=Ignition>Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand.</effect>"
+      text: "Fairy/Effect – <effect=Ignition>Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand.</effect>",
+      art: 2
    },
    "Hade-Hane": {
       id: "28357177",
@@ -1396,7 +1397,8 @@ const effectMonsters = {
             }
          },
          autoClose: true
-      }
+      },
+      art: 2
    },
    "Giant Rat": {
       id: "97017120",
@@ -1766,7 +1768,8 @@ const effectMonsters = {
             row: MONSTER
          },
          params: 2
-      }
+      },
+      art: 2
    },
    "Zaborg the Thunder Monarch": {
       id: "51945556",
@@ -1800,7 +1803,8 @@ const effectMonsters = {
             players: [VILLAIN],
             row: MONSTER
          }
-      }
+      },
+      art: 2
    },
    "Exiled Force": {
       id: "74131780",

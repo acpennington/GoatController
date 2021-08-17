@@ -93,7 +93,8 @@ const normalTraps = {
       id: "62633180",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "Target 1 monster you control; destroy that monster, then send 2 cards from the top of your opponent's Deck to the Graveyard."
+      text: "Target 1 monster you control; destroy that monster, then send 2 cards from the top of your opponent's Deck to the Graveyard.",
+      art: 2,
    },
    "Beast Soul Swap": {
       id: "35149085",
@@ -259,7 +260,8 @@ const normalTraps = {
       cardType: TRAP,
       levelOrSubtype: "Normal",
       text: "Target 1 face-up monster; destroy that face-up monster, and if you do, inflict damage to both players equal to that target's ATK.",
-      limit: 1
+      limit: 1,
+      art: 2
    },
    "Sakuretsu Armor": {
       id: "56120475",
@@ -295,7 +297,8 @@ const normalTraps = {
       id: "77754944",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "When an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied)."
+      text: "When an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied).",
+      art: 2
    },
    Waboku: {
       id: "12607053",

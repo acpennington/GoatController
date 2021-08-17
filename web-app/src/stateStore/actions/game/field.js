@@ -18,7 +18,8 @@ import {
    SEND_REVEAL,
    ADJUST_COUNTERS,
    DISCARD_AND_DRAW,
-   SEND_DND
+   SEND_DND,
+   SENTINEL
 } from "utils/constants";
 
 function soundOn() {
@@ -53,7 +54,8 @@ function createTokens(player, params, socket = false) {
 
    return (dispatch) => {
       for (let i = 0; i < count; i++) {
-         dispatch({ type: CREATE_TOKEN, data: { player, name, inDef } });
+         const n = name === "Sheep Token" && i > 0 ? `${name}${SENTINEL}${i}` : name;
+         dispatch({ type: CREATE_TOKEN, data: { player, name: n, inDef } });
       }
    };
 }

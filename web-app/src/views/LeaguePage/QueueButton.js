@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Shadow from "components/Shadow/Shadow.js";
 import Button from "components/CustomButtons/Button.js";
-import isMainLegal from "utils/isMainLegal.js";
+import verifyDecks from "utils/verifyDecks.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
@@ -14,7 +14,10 @@ class QueueButton extends PureComponent {
       super(props);
       this.state = { webSocket: false };
 
-      this.legalMain = isMainLegal();
+      const storage = window.sessionStorage;
+      const activeDeck = storage.getItem("activeDeck");
+      const decks = JSON.parse(storage.getItem("decks"));
+      this.errors = verifyDecks(decks[activeDeck].maindeck, decks[activeDeck].sidedeck);
    }
 
    joinQueue = () => {
@@ -46,18 +49,23 @@ class QueueButton extends PureComponent {
       this.state.webSocket.close();
    };
 
+   displayErrors = () => {
+      // TODO: replace this with a Dialog instead of an alert
+      alert(this.errors.join("\n"));
+   };
+
    render() {
       const { webSocket } = this.state;
 
       return (
          <Fragment>
-            {this.legalMain ? (
+            {!this.errors.length ? (
                <Button color={webSocket ? "danger" : "success"} size="lg" round onClick={webSocket ? this.leaveQueue : this.joinQueue}>
                   Click to {webSocket ? "Leave" : "Enter"} the Matchmaking Queue
                </Button>
             ) : (
-               <Button color="warning" size="lg" round>
-                  Illegal Deck: Your Maindeck Must Contain 40+ Cards
+               <Button color="warning" size="lg" round onClick={this.displayErrors}>
+                  Illegal Deck
                </Button>
             )}
             {webSocket && <Shadow>Finding you a match...</Shadow>}

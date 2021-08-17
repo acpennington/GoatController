@@ -75,7 +75,8 @@ const normalSpells = {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Gain 1000 Life Points.",
-      prepopLP: { hero: 1000 }
+      prepopLP: { hero: 1000 },
+      art: 2
    },
    "Goblin Thief": {
       id: "45311864",
@@ -117,7 +118,8 @@ const normalSpells = {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Take 500 damage and inflict 1000 damage to your opponent.",
-      prepopLP: { hero: -500, villain: -1000 }
+      prepopLP: { hero: -500, villain: -1000 },
+      art: 2
    },
    "A Wingbeat of Giant Dragon": {
       id: "28596933",

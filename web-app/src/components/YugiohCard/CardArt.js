@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import compress from "utils/compressName.js";
+import { SENTINEL } from "utils/constants.js";
 import FoilStars from "./FoilStars.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -25,12 +26,13 @@ class CardArt extends PureComponent {
    }
 
    render() {
-      const { classes, name, nameHeight, cardTypeIcon, levelOrSubtype, atk, def, showNames, villExtension, battle } = this.props;
+      const { classes, name: raw, nameHeight, cardTypeIcon, levelOrSubtype, atk, def, showNames, villExtension, battle } = this.props;
+      const [name, art] = raw.split(SENTINEL);
       const isMonster = !isNaN(levelOrSubtype) || levelOrSubtype === "???";
 
       return (
          <Fragment>
-            <div className={classes.art} style={{ backgroundImage: 'url("/cards/art/' + compress(name) + '.jpg")' }}>
+            <div className={classes.art} style={{ backgroundImage: `url("/cards/art/${compress(name)}${art ? `.${art}` : ''}.jpg")` }}>
                {battle && (
                   <div className={classes.battleImgContainer} style={{ position: "absolute", top: 0, background: "rgba(0,0,0,0.5)" }}>
                      <img src={"/battle/" + battle + ".png"} className={classes.battleImg} alt={battle} />

@@ -236,3 +236,6 @@ export const OFFICIAL_UNRANKED = {
    name: "GoatsDuels Fun/Testing",
    description: "Set up some fun testing games with your friends here"
 };
+
+// misc
+export const SENTINEL = '|';
