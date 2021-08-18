@@ -341,6 +341,51 @@ const normalSpells = {
          params: "same"
       },
       limit: 1
+   },
+   "Shield & Sword": {
+      id: "52097679",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Switch the original ATK and DEF of all face-up monsters currently on the field until the End Phase."
+   },
+   "Last Will": {
+      id: "85602018",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "If a monster you control is sent to your Graveyard, but only the first time after this card's activation: <effect=Lingering>You can Special Summon 1 monster with 1500 or less ATK from your Deck.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            atk: {
+               operator: "<",
+               value: 1500
+            }
+         },
+         autoClose: true
+      },
+   },
+   "The Big March of Animals": {
+      id: "01689516",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Until the end of this turn, all face-up Beast-Type monsters on your side of the field gain 200 ATK for each Beast-Type monster on your side of the field."
+   },
+   "Lightning Vortex": {
+      id: "69162969",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Discard 1 card; destroy all face-up monsters your opponent controls.",
+      limit: 1
+   },
+   "Book of Life": {
+      id: "02204140",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Target 1 Zombie monster in your Graveyard and 1 monster in your opponent's Graveyard; Special Summon the first target, also banish the second target.",
    }
 };
 

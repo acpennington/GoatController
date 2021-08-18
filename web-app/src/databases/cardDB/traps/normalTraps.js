@@ -1,4 +1,4 @@
-import { TRAP, VILLAIN, SEARCH_DECK, SPELL_TRAP } from "utils/constants.js";
+import { TRAP, VILLAIN, SEARCH_DECK, SPELL_TRAP, TOKENS } from "utils/constants.js";
 
 const normalTraps = {
    "Arsenal Robber": {
@@ -253,7 +253,69 @@ const normalTraps = {
       cardType: TRAP,
       levelOrSubtype: "Normal",
       text: "When an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied)."
-   }
+   },
+   Waboku: {
+      id: "12607053",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "You take no battle damage this turn. Your monsters cannot be destroyed by battle this turn"
+   },
+   "Needle Ceiling": {
+      id: "38411870",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When there are 4 or more monsters on the field: Destroy all face-up monsters."
+   },
+   "Magic Cylinder": {
+      id: "62279055",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.",
+      limit: 1
+   },
+   Ceasefire: {
+      id: "36468556",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "If a face-down Defense Position monster or an Effect Monster is on the field: Change all face-down Defense Position monsters on the field to face-up Defense Position (Flip monsters' effects are not activated at this time), also inflict 500 damage to your opponent for each Effect Monster on the field.",
+      limit: 1
+   },
+   "Just Desserts": {
+      id: "24068492",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Inflict 500 damage to your opponent for each monster they control."
+   },
+   "Secret Barrel": {
+      id: "27053506",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Inflict 200 damage to your opponent for each card in their hand and each card they control."
+   },
+   "Bottomless Trap Hole": {
+      id: "29401950",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When your opponent Summons a monster(s) with 1500 or more ATK: Destroy that monster(s) with 1500 or more ATK, and if you do, banish it."
+   },
+   "Ojama Trio": {
+      id: "29843091",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: `Special Summon 3 "Ojama Tokens" (Beast-Type/LIGHT/Level 2/ATK 0/DEF 1000) to your opponent's field in Defense Position.<effect=Lingering>They cannot be Tributed for a Tribute Summon, and each time 1 is destroyed, its controller takes 300 damage.</effect>`,
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [VILLAIN],
+            row: SPELL_TRAP
+         },
+         params: {
+            name: "Ojama Token",
+            pos: "def",
+            count: 3
+         }
+      }
+   },
 };
 
 export default normalTraps;

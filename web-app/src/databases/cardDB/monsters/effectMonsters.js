@@ -2073,7 +2073,206 @@ const effectMonsters = {
       atk: 1700,
       def: 1000,
       text: "Beast/Effect – <effect=Trigger>When a monster(s) with 1400 or less ATK is Normal Summoned or Special Summoned: Destroy that monster(s) with 1400 or less ATK. This card must be face-up on the field to activate and to resolve this effect.</effect>"
-   }
+   },
+   "Cyber-Stein": {
+      id: "69015963",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 700,
+      def: 500,
+      text: "Machine/Effect - <effect=Ignition>You can pay 5000 Life Points; Special Summon 1 Fusion Monster from your Fusion Deck in Attack Position.</effect>",
+      prepopLP: { hero: -5000 }
+   },
+   "Amazoness Archer": {
+      id: "91869203",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1000,
+      text: "Warrior/Effect - <effect=Ignition>You can Tribute 2 monsters; inflict 1200 damage to your opponent.</effect>",
+      prepopLP: { villain: -1200 }
+   },
+   "Des Wombat": {
+      id: "09637706",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 1600,
+      def: 300,
+      text: "Beast/Effect - <effect=Continuous>Any damage to you from a card effect becomes 0.</effect>"
+   },
+   "Possessed Dark Soul": {
+      id: "52860176",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 1200,
+      def: 800,
+      text: "Fiend/Effect - <effect=Ignition>You can Tribute this face-up card; take control of all face-up Level 3 or lower monsters your opponent controls.</effect>"
+   },
+   "Cipher Soldier": {
+      id: "79853073",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 1350,
+      def: 1800,
+      text: "Machine/Effect - <effect=Trigger>If this card battles a Warrior monster, during damage calculation: This card gains 2000 ATK and DEF during that damage calculation only.</effect>"
+   },
+   "Nimble Momonga": {
+      id: "22567609",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 2,
+      atk: 1000,
+      def: 100,
+      text: 'Beast/Effect - <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Gain 1000 Life Points, then you can Special Summon any number of "Nimble Momonga" from your Deck in face-down Defense Position.</effect>',
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            name: {
+               value: "Nimble Momonga"
+            }
+         }
+      },
+      prepopLP: { hero: 1000 }
+   },
+   "Injection Fairy Lily": {
+      id: "79575620",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 400,
+      def: 1500,
+      text: "Spellcaster/Effect - <effect=Quick>If this card attacks or is attacked, during damage calculation (in either player's turn): You can pay 2000 Life Points once per battle; this card gains 3000 ATK during that damage calculation only.</effect>",
+      prepopLP: { hero: -2000 },
+      limit: 1
+   },
+   "Des Koala": {
+      id: "69579761",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 1100,
+      def: 1800,
+      text: "Beast/Flip/Effect - <effect=Flip>FLIP: Inflict 400 damage to your opponent for each card in their hand.</effect>"
+   },
+   "Pyramid Turtle": {
+      id: "77044671",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1200,
+      def: 1400,
+      text: "Zombie/Effect - <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 Zombie monster with 2000 or less DEF from your Deck.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            text: {
+               operator: "TYPEMATCH",
+               value: "Zombie"
+            },
+            def: {
+               operator: "<",
+               value: 2000
+            },
+         },
+         autoClose: true
+      }
+   },
+   "Mobius the Frost Monarch": {
+      id: "04929256",
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 6,
+      atk: 2400,
+      def: 1000,
+      text: "Aqua/Effect - <effect=Trigger>When this card is Tribute Summoned: You can target up to 2 Spell/Trap Cards on the field; destroy those targets.</effect>"
+   },
+   Kuriboh: {
+      id: "40640057",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 1,
+      atk: 300,
+      def: 200,
+      text: "Fiend/Effect - During damage calculation, if your opponent's monster attacks: <effect=Quick>You can discard this card; you take no battle damage from that battle.</effect>"
+   },
+   "Winged Kuriboh": {
+      id: "57116033",
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 1,
+      atk: 300,
+      def: 200,
+      text: "Fairy/Effect - <effect=Trigger>If this card on the field is destroyed and sent to the Graveyard: For the rest of this turn, you take no battle damage.</effect>"
+   },
+   "Rescue Cat": {
+      id: "14878871",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 300,
+      def: 100,
+      text: "Beast/Effect - <effect=Ignition>You can send this card you control to the Graveyard; Special Summon 2 Level 3 or lower Beast monsters from your Deck, but destroy them during the End Phase.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            levelOrSubtype: {
+               operator: "<",
+               value: 3
+            },
+            text: {
+               operator: "TYPEMATCH",
+               value: "Beast"
+            }
+         }
+      }
+   },
+   "Lava Golem": {
+      id: "0102380",
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 8,
+      atk: 3000,
+      def: 2500,
+      text: "Fiend/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) to your opponent's field by Tributing 2 monsters they control.</effect> You cannot Normal Summon/Set the turn you Special Summon this card. <effect=Trigger>Once per turn, during your Standby Phase: Take 1000 damage.</effect>",
+      prepopLP: { hero: -1000 }
+   },
+   "Cannon Soldier": {
+      id: "11384280",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1300,
+      text: "Machine/Effect - <effect=Ignition>You can Tribute 1 monster; inflict 500 damage to your opponent.</effect>",
+      prepopLP: { villain: -500 }
+   },
+   "Toon Cannon Soldier": {
+      id: "79875176",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1300,
+      text: 'Machine/Toon/Effect - <effect=Continuous>Cannot attack the turn it is Summoned.</effect> <effect=Continuous>If "Toon World" on the field is destroyed, destroy this card.</effect> <effect=Continuous>While you control "Toon World" and your opponent controls no Toon monsters, this card can attack directly.</effect> <effect=Ignition>You can Tribute 1 monster; inflict 500 damage to your opponent.</effect>',
+      prepopLP: { villain: -500 }
+   },
 };
 
 export default effectMonsters;

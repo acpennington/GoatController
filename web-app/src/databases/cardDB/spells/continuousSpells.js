@@ -76,6 +76,26 @@ const continuousSpells = {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>All monsters you control gain 300 DEF.</effect>"
+   },
+   "Swords of Revealing Light": {
+      id: "72302403",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "After this card's activation, it remains on the field, but you must destroy it during the End Phase of your opponent's 3rd turn. When this card is activated: If your opponent controls a face-down monster, flip all monsters they control face-up. <effect=Continuous-like>While this card is face-up on the field, your opponent's monsters cannot declare an attack.</effect>",
+      limit: 1
+   },
+   "Wave-Motion Cannon": {
+      id: "38992735",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Ignition-like>During your Main Phase: You can send this face-up card to the Graveyard; inflict 1000 damage to your opponent for each of your Standby Phases that have passed since this card was activated.</effect>"
+   },
+   "Level Limit - Area B": {
+      id: "03136426",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Change all face-up Level 4 or higher monsters to Defense Position.</effect>",
+      limit: 2
    }
 };
 

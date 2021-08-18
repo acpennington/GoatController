@@ -119,6 +119,13 @@ const equipSpells = {
       text: "Equip only to a monster your opponent controls. <effect=Continuous-like>Take control of the equipped monster.</effect> <effect=Trigger-like>During each of your opponent's Standby Phases: They gain 1000 Life Points.</effect>",
       prepopLP: { villain: 1000 },
       limit: 1
+   },
+   "United We Stand": {
+      id: "56747793",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>The equipped monster gains 800 ATK/DEF for each face-up monster you control.</effect>",
+      limit: 1
    }
 };
 
