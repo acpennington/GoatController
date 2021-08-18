@@ -126,6 +126,18 @@ const equipSpells = {
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>The equipped monster gains 800 ATK/DEF for each face-up monster you control.</effect>",
       limit: 1
+   },
+   "Axe of Despair": {
+      id: "40619825",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: '(This card is always treated as an "Archfiend" card.) <effect=Continuous-like>The equipped monster gains 1000 ATK.</effect> <effect=Trigger-like>When this card is sent from the field to the Graveyard: You can Tribute 1 monster; place this card on the top of your Deck.</effect>'
+   },
+   "Big Bang Shot": {
+      id: "61127349",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>The equipped monster gains 400 ATK.</effect> <effect=Continuous-like>If the equipped monster attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Continuous-like>When this card leaves the field, banish the equipped monster.</effect>"
    }
 };
 

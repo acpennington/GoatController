@@ -2327,6 +2327,130 @@ const effectMonsters = {
       text: 'Machine/Toon/Effect - <effect=Continuous>Cannot attack the turn it is Summoned.</effect> <effect=Continuous>If "Toon World" on the field is destroyed, destroy this card.</effect> <effect=Continuous>While you control "Toon World" and your opponent controls no Toon monsters, this card can attack directly.</effect> <effect=Ignition>You can Tribute 1 monster; inflict 500 damage to your opponent.</effect>',
       prepopLP: { villain: -500 }
    },
+   "Dark Magician of Chaos": {
+      id: "40737112",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 8,
+      atk: 2800,
+      def: 2600,
+      text: "Spellcaster/Effect - <effect=Trigger>When this card is Normal or Special Summoned: You can target 1 Spell in your Graveyard; add that target to your hand.</effect> <effect=Trigger>Banish any monster destroyed by battle with this card.</effect> If this face-up card would leave the field, banish it instead.",
+      limit: 1
+   },
+   Jinzo: {
+      id: "77585513",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 6,
+      atk: 2400,
+      def: 1500,
+      text: "Machine/Effect - <effect=Continuous>Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.</effect>",
+      limit: 1
+   },
+   "Exodia the Forbidden One": {
+      id: "33396948",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 1000,
+      text: 'Spellcaster/Effect - If you have "Right Leg of the Forbidden One", "Left Leg of the Forbidden One", "Right Arm of the Forbidden One" and "Left Arm of the Forbidden One" in addition to this card in your hand, you win the Duel.',
+      limit: 1
+   },
+   "Sacred Phoenix of Nephthys": {
+      id: "61441708",
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 8,
+      atk: 2400,
+      def: 1600,
+      text: "Winged Beast/Effect - <effect=Trigger>Once per turn, during your next Standby Phase after this card was destroyed by a card effect and sent to the Graveyard: Special Summon this card from the Graveyard.</effect> <effect=Trigger>If you do: Destroy all Spells and Traps on the field.</effect>",
+      limit: 1
+   },
+   "Twin-Headed Behemoth": {
+       id: "43586926",
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 3,
+      atk: 1500,
+      def: 1200,
+      text: 'Dragon/Effect - <effect=Trigger>During the End Phase, if this card is in the Graveyard because it was destroyed on the field and sent there this turn: You can Special Summon this card, but its ATK/DEF become 1000.</effect> You can only use this effect of "Twin-Headed Behemoth" once per Duel.',
+      limit: 1
+   },
+   "Marauding Captain": {
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 1200,
+      def: 400,
+      text: "Warrior/Effect - <effect=Continuous>Your opponent cannot target Warrior monsters for attacks, except this one.</effect> <effect=Trigger>When this card is Normal Summoned: You can Special Summon 1 Level 4 or lower monster from your hand.</effect>",
+      limit: 2
+   },
+   "Night Assailant": {
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 200,
+      def: 500,
+      text: "Fiend/Flip/Effect - <effect=Flip>FLIP: Target 1 monster your opponent controls; destroy that target.</effect> <effect=Trigger>When this card is sent from the hand to the Graveyard: Target 1 Flip monster in your Graveyard, except this card; return that target to the hand.</effect>",
+      limit: 2
+   },
+   "Manticore of Darkness": {
+      id: "77121851",
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 6,
+      atk: 2300,
+      def: 1000,
+      text: "Beast-Warrior/Effect - <effect=Trigger>During the End Phase of the turn this card was sent to the Graveyard: You can send to the Graveyard 1 Beast, Beast-Warrior, or Winged Beast-Type monster from your hand or your side of the field; Special Summon this card from your Graveyard.</effect>",
+      limit: 2
+   },
+   "Dark Scorpion - Chick the Yellow": {
+      id: "61587183",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 1000,
+      text: "Warrior/Effect - When this card inflicts battle damage to your opponent, you can activate 1 of these effects:<effect=Trigger>● Target 1 card on the field; return that target to the hand.</effect> <effect=Trigger>● Look at the top card of their Deck, then return it to the top or bottom of the Deck<./effect>",
+      limit: 2
+   },
+   "Spirit Reaper": {
+      id: "23205979",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 300,
+      def: 200,
+      text: "Zombie/Effect - <effect=Continuous>Cannot be destroyed by battle.</effect> <effect=Continuous>After resolving a card effect that targets this face-up card, destroy this card.</effect> <effect=Trigger>When this card inflicts battle damage to your opponent by a direct attack: Discard 1 random card from their hand.</effect>"
+   },
+   "Enraged Battle Ox": {
+      id: "76909279",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1700,
+      def: 1000,
+      text: "Beast-Warrior/Effect - <effect=Continuous>If a Beast, Beast-Warrior, or Winged Beast-Type monster you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
+   },
+   "Big Shield Gardna": {
+      id: "65240384",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 100,
+      def: 2600,
+      text: "Warrior/Effect - When a Spell is activated that targets this face-down card (and no other cards): <effect=Quick>Change this card to face-up Defense Position, and if you do, negate the activation.</effect> <effect=Continuous>If this card is attacked, change it to Attack Position at the end of the Damage Step.</effect>"
+   },
+   "Mask of Darkness": {
+      id: "28933734",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 900,
+      def: 400,
+      text: "Fiend/Flip/Effect - <effect=Flip>FLIP: Target 1 Trap in your Graveyard; add that target to your hand.</effect>"
+   }
 };
 
 export default effectMonsters;

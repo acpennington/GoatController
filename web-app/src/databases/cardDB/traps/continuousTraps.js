@@ -181,6 +181,12 @@ const continuousTraps = {
       cardType: TRAP,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Activate by targeting 2 Set Spells/Traps on the field; those targets cannot be activated.</effect>"
+   },
+   "Wall of Revealing Light": {
+      id: "17078030",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "Activate by paying any multiple of 1000 Life Points.<effect=Continuous-like>Monsters your opponent controls cannot attack if their ATK is less than or equal to the amount you paid.</effect>"
    }
 };
 
