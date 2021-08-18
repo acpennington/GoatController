@@ -20,6 +20,10 @@ class CardArt extends PureComponent {
       } else return <img src={"/cards/svgs/subtypes/" + levelOrSubtype + ".svg"} draggable="false" height={nameHeight * 0.8} alt="yugioh subtype" />;
    };
 
+   foilOn() {
+      return window.localStorage.getItem("foilOn") === "true";
+   }
+
    render() {
       const { classes, name, nameHeight, cardTypeIcon, levelOrSubtype, atk, def, showNames, villExtension, battle } = this.props;
       const isMonster = !isNaN(levelOrSubtype);
@@ -32,7 +36,9 @@ class CardArt extends PureComponent {
                      <img src={"/battle/" + battle + ".png"} className={classes.battleImg} alt={battle} />
                   </div>
                )}
+            {this.foilOn() && (
                <FoilStars nameHeight={nameHeight} />
+            )}
             </div>
             {showNames && (
                <div className={classes["name" + villExtension]} style={{ fontSize: nameHeight + "px", lineHeight: nameHeight + "px" }}>

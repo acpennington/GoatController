@@ -15,6 +15,7 @@ import CardForm from "components/Card/CardForm.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
+import Foil from "components/Switches/Foil.js";
 
 import { isDiscordValid, formatFileName } from "./utils.js";
 import setBodyImage from "utils/setBodyImage.js";
@@ -186,6 +187,11 @@ class SettingsPage extends PureComponent {
                            <JustSleeves height={250} sleeves={sleeves} />
                         </div>
                      </div>
+                  </div>
+               </GridItem>
+               <GridItem xs={12}>
+                  <div className={classes.center} style={{ marginBottom: "30px"}}>
+                     <Foil />
                   </div>
                </GridItem>
                <GridItem xs={12} sm={6}>
