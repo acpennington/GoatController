@@ -43,6 +43,32 @@ const quickplaySpells = {
       cardType: SPELL,
       levelOrSubtype: "Quick-Play",
       text: "Target 1 face-up monster on the field; it gains 700 DEF until the end of this turn."
+   },
+   "Emergency Provisions": {
+      id: "53046408",
+      cardType: SPELL,
+      levelOrSubtype: "Quick-Play",
+      text: "Send any number of other Spells/Traps you control to the Graveyard; gain 1000 Life Points for each card sent to the Graveyard this way.",
+      limit: 2
+   },
+   "Enemy Controller": {
+      id: "98045062",
+      cardType: SPELL,
+      levelOrSubtype: "Quick-Play",
+      text: "Activate 1 of these effects.● Target 1 face-up monster your opponent controls; change that target's battle position.● Tribute 1 monster, then target 1 face-up monster your opponent controls; take control of that target until the End Phase."
+   },
+   "Poison of the Old Man": {
+      id: "08842266",
+      cardType: SPELL,
+      levelOrSubtype: "Quick-Play",
+      text: "Activate 1 of these effects;● Gain 1200 Life Points.● Inflict 800 damage to your opponent",
+      prepopLP: { hero: 1200, villain: -800 }
+   },
+   "Serial Spell": {
+      id: "49398568",
+      cardType: SPELL,
+      levelOrSubtype: "Quick-Play",
+      text: "When you activate a Normal Spell Card: Discard all cards in your hand to the Graveyard; the effect of this card becomes the same as that Normal Spell Card."
    }
 };
 

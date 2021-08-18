@@ -386,6 +386,31 @@ const normalSpells = {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Target 1 Zombie monster in your Graveyard and 1 monster in your opponent's Graveyard; Special Summon the first target, also banish the second target.",
+   },
+   "Meteor of Destruction": {
+      id: "33767325",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "If your opponent's Life Points are higher than 3000: Inflict 1000 damage to your opponent.",
+      prepopLP: { villain: -1000 }
+   },
+   "The Shallow Grave": {
+      id: "43434803",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Each player targets 1 monster in their own Graveyard; each player Special Summons the target from their Graveyard in face-down Defense Position."
+   },
+   "A Feather of the Phoenix": {
+      id: "49140998",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Discard 1 card, then target 1 card in your Graveyard; return that target to the top of your Deck."
+   },
+   "Spell Reproduction": {
+      id: "29228529",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Send 2 Spells from your hand to the Graveyard, then target 1 Spell in your Graveyard; add it to your hand."
    }
 };
 

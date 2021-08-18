@@ -31,6 +31,7 @@ Notes regarding cards labeled "easy".
 - Maharaghi: Will require significant scripting
 - Outstanding Dog Marron: Requires shuffle button (see ticket #227)
 - Recycle: Requires some sort of bottom of the deck script.
+- Good Goblin Housekeeping: also requires the bottom of the deck script
 - Roc from the Valley of Haze: Requires shuffle button (see ticket #227)
 - It is debatable (and almost entirely irrelevant) as to whether or not Tyler the Great Warrior is legal in Goat Format. It has not been added for now.
 - White Magician Pikeru: See D.D. Dynamite.
@@ -38,6 +39,7 @@ Notes regarding cards labeled "easy".
 ## User Requested Cards
 
 - Cyber Jar: Will require some sort of script to make this work.
+- Vampire Lord: requires opponent to hava ability to generically look in deck
 
 ### Optional / Convenience
 
@@ -50,3 +52,4 @@ Notes regarding cards labeled "easy".
 - Secret Barrel: could compute like with Just Desserts
 - Des Koala: could compute burn by counting cards in opponent's hand
 - Book of Life: optionally could have a SEARCH_GRAVEYARD with Zombie filter script
+- Exodia: win script?

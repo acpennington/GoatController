@@ -316,6 +316,19 @@ const normalTraps = {
          }
       }
    },
+   "Fake Trap": {
+      id: "03027001",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When your opponent activates a card or effect that would destroy a Trap(s) you control: Destroy this card instead of that Trap(s). (Reveal all of your face-down Traps that would have been destroyed)."
+   },
+   "Rock Bombardment": {
+      id: "20781762",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Send 1 Rock monster from your Deck to the Graveyard; inflict 500 damage to your opponent.",
+      prepopLP: { villain: -500 }
+   }
 };
 
 export default normalTraps;

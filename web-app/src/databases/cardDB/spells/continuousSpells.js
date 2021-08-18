@@ -96,6 +96,13 @@ const continuousSpells = {
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Change all face-up Level 4 or higher monsters to Defense Position.</effect>",
       limit: 2
+   },
+   "Dark Room of Nightmare": {
+      id: "85562745",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: '<effect=Trigger-like>Each time your opponent takes damage from a card effect, except "Dark Room of Nightmare": Inflict 300 damage to your opponent.</effect>',
+      prepopLP: { villain: -300 }
    }
 };
 
