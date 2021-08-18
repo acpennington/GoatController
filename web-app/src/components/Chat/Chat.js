@@ -18,7 +18,7 @@ import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
 const EFFECT_MESSAGE = "Effect!";
-const cannedMessages = ["Ok", "No", "Thinking", "Response?", EFFECT_MESSAGE];
+const cannedMessages = ["OK", "No", "Thinking", "Response?", EFFECT_MESSAGE];
 
 class Chat extends PureComponent {
    componentDidMount() {
