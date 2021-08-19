@@ -1,6 +1,20 @@
-import { SPELL, HERO, TOKENS, SPELL_TRAP } from "utils/constants.js";
+import { SPELL, HERO, TOKENS, SPELL_TRAP, SKIP_DRAWS } from "utils/constants.js";
 
 const quickplaySpells = {
+   "Offerings to the Doomed": {
+      id: "19230407",
+      cardType: SPELL,
+      levelOrSubtype: "Quick-Play",
+      text: "Target 1 face-up monster on the field; destroy that target, also skip your next Draw Phase.",
+      script: {
+         name: SKIP_DRAWS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: 1
+      }
+   },
    "Mystical Space Typhoon": {
       id: "05318639",
       cardType: SPELL,

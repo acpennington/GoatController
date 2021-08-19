@@ -4,6 +4,7 @@ import {
    EFFECT_MONSTER,
    RANDOM_DISCARD,
    SEARCH_DECK,
+   SKIP_DRAWS,
    GRAVEYARD,
    MILL_UNTIL,
    MONSTER,
@@ -20,6 +21,23 @@ import {
 } from "utils/constants.js";
 
 const effectMonsters = {
+   Fenrir: {
+      id: "0218704",
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1200,
+      text: "Beast/Effect - <effect=Summon>Cannot be Normal Summoned/Set.Must first be Special Summoned (from your hand) by banishing 2 WATER monsters from your Graveyard.</effect><effect=Trigger>When this card destroys an opponent's monster by battle: Your opponent skips their next Draw Phase.</effect>",
+      script: {
+         name: SKIP_DRAWS,
+         displayCondition: {
+            players: [VILLAIN],
+            row: MONSTER
+         },
+         params: 1
+      }
+   },
    "Ryu Kokki": {
       id: "57281778",
       cardType: EFFECT_MONSTER,
