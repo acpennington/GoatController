@@ -32,6 +32,12 @@ const counterTraps = {
       cardType: TRAP,
       levelOrSubtype: "Counter",
       text: "Activate 1 of these effects;● When a Spell is activated that targets exactly 1 monster on the field: Negate the activation, and if you do, destroy it.● When a Spell is activated: Send 1 Spell from your hand to the Graveyard; negate the activation, and if you do, destroy it."
+   },
+   "Barrel Behind the Door": {
+      id: "78783370",
+      cardType: TRAP,
+      levelOrSubtype: "Counter",
+      text: "When a card or effect is activated that would inflict damage to your Life Points: Your opponent takes the damage instead."
    }
 };
 

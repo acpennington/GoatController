@@ -1,4 +1,4 @@
-import { TRAP, VILLAIN, SEARCH_DECK, SPELL_TRAP, TOKENS } from "utils/constants.js";
+import { TRAP, HERO, VILLAIN, SEARCH_DECK, SPELL_TRAP, FLIP_COINS, TOKENS } from "utils/constants.js";
 
 const normalTraps = {
    "Arsenal Robber": {
@@ -328,6 +328,50 @@ const normalTraps = {
       levelOrSubtype: "Normal",
       text: "Send 1 Rock monster from your Deck to the Graveyard; inflict 500 damage to your opponent.",
       prepopLP: { villain: -500 }
+   },
+   "Backup Soldier": {
+      id: "36280194",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "While there are 5 or more monsters in your Graveyard: Target up to 3 non-Effect Monsters with 1500 or less ATK in your Graveyard; add them to your hand."
+   },
+   "Fiend Comedian": {
+      id: "81172176",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Toss a coin and call it. If you call it right, banish all cards from your opponent's Graveyard If you call it wrong, send cards from the top of your Deck to the Graveyard equal to the number of cards in your opponent's Graveyard",
+      script: {
+         name: FLIP_COINS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: 1
+      }
+   },
+   Metalmorph: {
+      id: "68540058",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Target 1 face-up monster on the field; equip this card to that target.<effect=Continuous-like>It gains 300 ATK/DEF.</effect> <effect=Continuous-like>If it attacks, it gains ATK equal to half the ATK of the attack target, during damage calculation only.</effect>"
+   },
+   "Spellbinding Circle": {
+      id: "18807108",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>"
+   },
+   Taunt: {
+      id: "90740329",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Activate only during your opponent's Main Phase 1; select 1 monster on your side of the field. While the selected card remains on the field, if your opponent attacks with a monster(s) this turn, they must select the selected monster as the attack target."
+   },
+   Tragedy: {
+      id: "35686187",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When a face-up Attack Position monster(s) your opponent controls is changed to face-up Defense Position: Destroy all Defense Position monsters your opponent controls."
    }
 };
 
