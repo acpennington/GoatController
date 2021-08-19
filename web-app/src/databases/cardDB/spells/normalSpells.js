@@ -195,8 +195,8 @@ const normalSpells = {
       levelOrSubtype: "Normal",
       text: "Until the End Phase, if a monster(s) in the Graveyard would be banished: Banish an equal number of monsters on your side of the field instead."
    },
-   "Thousand EnerGraveyard": {
-      id: "undefined",
+   "Thousand Energy": {
+      id: "05703682",
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Face-up Level 2 Normal Monsters (except Tokens) you control gain 1000 ATK/DEF until the End Phase. Destroy all face-up Level 2 Normal Monsters you control during the End Phase."

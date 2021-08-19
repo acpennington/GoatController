@@ -100,8 +100,8 @@ const normalTraps = {
       levelOrSubtype: "Normal",
       text: "Declare 2 monster Attributes; your opponent chooses 1 of them and destroys all monsters on the field with that Attribute."
    },
-   "EnerGraveyard Drain": {
-      id: "undefined",
+   "Energy Drain": {
+      id: "56916805",
       cardType: TRAP,
       levelOrSubtype: "Normal",
       text: "Target 1 face-up monster you control; until the end of this turn, it gains 200 ATK/DEF for each card in your opponent's hand."
