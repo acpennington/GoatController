@@ -1,4 +1,4 @@
-import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, SEARCH_DECK, DISCARD_AND_DRAW } from "utils/constants.js";
+import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, SEARCH_DECK, DISCARD_AND_DRAW, TOKENS } from "utils/constants.js";
 
 const normalSpells = {
    "Jade Insect Whistle": {
@@ -514,6 +514,42 @@ const normalSpells = {
       levelOrSubtype: "Normal",
       text: "Send all cards from your hand and your side of the field to the Graveyard, then call Spell, Trap, or Monster; reveal the top card of your Deck. If you called it right, both players exchange Life Points."
    },
+   "Multiplication of Ants": {
+      id: "22493811",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: 'Tribute 1 Insect-Type Monster on your side of the field. Special Summon 2 "Army Ant Tokens" (Insect/EARTH/Level 4/ATK 500/DEF 1200) on your side of the field. The tokens cannot be used as a Tribute for a Tribute Summon.',
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            name: "Army Ant Token",
+            pos: "atk",
+            count: 2
+         }
+      }
+   },
+   "Stray Lambs": {
+      id: "60764581",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: 'Special Summon 2 "Lamb Tokens" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. You cannot Summon other monsters the turn you activate this card (but you can Set).',
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            name: "Lamb Token",
+            pos: "def",
+            count: 2
+         }
+      }
+   }
 };
 
 export default normalSpells;

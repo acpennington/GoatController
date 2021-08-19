@@ -1,4 +1,4 @@
-import { SPELL } from "utils/constants.js";
+import { SPELL, SPELL_TRAP, HERO, TOKENS } from "utils/constants.js";
 
 const continuousSpells = {
    "Kishido Spirit": {
@@ -130,6 +130,24 @@ const continuousSpells = {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Activate this card by declaring 1 card name; cards with that name, and their effects, cannot be used.</effect> Cards already on the field are not affected (including face-down cards)."
+   },
+   "Jam Breeding Machine": {
+      id: "21770260",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: '<effect=Trigger-like>Once per turn, during your Standby Phase: Special Summon 1 "Slime Token" (Aqua/WATER/LEVEL 1/ATK 500/DEF 500) in Attack Position.</effect> <effect=Continuous-like>You cannot Summon any monsters, except "Slime Tokens" (but you can Set).</effect>',
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            name: "Slime Token",
+            pos: "atk",
+            count: 1
+         }
+      }
    }
 };
 
