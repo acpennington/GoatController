@@ -11,6 +11,7 @@ import {
    MONSTER,
    SPELL,
    TRAP,
+   TOKENS,
    ROLL_DICE,
    DISCARD_AND_DRAW,
    FLIP_COINS,
@@ -2504,8 +2505,8 @@ const effectMonsters = {
          },
          autoClose: true
       }
-    },
-    "Senju of the Thousand Hands": {
+   },
+   "Senju of the Thousand Hands": {
       id: "23401839",
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
@@ -2526,8 +2527,8 @@ const effectMonsters = {
          },
          autoClose: true
       }
-    },
-    "Dark Ruler Ha Des": {
+   },
+   "Dark Ruler Ha Des": {
       id: "53982768",
       cardType: EFFECT_MONSTER,
       attribute: DARK,
@@ -2535,8 +2536,8 @@ const effectMonsters = {
       atk: 2450,
       def: 1600,
       text: "Fiend/Effect - Cannot be Special Summoned from the Graveyard.<effect=Continuous>Negate the effects of monsters destroyed by battle with Fiend monsters you control.</effect>"
-    },
-    "Sacred Crane": {
+   },
+   "Sacred Crane": {
       id: "30914564",
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
@@ -2544,8 +2545,8 @@ const effectMonsters = {
       atk: 1600,
       def: 400,
       text: "Winged Beast/Effect - <effect=Trigger>When this card is Special Summoned: The controller of this card draws 1 card.</effect>"
-    },
-    "Thestalos the Firestorm Monarch": {
+   },
+   "Thestalos the Firestorm Monarch": {
       id: "26205777",
       cardType: EFFECT_MONSTER,
       attribute: FIRE,
@@ -2560,8 +2561,8 @@ const effectMonsters = {
             row: MONSTER
          }
       }
-    },
-    "Royal Magical Library": {
+   },
+   "Royal Magical Library": {
       id: "70791313",
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
@@ -2569,8 +2570,8 @@ const effectMonsters = {
       atk: 0,
       def: 2000,
       text: "Spellcaster/Effect - <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect><effect=Ignition>You can remove 3 Spell Counters from this card; draw 1 card.</effect>"
-    },
-    "Spell Canceller": {
+   },
+   "Spell Canceller": {
       id: "84636823",
       cardType: EFFECT_MONSTER,
       attribute: WIND,
@@ -2578,8 +2579,8 @@ const effectMonsters = {
       atk: 1800,
       def: 1600,
       text: 'Machine/Effect - <effect=Continuous>Spell Cards, and their effects on the field, cannot be activated. Negate all Spell effects on the field.</effect>'
-    },
-    "The Creator": {
+   },
+   "The Creator": {
       id: "61505339",
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
@@ -2587,8 +2588,8 @@ const effectMonsters = {
       atk: 2300,
       def: 3000,
       text: "Thunder/Effect - <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>Once per turn: You can target 1 monster in your Graveyard; send 1 card from your hand to the Graveyard, and if you do, Special Summon that target.</effect>"
-    },
-    "The Creator Incarnate": {
+   },
+   "The Creator Incarnate": {
       id: "97093037",
       cardType: EFFECT_MONSTER,
       attribute: LIGHT,
@@ -2596,7 +2597,91 @@ const effectMonsters = {
       atk: 1600,
       def: 1500,
       text: 'Warrior/Effect - <effect=Ignition>You can Tribute this card; Special Summon 1 "The Creator" from your hand.</effect>'
-    }
+   },
+   "Cobra Jar": {
+      id: "86801871",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 2,
+      atk: 600,
+      def: 300,
+      text: 'Reptile/Flip/Effect - <effect=Flip>FLIP: Special Summon 1 "Poisonous Snake Token" (Reptile/Earth/Level 3/ATK 1200/DEF 1200).</effect> <effect=Lingering>When it is destroyed by battle, inflict 500 damage to your opponent.</effect>',
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: {
+            name: "Poisonous Snake Token",
+            pos: "atk",
+            count: 1
+         }
+      }
+   },
+   "Des Dendle": {
+      id: "12965761",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 300,
+      def: 2000,
+      text: `Plant/Union/Effect - Once per turn, you can either: <effect=Ignition>Target 1 "Vampiric Orchis" you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in face-up Attack Position.</effect> <effect=Trigger-like>While equipped to a monster by this card's effect, each time the equipped monster destroys a monster by battle: Special Summon 1 "Wicked Plant Token" (Plant/EARTH/Level 1/ATK 800/DEF 800).</effect>1 monster can only be equipped with 1 Union monster at a time. <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>`,
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: {
+            name: "Wicked Plant Token",
+            pos: "atk",
+            count: 1
+         }
+      }
+   },
+   "Insect Queen": {
+      id: "91512835",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 7,
+      atk: 2200,
+      def: 2400,
+      text: `Insect/Effect - <effect=Continuous>This card gains 200 ATK for each Insect monster on the field.</effect> <effect=Continuous>Cannot declare an attack unless you Tribute 1 monster.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card destroyed an opponent's monster by battle this turn: Special Summon 1 "Insect Monster Token" (Insect/EARTH/Level 1/ATK 100/DEF 100) in Attack Position.</effect>`,
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: {
+            name: "Insect Monster Token",
+            pos: "atk",
+            count: 1
+         }
+      }
+   },
+   Lekunga: {
+      id: "62543393",
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 4,
+      atk: 1700,
+      def: 500,
+      text: 'Plant/Effect - <effect=Ignition>You can banish 2 WATER monsters from your Graveyard; Special Summon 1 "Lekunga Token" (Plant/WATER/Level 2/ATK 700/DEF 700) in Attack Position.</effect>',
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: {
+            name: "Lekunga Token",
+            pos: "atk",
+            count: 1
+         }
+      }
+   }
 };
 
 export default effectMonsters;

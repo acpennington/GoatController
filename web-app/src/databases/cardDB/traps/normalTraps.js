@@ -1,4 +1,4 @@
-import { TRAP, HERO, VILLAIN, SEARCH_DECK, SPELL_TRAP, FLIP_COINS, TOKENS } from "utils/constants.js";
+import { TRAP, HERO, VILLAIN, SEARCH_DECK, SPELL_TRAP, FLIP_COINS, TOKENS, GRAVEYARD } from "utils/constants.js";
 
 const normalTraps = {
    "Arsenal Robber": {
@@ -372,7 +372,25 @@ const normalTraps = {
       cardType: TRAP,
       levelOrSubtype: "Normal",
       text: "When a face-up Attack Position monster(s) your opponent controls is changed to face-up Defense Position: Destroy all Defense Position monsters your opponent controls."
-   }
+   },
+   "Statue of the Wicked": {
+      id: "65810489",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: '<effect=Trigger-like>When this face-down card is destroyed and sent to the Graveyard, Special Summon 1 "Wicked Token" (Fiend/DARK/Level 4 /ATK 1000/DEF 1000) on your side of the field.</effect>',
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            name: "Wicked Token",
+            pos: "atk",
+            count: 1
+         }
+      }
+    }
 };
 
 export default normalTraps;
