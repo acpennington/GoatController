@@ -45,9 +45,6 @@ Notes regarding cards labeled "easy".
 - Parasite Paracide: could just be implemented with a standard search and then the user manually placing back on deck?
 - Manju of the Ten Thousand Hands: need to be able to search for just a *Ritual* Spell (and use 'OR' for RITUAL_MONSTER)
 - Iron Blacksmith Kotetsu: similarly, needs to be able to search for a *Equip* Spell
-- Physical Double: Need to be able to summon a Mirage Token which clones a regular card...
-- Needle Worm: Needs an actual mill 5 script (unconditional mill)
-- Hiro's Shadow Scout: do we want to just unconditional mill 3 in order to reveal and have user take the other cards back?
 
 ### Optional / Convenience
 
