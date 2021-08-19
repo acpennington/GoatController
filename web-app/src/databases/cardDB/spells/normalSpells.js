@@ -455,7 +455,65 @@ const normalSpells = {
       levelOrSubtype: "Normal",
       text: "Increase your Life Points by 800 points.",
       prepopLP: { hero: 800 }
-   }
+   },
+   "Dimension Fusion": {
+      id: "23557835",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Pay 2000 Life Points; both players Special Summon as many of their banished monsters as possible.",
+      prepopLP: { hero: -2000 }
+   },
+   "Toon Table of Contents": {
+      id: "89997728",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: 'Add 1 "Toon" card from your Deck to your hand.',
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            name: {
+               operator: "CONTAINS",
+               value: "Toon"
+            }
+         },
+         autoClose: true
+      }
+   },
+   Reasoning: {
+      id: "58577036",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the Graveyard. If not, Special Summon the excavated monster, also send the remaining cards to the Graveyard"
+   },
+   "Monster Gate": {
+      id: "43040603",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the Graveyard."
+   },
+   "Brain Control": {
+      id: "87910978",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Pay 800 Life Points, then target 1 face-up monster your opponent controls; take control of that target until the End Phase.",
+      prepopLP: { hero: -800 }
+   },
+   "Monster Reincarnation": {
+      id: "74848038",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Discard 1 card, then target 1 monster in your Graveyard; add it to your hand."
+   },
+   "Reversal Quiz": {
+      id: "05990062",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Send all cards from your hand and your side of the field to the Graveyard, then call Spell, Trap, or Monster; reveal the top card of your Deck. If you called it right, both players exchange Life Points."
+   },
 };
 
 export default normalSpells;

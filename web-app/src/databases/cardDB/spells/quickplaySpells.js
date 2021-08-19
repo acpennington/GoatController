@@ -83,6 +83,12 @@ const quickplaySpells = {
       cardType: SPELL,
       levelOrSubtype: "Quick-Play",
       text: "When you activate a Normal Spell Card: Discard all cards in your hand to the Graveyard; the effect of this card becomes the same as that Normal Spell Card."
+   },
+   "Swords of Concealing Light": {
+      id: "12923641",
+      cardType: SPELL,
+      levelOrSubtype: "Quick-Play",
+      text: "Destroy this card during your 2nd Standby Phase after activation. When this card resolves, change all monsters your opponent controls to face-down Defense Position.<effect=Continuous-like>Monsters your opponent controls cannot change their battle positions.</effect>"
    }
 };
 

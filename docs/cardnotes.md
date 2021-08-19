@@ -16,6 +16,7 @@ The following cards were labeled "basic" but are not.
 - Ray of Hope: Requires shuffle button (see ticket #227)
 - Reckless Greed: Requires draw skip script
 - Offerings to the Doomed: Requires draw skip script
+- Time Seal: Requires draw skip script
 - Reload: Requires shuffle button (see ticket #227)
 - Restructer Revolution: See D.D. Dynamite notes
 - Solar Ray: See D.D. Dynamite notes
@@ -42,6 +43,8 @@ Notes regarding cards labeled "easy".
 - Cyber Jar: Will require some sort of script to make this work.
 - Vampire Lord: requires opponent to hava ability to generically look in deck
 - Parasite Paracide: could just be implemented with a standard search and then the user manually placing back on deck?
+- Manju of the Ten Thousand Hands: need to be able to search for just a *Ritual* Spell (and use 'OR' for RITUAL_MONSTER)
+- Iron Blacksmith Kotetsu: similarly, needs to be able to search for a *Equip* Spell
 
 ### Optional / Convenience
 
@@ -54,5 +57,7 @@ Notes regarding cards labeled "easy".
 - Secret Barrel: could compute like with Just Desserts
 - Des Koala: could compute burn by counting cards in opponent's hand
 - Book of Life: optionally could have a SEARCH_GRAVEYARD with Zombie filter script
-- Exodia: win script?
+- Exodia: fancy win script? (user can technically just reveal hand)
 - Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
+- Reasoning/Monster Gate: convenience script to MILL_UNTIL does not contain "Cannot be Normal Summoned/Set." leave result in grave and let user decide if was successful. Need to avoid milling if no legal summons left
+- Reversal Quiz - helper to send everything to graveyard. Optional script to swap LP?
