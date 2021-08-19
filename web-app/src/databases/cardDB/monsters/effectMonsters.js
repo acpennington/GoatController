@@ -12,6 +12,7 @@ import {
    TRAP,
    ROLL_DICE,
    DISCARD_AND_DRAW,
+   FLIP_COINS,
    DARK,
    LIGHT,
    WATER,
@@ -2450,6 +2451,85 @@ const effectMonsters = {
       atk: 900,
       def: 400,
       text: "Fiend/Flip/Effect - <effect=Flip>FLIP: Target 1 Trap in your Graveyard; add that target to your hand.</effect>"
+   },
+   "Barrel Dragon": {
+      id: "81480460",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 7,
+      atk: 2600,
+      def: 2200,
+      text: "Machine/Effect - <effect=Ignition>Once per turn: You can target 1 monster your opponent controls; toss a coin 3 times and destroy it if at least 2 of the results are heads.</effect>",
+      script: {
+         name: FLIP_COINS,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: 3
+      }
+   },
+   "Blowback Dragon": {
+      id: "25551951",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 6,
+      atk: 2300,
+      def: 1200,
+      text: "Machine/Effect - <effect=Ignition>Once per turn: You can target 1 card your opponent controls; toss a coin 3 times and destroy that target if at least 2 of the results are heads.</effect>",
+      script: {
+         name: FLIP_COINS,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: 3
+      }
+   },
+   "Buster Blader": {
+      id: "78193831",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 7,
+      atk: 2600,
+      def: 2300,
+      text: "Warrior/Effect - <effect=Continuous>Gains 500 ATK for each Dragon monster your opponent controls or is in their Graveyard.</effect>"
+   },
+   "Dark Magician Girl": {
+      id: "38033121",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 6,
+      atk: 2000,
+      def: 1700,
+      text: 'Spellcaster/Effect - <effect=Continuous>Gains 300 ATK for every "Dark Magician" or "Magician of Black Chaos" in the Graveyard.</effect>'
+   },
+   "Lesser Fiend": {
+      id: "16475472",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 5,
+      atk: 2100,
+      def: 1000,
+      text: 'Fiend/Effect - (This card is always treated as an "Archfiend" card.) <effect=Continuous>Banish any monster destroyed by battle with this card.</effect>'
+   },
+   Otohime: {
+      id: "39751093",
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 3,
+      atk: 0,
+      def: 100,
+      text: "Spellcaster/Spirit/Effect - <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>During the End Phase of the turn this card is Normal Summoned or flipped face-up: Return it to the hand.</effect> <effect=Trigger>When this card is Normal Summoned or flipped face-up: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect>"
+   },
+   "Red-Eyes Black Metal Dragon": {
+      id: "64335804",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 8,
+      atk: 2800,
+      def: 2400,
+      text: 'Machine/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your Deck) by Tributing "Red-Eyes Black Dragon" equipped with "Metalmorph".</effect>'
    }
 };
 

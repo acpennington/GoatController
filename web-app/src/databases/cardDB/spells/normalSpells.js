@@ -417,6 +417,44 @@ const normalSpells = {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Send 2 Spells from your hand to the Graveyard, then target 1 Spell in your Graveyard; add it to your hand."
+   },
+   Exchange: {
+      id: "05556668",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Both players reveal their hands and add 1 card from each other's hand to their hand."
+   },
+   "Exile of the Wicked": {
+      id: "26725158",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Destroy all Fiend monsters on the field."
+   },
+   "Final Flame": {
+      id: "73134081",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Inflict 600 damage to your opponent.",
+      prepopLP: { villain: -600 }
+   },
+   Polymerization: {
+      id: "24094653",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Fusion Summon 1 Fusion Monster from your Fusion Deck, using monsters from your hand or field as Fusion Material."
+   },
+   "Soul Release": {
+      id: "05758500",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Target up to 5 cards in any Graveyard(s); banish them."
+   },
+   "Soul of the Pure": {
+      id: "47852924",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Increase your Life Points by 800 points.",
+      prepopLP: { hero: 800 }
    }
 };
 
