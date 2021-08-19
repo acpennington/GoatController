@@ -6,7 +6,7 @@ This file contains notes regarding the monumental task of adding all Goat Format
 
 The following cards were labeled "basic" but are not.
 
-- Ancient Telescope: We could just use a mill 5 script for this.
+- Ancient Telescope: We could just use a mill 5 script for this (pre: seems like this would be wrong as it would reveal them to the opponent?)
 - D.D. Dynamite: This card has been added. However, we could prehaps consider more complicated prepopLP parameters to handle cases like these in the future (see ticket #225).
 - Dark Designator: This will require very complex scripting (or perhaps just let villain view their entire deck).
 - Fiend's Hand Mirror: It is possible that this card's PSCT may be incorrect, but this is not a big concern.
@@ -40,11 +40,14 @@ Notes regarding cards labeled "easy".
 ## User Requested Cards
 
 - Cyber Jar: Will require some sort of script to make this work.
+- Morphing Jar #2: needs some sort of script.
 - Vampire Lord: requires opponent to hava ability to generically look in deck
 - Parasite Paracide: could just be implemented with a standard search and then the user manually placing back on deck?
 - Manju of the Ten Thousand Hands: need to be able to search for just a *Ritual* Spell (and use 'OR' for RITUAL_MONSTER)
 - Iron Blacksmith Kotetsu: similarly, needs to be able to search for a *Equip* Spell
 - Physical Double: Need to be able to summon a Mirage Token which clones a regular card...
+- Needle Worm: Needs an actual mill 5 script (unconditional mill)
+- Hiro's Shadow Scout: do we want to just unconditional mill 3 in order to reveal and have user take the other cards back?
 
 ### Optional / Convenience
 
@@ -57,4 +60,4 @@ Notes regarding cards labeled "easy".
 - Exodia: fancy win script? (user can technically just reveal hand)
 - Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
 - Reasoning/Monster Gate: convenience script to MILL_UNTIL does not contain "Cannot be Normal Summoned/Set." leave result in grave and let user decide if was successful. Need to avoid milling if no legal summons left (see PR #243).
-- Reversal Quiz - helper to send everything to graveyard. Optional script to swap LP?
+- Reversal Quiz - helper to send everything to graveyard? Optional script to swap LP?

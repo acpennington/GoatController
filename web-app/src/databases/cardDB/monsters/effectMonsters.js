@@ -1010,7 +1010,7 @@ const effectMonsters = {
       def: 2400,
       text: "Rock/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>When this card is Flip Summoned: Return all monsters your opponent controls to the hand.</effect>"
    },
-   "Gyaku-Gire Panda": {
+   "Graveyardaku-Gire Panda": {
       id: "09817927",
       cardType: EFFECT_MONSTER,
       attribute: EARTH,
@@ -1980,7 +1980,7 @@ const effectMonsters = {
    "Bazoo the Soul-Eater": {
       id: "40133511",
       cardType: EFFECT_MONSTER,
-      attribute: "Earth",
+      attribute: EARTH,
       levelOrSubtype: 4,
       atk: 1600,
       def: 900,
@@ -1993,7 +1993,7 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 1900,
       def: 1700,
-      text: 'Spellcaster/Effect – <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect> <effect=Ignition>You can Tribute this card with 3 Spell Counters on it; Special Summon 1 "Dark Magician" from your hand, Deck, or GY.</effect>',
+      text: 'Spellcaster/Effect – <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect> <effect=Ignition>You can Tribute this card with 3 Spell Counters on it; Special Summon 1 "Dark Magician" from your hand, Deck, or Graveyard.</effect>',
       script: {
          name: SEARCH_DECK,
          displayCondition: {
@@ -2045,7 +2045,7 @@ const effectMonsters = {
       levelOrSubtype: 5,
       atk: 2400,
       def: 1700,
-      text: 'Dragon/Effect – <effect=Ignition>You can send 1 monster from your hand to the GY, then target 1 monster your opponent controls with ATK less than or equal to the sent monster\'s ATK; destroy that target.</effect> <effect=Trigger>During the End Phase, if this card destroyed a monster by battle this turn: You can send this card to the GY; Special Summon 1 "Armed Dragon LV7" from your hand or Deck.</effect>',
+      text: 'Dragon/Effect – <effect=Ignition>You can send 1 monster from your hand to the Graveyard, then target 1 monster your opponent controls with ATK less than or equal to the sent monster\'s ATK; destroy that target.</effect> <effect=Trigger>During the End Phase, if this card destroyed a monster by battle this turn: You can send this card to the Graveyard; Special Summon 1 "Armed Dragon LV7" from your hand or Deck.</effect>',
       script: {
          name: SEARCH_DECK,
          displayCondition: {
@@ -2112,7 +2112,7 @@ const effectMonsters = {
       levelOrSubtype: 8,
       atk: 2900,
       def: 2500,
-      text: "Dragon/Effect – <effect=Continuous>During your Battle Phase, if your opponent controls a monster after this card's first attack, this card can make a second attack.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap.</effect> <effect=Summon>This card cannot be Special Summoned from the GY, unless you Tribute 1 Dragon monster.</effect>"
+      text: "Dragon/Effect – <effect=Continuous>During your Battle Phase, if your opponent controls a monster after this card's first attack, this card can make a second attack.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap.</effect> <effect=Summon>This card cannot be Special Summoned from the Graveyard, unless you Tribute 1 Dragon monster.</effect>"
    },
    "Mataza the Zapper": {
       id: "22609617",
@@ -2735,6 +2735,255 @@ const effectMonsters = {
             count: 1
          }
       }
+   },
+   Newdoria: {
+      id: "04335645",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1200,
+      def: 800,
+      text: "Fiend/Effect - <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Target 1 monster on the field; destroy that target.</effect>"
+   },
+   "Granmarg the Rock Monarch": {
+      id: "60229110",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 6,
+      atk: 2400,
+      def: 1000,
+      text: "Rock/Effect - <effect=Trigger>If this card is Tribute Summoned: Target 1 Set card on the field; destroy that target.</effect>"
+   },
+   "Charm of Shabti": {
+      id: "50412166",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 1,
+      atk: 100,
+      def: 100,
+      text: `Rock/Effect - <effect=Quick>You can discard this card; "Gravekeeper's" monsters you control cannot be destroyed by battle until the end of this turn.</effect>`
+   },
+   "Gravekeeper's Assailant": {
+      id: "25262697",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1500,
+      def: 1500,
+      text: `Spellcaster/Effect - <effect=Trigger>When this card declares an attack while "Necrovalley" is on the field: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect>`
+   },
+   "Gravekeeper's Cannonholder": {
+      id: "99877698",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1200,
+      text: `Spellcaster/Effect - <effect=Ignition>You can Tribute 1 "Gravekeeper's" monster, except "Gravekeeper's Cannonholder"; inflict 700 damage to your opponent.</effect>`,
+      prepopLP: { villain: -700 }
+   },
+   "Gravekeeper's Chief": {
+      id: "62473983",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 5,
+      atk: 1900,
+      def: 1200,
+      text: `Spellcaster/Effect - You can only control 1 face-up "Gravekeeper's Chief". <effect=Continuous>Your Graveyard is unaffected by "Necrovalley".</effect> <effect=Trigger>When this card is Tribute Summoned: You can target 1 "Gravekeeper's" monster in your Graveyard; Special Summon that target.</effect>`
+   },
+   "Gravekeeper's Curse": {
+      id: "50712728",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 800,
+      def: 800,
+      text: "Spellcaster/Effect - <effect=Trigger>When this card is Summoned: Inflict 500 damage to your opponent.</effect>",
+      prepopLP: { villain: -500 }
+   },
+   "Gravekeeper's Spear Soldier": {
+      id: "63695531",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1500,
+      def: 1000,
+      text: "Spellcaster/Effect - <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
+   },
+   "Gravekeeper's Vassal": {
+      id: "99690140",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 700,
+      def: 500,
+      text: "Spellcaster/Effect - <effect=Continuous>Any battle damage this card inflicts to your opponent is treated as effect damage instead.</effect>"
+   },
+   "Gravekeeper's Watcher": {
+      id: "26084285",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1000,
+      def: 1000,
+      text: "Spellcaster/Effect - <effect=Quick>During either player's turn, when your opponent activates a Spell/Trap, or monster effect that could make them discard when it resolves: You can send this card from your hand to the Graveyard; negate the activation, and if you do, destroy it.</effect>"
+   },
+   "Skilled White Magician": {
+      id: "46363422",
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 1700,
+      def: 1900,
+      text: 'Spellcaster/Effect - <effect=Continuous>When a Spell resolves: Place 1 Spell Counter on this card (max.</effect><effect=Ignition>3).</effect> You can Tribute this card with 3 Spell Counters on it; Special Summon 1 "Buster Blader" from your hand, Deck, or Graveyard',
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            name: {
+               value: "Buster Blader"
+            }
+         },
+         autoClose: true
+      }
+   },
+   "Dark Scorpion - Cliff the Trap Remover": {
+      id: "06967870",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 1200,
+      def: 1000,
+      text: "Warrior/Effect - <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects:● Target 1 Spell/Trap on the field; destroy that target.● Send the top 2 cards of their Deck to the Graveyard</effect>"
+   },
+   "Sasuke Samurai #2": {
+      id: "11760174",
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 1,
+      atk: 200,
+      def: 300,
+      text: "Warrior/Effect - <effect=Ignition>Once per turn, during your Main Phase: You can pay 800 Life Points; Spells/Traps cannot be activated until the End Phase.</effect>",
+      prepopLP: { hero: -800 }
+   },
+   "Sasuke Samurai #4": {
+      id: "64538655",
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 4,
+      atk: 1200,
+      def: 1200,
+      text: "Warrior/Effect - <effect=Trigger>When this card battles a monster, before damage calculation: Toss a coin and call it. If you call it right, destroy that monster.</effect>",
+      script: {
+         name: FLIP_COINS,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: 1
+      }
+   },
+   "Trap Master": {
+      id: "46461247",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 500,
+      def: 1100,
+      text: "Warrior/Flip/Effect - <effect=Flip>FLIP: Target 1 Trap on the field; Destroy it. If the target is Set, reveal it if it is a Spell, return it to its original position.</effect>"
+   },
+   "Byser Shock": {
+      id: "17597059",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 5,
+      atk: 800,
+      def: 600,
+      text: "Fiend/Effect - <effect=Trigger>If this card is Summoned: Return all Set cards on the field to the hand.</effect>"
+   },
+   "Aqua Spirit": {
+      id: "40916023",
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 1200,
+      text: "Aqua/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by banishing 1 WATER monster from your Graveyard.</effect> <effect=Trigger>Once per turn, during your opponent's Standby Phase: You can target 1 face-up monster your opponent controls; change that target's battle position, and if you do, it cannot change its battle position for the rest of this turn.</effect>"
+   },
+   "Nightmare Penguin": {
+      id: "81306586",
+      cardType: EFFECT_MONSTER,
+      attribute: WATER,
+      levelOrSubtype: 4,
+      atk: 900,
+      def: 1800,
+      text: "Aqua/Effect - <effect=Continuous>All face-up WATER monsters you control gain 200 ATK.</effect> <effect=Trigger>When this card is flipped face-up: Target 1 card your opponent controls; return that target to the hand.</effect>"
+   },
+   Gigantes: {
+      id: "47606319",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 1900,
+      def: 1300,
+      text: "Rock/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by banishing 1 EARTH monster from your Graveyard.</effect> <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Destroy all Spells and Traps on the field</effect>"
+   },
+   "Golem Sentry": {
+      id: "52323207",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 4,
+      atk: 800,
+      def: 1800,
+      text: "Rock/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>When this card is Flip Summoned: Target 1 monster your opponent controls; return that target to the hand.</effect>"
+   },
+   "Swarm of Locusts": {
+      id: "41872150",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 1000,
+      def: 500,
+      text: "Insect/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Target 1 Spell/Trap your opponent controls; destroy that target.</effect>"
+   },
+   "Swarm of Scarabs": {
+      id: "15383415",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 3,
+      atk: 500,
+      def: 1000,
+      text: "Insect/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Target 1 monster your opponent controls; destroy that target.</effect>"
+   },
+   "Des Lacooda": {
+      id: "02326738",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 3,
+      atk: 500,
+      def: 600,
+      text: "Zombie/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect>< effect=Trigger>If this card is Flip Summoned: Draw 1 card.</effect>"
+   },
+   "Medusa Worm": {
+      id: "02694423",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 2,
+      atk: 500,
+      def: 600,
+      text: "Rock/Effect - <effect=Ignition>Once per turn, you can flip this card into face-down Defense Position.</effect> <effect=Trigger>When this card is Flip Summoned, destroy 1 monster on your opponent's side of the field.</effect>"
+   },
+   "Spear Cretin": {
+      id: "58551308",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 500,
+      def: 500,
+      text: "Fiend/Flip/Effect - <effect=Flip>FLIP: When this card is sent to the Graveyard, each player targets 1 monster in their Graveyard, then Special Summons them to their side of the field in face-up Attack Position or face-down Defense Position.</effect>"
    }
 };
 
