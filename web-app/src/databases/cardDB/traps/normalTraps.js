@@ -390,7 +390,19 @@ const normalTraps = {
             count: 1
          }
       }
-    }
+   },
+   "Rite of Spirit": {
+      id: "30450531",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: `Target 1 "Gravekeeper's' monster in your Graveyard; Special Summon that target. This card's activation and effect are unaffected by "Necrovalley".`
+   },
+   "Phoenix Wing Wind Blast": {
+      id: "63356631",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Discard 1 card, then target 1 card your opponent controls; place that target on the top of the Deck."
+   },
 };
 
 export default normalTraps;

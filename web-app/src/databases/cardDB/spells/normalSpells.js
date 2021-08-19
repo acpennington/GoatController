@@ -543,7 +543,25 @@ const normalSpells = {
             count: 2
          }
       }
-   }
+   },
+   "Soul Exchange": {
+      id: "68005187",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Target 1 monster your opponent controls; this turn, if you Tribute a monster, you must Tribute that target, as if you controlled it. You cannot conduct your Battle Phase the turn you activate this card."
+   },
+   "Cold Wave": {
+      id: "60682203",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "At the start of your Main Phase 1: <effect=LingeringUntil your next Draw Phase, neither player can Set or activate the effects of Spells and Traps.</effect>"
+   },
+   "Back to Square One": {
+      id: "47453433",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Discard 1 card, then target 1 monster on the field; place that target on the top of the Deck."
+   },
 };
 
 export default normalSpells;

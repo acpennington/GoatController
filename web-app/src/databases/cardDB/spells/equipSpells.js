@@ -145,7 +145,19 @@ const equipSpells = {
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>The equipped monster gains 500 ATK.</effect> <effect=Trigger-like>When this card is sent from the field to the Graveyard: Inflict 500 damage to your opponent.</effect>",
       prepopLP: { villain: -500 },
-   }
+   },
+   Megamorph: {
+      id: "22046459",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>While your Life Points is lower than your opponent's, the equipped monster's ATK becomes double its original ATK.</effect> <effect=Continuous-like>While your Life Points is higher, the equipped monster's ATK becomes half its original ATK.</effect>"
+   },
+   "Mask of the Accursed": {
+      id: "56948373",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>The monster equipped with this card cannot attack.</effect> <effect=Trigger-like>The controller of the equipped monster takes 500 points of damage during each of your Standby Phases.</effect>"
+   },
 };
 
 export default equipSpells;

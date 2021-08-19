@@ -187,7 +187,19 @@ const continuousTraps = {
       cardType: TRAP,
       levelOrSubtype: "Continuous",
       text: "Activate by paying any multiple of 1000 Life Points.<effect=Continuous-like>Monsters your opponent controls cannot attack if their ATK is less than or equal to the amount you paid.</effect>"
-   }
+   },
+   "Light of Intervention": {
+      id: "62867251",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>While this card is on the field, Monster Cards cannot be Set or flipped face-down.</effect> <effect=Continuous-like>If a Monster Card would be Set, it must be Normal Summoned in face-up Defense Position.</effect>"
+   },
+   "Mask of Restrict": {
+      id: "29549364",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Neither player can Tribute cards.</effect>"
+   },
 };
 
 export default continuousTraps;

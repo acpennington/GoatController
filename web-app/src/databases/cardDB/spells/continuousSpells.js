@@ -148,7 +148,13 @@ const continuousSpells = {
             count: 1
          }
       }
-   }
+   },
+   "Gravekeeper's Servant": {
+      id: "16762927",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Your opponent cannot declare an attack, unless they send 1 card from the top of their Deck to the Graveyard.</effect>"
+   },
 };
 
 export default continuousSpells;

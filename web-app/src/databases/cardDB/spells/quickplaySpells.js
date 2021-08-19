@@ -75,7 +75,14 @@ const quickplaySpells = {
       cardType: SPELL,
       levelOrSubtype: "Quick-Play",
       text: "Destroy this card during your 2nd Standby Phase after activation. When this card resolves, change all monsters your opponent controls to face-down Defense Position.<effect=Continuous-like>Monsters your opponent controls cannot change their battle positions.</effect>"
-   }
+   },
+   "My Body as a Shield": {
+      id: "69279219",
+      cardType: SPELL,
+      levelOrSubtype: "Quick-Play",
+      text: "When your opponent activates a Spell/Trap Card or monster effect that would destroy a monster(s) on the field: Pay 1500 Life Points; negate the activation, and if you do, destroy it.",
+      prepopLP: { hero: -1500 }
+   },
 };
 
 export default quickplaySpells;
