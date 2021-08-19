@@ -2,6 +2,8 @@ import {
    HERO,
    VILLAIN,
    EFFECT_MONSTER,
+   NORMAL_MONSTER,
+   RITUAL_MONSTER,
    RANDOM_DISCARD,
    SEARCH_DECK,
    GRAVEYARD,
@@ -2476,7 +2478,125 @@ const effectMonsters = {
       atk: 2800,
       def: 2400,
       text: 'Machine/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your Deck) by Tributing "Red-Eyes Black Dragon" equipped with "Metalmorph".</effect>'
-   }
+   },
+   "Emissary of the Afterlife": {
+      id: "75043725",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 600,
+      text: "Fiend/Effect - <effect=Trigger>When this card is sent from the field to the Graveyard: Each player adds 1 Level 3 or lower Normal Monster from their Deck to their hand.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO, VILLAIN],
+            row: GRAVEYARD
+         },
+         params: {
+            levelOrSubtype: {
+               operator: "<",
+               value: 3
+            },
+            cardType: {
+               value: NORMAL_MONSTER
+            }
+         },
+         autoClose: true
+      }
+    },
+    "Senju of the Thousand Hands": {
+      id: "23401839",
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 1400,
+      def: 1000,
+      text: "Fairy/Effect - <effect=Trigger>When this card is Normal or Flip Summoned: You can add 1 Ritual Monster from your Deck to your hand.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: {
+            cardType: {
+               value: RITUAL_MONSTER
+            }
+         },
+         autoClose: true
+      }
+    },
+    "Dark Ruler Ha Des": {
+      id: "53982768",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 6,
+      atk: 2450,
+      def: 1600,
+      text: "Fiend/Effect - Cannot be Special Summoned from the Graveyard.<effect=Continuous>Negate the effects of monsters destroyed by battle with Fiend monsters you control.</effect>"
+    },
+    "Sacred Crane": {
+      id: "30914564",
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 400,
+      text: "Winged Beast/Effect - <effect=Trigger>When this card is Special Summoned: The controller of this card draws 1 card.</effect>"
+    },
+    "Thestalos the Firestorm Monarch": {
+      id: "26205777",
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 6,
+      atk: 2400,
+      def: 1000,
+      text: "Pyro/Effect - <effect=Trigger>If this card is Tribute Summoned: Discard 1 random card from your opponent's hand, then, if it was a Monster Card, inflict damage to your opponent equal to its original Level x 100.</effect>",
+      script: {
+         name: RANDOM_DISCARD,
+         displayCondition: {
+            players: [VILLAIN],
+            row: MONSTER
+         }
+      }
+    },
+    "Royal Magical Library": {
+      id: "70791313",
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 0,
+      def: 2000,
+      text: "Spellcaster/Effect - <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect><effect=Ignition>You can remove 3 Spell Counters from this card; draw 1 card.</effect>"
+    },
+    "Spell Canceller": {
+      id: "84636823",
+      cardType: EFFECT_MONSTER,
+      attribute: WIND,
+      levelOrSubtype: 5,
+      atk: 1800,
+      def: 1600,
+      text: 'Machine/Effect - <effect=Continuous>Spell Cards, and their effects on the field, cannot be activated. Negate all Spell effects on the field.</effect>'
+    },
+    "The Creator": {
+      id: "61505339",
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 8,
+      atk: 2300,
+      def: 3000,
+      text: "Thunder/Effect - <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>Once per turn: You can target 1 monster in your Graveyard; send 1 card from your hand to the Graveyard, and if you do, Special Summon that target.</effect>"
+    },
+    "The Creator Incarnate": {
+      id: "97093037",
+      cardType: EFFECT_MONSTER,
+      attribute: LIGHT,
+      levelOrSubtype: 4,
+      atk: 1600,
+      def: 1500,
+      text: 'Warrior/Effect - <effect=Ignition>You can Tribute this card; Special Summon 1 "The Creator" from your hand.</effect>'
+    }
 };
 
 export default effectMonsters;

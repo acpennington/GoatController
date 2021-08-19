@@ -138,6 +138,13 @@ const equipSpells = {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>The equipped monster gains 400 ATK.</effect> <effect=Continuous-like>If the equipped monster attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Continuous-like>When this card leaves the field, banish the equipped monster.</effect>"
+   },
+   "Black Pendant": {
+      id: "65169794",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>The equipped monster gains 500 ATK.</effect> <effect=Trigger-like>When this card is sent from the field to the Graveyard: Inflict 500 damage to your opponent.</effect>",
+      prepopLP: { villain: -500 },
    }
 };
 

@@ -37,7 +37,8 @@ const continuousSpells = {
       id: "34906152",
       cardType: SPELL,
       levelOrSubtype: "Continuous",
-      text: "<effect=Ignition-like>You can Tribute 1 monster; inflict 400 damage to your opponent.</effect>"
+      text: "<effect=Ignition-like>You can Tribute 1 monster; inflict 400 damage to your opponent.</effect>",
+      prepopLP: { villain: -400 }
    },
    "Morale Boost": {
       id: "93671934",
@@ -103,6 +104,32 @@ const continuousSpells = {
       levelOrSubtype: "Continuous",
       text: '<effect=Trigger-like>Each time your opponent takes damage from a card effect, except "Dark Room of Nightmare": Inflict 300 damage to your opponent.</effect>',
       prepopLP: { villain: -300 }
+   },
+   "Archfiend's Oath": {
+      id: "22796548",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Ignition-like>Once per turn: You can pay 500 Life Points, then declare 1 card name; excavate the top card of your Deck, and if it is the declared card, add it to your hand.</effect> Otherwise, send it to the Graveyard",
+      prepopLP: { hero: -500 }
+   },
+   "Messenger of Peace": {
+      id: "44656491",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Monsters with 1500 or more ATK cannot declare an attack.</effect><effect=Maintenance cost>Once per turn, during your Standby Phase, pay 100 Life Points or destroy this card.</effect>",
+      prepopLP: { hero: -100 }
+   },
+   "Spell Economics": {
+      id: "04259068",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>You do not pay Life Points to activate Spells.</effect>"
+   },
+   Prohibition: {
+      id: "43711255",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Activate this card by declaring 1 card name; cards with that name, and their effects, cannot be used.</effect> Cards already on the field are not affected (including face-down cards)."
    }
 };
 
