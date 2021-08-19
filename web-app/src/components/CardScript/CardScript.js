@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import ScriptButton from "./ScriptButton.js";
 import getCardDetails from "utils/getCardDetails.js";
 
-import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN } from "utils/constants";
+import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, TRAP } from "utils/constants";
 
 class CardScript extends PureComponent {
    validScript = (activeCard, cardPlayer, script) => {
@@ -35,13 +35,16 @@ class CardScript extends PureComponent {
 
       if (!cardName) return null;
 
-      const { text, script } = getCardDetails(cardName);
+      const { cardType, text, script } = getCardDetails(cardName);
 
       return (
          <Fragment>
             {script && this.validScript(activeCard, player, script) && <ScriptButton script={script} heroPlayer={heroPlayer} />}
             {text.includes("/Flip/") && (
                <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
+            )}
+            {cardType === TRAP && (
+               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Extermination" activeCard={activeCard} heroPlayer={heroPlayer} />
             )}
          </Fragment>
       );
