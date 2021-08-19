@@ -17,7 +17,7 @@ class QueueButton extends PureComponent {
       const storage = window.sessionStorage;
       const activeDeck = storage.getItem("activeDeck");
       const decks = JSON.parse(storage.getItem("decks"));
-      this.errors = verifyDecks(decks[activeDeck].maindeck, decks[activeDeck].sidedeck);
+      this.errors = verifyDecks(decks[activeDeck].maindeck, decks[activeDeck].sidedeck, props.allowExarion);
    }
 
    joinQueue = () => {
@@ -75,7 +75,8 @@ class QueueButton extends PureComponent {
 }
 
 QueueButton.propTypes = {
-   leagueId: PropTypes.string.isRequired
+   leagueId: PropTypes.string.isRequired,
+   allowExarion: PropTypes.bool.isRequired
 };
 
 export default QueueButton;

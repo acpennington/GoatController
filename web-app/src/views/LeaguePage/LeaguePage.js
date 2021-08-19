@@ -65,7 +65,7 @@ class LeaguePage extends PureComponent {
 
    getMatchmaking = () => {
       const { classes } = this.props;
-      const { useQueue, canLeave } = this.state;
+      const { allowExarion, useQueue, canLeave } = this.state;
 
       return (
          <GridItem xs={12}>
@@ -75,7 +75,7 @@ class LeaguePage extends PureComponent {
                </Shadow>
                {canLeave ? (
                   useQueue ? (
-                     <QueueButton leagueId={this.leagueId} />
+                     <QueueButton leagueId={this.leagueId} allowExarion={allowExarion}/>
                   ) : (
                      "A table of hosted matches will go here"
                   )

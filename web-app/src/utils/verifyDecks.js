@@ -3,7 +3,7 @@ import { SENTINEL, FUSION_MONSTER } from "utils/constants.js";
 
 // Verifies that the decks have a legal number of cards and that no cards are used more than
 // their limits. Returns an array of all the issues with the deck (empty if the deck is valid).
-export default function verifyDecks(main, side) {
+export default function verifyDecks(main, side, exarion = false) {
   let total = {main: 0, side: 0};
   const errors = [];
   const names = {};
@@ -22,6 +22,8 @@ export default function verifyDecks(main, side) {
         continue;
       } else if (card.cardType === FUSION_MONSTER) {
         errors.push(`"${name}" is a Fusion Monster and is only allowed in the Fusion Deck.`);
+      } else if (!exarion && name === "Exarion Universe") {
+        errors.push(`"${name}" is not allowed.`);
       }
 
       const limit = card.limit || 3;
