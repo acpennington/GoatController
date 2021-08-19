@@ -14,10 +14,14 @@ function millUntil(player, deck, params, socket = false) {
    const topCard = deck.length - 1;
    return (dispatch) => {
       let found = -1;
-      for (let i = topCard; i >= 0 && found < 0; i--) {
-         const card = deck[i];
-         const { fail } = checkParams(card, params);
-         if (fail.length === 0) found = i;
+      if (typeof params === "number") {
+         found = Math.max(0, deck.length - params);
+      } else {
+         for (let i = topCard; i >= 0 && found < 0; i--) {
+            const card = deck[i];
+            const { fail } = checkParams(card, params);
+            if (fail.length === 0) found = i;
+         }
       }
 
       if (socket && socket.api) {

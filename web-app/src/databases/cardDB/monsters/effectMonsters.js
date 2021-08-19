@@ -1531,6 +1531,42 @@ const effectMonsters = {
          }
       }
    },
+   "Needle Worm": {
+      id: "81843628",
+      cardType: EFFECT_MONSTER,
+      attribute: EARTH,
+      levelOrSubtype: 2,
+      atk: 750,
+      def: 600,
+      text: "Insect/Flip/Effect - <effect=Flip>FLIP: Send the top 5 cards of your opponent's Deck to the Graveyard.</effect>",
+      script: {
+         name: MILL_UNTIL,
+         message: "FIXME",
+         displayCondition: {
+            players: [VILLAIN],
+            row: MONSTER
+         },
+         params: 5
+      }
+    },
+    "Hiro's Shadow Scout": {
+      id: "81863068",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 2,
+      atk: 650,
+      def: 500,
+      text: "Fiend/Flip/Effect - <effect=Flip>FLIP: Your opponent draws 3 cards, then they reveal those cards, also they discard any Spell drawn with this effect.</effect>",
+      script: {
+         name: MILL_UNTIL,
+         message: "FIXME",
+         displayCondition: {
+            players: [VILLAIN],
+            row: MONSTER
+         },
+         params: 3
+      }
+   },
    "Abyss Soldier": {
       id: "18318842",
       cardType: EFFECT_MONSTER,
