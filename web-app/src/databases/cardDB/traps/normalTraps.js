@@ -447,6 +447,24 @@ const normalTraps = {
       levelOrSubtype: "Normal",
       text: "Discard 1 card, then target 1 card your opponent controls; place that target on the top of the Deck."
    },
+   "Physical Double": {
+      id: "63442604",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: `During your opponent's turn: Target 1 face-up monster your opponent controls; Special Summon 1 "Mirage Token" with the same Level, Type, Attribute, ATK, and DEF as that target. Destroy this Token during the End Phase.`,
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            name: "Mirage Token",
+            pos: "atk",
+            count: 1
+         }
+      }
+   }
 };
 
 export default normalTraps;

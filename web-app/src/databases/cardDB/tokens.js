@@ -83,6 +83,14 @@ const tokens = {
       def: 500,
       text: "Aqua"
    },
+   "Mirage Token": {
+      cardType: TOKEN_MONSTER,
+      attribute: "???",
+      levelOrSubtype: "???",
+      atk: "?",
+      def: "?",
+      text: "???"
+   }
 };
 
 export default tokens;

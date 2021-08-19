@@ -26,7 +26,7 @@ class CardArt extends PureComponent {
 
    render() {
       const { classes, name, nameHeight, cardTypeIcon, levelOrSubtype, atk, def, showNames, villExtension, battle } = this.props;
-      const isMonster = !isNaN(levelOrSubtype);
+      const isMonster = !isNaN(levelOrSubtype) || levelOrSubtype === "???";
 
       return (
          <Fragment>
@@ -46,21 +46,28 @@ class CardArt extends PureComponent {
                </div>
             )}
             <div className={classes.lowerHalf}>
-               <div
-                  className={classes["icons" + (isMonster ? "Monster" : "SpellTrap")]}
-                  style={{
-                     lineHeight: nameHeight + "px"
-                  }}
-               >
-                  {levelOrSubtype !== "Normal" && this.getSubtitle()}
-                  <img
-                     src={"/cards/svgs/attributes/" + cardTypeIcon + ".svg"}
-                     draggable="false"
-                     height={nameHeight * 1.05 + "px"}
-                     alt=""
-                     style={{ marginLeft: "2.05%" }}
-                  />
-               </div>
+               {levelOrSubtype === "???" ? (
+                 <div
+                    className={classes["iconsMonster"]}
+                    style={{lineHeight: nameHeight + "px"}}
+                 >
+                    ???
+                 </div>
+               ) : (
+                  <div
+                     className={classes["icons" + (isMonster ? "Monster" : "SpellTrap")]}
+                     style={{lineHeight: nameHeight + "px"}}
+                  >
+                     {levelOrSubtype !== "Normal" && this.getSubtitle()}
+                     <img
+                        src={"/cards/svgs/attributes/" + cardTypeIcon + ".svg"}
+                        draggable="false"
+                        height={nameHeight * 1.05 + "px"}
+                        alt=""
+                        style={{ marginLeft: "2.05%" }}
+                     />
+                  </div>
+               )}
                <div
                   className={classes["monsterStats" + villExtension]}
                   style={{
