@@ -11,7 +11,7 @@ async function mill(id, username, deck, params, fail, connectionId, api) {
       content = `${username} milled ${params} card${params === 1 ? '' : 's'}.`;
    } else {
       // This is a really hacky way to check for Merchant vs Reasoning/Gate
-      const cardType = params.cardType && params.cardType.operator === "OR" ? "Spell or Trap" : "Normal Summon Monster";
+      const cardType = params.text ? "Normal Summon Monster" : "Spell or Trap";
       content =  fail
          ? `${username} was unable to mill until a ${cardType} card as there are no legal targets remaining.`
          : `${username} milled until a ${cardType} card.`;
