@@ -8,7 +8,7 @@ The following cards were labeled "basic" but are not.
 
 - Ancient Telescope: We could just use a mill 5 script for this (pre: seems like this would be wrong as it would reveal them to the opponent?)
 - D.D. Dynamite: This card has been added. However, we could prehaps consider more complicated prepopLP parameters to handle cases like these in the future (see ticket #225).
-- Dark Designator: This will require very complex scripting (or perhaps just let villain view their entire deck).
+- Dark Designator: This will require very complex scripting (or perhaps just let villain view their entire deck). (see ticket #254)
 - Fiend's Hand Mirror: It is possible that this card's PSCT may be incorrect, but this is not a big concern.
 - Fruits of Kozaky's Studies: Requires script to look at top 3
 - Gift of the Mystical Elf: complex prepopLP (see ticket #225).
@@ -27,7 +27,7 @@ The following cards were labeled "basic" but are not.
 
 Notes regarding cards labeled "easy".
 
-- Balloon Lizard: See D.D. Dynamite.
+- Balloon Lizard: complex prepopLP (see ticket #225).
 - Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
 - Maharaghi: Will require significant scripting
 - Outstanding Dog Marron: Requires shuffle button (see ticket #227)
@@ -39,12 +39,11 @@ Notes regarding cards labeled "easy".
 
 ## User Requested Cards
 
-- Cyber Jar: Will require some sort of script to make this work.
-- Morphing Jar #2: needs some sort of script.
-- Vampire Lord: requires opponent to hava ability to generically look in deck
-- Parasite Paracide: could just be implemented with a standard search and then the user manually placing back on deck?
-- Manju of the Ten Thousand Hands: need to be able to search for just a *Ritual* Spell (and use 'OR' for RITUAL_MONSTER)
-- Iron Blacksmith Kotetsu: similarly, needs to be able to search for a *Equip* Spell
+- Cyber Jar: Will require some sort of script to make this work. (see ticket #247)
+- Morphing Jar #2: needs some sort of script. (see ticket #248)
+- Vampire Lord: requires opponent to have ability to generically look in deck (see ticket #254)
+- Parasite Paracide: requires complex scripting.
+- Manju of the Ten Thousand Hands: need to be able to search for EITHER a Ritual Spell or a Ritual Monster (seeticket #253)
 
 ### Optional / Convenience
 
