@@ -79,8 +79,8 @@ class CardScript extends PureComponent {
    };
 
    skipDraws = (count) => {
-      const { field, heroPlayer } = this.props;
-      const skipped = field[heroPlayer].skippedDraws = Math.max(field[heroPlayer].skippedDraws, count);
+      const { field, heroPlayer, addMessage } = this.props;
+      const skipped = (field[heroPlayer].skippedDraws = Math.max(field[heroPlayer].skippedDraws, count));
       const message = `${heroPlayer} is skipping their next${skipped > 1 ? ` ${skipped}` : ""} Draw Phase${skipped > 1 ? "s" : ""}.`;
       addMessage("Game", message, this.context);
    };

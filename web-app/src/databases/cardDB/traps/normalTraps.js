@@ -13,7 +13,8 @@ const normalTraps = {
             row: SPELL_TRAP
          },
          params: 2
-      }
+      },
+      limit: 1
    },
    "Time Seal": {
       id: "35316708",
