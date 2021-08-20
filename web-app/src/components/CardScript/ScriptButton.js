@@ -156,6 +156,7 @@ class CardScript extends PureComponent {
 
 function fieldContains(field, card) {
    switch (card) {
+      case "Nobleman of Extermination":
       case "Nobleman of Crossout":
          for (const key in field) for (const zone of field[key][SPELL_TRAP]) if (zone && !zone.facedown && zone.name === card) return true;
          return false;

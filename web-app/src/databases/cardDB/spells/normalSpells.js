@@ -283,6 +283,12 @@ const normalSpells = {
       text: "Target 1 face-down monster on the field; destroy that target, and if you do, banish it, then, if it was a Flip monster, each player banishes all cards from their Deck with that monster's name.",
       limit: 2
    },
+   "Nobleman of Extermination": {
+      id: "17449108",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Target 1 face-down Spell/Trap on the field; destroy that target, and if you do, banish it, then, if it was a Trap, each player banishes all cards from their Deck with that card's name"
+   },
    "Creature Swap": {
       id: "31036355",
       cardType: SPELL,
