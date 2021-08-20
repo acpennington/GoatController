@@ -2984,6 +2984,31 @@ const effectMonsters = {
       atk: 500,
       def: 500,
       text: "Fiend/Flip/Effect - <effect=Flip>FLIP: When this card is sent to the Graveyard, each player targets 1 monster in their Graveyard, then Special Summons them to their side of the field in face-up Attack Position or face-down Defense Position.</effect>"
+   },
+   "Iron Blacksmith Kotetsu": {
+      id: "73431236",
+      cardType: EFFECT_MONSTER,
+      attribute: FIRE,
+      levelOrSubtype: 2,
+      atk: 500,
+      def: 500,
+      text: "Beast-Warrior/Flip/Effect - <effect=Flip>FLIP: Add 1 Equip Spell from your Deck to your hand.</effect>",
+      script: {
+         name: SEARCH_DECK,
+         displayCondition: {
+            players: [HERO],
+            row: MONSTER
+         },
+         params: {
+            cardType: {
+               value: SPELL
+            },
+            levelOrSubtype: {
+               value: "Equip",
+            }
+         },
+         autoClose: true
+      }
    }
 };
 
