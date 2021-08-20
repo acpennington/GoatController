@@ -2049,7 +2049,7 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 2400,
       def: 1200,
-      text: "Dragon/Effect – This card cannot be Normal Summoned or Set."
+      text: "Dragon/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect>"
    },
    "Tyrant Dragon": {
       id: "94568601",
@@ -2955,7 +2955,25 @@ const effectMonsters = {
          },
          autoClose: true
       }
-   }
+   },
+   "Magical Marionette": {
+      id: "08034697",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 5,
+      atk: 2000,
+      def: 1000,
+      text: 'Spellcaster/Effect - <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell Card resolves.</effect> <effect=Continuous>This card gains 200 ATK for each Spell Counter on it.</effect> <effect=Ignition>You can remove 2 Spell Counters from this card, then target 1 monster on the field; destroy that target.</effect>'
+   },
+   "Strike Ninja": {
+      id: "41006930",
+      cardType: EFFECT_MONSTER,
+      attribute: DARK,
+      levelOrSubtype: 4,
+      atk: 1700,
+      def: 1200,
+      text: 'Warrior/Effect - <effect=Quick>You can banish 2 DARK monsters from your Graveyard; banish this face-up card until the End Phase.</effect> You can only use this effect of "Strike Ninja" once per turn.'
+    }
 };
 
 export default effectMonsters;

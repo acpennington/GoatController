@@ -38,6 +38,11 @@ function paramPassed(cardParam, value, operator) {
             const [labelPart, effectPart] = cardParam.split("–");
             return labelPart.includes("Effect") && effectPart.toLowerCase().includes(value.toLowerCase());
          } else return cardParam && cardParam.toLowerCase().includes(value.toLowerCase());
+      case "DOES_NOT_CONTAIN":
+         if (cardParam && cardParam.includes("–")) {
+            const [labelPart, effectPart] = cardParam.split("–");
+            return labelPart.includes("Effect") && !effectPart.toLowerCase().includes(value.toLowerCase());
+         } else return cardParam && !cardParam.toLowerCase().includes(value.toLowerCase());
       default:
          return cardParam && cardParam === value;
    }

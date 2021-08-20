@@ -1,4 +1,4 @@
-import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, SEARCH_DECK, DISCARD_AND_DRAW, TOKENS } from "utils/constants.js";
+import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, SEARCH_DECK, DISCARD_AND_DRAW, TOKENS, MILL_UNTIL, NORMAL_MONSTER, EFFECT_MONSTER } from "utils/constants.js";
 
 const normalSpells = {
    "Jade Insect Whistle": {
@@ -481,13 +481,47 @@ const normalSpells = {
       id: "58577036",
       cardType: SPELL,
       levelOrSubtype: "Normal",
-      text: "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the Graveyard. If not, Special Summon the excavated monster, also send the remaining cards to the Graveyard"
+      text: "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the Graveyard. If not, Special Summon the excavated monster, also send the remaining cards to the Graveyard",
+      script: {
+         name: MILL_UNTIL,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            cardType: {
+               operator: "OR",
+               value: [NORMAL_MONSTER, EFFECT_MONSTER]
+            },
+            text: {
+               operator: "DOES_NOT_CONTAIN",
+               value: "Cannot be Normal Summoned/Set."
+            }
+         }
+      }
    },
    "Monster Gate": {
       id: "43040603",
       cardType: SPELL,
       levelOrSubtype: "Normal",
-      text: "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the Graveyard."
+      text: "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the Graveyard.",
+      script: {
+         name: MILL_UNTIL,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            cardType: {
+               operator: "OR",
+               value: [NORMAL_MONSTER, EFFECT_MONSTER]
+            },
+            text: {
+               operator: "DOES_NOT_CONTAIN",
+               value: "Cannot be Normal Summoned/Set."
+            }
+         }
+      }
    },
    "Brain Control": {
       id: "87910978",
@@ -562,6 +596,12 @@ const normalSpells = {
       levelOrSubtype: "Normal",
       text: "Discard 1 card, then target 1 monster on the field; place that target on the top of the Deck."
    },
+   "Tribute to The Doomed": {
+      id: "79759861",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Discard 1 card, then target 1 monster on the field; destroy it."
+   }
 };
 
 export default normalSpells;
