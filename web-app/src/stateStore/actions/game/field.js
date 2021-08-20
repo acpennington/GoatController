@@ -2,6 +2,7 @@ import { Howl } from "howler";
 
 import { clearSelection } from "../shared/selectedCard.js";
 import { setTurn } from "./turn.js";
+import getCardDetails from "utils/getCardDetails.js";
 import {
    MOVE_CARD,
    DRAW_PHASE_DRAW,
@@ -43,6 +44,7 @@ function drawPhaseDraw(player, socket = false) {
 
 function createTokens(player, params, socket = false) {
    const { count, name, pos } = params;
+   const token = getCardDetails(name);
    const inDef = pos === "def";
 
    playSound("/sounds/specialsummon.mp3");
@@ -54,7 +56,7 @@ function createTokens(player, params, socket = false) {
 
    return (dispatch) => {
       for (let i = 0; i < count; i++) {
-         const n = name === "Sheep Token" && i > 0 ? `${name}${SENTINEL}${i}` : name;
+         const n = token.art && i > 0 ? `${name}${SENTINEL}${i % token.art}` : name;
          dispatch({ type: CREATE_TOKEN, data: { player, name: n, inDef } });
       }
    };
