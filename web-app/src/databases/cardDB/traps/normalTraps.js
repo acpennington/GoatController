@@ -1,6 +1,49 @@
-import { TRAP, VILLAIN, SEARCH_DECK, SPELL_TRAP } from "utils/constants.js";
+import { TRAP, HERO, VILLAIN, SEARCH_DECK, SPELL_TRAP, SKIP_DRAWS } from "utils/constants.js";
 
 const normalTraps = {
+   "Reckless Greed": {
+      id: "37576645",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Draw 2 cards and skip your next 2 Draw Phases.",
+      script: {
+         name: SKIP_DRAWS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: 2
+      },
+      limit: 1
+   },
+   "Time Seal": {
+      id: "35316708",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Skip the Draw Phase of your opponent's next turn.",
+      script: {
+         name: SKIP_DRAWS,
+         displayCondition: {
+            players: [VILLAIN],
+            row: SPELL_TRAP
+         },
+         params: 1
+      }
+   },
+   "Penalty Game!": {
+      id: "0967928",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When your opponent has 4 cards in their hand: Activate 1 of these effects.● Your opponent cannot draw during their next Draw Phase.● Your opponent cannot activate Spell/Trap Cards this turn.",
+      script: {
+         name: SKIP_DRAWS,
+         displayCondition: {
+            players: [VILLAIN],
+            row: SPELL_TRAP
+         },
+         params: 1
+      }
+   },
    "Arsenal Robber": {
       id: "55348096",
       cardType: TRAP,
