@@ -38,6 +38,12 @@ const counterTraps = {
       cardType: TRAP,
       levelOrSubtype: "Counter",
       text: "When a card or effect is activated that would inflict damage to your Life Points: Your opponent takes the damage instead."
+   },
+   "Cursed Seal of the Forbidden Spell": {
+      id: "58851034",
+      cardType: TRAP,
+      levelOrSubtype: "Counter",
+      text: "When a Spell is activated: Discard 1 Spell; negate the activation, and if you do, destroy it, and if you do that, your opponent cannot activate Spells with that name for the rest of this Duel."
    }
 };
 

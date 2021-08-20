@@ -55,5 +55,4 @@ Notes regarding cards labeled "easy".
 - Des Koala: complex prepopLP (see ticket #225).
 - Exodia: fancy win script? (user can technically just reveal hand)
 - Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
-- Reasoning/Monster Gate: convenience script to MILL_UNTIL does not contain "Cannot be Normal Summoned/Set." leave result in grave and let user decide if was successful. Need to avoid milling if no legal summons left (see PR #243).
 - Reversal Quiz - helper to send everything to graveyard? Optional script to swap LP?
