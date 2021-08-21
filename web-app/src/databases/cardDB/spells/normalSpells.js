@@ -394,7 +394,8 @@ const normalSpells = {
             }
          },
          autoClose: true
-      }
+      },
+      art: 2
    },
    "The Big March of Animals": {
       id: "01689516",
@@ -438,39 +439,45 @@ const normalSpells = {
       id: "29228529",
       cardType: SPELL,
       levelOrSubtype: "Normal",
-      text: "Send 2 Spells from your hand to the Graveyard, then target 1 Spell in your Graveyard; add it to your hand."
+      text: "Send 2 Spells from your hand to the Graveyard, then target 1 Spell in your Graveyard; add it to your hand.",
+      art: 2
    },
    "Exile of the Wicked": {
       id: "26725158",
       cardType: SPELL,
       levelOrSubtype: "Normal",
-      text: "Destroy all Fiend monsters on the field."
+      text: "Destroy all Fiend monsters on the field.",
+      art: 2
    },
    "Final Flame": {
       id: "73134081",
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Inflict 600 damage to your opponent.",
-      prepopLP: { villain: -600 }
+      prepopLP: { villain: -600 },
+      art: 2
    },
    Polymerization: {
       id: "24094653",
       cardType: SPELL,
       levelOrSubtype: "Normal",
-      text: "Fusion Summon 1 Fusion Monster from your Fusion Deck, using monsters from your hand or field as Fusion Material."
+      text: "Fusion Summon 1 Fusion Monster from your Fusion Deck, using monsters from your hand or field as Fusion Material.",
+      art: 2
    },
    "Soul Release": {
       id: "05758500",
       cardType: SPELL,
       levelOrSubtype: "Normal",
-      text: "Target up to 5 cards in any Graveyard(s); banish them."
+      text: "Target up to 5 cards in any Graveyard(s); banish them.",
+      art: 2
    },
    "Soul of the Pure": {
       id: "47852924",
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Increase your Life Points by 800 points.",
-      prepopLP: { hero: 800 }
+      prepopLP: { hero: 800 },
+      art: 2
    },
    "Dimension Fusion": {
       id: "23557835",

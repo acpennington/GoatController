@@ -2158,7 +2158,7 @@ const normalMonsters = {
       atk: 2400,
       def: 2000,
       text: "Dragon – A ferocious dragon with a deadly attack.",
-      art: 2
+      art: 6
    },
    "Right Arm of the Forbidden One": {
       id: "70903634",
