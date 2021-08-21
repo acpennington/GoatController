@@ -38,6 +38,7 @@ const battlefieldStyle = {
    fieldDivider: {
       height: DIVIDER_HEIGHT + "px",
       display: "flex",
+      flexDirection: "row",
       justifyContent: "center",
       alignItems: "center"
    }

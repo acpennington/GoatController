@@ -18,6 +18,7 @@ class LifeBar extends PureComponent {
 }
 
 LifeBar.propTypes = {
+   classes: PropTypes.object.isRequired,
    life: PropTypes.number.isRequired,
    isHero: PropTypes.bool.isRequired
 };

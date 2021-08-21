@@ -5,7 +5,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 import FieldRow from "./FieldRow.js";
-import FieldDivider from "./FieldDivider.js";
+import FieldDivider from "./FieldDivider/FieldDivider.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import Hand from "./Hand.js";
 import RightTools from "./RightTools/RightTools.js";
