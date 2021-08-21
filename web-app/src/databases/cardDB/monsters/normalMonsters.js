@@ -1439,7 +1439,8 @@ const normalMonsters = {
       levelOrSubtype: 1,
       atk: 200,
       def: 300,
-      text: "Spellcaster – A forbidden left arm sealed by magic. Whosoever breaks this seal will know infinite power."
+      text: "Spellcaster – A forbidden left arm sealed by magic. Whosoever breaks this seal will know infinite power.",
+      limit: 1
    },
    "Left Leg of the Forbidden One": {
       id: "44519536",
@@ -1448,7 +1449,8 @@ const normalMonsters = {
       levelOrSubtype: 1,
       atk: 200,
       def: 300,
-      text: "Spellcaster – A forbidden left leg sealed by magic. Whosoever breaks this seal will know infinite power."
+      text: "Spellcaster – A forbidden left leg sealed by magic. Whosoever breaks this seal will know infinite power.",
+      limit: 1
    },
    Leogun: {
       id: "10538007",
@@ -2150,7 +2152,8 @@ const normalMonsters = {
       levelOrSubtype: 1,
       atk: 200,
       def: 300,
-      text: "Spellcaster – A forbidden right arm sealed by magic. Whosoever breaks this seal will know infinite power."
+      text: "Spellcaster – A forbidden right arm sealed by magic. Whosoever breaks this seal will know infinite power.",
+      limit: 1
    },
    "Right Leg of the Forbidden One": {
       id: "08124921",
@@ -2159,7 +2162,8 @@ const normalMonsters = {
       levelOrSubtype: 1,
       atk: 200,
       def: 300,
-      text: "Spellcaster – A forbidden right leg sealed by magic. Whosoever breaks this seal will know infinite power."
+      text: "Spellcaster – A forbidden right leg sealed by magic. Whosoever breaks this seal will know infinite power.",
+      limit: 1
    },
    Robolady: {
       id: "92421852",

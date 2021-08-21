@@ -34,11 +34,17 @@ function paramPassed(cardParam, value, operator) {
       case "TYPEMATCH":
          return cardParam && (cardParam.startsWith(value + "/") || cardParam.startsWith(value + " –"));
       case "CONTAINS":
-         if (cardParam && cardParam.includes("–")) {
-            const [labelPart, effectPart] = cardParam.split("–");
-            return labelPart.includes("Effect") && effectPart.toLowerCase().includes(value.toLowerCase());
-         } else return cardParam && cardParam.toLowerCase().includes(value.toLowerCase());
+         return contains(cardParam, value);
+      case "DOES_NOT_CONTAIN":
+         return !contains(cardParam, value);
       default:
          return cardParam && cardParam === value;
    }
+}
+
+function contains(cardParam, value) {
+   if (cardParam && cardParam.includes("–")) {
+      const [labelPart, effectPart] = cardParam.split("–");
+      return labelPart.includes("Effect") && effectPart.toLowerCase().includes(value.toLowerCase());
+   } else return cardParam && cardParam.toLowerCase().includes(value.toLowerCase());
 }

@@ -53,7 +53,8 @@ const continuousTraps = {
       id: "85742772",
       cardType: TRAP,
       levelOrSubtype: "Continuous",
-      text: "<effect=Continuous-like>Level 4 or higher monsters cannot attack.</effect>"
+      text: "<effect=Continuous-like>Level 4 or higher monsters cannot attack.</effect>",
+      limit: 2
    },
    "Infinite Dismissal": {
       id: "54109233",
@@ -161,7 +162,44 @@ const continuousTraps = {
       cardType: TRAP,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Negate all other Trap effects on the field.</effect>"
-   }
+   },
+   "Anti-Spell Fragrance": {
+      id: "58921041",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Both players must Set Spells before activating them, and cannot activate them until their next turn after Setting them.</effect>"
+   },
+   "Nightmare Wheel": {
+      id: "54704216",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect><effect=Continuous-like>When it leaves the field, destroy this card.</effect><effect=Trigger-like>During each of your Standby Phases: Inflict 500 damage to your opponent.</effect> That monster must be on the field to activate and to resolve this effect.",
+      prepopLP: { villain: -500 }
+   },
+   "Xing Zhen Hu": {
+      id: "76515293",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Activate by targeting 2 Set Spells/Traps on the field; those targets cannot be activated.</effect>"
+   },
+   "Wall of Revealing Light": {
+      id: "17078030",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "Activate by paying any multiple of 1000 Life Points.<effect=Continuous-like>Monsters your opponent controls cannot attack if their ATK is less than or equal to the amount you paid.</effect>"
+   },
+   "Light of Intervention": {
+      id: "62867251",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>While this card is on the field, Monster Cards cannot be Set or flipped face-down.</effect> <effect=Continuous-like>If a Monster Card would be Set, it must be Normal Summoned in face-up Defense Position.</effect>"
+   },
+   "Mask of Restrict": {
+      id: "29549364",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Neither player can Tribute cards.</effect>"
+   },
 };
 
 export default continuousTraps;

@@ -119,6 +119,45 @@ const equipSpells = {
       text: "Equip only to a monster your opponent controls. <effect=Continuous-like>Take control of the equipped monster.</effect> <effect=Trigger-like>During each of your opponent's Standby Phases: They gain 1000 Life Points.</effect>",
       prepopLP: { villain: 1000 },
       limit: 1
+   },
+   "United We Stand": {
+      id: "56747793",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>The equipped monster gains 800 ATK/DEF for each face-up monster you control.</effect>",
+      limit: 1
+   },
+   "Axe of Despair": {
+      id: "40619825",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: '(This card is always treated as an "Archfiend" card.) <effect=Continuous-like>The equipped monster gains 1000 ATK.</effect> <effect=Trigger-like>When this card is sent from the field to the Graveyard: You can Tribute 1 monster; place this card on the top of your Deck.</effect>'
+   },
+   "Big Bang Shot": {
+      id: "61127349",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>The equipped monster gains 400 ATK.</effect> <effect=Continuous-like>If the equipped monster attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Continuous-like>When this card leaves the field, banish the equipped monster.</effect>"
+   },
+   "Black Pendant": {
+      id: "65169794",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>The equipped monster gains 500 ATK.</effect> <effect=Trigger-like>When this card is sent from the field to the Graveyard: Inflict 500 damage to your opponent.</effect>",
+      prepopLP: { villain: -500 }
+   },
+   Megamorph: {
+      id: "22046459",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>While your Life Points is lower than your opponent's, the equipped monster's ATK becomes double its original ATK.</effect> <effect=Continuous-like>While your Life Points is higher, the equipped monster's ATK becomes half its original ATK.</effect>"
+   },
+   "Mask of the Accursed": {
+      id: "56948373",
+      cardType: SPELL,
+      levelOrSubtype: "Equip",
+      text: "<effect=Continuous-like>The monster equipped with this card cannot attack.</effect> <effect=Trigger-like>The controller of the equipped monster takes 500 points of damage during each of your Standby Phases.</effect>",
+      prepopLP: { hero: -500, villain: -500 }
    }
 };
 

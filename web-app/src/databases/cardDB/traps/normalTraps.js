@@ -1,4 +1,4 @@
-import { TRAP, HERO, VILLAIN, SEARCH_DECK, SPELL_TRAP, SKIP_DRAWS } from "utils/constants.js";
+import { TRAP, HERO, VILLAIN, SEARCH_DECK, SPELL_TRAP, FLIP_COINS, TOKENS, GRAVEYARD, SKIP_DRAWS } from "utils/constants.js";
 
 const normalTraps = {
    "Reckless Greed": {
@@ -296,6 +296,173 @@ const normalTraps = {
       cardType: TRAP,
       levelOrSubtype: "Normal",
       text: "When an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied)."
+   },
+   Waboku: {
+      id: "12607053",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "You take no battle damage this turn. Your monsters cannot be destroyed by battle this turn."
+   },
+   "Needle Ceiling": {
+      id: "38411870",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When there are 4 or more monsters on the field: Destroy all face-up monsters."
+   },
+   "Magic Cylinder": {
+      id: "62279055",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.",
+      limit: 1
+   },
+   Ceasefire: {
+      id: "36468556",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "If a face-down Defense Position monster or an Effect Monster is on the field: Change all face-down Defense Position monsters on the field to face-up Defense Position (Flip monsters' effects are not activated at this time), also inflict 500 damage to your opponent for each Effect Monster on the field.",
+      limit: 1
+   },
+   "Just Desserts": {
+      id: "24068492",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Inflict 500 damage to your opponent for each monster they control."
+   },
+   "Secret Barrel": {
+      id: "27053506",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Inflict 200 damage to your opponent for each card in their hand and each card they control."
+   },
+   "Bottomless Trap Hole": {
+      id: "29401950",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When your opponent Summons a monster(s) with 1500 or more ATK: Destroy that monster(s) with 1500 or more ATK, and if you do, banish it."
+   },
+   "Ojama Trio": {
+      id: "29843091",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: `Special Summon 3 "Ojama Tokens" (Beast-Type/LIGHT/Level 2/ATK 0/DEF 1000) to your opponent's field in Defense Position. <effect=Lingering>They cannot be Tributed for a Tribute Summon, and each time 1 is destroyed, its controller takes 300 damage.</effect>`,
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [VILLAIN],
+            row: SPELL_TRAP
+         },
+         params: {
+            name: "Ojama Token",
+            pos: "def",
+            count: 3
+         }
+      }
+   },
+   "Fake Trap": {
+      id: "03027001",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When your opponent activates a card or effect that would destroy a Trap(s) you control: Destroy this card instead of that Trap(s). (Reveal all of your face-down Traps that would have been destroyed)."
+   },
+   "Rock Bombardment": {
+      id: "20781762",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Send 1 Rock monster from your Deck to the Graveyard; inflict 500 damage to your opponent.",
+      prepopLP: { villain: -500 }
+   },
+   "Backup Soldier": {
+      id: "36280194",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "While there are 5 or more monsters in your Graveyard: Target up to 3 non-Effect Monsters with 1500 or less ATK in your Graveyard; add them to your hand."
+   },
+   "Fiend Comedian": {
+      id: "81172176",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Toss a coin and call it. If you call it right, banish all cards from your opponent's Graveyard If you call it wrong, send cards from the top of your Deck to the Graveyard equal to the number of cards in your opponent's Graveyard",
+      script: {
+         name: FLIP_COINS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: 1
+      }
+   },
+   Metalmorph: {
+      id: "68540058",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Target 1 face-up monster on the field; equip this card to that target. <effect=Continuous-like>It gains 300 ATK/DEF.</effect> <effect=Continuous-like>If it attacks, it gains ATK equal to half the ATK of the attack target, during damage calculation only.</effect>"
+   },
+   "Spellbinding Circle": {
+      id: "18807108",
+      cardType: TRAP,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>"
+   },
+   Taunt: {
+      id: "90740329",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Activate only during your opponent's Main Phase 1; select 1 monster on your side of the field. While the selected card remains on the field, if your opponent attacks with a monster(s) this turn, they must select the selected monster as the attack target."
+   },
+   Tragedy: {
+      id: "35686187",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When a face-up Attack Position monster(s) your opponent controls is changed to face-up Defense Position: Destroy all Defense Position monsters your opponent controls."
+   },
+   "Statue of the Wicked": {
+      id: "65810489",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: '<effect=Trigger-like>When this face-down card is destroyed and sent to the Graveyard, Special Summon 1 "Wicked Token" (Fiend/DARK/Level 4 /ATK 1000/DEF 1000) on your side of the field.</effect>',
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: GRAVEYARD
+         },
+         params: {
+            name: "Wicked Token",
+            pos: "atk",
+            count: 1
+         }
+      }
+   },
+   "Rite of Spirit": {
+      id: "30450531",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: `Target 1 "Gravekeeper's' monster in your Graveyard; Special Summon that target. This card's activation and effect are unaffected by "Necrovalley".`
+   },
+   "Phoenix Wing Wind Blast": {
+      id: "63356631",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Discard 1 card, then target 1 card your opponent controls; place that target on the top of the Deck."
+   },
+   "Physical Double": {
+      id: "63442604",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: `During your opponent's turn: Target 1 face-up monster your opponent controls; Special Summon 1 "Mirage Token" with the same Level, Type, Attribute, ATK, and DEF as that target. Destroy this Token during the End Phase.`,
+      script: {
+         name: TOKENS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: {
+            name: "Mirage Token",
+            pos: "atk",
+            count: 1
+         }
+      }
    }
 };
 
