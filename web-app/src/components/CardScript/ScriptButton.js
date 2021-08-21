@@ -9,6 +9,7 @@ import ScriptName from "./ScriptName.js";
 import { moveCard, createTokens, discardAndDraw } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
+import compress from "utils/compressName.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
 
@@ -41,8 +42,8 @@ class CardScript extends PureComponent {
       unbind(["s"]);
    }
 
-   runScript = (script) => {
-      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw } = this.props;
+   runScript = () => {
+      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw, script } = this.props;
       const { name, params } = script;
       const socket = this.context;
       switch (name) {
@@ -133,13 +134,22 @@ class CardScript extends PureComponent {
    };
 
    render() {
-      const { classes, script, variant, field } = this.props;
+      const { classes, script, variant, field, activeCard } = this.props;
       const { tooltip } = script;
 
       if (variant && !fieldContains(field, variant)) return null;
 
       const button = (
-         <Button color="primary" onClick={() => this.runScript(script)}>
+         <Button
+            color="primary"
+            onClick={this.runScript}
+            style={
+               activeCard && activeCard.name
+                  ? { backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/' + compress(activeCard.name) + '.jpg")' }
+                  : {}
+            }
+            round
+         >
             <ScriptName scriptName={script.name} />
          </Button>
       );
@@ -173,8 +183,8 @@ CardScript.propTypes = {
    classes: PropTypes.object.isRequired,
    script: PropTypes.object.isRequired,
    heroPlayer: PropTypes.string.isRequired,
-   variant: PropTypes.string,
-   activeCard: PropTypes.object
+   activeCard: PropTypes.object.isRequired,
+   variant: PropTypes.string
 };
 
 CardScript.contextType = WebSocketContext;

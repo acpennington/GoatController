@@ -5,8 +5,9 @@ const container = {
    borderColor: "black",
    borderRadius: "10px",
    padding: "5px",
-   margin: "3px",
-   userSelect: "none"
+   margin: "3px 10px",
+   userSelect: "none",
+   width: "25%"
 };
 
 const lifebarStyle = {

@@ -1,14 +1,15 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
+import ButtonRow from "components/CustomButtons/ButtonRow.js";
 import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { adjustCounters } from "stateStore/actions/game/field";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
-import { onField } from "shared/constants";
+import { onField } from "shared/constants.js";
 
 class Counters extends Component {
    componentDidMount() {
@@ -34,14 +35,26 @@ class Counters extends Component {
 
    render() {
       return (
-         <Fragment>
-            <Button color="primary" round onClick={() => this.tryAdjustCounters(1)}>
-               <FaPlusCircle color="green" size="2em" /> Add Counter
+         <ButtonRow>
+            <Button
+               color="primary"
+               round
+               onClick={() => this.tryAdjustCounters(1)}
+               fullWidth
+               style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/RoyalMagicalLibrary.jpg")' }}
+            >
+               <FaPlusCircle color="green" size="2em" /> Count
             </Button>
-            <Button color="primary" round onClick={() => this.tryAdjustCounters(-1)}>
-               <FaMinusCircle color="yellow" size="2em" /> Remove Counter
+            <Button
+               color="primary"
+               round
+               onClick={() => this.tryAdjustCounters(-1)}
+               fullWidth
+               style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/BreakertheMagicalWarrior.jpg")' }}
+            >
+               <FaMinusCircle color="yellow" size="2em" /> Count
             </Button>
-         </Fragment>
+         </ButtonRow>
       );
    }
 }

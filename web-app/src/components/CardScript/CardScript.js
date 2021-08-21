@@ -39,7 +39,9 @@ class CardScript extends PureComponent {
 
       return (
          <Fragment>
-            {script && this.validScript(activeCard, player, script) && <ScriptButton script={script} heroPlayer={heroPlayer} />}
+            {script && this.validScript(activeCard, player, script) && (
+               <ScriptButton script={script} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} />
+            )}
             {text.includes("/Flip/") && (
                <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
             )}

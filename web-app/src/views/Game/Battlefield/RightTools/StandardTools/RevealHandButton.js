@@ -23,6 +23,7 @@ class RevealHand extends PureComponent {
                        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/Ante.jpg")'
                     }
             }
+            round
          >
             {handRevealed ? "Stop Revealing" : "Reveal Hand"}
          </Button>
