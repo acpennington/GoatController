@@ -58,7 +58,6 @@ class LeaguePage extends PureComponent {
       const res = await axios.get(API_URL + getApiStage() + "/leagues?id=" + this.leagueId, config);
       if (res.data.statusCode === 200) {
          const league = res.data.body;
-         console.log(JSON.stringify(league));
          this.setState({ ...league });
       } else this.setState({ name: "Error: " + apiErrors(res.data.body.errors) });
    };
@@ -75,7 +74,7 @@ class LeaguePage extends PureComponent {
                </Shadow>
                {canLeave ? (
                   useQueue ? (
-                     <QueueButton leagueId={this.leagueId} allowExarion={allowExarion}/>
+                     <QueueButton leagueId={this.leagueId} allowExarion={allowExarion} />
                   ) : (
                      "A table of hosted matches will go here"
                   )

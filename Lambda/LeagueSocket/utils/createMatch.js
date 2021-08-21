@@ -3,8 +3,7 @@ AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const { blankField } = require("../config/config.js");
-const { shuffle, expandDeck, verifyDecks } = require("shared");
-
+const { shuffle, expandDeck, verifyDecks } = require("../shared");
 
 // @function createMatch
 // @desc Places two players in a match together
