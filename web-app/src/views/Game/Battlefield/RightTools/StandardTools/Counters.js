@@ -36,11 +36,23 @@ class Counters extends Component {
    render() {
       return (
          <ButtonRow>
-            <Button color="primary" round onClick={() => this.tryAdjustCounters(1)} fullWidth>
-               <FaPlusCircle color="green" size="2em" /> Counter
+            <Button
+               color="primary"
+               round
+               onClick={() => this.tryAdjustCounters(1)}
+               fullWidth
+               style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/RoyalMagicalLibrary.jpg")' }}
+            >
+               <FaPlusCircle color="green" size="2em" /> Count
             </Button>
-            <Button color="primary" round onClick={() => this.tryAdjustCounters(-1)} fullWidth>
-               <FaMinusCircle color="yellow" size="2em" /> Counter
+            <Button
+               color="primary"
+               round
+               onClick={() => this.tryAdjustCounters(-1)}
+               fullWidth
+               style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/BreakertheMagicalWarrior.jpg")' }}
+            >
+               <FaMinusCircle color="yellow" size="2em" /> Count
             </Button>
          </ButtonRow>
       );
