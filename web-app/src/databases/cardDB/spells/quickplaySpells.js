@@ -1,6 +1,20 @@
-import { SPELL, HERO, TOKENS, SPELL_TRAP } from "utils/constants.js";
+import { SPELL, HERO, TOKENS, SPELL_TRAP, SKIP_DRAWS } from "utils/constants.js";
 
 const quickplaySpells = {
+   "Offerings to the Doomed": {
+      id: "19230407",
+      cardType: SPELL,
+      levelOrSubtype: "Quick-Play",
+      text: "Target 1 face-up monster on the field; destroy that target, also skip your next Draw Phase.",
+      script: {
+         name: SKIP_DRAWS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: 1
+      }
+   },
    "Mystical Space Typhoon": {
       id: "05318639",
       cardType: SPELL,
@@ -70,19 +84,13 @@ const quickplaySpells = {
       levelOrSubtype: "Quick-Play",
       text: "When you activate a Normal Spell Card: Discard all cards in your hand to the Graveyard; the effect of this card becomes the same as that Normal Spell Card."
    },
-   "Swords of Concealing Light": {
-      id: "12923641",
-      cardType: SPELL,
-      levelOrSubtype: "Quick-Play",
-      text: "Destroy this card during your 2nd Standby Phase after activation. When this card resolves, change all monsters your opponent controls to face-down Defense Position.<effect=Continuous-like>Monsters your opponent controls cannot change their battle positions.</effect>"
-   },
    "My Body as a Shield": {
       id: "69279219",
       cardType: SPELL,
       levelOrSubtype: "Quick-Play",
       text: "When your opponent activates a Spell/Trap Card or monster effect that would destroy a monster(s) on the field: Pay 1500 Life Points; negate the activation, and if you do, destroy it.",
       prepopLP: { hero: -1500 }
-   },
+   }
 };
 
 export default quickplaySpells;

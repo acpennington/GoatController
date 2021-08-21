@@ -1,6 +1,49 @@
-import { TRAP, HERO, VILLAIN, SEARCH_DECK, SPELL_TRAP, FLIP_COINS, TOKENS, GRAVEYARD } from "utils/constants.js";
+import { TRAP, HERO, VILLAIN, SEARCH_DECK, SPELL_TRAP, FLIP_COINS, TOKENS, GRAVEYARD, SKIP_DRAWS } from "utils/constants.js";
 
 const normalTraps = {
+   "Reckless Greed": {
+      id: "37576645",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Draw 2 cards and skip your next 2 Draw Phases.",
+      script: {
+         name: SKIP_DRAWS,
+         displayCondition: {
+            players: [HERO],
+            row: SPELL_TRAP
+         },
+         params: 2
+      },
+      limit: 1
+   },
+   "Time Seal": {
+      id: "35316708",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "Skip the Draw Phase of your opponent's next turn.",
+      script: {
+         name: SKIP_DRAWS,
+         displayCondition: {
+            players: [VILLAIN],
+            row: SPELL_TRAP
+         },
+         params: 1
+      }
+   },
+   "Penalty Game!": {
+      id: "0967928",
+      cardType: TRAP,
+      levelOrSubtype: "Normal",
+      text: "When your opponent has 4 cards in their hand: Activate 1 of these effects.● Your opponent cannot draw during their next Draw Phase.● Your opponent cannot activate Spell/Trap Cards this turn.",
+      script: {
+         name: SKIP_DRAWS,
+         displayCondition: {
+            players: [VILLAIN],
+            row: SPELL_TRAP
+         },
+         params: 1
+      }
+   },
    "Arsenal Robber": {
       id: "55348096",
       cardType: TRAP,
@@ -258,7 +301,7 @@ const normalTraps = {
       id: "12607053",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "You take no battle damage this turn. Your monsters cannot be destroyed by battle this turn"
+      text: "You take no battle damage this turn. Your monsters cannot be destroyed by battle this turn."
    },
    "Needle Ceiling": {
       id: "38411870",
@@ -302,7 +345,7 @@ const normalTraps = {
       id: "29843091",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: `Special Summon 3 "Ojama Tokens" (Beast-Type/LIGHT/Level 2/ATK 0/DEF 1000) to your opponent's field in Defense Position.<effect=Lingering>They cannot be Tributed for a Tribute Summon, and each time 1 is destroyed, its controller takes 300 damage.</effect>`,
+      text: `Special Summon 3 "Ojama Tokens" (Beast-Type/LIGHT/Level 2/ATK 0/DEF 1000) to your opponent's field in Defense Position. <effect=Lingering>They cannot be Tributed for a Tribute Summon, and each time 1 is destroyed, its controller takes 300 damage.</effect>`,
       script: {
          name: TOKENS,
          displayCondition: {
@@ -353,7 +396,7 @@ const normalTraps = {
       id: "68540058",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "Target 1 face-up monster on the field; equip this card to that target.<effect=Continuous-like>It gains 300 ATK/DEF.</effect> <effect=Continuous-like>If it attacks, it gains ATK equal to half the ATK of the attack target, during damage calculation only.</effect>"
+      text: "Target 1 face-up monster on the field; equip this card to that target. <effect=Continuous-like>It gains 300 ATK/DEF.</effect> <effect=Continuous-like>If it attacks, it gains ATK equal to half the ATK of the attack target, during damage calculation only.</effect>"
    },
    "Spellbinding Circle": {
       id: "18807108",

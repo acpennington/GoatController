@@ -23,7 +23,8 @@ import {
    RANDOM_DISCARD,
    FLIP_COINS,
    ROLL_DICE,
-   DISCARD_AND_DRAW
+   DISCARD_AND_DRAW,
+   SKIP_DRAWS
 } from "utils/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -69,9 +70,19 @@ class CardScript extends PureComponent {
          case DISCARD_AND_DRAW:
             discardAndDraw(heroPlayer, params, socket);
             break;
+         case SKIP_DRAWS:
+            this.skipDraws(params);
+            break;
          default:
             console.log("Error: Undefined card script");
       }
+   };
+
+   skipDraws = (count) => {
+      const { field, heroPlayer, addMessage } = this.props;
+      const skipped = (field[heroPlayer].skippedDraws = Math.max(field[heroPlayer].skippedDraws, count));
+      const message = `${heroPlayer} is skipping their next${skipped > 1 ? ` ${skipped}` : ""} Draw Phase${skipped > 1 ? "s" : ""}.`;
+      addMessage("Game", message, this.context);
    };
 
    randomDiscard = () => {
@@ -145,6 +156,7 @@ class CardScript extends PureComponent {
 
 function fieldContains(field, card) {
    switch (card) {
+      case "Nobleman of Extermination":
       case "Nobleman of Crossout":
          for (const key in field) for (const zone of field[key][SPELL_TRAP]) if (zone && !zone.facedown && zone.name === card) return true;
          return false;

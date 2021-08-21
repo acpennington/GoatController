@@ -78,13 +78,6 @@ const continuousSpells = {
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>All monsters you control gain 300 DEF.</effect>"
    },
-   "Swords of Revealing Light": {
-      id: "72302403",
-      cardType: SPELL,
-      levelOrSubtype: "Normal",
-      text: "After this card's activation, it remains on the field, but you must destroy it during the End Phase of your opponent's 3rd turn. When this card is activated: If your opponent controls a face-down monster, flip all monsters they control face-up. <effect=Continuous-like>While this card is face-up on the field, your opponent's monsters cannot declare an attack.</effect>",
-      limit: 1
-   },
    "Wave-Motion Cannon": {
       id: "38992735",
       cardType: SPELL,
@@ -116,7 +109,7 @@ const continuousSpells = {
       id: "44656491",
       cardType: SPELL,
       levelOrSubtype: "Continuous",
-      text: "<effect=Continuous-like>Monsters with 1500 or more ATK cannot declare an attack.</effect><effect=Maintenance cost>Once per turn, during your Standby Phase, pay 100 Life Points or destroy this card.</effect>",
+      text: "<effect=Continuous-like>Monsters with 1500 or more ATK cannot declare an attack.</effect> <effect=Maintenance Cost>Once per turn, during your Standby Phase, pay 100 Life Points or destroy this card.</effect>",
       prepopLP: { hero: -100 }
    },
    "Spell Economics": {
@@ -125,11 +118,17 @@ const continuousSpells = {
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>You do not pay Life Points to activate Spells.</effect>"
    },
+   "Swords of Concealing Light": {
+      id: "12923641",
+      cardType: SPELL,
+      levelOrSubtype: "Continuous",
+      text: "<effect=Condition>Destroy this card during your 2nd Standby Phase after activation.</effect> When this card resolves, change all monsters your opponent controls to face-down Defense Position.<effect=Continuous-like>Monsters your opponent controls cannot change their battle positions.</effect>"
+   },
    Prohibition: {
       id: "43711255",
       cardType: SPELL,
       levelOrSubtype: "Continuous",
-      text: "<effect=Continuous-like>Activate this card by declaring 1 card name; cards with that name, and their effects, cannot be used.</effect> Cards already on the field are not affected (including face-down cards)."
+      text: "<effect=Continuous-like>Activate this card by declaring 1 card name; cards with that name, and their effects, cannot be used. Cards already on the field are not affected (including face-down cards).</effect>"
    },
    "Jam Breeding Machine": {
       id: "21770260",
@@ -154,7 +153,7 @@ const continuousSpells = {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "<effect=Continuous-like>Your opponent cannot declare an attack, unless they send 1 card from the top of their Deck to the Graveyard.</effect>"
-   },
+   }
 };
 
 export default continuousSpells;

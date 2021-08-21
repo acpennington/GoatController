@@ -1,6 +1,26 @@
-import { SPELL, RANDOM_DISCARD, HERO, VILLAIN, SPELL_TRAP, SEARCH_DECK, DISCARD_AND_DRAW, TOKENS, MILL_UNTIL, NORMAL_MONSTER, EFFECT_MONSTER } from "utils/constants.js";
+import {
+   SPELL,
+   RANDOM_DISCARD,
+   HERO,
+   VILLAIN,
+   GRAVEYARD,
+   SPELL_TRAP,
+   SEARCH_DECK,
+   DISCARD_AND_DRAW,
+   TOKENS,
+   MILL_UNTIL,
+   NORMAL_MONSTER,
+   EFFECT_MONSTER
+} from "utils/constants.js";
 
 const normalSpells = {
+   "Swords of Revealing Light": {
+      id: "72302403",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "<effect=Condition>After this card's activation, it remains on the field, but you must destroy it during the End Phase of your opponent's 3rd turn.</effect> When this card is activated: If your opponent controls a face-down monster, flip all monsters they control face-up. <effect=Continuous-like>While this card is face-up on the field, your opponent's monsters cannot declare an attack.</effect>",
+      limit: 1
+   },
    "Jade Insect Whistle": {
       id: "95214051",
       cardType: SPELL,
@@ -283,6 +303,12 @@ const normalSpells = {
       text: "Target 1 face-down monster on the field; destroy that target, and if you do, banish it, then, if it was a Flip monster, each player banishes all cards from their Deck with that monster's name.",
       limit: 2
    },
+   "Nobleman of Extermination": {
+      id: "17449108",
+      cardType: SPELL,
+      levelOrSubtype: "Normal",
+      text: "Target 1 face-down Spell/Trap on the field; destroy that target, and if you do, banish it, then, if it was a Trap, each player banishes all cards from their Deck with that card's name"
+   },
    "Creature Swap": {
       id: "31036355",
       cardType: SPELL,
@@ -357,7 +383,7 @@ const normalSpells = {
          name: SEARCH_DECK,
          displayCondition: {
             players: [HERO],
-            row: SPELL_TRAP
+            row: GRAVEYARD
          },
          params: {
             atk: {
@@ -366,7 +392,7 @@ const normalSpells = {
             }
          },
          autoClose: true
-      },
+      }
    },
    "The Big March of Animals": {
       id: "01689516",
@@ -385,7 +411,7 @@ const normalSpells = {
       id: "02204140",
       cardType: SPELL,
       levelOrSubtype: "Normal",
-      text: "Target 1 Zombie monster in your Graveyard and 1 monster in your opponent's Graveyard; Special Summon the first target, also banish the second target.",
+      text: "Target 1 Zombie monster in your Graveyard and 1 monster in your opponent's Graveyard; Special Summon the first target, also banish the second target."
    },
    "Meteor of Destruction": {
       id: "33767325",
@@ -411,12 +437,6 @@ const normalSpells = {
       cardType: SPELL,
       levelOrSubtype: "Normal",
       text: "Send 2 Spells from your hand to the Graveyard, then target 1 Spell in your Graveyard; add it to your hand."
-   },
-   Exchange: {
-      id: "05556668",
-      cardType: SPELL,
-      levelOrSubtype: "Normal",
-      text: "Both players reveal their hands and add 1 card from each other's hand to their hand."
    },
    "Exile of the Wicked": {
       id: "26725158",

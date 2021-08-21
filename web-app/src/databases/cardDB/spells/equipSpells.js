@@ -144,7 +144,7 @@ const equipSpells = {
       cardType: SPELL,
       levelOrSubtype: "Equip",
       text: "<effect=Continuous-like>The equipped monster gains 500 ATK.</effect> <effect=Trigger-like>When this card is sent from the field to the Graveyard: Inflict 500 damage to your opponent.</effect>",
-      prepopLP: { villain: -500 },
+      prepopLP: { villain: -500 }
    },
    Megamorph: {
       id: "22046459",
@@ -156,8 +156,9 @@ const equipSpells = {
       id: "56948373",
       cardType: SPELL,
       levelOrSubtype: "Equip",
-      text: "<effect=Continuous-like>The monster equipped with this card cannot attack.</effect> <effect=Trigger-like>The controller of the equipped monster takes 500 points of damage during each of your Standby Phases.</effect>"
-   },
+      text: "<effect=Continuous-like>The monster equipped with this card cannot attack.</effect> <effect=Trigger-like>The controller of the equipped monster takes 500 points of damage during each of your Standby Phases.</effect>",
+      prepopLP: { hero: -500, villain: -500 }
+   }
 };
 
 export default equipSpells;

@@ -11,18 +11,26 @@ function filterDeck(player, script) {
 }
 
 function millUntil(player, deck, params, socket = false) {
-   if (socket && socket.api) {
-      const payload = { action: MILL, data: { token: socket.token, id: socket.matchId, deck, params } };
-      socket.api.send(JSON.stringify(payload));
-   }
-
    const topCard = deck.length - 1;
    return (dispatch) => {
-      for (let i = topCard, stop = false; i >= 0 && !stop; i--) {
-         const card = deck[i];
-         const { fail } = checkParams(card, params);
-         if (fail.length === 0) stop = true;
+      let found = -1;
+      if (typeof params === "number") {
+         found = Math.max(0, deck.length - params);
+      } else {
+         for (let i = topCard; i >= 0 && found < 0; i--) {
+            const card = deck[i];
+            const { fail } = checkParams(card, params);
+            if (fail.length === 0) found = i;
+         }
+      }
 
+      if (socket && socket.api) {
+         const payload = { action: MILL, data: { token: socket.token, id: socket.matchId, deck, params, fail: found < 0 } };
+         socket.api.send(JSON.stringify(payload));
+      }
+      if (found < 0) return;
+
+      for (let i = topCard; i >= found; i--) {
          dispatch(moveCard({ from: { player, row: DECK, zone: i }, to: { player, row: GRAVEYARD, zone: 0 }, noSound: i !== topCard }));
       }
    };

@@ -53,7 +53,7 @@ const fusions = {
       levelOrSubtype: 8,
       atk: 2900,
       def: 2400,
-      text: 'Spellcaster/Fusion/Effect – "Dark Magician" + "Buster Blader". <effect=Summon>Must be Fusion Summoned.</effect> <effect=Quick>When a Spell Card is activated (Quick Effect): You can discard 1 card; negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Gains 500 ATK for each Dragon monster on the field and in the Graveyard.</effect>',
+      text: 'Spellcaster/Fusion/Effect – "Dark Magician" + "Buster Blader". <effect=Summon>Must be Fusion Summoned.</effect> <effect=Quick>When a Spell Card is activated: You can discard 1 card; negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Gains 500 ATK for each Dragon monster on the field and in the Graveyard.</effect>',
       noMeta: true
    },
    "Deepsea Shark": {
@@ -471,7 +471,7 @@ const fusions = {
       levelOrSubtype: 6,
       atk: 2000,
       def: 1200,
-      text: 'Warrior/Fusion/Effect – "Warrior Dai Grepher" + "Spirit Ryu". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Trap Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell Card that targets this card and destroy it.</effect>'
+      text: 'Warrior/Fusion/Effect – "Warrior Dai Grepher" + "Spirit Ryu". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Trap Card is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell Card that targets this card and destroy it.</effect>'
    },
    "Dark Balter the Terrible": {
       id: "80071763",
@@ -480,7 +480,7 @@ const fusions = {
       levelOrSubtype: 5,
       atk: 2000,
       def: 1200,
-      text: 'Fiend/Fusion/Effect – "Possessed Dark Soul" + "Frontier Wiseman". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Spell Card is activated (Quick Effect): You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>'
+      text: 'Fiend/Fusion/Effect – "Possessed Dark Soul" + "Frontier Wiseman". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Spell Card is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>'
    },
    "Thousand-Eyes Restrict": {
       id: "63519819",
