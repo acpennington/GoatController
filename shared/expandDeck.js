@@ -1,4 +1,4 @@
-export default function expandDeck(decklist) {
+module.exports = function expandDeck(decklist) {
    const expandedDeck = [];
 
    for (const name in decklist) {

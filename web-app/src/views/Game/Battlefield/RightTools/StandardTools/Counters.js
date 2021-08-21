@@ -8,7 +8,7 @@ import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { adjustCounters } from "stateStore/actions/game/field";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
-import { onField } from "utils/constants";
+import { onField } from "shared/constants";
 
 class Counters extends Component {
    componentDidMount() {

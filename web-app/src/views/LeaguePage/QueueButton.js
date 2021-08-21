@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 
 import Shadow from "components/Shadow/Shadow.js";
 import Button from "components/CustomButtons/Button.js";
-import verifyDecks from "utils/verifyDecks.js";
+import verifyDecks from "shared/verifyDecks.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
-import { LEAGUE_SOCKET_URL, ENTER_QUEUE, NEW_GAME } from "utils/constants.js";
+import { LEAGUE_SOCKET_URL, ENTER_QUEUE, NEW_GAME } from "shared/constants.js";
 
 class QueueButton extends PureComponent {
    constructor(props) {

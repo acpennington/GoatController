@@ -6,6 +6,7 @@
    "author": "ACP and the Goat Format community",
    "license": "ISC",
    "dependencies": {
-      "jsonwebtoken": "^8.5.1"
+      "jsonwebtoken": "^8.5.1",
+      "shared": "file:../../shared"
    }
 }

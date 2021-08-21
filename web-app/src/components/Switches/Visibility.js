@@ -7,7 +7,7 @@ import Button from "components/CustomButtons/Button.js";
 import { setPublic } from "stateStore/actions/deckConstructor/decklist.js";
 import getApiStage from "utils/getApiStage.js";
 import { getAuthHeaders } from "utils/authToken.js";
-import { API_URL } from "utils/constants.js";
+import { API_URL } from "shared/constants.js";
 
 import Switch from "@material-ui/core/Switch";
 import { RiShareFill } from "react-icons/ri";

@@ -1,5 +1,4 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
-const display = require("./utils/display");
 
 // @action Mill
 // @desc Sends a payload to others about a card being milled

@@ -1,4 +1,4 @@
-import { SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK } from "utils/constants.js";
+import { SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK } from "shared/constants.js";
 
 const initialState = {
    concessionLink: false,

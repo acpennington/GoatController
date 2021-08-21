@@ -1,5 +1,5 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
-const { MONSTER, HAND } = require("./utils/constants");
+const { MONSTER, HAND } = require("./shared/constants");
 
 async function sendPosChange(id, username, row, zone, cardName, connectionId, api) {
    const handFlip = row === HAND;

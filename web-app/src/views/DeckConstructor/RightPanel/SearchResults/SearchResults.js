@@ -9,7 +9,7 @@ import SearchHeader from "./SearchHeader.js";
 import CardsToRender from "./CardsToRender.js";
 import { transferCard } from "stateStore/actions/deckConstructor/decklist";
 
-import { allLocations, SEARCH_RESULTS, OVER_COLOR } from "utils/constants";
+import { allLocations, SEARCH_RESULTS, OVER_COLOR } from "shared/constants";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/rightPanel.js";

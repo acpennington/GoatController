@@ -7,9 +7,9 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { closeModal } from "stateStore/actions/shared/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { shuffleDeck } from "stateStore/actions/game/field.js";
-import display from "utils/display";
+import display from "shared/display";
 
-import { DECK } from "utils/constants";
+import { DECK } from "shared/constants";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";

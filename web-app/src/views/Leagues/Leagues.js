@@ -17,7 +17,7 @@ import { MdCreate } from "react-icons/md";
 import apiErrors from "utils/apiErrors.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
-import { API_URL } from "utils/constants.js";
+import { API_URL } from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/leagues.js";

@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
-import { DECK, EXTRA_DECK } from "utils/constants.js";
-import display from "utils/display.js";
+import { DECK, EXTRA_DECK } from "shared/constants.js";
+import display from "shared/display.js";
 
 class ZoneLabel extends PureComponent {
    render() {

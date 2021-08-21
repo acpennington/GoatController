@@ -5,10 +5,10 @@ import { connect } from "react-redux";
 import DeckDivider from "./DeckDivider.js";
 import DeckPile from "./DeckPile.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
-import cardCount from "utils/cardCount.js";
+import cardCount from "shared/cardCount.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 
-import { MAINDECK, SIDEDECK } from "utils/constants";
+import { MAINDECK, SIDEDECK } from "shared/constants";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";

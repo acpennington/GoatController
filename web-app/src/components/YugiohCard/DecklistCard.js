@@ -4,12 +4,12 @@ import { useDrag } from "react-dnd";
 import { useSelector, useDispatch } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
-import getCardDetails from "utils/getCardDetails.js";
+import getCardDetails from "shared/getCardDetails.js";
 import CardArt from "./CardArt.js";
 import { newHover } from "stateStore/actions/shared/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/shared/selectedCard.js";
 import { transferCard } from "stateStore/actions/deckConstructor/decklist.js";
-import { CARD_RATIO, HERO_SELECTION_COLOR, MAINDECK, SEARCH_RESULTS, SIDEDECK } from "utils/constants.js";
+import { CARD_RATIO, HERO_SELECTION_COLOR, MAINDECK, SEARCH_RESULTS, SIDEDECK } from "shared/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";

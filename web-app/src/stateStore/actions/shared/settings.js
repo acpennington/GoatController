@@ -1,5 +1,5 @@
 import { shuffleDeck } from "../game/field.js";
-import { DECK, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK } from "utils/constants.js";
+import { DECK, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK } from "shared/constants.js";
 
 function switchNames() {
    return { type: SWITCH_NAMES };

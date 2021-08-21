@@ -1,7 +1,7 @@
 import { setUnsaved } from "../shared/settings.js";
 import { rerenderSearch } from "./searchResults.js";
 
-import { SEARCH_RESULTS, SET_DECKLIST, SET_PUBLIC, TRANSFER_CARD } from "utils/constants.js";
+import { SEARCH_RESULTS, SET_DECKLIST, SET_PUBLIC, TRANSFER_CARD } from "shared/constants.js";
 import { clearSelection } from "../shared/selectedCard.js";
 
 function setDecklist(decklist) {

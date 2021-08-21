@@ -4,9 +4,9 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import RenderCards from "components/RenderCards/RenderCards.js";
-import { fusions } from "databases/cardDB";
+import { fusions } from "shared/database";
 
-import { HERO } from "utils/constants.js";
+import { HERO } from "shared/constants.js";
 
 class RenderFusions extends Component {
    shouldComponentUpdate() {

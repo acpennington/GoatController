@@ -1,7 +1,7 @@
 import React, { Component, createContext } from "react";
 import PropTypes from "prop-types";
 
-import { GAME_ASPECT_RATIO } from "utils/constants.js";
+import { GAME_ASPECT_RATIO } from "shared/constants.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 

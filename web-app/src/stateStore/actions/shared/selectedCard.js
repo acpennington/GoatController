@@ -1,6 +1,6 @@
-import { NEW_SELECTION, CLEAR_SELECTION } from "utils/constants.js";
+import { NEW_SELECTION, CLEAR_SELECTION } from "shared/constants.js";
 import { prepopLP } from "./settings.js";
-import getCardDetails from "utils/getCardDetails.js";
+import getCardDetails from "shared/getCardDetails.js";
 
 function newSelection(selectingPlayer, player, row, zone, name, facedown = false, socket = false) {
    return (dispatch) => {

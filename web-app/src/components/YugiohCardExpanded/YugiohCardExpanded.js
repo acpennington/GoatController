@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import Button from "components/CustomButtons/Button.js";
 import EffectTooltips from "./EffectTooltips.js";
 import compress from "utils/compressName.js";
-import getCardDetails from "utils/getCardDetails.js";
-import { FACEDOWN_CARD, NORMAL_MONSTER, SENTINEL } from "utils/constants";
+import getCardDetails from "shared/getCardDetails.js";
+import { FACEDOWN_CARD, NORMAL_MONSTER, SENTINEL } from "shared/constants";
 
 import { Description } from "@material-ui/icons";
 

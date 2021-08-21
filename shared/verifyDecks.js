@@ -1,5 +1,5 @@
-import { cards } from "databases/cardDB";
-import { SENTINEL, FUSION_MONSTER } from "utils/constants.js";
+const { cards } = require("./database");
+const { SENTINEL, FUSION_MONSTER } = require("constants");
 
 // Verifies that the decks have a legal number of cards and that no cards are used more than
 // their limits. Returns an array of all the issues with the deck (empty if the deck is valid).

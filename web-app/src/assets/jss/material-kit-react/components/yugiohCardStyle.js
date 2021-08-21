@@ -1,4 +1,4 @@
-import { cardTypeColors } from "utils/constants";
+import { cardTypeColors } from "shared/constants";
 const { effectMonster, st, Spell } = cardTypeColors;
 const borderColor = "rgb(5,10,30)";
 

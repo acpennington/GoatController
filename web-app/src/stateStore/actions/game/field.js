@@ -2,7 +2,7 @@ import { Howl } from "howler";
 
 import { clearSelection } from "../shared/selectedCard.js";
 import { setTurn } from "./turn.js";
-import getCardDetails from "utils/getCardDetails.js";
+import getCardDetails from "shared/getCardDetails.js";
 import {
    MOVE_CARD,
    DRAW_PHASE_DRAW,
@@ -21,7 +21,7 @@ import {
    DISCARD_AND_DRAW,
    SEND_DND,
    SENTINEL
-} from "utils/constants";
+} from "shared/constants";
 
 function soundOn() {
    return window.localStorage.getItem("soundOn") === "true";

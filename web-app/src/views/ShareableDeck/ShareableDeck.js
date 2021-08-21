@@ -15,7 +15,7 @@ import { loadDeck } from "stateStore/actions/shared/settings.js";
 import apiErrors from "utils/apiErrors.js";
 import getQueryParams from "utils/getQueryParams.js";
 import getApiStage from "utils/getApiStage.js";
-import { API_URL, headers } from "utils/constants.js";
+import { API_URL, headers } from "shared/constants.js";
 
 class ShareableDeck extends PureComponent {
    constructor(props) {

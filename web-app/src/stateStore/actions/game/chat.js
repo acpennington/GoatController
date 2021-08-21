@@ -1,4 +1,4 @@
-import { ADD_MESSAGE, NEW_CHAT_MESSAGE } from "utils/constants";
+import { ADD_MESSAGE, NEW_CHAT_MESSAGE } from "shared/constants";
 
 function addMessage(author, content, socket = false) {
    if (socket && socket.api) {

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import ScriptButton from "./ScriptButton.js";
-import getCardDetails from "utils/getCardDetails.js";
+import getCardDetails from "shared/getCardDetails.js";
 
-import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, TRAP } from "utils/constants";
+import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, TRAP } from "shared/constants";
 
 class CardScript extends PureComponent {
    validScript = (activeCard, cardPlayer, script) => {

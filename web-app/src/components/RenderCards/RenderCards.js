@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import DecklistCard from "components/YugiohCard/DecklistCard.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 
-import { SEARCH_RESULTS } from "utils/constants.js";
+import { SEARCH_RESULTS } from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/components/renderCardsStyle.js";

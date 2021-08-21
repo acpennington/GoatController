@@ -12,7 +12,7 @@ import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
-import { FIELD_SPELL, HAND } from "utils/constants.js";
+import { FIELD_SPELL, HAND } from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";

@@ -1,4 +1,4 @@
-import { NEW_SELECTION, CLEAR_SELECTION, SEND_SELECTION, REMOVE_SELECTION } from "utils/constants.js";
+import { NEW_SELECTION, CLEAR_SELECTION, SEND_SELECTION, REMOVE_SELECTION } from "shared/constants.js";
 
 const initialState = {};
 

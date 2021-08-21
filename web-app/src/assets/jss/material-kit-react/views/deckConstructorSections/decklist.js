@@ -1,4 +1,4 @@
-import { RIGHT_PANEL_SIZE, LEFT_PANEL_SIZE } from "utils/constants";
+import { RIGHT_PANEL_SIZE, LEFT_PANEL_SIZE } from "shared/constants";
 
 const decklistWidth = 100 - RIGHT_PANEL_SIZE - LEFT_PANEL_SIZE + "%";
 

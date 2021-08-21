@@ -1,4 +1,4 @@
-import { backgrounds } from "./constants.js";
+import { backgrounds } from "shared/constants.js";
 
 export default function setBodyImage() {
    const body = document.body;
