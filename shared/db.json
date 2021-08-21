@@ -1704,7 +1704,7 @@
     "levelOrSubtype": 3,
     "atk": 500,
     "def": 600,
-    "text": "Zombie/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect>< effect=Trigger>If this card is Flip Summoned: Draw 1 card.</effect>"
+    "text": "Zombie/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Draw 1 card.</effect>"
   },
   "Des Wombat": {
     "id": "09637706",

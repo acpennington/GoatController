@@ -7,6 +7,6 @@
    "license": "ISC",
    "dependencies": {
       "jsonwebtoken": "^8.5.1",
-      "shared": "file:../../shared"
+      "shared": "file:shared"
    }
 }
