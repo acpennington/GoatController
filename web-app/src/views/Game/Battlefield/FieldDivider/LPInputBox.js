@@ -23,17 +23,13 @@ class LPInputBox extends PureComponent {
 
       const convertedPrepop = prepopLPvalue && (prepopLPvalue === "half" ? Math.floor(lifepoints / 2) : Math.abs(prepopLPvalue));
 
-      if (prepopLPvalue && convertedPrepop !== Number(inputLP)) {
+      if (prepopLPvalue && convertedPrepop !== Number(inputLP))
          this.setState({ inputLP: convertedPrepop, LPmode: prepopLPvalue === "half" || prepopLPvalue < 0 ? -1 : 1 });
-         console.log("setting to prepop");
-      }
    }
 
    inputLP = (event) => {
       const { prepopLP, prepopLPvalue } = this.props;
       const value = event.target.value;
-
-      console.log(value);
 
       if (!isNaN(value)) {
          if (prepopLPvalue) {
