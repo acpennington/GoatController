@@ -1,0 +1,3457 @@
+3-Hump Lacooda
+If you control 3 "3-Hump Lacooda": You can Tribute 2 of them; draw 3 cards.
+
+4-Starred Ladybug of Doom
+FLIP: Destroy all Level 4 monsters your opponent controls.
+
+7*
+If you control 3 "7": You can draw 3 cards, then destroy all "7" on the field. When this card is sent from your field to the GY: Gain 700 LP.
+*This card is weird. By the way it is worded originally, you can technically include cards such as "7 Completed" as well. But the Wikia links an OCG ruling that specifically states that the effect only applies to the specific card named "7". Weird.
+
+7 Colored Fish
+A rare rainbow fish that has never been caught by mortal man.
+
+7 Completed
+Activate this card by choosing ATK or DEF; equip only to a Machine monster. It gains 700 ATK or DEF, depending on the choice.
+
+8-Claws Scorpion*
+Once per turn: You can change this card to face-down Defense Position. When this card attacks an opponent's face-down Defense Position monster, during damage calculation: This card's ATK becomes 2400 during that damage calculation only.
+*Edopro is leading me to believe this effect is similar to that of "Injection Fairy Lily", with the difference being that 8-Claws Scorpion's one is mandatory.
+
+A Cat of Ill Omen
+FLIP: Choose 1 Trap from your Deck and place it on top of your Deck, or, if "Necrovalley" is on the field, you can add that Trap to your hand instead.
+
+A Deal with Dark Ruler
+(This card is always treated as an "Archfiend" card.)
+If a Level 8 or higher monster under your control was sent to the GY this turn: Special Summon 1 "Berserk Dragon" from your hand or Deck.
+
+A Feather of the Phoenix
+Discard 1 card, then target 1 card in your GY; return that target to the top of your Deck.
+
+A Feint Plan
+The turn's player cannot attack face-down monsters during this turn.
+
+A Hero Emerges
+When an opponent's monster declares an attack: Your opponent chooses 1 random card from your hand, then if it is a monster that can be Special Summoned, Special Summon it. Otherwise, send it to the GY.
+
+A Legendary Ocean
+(This card's name is always treated as "Umi".)
+All WATER monsters on the field gain 200 ATK/DEF. Reduce the Level of all WATER monsters in both players' hands and on the field by 1.
+
+A Man with Wdjat
+When this card is Normal Summoned, also once during your Standby Phase: Target 1 Set card your opponent controls; look at it.
+
+A Wingbeat of Giant Dragon
+Return 1 Level 5 or higher Dragon-Type monster you control to the hand, and if you do, destroy all Spells and Traps on the field.
+
+A-Team: Trap Disposal Unit
+When your opponent activates a Trap (Quick Effect): You can Tribute this card; negate its activation, and if you do, destroy it.
+
+Abare Ushioni
+Once per turn: You can toss a coin and call it. If you call it right, inflict 1000 damage to your opponent. If you call it wrong, take 1000 damage.
+
+Absolute End
+During your opponent's turn: This turn, the attacks from monsters your opponent controls become direct attacks.
+
+Absorbing Kid from the Sky
+When this card destroys a monster by battle and sends it to the GY: Gain LP equal to that monster's original Level x300.
+
+Abyss Soldier
+Once per turn: You can discard 1 WATER monster to the GY, then target 1 card on the field; return it to the hand.
+
+Abyssal Designator
+Pay 1000 LP and declare 1 Type and 1 Attribute; your opponent sends 1 monster with both the declared Type and Attribute from their hand or Deck to the GY.
+
+Acid Rain
+Destroy all Machine monsters on the field.
+
+Acid Trap Hole
+Target 1 face-down Defense Position monster on the field; flip it face-up, then destroy it if its DEF is 2000 or less, or return it face-down if its DEF is more than 2000.
+
+Acrobat Monkey
+An autonomous monkey type robot which was developed with cutting-edge technology. It moves very acrobatically.
+
+Adhesion Trap Hole
+When your opponent Summons a monster(s): Halve that monster(s)'s original ATK.
+
+After the Struggle
+During your Main Phase 1: At the end of the Battle Phase, destroy all monsters on the field involved in damage calculation this turn.
+
+Agido
+When this card is destroyed by battle and sent to the GY: Roll a six-sided die. You can Special Summon 1 Fairy monster from your GY whose Level is equal to the result. If the result is 6, you can Special Summon 1 Level 6 or higher Fairy monster from your GY.
+
+Airknight Parshath
+If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent. When this card inflicts battle damage to your opponent: Draw 1 card.
+
+Aitsu
+He seems to be very unreliable, but he might have incredible potential.
+
+Alpha The Magnet Warrior
+Alpha, Beta, and Gamma meld as one to form a powerful monster.
+
+Altar for Tribute
+Target 1 monster you control and send it to the GY; gain LP equal to that monster's original ATK.
+
+Amazoness Archer
+You can Tribute 2 monsters; inflict 1200 damage to your opponent.
+
+Amazoness Archers
+When an opponent's monster declares an attack, while you control an "Amazoness" monster: Change all monsters your opponent currently controls to face-up Attack Position (Flip Effects are not activated), they lose 500 ATK, also they must attack this turn, if able.
+
+Amazoness Blowpiper
+Once per turn, during your Standby Phase: Target 1 face-up monster your opponent controls; it loses 500 ATK until the end of this turn.
+
+Amazoness Chain Master
+When this card is destroyed by battle and sent to the GY: You can pay 1500 LP; look at your opponent's hand, then add 1 monster from their hand to your hand.
+
+Amazoness Fighter
+You take no battle damage from attacks involving this card.
+
+Amazoness Paladin
+This card gains 100 ATK for each "Amazoness" monster you control.
+
+Amazoness Spellcaster
+Target 1 "Amazoness" monster you control and 1 face-up monster your opponent controls; switch the original ATK of those targets until the end of this turn.
+
+Amazoness Swords Woman
+Your opponent takes any battle damage you would have taken from battles involving this card instead.
+
+Amazoness Tiger
+You can only control 1 "Amazoness Tiger". This card gains 400 ATK for each "Amazoness" monster you control. Your opponent cannot attack any face-up "Amazoness" monsters, except this one.
+
+Ameba
+Once while face-up on the field, when the control of this face-up card is switched: Its new controller takes 2000 damage.
+
+Amphibian Beast
+On land or in the sea, the speed of this monster is unmatchable.
+
+Amphibious Bugroth MK-3
+If "Umi" is on the field, this card can attack your opponent's LP directly.
+
+Amplifier
+Equip only to "Jinzo". This card's activation and effect cannot be negated. The equipped monster's effect, "Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field." becomes "Your opponent cannot activate Trap Cards, or their effects on the field. Negate all Trap effects your opponent controls." When this card leaves the field, destroy the equipped monster.
+
+An Owl of Luck
+FLIP: Choose 1 Field Spell from your Deck and place it on top of your Deck, or, if "Necrovalley" is on the field, you can add that Field Spell to your hand instead.
+
+Ancient Brain
+A fallen fairy that is powerful in the dark.
+
+Ancient Elf
+This elf is rumored to have lived for thousands of years. He leads and army of spirits against his enemies.
+
+Ancient Gear Beast
+Cannot be Special Summoned. If this card attacks, your opponent cannot activate any Spell/Trap Cards until the end of the Damage Step. Negate the effects of an opponent's monster destroyed by battle with this card (including in the GY).
+
+Ancient Gear Golem
+Cannot be Special Summoned. If this card attacks, your opponent cannot activate any Spell/Trap Cards until the end of the Damage Step. If this card attacks a Defense Position monster, inflict piercing battle damage.
+
+Ancient Gear Soldier
+If this card attacks, your opponent cannot activate any Spell/Trap Cards until the end of the Damage Step.
+
+Ancient Lizard Warrior
+Before the dawn of man, this lizard warrior ruled supreme.
+
+Ancient One of the Deep Forest
+This creature adopts the form of a white goat living in the forest, but it is actually a Forest Elder.
+
+Ancient Telescope*
+Look at the top 5 cards of your opponent's Deck, then return them to the top of their Deck in the same order.
+*Edopro lets me see up to 5 cards. Not only that, but it reveals the cards to the opponent too (at least when I decide to reveal one).
+
+Andro Sphinx
+If "Pyramid of Light" is on the field: You can pay 500 LP; Special Summon this card from your hand. Cannot attack the turn it is Normal or Special Summoned. Cannot be Special Summoned from the GY. If this card destroys a Defense Position monster by battle: Inflict damage to your opponent equal to half that monster's original ATK.
+
+Ansatsu
+A silent and deadly warrior specializing in assassinations.
+
+Ante
+Each Player reveals 1 card from their hand. If one card is higher Level than the other, the card with the lower Level is sent to the GY, and the player who revealed it takes 1000 damage. (Non-Monster Cards are treated as Level 0.)
+
+Anti Raigeki
+When your opponent activates "Raigeki": Negate its effect, and if you do, destroy al monsters your opponent controls.
+
+Anti-Aircraft Flower
+You can Tribute 1 Insect monster you control; inflict 800 damage to your opponent.
+
+Anti-Spell
+When a Spell is activated: Remove 2 Spell Counters from your field; negate its activation, and if you do, destroy it.
+
+Anti-Spell Fragrance
+Both players must Set Spells before activating them, and cannot activate them until their next turn after Setting them.
+
+Apprentice Magician*
+When this card is Summoned: Target 1 face-up card on the field that you can place a Spell Counter on; place 1 Spell Counter on that target. If this card is destroyed by battle, before this card leaves the field: You can Special Summon 1 Level 2 or lower Spellcaster monster from your Deck in face-down Defense Position.
+*Double check.
+
+Appropriate
+Activate only when your opponent draws a card(s) outside of either Draw Phase. After that, each time your opponent draws a card outside of either Draw Phase, immediately draw 2 cards.
+
+Aqua Chorus
+Monsters with the same name on the field gain 500 ATK/DEF.
+
+Aqua Madoor
+A wizard of the waters that conjures a liquid wall to crush any enemies that oppose him.
+
+Aqua Spirit
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 WATER monster from your GY. Once per turn, during your opponent's Standby Phase: You can target 1 face-up monster your opponent controls; change that target's battle position, and if you do, it cannot change its battle position for the rest of this turn.
+
+Arcane Archer of the Forest
+If you control a Plant monster, this card cannot be attacked. You can Tribute 1 Plant monster, then target 1 Spell/Trap on the field; destroy that target.
+
+Archfiend Marmot of Nefariousness
+An air marmot that has a nefarious horn and wings. It attacks by throwing acorns.
+
+Archfiend of Gilfer
+When this card is sent to the GY: You can target 1 face-up monster on the field; equip that target with this card. That monster loses 500 ATK while equipped with this card.
+
+Archfiend Soldier
+An expert at battle who belongs to a crack diabolical unit. He's famous because he always gets the job done.
+
+Archfiend's Oath
+Once per turn: You can pay 500 Life Points, then declare 1 card name; excavate the top card of your Deck, and if it is the declared card, add it to your hand. Otherwise, send it to the GY.
+
+Archfiend's Roar
+Pay 500 Life Points, then target 1 "Archfiend" monster in your GY; Special Summon that target. It cannot be Tributed. Destroy it during the End Phase of this turn.
+
+Archlord Zerato*
+Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 "Warrior of Zera" while "The Sanctuary in the Sky" is on the field and cannot be Special Summoned by other ways. You can discard 1 LIGHT monster to the GY; if you control "The Sanctuary in the Sky", destroy all monsters your opponent controls.
+*Wikia says that controlling "The Sanctuary in The Sky" is both a condition and part of the effect, but then weirdly says that you can activate the effect even if that card is not on the field. I don't understand it, so double-check.
+
+Armaill
+A strange warrior who manipulates three deadly blades with both hands and his tail.
+
+Armed Dragon LV3
+During your Standby Phase: You can send this card to the GY; Special Summon 1 "Armed Dragon LV5" from your hand or Deck.
+
+Armed Dragon LV5
+You can send 1 monster from your hand to the GY, then target 1 monster your opponent controls with ATK less than or equal to the sent monster's ATK; destroy that target. During the End Phase, if this card destroyed a monster by battle this turn: You can send this card to the GY; Special Summon 1 "Armed Dragon LV7" from your hand or Deck.
+
+Armed Dragon LV7
+Cannot be Normal Summoned/Set. Must be Special Summoned by "Armed Dragon LV5". You can send 1 monster from your hand to the GY; destroy all monsters your opponent controls with ATK less than or equal to that sent monster's ATK.
+
+Armed Ninja
+FLIP: Target 1 Spell on the field; destroy that target. (If the target is Set, reveal it, and destroy it if it is a Spell. Otherwise, return it to its original position.)
+
+Armed Samurai - Ben Kei
+For each Equip Card equipped to this card, it gains 1 additional attack during each Battle Phase.
+
+Armor Break
+When an Equip Spell is activated: Negate its activation, and if you do, destroy it.
+
+Armor Exe
+Cannot attack the turn it is Normal, Flip, or Special Summoned. Once per turn, during the Standby Phase, either remove 1 Spell Counter from your field or destroy this card.
+
+Armored Glass
+When a monster is equipped with an Equip Card: Negate all Equip Cards effects on the field this turn.
+
+Armored Lizard
+A lizard with a very tough hide and a vicious bite.
+
+Armored Starfish
+A bluish starfish with a solid hide capable of fending off attacks.
+
+Armored Zombie
+This warrior blindly swings a deadly blade with devastating force.
+
+Array of Revealing Light*
+When this card is activated, declare 1 Type of monster. Monsters of the declared Type cannot declare an attack during the turn they are Normal, Flip, or Special Summoned.
+*This card is another nightmare. Wikia says that this card only has 1 effect, and it is Continuous-like. Yet it also says that you need to declare the Type of monster before your opponent decides whether to chain or not, so it looks like an activation cost, even though it is not.
+
+Arsenal Bug
+If you control no other Insect monsters, this card's ATK/DEF become 1000.
+
+Arsenal Robber
+Your opponent sends 1 Equip Spell from their Deck to the GY.
+
+Arsenal Summoner
+FLIP: Add 1 "Guardian" card from your Deck to your hand, except "Celtic Guardian", "Winged Dragon, Guardian of the Fortress #1", "Winged Dragon, Guardian of the Fortress #2", "Guardian of the Labyrinth", or "The Reliable Guardian".
+
+Assault on GHQ*
+Target 1 monster you control; destroy that target, then send 2 cards from the top of your opponent's Deck to the GY.
+*Double check, as the original text says destroy that card.
+
+Astral Barrier
+If your opponent's monster attacks a monster you control: You can make the attack a direct attack instead.
+
+Asura Priest*
+Cannot be Special Summoned. During the End Phase of the turn this card is Normal Summoned or flipped face-up: Return it to the hand. This card can attack all monsters your opponent controls once each.
+*Do you want to write down on the card that if it attacks directly, it cannot attack monsters, and viceversa?
+
+Aswan Apparition
+If this card inflicts Battle Damage to your opponent: You can target 1 Trap in your GY; place it to the top of your Deck.
+
+Atomic Firefly*
+If this card is destroyed by battle, and was face-up at the start of the Damage Step: Your opponent takes 1000 damage.
+*Double check.
+
+Attack and Receive
+When you take damage: Your opponent takes 700 damage, also they take 300 damage for each "Attack and Receive" in your GY.
+
+Aussa the Earth Charmer
+FLIP: Target 1 EARTH monster your opponent controls; take control of that target while this card is face-up on the field.
+
+Autonomous Action Unit
+Pay 1500 LP, then target 1 monster in your opponent's GY; Special Summon that target on your side of the field in face-up Attack Position, and equip it with this card. When this card leaves the field, destroy the equipped monster.
+
+Avatar of The Pot
+Send 1 "Pot of Greed" from your hand to the GY; draw 3 cards.
+
+Axe of Despair
+(This card is always treated as an "Archfiend" card.)
+The equipped monster gains 1000 ATK. When this card is sent from the field to the GY: You can Tribute 1 monster; place this card on the top of your Deck.
+
+Axe Raider
+An axe-weilding monster of tremendous strength and agility
+
+B.E.S. Big Core
+If this card is Normal Summoned: Place 3 counters on it. Cannot be destroyed by battle. At the end of the Damage Step, if this card battled: Remove 1 counter from this card. If you cannot, destroy it.
+
+Baby Dragon
+Much more than just a child, this dragon is gifted with untapped power.
+
+Back to Square One
+Discard 1 card, then target 1 monster on the field; place that target on the top of the Deck.
+
+Backfire
+When a FIRE monster(s) you control is destroyed and sent to the Graveyard: Inflict 500 damage to your opponent.
+
+Backup Soldier
+While there are 5 or more monsters in your GY: Target up to 3 non-Effect Monsters with 1500 or less ATK in your GY; add them to your hand.
+
+Bad Reaction to Simochi
+Any effect that would increase your opponent's LP inflicts them damage by the same amount, instead.
+
+Bait Doll
+Target 1 Set card in the Spell & Trap Zone; reveal that target, force its activation if it is a Trap Card, then negate its effect if the activation timing is incorrect, and if you do, destroy it. (If it is not a Trap Card, return it face-down.) When this card resolves, shuffle it into the Deck instead of sending it to the GY.
+
+Ballista of Rampart Smashing
+If the equipped monster attacks a face-down Defense Position monster, it gains 1500 ATK during damage calculation only.
+
+Balloon Lizard
+Once per turn, during your Standby Phase: Put 1 counter on this card. When this card is destroyed: Your opponent takes damage equal to the number of counters that were on this card x400.
+
+Banisher of the Light
+Any card sent to the GY is banished instead.
+
+Banner of Courage
+All monsters you control gain 200 ATK during your Battle Phase only.
+
+Bark of Dark Ruler
+If a Fiend monster you control battles, during the Damage Step: Pay LP (in multiples of 100 points), then target the opponent's battling monster; that opponent's monster loses that much ATK/DEF, until the end of this turn.
+
+Baron of the Fiend Sword
+An aristocrat who wields a sword possessed by a malicious spirit that preys on the weak.
+
+Barrel Behind the Door
+When a card or effect is activated that would inflict damage to your LP: Your opponent takes the damage instead.
+
+Barrel Dragon
+Once per turn: You can target 1 monster your opponent controls; toss a coin 3 times and destroy it if at least 2 of the results are heads.
+
+Basic Insect
+Usually found traveling in swarms, this creature's ideal environment is the forest.
+
+Battery Charger*
+Pay 500 LP, then target 1 "Batteryman" monster in your GY; Special Summon it.
+*OCG ruling mentions that it targets, but I cannot read Japanese and I am relying on an English translation provided by Google.
+
+Batteryman AA
+If all "Batteryman AA"(s) you control are in Attack Position, this card gains 1000 ATK for each. If all "Batteryman AA"(s) you control are in Defense Position, this card gains 1000 DEF for each.
+
+Battle Footballer
+A cyborg with high defense power. Originally it was invented for a football machine.
+
+Battle Ox
+A monster with tremendous power, it destroys enemies with a swing of its axe.
+
+Battle Steer
+A bull monster often found in the woods, it charges enemy monsters with a pair of deadly horns
+
+Battle-Scarred*
+Target 1 "Archfiend" monster you control to activate this card. Your opponent also paus the same LP that you pay for the targeted monster during the Standby Phase. If this card leaves the field, destroy the targeted monster. When the targeted monster leaves the field, destroy this card.
+*Wikia says 3 Continuous-like effects. I don't understand how the first is.
+
+Bazoo the Soul-Eater
+Once per turn: You can banish up to 3 monsters from your GY; this card gains 300 ATK for each, until the end of your opponent's turn.
+
+Bean Soldier
+A plant-warriorr that attacks with seeds and sword.
+
+Beast Fangs
+Equip only to a Beast monster. It gains 300 ATK/DEF.
+
+Beast of Talwar
+Only the master of the sword among the Fiend-Type monsters is permitted to hold the Talwar.
+(This card is always treated as an "Archfiend" card.)
+
+Beast Soul Swap
+Target 1 Beast monster you control; return it to the hand, and if you do, Special Summon 1 Beast monster from your hand with the same Level as the monster that was returned to the hand.
+
+Beastking of the Swamps
+This card can be used as a substitute for any 1 Fusion Material whose name is specifically listed on the Fusion Monster Card, but the other Fusion Material(s) must be correct.
+
+Beautiful Headhuntress
+A vicious creature that has decapitated numerous enemy monsters.
+
+Beaver Warrior
+What this creature lacks in size it makes up for in defense when battling in the prairie.
+
+Beckoning Light
+Discard your entire hand, then for each card you discarded to the GY by this effect, add 1 LIGHT monster from your GY to your hand.
+
+Begone, Knave!
+If a monster inflicts battle damage to a player: Return that monster to the hand.
+
+Behemoth the King of All Animals
+You can Normal Summon/Set this card with 1 Tribute, but its original ATK becomes 2000. When this card is Tribute Summoned: You can target Beast monsters in your GY equal to the number of monsters Tributed; return them to the hand.
+
+Berserk Dragon
+Cannot be Normal Summoned/Set. Must be Special Summoned with "A Deal with Dark Ruler" and cannot be Special Summoned by other ways. This card can attack all monsters your opponent controls once each. During each of your End Phases, this card loses 500 ATK.
+
+Berserk Gorilla
+If this card is in face-up Defense Position, destroy this card. This card must attack if able.
+
+Beta The Magnet Warrior
+Alpha, Beta, and Gamma meld as one to form a powerful monster.
+
+Bickuribox
+"Crass Clown" + "Dream Clown"
+
+Big Bang Shot
+The equipped monster gains 400 ATK. If the equipped monster attacks a Defense Position monster, inflict piercing battle damage to your opponent. When this card leaves the field, banish the equipped monster.
+
+Big Burn
+When your opponent activates a card that targets a monster(s) in the GY: Banish all monsters in both players' GYs.
+
+Big Eye
+FLIP: Look at up to 5 cards from the top of your Deck, then place them on the top of the Deck in any order.
+
+Big Koala
+A species of huge Des Koala. He's meek, but people are afraid of him because he's very powerful.
+
+Big Shield Gardna
+When a Spell is activated that targets this face-down card (and no other cards) (Quick Effect): Change this card to face-up Defense Position, and if you do, negate the activation. If this card is attacked, change it to Attack Position at the end of the Damage Step.
+
+Big Wave Small Wave
+Destroy all face-up WATER monsters you control, then you can Special Summon WATER monsters from your hand, up to the number of monsters destroyed by this effect.
+
+Big-Tusked Mammoth
+Monsters your opponent controls cannot attack the turn they are Summoned.
+
+Bio-Mage
+A mysterious priest created as a result of the latest advances in biotechnology.
+
+Birdface
+When this card is destroyed by battle and sent to the GY: You can add 1 "Harpie Lady" from your Deck to your hand.
+
+Bite Shoes
+FLIP: Target 1 face-up monster on the field; change that target's battle position.
+
+Black Dragon's Chick
+You can send this face-up card you control to the GY; Special Summon 1 "Red-Eyes Black Dragon" from your hand.
+
+Black Illusion Ritual
+This card is used to Ritual Summon "Relinquished". You must also Tribute a monster from your hand or field whose Level is 1 or more.
+
+Black Luster Soldier
+You can Ritual Summon this card with "Black Luster Ritual".
+
+Black Luster Soldier - Envoy of the Beginning
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn, you can activate 1 of these effects.
+● Target 1 monster on the field; banish it. This card cannot attack the turn this effect is activated.
+● If this attacking card destroys an opponent's monster by battle: It can make a second attack in a row.
+
+Black Pendant
+The equipped monster gains 500 ATK. When this card is sent from the field to the Graveyard: Inflict 500 damage to your opponent.
+
+Black Skull Dragon
+"Summoned Skull" + "Red-Eyes Black Dragon"
+(This card is always treated as an "Archfiend" card.)
+
+Black Tyranno
+If the only cards your opponent controls are Defense Position monsters, this card can attack your opponent directly.
+
+Blackland Fire Dragon
+A dragon that dwells in the depths of darkness, its vulnerability lies in its poor eyesight.
+
+Blade Knight
+While you have 1 or less cards in your hand, this card gains 400 ATK. If you control no other monsters, the effects of Flip monsters destroyed by battle with this card are negated.
+
+Blade Rabbit
+When this card is changed from Attack Position to face-up Defense Position: Target 1 monster your opponent controls; destroy that target.
+
+Bladefly
+All WIND monsters on the field gain 500 ATK/DEF, also all EARTH monsters on the field lose 400 ATK/DEF.
+
+Blast Held by a Tribute
+When an opponent's monster that was Tribute Summoned declares an attack: Destroy as many face-up Attack Position monsters they control as possible, and if you do, inflict 1000 damage to your opponent.
+
+Blast Juggler*
+Once per turn, during your Standby Phase: You can Tribute this card, then target 2 face-up monsters on the field with 1000 or less ATK; destroy those targets.
+*Existing ruling is silent on whether Book of Moon saves the monster(s). Edopro ruled in favor of this scenario, therefore I wrote "those targets" instead of "them".
+
+Blast Magician
+Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell Card resolves. You can remove any number of Spell Counters from this card, then target 1 face-up monster on the field with ATK less than or equal to the number of counters you removed x 700; destroy that target.
+
+Blast with Chain
+Target 1 face-up monster you control; equip this card to that target. It gains 500 ATK. If this card is destroyed by a card effect while equipped: Target 1 card on the field; destroy that target.
+
+Blasting the Ruins
+If there are at least 30 cards in your GY: Your opponent takes 3000 damage.
+
+Blazing Inpachi
+A wicked wooden spirit now burning in flames. Its fire attack is powerful, but it will soon be nothing but ashes.
+
+Blessings of the Nile
+Each time a card(s) is discarded from your hand to the GY by an opponent's card effect: Gain 1000 LP.
+
+Blind Destruction
+Once per turn, during your Standby Phase: Roll a six-sided die. If the result is 1-5, destroy all monsters on the field with the same Level as the number rolled. If it is 6, destroy all Level 6 and higher monsters on the field.
+
+Blindly Loyal Globin
+Control of this face-up card cannot switch.
+
+Block Attack
+Target 1 face-up Attack Position monster your opponent controls; change that target to face-up Defense Position.
+
+Blowback Dragon
+Once per turn: You can target 1 card your opponent controls; toss a coin 3 times and destroy that target if at least 2 of the results are heads.
+
+Blue Medicine
+Gain 400 LP.
+
+Blue-Eyes Shining Dragon
+Cannot be Normal Summoned/Set. Must be Special Summoned by Tributing 1 "Blue-Eyes Ultimate Dragon". Gains 300 ATK for each Dragon monster in your GY. When a card or effect is activated that targets this card (Quick Effect): You can negate that effect.
+
+Blue-Eyes Toon Dragon
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 2 monsters, while you control "Toon World". Cannot attack the turn it is Special Summoned. You must pay 500 LP to declare an attack with this monster. If "Toon World" on the field is destroyed, destroy this card. Can attack your opponent directly, unless they control a Toon monster, in which case this card must target a Toon monster for its attacks.
+
+Blue-Eyes White Dragon
+This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.
+
+Blue-Winged Crown
+With hair shaped like a crown and a body encased in bluish white flames, this bird is a formidable sight.
+
+Boar Soldier
+If this card is Normal Summoned: Destroy this card. If your opponent controls a monster(s), this card loses 1000 ATK.
+
+Bokoichi the Freightening Car
+A freight car that is exclusively for Dekoichi. It can transport anything, but most cargo arrives broken.
+
+Bombardment Beetle*
+FLIP: Target 1 face-down Defense Position monster your opponent controls; reveal that target, and destroy that target if it is an Effect monster. Otherwise, return it to its original position.
+*I ruled it so that the monster must be face-down at resolution, otherwise it won't be destroyed (Edopro ruled it this way).
+
+Boneheimer
+This monster wanders the seas, sucking dry any creatures it may encounter.
+
+Book of Life
+Target 1 Zombie monster in your GY and 1 monster in your opponent's GY; Special Summon the first target, also banish the second target.
+
+Book of Moon
+Target 1 face-up monster on the field; change that target to face-down Defense Position.
+
+Book of Secret Arts
+Equip only to a Spellcaster monster. It gains 300 ATK/DEF.
+
+Book of Taiyou
+Target 1 face-down monster on the field; flip it into face-up Attack Position.
+
+Bottom Dweller
+This is one sea creature whose wrath is something monsters fear to face.
+
+Bottomless Shifting Sand
+At the end of your opponent's turn: Destroy the face-up monster(s) on the field that has the highest ATK. During your Standby Phase, if you have 4 or less cards in your hand, destroy this card.
+
+Bottomless Trap Hole
+When your opponent Summons a monster(s) with 1500 or more ATK: Destroy that monster(s) with 1500 or more ATK, and if you do, banish it.
+
+Bowganian
+Once per turn, during your Standby Phase: Inflict 600 damage to your opponent.
+
+Brain Control
+Pay 800 LP, then target 1 face-up monster your opponent controls; take control of that target until the End Phase.
+
+Brain Jacker
+FLIP: Target 1 face-up monster your opponent controls; equip this card to that target (this card is treated like an Equip Spell). While this card is equipped to a monster by this effect, take control of that monster. Once per turn, during your opponent's Standby Phase: Your opponent gains 500 LP.
+
+Breaker the Magical Warrior
+If this card is Normal Summoned: Place 1 Spell Counter on it (max. 1). Gains 300 ATK for each Spell Counter on it. You can remove 1 Spell Counter from this card, then target 1 Spell/Trap on the field; destroy that target.
+
+Bubble Crash
+If a player(s) has at least 6 total cards in their hand and/or field: that player(s) sends cards from their hand and/or field to the GY so the remaining amount of cards on their field and/or hand is 5.
+
+Bubonic Vermin
+FLIP: You can Special Summon 1 "Bubonic Vermin" from your Deck in face-down Defense Position.
+
+Burglar
+A sly rat. He will come at you with his huge left claw.
+
+Burning Algae
+When this card is sent to the GY: Your opponent gains 1000 LP.
+
+Burning Beast
+Once per turn, you can either: Target 1 "Freezing Beast" you control; equip this card to that target, OR: Unequip this card and Special Summon it in face-up Attack Position. While equipped to a monster by this card's effect, each time the equipped monster inflicts battle damage to your opponent: Target 1 face-up Spell/Trap on the field; destroy that target. 1 monster can only be equipped with 1 Union monster at a time. If the equipped monster would be destroyed by battle, destroy this card instead.
+
+Burning Land*
+When this card is activated: If there are any Field Spells on the field, destroy them. Once per turn, during the Standby Phase: The turn player takes 500 damage.
+*You can also consider the singular here, since back then only 1 Field Spell could be activated, and not 1 per side of the field.
+
+Burning Spear
+Equip only to a FIRE monster. It gains 400 ATK, also it loses 200 DEF.
+
+Burst Breath
+Tribute 1 Dragon monster; destroy all face-up monsters on the field whose DEF is less than or equal to the ATK the Tributed monster had on the field.
+
+Burst Stream of Destruction
+If you control "Blue-Eyes White Dragon": Destroy all monsters your opponent controls. "Blue-Eyes White Dragon" you control cannot attack the turn you activate this card.
+
+Buster Blader
+Gains 500 ATK for each Dragon monster your opponent controls or is in their GY.
+
+Buster Rancher*
+Equip only to a monster with 1000 or less ATK. If the equipped monster's ATK becomes higher than 1000 other than because of this card's effect, destroy this card. During damage calculation only, the equipped monster gains 2500 ATK if the opponent's battling monster is in Attack Position and its ATK is 2500 or more, OR if the opponent's battling monster is in Defense Position and its DEF is 2500 or more.
+*Double check.
+
+Buttergly Dagger - Elma
+The equipped monster gains 300 ATK. When this card is destroyed and sent to the GY while equipped: You can return this card to the hand.
+
+Byser Shock
+If this card is Summoned: Return all Set cards on the field to the hand.
+
+Call of the Grave
+When your opponent activates "Monster Reborn": Negate the effect of that "Monster Reborn".
+
+Call of the Haunted
+Activate this card by targeting 1 monster in your GY; Special Summon that target in Attack Position. When this card leaves the field, destroy that monster. When that monster is destroyed, destroy this card.
+
+Call of the Mummy
+Once per turn: You can Special Summon 1 Zombie monster from your hand. You must control no monsters to activate and to resolve this effect.
+
+Cannon Soldier
+You can Tribute 1 monster; inflict 500 damage to your opponent.
+
+Cannonball Spear Shellfish
+If "Umi" is on the field, this card is unaffected by Spell effects.
+
+Card Destruction
+Both players discard as many cards as possible from their hands, then each player draws the same number of cards they discarded.
+
+Card of Safe Return
+When a monster(s) is Special Summoned from your GY: You can draw 1 card.
+
+Card of Sanctity
+Banish all other cards you control and in your hand (min.1 from each); draw until you have 2 cards in your hand.
+
+Card Shuffle
+Once per turn: You can pay 300 LP; shuffle either your or your opponent's Deck.
+
+Castle of Dark Illusions*
+FLIP: While this card is face-up on the field, all Zombie monsters currently on the field gain 200 ATK/DEF. Once per turn, during your next 4 Standby Phases, while this card is face-up on the field: Those Zombie monsters gain 200 ATK/DEF.
+*Double check. Should I write down that those effects are applied while these monsters are Zombie, or is it a general Ygo rule? If you change their Type, they lose the boost, but they gain it back if they become Zombies again.
+
+Castle Walls
+Target 1 face-up monster on the field; it gains 500 DEF until the end of this turn.
+
+Cat's Ear Tribe*
+During your opponent's Battle Phase, if a monster(s) your opponent controls battles this card, that monster's original ATK becomes 200 during damage calculation only.
+*Double check.
+
+Catapult Turtle
+You can Tribute 1 monster; inflict damage to your opponent equal to half the Tributed monster's ATK on the field.
+
+Catnipped Kitty
+If you control another Beast monster(s), monsters your opponent controls cannot target this card for an attack. Once per turn: You can target 1 face-up monster your opponent controls; its DEF becomes 0 until the end of this turn.
+
+Cave Dragon
+Cannot be Normal Summoned while you control a monster. This card cannot declare an attack unless you control another Dragon monster.
+
+Ceasefire
+If a face-down Defense Position monster or an Effect Monster is on the field: Change all face-down Defense Position monsters on the field to face-up Defense Position (Flip monsters' effects are not activated at this time), also inflict 500 damage to your opponent for each Effect Monster on the field.
+
+Celtic Guardian
+An elf who learned to wield a sword, he baffles enemies with lightning-swift attacks.
+
+Cemetary Bomb
+Inflict damage to your opponent for each card in their GY x100.
+
+Centrifugal Field
+When a Fusion Monster(s) is destroyed by a card effect and sent to the GY: Its owner targets 1 Fusion Material Monster in their GY that is listed on that Fusion Monster; that player Special Summons that target.
+
+Ceremonial Bell
+Both players must keep their hands revealed.
+
+Cestus of Dalga
+Equip only to a Fairy monster. It gains 500 ATK. If it inflicts battle damage to your opponent: Gain LP equal to the damage inflicted.
+
+Chain Burst
+Each time a Trap is activated, immediately after it resolves, the player that activated it takes 1000 damage.
+
+Chain Destruction
+When a monster(s) with 2000 or less ATK is Summoned: Target 1 of them; destroy all cards with that name in its controller's hand and Main Deck.
+
+Chain Disappearance
+When a monster(s) with 1000 or less ATK is Summoned: Banish that monster(s) with 1000 or less ATK, then your opponent banishes all cards with the same name as that card(s) from their hand and Deck.
+
+Chain Energy
+Each player must pay 500 Life Points per card to Normal Summon, Special Summon, Set or activate cards from their respective hands.
+
+Change of Heart
+Target 1 monster your opponent controls; take control of it until the end of this turn.
+
+Chaos Command Magician
+Effects of monsters that target this 1 card are negated.
+
+Chaos Emperor Dragon - Envoy of the End
+Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn: You can pay 1000 LP; send as many cards in both players' hands and on the field as possible to the GY, then inflict 300 damage to your opponent for each card sent to the opponent's GY by this effect.
+
+Chaos End
+If at least 7 of your cards are banished: Destroy all monsters on the field.
+
+Chaos Greed
+If at least 4 of your cards are banished and there are no cards in your GY: Draw 2 cards.
+
+Chaos Necromancer
+This card's ATK is equal to the number of your banished monsters x300.
+
+Chaos Sorcerer
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your GY. Once per turn: You can target 1 face-up monster on the field; banish that target. This card cannot attack the turn you activate this effect.
+
+Chaosrider Gustaph
+Once per turn: You can banish up to 2 Spells from your GY; this card gains 300 ATK for each, until the end of your opponent's turn.
+
+Charcoal Inpachi
+A wicked wooden spirit that has burned out. The barbecue grilled with this charcoal is so awesome that everybody thinks it's priceless.
+
+Charm of Shabti
+(Quick Effect): You can discard this card; "Gravekeeper's" monsters you control cannot be destroyed by battle until the end of this turn.
+
+Charubin the Fire Knight
+"Monster Egg" + "Hinotama Soul"
+
+Checkmate
+Tribute 1 "Archfiend" monster; this turn, 1 "Terrorking Archfiend" you control can attack directly.
+
+Chiron the Mage
+Once per turn: You can discard 1 Spell, then target 1 Spell/Trap your opponent controls; destroy that target.
+
+Chopman the Desperate Outlaw
+When this card is Flip Summoned: You can target 1 Equip Spell in your GY; equip it to this card.
+
+Chorus of Sanctuary
+Defense Position monsters gain 500 DEF.
+
+Chosen One
+Select 1 Monster Card and 2 non-Monster Cards from your hand. Your opponent randomly selects 1 card among them. If it is a Monster Card, Special Summon it and send the remaining 2 cards to the GY. Otherwise, send all those cards to the GY.
+
+Chu-Ske the Mouse Fighter
+A fiery mouse, travelling the world to become the strongest fighter in the world of mice. Be careful not to touch him, or you will get burned.
+
+Cipher Soldier
+If this card battles a Warrior monster, during damage calculation: This card gains 2000 ATK and DEF during that damage calculation only.
+
+Claw Reacher
+Stretching arms and razor-sharp claws make this monster a formidable opponent.
+
+Clown Zombie
+A clown revived by the powers of darkness. Its deadly dance has sent many monsters to their graves.
+
+Coach Goblin
+Once per turn, during your End Phase: You can reveal 1 Normal Monster Card in your hand, then return it to the bottom of your Deck; draw 1 card. This card must be face-up on the field to activate and to resolve this effect.
+
+Cobra Jar
+FLIP: Special Summon 1 "Poisonous Snake Token" (Reptile/Earth/Level 3/ATK 1200/DEF 1200). When it is destroyed by battle, inflict 500 damage to your opponent.
+
+Cobraman Sakuzy
+Once per turn: You can change this card to face-down Defense Position. When this card is flipped face-up: Look at all Set Spells/Traps your opponent controls.
+
+Cockroach Knight
+When this card is sent to the GY: Return it to the top of the Deck.
+
+Cocoon of Evolution
+You can target 1 "Petit Moth" you control; equip this card from your hand to that target. While equipped by this effect, the original ATK/DEF of that "Petit Moth" becomes the ATK/DEF of "Cocoon of Evolution".
+
+Coffin Seller
+Each time a monster(s) is sent to your opponent's GY: Inflict 300 damage to your opponent.
+
+Cold Wave
+At the start of your Main Phase 1: Until your next Draw Phase, neither player can Set or activate the effects of Spells and Traps.
+
+Collected Power
+Target 1 face-up monster on the field; equip it with all Equip Cards on the field. If any of those Equip Cards is now equipped to an incorrect target, destroy that Equip Card.
+
+Combination Attack
+During the Battle Phase: Target 1 monster you control that battled this turn and that is equipped with 1 Union monster; Special Summon that Union monster, also that target can attack again.
+
+Command Knight
+All Warrior monsters you control gain 400 ATK. If you control another monster, monsters your opponent controls cannot target this card for an attack.
+
+Commencement Dance
+This card is used to Ritual Summon "Performance of Sword". You must also Tribute monsters from your hand or field whose totale Levels equal 6 or more.
+
+Compulsory Evacuation Device
+Target 1 monster on the field; return that target to the hand.
+
+Confiscation
+Pay 1000 LP; look ato your opponent's hand and discard 1 card from their hand.
+
+Continuous Destruction Punch*
+If a monster your opponent controls battled a Defense Position monster you control, after damage calculation destroy the attacking monster if its ATK is lower than the DEF of your monster.
+*Double check for a better wording.
+
+Contract with Exodia
+If you have all 5 of "Exodia the Forbidden One", "Right Arm of the Forbidden One", "Left Arm of the Forbidden One", "Right Leg of the Forbidden One", and "Left Leg of the Forbidden One" in your GY: Special Summon 1 "Exodia Necross" from your hand.
+
+Contract with the Abyss
+This card can be used to Ritual Summon any DARK Ritual Monster. You must also Tribute monsters from your hand or field whose total Levels exactly equal the Level of the Ritual Monster you Ritual Summon.
+
+Contract with the Dark Master
+This card is used to Ritual Summon "Dark Master - Zorc". You must also Tribute monsters from your hand or field whose total Levels equal 8 or more.
+
+Convulsion of Nature
+Both players must turn their Decks upside down.
+
+Corroding Shark
+A zombie shark that can deliver its lethal curse with a spell.
+
+Cosmo Queen
+Queen of the galaxies and mistress of the stars.
+
+Cost Down
+Discard 1 card; for the rest of this turn, reduce the Levels of all monsters in your hand by 2 (even after they are Summoned).
+
+Covering Fire
+During the Damage Step, while an opponent's monster is attacking a monster you control: Target 1 other face-up monster you control; your attacked monster gains ATK equal to that target's ATK during the Damage Step only.
+
+Crab Turtle
+You can Ritual Summon this card with "Turtle Oath".
+
+Crass Clown
+When this card is changed from Defense Position to Attack Position: Target 1 monster your opponent controls; return that target to the hand.
+
+Crawling Dragon
+This weakened dragon can no longer fly, but is still a deadly force to be reckoned with.
+
+Crawling Dragon #2
+A powerful dragon with teeth that can grind almost anything to dust.
+
+Creature Swap
+Each player chooses 1 monster they control and switches control of those monsters with each other. Those monsters cannot change their battle positions for the rest of this turn.
+
+Creeping Doom Manta
+When Normal Summoned, Traps cannot be activated.
+
+Crimson Ninja
+FLIP: Target 1 Trap on the field; destroy that target. (If the target is Set, reveal it, and destroy it if it is a Trap. Otherwise, return it to its original position.)
+
+Crimson Sentry*
+During your Main Phase 1: You can Tribute this card (for cost). This turn, the first time (and if) a monster you control is destroyed by battle and sent to the GY: You can target that monster in the GY; place that target on the bottom of the Deck.
+*Nightmare, Last Will-like. Not 100% satisfied with the wording, but I needed to put an "if" somewhere to ensure that this card cannot miss the timing.
+
+Criosphinx
+When a monster(s) is returned from the field to the hand: Its owner sends 1 card from their hand to the GY.
+
+Cross Counter
+If a monster your opponent controls attacks a Defense Position monster you control, and its DEF is higher than the attacking monster's ATK: Inflict double battle damage to your opponent, then destroy the attacking monster after damage calculation.
+
+Cure Mermaid*
+Once per turn, during your Standby Phase: Gain 800 LP. This card must be face-up on the field to activate and to resolve this effect.
+*Old effects used to be like that when they said "as long as this card is face-up on the field". Please double check if I have missed any.
+
+Curse of Aging
+Discard 1 card; face-up monsters your opponent currently controls lose 500 ATK/DEF until the end of this turn.
+
+Curse of Anubis*
+Change all Effect Monsters on the field to Defense Position. Until the end of this turn, the original DEF of those monsters becomes 0, also their battle positions cannot be changed.
+*The effect types are confusing to me.
+
+Curse of Darkness
+Each time a Spell is activated, immediately after it resolves, the player that activated it takes 1000 damage.
+
+Curse of Dragon
+A wicked dragon that taps into dark forces to execute a powerful attack.
+
+Curse of Fiend
+During your Standby Phase (if this card is Set on your Spell & Trap Zone): Change the battle position of all monsters on the field. They cannot change their battle position for the rest of this turn, except by the effect of a card.
+
+Curse of Royal
+When a Spell/Trap is activated that includes the effect of destroying exactly 1 Spell/Trap: Negate its activation, and if you do, destroy it.
+
+Curse of the Masked Beast
+This card is used to Ritual Summon "The Masked Beast". You must also Tribute monsters from your hand or field whose total Levels equal 8 or more.
+
+Cursed Seal of the Forbidden Spell
+When a Spell is activated: Discard 1 Spell; negate the activation, and if you do, destroy it, and if you do that, your opponent cannot activate Spells with that name for the rest of this Duel.
+
+Cyber Falcon
+A jet-powered hawk that travels at the speed of sound.
+
+Cyber Harpie Lady
+(This card's name is always treated as "Harpie Lady".)
+
+Cyber Jar
+FLIP: Destroy all monsters on the field, then both players reveal the top 5 cards from their Decks, then Special Summon all revealed Level 4 or lower monsters in face-up Attack Position or face-down Defense Position, also add any remaining cards to their hand. (If either player has less than 5 cards in their Deck, reveal as many as possible.)
+
+Cyber Raider
+When this card is Summoned: Activate 1 of these effects.
+● Target 1 Equip Card equipped to a monster on the field; destroy that target.
+● Target 1 Equip Card equipped to a monster on the field; equip that target to this card.
+
+Cyber Saurus
+"Blast Juggler" + "Two-Headed King Rex"
+(This card is not treated as a "Cyber" card.)
+
+Cyber Soldier of Darkworld
+A mechanical soldier that won't stop attacking until all life readings have been extinguished from its sensors.
+
+Cyber-Stein
+(This card is not treated as a "Cyber" card.)
+You can pay 5000 LP; Special Summon 1 Fusion Monster from your Fusion Deck in Attack Position.
+
+Cyclon Laser
+Equip only to "Gradius". It gains 300 ATK. When the equipped monster attacks a Defense Position monster, inflict piercing damage to your opponent.
+
+D. Human
+Gifted with the power of dragons, this warrior wields a sword created from a dragon's fang.
+
+D. Tribe*
+All face-up monsters you (currently: OCG?) control become Dragon monsters until the end of this turn.
+*Conflicting OCG-TCG rulings?
+
+D.D. Assailant
+After damage calculation, when this card is destroyed by battle with an opponent's monster: Banish that monster, also banish this card.
+
+D.D. Borderline
+While there are no Spells in your GY, neither player can conduct their Battle Phase.
+
+D.D. Crazy Beast
+If this card destroys an opponent's monster by battle, after damage calculation: Banish that opponent's monster.
+
+D.D. Dynamite
+Inflict damage to your opponent for each of their banished cards x300.
+
+D.D. Scout Plane*
+Once per turn, during the End Phase, if this card is currently banished, and was banished this turn: Special Summon it in face-up Attack Position.
+*Double check.
+
+D.D. Survivor
+During the End Phase, if this card was banished while face-up, on your side of the field, this turn: Special Summon this banished card. This effect can only activate once per turn.
+
+D.D. Trainer
+A poor goblin that was sucked into a different dimension. However, he's doing his best with his new destiny.
+
+D.D. Warrior Lady
+After damage calculation, when this card battles an opponent's monster: You can banish that monster, also banish this card.
+
+Dancing Elf
+An elf that dances across the sky with wings of razor-sharp blades
+
+Dancing Fairy*
+Once per turn, during your Standby Phase: Gain 1000 LP. This card must be in face-up Defense Position to activate and to resolve this effect.
+*Continuous/Trigger?
+
+Dark Assailant
+Armed with the Psycho Sword, this sinister assassin rules the bad land.
+
+Dark Balter the Terrible
+"Possessed Dark Soul" + "Frontier Wiseman"
+A Fusion Summon of this card can only be done with the above Fusion Materials. When a Normal Spell is activated (Quick Effect): You can pay 1000 LP; negate the effect. Negate the effects of monsters destroyed by battle with this card.
+
+Dark Bat
+Bats from the netherworld that use their hyper senses to detect their enemies.
+
+Dark Blade
+They say he is a dragon-manipulating warrior from the dark world. His attack is tremendous, using his great swords with vicious power.
+
+Dark Blade the Dragon Knight
+"Dark Blade" + "Pitch-Dark Dragon"
+Each time this card inflicts battle damage to your opponent: You can target up to 3 monsters in their GY; banish those targets.
+
+Dark Cat with White Tail
+FLIP: Target 2 monsters your opponent controls and 1 monster you control; return those targets to the hand.
+
+Dark Coffin*
+When this face-down card is destroyed and sent to the GY: Your opponent applies 1 of these effects:
+● Discard 1 random card from their hand.
+● Target 1 monster they control; destroy that target.
+*Double check.
+
+Dark Core
+Discard 1 card, then target 1 face-up monster on the field; banish that target.
+
+Dark Designator
+Declare 1 Monster Card Name; if there is any of the declared monster, add 1 of them to your opponent's hand.
+
+Dark Driceratops
+If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.
+
+Dark Dust Spirit
+Cannot be Special Summoned. During the End Phase of the turn this card is Normal Summoned or flipped face-up: Return it to the hand. When this card is Normal Summoned or flipped face-up: Destroy all other face-up monsters on the field.
+
+Dark Elf
+This card cannot declare an attack unless you pay 1000 LP.
+
+Dark Energy
+Equip only to a Fiend monster. It gains 300 ATK/DEF.
+
+Dark Factory of Mass Production
+Target 2 Normal Monsters in your GY; add them to your hand.
+
+Dark Flare Knight
+"Dark Magician" + "Flame Swordsman"
+You take no Battle Damage from battles involving this card. When this card is destroyed by battle and sent to the GY: Special Summon 1 "Mirage Knight" from your hand or Deck.
+
+Dark Gray
+Entirely gray, this beast has rarely been seen by mortal eyes.
+
+Dark Hole
+Destroy all monsters on the field.
+
+Dark Jeroid
+If this card is Summoned: Target 1 face-up monster on the field; it loses 800 ATK.
+
+Dark King of the Abyss
+It's said that this King of the Netherworld once had the power to rule over the dark.
+
+Dark Magic Attack
+If you control "Dark Magician": Destroy all Spells/Traps your opponent controls.
+
+Dark Magician
+The ultimate wizard in terms of attack and defense.
+
+Dark Magician Girl
+Gains 300 ATK for every "Dark Magician" or "Magician of Black Chaos" in the GY.
+
+Dark Magician Knight
+Cannot be Normal Summoned/Set. Must be Special Summoned with "Knight's Title" and cannot be Special Summoned by other ways. When this card is Special Summoned: Target 1 card on the field; destroy that target.
+
+Dark Magician of Chaos*
+When this card is Normal or Special Summoned: You can target 1 Spell in your GY; add that target to your hand. Banish any monster destroyed by battle with this card. If this face-up card would leave the field, banish it instead.
+*Is the effect of banishing monsters destroyed by battle continous or trigger? I think it changed, but in GOAT it should be continuous. Double check.
+
+Dark Master - Zorc
+You can Ritual Summon this card with "Contract with the Dark Master". Once per turn: You can roll a six-sided die, then destroy all monsters your opponent controls if you roll 1 or 2, destroy 1 monster your opponent controls if you roll 3, 4 or 5, or destroy all monsters you control if you roll 6.
+
+Dark Mimic LV1
+FLIP: Draw 1 card.
+Once per turn, during your Standby Phase: You can send this card to the GY; Special Summon 1 "Dark Mimic LV3" from your hand or Deck.
+
+Dark Mimic LV3
+If this card is destroyed by battle and sent to the GY: Draw 1 card, but if this card was Special Summoned by the effect of "Dark Mimic LV1", draw 2 cards instead.
+
+Dark Mirror Force
+When an opponent's monster declares an attack: Banish all Defense Position monsters your opponent controls.
+
+Dark Necrofear
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 3 Fiend monsters from your GY. During the End Phase, if this card is in the GY because it was destroyed by an opponent's card this turn (by battle or card effect) and sent to your GY while it was a Monster Card under your control: Target 1 face-up monster your opponent controls; equip this card to that target. While this card is equipped to a monster by this effect, take control of that monster.
+
+Dark Paladin
+"Dark Magician" + "Buster Blader"
+Must be Fusion Summoned. When a Spell is activated (Quick Effect): You can discard 1 card; negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect. Gains 500 ATK for each Dragon monster on the field and in the GY.
+
+Dark Room of Nightmare
+Each time your opponent takes damage from a card effect, except "Dark Room of Nightmare": Inflict 300 damage to your opponent.
+
+Dark Ruler Ha Des
+Cannot be Special Summoned from the GY. Negate the effects of monsters destroyed by battle with Fiend monsters you control.
+
+Dark Sage
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand or Deck) by Tributing 1 "Dark Magician" immediately after applying the effect of "Time Wizard" in which you called the coin toss right. When Special Summoned this way: Add 1 Spell from your Deck to your hand.
+
+Dark Scorpion - Chick the Yellow
+When this card inflicts battle damage to your opponent, you can activate 1 of these effects:
+● Target 1 card on the field; return that target to the hand.
+● Look at the top card of their Deck, then return it to the top or bottom of the Deck.
+
+Dark Scorpion - Cliff the Trap Remover
+When this card inflicts battle damage to your opponent, you can activate 1 of these effects:
+● Target 1 Spell/Trap on the field; destroy that target.
+● Send the top 2 cards of their Deck to the GY.
+
+Dark Scorpion - Gorg the Strong
+When this card inflicts battle damage to your opponent, you can activate 1 of these effects:
+● Target 1 monster your opponent controls; return that target to the top of the Deck.
+● Send the top card of their Deck to the GY.
+
+Dark Scorpion - Meanae the Thorn
+When this card inflicts battle damage to your opponent, you can activate 1 of these effects:
+● Add 1 "Dark Scorpion" card from your Deck to your hand.
+● Target 1 "Dark Scorpion" card in your GY; add that target to your hand.
+
+Dark Scorpion Burglars
+When this card inflicts battle damage to your opponent: Your opponent sends 1 Spell from their Deck to the GY.
+
+Dark Scorption Combination
+If you control  "Don Zaloog", "Cliff the Trap Remover", "Dark Scorpion - Chick the Yellow", "Dark Scorpion - Gorg the Strong", and "Dark Scorpion - Meanae the Thorn": This turn, they can attack directly, but if they do, the battle damage inflicted by any of them is 400.
+
+Dark Snake Syndrome
+Once per turn, during your Standby Phase: Inflict damage to both players. This damage begins at 200 and is doubled during each of your following Standby Phases.
+
+Dark Spirit of the Silent*
+When an opponent's monster declares an attack: Target the attacking monster, negate the attack, and target another face-up monster your opponent controls; force it to attack instead. (If it is in face-up Defense Position, change it to Attack Position.)
+*Weird card, maybe you want to change something, like conjunctions. Tested on Edopro, and there's a big part of the effect that is actually a cost. Though I don't understand why even if the attack is negated, the monster can still attack afterwards. I understand that the second target can attack again, though.
+
+Dark Titan of Terror
+A fiend said to dwell in the world of dreams, it attacks enemies in their sleep.
+
+Dark Witch
+A popular creature in mythology that delivers fatal attacks with a sharp spear.
+
+Dark Zebra
+Once per turn, during your Standby Phase, if you control no other cards: Change this card to face-up Defense Position, and if you do, it cannot change its battle position for the rest of this turn.
+
+Dark-Piercing Light*
+Flip all face-down monsters your opponent controls face-up.
+*Double check.
+
+Darkbishop Archfiend
+Once per turn, during your Standby Phase, you must pay 500 LP, or this card is destroyed (this is not optional). Before resolving an opponent's card effect that targets an "Archfiend" monster(s) you control, roll a six-sided die, negate the effect if you roll 1, 3 or 6, and if you do, destroy that card.
+
+Darkfire Dragon
+"Firegrass" + "Petit Dragon"
+
+Darkfire Soldier #1
+An explosive expert from a special elite force.
+
+Darkfire Soldier #2
+A warrior who gained immeasurable power from the heart of a volcano.
+
+Darklord Marie
+Once per turn, during your Standby Phase: You gain 200 LP. This card must be in the GY to activate and to resolve this effect.
+
+Darkness Approaches*
+Discard 2 cards, then target 1 face-up monster on the field; change that target to face-down in the same position.
+*It's gonna suck to program this one card.
+
+Darkworld Thorns
+A thorny plant found in the darklands that wraps itself around any unwary traveler.
+
+De-Fusion
+Target 1 Fusion Monster on the field; return that target to the Fusion Deck, then, if all the Fusion Materials that were used for its Fusion Summon are in your GY, you can Special Summon all of them.
+
+De-Spell
+Target 1 face-up Spell, or 1 Set Spell/Trap, on the field; destroy that target if it is a Spell. (If the target is Set, reveal it.)
+
+Deal of Phantom
+Target 1 face-up monster on the field; this turn, it gains ATK equal to the current number of monsters in your GY x100.
+
+Decayed Commander
+When this card is Normal Summoned: You can Special Summon 1 "Zombie Tiger" from your hand. If this card inflicts battle damage to your opponent by a direct attack: Discard 1 random card from their hand.
+
+Deck Devastation Virus
+Tribute 1 DARK monster with 2000 or more ATK; look at your opponent's hand, all monsters they control, and all cards they draw until the end of their 3rd turn after this card's activation, and destroy all those monsters with 1500 or less ATK.
+
+Dedication through Light and Darkness
+Tribute 1 "Dark Magician"; Special Summon 1 "Dark Magician of Chaos" from your hand, Deck, or GY.
+
+Deepsea Shark
+"Bottom Dweller" + "Tongyo"
+
+Deepsea Warrior
+If "Umi" is on the field, this card is unaffected by Spell effects.
+ 
+Dekoichi the Battlechanted Locomotive
+FLIP: Draw 1 card, then draw 1 additional card for each face-up "Bokoichi the Freightening Car" you control.
+
+Delinquent Duo
+Pay 1000 LP; your opponent discards 1 random card, and if they have any other cards in hand, discard 1 more card of their choice.
+
+Delta Attacker
+If you control 3 Normal Monsters with the same name (except Tokens): This turn, those monsters can attack directly.
+
+Demotion
+The equipped monster has its Level reduced by 2.
+
+Des Counterblow
+When a monster inflicts battle damage by a direct attack: Destroy that monster.
+
+Des Dendle
+Once per turn, you can either: Target 1 "Vampiric Orchis" you control; equip this card to that target, OR: Unequip this card and Special Summon it in face-up Attack Position. While equipped to a monster by this card's effect, each time the equipped monster destroys a monster by battle: Special Summon 1 "Wicked Plant Token" (Plant/EARTH/Level 1/ATK 800/DEF 800). 1 monster can only be equipped with 1 Union monster at a time. If the equipped monster would be destroyed by battle, destroy this card instead.
+
+Des Feral Imp
+FLIP: Target 1 card in your GY; shuffle that target into the Deck.
+
+Des Kangaroo
+If this card is attacked by a monster whose ATK is lower than this card's DEF: Destroy the attacking monster after damage calculation.
+
+Des Koala
+FLIP: Inflict 400 damage to your opponent for each card in their hand.
+
+Des Lacooda
+Once per turn: You can change this card to face-down Defense Position. If this card is Flip Summoned: Draw 1 card.
+
+Des Wombat
+Any damage to you from a card effect becomes 0.
+
+Desert Sunlight
+Change all monsters you control to face-up Defense Position.
+
+Desertapir
+FLIP: Target 1 face-up monster on the field, except "Desertapir"; change that target to face-down Defense Position.
+
+Despair from the Dark
+If this card is sent from your hand or Deck to your GY by an opponent's card effect: Special Summon this card.
+
+Desrook Archfiend
+Once per turn, during your Standby Phase, you must pay 500 LP, or this card is destroyed (this is not optional). Before resolving an opponent's card effect that targets this card, roll a six-sided die, negate the effect if you roll 3, and if you do, destroy that card. When a "Terrorking Archfiend"(s) you control is destroyed and sent to the GY (Quick Effect): You can send this card from your hand to the GY, then target 1 of those "Terrorking Archfiend"(s); Special Summon that target.
+
+Destiny Board*
+When this card and all 4 "Spirit Message" cards with different names are placed on your field, you win the Duel. Once per turn, during your opponent's End Phase: Place 1 "Spirit Message" card from your hand or Deck in your Spell & Trap Zone face-up, in the proper order of "I", "N", "A", and "L" (or "E", "A", "T", and "H"). When any "Spirit Message" card or "Destiny Board" you control leaves the field, send all "Spirit Message" cards and "Destiny Board" you control to the GY.
+Check if you like how I implemented the OCG names.
+
+Destroyer Golem
+A golem with a massive right hand for crushing its victims.
+
+Destruction Punch*
+If a monster you control is attacked by a monster whose ATK is lower than your monster's DEF: Destroy the attacking monster at the end of the Damage Step.
+*Double check.
+
+Destruction Ring
+Target 1 face-up monster you control; each player takes 1000 damage.
+
+Dharma Cannon
+A monstrous creature whose body is lined with cannons that never miss targets.
+
+Dian Keto the Cure Master
+Gain 1000 LP.
+
+Dice Jar
+FLIP: Both players roll a six-sided die. The player with the lowest result takes damage equal to their opponent's roll x 500. However, if the winner rolled a 6, the loser takes 6000 damage. If the rolls are the same, both players roll again.
+
+Dice Re-Roll
+One time, during the rest of this turn, if either player(s) rolls a die (or dice), you can have the player(s) re-roll. (You can only gain this effect once per turn.)
+
+Different Dimension Capsule
+After this card's activation, it remains on the field. When this card is activated: Banish 1 card from your Deck, face-down. During your second Standby Phase after this card's activation, destroy this card, and if you do, add that card to the hand.
+
+Different Dimension Dragon
+This card cannot be destroyed by Spell/Trap effects that do not target it. This card cannot be destroyed by battle with a monster that has 1900 or less ATK.
+
+Different Dimension Gate
+Activate this card by targeting 1 monster on each side of the field; banish those targets. When this card is destroyed and sent to the Graveyard: Return those banished monsters to the field in the same battle positions they were in.
+
+Diffusion Wave-Motion*
+(This card is not treated as a "Fusion" card.)
+If your opponent controls a monster: Pay 1000 LP, then target 1 Level 7 or higher Spellcaster monster you control; this turn, it must attack all monsters your opponent controls once each, also other monsters you control cannot attack. The effects of monsters destroyed by these attacks cannot activate and are negated.
+*Double check.
+
+Dimension Distortion
+If there are no cards in your GY: Target 1 of your banished monsters; Special Summon it.
+
+Dimension Fusion
+Pay 2000 LP; both players Special Summon as many of their banished monsters as possible.
+
+Dimension Jar
+FLIP: Both players can banish up to 3 cards from their opponent's GY.
+
+Dimensionhole
+Target 1 monster you control; banish it until your next Standby Phase. While that monster is banished, the Monster Card Zone of the targeted monster cannot be used.
+
+Disappear
+Target 1 card in your opponent's GY; banish that target.
+
+Disarmament
+Destroy all Equip Cards on the field.
+
+Disc Fighter
+Before damage calculation, if this card attacks a Defense Position monster with 2000 DEF or less: Destroy that monster.
+
+Disk Magician
+This monster hides in a saucer and only appears when executing an attack.
+
+Dissolverock
+A monster born in the lava pits, it generates intense heat that can melt away its enemies.
+
+Disturbance Strategy
+Your opponent shuffles their entire hand into the Deck, then draws the same number of cards.
+
+Divine Dragon Ragnarok
+A legendary dragon sent by the gods as their instrument. Legends say that if provoked, the whole world will sink beneath the sea.
+
+Divine Wrath
+When a monster effect is activated: Discard 1 card; negate the activation, and if you do, destroy that monster.
+
+DNA Surgery
+Activate this card by declaring 1 Monster Type. All face-up monsters on the field become that Type.
+
+DNA Transplant
+Activate this card by declaring 1 Monster Attribute. All face-up monsters on the field become that Attribute.
+
+Dokurorider
+You can Ritual Summon this card with "Revival of Dokurorider".
+
+Dokuroyaiba
+A boomerang with brains that will pursue a target to the ends of the earth.
+
+Doma The Angel of Silence
+This fairy rules over the end of existence.
+
+Don Turtle
+When this card is Normal or Flip Summoned: You can Special Suppon any number of "Don Turtle" from your hand.
+
+Don Zaloog
+When this card inflicts battle damage to your opponent, you can activate 1 of these effects:
+● Discard 1 random card from their hand.
+● Send the top 2 cards of their Deck to the GY.
+
+Dora of Fate
+During your opponent's turn: Target 1 face-up monster your opponent controls. During your next turn, when you Normal Summon 1 monster that is 1 Level lower than the targeted monster, inflict damage to your opponent equal to the Level of the targeted monster x500.
+
+Doriado's Blessing
+This card is used to Ritual Summon "Elemental Mistress Doriado". You must also Tribute monsters whose total Levels equal 3 or more from the field or your hand.
+
+Double Attack
+Discard 1 monster from your hand to the GY, then target 1 face-up monster you control with a lower Level than the discarded monster's; this turn, the targeted monster can make a second attack.
+
+Double Coston
+This card can be treated as 2 Tributes for the Tribute Summon of a DARK monster.
+
+Double Snare
+Target 1 face-up card on the field whose effect includes negating Traps' effects; destroy that target.
+
+Double Spell
+Discard 1 Spell, then target 1 Spell in your opponent's GY; place that target in the appropriate Zone on your side of the field, and as this card's effect resolution, follow its card text as if you had used it yourself.
+
+Dragged Down into the Grave
+Both players reveal their hands, each chooses 1 card from their opponent's hand, then you discard the chosen cards from both players' hands, then both players draw 1 card.
+
+Dragon Capture Jar
+Change all Dragon monsters on the field to Defense Position, also they cannot change their battle positions.
+
+Dragon Manipulator
+FLIP: Target 1 Dragon monster your opponent controls; take control of that target until the end of this turn.
+
+Dragon Piper
+FLIP: Destroy all "Dragon Capture Jar" on the field, then, if you destroyed any, change all Dragon monsters on the field to Attack Position.
+
+Dragon Seeker
+When this card is Normal or Flip Summoned: Target 1 Dragon monster on the field; destroy that target.
+
+Dragon Treasure
+Equip only to a Dragon monster. It gains 300 ATK/DEF.
+
+Dragon Zombie
+A dragon revived by sorcery. Its breath is highly corrosive.
+
+Dragon's Gunfire
+If you control a Dragon monster: Activate 1 of these effects.
+● Inflict 800 damage to your opponent.
+● Target 1 monster with 800 or less DEF; destroy that target.
+
+Dragon's Rage
+If a Dragon monster you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.
+
+Dragoness the Wicked Knight
+"Armaill" + "One-Eyed Shield Dragon"
+
+Dragonic Attack
+Equip only to a Warrior monster. It becomes a Dragon monster, also it gains 500 ATK/DEF.
+
+Draining Shield
+When an opponent's monster declares an attack: Target the attacking monster; negate that attack, and if you do, gain LP equal to that target's ATK.
+
+Dramatic Rescue
+When a Spell/Trap, or monster effect, is activated that targets an "Amazoness" monster on the field: Return the targeted monster to the hand, and if you do, Special Summon 1 monster from your hand, except the targeted monster.
+
+Dream Clown
+When this card is changed from Attack Position to Defense Position: Target 1 monster your opponent controls; destroy that target.
+ 
+Dreamsprite
+Before damage calculation, if this card is targeted for an attack: Target 1 other monster you control; switch the attack target to that target, then apply damage calculation.
+
+Drill Bug
+When this card inflicts battle damage to your opponent: You can choose 1 "Parasite Paracide" from your Deck and place it on top of your Deck.
+
+Drillago
+If the only cards your opponent controls are face-up monsters with 1600 or more ATK, this card can attack your opponent directly.
+
+Driving Snow*
+When a Trap(s) you control is destroyed by an opponent's card effect and sent (from the field) to the GY: Target 1 Spell/Trap on the field; destroy that target.
+*I think you can remove (from the field), I'm just a little tired.
+
+Drooling Lizard
+A blood-sucking snake in human form that attacks any living being that passes nearby.
+
+Drop Off
+When your opponent draws for their normal draw in their Draw Phase: Your opponent discards 1 card they just drew.
+
+Dummy Golem*
+FLIP: Switch control of this monster and 1 monster your opponent controls (their choice).
+*Check grammar, non-native speaker here.
+
+Dust Barrier
+Normal Monsters on the field are unaffected by your opponent's Spell effects. During your second Standby Phase after this card's activation, destroy this card.
+
+Dust Tornado
+Target 1 Spell/Trap your opponent controls; destroy that target, then you can Set 1 Spell/Trap from your hand.
+
+Eagle Eye
+When Normal Summoned, Traps cannot be activated.
+
+Earth Chant
+This card can be used to Ritual Summon any EARTH Ritual Monster. You must also Tribute monsters from your hand or field whose total Levels exactly equal the Level of the Ritual Monster you Ritual Summon.
+
+Earthbound Spirit
+A vengeful creature formed by the spirits of fallen warriors, it drags any who dare approach it into the deepest bowels of the earth.
+
+Earthquake
+Change all face-up monsters on the field to Defense Position.
+
+Earthshaker*
+Declare 2 monster Attributes, then your opponent chooses 1 of those and destroys all monsters on the field with that Attribute.
+*Double check.
+
+Eatgaboon*
+If your opponent Normal or Flip Summons a monster with 500 or less ATK: Target that face-up monster; destroy that target.
+*In TCG it's if, in OCG it's when. Double check anyways.
+
+Ectoplasmer
+Once per turn, during each player's End Phase: The turn player must Tribute 1 face-up monster, and if they do, inflict damage to their opponent equal to half the original ATK of the Tributed monster.
+
+Ekibyo Drakmord*
+The equipped monster cannot attack. At the end of its controller's second turn after this card's activation: Destroy the equipped monster. When this card is destroyed by its own effect: Return it to the hand.
+*Double check.
+
+Electric Lizard
+If this card was attacked by a non Zombie monster, after damage calculation: Next turn, that monster cannot attack.
+
+Electric Snake
+When this card is discarded your hand to the GY by an opponent's card effect: Draw 2 cards.
+
+Electro-Whip
+Equip only to a Thunder monster. It gains 300 ATK/DEF.
+
+Elegant Egotist
+If "Harpie Lady" is on the field: Special Summon 1 "Harpie Lady" or "Harpie Lady Sisters" from your hand or Deck.
+
+Element Doom
+Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field: ● EARTH: Negate the effects of monsters destroyed by battle with this card. ● WIND: At the end of the Damage Step, if this card destroyed an opponent's monster by battle: It can make another attack in a row.
+
+Element Dragon
+Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field: ● FIRE: This card gains 500 ATK. ● WIND: At the end of the Damage Step, if this card destroyed an opponent's monster by battle: It can make another attack in a row.
+
+Element Magician
+Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field: ● WATER: Control of this face-up card cannot switch. ● WIND: At the end of the Damage Step, if this card destroyed an opponent's monster by battle: It can make another attack in a row.
+
+Element Saurus
+Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field: ● FIRE: This card gains 500 ATK. ● EARTH: Negate the effects of monsters destroyed by battle with this card.
+
+Element Soldier
+Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field: ● WATER: Control of this face-up card cannot switch. ● EARTH: Negate the effects of monsters destroyed by battle with this card.
+
+Element Valkyrie
+(This card is not treated as a "Valkyrie" card.)
+Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field: ● FIRE: This card gains 500 ATK. ● WATER: Control of this face-up card cannot switch.
+
+Elemental Burst
+Tribute 1 each of WIND, WATER, FIRE, and EARTH monsters; destroy all cards your opponent controls.
+
+Elemental HERO Avian
+A winged Elemental HERO who wheels through the sky and manipulates the wind. His signature move, Featherbreak, gives villainy a blow from sky-high.
+
+Elemental HERO Burstinatrix
+A flame manipulator who was the first Elemental HERO woman. Her Burstfire burns away villainy.
+
+Elemental HERO Clayman
+An Elemental HERO with a clay body built-to-last. He'll preserve his Elemental HERO colleagues at any cost.
+
+Elemental HERO Flame Wingman
+"Elemental HERO Avian" + "Elemental HERO Burstinatrix"
+Must be Fusion Summoned and cannot be Special Summoned by other ways. When this card destroys a monster by battle and sends it to the GY: Inflict damage to your opponent equal to the ATK of the destroyed monster in the GY.
+
+Elemental HERO Sparkman
+An Elemental HERO and a warrior of light who proficiently wields many kinds of armaments. His Static Shockwave cuts off the path of villainy.
+
+Elemental HERO Thunder Giant
+"Elemental HERO Sparkman" + "Elemental HERO Clayman"
+Must be Fusion Summoned and cannot be Special Summoned by other ways. Once per turn: You can discard 1 card, then target 1 face-up monster on the field with original ATK less than the ATK of this card; destroy that target.
+
+Elemental Mistress Doriado
+Must be Ritual Summoned with the Ritual Spell "Doriado's Blessing" and cannot be Ritual Summoned by other ways. While face-up on the field, the Attribute of this card is also treated as WIND, FATER, FIRE, and EARTH.
+
+Elephant Statue of Blessing
+When this card is sent from your hand to your GY by an opponent's card effect: Gain 2000 LP.
+
+Elephant Statue of Disaster
+When this card is sent from your hand to your GY by an opponent's card effect: Inflict 2000 damage to your opponent.
+
+Elf's Light
+Equip only to a LIGHT monster. It gains 400 ATK, also it loses 200 DEF.
+
+Emblem of Dragon Destroyer
+Add 1 "Buster Blader" from your Deck or GY to your hand.
+
+Embodiment of Apophis
+During the Main Phase: Special Summon this card as a Normal Monster (Reptile/EARTH/Level 4/ATK 1600/DEF 1800). (This card is also still a Trap.)
+
+Emergency Provisions
+Send any number of other Spells/Traps you control to the GY; gain 1000 LP for each card sent to the GY this way.
+
+Emes the Infinity
+Each time this card destroys an opponent's monster by battle and sends it to the GY: This card gains 700 ATK.
+
+Emissary of the Afterlife
+When this card is sent from the field to the GY: Each player adds 1 Level 3 or lower Normal Monster from their Deck to their hand.
+
+Emissary of the Oasis
+While you control a Level 3 or lower Normal Monster, your opponent cannot target this card for an attack. Any battle damage to the controller of this card from battles involving a Level 3 or lower Normal Monster becomes 0.
+
+Empress Judge
+"Queen's Double" + "Hibikime"
+
+Empress Mantis
+Queen of an army of giant mantises whose command moves legions.
+
+Enchanted Javelin
+When an opponent's monster declares an attack: Target the attacking monster; gain LP equal to its ATK.
+
+Enchanting Fitting Room
+Pay 800 LP; excavate the top 4 cards of your Deck and Special Summon all the excavated Level 3 or lower Normal Monsters, also, after that, shuffle the rest back into your Deck.
+
+Enchanting Mermaid
+A beautiful mermaid that lures voyagers to a watery grave.
+
+Enemy Controller
+Activate 1 of these effects.
+● Target 1 face-up monster your opponent controls; change that target's battle position.
+● Tribute 1 monster, then target 1 face-up monster your opponent controls; take control of that target until the End Phase.
+
+Energy Drain
+Target 1 face-up monster you control; until the end of this turn, it gains 200 ATK/DEF for each cards your opponent currently has in their hand.
+
+Enervating Mist
+Your opponent's hand size limit becomes 5.
+
+Enraged Battle Ox
+If a Beast, Beast-Warrior, or Winged Beast-Type monster you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.
+
+Enraged Muka Muka
+Gains 400 ATK/DEF for each card in your hand.
+
+Eria the Water Charmer
+FLIP: Target 1 WATER monster your opponent controls; take control of that target while this card is face-up on the field.
+
+Eternal Rest
+Destroy all monsters on the field equipped with Equip Cards.
+
+Exchange
+Both players reveal their hands and add 1 card from each other's hand to their hand.
+
+Exhausting Spell
+Remove all Spell Counters on the field.
+
+Exile of the Wicked
+Destroy all Fiend monsters on the field.
+
+Exiled Force
+You can Tribute this card, then target 1 monster on the field; destroy that target.
+
+Exodia Necross
+Cannot be Normal Summoned/Set. Must be Special Summoned with "Contract with Exodia", and cannot be Special Summoned by other ways. Cannot be destroyed by battle or Spell/Trap effect. Once per turn, during your Standby Phase: This card gains 500 ATK. Destroy this card unless all 5 of these cards are in your Graveyard - "Exodia the Forbidden One", "Right Arm of the Forbidden One", "Left Arm of the Forbidden One", "Right Leg of the Forbidden One" and "Left Leg of the Forbidden One".
+
+Exodia the Forbidden One
+If you have "Right Leg of the Forbidden One", "Left Leg of the Forbidden One", "Right Arm of the Forbidden One" and "Left Arm of the Forbidden One" in addition to this card in your hand, you win the Duel.
+
+Fairy Box
+When your opponent's monster declares an attack: Toss a coin and call it. If you call it right, the attacking monster's ATK becomes 0 until the end of the Battle Phase. During each of your Standby Phases, pay 500 Life Points or destroy this card.
+
+Fairy Guardian*
+You can Tribute this card, then target 1 Spell in your GY that was sent there this turn by an opponent's card; place that target on the bottom of the Deck.
+*Double check.
+
+Fairy King Truesdale
+While this card is in Defense Position, Plant monsters you control gain 500 ATK/DEF.
+
+Fairy Meteor Crush
+If the equipped monster attacks a Defense Position monster, inflict piercing battle damage to your opponent.
+
+Fairy of the Spring
+Target 1 Equip Spell in your GY; add that target to your hand. That Equip Spell cannot be activated this turn.
+
+Fairy's Gift
+This flying monster is known for delivering happiness to all.
+
+Fairy's Hand Mirror
+When your opponent activates a Spell that targets exactly 1 monster (and no other cards) on the field: Target another card that would be an appropriate target; that Spell now targets the new target.
+
+Faith Bird
+This long-tailed bird blinds its enemies with mystical light.
+
+Fake Trap*
+When your opponent activates a card or effect that would destroy a Trap(s) you control: Destroy this card instead of that Trap(s). (Reveal all of your face-down Traps that would have been destroyed).
+*Double check.
+
+Falling Down
+Equip only to a monster your opponent controls; take control of it. Destroy this card unless you control an "Archfiend" card. Once per turn, during your opponent's Standby Phase: Take 800 damage.
+
+Familiar Knight
+When this card is destroyed by battle and sent to the GY: Each player can Special Summon 1 Level 4 monster from their hand.
+
+Fatal Abacus
+Each time a monster is sent from the field to the GY, inflict 500 damage per monster to the respective card owner.
+
+Fear from the Dark
+When this card is sent from your hand or Deck to your GY by an opponent's card effect: Special Summon this card.
+
+Fengsheng Mirror
+Look at your opponent's hand and discard 1 Spirit monster from their hand (if any).
+
+Fenrir
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 2 WATER monsters from your GY. When this card destroys an opponent's monster by battle: Your opponent skips their next Draw Phase.
+
+Feral Imp
+A playful little fiend that lurks in the dark, waiting to attack an unwary enemy.
+
+Fiber Jar
+FLIP: Each player shuffles all cards from their hand, field, and GY into the Deck, then draws 5 cards.
+
+Fiend Comedian
+Toss a coin and call it. If you call it right, banish all cards from your opponent's GY. If you call it wrong, send cards from the top of your Deck to the GY equal to the number of cards in your opponent's GY.
+
+Fiend Reflection #2
+A bird-beast that summons reinforcements with a hand mirror.
+
+Fiend Scorpion
+A huge scorpion inhabited by the soul of a fiend. Usually it holds back, but has untapped potential.
+
+Fiend Skull Dragon
+"Cave Dragon" + "Lesser Fiend"
+(This card is always treated as an "Archfiend" card.)
+A Fusion Summon of this card can only be done with the above Fusion Materials. Negate the effects of Flip Effect Monsters. Negate any Trap effects that target this card on the field, and if you do, destroy that Trap.
+
+Fiend's Hand Mirror
+When your opponent activates a Spell that targets exactly 1 Spell/Trap (and no other cards) on the field: Target another card that would be an appropriate target; that Spell now targets the new target.
+
+Final Attack Orders
+All face-up monsters on the field are changed to Attack Position and their battle positions cannot be changed.
+
+Final Countdown
+Activate this card by paying 2000 LP. After 20 turns have passed (counting the turn you activate this card as the 1st turn), you win the Duel.
+
+Final Destiny
+Discard 5 cards; destroy all cards on the field.
+
+Final Flame
+Inflict 600 damage to your opponent.
+
+Final Ritual of the Ancients
+This card is used to Ritual Summon "Reshef the Dark Being". You must also Tribute monsters whose total Levels equal 8 or more from the field or your hand.
+
+Fire Kraken
+A squid that thrives on fire and heat.
+
+Fire Princess
+Each time you gain LP, inflict 500 damage to your opponent.
+
+Fire Sorcerer
+FLIP: Banish 2 random cards from your hand; inflict 800 damage to your opponent.
+
+Firebird
+Each time a Winged-Beast monster(s) you control is destroyed: This card gains 500 ATK.
+
+Firegrass
+A fire-breathing plant found growing near volcanoes.
+
+Fireyarou
+A malevolent creature wrapped in flames that attacks enemies with intense fire.
+
+Fissure
+Destroy the 1 face-up monster your opponent controls that has the lowest ATK (your choice, if tied).
+
+Flame Cerebrus
+Known to many as the "Burning Executioner", this monster is capable of burning enemies to cinders.
+
+Flame Champion
+A warrior protected by a flaming shield that nullifies any attack.
+
+Flame Dancer
+This monster moves while swinging its burning rope.
+
+Flame Ghost
+"Skull Servant" + "Dissolverock"
+
+Flame Manipulator
+This Spellcaster attacks enemies with fire-related spells such as "Sea of Flames" and "Wall of Fire".
+
+Flame Ruler
+This card can be treated as 2 Tributes for the Tribute Summon of a FIRE monster.
+
+Flame Swordsman
+"Flame Manipulator" + "Masaki the Legendary Swordsman"
+
+Flash Assailant
+Loses 400 ATK/DEF for each card in your hand.
+
+Flint
+The equipped monster loses 300 ATK and cannot change its battle position. If the equipped monster is destroyed: Target 1 monster on the field; equip this card to that target.
+
+Flower Wolf
+"Silver Fang" + "Darkworld Thorns"
+
+Flying Fish
+Three wishes are granted to those fortunate enought to see this monster in flight.
+
+Flying Kamakiri #1
+When this card is destroyed by battle and sent to the GY: You can Special Summon 1 WIND monster with 1500 or less ATK from your Deck, in face-up Attack Position.
+
+Flying Kamakiri #2
+A flying mantis that feeds primarily on insects.
+
+Flying Penguin
+A very rare penguin that takes to the air with ears shaped like wings.
+
+Follow Wind
+Equip only to a Winged-Beast monster. It gains 300 ATK/DEF.
+
+Forced Ceasefire*
+Discard 1 card; Traps cannot be activated until the end of this turn.
+*Would it be better to write "for the rest of this turn"? or would it change the effect?
+
+Fox Fire*
+Once per turn, during the End Phase, if this card was destroyed by battle and sent to the GY this turn and was face-up at the start of the Damage Step: Special Summon this card from the GY. This face-up card cannot be Tributed for a Tribute Summon.
+*Should be opt according to OCG ruling. Double check.
+
+Freed the Brave Wanderer
+Once per turn: You can banish 2 LIGHT monsters from your GY, then target 1 face-up monster on the field with higher ATK than this face-up card; destroy that target.
+
+Freed the Matchless General
+Negate any Spell effects that target this card, and if you do, destroy that Spell Card. During your Draw Phase, instead of conducting your normal draw: You can add 1 Level 4 or lower Warrior-Type monster from your Deck to your hand. This card must be face-up on the field to activate and to resolve this effect.
+
+Freezing Beast
+Once per turn, you can either: Target 1 "Burning Beast" you control; equip this card to that target, OR: Unequip this card and Special Summon it in face-up Attack Position. While equipped to a monster by this card's effect, each time the equipped monster inflicts battle damage to your opponent: Target 1 face-up Spell/Trap on the field; destroy that target. 1 monster can only be equipped with 1 Union monster at a time. If the equipped monster would be destroyed by battle, destroy this card instead.
+
+Frenzied Panda
+A savage beast that carries a big bamboo stick for beating down its enemies.
+
+Frontier Wiseman
+Negate any Spell effects that target a Warrior monster(s) you control, and if you do, destroy that card.
+
+Frontline Base
+Once per turn: You can Special Summon 1 Level 4 or lower Union monster from your hand.
+
+Frozen Soul
+If your LP are at least 2000 lower than your opponent's: Skip your opponent's next Battle Phase.
+
+Fruits of Kozaky's Studies
+Look at the top 3 cards of your Deck, then place them on the top of the Deck in any order.
+
+Fuh-Rin-Ka-Zan
+When there are face-up WIND, WATER, FIRE and EARTH monster(s) on the field: Apply 1 of these effects.
+● Destroy all monsters your opponent controls.
+● Destroy all Spell and Trap Cards your opponent controls.
+● Discard 2 random cards from your opponent's hand.
+● Draw 2 cards.
+
+Fuhma Shuriken
+Equip only to a "Ninja" monster. It gains 700 ATK. When this card is sent from the field to the Graveyard: Inflict 700 damage to your opponent.
+
+Fulfillment of the Contract
+Activate this card by paying 800 LP, then trget 1 Ritual Monster in your GY; Special Summon it and equip it with this card. When this card is destroyed, banish the equipped monster.
+
+Fushi No Tori
+Cannot be Special Summoned. When this card inflicts battle damage to your opponent: Gain LP equal to the battle damage inflicted. Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.
+
+Fushioh Richie*
+Cannot be Normal Summoned/Set. Must first be Special Summoned with the effect of "Great Dezard". Once per turn: You can change this card to face-down Defense Position. When a Spell/Trap is activated that targets this card (Quick Effect): Negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect. When this card is flipped face-up: You can target 1 Zombie monster in your GY; Special Summon that target.
+*Double check.
+
+Fusilier Dragon, the Dual-Mode Beast
+You can Normal Summon/Set this card without Tributing, but its original ATK and DEF become halved.
+
+Fusion Gate
+While this card is on the field: The turn player can Fusion Summon 1 Fusion Monster from their Fusion Deck, by banishing Fusion Materials listed on it from their hand or field.
+
+Fusion Sage
+Add 1 "Polymerization" from your Deck to your hand.
+
+Fusion Sword Murasame Blade
+Equip only to a Warrior monster. It gains 800 ATK. While equipped to a monster, this card cannot be destroyed by card effects.
+
+Fusion Weapon
+Equip only to a Level 6 or lower Fusion Monster. It gains 1500 ATK/DEF.
+
+Fusionist
+"Petit Angel" + "Mystical Sheep #2"
+
+Gadget Soldier
+A rust-free machine warrior born to battle.
+
+Gagagigo
+This young evildoer used to have an evil heart, but by meeting a special person, he discovered justice.
+
+Gaia Power
+All EARTH monsters on the field gain 500 ATK, also they lose 400 DEF.
+
+Gaia Soul the Combustible Collective
+Once per turn: You can Tribute up to 2 Pyro monsters; this card gains 1000 ATK for each. If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent. During the End Phase: Destroy this card.
+
+Gaia the Dragon Champion
+"Gaia the Fierce Knight" + "Curse of Dragon"
+
+Gaia the Fierce Knight
+A knight whose horse travels faster than the wind. His battle-charge is a force to be reckoned with.
+
+Gale Lizard
+FLIP: Target 1 monster your opponent controls; return that target to the hand.
+
+Gamble
+If your opponent has 6 or more cards in their hand, while you have 2 or less cards in your hand: Toss a coin and call it. If you call it right, draw until you have 5 cards in your hand. If you call it wrong, skip your next turn.
+
+Gamme The Magnet Warrior
+Alpha, Beta, and Gamma meld as one to form a powerful monster.
+
+Garnecia Elefantis
+A monster so heavy that each step rocks the earth.
+
+Garozis
+An axe-swinging beast-warrior with the head of a dragon.
+
+Garuda the Wind Spirit
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 WIND monster from your GY. Once per turn, during your opponent's End Phase, you can target 1 face-up monster your opponent controls; change that target's battle position.
+
+Gate Guardian
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 "Sanga of the Thunder", "Kazejin", and "Suijin".
+
+Gather Your Mind
+Add 1 "Gather Your Mind" from your Deck to your hand. You can only activate 1 "Gather Your Mind" per turn.
+
+Gatling Dragon
+"Barrel Dragon" + "Blowback Dragon"
+Once per turn: You can toss a coin 3 times and destroy as many monsters on the field as possible, but not more than the number of heads.
+
+Gazelle the King of Mythical Beasts
+This monster moves so fast that it looks like an illusion to mortal eyes.
+(This card is always treated as a "Phantom Beast" card.)
+
+Gear Golem the Moving Fortress
+Once per turn, during your Main Phase 1: You can pay 800 Life Points; this card can attack your opponent directly this turn.
+
+Gearfried the Iron Knight
+Destroy any Equip Card(s) any player equips to this card.
+
+Gearfried the Swordmaster
+Cannot be Normal Summoned/Set. Must be Special Summoned by "Release Restraint" and cannot be Special Summoned by other ways. When an Equip Card(s) is equipped to this card: Target 1 monster your opponent controls; destroy that target.
+
+Gemini Elf
+Elf twins that alternate their attacks.
+
+Germ Infection
+Equip only to a non-Machine monster. Once per turn, during your Standby Phase, it loses 300 ATK.
+
+Getsu Fuhma
+If this card battles a Fiend or Zombie monster: Destroy that monster at the end of the Damage Step.
+
+Ghost Knight of Jackal
+When this card destroys an opponent's monster by battle and sends it to the GY: You can target that destroyed monster in your opponent's GY; Special Summon that target to your field in Defense Position.
+
+Giant Axe Mummy
+Once per turn: You can change this card to face-down Defense Position. If this card is attacked by an opponent's monster whose ATK is lower than this card's DEF: Destroy the attacking monster at the end of the Damage Step.
+
+Giant Flea
+A massive flea that feeds on the blood of its enemies.
+
+Giant Germ
+When this card is destroyed by battle and sent to the GY: Inflict 500 damage to your opponent, then you can Special Summon any number of "Giant Germ" from your Deck in face-up Attack Position.
+
+Giant Orc
+If this card attacks, it is changed to Defense Position at the end of the Battle Phase, and its battle position cannot be changed until the end of your next turn.
+
+Giant Rat
+When this card is destroyed by battle and sent to the GY: You can Special Summon 1 EARTH monster with 1500 or less ATK from your Deck, in Attack Position.
+
+Giant Red Seasnake
+A sea-dwelling snake that attacks passing enemies with its sharp teeth.
+
+Giant Soldier of Stone
+A giant warrior made of stone. A punch from this creature has earth-shaking results.
+
+Giant Trunade*
+Return all other Spells and Traps on the field to the hand.
+
+Giant Turtle Who Feeds on Flames
+A crimson-shelled tortoise that feeds on flames.
+
+Gift of the Martyr
+Send 1 monster you control to the GY, then target 1 monster you control; until the end of this turn, the targeted monster gains ATK equal to the sent monster's original ATK.
+
+Gift of the Mystical Elf
+Gain LP equal to the number of monsters on the field x300.
+
+Giga Gagagigo
+In order to fight tremendous evil, he gained formidable power through body reconstruction, but lost his heart and his redemption.
+
+Giga-Tech Wolf
+An iron wolf with razor-sharp fangs that can penetrate any armor.
+
+Gigantes
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 EARTH monster from your GY. If this card is destroyed by battle and sent to the GY: Destroy all Spells and Traps on the field.
+
+Gigobyte
+He has a tranquil soul, but carries a destiny that one day his heart shall be tainted by evil...
+
+Gilasaurus
+You can Special Summon this card (from your hand). If Summoned this way: Activate this effect; your opponent can Special Summon 1 monster from their GY.
+
+Giltia the D. Knight
+"Guardian of the Labyrinth" + "Protector of the Throne"
+
+Girochin Kuwagata
+Despite its small size, this monster has powerful jaws that can rip metal to shreds.
+
+Goblin Attack Force
+If this card attacks, it is changed to Defense Position at the end of the Battle Phase, and its battle position cannot be changed until the End Phase of your next turn.
+
+Goblin Calligrapher
+A Goblin who devotes himself to mastering perfect calligraphy of the word "False". He gives his all to each stroke.
+
+Goblin Fan
+When a Level 2 or lower monster(s) is Flip Summoned, destroy it. Its effects do not activate at that time.
+
+Goblin King
+If you control another Fiend monster, monsters your opponent controls cannot target this card for an attack. This card's ATK/DEF are each equal to the number of Fiend monsters on the field x1000.
+
+Goblin of Greed
+Neither player can activate cards or effect that would make them discard a card(s) for cost.
+
+Goblin Thief
+Inflict 500 damage to your opponent and gain 500 LP.
+
+Goblin's Secret Remedy
+Gain 600 LP.
+
+Goddess of Whim
+Once per turn: You can toss a coin and call it. If you call it right, double this card's ATK during this turn. If you call it wrong, halve its ATK during this turn.
+
+Goddess with the Third Eye
+This card can be used as a substitute for any 1 Fusion Material, but the other Fusion Material(s) must be correct.
+
+Gogiga Gagagigo
+His soul long since collapsed, his body recklessly continues onward, driven by a lust for more power. He no longer resembles his former self....
+
+Golem Sentry
+Once per turn: You can change this card to face-down Defense Position. When this card is Flip Summoned: Target 1 monster your opponent controls; return that target to the hand.
+
+Good Goblin Housekeeping
+Draw cards equal to the number of "Good Goblin Housekeeping" in your GY +1, then place 1 card from your hand on the bottom of the Deck.
+
+Gora Turtle
+Monsters with 1900 or more ATK cannot declare an attack.
+
+Gora Turtle of Illusion
+Negate any Spell/Trap effects that target this face-up card.
+
+Gorgon's Eye
+Until the end of this turn, the effects of all face-up Defense Position monsters on the field are negated while those monsters are face-up on the field (but their effects can still be activated).
+
+Graceful Charity
+Draw 3 cards, then discard 2 cards.
+
+Graceful Dice
+Roll a six-sided die. All monsters you currently control gain ATK/DEF equal to the result x 100, until the end of this turn.
+
+Gradius
+A high-performance jet fighter with power capsules for variable attack capabilities.
+
+Gradius' Option*
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) while controlling a "Gradius". Cannot be Special Summoned unless you target 1 face-up "Gradius" you control. This card's ATK/DEF are equal to that targeted "Gradius"'s. If the targeted "Gradius" leaves the field, destroy this card.
+*Not sure if you want to add that this monster is destroyed also if Gradius is changed to Defense position. Also double check.
+
+Granadora
+When this card is Summoned: Gain 1000 LP. When this card is destroyed and sent to the GY: Take 2000 damage.
+
+Grand Tiki Elder
+A masked monster that wields the most deadly of curses.
+
+Granmarg the Rock Monarch
+If this card is Tribute Summoned: Target 1 Set card on the field; destroy that target.
+
+Grave Lure
+Turn the top card of your opponent's Deck face-up, then your opponent shuffles their Deck. When your opponent draws the face-up card, immediately send it to the GY.
+
+Grave Ohja
+If you control a face-down Defense Position monster(s), neither player can target this card for an attack. Each time a monster(s) you control is Flip Summoned: Inflict 300 damage to your opponent.
+
+Grave Protector
+Any monster destroyed by battle is shuffled into the Deck instead of going to the GY.
+
+Gravedigger Ghoul
+Target up to 2 monsters in your opponent's GY; banish them.
+
+Gravekeeper's Assailant
+When this card declares an attack while "Necrovalley" is on the field: You can target 1 face-up monster your opponent controls; change that target's battle position.
+
+Gravekeeper's Cannonholder
+You can Tribute 1 "Gravekeeper's" monster, except "Gravekeeper's Cannonholder"; inflict 700 damage to your opponent.
+
+Gravekeeper's Chief
+You can only control 1 face-up "Gravekeeper's Chief". Your GY is unaffected by "Necrovalley". When this card is Tribute Summoned: You can target 1 "Gravekeeper's" monster in your GY; Special Summon that target.
+
+Gravekeeper's Curse
+When this card is Summoned: Inflict 500 damage to your opponent.
+
+Gravekeeper's Guard
+FLIP: Target 1 monster your opponent controls; return that target to the hand.
+
+Gravekeeper's Servant
+Your opponent cannot declare an attack, unless they send 1 card from the top of their Deck to the GY.
+
+Gravekeeper's Spear Soldier
+If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.
+
+Gravekeeper's Spy
+FLIP: Special Summon 1 "Gravekeeper's" monster with 1500 or less ATK from your Deck.
+
+Gravekeeper's Vassal
+Any battle damage this card inflicts to your opponent is treated as effect damage instead.
+
+Gravekeeper's Watcher
+During either player's turn, when your opponent activates a Spell/Trap, or monster effect that could make them discard when it resolves: You can send this card from your hand to the GY; negate the activation, and if you do, destroy it.
+
+Graverobber
+Target 1 Spell in your opponent's GY; add it to your hand until the End Phase. If you activate it, take 2000 damage immediately after it resolves.
+*I don't know if you want to add something here. The card returns to the GY if it is not activated/Set/etc.
+
+Graverobber's Retribution
+Once per turn, during your Standby Phase: Your opponent takes damage for each of their banished monsters x100.
+
+Gravity Axe - Grarl
+The equipped monster gains 500 ATK. Monsters your opponent controls cannot change their battle positions.
+
+Gravity Bind
+Level 4 or higher monsters cannot attack.
+
+Gray Wing
+During your Main Phase 1: You can discard 1 card; this card can make a second attack this turn.
+
+Great Angus
+A very violent beast, it is always berserk. People say that they have never seen it silent.
+
+Great Dezard
+Gains the following effects, depending on the number of monsters this card destroys by battle:
+● 1: When a Spell/Trap or effect is activated that targets this card (Quick Effect): Negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.
+● 2: You can Tribute this card; Special Summon 1 "Fushioh Richie" from your hand or Deck.
+
+Great Long Nose
+Cannot be Special Summoned. If this card inflicts battle damage to your opponent: Your opponent skips their next Battle Phase. Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand. 
+
+Great Maju Garzett*
+This Tribute Summoned card's ATK is twice the Tributed monster's original ATK.
+*Double check.
+
+Great Moth
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 "Petit Moth" on your 4th turn or later after it was equipped with "Cocoon of Evolution".
+
+Great Phantom Thief
+If this card inflicts battle damage to your opponent: Declare 1 card name; look at your opponent's hand, and if you do, discard all cards with that name in their hand.
+
+Great White
+A giant white shark with razor-sharp teeth.
+
+Greed*
+Once per turn, during the End Phase: Both players take damage for each card they drew by a card effect x500.
+*Better wording?
+
+Green Phantom King
+This youthful king of the forests lives in a green world, abundant with trees and wildlife.
+
+Greenkappa
+FLIP: Target 2 Set Spells/Traps on the field; destroy those targets.
+
+Gren Maju Da Eiza
+This card's ATK/DEF are each equal to the number of your banished cards x 400.
+
+Griggle
+Once while face-up on the field, when the control of this face-up card is switched: Its new controller gains 3000 LP.
+
+Ground Attacker Bugroth
+A surface battle robot that was once used for sea warfare.
+
+Ground Collapse
+Choose 2 unused Main Monster Zones; those Zones cannot be used.
+
+Gryphon Wing
+When your opponent activates "Harpie's Feather Duster": Negate its effect, and if you do, destroy all Spells and Traps your opponent controls.
+
+Gryphon's Feather Duster
+Destroy all other Spells and Traps you control, and if you do, gain 500 LP for each card destroyed.
+
+Guardian Angel Joan
+When this card destroys a monster by battle and sends it to the GY: Gain LP equal to the original ATK of that destroyed monster in the GY.
+
+Guardian Baou
+Cannot be Summoned unless you control a face-up "Wicked-Breaking Flamberge - Baou". When this card destroys an opponent's monster by battle and sends it to the GY: It gains 1000 ATK. Negate the effects of monsters destroyed by battle with this card.
+
+Guardian Ceal
+Cannot be Summoned unless you control a face-up "Shooting Star Bow - Ceal". You can send 1 Equip Spell you control that is equipped to this card to the GY, then target 1 monster your opponent controls; destroy that target.
+
+Guardian Elma
+Cannot be Summoned unless you control a face-up "Butterfly Dagger - Elma". When this card is Normal or Special Summoned: You can target 1 appropriate Equip Spell in your GY; equip that target to this card.
+
+Guardian Grarl
+Cannot be Summoned unless you control a face-up "Gravity Axe - Grarl". If this is the only card in your hand, you can Special Summon it (from your hand).
+
+Guardian Kay'est
+Cannot be Summoned unless you control a face-up "Rod of Silence - Kay'est". This card is unaffected by Spell effects and cannot be targeted for attacks, but does not prevent your opponent from attacking you directly.
+
+Guardian of the Labyrinth
+A monster that guards the entrance to the Netherworld.
+
+Guardian of the Throne Room
+A robot guard built to protect throne rooms, it is armed with homing missiles.
+
+Guardian Sphinx
+Once per turn: You can change this card to face-down Defense Position. When this card is Flip Summoned: Return all monsters your opponent controls to the hand.
+
+Guardian Statue
+Once per turn: You can change this card to face-down Defense Position. When this card if Flip Summoned: Target 1 monster your opponent controls; return that target to the hand.
+
+Guardian Tryce
+Cannot be Summoned unless you control a face-up "Twin Swords of Flashing Light - Tryce". When this card is destroyed and sent to the GY: Special Summon the monster from the GY that was used for its Tribute Summon.
+
+Gust
+When a Spell(s) you control is destroyed by an opponent's card effect and sent (from the field) to the GY: Target 1 Spell/Trap on the field; destroy that target.
+*I think you can remove (from the field), I'm just a little tired.
+
+Gust Fan
+Equip only to a WIND monster. It gains 400 ATK, also it loses 200 DEF.
+
+Gyaku-Gire Panda
+Gains 500 ATK for each monster your opponent controls. If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.
+
+Gyakutenno Megami
+This fairy uses her mystical power to protect the weak and provide spiritual support.
+
+Hade-Hane
+FLIP: You can target up to 3 monsters on the field; return those targets to the hand.
+
+Hallowed Life Barrier
+Discard 1 card; this turn, any damage you take from your opponent's card effect becomes 0.
+
+Hamburger Recipe
+This card is used to Ritual Summon "Hungry Burger". You must also Tribute monsters whose total Level Stars equal 6 or more from the field or your hand.
+
+Hammer Shot
+Destroy the 1 face-up Attack Position monster on the field that has the highest ATK (your choice, if tied).
+
+Hand of Nephthys
+You can Tribute this card and 1 other monster; Special Summon 1 "Sacred Phoenix of Nephthys" from your hand or Deck.
+
+Hane-Hane
+FLIP: Target 1 monster on the field; return that target to the hand.
+
+Hard Armor
+A living suit of armor that attacks enemies with a bone-jarring tackle.
+
+Harpie Girl
+A Harpie chick who aspires to flit about beautifully and gorgeously, but attack sharply.
+
+Harpie Lady
+This human-shaped animal with wings is beautiful to watch but deadly in battle.
+
+Harpie Lady 1
+(This card's name is always treated as "Harpie Lady".)
+All WIND monsters gain 300 ATK.
+
+Harpie Lady 2
+(This card's name is always treated as "Harpie Lady".)
+Negate the effects of Flip monsters this card destroys by battle.
+
+Harpie Lady 3
+(This card's name is always treated as "Harpie Lady".)
+An opponent's monster that battles this card cannot declare an attack during your opponent's next 2 turns.
+
+Harpie's Feather Duster
+Destroy all Spells and Traps your opponent controls.
+
+Harpie's Pet Dragon
+Gains 300 ATK/DEF for each "Harpie Lady" on the field.
+
+Harpies' Hunting Ground
+All Winged Beast monsters gain 200 ATK/DEF. If any "Harpie Lady" or "Harpie Lady Sisters" is Normal or Special Summoned: The player who conducted the Summon targets 1 Spell/Trap on the field; that player destroys that target.
+
+Hayabusa Knight
+This card can make a second attack during each Battle Phase.
+
+Headless Knight
+A haunted spirit of a falsely accused knight who wanders in search of truth and justice.
+
+Heart of Clear Water
+If the equipped monster's ATK is 1300 or higher, destroy this card. The equipped monster cannot be destroyed by battle or by a card effect that targets the monster.
+
+Heart of the Underdog
+During your Draw Phase, when you draw a Normal Monster(s): You can reveal it; draw 1 more card.
+
+Heavy Mech Support Platform
+Once per turn, you can either: Target 1 Machine monster you control; equip this card to that target, OR: Unequip this card and Special Summon it in face-up Attack Position. A monster equipped with this card gains 500 ATK and DEF. 1 monster can only be equipped with 1 Union monster at a time, also if the equipped monster would be destroyed by battle or card effect, destroy this card instead.
+
+Heavy Slump
+If your opponent has 8 or more cards in their hand: They shuffle their entire hand into the Deck, then draw 2 cards.
+
+Heavy Storm
+Destroy all Spells and Traps on the field.
+
+Helping Robo for Combat
+When this card destroys an opponent's monster by battle: Draw 1 card, then return 1 card from your hand to the bottom of the Deck.
+
+Helpoemer
+Cannot be Special Summoned from the GY. At the end of your opponent's Battle Phase, if this card is in the GY because it was destroyed by battle: Make your opponent discard 1 random card. This card must be in the GY to activate and to resolve this effect.
+
+Hercules Beetle
+A massive beetle with a tough carapace and a dangerous horn.
+
+Hero Signal
+When a monster you control is destroyed by battle and sent to the GY: Special Summon 1 Level 4 or lower "Elemental HERO" monster from your hand or Deck.
+
+Hibikime
+Confuses enemy monsters with a noise that is harsh to the ears.
+
+Hidden Spellbook
+During your turn: Target 2 Spells in your GY; shuffle those targets into the Deck.
+
+Hieracosphinx
+Your opponent cannot target face-down Defense Position monsters for attacks.
+
+Hieroglyph Lithograph
+Pay 1000 LP; during this Duel, your hand size limit becomes 7.
+
+High Tide Gyojin
+A very agile half-fish warrior known for its relentless attacks.
+
+Hiita the Fire Charmer
+FLIP: Target 1 FIRE monster your opponent controls; take control of that target while this card is face-up on the field.
+
+Hino-Kagu-Tsuchi*
+Cannot be Special Summoned. If this card inflicts battle damage to your opponent: they discard all cards in their hand at the beginning of their next turn, before they would draw. Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.
+*Double check.
+
+Hinotama
+Inflict 500 damage to your opponent.
+
+Hinotama Soul
+An intensely hot flame creature that rams anything standing in its way.
+
+Hiro's Shadow Scout
+FLIP: Your opponent draws 3 cards, then they reveal those cards, also they discard any Spell drawn with this effect.
+
+Hitotsu-Me Giant
+A one-eyed behemoth with thick, powerful arms made for delivering punishing blows.
+
+Homunculus the Alchemic Being
+Once per turn: You can change the Attribute of this card.
+
+Horn of Heaven
+When a monster(s) would be Summoned: Tribute 1 monster; negate the Summon, and if you do, destroy that monster(s).
+
+Horn of Light
+The equipped monster gains 800 DEF. When this card is sent from the field to the GY: You can pay 500 LP; return it to the top of the Deck.
+
+Horn of the Unicorn
+The equipped monster gains 700 ATK/DEF. When this card is sent from the field to the GY: Return it to the top of the Deck.
+
+Horus the Black Flame Dragon LV4
+Control of this face-up card cannot switch. During the End Phase, if this card destroyed a monster by battle this turn: You can send this face-up card to the GY; Special Summon 1 "Horus the Black Flame Dragon LV6" from your hand or Deck.
+
+Horus the Black Flame Dragon LV6
+This card is unaffected by Spell effects. During the End Phase, if this card destroyed a monster by battle this turn: You can send this face-up card to the GY; Special Summon 1 "Horus the Black Flame Dragon LV8" from your hand or Deck.
+
+Horus the Black Flame Dragon LV8
+Cannot be Normal Summoned/Set. Must be Special Summoned by "Horus the Black Flame Dragon LV6", and cannot be Special Summoned by other ways. During either player's turn, when a Spell is activated: You can negate the activation, and if you do, destroy it. You must control this face-up card to activate and to resolve this effect.
+
+Horus' Servant
+Your opponent cannot target face-up "Horus the Black Flame Dragon" monsters with Spells, Traps, or card effects.
+
+Hoshiningen
+All LIGHT monsters on the field gain 500 ATK, also all DARK monsters on the field lose 400 ATK.
+
+House of Adhesive Tape*
+If your opponent Normal or Flip Summons a monster with 500 or less DEF: Target that face-up monster; destroy that target.
+*In TCG it's if, in OCG it's when. Double check anyways.
+
+Howling Insect
+When this card is destroyed by battle and sent to the GY: You can Special Summon 1 Insect monster with 1500 or less ATK from your Deck.
+
+Huge Revolution
+During your Main Phase, if you control "People Running About", "Oppressed People", and "United Resistance": Send all cards in your opponent's hand to the GY and destroy all cards your opponent controls.
+
+Human-Wave Tactics*
+Once per turn, during the End Phase, if your Level 2 or lower Normal Monster(s) was destroyed by battle this turn: Special Summon as many Level 2 or lower Normal Monsters from your Deck as possible, but not more than the number of your Level 2 or lower Normal Monsters destroyed by battle this turn.
+*I don't know if you want to specify that this effect will not activate if no Level 2 or lower Normal Monsters were destroyed, because "Infinite Dismissal" has a similar effect, but always triggers, whereas this card has a condition. Also double check.
+
+Humanoid Slime
+This slime apparently has some human genes in its genetic makeup.
+
+Humanoid Worm Drake
+"Worm Drake" + "Humanoid Slime"
+
+Hungry Burger
+You can Ritual Summon this card with "Hamburger Recipe".
+
+Hunter Spider
+This monster feeds on whatever it catches in its web.
+
+Hyena
+When this card is destroyed by battle and sent to the GY: You can Special Summon any number of "Hyena" from your Deck.
+
+Hyosube
+This amphibian is strong on the attack but leaves much to be desired when defending.
+
+Hyozanryu
+A dragon created from a massive diamond that sparkles with blinding light.
+
+Hyper Hammerhead
+At the end of the Damage Step, if an opponent's monster that battled this card is not destroyed: Return that opponent's monster to the hand.
+
+Hysteric Fairy
+You can Tribute 2 monsters; gain 1000 LP.
+
+Illusionist Faceless Mage
+Manipulates enemy attacks with the power of illusion.
+
+Impenetrable Formation
+Activate by targeting 1 monster you control; while you control 2 or more monsters, and all monsters you control are in Defense Position, the targeted monster gains 700 DEF. When the targeted monster leaves the field, destroy this card.
+
+Imperial Order
+Negate all Spell effects on the field. Once per turn, during your Standby Phase, you must pay 700 LP, or this card is destroyed.
+
+Inaba White Rabbit
+Cannot be Special Summoned. This card can attack directly. Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.
+
+Incandescent Ordeal
+This card is used to Ritual Summon "Legendary Flame Lord". You must also Tribute monsters whose total Levels equal 7 or more from the field or your hand.
+
+Infernal Flame Emperor
+Cannot be Special Summoned. When this card is Tribute Summoned: You can banish up to 5 FIRE monsters from your GY; destroy Spells/Traps on the field equal to the number of FIRE monsters banished by this effect.
+
+Infernalqueen Archfiend
+Once per turn, during your Standby Phase, you must pay 500 LP, or this card is destroyed (this is not optional). Before resolving an opponent's card effect that targets this card, roll a six-sided die, negate the effect if you roll 2 or 5, and if you do, destroy that card. Once per turn, during the Standby Phase: Target 1 "Archfiend" monster on the field; while this card is face-up on the field, that target gains 1000 ATK until the end of this turn.
+
+Inferno
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 1 FIRE monster from your GY. If this card destroys an opponent's monster by battle and sends it to the GY: Inflict 1500 damage to your opponent.
+
+Inferno Fire Blast
+Target 1 "Red-Eyes Black Dragon" in your Monster Zone; inflict damage to your opponent equal to the original ATK of that "Red-Eyes Black Dragon". "Red-Eyes Black Dragon" cannot attack the turn you activate this card.
+
+Inferno Hammer
+When this card destroys an opponent's monster by battle and sends it to the GY: You can target 1 face-up monster your opponent controls; change that target to face-down Defense Position.
+
+Inferno Tempest
+When you take 3000 or more battle damage: Banish all monsters from each player's Deck and GY.
+
+Infinite Cards
+There is no limit to the hand size for each player.
+
+Infinite Dismissal
+Once per turn, during the End Phase: Destroy all Level 3 or lower monsters that were Normal or Flip Summoned this turn.
+
+Injection Fairy Lily
+If this card attacks or is attacked, during damage calculation (in either player's turn): You can pay 2000 LP once per battle; this card gains 3000 ATK during that damage calculation only.
+
+Inpachi
+A log that attacks lost travelers in the forest. Originally a big tree, it was cut down and possessed by a wicked spirit.
+
+Insect Barrier
+Insect monsters your opponent controls cannot declare an attack.
+
+Insect Imitation
+Tribute 1 monster; Special Summon 1 Insect monster from your Deck whose Level is 1 higher than the Tributed monster's.
+
+Insect Princess
+All face-up Insect monsters your opponent controls are changed to Attack Position and their battle positions cannot be changed. If this card destroys an Insect monster by battle: This card gains 500 ATK.
+
+Insect Queen
+This card gains 200 ATK for each Insect monster on the field. Cannot declare an attack unless you Tribute 1 monster. Once per turn, during the End Phase, if this card destroyed an opponent's monster by battle this turn: Special Summon 1 "Insect Monster Token" (Insect/EARTH/Level 1/ATK 100/DEF 100) in Attack Position.
+
+Insect Soldiers of the Sky
+If this card attacks a WIND monster, during damage calculation, this card gains 1000 ATK during that damage calculation only.
+
+Inspection
+During your opponent's Standby Phase: You can pay 500 LP; look at 1 random card in your opponent's hand.
+
+Interdimensional Matter Transporter
+Target 1 face-up monster you control; banish that target until the End Phase.
+
+Invader of Darkness
+Your opponent cannot activate Quick-Play Spells.
+
+Invader of the Throne*
+FLIP: Except during the Battle Phase: Target 1 monster your opponent controls; switch control of it with this card.
+*Double check. Took inspiration from "Harr, Generaider Boss of Storms".
+
+Invasion of Flames
+When Normal Summoned, Traps cannot be activated.
+
+Invigoration
+Equip only to an EARTH monster. It gains 400 ATK, also it loses 200 DEF.
+
+Invitation to a Dark Sleep
+When this monster is Normal or Flip Summoned: Target 1 monster your opponent controls; while this card is face-up on the field, the targeted monster cannot attack.
+
+Iron Blacksmith Kotetsu
+FLIP: Add 1 Equip Spell from your Deck to your hand.
+
+Island Turtle
+A huge turtle that is often mistaken for an island.
+
+Jade Insect Whistle*
+Your opponent chooses 1 Insect monster from their Deck and places it on top of their Deck.
+*Just check grammar lol.
+
+Jam Breeding Machine
+Once per turn, during your Standby Phase: Special Summon 1 "Slime Token" (Aqua/WATER/LEVEL 1/ATK 500/DEF 500) in Attack Position. You cannot Summon any monsters, except "Slime Tokens" (but you can Set).
+
+Jam Defender
+When an opponent's monster declares an attack on a monster you control: You can target 1 "Revival Jam" you control; switch the attack target to that target.
+
+Jar of Greed
+Draw 1 card.
+
+Jar Robber
+When either player activates "Pot of Greed": Negate the effect of that "Pot of Greed", and if you do, draw 1 card.
+
+Jellyfish
+An almost invisible, semi-transparent jellyfish that drifts in the sea.
+
+Jigen Bakudan
+FLIP: If this card was flipped face-up, during your Standby Phase: Tribute this card; destroy all monsters you control, and if you do, inflict damage to your opponent equal to half the combined ATK of those monsters on the field, except this card.
+
+Jinzo
+Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.
+
+Jinzo #7
+This card can attack directly.
+
+Jirai Gumo
+When this card declares an attack: Toss a coin and call it. If you call it wrong, lose half your Life Points.
+
+Jowgen the Spiritualist
+You can discard 1 random card from your hand to the GY; destroy all Special Summoned monsters on the field. Neither player can Special Summon monsters.
+
+Jowls of Dark Demise
+FLIP: Target 1 monster your opponent controls; until the end of this turn, take control of it, also it can attack directly.
+
+Judge Man
+This club-wielding warrior battles to the end and will never surrender.
+
+Judgment of Anubis
+When your opponent activates a Spell that would destroy a Spell/Trap(s) on the field: Discard 1 card; negate the activation, and if you do, destroy it, then you can destroy 1 face-up monster your opponent controls, and if you do that, inflict damage to your opponent equal to the destroyed monster's ATK on the field.
+
+Judgement of the Desert
+Face-up monsters that are flipped face-up after this card's activation cannot change their battle position, except with a card effect.
+
+Just Desserts
+Inflict 500 damage to your opponent for each monster they control.
+
+KA-2 Des Scissors
+When this card destroys a monster by battle and sends it to the GY: Inflict damage to your opponent equal to the destroyed monster's original Level x 500.
+
+Kagemusha of the Blue Flame
+Serving as a double for the Ruler of the Blue Flame, he's a master swordsman that wields a fine blade.
+
+Kaibaman
+You can Tribute this card; Special Summon 1 "Blue-Eyes White Dragon" from your hand.
+
+Kaiser Colosseum
+If you control at least 1 monster, your opponent cannot place a monster(s) on the field if they would control more monsters than you do. Cards that are already on the field before this card's activation are unaffected by this effect.
+
+Kaiser Glider
+Cannot be destroyed by battle with a monster that has the same ATK. If this card is destroyed and sent to the GY: Target 1 monster on the field; return that target to the hand.
+
+Kaiser Sea Horse
+This card can be treated as 2 Tributes for the Tribute Summon of a LIGHT monster.
+
+Kaminari Attack
+"Ocubeam" + "Mega Thunderball"
+
+Kaminote Blow
+If you control "Chu-Ske the Mouse Fighter", "Monk Fighter", or "Master Monk": this turn, if any of these monsters you control battles a monster(s), destroy that monster(s) at the end of each Damage Step.
+
+Kangaroo Champ
+If this card battles a monster: that monster is changed to Defense Position after damage calculation.
+
+Karate Man
+Once per turn: You can double this card's original ATK until the end of this turn. Once per turn, during the End Phase, if this effect was activated this turn: Destroy this card.
+
+Karbonala Warrior
+"M-Warrior #1" + "M-Warrior #2"
+
+Kazejin
+During damage calculation in your opponent's turn, if this card is being attacked: You can target the attacking monster; make that target's ATK 0 during damage calculation only (this is a Quick Effect). This effect can only be used once while this card is face-up on the field.
+
+Kelbek
+If this card is attacked by a monster, after damage calculation: Return that monster to the hand.
+
+Keldo
+When this card is destroyed by battle and sent to the GY: Target 2 cards in your opponent's GY; shuffle them into the Deck.
+
+Killer Needle
+A huge bee with exceptional strength that's particularly dangerous in a swarm.
+
+King Dragun
+"Lord of D." + "Divine Dragon Ragnarok"
+Your opponent cannot target Dragon monsters with card effects. Once per turn: You can Special Summon 1 Dragon monster from your hand.
+
+King Fog
+A fiend that dwells in a blinding curtain of smoke.
+
+King of the Skull Servants
+The original ATK of this card is the combined number of "King of the Skull Servants" and "Skull Servant" in your GY x 1000. When this card is destroyed by battle and sent to the GY: You can banish 1 other "King of the Skull Servants" or 1 "Skull Servant" from your GY; Special Summon this card.
+
+King of the Swamp
+This card can be used as a substitute for any 1 Fusion Material whose name is specifically listed on the Fusion Monster Card, but the other Fusion Material(s) must be correct. You can discard this card to the Graveyard; add 1 "Polymerization" from your Deck to your hand.
+
+King of Yamimakai
+Wields the power of darkness to destroy its enemies.
+
+King Tiger Wanghu
+When a monster(s) with 1400 or less ATK is Normal Summoned or Special Summoned: Destroy that monster(s) with 1400 or less ATK. This card must be face-up on the field to activate and to resolve this effect.
+
+Kiryu
+Once per turn, you can either: Target 1 "Dark Blade" you control; equip this card to that target, OR: Unequip this card and Special Summon it in face-up Attack Position. While equipped to a monster with this effect, that monster gains 900 ATK/DEF. While equipped to a monster with this effect: You can Tribute this card; the previously equipped monster can attack directly this turn. 1 monster can only be equipped with 1 Union monster at a time, also if the equipped monster would be destroyed by battle, destroy this card instead.
+
+Kiseitai*
+When your opponent's monster attacks this face-down Defense Position card: This card becomes an Equip Spell equipped to the attacking monster, also negate the attack. Once per turn, during your opponent's Standby Phase: Gain LP equal to half the equipped monster's ATK.
+*Double check. Doesn't really negate the attack, it skips battle calc. Dunno if it's relevant, but I tested it with Mataza and it makes me attack again, so it kinda "negates" the first attack. Feel free to reword it as you wish.
+
+Kishido Spirit
+Monsters you control cannot be destroyed by battle if they battle a monster that has the same ATK.
+
+Knight's Title
+Tribute 1 face-up "Dark Magician"; Special Summon 1 "Dark Magician Knight" from your hand, Deck or GY.
+
+Koitsu
+Once per turn, you can either: Target 1 "Aitsu" you control; equip this card to that target, OR: Unequip this card and Special Summon it in face-up Attack Position. While equipped to a monster with this effect, that monster gains 3000 ATK, also it inflicts piercing battle damage to your opponent. 1 monster can only be equipped with 1 Union monster at a time, also if the equipped monster would be destroyed by battle, destroy this card instead.
+
+Kojikocy
+A man-hunter with powerfull arms that can crush boulders.
+
+Kotodama
+If there are face-up monsters with the same name on the field, destroy those monsters. (If a monster is Summoned or flipped face-up that has the same name as a monster that is already face-up on the field, the new face-up monster is destroyed. If they are Summoned or flipped face-up at the same time, they are all destroyed.)
+
+Koumori Dragon
+A vicious, fire-breathing dragon whose wicked flame corrupts the souls of its victims.
+
+Kozaky
+A workaholic fiend who devotes everything to his research into the languages of Dark World. His mind has collapsed because of working too hard.
+
+Kozaky's Self-Destruct Button
+If this Set card is destroyed: inflict 1000 damage to the player who destroyed it.
+
+Kryuel*
+When this card is destroyed by battle and sent to the GY: Toss a coin and call it. If you call it right, target 1 monster your opponent controls, and if you do, destroy it.
+*It targets at resolution. Weird text. Also not sure about the clause.
+
+Kumootoko
+A massive, intelligent spider that traps enemies with webbing.
+
+Kurama
+A vicious bird that attacks from the skies with its whip-like tail.
+
+Kuriboh
+During damage calculation, if your opponent's monster attacks (Quick Effect): You can discard this card; you take no battle damage from that battle.
+
+Kuwagata α
+A very vicious stag beetle that goes for the head.
+
+Kwagar Herculesh
+"Kuwagata α" + "Hercules Beetle"
+
+Kycoo the Ghost Destroyer
+When this card inflicts battle damage to your opponent: You can target up to 2 monsters in their GY; banish those targets. Your opponent cannot banish cards from either GY.
+
+La Jinn the Mystical Genie of the Lamp
+A genie of the lamp that is at the beck and call of its master.
+
+Labyrinth of Nightmare
+Once per turn, during each player's End Phase: Change the battle positions of all face-up monsters the turn player controls.
+
+Labyrinth Tank
+"Giga-Tech Wolf" + "Cannon Soldier"
+
+Labyrinth Wall
+These walls form a labyrinth with no exit for enemies.
+
+Lady Assailant of Flames
+FLIP: Banish the top 3 cards of your Deck; inflict 800 damage to your opponent.
+
+Lady Ninja Yae
+You can discard 1 WIND monster to the GY; return all Spells and Traps your opponent controls to the hand.
+
+Lady of Faith
+Soothes the souls of other by chanting a mysterious spell.
+
+Lady Panther*
+During your Main Phase 1: You can Tribute this card (for cost). This turn, the first time (and if) a monster you control is destroyed by battle and sent to the GY: You can target that monster in the GY; place that target on the top of the Deck.
+*Nightmare, Last Will-like. Not 100% satisfied with the wording, but I needed to put an "if" somewhere to ensure that this card cannot miss the timing.
+
+
+Larvae Moth
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 "Petit Moth" on your 2nd turn or later after it was equipped with "Cocoon of Evolution".
+
+Larvas
+A fast-moving, bird-like creature that strangles opposing monster with its long, thin arms.
+
+Laser Cannon Armor
+Equip only to an Insect monster. It gains 300 ATK/DEF.
+
+Last Turn
+During your opponent's turn, if your LP is 1000 or less: Choose 1 monster you control and send as many other cards in both players' hands and on the field as possible to the GY. After that, your opponent Special Summons 1 monster from their Deck in Attack Position, and attacks your chosen monster (neither player takes battle damage from this battle). During the End Phase, the player who controls a monster(s) while the other does not control any wins the Duel. Any other case results in a DRAW.
+
+Last Will*
+If a monster you control is sent to your GY, but only the first time after this card's activation: You can Special Summon 1 monster with 1500 or less ATK from your Deck.
+*Double check.
+
+Launcher Spider
+A mechanical spider with rocket launchers capable of random fire.
+
+Lava Battleguard
+Gains 500 ATK for each "Swamp Battleguard" you control.
+
+Lava Golem
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) to your opponent's field by Tributing 2 monsters they control. You cannot Normal Summon/Set the turn you Special Summon this card. Once per turn, during your Standby Phase: Take 1000 damage.
+
+Left Arm of the Forbidden One
+A forbidden left arm sealed by magic. Whosoever breaks this seal will know infinite power.
+
+Left Leg of the Forbidden One
+A forbidden left leg sealed by magic. Whosoever breaks this seal will know infinite power.
+
+NEW AFTER PRE
+
+Legacy Hunter
+When this card destroys a face-down Defense Position monster by battle and sends it to the GY: Your opponent shuffles 1 random card from their hand into the Deck.
+
+Legendary Black Belt
+Equip only to "Chu-Ske the Mouse Fighter", "Monk Fighter", or "Master Monk". When the equipped monster destroys your opponent's monster by battle and sends it to the GY: Inflict damage to your opponent equal to the destroyed monster's original DEF in the GY.
+
+Legendary Flame Lord
+You can Ritual Summon this card with "Incandescent Ordeal". Each time a Spell is activated, place 1 Spell Counter on this card immediately after it resolves. You can remove 3 Spell Counters from this card; destroy all monsters on the field, except this card.
+
+Legendary Jujitsu Master
+If this Defense Position card battled a monster, at the end of the Damage Step: Place that monster on the top of the Deck.
+
+Legendary Sword
+Equip only to a Warrior monster. It gains 300 ATK/DEF.
+
+Leghul
+This card can attack directly.
+
+Lekunga
+You can banish 2 WATER monsters from your GY; Special Summon 1 "Lekunga Token" (Plant-Type/WATER/Level 2/ATK 700/DEF 700) in Attack Position.
+
+Leogun
+Huge monster with a lion's mane similar to the King of Beasts.
+
+Lesser Dragon
+A minor dragon incapable of breathing fire.
+
+Lesser Fiend
+(This card is always treated as an "Archfiend" card.)
+Banish any monster destroyed by battle with this card.
+
+Level Conversion Lab
+Reveal 1 monster in your hand, then roll a six-sided die. If the result is 1, send that monster to the GY. If the result is 2-6, the Level of that monster becomes equal to the result until the end of this turn.
+
+Level Limit - Area B
+Change all face-up Level 4 or higher monsters to Defense Position.
+
+Level Up!
+Send 1 face-up "LV" monster you control to the GY; Special Summon 1 monster from your hand or Deck that is listed in the sent monster's text, ignoring its Summoning conditions.
+
+Levia-Dragon - Daedalus
+You can send 1 face-up "Umi" you control to the GY; destroy all other cards on the field.
+
+Life Absorbing Machine
+Once per turn, during your Standby Phase: Gain LP equal to half the total LP you paid during your last turn.
+
+Light of Intervention
+Monsters cannot be Normal Set or changed to face-down Attack or Defense Position. If a monster(s) would be Normal Set, it must be Normal Summoned in face-up Defense Position. If a monster(s) would be Special Summoned in face-down Defense Position, it must be Special Summoned in face-up Defense Position.
+
+Light of Judgment
+If "The Sanctuary in the Sky" is on the field: Discard1 LIGHT monster to the GY; apply 1 of the following effects:
+● Look at your opponent's hand and discard 1 card from their hand.
+● Send 1 card your opponent controls to the GY.
+
+Lighten the Load*
+Once per turn: You can shuffle 1 Level 7 or higher monster from your hand to the Deck, then draw 1 card.
+*Is it necessary to write-down that you must reveal the card shuffled?
+
+Lightforce Sword
+Banish 1 random card from your opponent's hand, face-down. During your opponent's 4th Standby Phase after this card's activation, return that card to their hand.
+
+Lightning Blade
+Equip only to a Warrior monster. It gains 800 ATK. All WATER monsters on the field lose 500 ATK.
+
+Lightning Conger
+This massive eel generates huge charges of electricity and unleashes them as thunderbolts.
+
+Lightning Vortex
+Discard 1 card; destroy all face-up monsters your opponent controls.
+
+Limiter Removal
+Double the ATK of all Machine monsters you currently control, until the end of this turn. During the End Phase of this turn, destroy those monsters.
+
+Liquid Beast
+A liquid life form that thrives on water.
+
+Little Chimera
+All FIRE monsters on the field gain 500 ATK, also all WATER monsters on the field lose 400 ATK.
+
+Little-Winguard
+Once per turn, during your End Phase: You can change the battle position of this card.
+
+Lizard Soldier
+A beast soldier derived from dragons, it is small for a Dragon-Type. Moving very quickly, this monster is an excellent strategist.
+
+Lone Wolf*
+If the only monster you control is  "Chu-Ske the Mouse Fighter", "Monk Fighter", or "Master Monk": Target the appropriate monster; while that target is face-up on the field, it cannot be destroyed by battle, also it is unaffected by your opponent's monster effects.
+*Double check.
+
+Lord of D.
+Neither player can target Dragon monsters on the field with card effects.
+
+Lord of the Lamp
+This spirit emerges from the mystic lamp and obeys the wishes of its summoner.
+
+Lord Poison
+If this card is destroyed by battle and sent to the GY: Target 1 Plant monster in your GY, except "Lord Poison"; Special Summon that target.
+
+Lost Guardian
+The original DEF of this card is equal to the number of your banished Rock monsters x 700.
+
+Luminous Soldier
+During damage calculation only, this card gains 500 ATK if it is battling a DARK monster.
+
+Luminous Spark
+All LIGHT monsters on the field gain 500 ATK, also they lose 400 DEF.
+
+Luster Dragon
+A very beautiful dragon covered with sapphire. It does not like fights, but has incredibly high attack power.
+
+Luster Dragon #2
+This dragon feeds on emerald. Enchanted by this monster even when attacked, few people live to tell of its beauty.
+
+M-Warrior #1
+Specializing in combination attacks, this warrior uses magnetism to block an enemy's escape.
+
+M-Warrior #2
+Specializing in combination attacks, this warrior is equipped with a tough, magnetically coated armor.
+
+Machine Conversion Factory
+Equip only to a Machine monster. It gains 300 ATK/DEF.
+
+Machine Duplication
+Target 1 Machine monster you control with 500 or less ATK; Special Summon up to 2 monsters from your Deck with the same name as that face-up monster.
+
+Machine King
+Gains 100 ATK for each Machine monster on the field.
+
+Mad Dog of Darkness
+He used to be a normal dog who played around in a park, but was corrupted by the powers of darkness.
+
+Mad Sword Beast
+If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.
+
+Mage Power
+The equipped monster gains 500 ATK/DEF for each Spell/Trap you control.
+
+Magic Cylinder
+When an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.
+
+Magic Drain
+When your opponent activates a Spell: They can discard 1 Spell to negate this card's effect, otherwise negate the activation of their Spell, and if you do, destroy it.
+
+Magic Jammer
+When a Spell is activated: Discard 1 card; negate the activation, and if you do, destroy it.
+
+Magic Reflector
+Target 1 face-up Spell you control; place 1 counter on it. If it would ever be destroyed, remove the counter instead.
+
+Magical Ghost
+This creature casts a spell of terror and confusion just before attacking its enemies.
+
+Magical Hats
+During your opponent's Battle Phase: Choose 2 Spells/Traps from your Deck and 1 monster in your Main Monster Zone. Special Summon them as Normal Monsters (ATK 0/DEF 0) in face-down Defense Position, Set the chosen monster if it is face-up, and shuffle them on the field. The 2 cards chosen from your Deck are destroyed at the end of the Battle Phase, and cannot remain on the field except during this Battle Phase.
+
+Magical Labyrinth
+Equip only to "Labyrinth Wall". You can Tribute the equipped monster; Special Summon 1 "Wall Shadow" from your Deck.Equip only to "Labyrinth Wall". You can Tribute the equipped monster; Special Summon "Wall Shadow" from your Deck.
+
+Magical Marionette
+Each time a Spell is activated, place 1 Spell Counter on this card when that Spell Card resolves. This card gains 200 ATK for each Spell Counter on it. You can remove 2 Spell Counters from this card, then target 1 monster on the field; destroy that target.
+
+Magical Merchant
+FLIP: Excavate cards from the top of your Deck until you excavate a Spell/Trap, then add that card to your hand, also send the remaining cards to the GY.
+
+Magical Plant Mandragola
+FLIP: Place 1 Spell Counter on each face-up card on the field that you can place a Spell Counter on.
+
+Magical Scientist
+You can pay 1000 LP; Special Summon 1 Level 6 or lower Fusion Monster from your Fusion Deck, but it cannot attack directly, also return it to the Fusion Deck at the end of this turn.
+
+Magical Thorn
+Each time your opponent discards a card(s) to the GY, inflict 500 damage to your opponent for each card discarded.
+
+Magician of Faith
+FLIP: Target 1 Spell in your GY; add that target to your hand.
+
+Maha Vailo
+Gains 500 ATK for each Equip Card equipped to this card.
+
+Maharaghi
+Cannot be Special Summoned. If this card is Normal Summoned or flipped face-up: During your next Draw Phase, before you draw, look at the top card of your Deck and place it on the top or bottom of the Deck. Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.
+
+Maiden of the Aqua
+While there is no face-up Field Spell, the field is treated as "Umi".
+
+Maiden of the Moonlight
+A sorcerer blessed by lunar light with powers far beyond mortal comprehension.
+
+Maji-Gire Panda
+Each time a Beast monster(s) on the field is destroyed: This card gains 500 ATK.
+
+Major Riot*
+When a monster(s) is returned from the field to your hand by an opponent's card effect: Return all monsters on the field to the hand, then both players reveal their hand and Special Summon Level 4 or lower monsters from their hand in face-down Defense Position equal to the number of monsters returned to their hand with this effect.
+*Double check.
+
+Maju Garzett
+This Tribute Summoned card's ATK is the 2 Tributed monsters' combined original ATKs.
+*Double check.
+
+Makyura the Destructor
+During the turn this card was sent to the GY, you can activate Traps from your hand.
+
+Malevolent Nuzzler
+The equipped monster gains 700 ATK. When this card is sent from the field to the GY: You can pay 500 LP; place this card on the top of the Deck.
+
+Malice Dispersion
+Discard 1 card; destroy all face-up Continuous Traps.
+
+Malice Doll of Demise
+During your next Standby Phase after this card was sent from the field to the GY by the effect of a Continuous Spell: Special Summon this card from the GY.
+
+Mammoth Graveyard
+A mammoth that protects the graves of its pack and is absolutely merciless when facing grave-robbers.
+
+Man Eater
+Man-eating plant with poison feelers for attacking enemies.
+
+Man-Eater Bug
+FLIP: Target 1 monster on the field; destroy it.
+
+Man-Eating Treasure Chest
+A monster disguised as a treasure chest that is known to attack the unwary adventurer.
+
+Man-Thro' Tro'
+You can Tribute 1 non-Token Normal Monster; inflict 800 damage to your opponent.
+
+Manga Ryu-Ran
+(This card is always treated as a "Toon" card.)
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 2 monsters, while you control "Toon World". Cannot attack the turn it is Special Summoned. You must pay 500 LP to declare an attack with this monster. If "Toon World" on the field is destroyed, destroy this card. Can attack your opponent directly, unless they control a Toon monster, in which case this card must target a Toon monster for its attacks.
+
+Manju of the Ten Thousand Hands
+When this card is Normal or Flip Summoned: You can add 1 Ritual Monster or 1 Ritual Spell from your Deck to your hand.
+
+Manticore of Darkness
+During the End Phase of the turn this card was sent to the GY: You can send 1 Beast, Beast-Warrior, or Winged Beast monster from your hand or field to the GY; Special Summon this card from your GY.
+
+Marauding Captain
+Your opponent cannot target Warrior monsters for attacks, except this one. When this card is Normal Summoned: You can Special Summon 1 Level 4 or lower monster from your hand.
+
+Maryokutai
+During your opponent's turn, when your opponent activates a Spell Card (Quick Effect): You can Tribute this card; negate the activation, and if you do, destroy it.
+
+Masaki the Legendary Swordsman
+Legendary swordmaster Masaki is a veteran of over 100 battles.
+
+Mask of Brutality
+The equipped monster gains 1000 ATK, also it loses 1000 DEF. Once per turn, during your Standby Phase, you must pay 1000 LP or this card is destroyed.
+
+Mask of Darkness
+FLIP: Target 1 Trap in your GY; add that target to your hand.
+
+Mask of Dispel
+Activate this card by targeting 1 face-up Spell on the field. Once per turn, during your Standby Phase: Inflict 500 damage to its controller. When that target leaves the field, destroy this card.
+
+Mask of Restrict
+Neither player can Tribute cards.
+
+Mask of the Accursed
+The equipped monster cannot attack. Once per turn, during your Standby Phase: Inflict 500 damage to the controller of the equipped monster.
+
+Mask of Weakness
+Target 1 attacking monster; that target loses 700 ATK until the end of this turn.
+
+Masked Dragon
+When this card is destroyed by battle and sent to the GY: You can Special Summon 1 Dragon monster with 1500 or less ATK from your Deck.
+
+Mass Driver
+You can Tribute 1 monster; inflict 400 damage to your opponent.
+
+Master & Expert
+A deadly duo consisting of a beast master and its loyal servant.
+
+Master Kyonshee
+A wandering Kyonshee searching for a strong rival to defeat. They say he was known as the master of all martial arts.
+
+Master Monk
+Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 "Monk Fighter" and cannot be Special Summoned by other ways. This card can make a second attack during each Battle Phase.
+
+Master of Oz
+"Big Koala" + "Des Kangaroo"
+
+Mataza the Zapper
+This card can make a second attack during each Battle Phase. Control of this face-up card on the field cannot switch.
+
+Mazera DeVille
+Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 "Warrior of Zera" while "Pandemonium" is on the field and cannot be Special Summoned by other ways. When this card is Special Summoned: if you control "Pandemonium", your opponent discards 3 random cards (or their entire hand, if less than 3).
+
+Mecha-Dog Marron
+When this card is destroyed by battle and sent to the GY: Inflict 1000 damage to both players. When this card on the field is destroyed and sent to the GY, except by battle: Inflict 1000 damage to your opponent.
+
+Mechanical Snail
+A cyborg snail that still travels at a slow pace.
+
+Mechanicalchaser
+A hunter that relentlessly pursues its target by order of the Machine King.
+
+Meda Bat
+An eyeball fiend created by a servant of the wicked, it uses "Dark Blasts" to blow away its enemies.
+
+Medusa Worm
+Once per turn: You can cahnge this card to face-down Defense Position. When this card is Flip Summoned: Target 1 monster your opponent controls; destroy that target.
+
+Mefist the Infernal General
+If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent. When this card inflicts battle damage to your opponent: Make your opponent discard 1 random card.
+
+Mega Thunderball
+Rolls along the ground releasing bolts of electricity to attack its enemies.
+
+Mega Ton Magical Cannon
+Remove 10 Spell Counters from your side of the field; destroy all cards your opponent controls.
+
+Megamorph
+While your LP is lower than your opponent's, the equipped monster's ATK becomes double its original ATK. While your LP is higher, the equipped monster's ATK becomes half its original ATK.
+
+Megarock Dragon
+Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by banishing any number of Rock monsters from your GY (min.1) and cannot be Special Summoned by other ways. This card's original ATK/DEF are each equal to the number of Rock monsters you banished for its Special Summon x 700.
+
+Megasonic Eye
+Made of mysterious metal, this monster is a doomsday machine from the edge of the universe.
+
+Melchid the Four-Face Beast
+This monster has fouor different masks for four different attacks.
+
+Mermaid Knight
+If "Umi" is on the field, this card can make a second attack during each Battle Phase.
+
+Messenger of Peace
+Monsters with 1500 or more ATK cannot declare an attack. Once per turn, during your Standby Phase, you must pay 100 LP or this card is destroyed.
+
+Metal Armored Bug
+A gigantic insect-like creature covered by thick armor. Everything in his path is destroyed.
+
+Metal Detector
+When a Continuous Trap is activated: This turn, negate the effects of all Continuous Traps.
+
+Metal Dragon
+"Steel Ogre Grotto #1" + "Lesser Dragon"
+
+Metal Fish
+A metal fish with a razor-sharp caudal fin.
+
+Metallizing Parasite - Lunatite
+Once per turn, you can either: Target 1 monster you control; equip this card to that target, OR: Unequip this card and Special Summon it in face-up Attack Position. While equipped to a monster with this effect, that monster is unaffected by your opponent's Spell effects. 1 monster can only be equipped with 1 Union monster at a time, also if the equipped monster would be destroyed by battle, destroy this card instead.
+ 
+Metalmorph
+Target 1 face-up monster on the field; equip this card to that target. It gains 300 ATK/DEF. If it attacks, it gains ATK equal to half the ATK of the attack target, during damage calculation only.
+
+Metalsilver Armor*
+If you control the equipped monster, your opponent cannot activate cards or effects that target exactly 1 monster, except the equipped monster.
+*Double check.
+
+Metalzoa
+Cannot be Normal Summoned/Set. Must first be Special Summoned (from your Deck) by Tributing 1 "Zoa" equipped with "Metalmorph".
+
+Metamorphosis
+Tribute 1 monster; Special Summon, from your Fusion Deck, 1 Fusion Monster with the same Level as the Tributed monster's.
+
+Meteor of Destruction
+If your opponent's LP is higher than 3000: Inflict 1000 damage to your opponent.
+
+Meteorain
+This turn, monsters you control inflict piercing battle damage to your opponent.
+
+Michizure*
+When a monster is sent from the field to your GY (except during the Damage Step): Target 1 monster on the field; destroy it.
+*Double check.
+
+Micro Ray
+Target 1 face-up monster on the field; that target's DEF becomes 0 until the end of this turn.
+
+Mid Shield Gardna
+Once per turn: You can change this card to face-down Defense Position. When a Spell is activated that targets this face-down card (and no other cards) (Quick Effect): Change this card to face-up Defense Position, and if you do, negate the activation.
+
+Mighty Guard
+A machine soldier that was developed as a guard. It is made of rust-proof metal.
+
+Mikazukinoyaiba
+A dragon warrior of the moon armed with a crescent sword.
+
+Millennium Scorpion
+Each time this card destroys 1 monster your opponent controls and sends it to the GY: This card gains 500 ATK.
+
+Millennium Shield
+A famous shield said to belong to an ancient Egyptian Pharaoh. Legends tell of its power to block any strong attack.
+
+Milus Radiant
+All EARTH monsters on the field gain 500 ATK, also all WIND monsters on the field lose 400 ATK.
+
+Minar
+When this card is discarded to the GY by an opponent's card effect: Inflict 1000 damage to your opponent.
+
+Mind Control
+Target 1 monster your opponent controls; until the End Phase, take control of that target, but it cannot declare an attack or be Tributed.
+
+Mind Crush
+Declare 1 card name; if that card is in your opponent's hand, they must discard all copies of it, otherwise you discard 1 random card.
+
+Mind Haxorz
+Pay 500 LP; look at your opponent' hand and all Set cards they control.
+
+Mind on Air
+Your opponent must play with their hand revealed.
+
+Mind Wipe
+If your opponent has 3 or less cards in their hand: Your opponent shuffles their hand into the Deck, then draws the same number of cards shuffled.
+
+Mine Golem
+When this card is destroyed by battle and sent to the GY: Inflict 500 damage to your opponent.
+
+Minefield Eruption
+Inflict 1000 damage to your opponent for each "Mine Golem" you control, then destroy all "Mine-Golem" you control.
+
+Minor Goblin Official
+Activate this card if your opponent's LP is 3000 or less. Once per turn, during your opponent's Standby Phase: Inflict 500 damage to your opponent.
+
+Miracle Dig
+If at least 5 of your monsters are banished: Target 3 of them; return them to the GY.
+
+Miracle Restoring
+Remove 2 Spell Counters from your side of the field, then target 1 "Dark Magician" or "Buster Blader" in your GY; Special Summon that target.
+
+Mirage Dragon
+Your opponent cannot activate Trap Cards during the Battle Phase.
+
+Mirage Knight
+Cannot be Normal Summoned/Set. Must be Special Summoned by "Dark Flare Knight" and cannot be Special Summoned by other ways. During damage calculation only, this card gains ATK equal to the original ATK of the opponent's monster it is battling. Once per turn, during the End Phase of a turn this card attacked or was attacked: Banish this card.
+
+Mirage of Nightmare
+Once per turn, during your opponent's Standby Phase: Draw cards until you have 4 cards in your hand. If you do, during your next Standby Phase after that: Randomly discard the same number of cards you drew (or your entire hand, if you do not have enough cards).
+
+Mirror Force
+When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.
+
+Mirror Wall
+Halve the ATK of your opponent's attacking monsters. Once per turn, during your Standby Phase, you must pay 2000 LP or this card is destroyed.
+
+Misairuzame
+A missile-launching fish protected by deadly spikes.
+
+Mispolymerization
+When a Fusion Monster is Special Summoned: Return all Fusion Monsters on the field to the Fusion Deck.
+
+Moai Interceptor Cannons
+Once per turn: You can change this card to face-down Defense Position.
+
+Mobius the Frost Monarch
+When this card is Tribute Summoned: You can target up to 2 Spells/Traps on the field; destroy those targets.
+
+Moisture Creature
+You can Tribute 3 monsters to Tribute Summon (but not Set) this card. If Summoned this way: Destroy all Spells and Traps your opponent controls.
+
+Mokey Mokey
+An outcast angel. Nobody knows what he is thinking at all. Sometimes he gets mad and that is dreadful.
+
+Mokey Mokey King
+"Mokey Mokey" + "Mokey Mokey" + "Mokey Mokey"
+When this card leaves the field: You can Special Summon as many "Mokey Mokey" as possible from your GY.
+
+Mokey Mokey Smackdown
+If you control a "Mokey Mokey"(s), if a Fairy monster you control is destroyed: The ATK of each "Mokey Mokey" you control becomes 3000 until the end of this turn.
+
+Molten Behemoth
+A giant born from magma, it attacks with a magma punch.
+
+Molten Destruction
+All FIRE monsters gain 500 ATK, also they lose 400 DEF.
+
+Molten Zombie
+When this card is Special Summoned from the GY: this card's controller draws 1 card.
+
+Monk Fighter
+Any battle damage you would have taken from attacks involving this card is 0.
+
+Monster Egg
+A warrior hidden within an egg that attacks enemies by flinging eggshells.
+
+Monster Gate
+Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the GY.
+
+Monster Reborn
+Target 1 monster in either GY; Special Summon it.
+
+Monster Recovery
+Target 1 monster you control that is owned by you; if that monster is still on the field, shuffle it and your entire hand into the Deck, also, after that, draw cards equal to the number of cards you shuffled from your hand into the Deck by this effect. (You cannot activate this card if you have a card in your hand that is owned by your opponent.)
+
+Monster Reincarnation
+Discard 1 card, then target 1 monster in your GY; add it to your hand.
+
+Morale Boost
+Each time a monster is equipped by an Equip Spell, its controller gains 1000 LP. Each time an Equip Spell leaves the field, its controller takes 1000 damage.
+
+Morinphen
+A strange fiend with long arms and razor-sharp talons.
+
+Morphing Jar
+FLIP: Both players discard as many cards as possible from their hands, then each player draws 5 cards.
+
+Morphing Jar #2
+FLIP: Shuffle all monsters on the field into the Deck, then, each player excavates cards from the top of their Deck, until they excavate the same number of monsters they shuffled into their Main Deck, then Special Summon all excavated Level 4 or lower monsters in face-down Defense Position, also send the remaining cards to the GY.
+
+Mother Grizzly
+When this card is destroyed by battle and sent to the GY: You can Special Summon 1 WATER monster with 1500 or less ATK from your Deck, in face-up Attack Position.
+
+Mountain
+All Dragon, Winged Beast, and Thunder monsters on the field gain 200 ATK/DEF.
+
+Mr. Volcano
+This seemingly mild-mannered creature has an extremely volatile temper.
+
+Mucus Yolk*
+This card can attack your opponent's LP directly. Each time this card inflicts battle damage to your opponent's LP: While this card is face-up on the field, this card gains 1000 ATK during your next Standby Phase.
+*Double check.
+
+Mudora
+Gains 200 ATK for each Fairy monster in your GY.
+
+Muka Muka
+Gains 300 ATK/DEF for each card in your hand.
+
+Muko*
+When a card or effect is activated that draws a card(s), including during the Damage Step: Both players reveal the cards drawn by the effect and discard them.
+*Double check.
+
+Multiplication of Ants
+Tribute 1 Insect monster; Special Summon 2 "Army Ant Tokens" (Insect/EARTH/Level 4/ATK 500/DEF 1200). They cannot be Tributed for a Tribute Summon.
+
+Mushroom Man #2
+Once per turn, during your Standby Phase: Take 300 damage. Once per turn, during your End Phase: You can pay 500 LP; shift control of this card to your opponent.
+
+Musician King
+"Witch of the Black Forest" + "Lady of Faith"
+
+Mustering of the Dark Scorpions
+If you control a face-up "Don Zaloog": You can Special Summon any number of "Dark Scorpion" monsters from your hand, but only 1 copy of each.
+
+My Body as a Shield
+When your opponent activates a Spell/Trap or monster effect that would destroy a monster(s) on the field: Pay 1500 LP; negate the activation, and if you do, destroy it.
+
+Mysterious Guard
+FLIP: Target 1 face-up monster on the field, and if you control a face-up Warrior monster, you can target 1 additional face-up monster on the field; return the first target to the top of the Deck, then return the additional target (if any) to the hand if you still control a face-up Warrior monster.
+
+Mysteriour Puppeteer
+Each time your opponent Normal or Flips Summons a monster(s): Gain 500 LP.
+
+Mystic Clown
+Nothing can stop the mad attack of this powerful creature
+
+Mystic Horseman
+Half man and half horse, this monster is known for its extreme speed.
+
+Mystic Lamp
+This card can attack your opponent's LP directly.
+
+Mystic Plasma Zone
+All DARK monsters on the field gain 500 ATK, also they lose 400 DEF.
+
+Mystic Probe
+When a Continuous Spell is activated: This turn, negate the effects of all Continuous Spells.
+
+Mystic Swordsman LV2
+At the start of the Damage Step, if this card attacked a face-down Defense Position monster: Destroy that monster. During the End Phase, if this card destroyed a monster by battle this turn: You can send this face-up card to the GY; Special Summon 1 "Mystic Swordsman LV4" from your hand or Deck.
+
+Mystic Swordsman LV4
+Cannot be Normal Summoned (but can be Normal Set). At the start of the Damage Step, if this card attacked a face-down Defense Position monster: Destroy that monster. During the End Phase, if this card destroyed a monster by battle this turn: You can send this face-up card to the GY; Special Summon 1 "Mystic Swordsman LV6" from your hand or Deck.
+
+Mystic Swordsman LV6
+Cannot be Normal Summoned (but can be Normal Set). At the start of the Damage Step, if this card attacked a face-down Defense Position monster: Destroy that monster, and if you do, you can place it on top of your opponent's Deck instead of sending it to the GY.
+
+Mystic Tomato
+When this card is destroyed by battle and sent to the GY: You can Special Summon 1 DARK monster with 1500 or less ATK from your Deck, in face-up Attack Position.
+
+Mystical Elf
+A delicate elf that lacks offense, but has a terrific defense backed by mystical power.
+
+Mystical Knight of Jackal
+When this card destroys a monster by battle and sends it to the GY: You can return it to the top of your opponent's Deck.
+
+Mystical Moon
+Equip only to a Beast-Warrior monster. It gains 300 ATK/DEF.
+
+Mystical Sheep #1
+This card can be used as a substitute for any 1 Fusion Material, but the other Fusion Material(s) must be correct.
+
+Mystical Sheep #2
+A monstrous sheep with a long tail for hypnotizing enemies.
+
+Mystical Shine Ball
+A soul of light covered by mystical shine. When you see its beautiful shape, your dream will come true.
+
+Mystical Space Typhoon
+Target 1 Spell/Trap on the field; destroy that target.
+
+Mystik Wok*
+Tribute 1 monster; gain LP equal to either its ATK or DEF on the field (or its original ATK or DEF, if face-down).
+*Double check.
+
+Narrow Pass
+Activate this card when both players control 2 monsters or less. Both players can only Normal Summon up to 2 additional monsters.
+
+Necklace of Command
+When the equipped monster you control is destroyed by battle and this card is sent to the GY, you can either:
+● Draw 1 card. OR
+● Discard 1 random card from your opponent's hand.
+
+Necrovalley*
+All "Gravekeeper's" monsters on the field gain 500 ATK and DEF. Cards in the GY cannot be banished. Negate any card effect that would target a card(s) in either GY.
+*Double check.
+
+Needle Burrower
+When this card destroys a monster by battle and sends it to the GY: Inflict damage to your opponent equal to the destroyed monster's original Level x 500.
+
+Needle Ceiling
+When there are 4 ore more monsters on the field: Destroy all face-up monsters on the field.
+
+Needle Wall
+Once per turn, during your Standby Phase: Roll a six-sided die. Treat your opponent's Main Monster Zones as numbers 1-5, counting from your right, and destroy the monster that is in the same Main Monster Zone as the result. If the result is 6, roll again.
+
+Needle Worm
+FLIP: Send the top 5 cards of your opponent's Deck to the GY.
+
+Negate Attack
+When an opponent's monster declares an attack: Target the attacking monster; negate the attack, then end the Battle Phase.
+
+Neko Mane King
+During your opponent's turn, when this card in your possession is sent to your GY by an opponent's card effect: It becomes the End Phase of this turn.
+
+Nekogal #1
+A pussycat-fairy. Contrary to her lovely beauty, she claws on her enemies.
+
+Nemuriko
+A child-like creature that controls a sleep fiend to beckon enemies into eternal slumber.
+
+Neo Aqua Madoor
+The true nature of this wizard, who rules all water. It defends itself with a vast, impenetrable wall of ice.
+
+Neo Bug
+A huge bug-like monster said to come from another planet. It gathers in swarms.
+
+Neo the Magic Swordsman
+A dimensional drifter who not only practices sorcery, but is also a sword and martial arts master.
+
+Newdoria
+If this card is destroyed by battle and sent to the GY: Target 1 monster on the field; destroy that target.
+
+Night Assailant
+FLIP: Target 1 monster your opponent controls; destroy that target.
+When this card is sent from the hand to the GY: Target 1 Flip monster in your GY, except this card; return that target to the hand.
+
+Nightmare Horse
+This card can attack your opponent's LP directly.
+
+Nightmare Penguin
+All face-up WATER monsters you control gain 200 ATK. When this card is flipped face-up: Target 1 card your opponent controls; return that target to the hand.
+
+Nightmare Wheel
+Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position. When it leaves the field, destroy this card. Once per turn, during your Standby Phase: Inflict 500 damage to your opponent. That monster must be on the field to activate and to resolve this effect.
+
+Nimble Momonga
+If this card is destroyed by battle and sent to the GY: Gain 1000 LP, then you can Special Summon any number of "Nimble Momonga" from your Deck in face-down Defense Position.
+
+Nin-Ken Dog
+A Ninja dog who has mastered extreme Ninjutsu. Through hard training, it learned the technique to metamorphose into a human being.
+
+Ninja Grandmaster Sasuke
+At the start of the Damage Step, if this card attacks a face-up Defense Position monster: Destroy that monster.
+
+Ninjitsu Art of Decoy
+Activate this card by targeting 1 face-up "Ninja" monster you control; it cannot be destroyed by battle.
+
+Ninjitsu Art of Transformation
+Activate this card by Tributing 1 face-up "Ninja" monster; Special Summon 1 Beast, Winged Beast, or Insect monster from your hand or Deck whose Level is less than or equal to the Level the Tributed monster had on the field +3. When this card leaves the field, destroy that monster.
+
+Nitro Unit
+Equip only to a monster your opponent controls. When the equipped monster is destroyed by battle and sent to the GY: Inflict damage to your opponent equal to that monster's original ATK.
+
+Niwatori
+Swallows enemies whole and uses their essence as energy.
+
+Nobleman of Crossout
+Target 1 face-down monster on the field; destroy that target, and if you do, banish it, then, if it was a Flip monster, each player reveals their Main Deck, then banishes all cards from it with that monster's name.
+
+Nobleman of Extermination
+Target 1 face-down Spell/Trap on the field; destroy that target, and if you do, banish it, then, if it was a Trap, each player reveals their Main Deck, then banishes all cards from it with that card's name.
+
+Nobleman-Eater Bug
+FLIP: Target this monster and 1 other monster on the field (if any); destroy them.
+
+Non Aggression Area
+During your Standby Phase: Discard 1 card; your opponent cannot Normal Summon, Set and/or Special Summon during their next turn.
+
+Non-Spellcasting Area
+All face-up non-Effect Monsters on the field are unaffected by other Spell effects.
+
+Novox's Prayer
+This card is used to Ritual Summon "Skull Guardian". You must also offer monsters whose total Level Stars equal 7 or more as a Tribute from the field or your hand.
+
+Nubian Guard
+If this card inflicts battle damage to your opponent: You can target 1 Continuous Spell in your GY; return it on the top of the Deck.
+
+Numinous Healer
+When you take damage: Gain 1000 LP, also, gain 500 LP for each "Numinous Healer" in your GY.
+
+Nutrient Z
+During damage calcuation, when you are about to take 2000 or more battle damage: Gain 4000 LP first.
+
+Nuvia the Wicked
+When this card is Normal Summoned: Destroy this card. Loses 200 ATK for each monster your opponent controls.
+
+Obnoxious Celtic Guard
+Cannot be destroyed by battle with a monster that has 1900 or more ATK.
+
+Ocean Dragon Lord - Neo-Daedalus
+Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 "Levia-Dragon - Daedalus" and cannot be Special Summoned by other ways. You can send 1 face-up "Umi" you control to the GY; send as many cards in both players' hands and on the field as possible to the GY, except this card.
+
+Octoberser
+With a head of a fish and the legs of an octopus, this strange creature attacks enemies by flinging spears.
+
+Ocubeam
+Frightening in appearance, this creature uses its large eyes and ears to keep track of any movement.
+
+Offerings to the Doomed
+Target 1 face-up monster on the field; destroy that target, also skip your next Draw Phase.
+
+Ogre of the Black Shadow
+An ogre possessed by the powers of the dark. Few can withstand its rapid charge.
+
+Ojama Black
+He's one of the Ojama Trio. It's said that he butts in by any means necessary. It's also said that when the three are together, something happens.
+
+Ojama Delta Hurricane!!
+If you control "Ojama Green", "Ojama Yellow", and "Ojama Black": Destroy all cards your opponent controls.
+
+Ojama Green
+He's one of the Ojama Trio. It's said that he butts in by any means necessary. It's also said that when the three are together, something happens.
+
+Ojama King
+"Ojama Green" + "Ojama Yellow" + "Ojama Black"
+Choose 3 of your opponent's unused Main Monster Zones. Those Zones cannot be used.
+
+Ojama Trio
+Special Summon 3 "Ojama Tokens" (Beast-Type/LIGHT/Level 2/ATK 0/DEF 1000) to your opponent's field in Defense Position. They cannot be Tributed for a Tribute Summon, and each time 1 is destroyed, its controller takes 300 damage.
+
+Ojama Yellow
+He's one of the Ojama Trio. It's said that he butts in by any means necessary. It's also said that when the three are together, something happens.
+
+Old Vindictive Magician
+FLIP: Target 1 monster your opponent controls; destroy that target.
+
+Ominous Fortunetelling
+Once per turn, during your Standby Phase: Choose 1 random card from your opponent's hand and call the type of the card (Monster, Spell, or Trap), and if you call it right, inflict 700 damage to your opponent.
+
+One-Eyed Shield Dragon
+This dragon wears a shield not only for its own protection, but also for ramming its enemies.
+
+Oni Tank T-34
+An armored tank possessed by a fiend that will pursue enemies until they're crushed.
+
+Ooguchi
+This card can attack your opponent's LP directly.
+
+Ookazi
+Inflict 800 damage to your opponent.
+
+Oppressed People
+They are oppressed, but believe they will have their freedom someday.
+
+Opti-Camouflage Armor
+Equip only to a Level 1 monster. It can attack your opponent's LP directly.
+
+Opticlops
+A one-eyes giant that serves the "Dark Ruler Ha Des", it skewers its enemies with its shapr horn, shattering them to pieces.
+
+Orca Mega-Fortress of Darkness
+You can Tribute 1 "Torpedo Fish", then target 1 monster on the field; destroy that target. You can Tribute 1 "Cannonball Spear Shellfish", then target 1 Spell/Trap on the field; destroy that target.
+
+Ordeal of a Traveler
+When an opponent's monster declares an attack: Your opponent chooses 1 random card in your hand and calls the type of the card (Monster, Spell, or Trap), and if they call it wrong, return the attacking monster to the hand.
+
+Order to Charge
+Target 1 non-Token Normal Monster you control; Tribute that Normal Monster, and if you do, destroy 1 monster your opponent controls.
+
+Order to Smash
+Target 1 Level 2 or lower non-Token Normal Monster you control; Tribute that Normal Monster, and if you do, destroy up to 2 Spells/Traps your opponent controls.
+
+Oscillo Hero
+A strange warrior from another dimension.
+
+Otohime
+Cannot be Special Summoned. When this card is Normal Summoned or flipped face-up: You can target 1 face-up monster your opponent controls; change that target's battle position. Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.
+
+Outstanding Dog Marron
+When this card is sent to your GY: Shuffle it into the Deck.
+
+Overdrive
+An all-terrain armored vehicle armed with a heavy-duty machine gun.
+
+Painful Choice*
+Reveal 5 cards from your Deck, then your opponent chooses 1 of them, then you add that card to your hand, also send the remaining cards to the GY.
+*send vs discard? But discard is only from the hand isnt it?
+
+Paladin of White Dragon
+You can Ritual Summon this card with "White Dragon Ritual". At the start of the Damage Step, if this card attacks a face-down Defense Position monster: Destroy that face-down monster. You can Tribute this card; Special Summon 1 "Blue-Eyes White Dragon" from your hand or Deck, but "Blue-Eyes White Dragon" cannot attack for the rest of this turn.
+
+Pale Beast
+With skin tinged a bluish-white. this strange creature is a fearsome sight to behold.
+
+Pandemonium
+Neither player has to pay LP during the Standby Phase for "Archfiend" monsters. Each time an "Archfiend" monster(s) is destroyed and sent to the GY (except by battle): that monster's original owner can add 1 "Archfiend" monster from their Deck to the hand with a lower Level than the destroyed monster's.
+
+Pandemonium Watchbear
+"Pandemonium" you control cannot be destroyed by card effects.
+
+Paralyzing Potion
+Equip only to a non-Machine monster. It cannot attack.
+
+Parasite Paracide
+FLIP: Shuffle this card face-up into your opponent's Deck. When you draw this card after it was shuffled into your Deck by your opponent: Special Summon this card, and if you do, take 1000 damage. If Special Summoned this way, monsters you control become Insect monsters.
+
+Parrot Dragon
+A dragon from the cartoons that's more dangerous than it appears to be.
+
+Patrician of Darkness
+You choose the attack targets for your opponent's attacks.
+
+Patrol Robo
+Once per turn, during your Standby Phase: You can target 1 Set card your opponent controls; look at it. This card must be face-up on the field to activate and to resolve this effect.
+
+Peacock
+A large peacock that launches its feathers in a lethal attack.
+
+Penalty Game!
+If your opponent has exactly 4 cards in their hand: Activate 1 of these effects;
+● Your opponent cannot draw during their next Draw Phase.
+● Your opponent cannot activate Spells/Traps this turn.
+
+Penguin Knight
+When this card is sent from your Deck to the GY by an opponent's card effect: Shuffle your GY into the Deck.
