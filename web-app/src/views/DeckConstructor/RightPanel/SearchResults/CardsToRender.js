@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import RenderCards from "components/RenderCards/RenderCards.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
-import getCardDetails from "utils/getCardDetails";
+import getCardDetails from "shared/getCardDetails";
 
 class CardsToRender extends Component {
    componentDidUpdate() {

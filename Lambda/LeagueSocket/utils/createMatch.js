@@ -3,6 +3,8 @@ AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
 const { blankField } = require("../config/config.js");
+const { shuffle, expandDeck, verifyDecks } = require("shared");
+
 
 // @function createMatch
 // @desc Places two players in a match together
@@ -74,9 +76,12 @@ function setGamestate(gamestate, player, goingFirstPlayer) {
    const { username, decks, activeDeck, settings } = player;
    gamestate[username] = JSON.parse(JSON.stringify(blankField));
 
+   // TODO: pass in whether Exarion Universe is allowed or not
+   const valid = verifyDecks(decks[activeDeck].maindeck, decks[activeDeck].sideDeck);
+   // TODO: return invalidation messages instead of just a boolean?
+   if (!valid) return false;
+
    const expandedMain = expandDeck(decks[activeDeck].maindeck);
-   // FIXME: need to properly verify legality but this requires info from cardDB
-   if (expandedMain.length < 40) return false;
    const shuffledDeck = shuffle(expandedMain);
 
    const hand = [];
@@ -88,28 +93,6 @@ function setGamestate(gamestate, player, goingFirstPlayer) {
    gamestate[username].deck = shuffledDeck;
 
    return true;
-}
-
-function expandDeck(decklist) {
-   const expandedDeck = [];
-
-   for (const name in decklist) {
-      const count = decklist[name];
-      for (let i = 0; i < count; i++) expandedDeck.push({ name });
-   }
-
-   return expandedDeck;
-}
-
-function shuffle(deck) {
-   for (let i = deck.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * i);
-      const temp = deck[i];
-      deck[i] = deck[j];
-      deck[j] = temp;
-   }
-
-   return deck;
 }
 
 async function updatePlayer(playerName, matchId) {

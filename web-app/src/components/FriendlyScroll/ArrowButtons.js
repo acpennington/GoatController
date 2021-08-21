@@ -5,7 +5,7 @@ import { BsArrowLeftShort, BsArrowRightShort, BsArrowDownShort, BsArrowUpShort }
 
 import { withStyles } from "@material-ui/core/styles";
 import friendlyScrollStyles from "assets/jss/material-kit-react/components/friendlyScrollStyle.js";
-import { BUFFER } from "utils/constants.js";
+import { BUFFER } from "shared/constants.js";
 
 class ArrowButtons extends PureComponent {
    constructor(props) {

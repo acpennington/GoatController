@@ -1,4 +1,4 @@
-import { MONSTER, SPELL_TRAP, FIELD_SPELL, HAND, DECK, EXTRA_DECK, deckZones, discardZones } from "utils/constants.js";
+import { MONSTER, SPELL_TRAP, FIELD_SPELL, HAND, DECK, EXTRA_DECK, deckZones, discardZones } from "shared/constants.js";
 
 function getBools(row, zone) {
    const discardZone = discardZones.includes(row);

@@ -1,6 +1,6 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
-const { HAND, DECK, GRAVEYARD, BANISHED, MONSTER, SPELL_TRAP, FIELD_SPELL } = require("./utils/constants");
-const display = require("./utils/display");
+const { HAND, DECK, GRAVEYARD, BANISHED, MONSTER, SPELL_TRAP, FIELD_SPELL } = require("./shared/constants");
+const display = require("./shared/display");
 
 const ZONES = [MONSTER, SPELL_TRAP, FIELD_SPELL];
 

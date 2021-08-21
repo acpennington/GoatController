@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
-import { PLAYER_CONCEDED, CLEANUP_GAME } from "utils/constants.js";
+import { PLAYER_CONCEDED, CLEANUP_GAME } from "shared/constants.js";
 
 class ConcedeButton extends PureComponent {
    render() {

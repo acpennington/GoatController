@@ -1,5 +1,5 @@
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
-import { BANISHED, DECK, EXTRA_DECK, GRAVEYARD, RIGHT_PANEL_SIZE } from "utils/constants.js";
+import { BANISHED, DECK, EXTRA_DECK, GRAVEYARD, RIGHT_PANEL_SIZE } from "shared/constants.js";
 
 const allContainers = {
    position: "relative",

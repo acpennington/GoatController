@@ -1,4 +1,4 @@
-import { SET_DECKLIST, SET_PUBLIC, TRANSFER_CARD } from "utils/constants.js";
+import { SET_DECKLIST, SET_PUBLIC, TRANSFER_CARD } from "shared/constants.js";
 
 const initialState = {
    maindeck: {},

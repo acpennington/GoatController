@@ -1,4 +1,4 @@
-import { LEFT_PANEL_SIZE } from "utils/constants";
+import { LEFT_PANEL_SIZE } from "shared/constants";
 
 const leftPanelStyle = {
    leftPanel: {

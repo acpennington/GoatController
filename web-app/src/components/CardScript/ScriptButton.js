@@ -25,7 +25,7 @@ import {
    ROLL_DICE,
    DISCARD_AND_DRAW,
    SKIP_DRAWS
-} from "utils/constants.js";
+} from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";

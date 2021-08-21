@@ -1,4 +1,4 @@
-import { NEW_RESULTS, RERENDER_SEARCH } from "utils/constants.js";
+import { NEW_RESULTS, RERENDER_SEARCH } from "shared/constants.js";
 
 const initialState = [];
 

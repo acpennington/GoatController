@@ -5,7 +5,7 @@ import Fuse from "fuse.js";
 
 import { newHover } from "stateStore/actions/shared/hoverCard";
 import { newSelection } from "stateStore/actions/shared/selectedCard";
-import { cards } from "databases/cardDB";
+import { cards } from "shared/database";
 
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";

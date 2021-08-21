@@ -1,4 +1,4 @@
-import { DIVIDER_HEIGHT, RIGHT_PANEL_SIZE, LEFT_PANEL_SIZE } from "utils/constants";
+import { DIVIDER_HEIGHT, RIGHT_PANEL_SIZE, LEFT_PANEL_SIZE } from "shared/constants";
 
 const battlefieldWidth = 100 - RIGHT_PANEL_SIZE - LEFT_PANEL_SIZE + "%";
 

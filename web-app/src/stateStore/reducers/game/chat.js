@@ -1,4 +1,4 @@
-import { ADD_MESSAGE, SET_CHAT_TO, RESET_CHAT } from "utils/constants.js";
+import { ADD_MESSAGE, SET_CHAT_TO, RESET_CHAT } from "shared/constants.js";
 
 const initialState = [];
 

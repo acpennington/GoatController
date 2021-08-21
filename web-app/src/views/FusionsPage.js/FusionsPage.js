@@ -8,7 +8,7 @@ import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded
 import RenderFusions from "./RenderFusions.js";
 import ShowCardNames from "components/Switches/ShowCardNames.js";
 
-import { HERO } from "utils/constants.js";
+import { HERO } from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/fusionsPage.js";

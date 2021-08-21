@@ -1,4 +1,4 @@
-import { NEW_HOVER, CLEAR_HOVER } from "utils/constants.js";
+import { NEW_HOVER, CLEAR_HOVER } from "shared/constants.js";
 
 const initialState = null;
 

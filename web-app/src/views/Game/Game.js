@@ -24,7 +24,7 @@ import {
    MOVE_CARD,
    MILL_UNTIL,
    DIVIDER_HEIGHT
-} from "utils/constants.js";
+} from "shared/constants.js";
 
 class Game extends Component {
    constructor(props) {

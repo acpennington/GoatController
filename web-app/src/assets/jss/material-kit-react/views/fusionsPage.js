@@ -2,7 +2,7 @@ import styles from "./commonPages.js";
 import importedLeft from "./gameSections/leftPanel.js";
 import importedBottom from "./deckConstructorSections/leftPanel.js";
 
-import { LEFT_PANEL_SIZE } from "utils/constants";
+import { LEFT_PANEL_SIZE } from "shared/constants";
 
 const fusionsWidth = 100 - LEFT_PANEL_SIZE + "%";
 

@@ -7,7 +7,7 @@ import { CgCardHearts } from "react-icons/cg";
 import { GiTwoCoins, GiCardPlay } from "react-icons/gi";
 import FindInPageIcon from "@material-ui/icons/FindInPage";
 
-import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, FLIP_COINS, ROLL_DICE, DISCARD_AND_DRAW, SKIP_DRAWS } from "utils/constants";
+import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, FLIP_COINS, ROLL_DICE, DISCARD_AND_DRAW, SKIP_DRAWS } from "shared/constants";
 
 class ScriptName extends PureComponent {
    render() {

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import GenericFinder from "./GenericFinder.js";
 
-import { nonfusions, cards } from "databases/cardDB/index.js";
+import { nonfusions, cards } from "shared/database";
 
 class CardFinder extends PureComponent {
    render() {

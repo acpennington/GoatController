@@ -22,7 +22,7 @@ import setBodyImage from "utils/setBodyImage.js";
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
 import { getAuthHeaders } from "utils/authToken.js";
-import { API_URL, backgrounds } from "utils/constants.js";
+import { API_URL, backgrounds } from "shared/constants.js";
 
 import Warning from "@material-ui/icons/Warning";
 import Email from "@material-ui/icons/Email";

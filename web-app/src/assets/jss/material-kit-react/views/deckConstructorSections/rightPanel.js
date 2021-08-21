@@ -1,7 +1,7 @@
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 import commonDeckConstructor from "./deckConstructorCommon.js";
 
-import { RIGHT_PANEL_SIZE } from "utils/constants.js";
+import { RIGHT_PANEL_SIZE } from "shared/constants.js";
 
 const rightPanelStyle = {
    ...commonDeckConstructor,

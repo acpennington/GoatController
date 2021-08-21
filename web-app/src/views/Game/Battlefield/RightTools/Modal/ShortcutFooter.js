@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 
-import { GRAVEYARD, BANISHED, DECK } from "utils/constants.js";
+import { GRAVEYARD, BANISHED, DECK } from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";

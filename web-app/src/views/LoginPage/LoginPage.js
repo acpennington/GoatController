@@ -19,7 +19,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
 import getQueryParams from "utils/getQueryParams.js";
-import { API_URL, headers } from "utils/constants.js";
+import { API_URL, headers } from "shared/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";

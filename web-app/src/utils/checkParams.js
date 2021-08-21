@@ -1,4 +1,4 @@
-import getCardDetails from "utils/getCardDetails.js";
+import getCardDetails from "shared/getCardDetails.js";
 
 // gets a card and a params object and reports which params the card passed/failed
 export default function checkParams(card, params) {

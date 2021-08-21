@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
-import { CARD_RATIO } from "utils/constants.js";
+import { CARD_RATIO } from "shared/constants.js";
 
 class JustSleeves extends PureComponent {
    render() {

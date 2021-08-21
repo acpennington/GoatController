@@ -1,6 +1,6 @@
 import { addMessage } from "./chat.js";
 import { drawPhaseDraw } from "./field.js";
-import { SET_TURN, NEW_PHASE, DRAW, BATTLE, NEXT_TURN, CLEAR_BATTLE } from "utils/constants.js";
+import { SET_TURN, NEW_PHASE, DRAW, BATTLE, NEXT_TURN, CLEAR_BATTLE } from "shared/constants.js";
 
 function setTurn(player, phase, socket = false, oldPlayer = false, handCount = 0) {
    if (socket && socket.api) {

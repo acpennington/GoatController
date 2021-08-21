@@ -7,7 +7,7 @@ import { bind, unbind } from "mousetrap";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { getBools, rowClass, isAcceptable } from "./utils.js";
 import getOtherPlayer from "utils/getOtherPlayer.js";
-import getCardDetails from "utils/getCardDetails.js";
+import getCardDetails from "shared/getCardDetails.js";
 import CardArt from "./CardArt.js";
 import ZoneLabel from "./ZoneLabel.js";
 import { newHover } from "stateStore/actions/shared/hoverCard.js";
@@ -34,7 +34,7 @@ import {
    VILLAIN_SELECTION_COLOR,
    REVEAL_COLOR,
    BATTLE
-} from "utils/constants.js";
+} from "shared/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";

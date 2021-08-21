@@ -6,9 +6,9 @@ import RenderCards from "./CardsToRender.js";
 import ModalHeader from "./ModalHeader.js";
 import ShortcutFooter from "./ShortcutFooter.js";
 
-import getCardDetails from "utils/getCardDetails";
-import { EXTRA_DECK, MODAL_CARD_SIZE } from "utils/constants.js";
-import { fusions } from "databases/cardDB/index.js";
+import getCardDetails from "shared/getCardDetails";
+import { EXTRA_DECK, MODAL_CARD_SIZE } from "shared/constants.js";
+import { fusions } from "shared/database";
 
 import Button from "components/CustomButtons/Button.js";
 import Switch from "@material-ui/core/Switch";

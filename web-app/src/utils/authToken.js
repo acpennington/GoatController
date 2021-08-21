@@ -1,4 +1,4 @@
-import { headers } from "utils/constants.js";
+import { headers } from "shared/constants.js";
 
 function getAuthHeaders(addHeaders = true) {
    const token = window.sessionStorage.getItem("token");

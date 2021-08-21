@@ -21,10 +21,10 @@ import {
    trapSubtypes,
    allAttributes,
    allMonsterTypes
-} from "utils/constants.js";
-import display from "utils/display.js";
+} from "shared/constants.js";
+import display from "shared/display.js";
 import checkParams from "utils/checkParams";
-import { nonfusions } from "databases/cardDB";
+import { nonfusions } from "shared/database";
 
 import { FaSearch } from "react-icons/fa";
 

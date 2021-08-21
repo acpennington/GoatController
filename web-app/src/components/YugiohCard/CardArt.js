@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import compress from "utils/compressName.js";
-import { SENTINEL } from "utils/constants.js";
+import { SENTINEL } from "shared/constants.js";
 import FoilStars from "./FoilStars.js";
 
 import { withStyles } from "@material-ui/core/styles";

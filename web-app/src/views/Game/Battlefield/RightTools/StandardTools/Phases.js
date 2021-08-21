@@ -7,7 +7,7 @@ import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 import { setTurn } from "stateStore/actions/game/turn.js";
-import { phases, DRAW, NEXT_TURN, HAND } from "utils/constants.js";
+import { phases, DRAW, NEXT_TURN, HAND } from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";

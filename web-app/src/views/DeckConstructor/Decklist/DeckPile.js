@@ -6,9 +6,9 @@ import { useDrop } from "react-dnd";
 import DecklistCard from "components/YugiohCard/DecklistCard.js";
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import { transferCard } from "stateStore/actions/deckConstructor/decklist";
-import getCardDetails from "utils/getCardDetails.js";
+import getCardDetails from "shared/getCardDetails.js";
 
-import { orderedCardTypes, SIDEDECK, OVER_COLOR, allLocations } from "utils/constants.js";
+import { orderedCardTypes, SIDEDECK, OVER_COLOR, allLocations } from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
