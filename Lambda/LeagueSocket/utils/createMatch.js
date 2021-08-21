@@ -75,6 +75,7 @@ function setGamestate(gamestate, player, goingFirstPlayer) {
    gamestate[username] = JSON.parse(JSON.stringify(blankField));
 
    const expandedMain = expandDeck(decks[activeDeck].maindeck);
+   // FIXME: need to properly verify legality but this requires info from cardDB
    if (expandedMain.length < 40) return false;
    const shuffledDeck = shuffle(expandedMain);
 

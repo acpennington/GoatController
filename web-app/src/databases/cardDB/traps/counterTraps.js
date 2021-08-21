@@ -12,7 +12,8 @@ const counterTraps = {
       id: "77414722",
       cardType: TRAP,
       levelOrSubtype: "Counter",
-      text: "When a Spell Card is activated: Discard 1 card; negate the activation, and if you do, destroy it."
+      text: "When a Spell Card is activated: Discard 1 card; negate the activation, and if you do, destroy it.",
+      art: 2
    },
    "Seven Tools of the Bandit": {
       id: "03819470",
@@ -37,7 +38,8 @@ const counterTraps = {
       id: "78783370",
       cardType: TRAP,
       levelOrSubtype: "Counter",
-      text: "When a card or effect is activated that would inflict damage to your Life Points: Your opponent takes the damage instead."
+      text: "When a card or effect is activated that would inflict damage to your Life Points: Your opponent takes the damage instead.",
+      art: 2
    },
    "Cursed Seal of the Forbidden Spell": {
       id: "58851034",

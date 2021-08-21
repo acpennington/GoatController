@@ -155,7 +155,8 @@ const continuousTraps = {
       cardType: TRAP,
       levelOrSubtype: "Continuous",
       text: "Activate this card by targeting 1 monster in your Graveyard; Special Summon that target in Attack Position. <effect=Continuous-like>When this card leaves the field, destroy that monster.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>",
-      limit: 1
+      limit: 1,
+      art: 2
    },
    "Royal Decree": {
       id: "51452091",

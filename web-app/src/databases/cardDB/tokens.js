@@ -7,7 +7,8 @@ const tokens = {
       levelOrSubtype: 1,
       atk: 0,
       def: 0,
-      text: "Beast"
+      text: "Beast",
+      art: 4
    },
    "Ojama Token": {
       cardType: TOKEN_MONSTER,
@@ -16,7 +17,8 @@ const tokens = {
       atk: 0,
       def: 1000,
       text: "Beast",
-      prepopLP: { hero: -300 }
+      prepopLP: { hero: -300 },
+      art: 3
    },
    "Poisonous Snake Token": {
       cardType: TOKEN_MONSTER,
@@ -73,7 +75,8 @@ const tokens = {
       levelOrSubtype: 1,
       atk: 0,
       def: 0,
-      text: "Beast"
+      text: "Beast",
+      art: 2
    },
    "Slime Token": {
       cardType: TOKEN_MONSTER,

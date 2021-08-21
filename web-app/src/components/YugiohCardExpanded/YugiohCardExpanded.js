@@ -5,7 +5,7 @@ import Button from "components/CustomButtons/Button.js";
 import EffectTooltips from "./EffectTooltips.js";
 import compress from "utils/compressName.js";
 import getCardDetails from "utils/getCardDetails.js";
-import { FACEDOWN_CARD, NORMAL_MONSTER } from "utils/constants";
+import { FACEDOWN_CARD, NORMAL_MONSTER, SENTINEL } from "utils/constants";
 
 import { Description } from "@material-ui/icons";
 
@@ -21,12 +21,13 @@ class YugiohCardExpanded extends PureComponent {
       if (!cardName) return <div className={classes.largePic}></div>;
 
       const { cardType, attribute, levelOrSubtype, atk, def, text } = getCardDetails(cardName);
+      const [name, art] = cardName.split(SENTINEL);
 
       return (
          <div
             className={classes.largePic}
             style={{
-               backgroundImage: 'url("/cards/art/' + compress(cardName) + '.jpg")',
+               backgroundImage: `url("/cards/art/${compress(name)}${art ? `.${art}` : ''}.jpg")`,
                height,
                width
             }}
@@ -42,7 +43,7 @@ class YugiohCardExpanded extends PureComponent {
                )}
                <div className={classes.cardText}>
                   <div>
-                     <strong>{cardName}</strong> [{attribute || cardType}/{levelOrSubtype}]
+                     <strong>{name}</strong> [{attribute || cardType}/{levelOrSubtype}]
                   </div>
                   <div className={classes.tooltipsBox}>
                      <EffectTooltips text={text} />

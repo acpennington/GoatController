@@ -1055,7 +1055,8 @@ const effectMonsters = {
       levelOrSubtype: 4,
       atk: 850,
       def: 2000,
-      text: "Fairy/Effect – <effect=Ignition>Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand.</effect>"
+      text: "Fairy/Effect – <effect=Ignition>Offer this face-up card as a Tribute to return 1 of your monsters destroyed in battle during this turn to your hand.</effect>",
+      art: 2
    },
    "Hade-Hane": {
       id: "28357177",
@@ -1396,7 +1397,8 @@ const effectMonsters = {
             }
          },
          autoClose: true
-      }
+      },
+      art: 2
    },
    "Giant Rat": {
       id: "97017120",
@@ -1766,7 +1768,8 @@ const effectMonsters = {
             row: MONSTER
          },
          params: 2
-      }
+      },
+      art: 2
    },
    "Zaborg the Thunder Monarch": {
       id: "51945556",
@@ -1800,7 +1803,8 @@ const effectMonsters = {
             players: [VILLAIN],
             row: MONSTER
          }
-      }
+      },
+      art: 2
    },
    "Exiled Force": {
       id: "74131780",
@@ -2264,7 +2268,8 @@ const effectMonsters = {
       levelOrSubtype: 1,
       atk: 300,
       def: 200,
-      text: "Fiend/Effect - <effect=Quick>During damage calculation, if your opponent's monster attacks: You can discard this card; you take no battle damage from that battle.</effect>"
+      text: "Fiend/Effect - <effect=Quick>During damage calculation, if your opponent's monster attacks: You can discard this card; you take no battle damage from that battle.</effect>",
+      art: 3
    },
    "Winged Kuriboh": {
       id: "57116033",
@@ -2273,7 +2278,8 @@ const effectMonsters = {
       levelOrSubtype: 1,
       atk: 300,
       def: 200,
-      text: "Fairy/Effect - <effect=Trigger>If this card on the field is destroyed and sent to the Graveyard: For the rest of this turn, you take no battle damage.</effect>"
+      text: "Fairy/Effect - <effect=Trigger>If this card on the field is destroyed and sent to the Graveyard: For the rest of this turn, you take no battle damage.</effect>",
+      art: 2
    },
    "Rescue Cat": {
       id: "14878871",
@@ -2349,7 +2355,8 @@ const effectMonsters = {
       atk: 2400,
       def: 1500,
       text: "Machine/Effect - <effect=Continuous>Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.</effect>",
-      limit: 1
+      limit: 1,
+      art: 2
    },
    "Exodia the Forbidden One": {
       id: "33396948",
@@ -2359,7 +2366,8 @@ const effectMonsters = {
       atk: 1000,
       def: 1000,
       text: 'Spellcaster/Effect - <effect=Condition>If you have "Right Leg of the Forbidden One", "Left Leg of the Forbidden One", "Right Arm of the Forbidden One" and "Left Arm of the Forbidden One" in addition to this card in your hand, you win the Duel.</effect>',
-      limit: 1
+      limit: 1,
+      art: 2
    },
    "Sacred Phoenix of Nephthys": {
       id: "61441708",
@@ -2484,7 +2492,8 @@ const effectMonsters = {
             row: MONSTER
          },
          params: 3
-      }
+      },
+      art: 2
    },
    "Buster Blader": {
       id: "78193831",
@@ -2493,7 +2502,8 @@ const effectMonsters = {
       levelOrSubtype: 7,
       atk: 2600,
       def: 2300,
-      text: "Warrior/Effect - <effect=Continuous>Gains 500 ATK for each Dragon monster your opponent controls or is in their Graveyard.</effect>"
+      text: "Warrior/Effect - <effect=Continuous>Gains 500 ATK for each Dragon monster your opponent controls or is in their Graveyard.</effect>",
+      art: 2
    },
    "Dark Magician Girl": {
       id: "38033121",
@@ -2502,7 +2512,8 @@ const effectMonsters = {
       levelOrSubtype: 6,
       atk: 2000,
       def: 1700,
-      text: 'Spellcaster/Effect - <effect=Continuous>Gains 300 ATK for every "Dark Magician" or "Magician of Black Chaos" in the Graveyard.</effect>'
+      text: 'Spellcaster/Effect - <effect=Continuous>Gains 300 ATK for every "Dark Magician" or "Magician of Black Chaos" in the Graveyard.</effect>',
+      art: 6
    },
    "Lesser Fiend": {
       id: "16475472",
@@ -2511,7 +2522,8 @@ const effectMonsters = {
       levelOrSubtype: 5,
       atk: 2100,
       def: 1000,
-      text: 'Fiend/Effect - (This card is always treated as an "Archfiend" card.) <effect=Continuous>Banish any monster destroyed by battle with this card.</effect>'
+      text: 'Fiend/Effect - (This card is always treated as an "Archfiend" card.) <effect=Continuous>Banish any monster destroyed by battle with this card.</effect>',
+      art: 2
    },
    Otohime: {
       id: "39751093",
@@ -2520,7 +2532,8 @@ const effectMonsters = {
       levelOrSubtype: 3,
       atk: 0,
       def: 100,
-      text: "Spellcaster/Spirit/Effect - <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>When this card is Normal Summoned or flipped face-up: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>"
+      text: "Spellcaster/Spirit/Effect - <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>When this card is Normal Summoned or flipped face-up: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>",
+      art: 2
    },
    "Red-Eyes Black Metal Dragon": {
       id: "64335804",
@@ -2529,7 +2542,8 @@ const effectMonsters = {
       levelOrSubtype: 8,
       atk: 2800,
       def: 2400,
-      text: 'Machine/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your Deck) by Tributing "Red-Eyes Black Dragon" equipped with "Metalmorph".</effect>'
+      text: 'Machine/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your Deck) by Tributing "Red-Eyes Black Dragon" equipped with "Metalmorph".</effect>',
+      art: 2
    },
    "Emissary of the Afterlife": {
       id: "75043725",
@@ -2577,7 +2591,8 @@ const effectMonsters = {
             }
          },
          autoClose: true
-      }
+      },
+      art: 2
    },
    "Dark Ruler Ha Des": {
       id: "53982768",

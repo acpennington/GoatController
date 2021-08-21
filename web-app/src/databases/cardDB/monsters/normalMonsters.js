@@ -305,7 +305,8 @@ const normalMonsters = {
       levelOrSubtype: 8,
       atk: 3000,
       def: 2500,
-      text: "Dragon – This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale."
+      text: "Dragon – This legendary dragon is a powerful engine of destruction. Virtually invincible, very few have faced this awesome creature and lived to tell the tale.",
+      art: 8
    },
    "Blue-Winged Crown": {
       id: "41396436",
@@ -359,7 +360,8 @@ const normalMonsters = {
       levelOrSubtype: 4,
       atk: 1400,
       def: 1200,
-      text: "Warrior – An elf who learned to wield a sword, he baffles enemies with lightning-swift attacks."
+      text: "Warrior – An elf who learned to wield a sword, he baffles enemies with lightning-swift attacks.",
+      art: 2
    },
    "Charcoal Inpachi": {
       id: "13179332",
@@ -539,7 +541,8 @@ const normalMonsters = {
       levelOrSubtype: 7,
       atk: 2500,
       def: 2100,
-      text: "Spellcaster – The ultimate wizard in terms of attack and defense."
+      text: "Spellcaster – The ultimate wizard in terms of attack and defense.",
+      art: 8
    },
    "Dark Titan of Terror": {
       id: "89494469",
@@ -683,7 +686,8 @@ const normalMonsters = {
       levelOrSubtype: 3,
       atk: 1000,
       def: 1000,
-      text: "Warrior – A winged Elemental HERO who wheels through the sky and manipulates the wind. His signature move, Featherbreak, gives villainy a blow from sky-high."
+      text: "Warrior – A winged Elemental HERO who wheels through the sky and manipulates the wind. His signature move, Featherbreak, gives villainy a blow from sky-high.",
+      art: 2
    },
    "Elemental HERO Burstinatrix": {
       id: "58932615",
@@ -692,7 +696,8 @@ const normalMonsters = {
       levelOrSubtype: 3,
       atk: 1200,
       def: 800,
-      text: "Warrior – A flame manipulator who was the first Elemental HERO woman. Her Burstfire burns away villainy."
+      text: "Warrior – A flame manipulator who was the first Elemental HERO woman. Her Burstfire burns away villainy.",
+      art: 2
    },
    "Elemental HERO Clayman": {
       id: "84327329",
@@ -710,7 +715,8 @@ const normalMonsters = {
       levelOrSubtype: 4,
       atk: 1600,
       def: 1400,
-      text: "Warrior – An Elemental HERO and a warrior of light who proficiently wields many kinds of armaments. His Static Shockwave cuts off the path of villainy."
+      text: "Warrior – An Elemental HERO and a warrior of light who proficiently wields many kinds of armaments. His Static Shockwave cuts off the path of villainy.",
+      art: 2
    },
    "Empress Mantis": {
       id: "58818411",
@@ -899,7 +905,8 @@ const normalMonsters = {
       levelOrSubtype: 7,
       atk: 2300,
       def: 2100,
-      text: "Warrior – A knight whose horse travels faster than the wind. His battle-charge is a force to be reckoned with."
+      text: "Warrior – A knight whose horse travels faster than the wind. His battle-charge is a force to be reckoned with.",
+      art: 2
    },
    "Gamma The Magnet Warrior": {
       id: "11549357",
@@ -944,7 +951,8 @@ const normalMonsters = {
       levelOrSubtype: 4,
       atk: 1900,
       def: 900,
-      text: "Spellcaster – Elf twins that alternate their attacks."
+      text: "Spellcaster – Elf twins that alternate their attacks.",
+      art: 2
    },
    "Giant Flea": {
       id: "41762634",
@@ -1115,7 +1123,8 @@ const normalMonsters = {
       levelOrSubtype: 6,
       atk: 1800,
       def: 2000,
-      text: "Fairy – This fairy uses her mystical power to protect the weak and provide spiritual support."
+      text: "Fairy – This fairy uses her mystical power to protect the weak and provide spiritual support.",
+      art: 2
    },
    "Hard Armor": {
       id: "20060230",
@@ -1394,7 +1403,8 @@ const normalMonsters = {
       levelOrSubtype: 4,
       atk: 1800,
       def: 1000,
-      text: "Fiend – A genie of the lamp that is at the beck and call of its master."
+      text: "Fiend – A genie of the lamp that is at the beck and call of its master.",
+      art: 2
    },
    "Labyrinth Wall": {
       id: "67284908",
@@ -1430,7 +1440,8 @@ const normalMonsters = {
       levelOrSubtype: 7,
       atk: 2200,
       def: 2500,
-      text: "Machine – A mechanical spider with rocket launchers capable of random fire."
+      text: "Machine – A mechanical spider with rocket launchers capable of random fire.",
+      art: 2
    },
    "Left Arm of the Forbidden One": {
       id: "07902349",
@@ -1440,7 +1451,8 @@ const normalMonsters = {
       atk: 200,
       def: 300,
       text: "Spellcaster – A forbidden left arm sealed by magic. Whosoever breaks this seal will know infinite power.",
-      limit: 1
+      limit: 1,
+      art: 2
    },
    "Left Leg of the Forbidden One": {
       id: "44519536",
@@ -1450,7 +1462,8 @@ const normalMonsters = {
       atk: 200,
       def: 300,
       text: "Spellcaster – A forbidden left leg sealed by magic. Whosoever breaks this seal will know infinite power.",
-      limit: 1
+      limit: 1,
+      art: 2
    },
    Leogun: {
       id: "10538007",
@@ -1720,7 +1733,8 @@ const normalMonsters = {
       levelOrSubtype: 5,
       atk: 0,
       def: 3000,
-      text: "Warrior – A Millennium item, it's rumored to block any strong attack."
+      text: "Warrior – A Millennium item, it's rumored to block any strong attack.",
+      art: 2
    },
    Misairuzame: {
       id: "33178416",
@@ -2143,7 +2157,8 @@ const normalMonsters = {
       levelOrSubtype: 7,
       atk: 2400,
       def: 2000,
-      text: "Dragon – A ferocious dragon with a deadly attack."
+      text: "Dragon – A ferocious dragon with a deadly attack.",
+      art: 6
    },
    "Right Arm of the Forbidden One": {
       id: "70903634",
@@ -2153,7 +2168,8 @@ const normalMonsters = {
       atk: 200,
       def: 300,
       text: "Spellcaster – A forbidden right arm sealed by magic. Whosoever breaks this seal will know infinite power.",
-      limit: 1
+      limit: 1,
+      art: 2
    },
    "Right Leg of the Forbidden One": {
       id: "08124921",
@@ -2163,8 +2179,8 @@ const normalMonsters = {
       atk: 200,
       def: 300,
       text: "Spellcaster – A forbidden right leg sealed by magic. Whosoever breaks this seal will know infinite power.",
-      limit: 1
-   },
+      limit: 1,
+      art: 2   },
    Robolady: {
       id: "92421852",
       cardType: NORMAL_MONSTER,
@@ -2595,7 +2611,8 @@ const normalMonsters = {
       levelOrSubtype: 6,
       atk: 2500,
       def: 1200,
-      text: "Fiend – A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters, this monster boasts considerable force."
+      text: "Fiend – A fiend with dark powers for confusing the enemy. Among the Fiend-Type monsters, this monster boasts considerable force.",
+      art: 4
    },
    "Swordsman of Landstar": {
       id: "03573512",
@@ -2775,7 +2792,8 @@ const normalMonsters = {
       levelOrSubtype: 4,
       atk: 1300,
       def: 1100,
-      text: "Beast-Warrior – A fast and powerful axe-wielding beast-warrior."
+      text: "Beast-Warrior – A fast and powerful axe-wielding beast-warrior.",
+      art: 2
    },
    Tongyo: {
       id: "69572024",
@@ -2982,7 +3000,8 @@ const normalMonsters = {
       levelOrSubtype: 4,
       atk: 1400,
       def: 1200,
-      text: "Aqua – Transforms the water overflowing from a jar into attacking dragons."
+      text: "Aqua – Transforms the water overflowing from a jar into attacking dragons.",
+      art: 2
    },
    Wattkid: {
       id: "27324313",

@@ -110,7 +110,8 @@ const equipSpells = {
       levelOrSubtype: "Equip",
       text: "Activate this card by paying 800 Life Points, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. <effect=Continuous-like>When this card is destroyed, destroy the equipped monster.</effect>",
       prepopLP: { hero: -800 },
-      limit: 1
+      limit: 1,
+      art: 2
    },
    "Snatch Steal": {
       id: "45986603",

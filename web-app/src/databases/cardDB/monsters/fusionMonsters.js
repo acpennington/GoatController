@@ -54,7 +54,7 @@ const fusions = {
       atk: 2900,
       def: 2400,
       text: 'Spellcaster/Fusion/Effect – "Dark Magician" + "Buster Blader". <effect=Summon>Must be Fusion Summoned.</effect> <effect=Quick>When a Spell Card is activated: You can discard 1 card; negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Gains 500 ATK for each Dragon monster on the field and in the Graveyard.</effect>',
-      noMeta: true
+      art: 2
    },
    "Deepsea Shark": {
       id: "28593363",
@@ -110,7 +110,8 @@ const fusions = {
       levelOrSubtype: 5,
       atk: 1800,
       def: 1600,
-      text: 'Warrior/Fusion – "Flame Manipulator" + "Masaki the Legendary Swordsman"'
+      text: 'Warrior/Fusion – "Flame Manipulator" + "Masaki the Legendary Swordsman"',
+      art: 2
    },
    "Flower Wolf": {
       id: "95952802",
@@ -308,7 +309,8 @@ const fusions = {
       levelOrSubtype: 7,
       atk: 2400,
       def: 2000,
-      text: 'Dragon/Fusion – "Time Wizard" + "Baby Dragon"'
+      text: 'Dragon/Fusion – "Time Wizard" + "Baby Dragon"',
+      art: 2
    },
    "Twin-Headed Thunder Dragon": {
       id: "54752875",
@@ -346,7 +348,8 @@ const fusions = {
       atk: 2800,
       def: 2600,
       text: 'Machine/Fusion/Effect – "X-Head Cannon" + "Y-Dragon Head" + "Z-Metal Tank". <effect=Summon>Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use "Polymerization".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 card your opponent controls; destroy that target.</effect>',
-      noMeta: true
+      noMeta: true,
+      art: 2
    },
    "XZ-Tank Cannon": {
       id: "99724761",

@@ -64,7 +64,8 @@ const continuousSpells = {
       cardType: SPELL,
       levelOrSubtype: "Continuous",
       text: "Activate this card by paying 1000 Life Points.",
-      prepopLP: { hero: -1000 }
+      prepopLP: { hero: -1000 },
+      art: 2
    },
    "Vengeful Bog Spirit": {
       id: "95220856",

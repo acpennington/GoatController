@@ -93,7 +93,8 @@ const normalTraps = {
       id: "62633180",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "Target 1 monster you control; destroy that monster, then send 2 cards from the top of your opponent's Deck to the Graveyard."
+      text: "Target 1 monster you control; destroy that monster, then send 2 cards from the top of your opponent's Deck to the Graveyard.",
+      art: 2,
    },
    "Beast Soul Swap": {
       id: "35149085",
@@ -259,7 +260,8 @@ const normalTraps = {
       cardType: TRAP,
       levelOrSubtype: "Normal",
       text: "Target 1 face-up monster; destroy that face-up monster, and if you do, inflict damage to both players equal to that target's ATK.",
-      limit: 1
+      limit: 1,
+      art: 2
    },
    "Sakuretsu Armor": {
       id: "56120475",
@@ -295,7 +297,8 @@ const normalTraps = {
       id: "77754944",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "When an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied)."
+      text: "When an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied).",
+      art: 2
    },
    Waboku: {
       id: "12607053",
@@ -376,7 +379,8 @@ const normalTraps = {
       id: "36280194",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "While there are 5 or more monsters in your Graveyard: Target up to 3 non-Effect Monsters with 1500 or less ATK in your Graveyard; add them to your hand."
+      text: "While there are 5 or more monsters in your Graveyard: Target up to 3 non-Effect Monsters with 1500 or less ATK in your Graveyard; add them to your hand.",
+      art: 2
    },
    "Fiend Comedian": {
       id: "81172176",
@@ -390,7 +394,8 @@ const normalTraps = {
             row: SPELL_TRAP
          },
          params: 1
-      }
+      },
+      art: 2
    },
    Metalmorph: {
       id: "68540058",
@@ -402,19 +407,22 @@ const normalTraps = {
       id: "18807108",
       cardType: TRAP,
       levelOrSubtype: "Continuous",
-      text: "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>"
+      text: "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>",
+      art: 2
    },
    Taunt: {
       id: "90740329",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "Activate only during your opponent's Main Phase 1; select 1 monster on your side of the field. While the selected card remains on the field, if your opponent attacks with a monster(s) this turn, they must select the selected monster as the attack target."
+      text: "Activate only during your opponent's Main Phase 1; select 1 monster on your side of the field. While the selected card remains on the field, if your opponent attacks with a monster(s) this turn, they must select the selected monster as the attack target.",
+      art: 2
    },
    Tragedy: {
       id: "35686187",
       cardType: TRAP,
       levelOrSubtype: "Normal",
-      text: "When a face-up Attack Position monster(s) your opponent controls is changed to face-up Defense Position: Destroy all Defense Position monsters your opponent controls."
+      text: "When a face-up Attack Position monster(s) your opponent controls is changed to face-up Defense Position: Destroy all Defense Position monsters your opponent controls.",
+      art: 2
    },
    "Statue of the Wicked": {
       id: "65810489",

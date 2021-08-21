@@ -13,7 +13,8 @@ const quickplaySpells = {
             row: SPELL_TRAP
          },
          params: 1
-      }
+      },
+      art: 2
    },
    "Mystical Space Typhoon": {
       id: "05318639",
