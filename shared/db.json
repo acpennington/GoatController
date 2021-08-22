@@ -63,6 +63,18 @@
       "text": "Aqua/Effect – <effect=Ignition>Once per turn: You can discard 1 WATER monster to the Graveyard to target 1 card on the field; return it to the hand.</effect>",
       "limit": 2
    },
+   "Abyssal Designator": {
+      "id": "78053598",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Pay 1000 LP and declare 1 Type and 1 Attribute; your opponent sends 1 monster with both the declared Type and Attribute from their hand or Deck to the Graveyard.",
+      "prepopLP": { "hero": 1000 },
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "autoClose": true
+      }
+   },
    "Acid Rain": {
       "id": "21323861",
       "cardType": "Spell",
@@ -118,7 +130,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1000,
-      "text": "Warrior/Effect - <effect=Ignition>You can Tribute 2 monsters; inflict 1200 damage to your opponent.</effect>",
+      "text": "Warrior/Effect – <effect=Ignition>You can Tribute 2 monsters; inflict 1200 damage to your opponent.</effect>",
       "prepopLP": { "villain": -1200 }
    },
    "Amazoness Fighter": {
@@ -230,7 +242,7 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 1200,
-      "text": "Aqua/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by banishing 1 WATER monster from your Graveyard.</effect> <effect=Trigger>Once per turn, during your opponent's Standby Phase: You can target 1 face-up monster your opponent controls; change that target's battle position, and if you do, it cannot change its battle position for the rest of this turn.</effect>"
+      "text": "Aqua/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by banishing 1 WATER monster from your Graveyard.</effect> <effect=Trigger>Once per turn, during your opponent's Standby Phase: You can target 1 face-up monster your opponent controls; change that target's battle position, and if you do, it cannot change its battle position for the rest of this turn.</effect>"
    },
    "Arcane Archer of the Forest": {
       "id": "55001420",
@@ -485,7 +497,7 @@
       "levelOrSubtype": 7,
       "atk": 2600,
       "def": 2200,
-      "text": "Machine/Effect - <effect=Ignition>Once per turn: You can target 1 monster your opponent controls; toss a coin 3 times and destroy it if at least 2 of the results are heads.</effect>",
+      "text": "Machine/Effect – <effect=Ignition>Once per turn: You can target 1 monster your opponent controls; toss a coin 3 times and destroy it if at least 2 of the results are heads.</effect>",
       "script": {
          "name": "FLIP_COINS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -544,7 +556,7 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 900,
-      "text": "Beast/Effect - <effect=Ignition>Once per turn: You can banish up to 3 monsters from your Graveyard; this card gains 300 ATK for each, until the end of your opponent's turn.</effect>"
+      "text": "Beast/Effect – <effect=Ignition>Once per turn: You can banish up to 3 monsters from your Graveyard; this card gains 300 ATK for each, until the end of your opponent's turn.</effect>"
    },
    "Bean Soldier": {
       "id": "84990171",
@@ -610,7 +622,7 @@
       "levelOrSubtype": 4,
       "atk": 2000,
       "def": 1000,
-      "text": "Beast/Effect - <effect=Continuous>If this card is in face-up Defense Position, destroy this card.</effect> <effect=Continuous>This card must attack if able.</effect>"
+      "text": "Beast/Effect – <effect=Continuous>If this card is in face-up Defense Position, destroy this card.</effect> <effect=Continuous>This card must attack if able.</effect>"
    },
    "Beta The Magnet Warrior": {
       "id": "39256679",
@@ -652,7 +664,7 @@
       "levelOrSubtype": 4,
       "atk": 100,
       "def": 2600,
-      "text": "Warrior/Effect - <effect=Quick>When a Spell is activated that targets this face-down card (and no other cards): Change this card to face-up Defense Position, and if you do, negate the activation.</effect> <effect=Continuous>If this card is attacked, change it to Attack Position at the end of the Damage Step.</effect>"
+      "text": "Warrior/Effect – <effect=Quick>When a Spell is activated that targets this face-down card (and no other cards): Change this card to face-up Defense Position, and if you do, negate the activation.</effect> <effect=Continuous>If this card is attacked, change it to Attack Position at the end of the Damage Step.</effect>"
    },
    "Bio-Mage": {
       "id": "58696829",
@@ -682,7 +694,7 @@
       "levelOrSubtype": 8,
       "atk": 3000,
       "def": 2500,
-      "text": "Warrior/Ritual - You can Ritual Summon this card with \"Black Luster Ritual\"."
+      "text": "Warrior/Ritual – You can Ritual Summon this card with \"Black Luster Ritual\"."
    },
    "Black Luster Soldier - Envoy of the Beginning": {
       "id": "72989439",
@@ -774,7 +786,7 @@
       "levelOrSubtype": 6,
       "atk": 2300,
       "def": 1200,
-      "text": "Machine/Effect - <effect=Ignition>Once per turn: You can target 1 card your opponent controls; toss a coin 3 times and destroy that target if at least 2 of the results are heads.</effect>",
+      "text": "Machine/Effect – <effect=Ignition>Once per turn: You can target 1 card your opponent controls; toss a coin 3 times and destroy that target if at least 2 of the results are heads.</effect>",
       "script": {
          "name": "FLIP_COINS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -922,7 +934,7 @@
       "levelOrSubtype": 7,
       "atk": 2600,
       "def": 2300,
-      "text": "Warrior/Effect - <effect=Continuous>Gains 500 ATK for each Dragon monster your opponent controls or is in their Graveyard.</effect>",
+      "text": "Warrior/Effect – <effect=Continuous>Gains 500 ATK for each Dragon monster your opponent controls or is in their Graveyard.</effect>",
       "art": 2
    },
    "Byser Shock": {
@@ -932,7 +944,7 @@
       "levelOrSubtype": 5,
       "atk": 800,
       "def": 600,
-      "text": "Fiend/Effect - <effect=Trigger>If this card is Summoned: Return all Set cards on the field to the hand.</effect>"
+      "text": "Fiend/Effect – <effect=Trigger>If this card is Summoned: Return all Set cards on the field to the hand.</effect>"
    },
    "Call of the Haunted": {
       "id": "97077563",
@@ -949,7 +961,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1300,
-      "text": "Machine/Effect - <effect=Ignition>You can Tribute 1 monster; inflict 500 damage to your opponent.</effect>",
+      "text": "Machine/Effect – <effect=Ignition>You can Tribute 1 monster; inflict 500 damage to your opponent.</effect>",
       "prepopLP": { "villain": -500 }
    },
    "Cannonball Spear Shellfish": {
@@ -968,10 +980,7 @@
       "text": "Both players discard as many cards as possible from their hands, then each player draws the same number of cards they discarded.",
       "script": {
          "name": "DISCARD_AND_DRAW",
-         "displayCondition": {
-            "players": ["HERO", "VILLAIN"],
-            "row": "spellTrap"
-         },
+         "displayCondition": { "players": ["HERO", "VILLAIN"], "row": "spellTrap" },
          "params": "same"
       },
       "limit": 1
@@ -1058,7 +1067,7 @@
       "levelOrSubtype": 1,
       "atk": 100,
       "def": 100,
-      "text": "Rock/Effect - <effect=Quick>You can discard this card; \"Gravekeeper's\" monsters you control cannot be destroyed by battle until the end of this turn.</effect>"
+      "text": "Rock/Effect – <effect=Quick>You can discard this card; \"Gravekeeper's\" monsters you control cannot be destroyed by battle until the end of this turn.</effect>"
    },
    "Charubin the Fire Knight": {
       "id": "37421579",
@@ -1109,7 +1118,7 @@
       "levelOrSubtype": 3,
       "atk": 1350,
       "def": 1800,
-      "text": "Machine/Effect - <effect=Trigger>If this card battles a Warrior monster, during damage calculation: This card gains 2000 ATK and DEF during that damage calculation only.</effect>"
+      "text": "Machine/Effect – <effect=Trigger>If this card battles a Warrior monster, during damage calculation: This card gains 2000 ATK and DEF during that damage calculation only.</effect>"
    },
    "Claw Reacher": {
       "id": "41218256",
@@ -1136,7 +1145,7 @@
       "levelOrSubtype": 2,
       "atk": 600,
       "def": 300,
-      "text": "Reptile/Flip/Effect - <effect=Trigger>FLIP: Special Summon 1 \"Poisonous Snake Token\" (Reptile/Earth/Level 3/ATK 1200/DEF 1200).</effect> <effect=Lingering>When it is destroyed by battle, inflict 500 damage to your opponent.</effect>",
+      "text": "Reptile/Flip/Effect – <effect=Trigger>FLIP: Special Summon 1 \"Poisonous Snake Token\" (Reptile/Earth/Level 3/ATK 1200/DEF 1200).</effect> <effect=Lingering>When it is destroyed by battle, inflict 500 damage to your opponent.</effect>",
       "script": {
          "name": "MAKE_TOKENS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -1198,7 +1207,7 @@
       "levelOrSubtype": 8,
       "atk": 2550,
       "def": 2500,
-      "text": "Aqua/Ritual - You can Ritual Summon this card with \"Turtle Oath\"."
+      "text": "Aqua/Ritual – You can Ritual Summon this card with \"Turtle Oath\"."
    },
    "Crass Clown": {
       "id": "93889755",
@@ -1308,7 +1317,7 @@
       "levelOrSubtype": 2,
       "atk": 700,
       "def": 500,
-      "text": "Machine/Effect - <effect=Ignition>You can pay 5000 Life Points; Special Summon 1 Fusion Monster from your Fusion Deck in Attack Position.</effect>",
+      "text": "Machine/Effect – <effect=Ignition>You can pay 5000 Life Points; Special Summon 1 Fusion Monster from your Fusion Deck in Attack Position.</effect>",
       "prepopLP": { "hero": -5000 }
    },
    "D. Human": {
@@ -1436,6 +1445,17 @@
       "def": 500,
       "text": "Beast/Flip/Effect – <effect=Trigger>FLIP: Target 2 monsters your opponent controls and 1 monster you control; return those targets to the hand.</effect>"
    },
+   "Dark Designator": {
+      "id": "78053598",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Declare 1 Monster name; if your opponent's deck has the declared monster, add 1 of them to their hand.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "autoClose": true
+      }
+   },
    "Dark Elf": {
       "id": "21417692",
       "cardType": "effectMonster",
@@ -1498,7 +1518,7 @@
       "levelOrSubtype": 6,
       "atk": 2000,
       "def": 1700,
-      "text": "Spellcaster/Effect - <effect=Continuous>Gains 300 ATK for every \"Dark Magician\" or \"Magician of Black Chaos\" in the Graveyard.</effect>",
+      "text": "Spellcaster/Effect – <effect=Continuous>Gains 300 ATK for every \"Dark Magician\" or \"Magician of Black Chaos\" in the Graveyard.</effect>",
       "art": 6
    },
    "Dark Magician of Chaos": {
@@ -1508,7 +1528,7 @@
       "levelOrSubtype": 8,
       "atk": 2800,
       "def": 2600,
-      "text": "Spellcaster/Effect - <effect=Trigger>When this card is Normal or Special Summoned: You can target 1 Spell in your Graveyard; add that target to your hand.</effect> <effect=Continuous>Banish any monster destroyed by battle with this card.</effect> <effect=Continuous>If this face-up card would leave the field, banish it instead.</effect>",
+      "text": "Spellcaster/Effect – <effect=Trigger>When this card is Normal or Special Summoned: You can target 1 Spell in your Graveyard; add that target to your hand.</effect> <effect=Continuous>Banish any monster destroyed by battle with this card.</effect> <effect=Continuous>If this face-up card would leave the field, banish it instead.</effect>",
       "limit": 1
    },
    "Dark Master - Zorc": {
@@ -1518,7 +1538,7 @@
       "levelOrSubtype": 8,
       "atk": 2700,
       "def": 1500,
-      "text": "Fiend/Effect/Ritual - <effect=Summon>You can Ritual Summon this card with \"Contract with the Dark Master\".</effect> <effect=Ignition>Once per turn: You can roll a six-sided die, then destroy all monsters your opponent controls if you roll 1 or 2, destroy 1 monster your opponent controls if you roll 3, 4 or 5, or destroy all monsters you control if you roll 6</effect>.",
+      "text": "Fiend/Effect/Ritual – <effect=Summon>You can Ritual Summon this card with \"Contract with the Dark Master\".</effect> <effect=Ignition>Once per turn: You can roll a six-sided die, then destroy all monsters your opponent controls if you roll 1 or 2, destroy 1 monster your opponent controls if you roll 3, 4 or 5, or destroy all monsters you control if you roll 6</effect>.",
       "script": {
          "name": "ROLL_DICE",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -1549,7 +1569,7 @@
       "levelOrSubtype": 6,
       "atk": 2450,
       "def": 1600,
-      "text": "Fiend/Effect - <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with Fiend monsters you control.</effect>"
+      "text": "Fiend/Effect – <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with Fiend monsters you control.</effect>"
    },
    "Dark Scorpion - Cliff the Trap Remover": {
       "id": "06967870",
@@ -1558,7 +1578,7 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 1000,
-      "text": "Warrior/Effect - <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects:● Target 1 Spell/Trap on the field; destroy that target.● Send the top 2 cards of their Deck to the Graveyard</effect>"
+      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects:● Target 1 Spell/Trap on the field; destroy that target.● Send the top 2 cards of their Deck to the Graveyard</effect>"
    },
    "Dark Scorpion Burglars": {
       "id": "40933924",
@@ -1684,7 +1704,7 @@
       "levelOrSubtype": 4,
       "atk": 300,
       "def": 2000,
-      "text": "Plant/Union/Effect - Once per turn, you can either: <effect=Ignition>Target 1 \"Vampiric Orchis\" you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in face-up Attack Position.</effect> <effect=Trigger-like>While equipped to a monster by this card's effect, each time the equipped monster destroys a monster by battle: Special Summon 1 \"Wicked Plant Token\" (Plant/EARTH/Level 1/ATK 800/DEF 800).</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>",
+      "text": "Plant/Union/Effect – Once per turn, you can either: <effect=Ignition>Target 1 \"Vampiric Orchis\" you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in face-up Attack Position.</effect> <effect=Trigger-like>While equipped to a monster by this card's effect, each time the equipped monster destroys a monster by battle: Special Summon 1 \"Wicked Plant Token\" (Plant/EARTH/Level 1/ATK 800/DEF 800).</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>",
       "script": {
          "name": "MAKE_TOKENS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -1698,7 +1718,7 @@
       "levelOrSubtype": 3,
       "atk": 1100,
       "def": 1800,
-      "text": "Beast/Flip/Effect - <effect=Trigger>FLIP: Inflict 400 damage to your opponent for each card in their hand.</effect>"
+      "text": "Beast/Flip/Effect – <effect=Trigger>FLIP: Inflict 400 damage to your opponent for each card in their hand.</effect>"
    },
    "Des Lacooda": {
       "id": "02326738",
@@ -1707,7 +1727,7 @@
       "levelOrSubtype": 3,
       "atk": 500,
       "def": 600,
-      "text": "Zombie/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Draw 1 card.</effect>"
+      "text": "Zombie/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Draw 1 card.</effect>"
    },
    "Des Wombat": {
       "id": "09637706",
@@ -1716,7 +1736,7 @@
       "levelOrSubtype": 3,
       "atk": 1600,
       "def": 300,
-      "text": "Beast/Effect - <effect=Continuous>Any damage to you from a card effect becomes 0.</effect>"
+      "text": "Beast/Effect – <effect=Continuous>Any damage to you from a card effect becomes 0.</effect>"
    },
    "Desert Sunlight": {
       "id": "93747864",
@@ -1843,7 +1863,7 @@
       "levelOrSubtype": 6,
       "atk": 1900,
       "def": 1850,
-      "text": "Zombie/Ritual - You can Ritual Summon this card with \"Revival of Dokurorider\"."
+      "text": "Zombie/Ritual – You can Ritual Summon this card with \"Revival of Dokurorider\"."
    },
    "Dokuroyaiba": {
       "id": "30325729",
@@ -2084,7 +2104,7 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 1400,
-      "text": "Spellcaster/Effect/Ritual - <effect=Summon>Must be Ritual Summoned with \"Doriado's Blessing\" and cannot be Ritual Summoned by other ways.</effect> <effect=Continuous>The Attribute of this card is also treated as WIND, WATER, FIRE, and EARTH while it is face-up on the field</effect>"
+      "text": "Spellcaster/Effect/Ritual – <effect=Summon>Must be Ritual Summoned with \"Doriado's Blessing\" and cannot be Ritual Summoned by other ways.</effect> <effect=Continuous>The Attribute of this card is also treated as WIND, WATER, FIRE, and EARTH while it is face-up on the field</effect>"
    },
    "Elephant Statue of Blessing": {
       "id": "85166216",
@@ -2127,13 +2147,10 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 600,
-      "text": "Fiend/Effect - <effect=Trigger>When this card is sent from the field to the Graveyard: Each player adds 1 Level 3 or lower Normal Monster from their Deck to their hand.</effect>",
+      "text": "Fiend/Effect – <effect=Trigger>When this card is sent from the field to the Graveyard: Each player adds 1 Level 3 or lower Normal Monster from their Deck to their hand.</effect>",
       "script": {
          "name": "SEARCH_DECK",
-         "displayCondition": {
-            "players": ["HERO", "VILLAIN"],
-            "row": "graveyard"
-         },
+         "displayCondition": { "players": ["HERO", "VILLAIN"], "row": "graveyard" },
          "params": {
             "levelOrSubtype": { "operator": "<", "value": 3 },
             "cardType": { "value": "normalMonster" }
@@ -2202,7 +2219,7 @@
       "levelOrSubtype": 4,
       "atk": 1700,
       "def": 1000,
-      "text": "Beast-Warrior/Effect - <effect=Continuous>If a Beast, Beast-Warrior, or Winged Beast-Type monster you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
+      "text": "Beast-Warrior/Effect – <effect=Continuous>If a Beast, Beast-Warrior, or Winged Beast-Type monster you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
    },
    "Eternal Rest": {
       "id": "95051344",
@@ -2240,7 +2257,7 @@
       "levelOrSubtype": 3,
       "atk": 1000,
       "def": 1000,
-      "text": "Spellcaster/Effect - <effect=Condition>If you have \"Right Leg of the Forbidden One\", \"Left Leg of the Forbidden One\", \"Right Arm of the Forbidden One\" and \"Left Arm of the Forbidden One\" in addition to this card in your hand, you win the Duel.</effect>",
+      "text": "Spellcaster/Effect – <effect=Condition>If you have \"Right Leg of the Forbidden One\", \"Left Leg of the Forbidden One\", \"Right Arm of the Forbidden One\" and \"Left Arm of the Forbidden One\" in addition to this card in your hand, you win the Duel.</effect>",
       "limit": 1,
       "art": 2
    },
@@ -2305,7 +2322,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1200,
-      "text": "Beast/Effect - <effect=Summon>Cannot be Normal Summoned/Set.Must first be Special Summoned (from your hand) by banishing 2 WATER monsters from your Graveyard.</effect><effect=Trigger>When this card destroys an opponent's monster by battle: Your opponent skips their next Draw Phase.</effect>",
+      "text": "Beast/Effect – <effect=Summon>Cannot be Normal Summoned/Set.Must first be Special Summoned (from your hand) by banishing 2 WATER monsters from your Graveyard.</effect><effect=Trigger>When this card destroys an opponent's monster by battle: Your opponent skips their next Draw Phase.</effect>",
       "script": {
          "name": "SKIP_DRAWS",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
@@ -2796,7 +2813,7 @@
       "levelOrSubtype": 4,
       "atk": 1900,
       "def": 1300,
-      "text": "Rock/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by banishing 1 EARTH monster from your Graveyard.</effect> <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Destroy all Spells and Traps on the field.</effect>"
+      "text": "Rock/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by banishing 1 EARTH monster from your Graveyard.</effect> <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Destroy all Spells and Traps on the field.</effect>"
    },
    "Gigobyte": {
       "id": "53776525",
@@ -2884,7 +2901,7 @@
       "levelOrSubtype": 4,
       "atk": 800,
       "def": 1800,
-      "text": "Rock/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>When this card is Flip Summoned: Target 1 monster your opponent controls; return that target to the hand.</effect>"
+      "text": "Rock/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>When this card is Flip Summoned: Target 1 monster your opponent controls; return that target to the hand.</effect>"
    },
    "Gora Turtle": {
       "id": "80233946",
@@ -2936,7 +2953,7 @@
       "levelOrSubtype": 6,
       "atk": 2400,
       "def": 1000,
-      "text": "Rock/Effect - <effect=Trigger>If this card is Tribute Summoned: Target 1 Set card on the field; destroy that target.</effect>"
+      "text": "Rock/Effect – <effect=Trigger>If this card is Tribute Summoned: Target 1 Set card on the field; destroy that target.</effect>"
    },
    "Gravedigger Ghoul": {
       "id": "82542267",
@@ -2951,7 +2968,7 @@
       "levelOrSubtype": 4,
       "atk": 1500,
       "def": 1500,
-      "text": "Spellcaster/Effect - <effect=Trigger>When this card declares an attack while \"Necrovalley\" is on the field: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect>"
+      "text": "Spellcaster/Effect – <effect=Trigger>When this card declares an attack while \"Necrovalley\" is on the field: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect>"
    },
    "Gravekeeper's Cannonholder": {
       "id": "99877698",
@@ -2960,7 +2977,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1200,
-      "text": "Spellcaster/Effect - <effect=Ignition>You can Tribute 1 \"Gravekeeper's\" monster, except \"Gravekeeper's Cannonholder\"; inflict 700 damage to your opponent.</effect>",
+      "text": "Spellcaster/Effect – <effect=Ignition>You can Tribute 1 \"Gravekeeper's\" monster, except \"Gravekeeper's Cannonholder\"; inflict 700 damage to your opponent.</effect>",
       "prepopLP": { "villain": -700 }
    },
    "Gravekeeper's Chief": {
@@ -2970,7 +2987,7 @@
       "levelOrSubtype": 5,
       "atk": 1900,
       "def": 1200,
-      "text": "Spellcaster/Effect - <effect=Continuous>You can only control 1 face-up \"Gravekeeper's Chief\".</effect> <effect=Continuous>Your Graveyard is unaffected by \"Necrovalley\".</effect> <effect=Trigger>When this card is Tribute Summoned: You can target 1 \"Gravekeeper's\" monster in your Graveyard; Special Summon that target.</effect>"
+      "text": "Spellcaster/Effect – <effect=Continuous>You can only control 1 face-up \"Gravekeeper's Chief\".</effect> <effect=Continuous>Your Graveyard is unaffected by \"Necrovalley\".</effect> <effect=Trigger>When this card is Tribute Summoned: You can target 1 \"Gravekeeper's\" monster in your Graveyard; Special Summon that target.</effect>"
    },
    "Gravekeeper's Curse": {
       "id": "50712728",
@@ -2979,7 +2996,7 @@
       "levelOrSubtype": 3,
       "atk": 800,
       "def": 800,
-      "text": "Spellcaster/Effect - <effect=Trigger>When this card is Summoned: Inflict 500 damage to your opponent.</effect>",
+      "text": "Spellcaster/Effect – <effect=Trigger>When this card is Summoned: Inflict 500 damage to your opponent.</effect>",
       "prepopLP": { "villain": -500 }
    },
    "Gravekeeper's Guard": {
@@ -3004,7 +3021,7 @@
       "levelOrSubtype": 4,
       "atk": 1500,
       "def": 1000,
-      "text": "Spellcaster/Effect - <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
+      "text": "Spellcaster/Effect – <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
    },
    "Gravekeeper's Spy": {
       "id": "24317029",
@@ -3017,9 +3034,7 @@
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
-         "params": {
-            "name": { "operator": "CONTAINS", "value": "Gravekeeper's" }
-         },
+         "params": { "name": { "operator": "CONTAINS", "value": "Gravekeeper's" } },
          "autoClose": true
       }
    },
@@ -3030,7 +3045,7 @@
       "levelOrSubtype": 3,
       "atk": 700,
       "def": 500,
-      "text": "Spellcaster/Effect - <effect=Continuous>Any battle damage this card inflicts to your opponent is treated as effect damage instead.</effect>"
+      "text": "Spellcaster/Effect – <effect=Continuous>Any battle damage this card inflicts to your opponent is treated as effect damage instead.</effect>"
    },
    "Gravekeeper's Watcher": {
       "id": "26084285",
@@ -3039,7 +3054,7 @@
       "levelOrSubtype": 4,
       "atk": 1000,
       "def": 1000,
-      "text": "Spellcaster/Effect - <effect=Quick>During either player's turn, when your opponent activates a Spell/Trap, or monster effect that could make them discard when it resolves: You can send this card from your hand to the Graveyard; negate the activation, and if you do, destroy it.</effect>"
+      "text": "Spellcaster/Effect – <effect=Quick>During either player's turn, when your opponent activates a Spell/Trap, or monster effect that could make them discard when it resolves: You can send this card from your hand to the Graveyard; negate the activation, and if you do, destroy it.</effect>"
    },
    "Graverobber": {
       "id": "61705417",
@@ -3336,7 +3351,7 @@
       "levelOrSubtype": 2,
       "atk": 650,
       "def": 500,
-      "text": "Fiend/Flip/Effect - <effect=Trigger>FLIP: Your opponent draws 3 cards, then they reveal those cards, also they discard any Spell drawn with this effect.</effect>",
+      "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: Your opponent draws 3 cards, then they reveal those cards, also they discard any Spell drawn with this effect.</effect>",
       "script": {
          "name": "MILL_UNTIL",
          "message": "FIXME",
@@ -3391,7 +3406,7 @@
       "levelOrSubtype": 6,
       "atk": 2000,
       "def": 1850,
-      "text": "Warrior/Ritual - You can Ritual Summon this card with \"Hamburger Recipe\"."
+      "text": "Warrior/Ritual – You can Ritual Summon this card with \"Hamburger Recipe\"."
    },
    "Hunter Spider": {
       "id": "80141480",
@@ -3481,7 +3496,7 @@
       "levelOrSubtype": 3,
       "atk": 400,
       "def": 1500,
-      "text": "Spellcaster/Effect - <effect=Quick>If this card attacks or is attacked, during damage calculation (in either player's turn): You can pay 2000 Life Points once per battle; this card gains 3000 ATK during that damage calculation only.</effect>",
+      "text": "Spellcaster/Effect – <effect=Quick>If this card attacks or is attacked, during damage calculation (in either player's turn): You can pay 2000 Life Points once per battle; this card gains 3000 ATK during that damage calculation only.</effect>",
       "prepopLP": { "hero": -2000 },
       "limit": 1
    },
@@ -3518,7 +3533,7 @@
       "levelOrSubtype": 7,
       "atk": 2200,
       "def": 2400,
-      "text": "Insect/Effect - <effect=Continuous>This card gains 200 ATK for each Insect monster on the field.</effect> <effect=Continuous>Cannot declare an attack unless you Tribute 1 monster.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card destroyed an opponent's monster by battle this turn: Special Summon 1 \"Insect Monster Token\" (Insect/EARTH/Level 1/ATK 100/DEF 100) in Attack Position.</effect>",
+      "text": "Insect/Effect – <effect=Continuous>This card gains 200 ATK for each Insect monster on the field.</effect> <effect=Continuous>Cannot declare an attack unless you Tribute 1 monster.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card destroyed an opponent's monster by battle this turn: Special Summon 1 \"Insect Monster Token\" (Insect/EARTH/Level 1/ATK 100/DEF 100) in Attack Position.</effect>",
       "script": {
          "name": "MAKE_TOKENS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -3547,7 +3562,7 @@
       "levelOrSubtype": 2,
       "atk": 500,
       "def": 500,
-      "text": "Beast-Warrior/Flip/Effect - <effect=Trigger>FLIP: Add 1 Equip Spell from your Deck to your hand.</effect>",
+      "text": "Beast-Warrior/Flip/Effect – <effect=Trigger>FLIP: Add 1 Equip Spell from your Deck to your hand.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -3616,7 +3631,7 @@
       "levelOrSubtype": 6,
       "atk": 2400,
       "def": 1500,
-      "text": "Machine/Effect - <effect=Continuous>Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.</effect>",
+      "text": "Machine/Effect – <effect=Continuous>Trap Cards, and their effects on the field, cannot be activated. Negate all Trap effects on the field.</effect>",
       "limit": 1,
       "art": 2
    },
@@ -3832,7 +3847,7 @@
       "levelOrSubtype": 1,
       "atk": 300,
       "def": 200,
-      "text": "Fiend/Effect - <effect=Quick>During damage calculation, if your opponent's monster attacks: You can discard this card; you take no battle damage from that battle.</effect>",
+      "text": "Fiend/Effect – <effect=Quick>During damage calculation, if your opponent's monster attacks: You can discard this card; you take no battle damage from that battle.</effect>",
       "art": 3
    },
    "Kuwagata α": {
@@ -3971,7 +3986,7 @@
       "levelOrSubtype": 8,
       "atk": 3000,
       "def": 2500,
-      "text": "Fiend/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) to your opponent's field by Tributing 2 monsters they control.</effect> <effect=Condition>You cannot Normal Summon/Set the turn you Special Summon this card.</effect> <effect=Trigger>Once per turn, during your Standby Phase: Take 1000 damage.</effect>",
+      "text": "Fiend/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) to your opponent's field by Tributing 2 monsters they control.</effect> <effect=Condition>You cannot Normal Summon/Set the turn you Special Summon this card.</effect> <effect=Trigger>Once per turn, during your Standby Phase: Take 1000 damage.</effect>",
       "prepopLP": { "hero": -1000 }
    },
    "Left Arm of the Forbidden One": {
@@ -4003,7 +4018,7 @@
       "levelOrSubtype": 7,
       "atk": 2400,
       "def": 2000,
-      "text": "Spellcaster/Effect/Ritual - <effect=Summon>You can Ritual Summon this card with \"Incandescent Ordeal\".</effect> <effect=Continuous>Each time a Spell is activated, place 1 Spell Counter on this card immediately after it resolves.</effect> <effect=Ignition>You can remove 3 Spell Counters from this card; destroy all monsters on the field, except this card.</effect>"
+      "text": "Spellcaster/Effect/Ritual – <effect=Summon>You can Ritual Summon this card with \"Incandescent Ordeal\".</effect> <effect=Continuous>Each time a Spell is activated, place 1 Spell Counter on this card immediately after it resolves.</effect> <effect=Ignition>You can remove 3 Spell Counters from this card; destroy all monsters on the field, except this card.</effect>"
    },
    "Leghul": {
       "id": "12472242",
@@ -4021,7 +4036,7 @@
       "levelOrSubtype": 4,
       "atk": 1700,
       "def": 500,
-      "text": "Plant/Effect - <effect=Ignition>You can banish 2 WATER monsters from your Graveyard; Special Summon 1 \"Lekunga Token\" (Plant/WATER/Level 2/ATK 700/DEF 700) in Attack Position.</effect>",
+      "text": "Plant/Effect – <effect=Ignition>You can banish 2 WATER monsters from your Graveyard; Special Summon 1 \"Lekunga Token\" (Plant/WATER/Level 2/ATK 700/DEF 700) in Attack Position.</effect>",
       "script": {
          "name": "MAKE_TOKENS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -4061,10 +4076,10 @@
       "levelOrSubtype": 5,
       "atk": 2100,
       "def": 1000,
-      "text": "Fiend/Effect - (This card is always treated as an \"Archfiend\" card.) <effect=Continuous>Banish any monster destroyed by battle with this card.</effect>",
+      "text": "Fiend/Effect – (This card is always treated as an \"Archfiend\" card.) <effect=Continuous>Banish any monster destroyed by battle with this card.</effect>",
       "art": 2
    },
-   "Level Limit - Area B": {
+   "Level Limit – Area B": {
       "id": "03136426",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
@@ -4216,7 +4231,7 @@
       "levelOrSubtype": 5,
       "atk": 2000,
       "def": 1000,
-      "text": "Spellcaster/Effect - <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell Card resolves.</effect> <effect=Continuous>This card gains 200 ATK for each Spell Counter on it.</effect> <effect=Ignition>You can remove 2 Spell Counters from this card, then target 1 monster on the field; destroy that target.</effect>"
+      "text": "Spellcaster/Effect – <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell Card resolves.</effect> <effect=Continuous>This card gains 200 ATK for each Spell Counter on it.</effect> <effect=Ignition>You can remove 2 Spell Counters from this card, then target 1 monster on the field; destroy that target.</effect>"
    },
    "Magical Merchant": {
       "id": "32362575",
@@ -4230,9 +4245,7 @@
          "name": "MILL_UNTIL",
          "message": "Spell or Trap",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
-         "params": {
-            "cardType": { "operator": "OR", "value": ["Spell", "Trap"] }
-         }
+         "params": { "cardType": { "operator": "OR", "value": ["Spell", "Trap"] } }
       }
    },
    "Magical Plant Mandragola": {
@@ -4317,10 +4330,17 @@
       "text": "Fairy/Effect – <effect=Trigger>When this card is Normal or Flip Summoned: You can add 1 Ritual Monster or 1 Ritual Spell Card from your Deck to your hand.</effect>",
       "script": {
          "name": "SEARCH_DECK",
-         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "displayCondition": {
+            "players": ["HERO"],
+            "row": "monster"
+         },
          "params": {
-            "cardType": { "value": "ritualMonster" },
-            "levelOrSubtype": { "value": "Ritual" }
+            "cardType": {
+               "value": "ritualMonster"
+            },
+            "levelOrSubtype": {
+               "value": "Ritual"
+            }
          },
          "oneParam": true,
          "autoClose": true
@@ -4333,7 +4353,7 @@
       "levelOrSubtype": 6,
       "atk": 2300,
       "def": 1000,
-      "text": "Beast-Warrior/Effect - <effect=Trigger>During the End Phase of the turn this card was sent to the Graveyard: You can send to the Graveyard 1 Beast, Beast-Warrior, or Winged Beast monster from your hand or your side of the field; Special Summon this card from your Graveyard.</effect>",
+      "text": "Beast-Warrior/Effect – <effect=Trigger>During the End Phase of the turn this card was sent to the Graveyard: You can send to the Graveyard 1 Beast, Beast-Warrior, or Winged Beast monster from your hand or your side of the field; Special Summon this card from your Graveyard.</effect>",
       "limit": 2
    },
    "Marauding Captain": {
@@ -4343,7 +4363,7 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 400,
-      "text": "Warrior/Effect - <effect=Continuous>Your opponent cannot target Warrior monsters for attacks, except this one.</effect> <effect=Trigger>When this card is Normal Summoned: You can Special Summon 1 Level 4 or lower monster from your hand.</effect>",
+      "text": "Warrior/Effect – <effect=Continuous>Your opponent cannot target Warrior monsters for attacks, except this one.</effect> <effect=Trigger>When this card is Normal Summoned: You can Special Summon 1 Level 4 or lower monster from your hand.</effect>",
       "limit": 2
    },
    "Masaki the Legendary Swordsman": {
@@ -4362,7 +4382,7 @@
       "levelOrSubtype": 2,
       "atk": 900,
       "def": 400,
-      "text": "Fiend/Flip/Effect - <effect=Trigger>FLIP: Target 1 Trap in your Graveyard; add that target to your hand.</effect>"
+      "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: Target 1 Trap in your Graveyard; add that target to your hand.</effect>"
    },
    "Mask of Restrict": {
       "id": "29549364",
@@ -4472,7 +4492,7 @@
       "levelOrSubtype": 2,
       "atk": 500,
       "def": 600,
-      "text": "Rock/Effect - <effect=Ignition>Once per turn, you can flip this card into face-down Defense Position.</effect> <effect=Trigger>When this card is Flip Summoned, destroy 1 monster on your opponent's side of the field.</effect>"
+      "text": "Rock/Effect – <effect=Ignition>Once per turn, you can flip this card into face-down Defense Position.</effect> <effect=Trigger>When this card is Flip Summoned, destroy 1 monster on your opponent's side of the field.</effect>"
    },
    "Mefist the Infernal General": {
       "id": "46820049",
@@ -4674,7 +4694,7 @@
       "levelOrSubtype": 6,
       "atk": 2400,
       "def": 1000,
-      "text": "Aqua/Effect - <effect=Trigger>When this card is Tribute Summoned: You can target up to 2 Spell/Trap Cards on the field; destroy those targets.</effect>"
+      "text": "Aqua/Effect – <effect=Trigger>When this card is Tribute Summoned: You can target up to 2 Spell/Trap Cards on the field; destroy those targets.</effect>"
    },
    "Mokey Mokey": {
       "id": "27288416",
@@ -4763,10 +4783,7 @@
       "text": "Rock/Flip/Effect – <effect=Trigger>FLIP: Both players discard their entire hands, then draw 5 cards.</effect>",
       "script": {
          "name": "DISCARD_AND_DRAW",
-         "displayCondition": {
-            "players": ["HERO", "VILLAIN"],
-            "row": "monster"
-         },
+         "displayCondition": { "players": ["HERO", "VILLAIN"], "row": "monster" },
          "params": 5
       },
       "limit": 1
@@ -4951,7 +4968,7 @@
       "levelOrSubtype": 2,
       "atk": 750,
       "def": 600,
-      "text": "Insect/Flip/Effect - <effect=Trigger>FLIP: Send the top 5 cards of your opponent's Deck to the Graveyard.</effect>",
+      "text": "Insect/Flip/Effect – <effect=Trigger>FLIP: Send the top 5 cards of your opponent's Deck to the Graveyard.</effect>",
       "script": {
          "name": "MILL_UNTIL",
          "message": "FIXME",
@@ -5020,7 +5037,7 @@
       "levelOrSubtype": 4,
       "atk": 1200,
       "def": 800,
-      "text": "Fiend/Effect - <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Target 1 monster on the field; destroy that target.</effect>"
+      "text": "Fiend/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Target 1 monster on the field; destroy that target.</effect>"
    },
    "Night Assailant": {
       "id": "16226786",
@@ -5029,7 +5046,7 @@
       "levelOrSubtype": 3,
       "atk": 200,
       "def": 500,
-      "text": "Fiend/Flip/Effect - <effect=Trigger>FLIP: Target 1 monster your opponent controls; destroy that target.</effect> <effect=Trigger>When this card is sent from the hand to the Graveyard: Target 1 Flip monster in your Graveyard, except this card; return that target to the hand.</effect>",
+      "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: Target 1 monster your opponent controls; destroy that target.</effect> <effect=Trigger>When this card is sent from the hand to the Graveyard: Target 1 Flip monster in your Graveyard, except this card; return that target to the hand.</effect>",
       "limit": 2
    },
    "Nightmare Horse": {
@@ -5048,7 +5065,7 @@
       "levelOrSubtype": 4,
       "atk": 900,
       "def": 1800,
-      "text": "Aqua/Effect - <effect=Continuous>All face-up WATER monsters you control gain 200 ATK.</effect> <effect=Trigger>When this card is flipped face-up: Target 1 card your opponent controls; return that target to the hand.</effect>"
+      "text": "Aqua/Effect – <effect=Continuous>All face-up WATER monsters you control gain 200 ATK.</effect> <effect=Trigger>When this card is flipped face-up: Target 1 card your opponent controls; return that target to the hand.</effect>"
    },
    "Nightmare Wheel": {
       "id": "54704216",
@@ -5064,7 +5081,7 @@
       "levelOrSubtype": 2,
       "atk": 1000,
       "def": 100,
-      "text": "Beast/Effect - <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Gain 1000 Life Points, then you can Special Summon any number of \"Nimble Momonga\" from your Deck in face-down Defense Position.</effect>",
+      "text": "Beast/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Gain 1000 Life Points, then you can Special Summon any number of \"Nimble Momonga\" from your Deck in face-down Defense Position.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
@@ -5324,7 +5341,7 @@
       "levelOrSubtype": 3,
       "atk": 0,
       "def": 100,
-      "text": "Spellcaster/Spirit/Effect - <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>When this card is Normal Summoned or flipped face-up: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>",
+      "text": "Spellcaster/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>When this card is Normal Summoned or flipped face-up: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>",
       "art": 2
    },
    "Overdrive": {
@@ -5343,7 +5360,7 @@
       "levelOrSubtype": 4,
       "atk": 1900,
       "def": 1200,
-      "text": "Dragon/Effect/Ritual - <effect=Summon>You can Ritual Summon this card with \"White Dragon Ritual\".</effect> <effect=Trigger>At the start of the Damage Step, if this card attacks a face-down Defense Position monster: Destroy that face-down monster.</effect> <effect=Ignition>You can Tribute this card; Special Summon 1 \"Blue-Eyes White Dragon\" from your hand or Deck, but \"Blue-Eyes White Dragon\" cannot attack for the rest of this turn.</effect>",
+      "text": "Dragon/Effect/Ritual – <effect=Summon>You can Ritual Summon this card with \"White Dragon Ritual\".</effect> <effect=Trigger>At the start of the Damage Step, if this card attacks a face-down Defense Position monster: Destroy that face-down monster.</effect> <effect=Ignition>You can Tribute this card; Special Summon 1 \"Blue-Eyes White Dragon\" from your hand or Deck, but \"Blue-Eyes White Dragon\" cannot attack for the rest of this turn.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
@@ -5435,7 +5452,7 @@
       "levelOrSubtype": 6,
       "atk": 1950,
       "def": 1850,
-      "text": "Warrior/Ritual - You can Ritual Summon this card with \"Commencement Dance\"."
+      "text": "Warrior/Ritual – You can Ritual Summon this card with \"Commencement Dance\"."
    },
    "Petit Angel": {
       "id": "38142739",
@@ -5572,7 +5589,7 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 800,
-      "text": "Fiend/Effect - <effect=Ignition>You can Tribute this face-up card; take control of all face-up Level 3 or lower monsters your opponent controls.</effect>"
+      "text": "Fiend/Effect – <effect=Ignition>You can Tribute this face-up card; take control of all face-up Level 3 or lower monsters your opponent controls.</effect>"
    },
    "Pot of Greed": {
       "id": "55144522",
@@ -5649,7 +5666,7 @@
       "levelOrSubtype": 4,
       "atk": 1200,
       "def": 1400,
-      "text": "Zombie/Effect - <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 Zombie monster with 2000 or less DEF from your Deck.</effect>",
+      "text": "Zombie/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can Special Summon 1 Zombie monster with 2000 or less DEF from your Deck.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
@@ -5737,7 +5754,7 @@
       "levelOrSubtype": 4,
       "atk": 2400,
       "def": 1200,
-      "text": "Dragon/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect>"
+      "text": "Dragon/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect>"
    },
    "Raregold Armor": {
       "id": "07625614",
@@ -5838,7 +5855,7 @@
       "levelOrSubtype": 8,
       "atk": 2800,
       "def": 2400,
-      "text": "Machine/Effect - <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your Deck) by Tributing \"Red-Eyes Black Dragon\" equipped with \"Metalmorph\".</effect>",
+      "text": "Machine/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your Deck) by Tributing \"Red-Eyes Black Dragon\" equipped with \"Metalmorph\".</effect>",
       "art": 2
    },
    "Regenerating Mummy": {
@@ -5873,7 +5890,7 @@
       "levelOrSubtype": 1,
       "atk": 0,
       "def": 0,
-      "text": "Spellcaster/Effect/Ritual - <effect=Summon>You can Ritual Summon this card with \"Black Illusion Ritual\".</effect> <effect=Ignition>Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max 1). This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>This card's ATK/DEF become equal to that equipped monster's.</effect> <effect=Continuous>If this card would be destroyed by battle, destroy that equipped monster instead.</effect> <effect=Trigger>When an equipped monster is destroyed by this effect: Inflict damage to your opponent equal to the battle damage that you took.</effect>"
+      "text": "Spellcaster/Effect/Ritual – <effect=Summon>You can Ritual Summon this card with \"Black Illusion Ritual\".</effect> <effect=Ignition>Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max 1). This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>This card's ATK/DEF become equal to that equipped monster's.</effect> <effect=Continuous>If this card would be destroyed by battle, destroy that equipped monster instead.</effect> <effect=Trigger>When an equipped monster is destroyed by this effect: Inflict damage to your opponent equal to the battle damage that you took.</effect>"
    },
    "Rescue Cat": {
       "id": "14878871",
@@ -5882,7 +5899,7 @@
       "levelOrSubtype": 4,
       "atk": 300,
       "def": 100,
-      "text": "Beast/Effect - <effect=Ignition>You can send this card you control to the Graveyard; Special Summon 2 Level 3 or lower Beast monsters from your Deck, but destroy them during the End Phase.</effect>",
+      "text": "Beast/Effect – <effect=Ignition>You can send this card you control to the Graveyard; Special Summon 2 Level 3 or lower Beast monsters from your Deck, but destroy them during the End Phase.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
@@ -5899,7 +5916,7 @@
       "levelOrSubtype": 8,
       "atk": 2500,
       "def": 1500,
-      "text": "Fiend/Effect/Ritual - <effect=Summon>Must be Ritual Summoned with \"Final Ritual of the Ancients\" and cannot be Ritual Summoned by other ways.</effect> <effect=Ignition>Once per turn: You can discard 1 Spell from your hand, then target 1 monster your opponent controls; take control of that target until the end of this turn.</effect>"
+      "text": "Fiend/Effect/Ritual – <effect=Summon>Must be Ritual Summoned with \"Final Ritual of the Ancients\" and cannot be Ritual Summoned by other ways.</effect> <effect=Ignition>Once per turn: You can discard 1 Spell from your hand, then target 1 monster your opponent controls; take control of that target until the end of this turn.</effect>"
    },
    "Respect Play": {
       "id": "08951260",
@@ -6101,7 +6118,7 @@
       "levelOrSubtype": 4,
       "atk": 0,
       "def": 2000,
-      "text": "Spellcaster/Effect - <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect><effect=Ignition>You can remove 3 Spell Counters from this card; draw 1 card.</effect>"
+      "text": "Spellcaster/Effect – <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect><effect=Ignition>You can remove 3 Spell Counters from this card; draw 1 card.</effect>"
    },
    "Royal Oppression": {
       "id": "93016201",
@@ -6180,7 +6197,7 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 400,
-      "text": "Winged Beast/Effect - <effect=Trigger>When this card is Special Summoned: The player with possession of this card draws 1 card.</effect>"
+      "text": "Winged Beast/Effect – <effect=Trigger>When this card is Special Summoned: The player with possession of this card draws 1 card.</effect>"
    },
    "Sacred Phoenix of Nephthys": {
       "id": "61441708",
@@ -6189,7 +6206,7 @@
       "levelOrSubtype": 8,
       "atk": 2400,
       "def": 1600,
-      "text": "Winged Beast/Effect - <effect=Trigger>Once per turn, during your next Standby Phase after this card was destroyed by a card effect and sent to the Graveyard: Special Summon this card from the Graveyard.</effect> <effect=Trigger>If you do: Destroy all Spells and Traps on the field.</effect>",
+      "text": "Winged Beast/Effect – <effect=Trigger>Once per turn, during your next Standby Phase after this card was destroyed by a card effect and sent to the Graveyard: Special Summon this card from the Graveyard.</effect> <effect=Trigger>If you do: Destroy all Spells and Traps on the field.</effect>",
       "limit": 1
    },
    "Saggi the Dark Clown": {
@@ -6257,7 +6274,7 @@
       "levelOrSubtype": 1,
       "atk": 200,
       "def": 300,
-      "text": "Warrior/Effect - <effect=Ignition>Once per turn, during your Main Phase: You can pay 800 Life Points; Spells/Traps cannot be activated until the End Phase.</effect>",
+      "text": "Warrior/Effect – <effect=Ignition>Once per turn, during your Main Phase: You can pay 800 Life Points; Spells/Traps cannot be activated until the End Phase.</effect>",
       "prepopLP": { "hero": -800 }
    },
    "Sasuke Samurai #3": {
@@ -6276,7 +6293,7 @@
       "levelOrSubtype": 4,
       "atk": 1200,
       "def": 1200,
-      "text": "Warrior/Effect - <effect=Trigger>When this card battles a monster, before damage calculation: Toss a coin and call it. If you call it right, destroy that monster.</effect>",
+      "text": "Warrior/Effect – <effect=Trigger>When this card battles a monster, before damage calculation: Toss a coin and call it. If you call it right, destroy that monster.</effect>",
       "script": {
          "name": "FLIP_COINS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -6349,7 +6366,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1000,
-      "text": "Fairy/Effect - <effect=Trigger>When this card is Normal or Flip Summoned: You can add 1 Ritual Monster from your Deck to your hand.</effect>",
+      "text": "Fairy/Effect – <effect=Trigger>When this card is Normal or Flip Summoned: You can add 1 Ritual Monster from your Deck to your hand.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -6446,7 +6463,7 @@
       "levelOrSubtype": 8,
       "atk": 3300,
       "def": 3000,
-      "text": "Fairy/Effect/Ritual - <effect=Summon>Must be Ritual Summoned with \"Shinato's Ark\" and cannot be Ritual Summoned by other ways.</effect> <effect=Trigger>When this card destroys a Defense Position monster by battle and sends it to the Graveyard: Inflict damage to your opponent equal to its original ATK.</effect>"
+      "text": "Fairy/Effect/Ritual – <effect=Summon>Must be Ritual Summoned with \"Shinato's Ark\" and cannot be Ritual Summoned by other ways.</effect> <effect=Trigger>When this card destroys a Defense Position monster by battle and sends it to the Graveyard: Inflict damage to your opponent equal to its original ATK.</effect>"
    },
    "Shining Abyss": {
       "id": "87303357",
@@ -6538,7 +6555,7 @@
       "levelOrSubtype": 4,
       "atk": 1700,
       "def": 1900,
-      "text": "Spellcaster/Effect - <effect=Continuous>When a Spell resolves: Place 1 Spell Counter on this card (max.</effect><effect=Ignition>3).</effect> You can Tribute this card with 3 Spell Counters on it; Special Summon 1 \"Buster Blader\" from your hand, Deck, or Graveyard",
+      "text": "Spellcaster/Effect – <effect=Continuous>When a Spell resolves: Place 1 Spell Counter on this card (max.</effect><effect=Ignition>3).</effect> You can Tribute this card with 3 Spell Counters on it; Special Summon 1 \"Buster Blader\" from your hand, Deck, or Graveyard",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
@@ -6562,7 +6579,7 @@
       "levelOrSubtype": 7,
       "atk": 2050,
       "def": 2500,
-      "text": "Warrior/Ritual - You can Ritual Summon this card with \"Novox's Prayer\"."
+      "text": "Warrior/Ritual – You can Ritual Summon this card with \"Novox's Prayer\"."
    },
    "Skull Knight": {
       "id": "02504891",
@@ -6811,7 +6828,7 @@
       "levelOrSubtype": 2,
       "atk": 500,
       "def": 500,
-      "text": "Fiend/Flip/Effect - <effect=Trigger>FLIP: When this card is sent to the Graveyard, each player targets 1 monster in their Graveyard, then Special Summons them to their side of the field in face-up Attack Position or face-down Defense Position.</effect>"
+      "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: When this card is sent to the Graveyard, each player targets 1 monster in their Graveyard, then Special Summons them to their side of the field in face-up Attack Position or face-down Defense Position.</effect>"
    },
    "Spell Canceller": {
       "id": "84636823",
@@ -6820,7 +6837,7 @@
       "levelOrSubtype": 5,
       "atk": 1800,
       "def": 1600,
-      "text": "Machine/Effect - <effect=Continuous>Spell Cards, and their effects on the field, cannot be activated. Negate all Spell effects on the field.</effect>"
+      "text": "Machine/Effect – <effect=Continuous>Spell Cards, and their effects on the field, cannot be activated. Negate all Spell effects on the field.</effect>"
    },
    "Spell Economics": {
       "id": "04259068",
@@ -6897,7 +6914,7 @@
       "levelOrSubtype": 3,
       "atk": 300,
       "def": 200,
-      "text": "Zombie/Effect - <effect=Continuous>Cannot be destroyed by battle.</effect> <effect=Continuous>After resolving a card effect that targets this face-up card, destroy this card.</effect> <effect=Trigger>When this card inflicts battle damage to your opponent by a direct attack: Discard 1 random card from their hand.</effect>",
+      "text": "Zombie/Effect – <effect=Continuous>Cannot be destroyed by battle.</effect> <effect=Continuous>After resolving a card effect that targets this face-up card, destroy this card.</effect> <effect=Trigger>When this card inflicts battle damage to your opponent by a direct attack: Discard 1 random card from their hand.</effect>",
       "script": {
          "name": "RANDOM_DISCARD",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" }
@@ -7036,7 +7053,7 @@
       "levelOrSubtype": 4,
       "atk": 1700,
       "def": 1200,
-      "text": "Warrior/Effect - <effect=Quick>You can banish 2 DARK monsters from your Graveyard; banish this face-up card until the End Phase.</effect> <effect=Condition>You can only use this effect of \"Strike Ninja\" once per turn.</effect>"
+      "text": "Warrior/Effect – <effect=Quick>You can banish 2 DARK monsters from your Graveyard; banish this face-up card until the End Phase.</effect> <effect=Condition>You can only use this effect of \"Strike Ninja\" once per turn.</effect>"
    },
    "Stuffed Animal": {
       "id": "71068263",
@@ -7124,7 +7141,7 @@
       "levelOrSubtype": 3,
       "atk": 1000,
       "def": 500,
-      "text": "Insect/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Target 1 Spell/Trap your opponent controls; destroy that target.</effect>"
+      "text": "Insect/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Target 1 Spell/Trap your opponent controls; destroy that target.</effect>"
    },
    "Swarm of Scarabs": {
       "id": "15383415",
@@ -7133,7 +7150,7 @@
       "levelOrSubtype": 3,
       "atk": 500,
       "def": 1000,
-      "text": "Insect/Effect - <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Target 1 monster your opponent controls; destroy that target.</effect>"
+      "text": "Insect/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Target 1 monster your opponent controls; destroy that target.</effect>"
    },
    "Swift Gaia the Fierce Knight": {
       "id": "16589042",
@@ -7285,7 +7302,7 @@
       "levelOrSubtype": 8,
       "atk": 2300,
       "def": 3000,
-      "text": "Thunder/Effect - <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>Once per turn: You can target 1 monster in your Graveyard; send 1 card from your hand to the Graveyard, and if you do, Special Summon that target.</effect>"
+      "text": "Thunder/Effect – <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>Once per turn: You can target 1 monster in your Graveyard; send 1 card from your hand to the Graveyard, and if you do, Special Summon that target.</effect>"
    },
    "The Creator Incarnate": {
       "id": "97093037",
@@ -7294,7 +7311,7 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 1500,
-      "text": "Warrior/Effect - <effect=Ignition>You can Tribute this card; Special Summon 1 \"The Creator\" from your hand.</effect>"
+      "text": "Warrior/Effect – <effect=Ignition>You can Tribute this card; Special Summon 1 \"The Creator\" from your hand.</effect>"
    },
    "The Dark Door": {
       "id": "30606547",
@@ -7445,7 +7462,7 @@
       "levelOrSubtype": 8,
       "atk": 3200,
       "def": 1800,
-      "text": "Fiend/Ritual - You can Ritual Summon this card with \"Curse of the Masked Beast\"."
+      "text": "Fiend/Ritual – You can Ritual Summon this card with \"Curse of the Masked Beast\"."
    },
    "The Portrait's Secret": {
       "id": "32541773",
@@ -7517,7 +7534,7 @@
       "levelOrSubtype": 6,
       "atk": 2400,
       "def": 1000,
-      "text": "Pyro/Effect - <effect=Trigger>If this card is Tribute Summoned: Discard 1 random card from your opponent's hand, then, if it was a Monster Card, inflict damage to your opponent equal to its original Level x 100.</effect>",
+      "text": "Pyro/Effect – <effect=Trigger>If this card is Tribute Summoned: Discard 1 random card from your opponent's hand, then, if it was a Monster Card, inflict damage to your opponent equal to its original Level x 100.</effect>",
       "script": {
          "name": "RANDOM_DISCARD",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" }
@@ -7678,7 +7695,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1300,
-      "text": "Machine/Toon/Effect - <effect=Continuous>Cannot attack the turn it is Summoned.</effect> <effect=Continuous>If \"Toon World\" on the field is destroyed, destroy this card.</effect> <effect=Continuous>While you control \"Toon World\" and your opponent controls no Toon monsters, this card can attack directly.</effect> <effect=Ignition>You can Tribute 1 monster; inflict 500 damage to your opponent.</effect>",
+      "text": "Machine/Toon/Effect – <effect=Continuous>Cannot attack the turn it is Summoned.</effect> <effect=Continuous>If \"Toon World\" on the field is destroyed, destroy this card.</effect> <effect=Continuous>While you control \"Toon World\" and your opponent controls no Toon monsters, this card can attack directly.</effect> <effect=Ignition>You can Tribute 1 monster; inflict 500 damage to your opponent.</effect>",
       "prepopLP": { "villain": -500 }
    },
    "Toon Table of Contents": {
@@ -7728,7 +7745,7 @@
       "levelOrSubtype": 3,
       "atk": 500,
       "def": 1100,
-      "text": "Warrior/Flip/Effect - <effect=Trigger>FLIP: Target 1 Trap on the field; Destroy it. If the target is Set, reveal it if it is a Spell, return it to its original position.</effect>"
+      "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 1 Trap on the field; Destroy it. If the target is Set, reveal it if it is a Spell, return it to its original position.</effect>"
    },
    "Tremendous Fire": {
       "id": "46918794",
@@ -7854,7 +7871,7 @@
       "levelOrSubtype": 3,
       "atk": 1500,
       "def": 1200,
-      "text": "Dragon/Effect - <effect=Trigger>During the End Phase, if this card is in the Graveyard because it was destroyed on the field and sent there this turn: You can Special Summon this card, but its ATK/DEF become 1000.</effect> <effect=Condition>You can only use this effect of \"Twin-Headed Behemoth\" once per Duel.</effect>",
+      "text": "Dragon/Effect – <effect=Trigger>During the End Phase, if this card is in the Graveyard because it was destroyed on the field and sent there this turn: You can Special Summon this card, but its ATK/DEF become 1000.</effect> <effect=Condition>You can only use this effect of \"Twin-Headed Behemoth\" once per Duel.</effect>",
       "limit": 1
    },
    "Twin-Headed Fire Dragon": {
@@ -8047,6 +8064,21 @@
       "def": 1000,
       "text": "Zombie/Effect – <effect=Trigger>At the end of the Battle Phase, if this card destroyed a monster by battle and sent it to the Graveyard this turn: You can Special Summon that monster to your side of the field.</effect>"
    },
+   "Vampire Lord": {
+      "id": "53839837",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 3,
+      "atk": 2000,
+      "def": 1500,
+      "text": "Zombie/Effect – When this card inflicts battle damage to your opponent: Declare Monster, Spell, or Trap; your opponent sends 1 card of that type from their Deck to the Graveyard. Once per turn, during your next Standby Phase after this card in your possession was destroyed and sent to your Graveyard by an opponent's card effect: Special Summon this card from the Graveyard.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "autoClose": true
+      },
+      "limit": 2
+   },
    "Vengeful Bog Spirit": {
       "id": "95220856",
       "cardType": "Spell",
@@ -8210,7 +8242,7 @@
       "levelOrSubtype": 1,
       "atk": 300,
       "def": 200,
-      "text": "Fairy/Effect - <effect=Trigger>If this card on the field is destroyed and sent to the Graveyard: For the rest of this turn, you take no battle damage.</effect>",
+      "text": "Fairy/Effect – <effect=Trigger>If this card on the field is destroyed and sent to the Graveyard: For the rest of this turn, you take no battle damage.</effect>",
       "art": 2
    },
    "Wingweaver": {
