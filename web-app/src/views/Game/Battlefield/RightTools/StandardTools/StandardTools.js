@@ -10,6 +10,7 @@ import CardScript from "components/CardScript/CardScript.js";
 import Counters from "./Counters.js";
 import ConcedeButton from "./ConcedeButton.js";
 import RevealHandButton from "./RevealHandButton.js";
+import ShuffleDeckButton from "./ShuffleDeckButton.js";
 import Phases from "./Phases.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { resetSolo } from "stateStore/actions/game/field.js";
@@ -43,6 +44,7 @@ class StandardTools extends PureComponent {
                <Phases heroPlayer={name} />
                <Counters heroPlayer={name} />
                <RevealHandButton name={name} />
+               <ShuffleDeckButton heroPlayer={name} />
                <CardScript heroPlayer={name} />
                <Shadow>
                   <Sound />

@@ -37,7 +37,6 @@ class Counters extends Component {
       return (
          <ButtonRow>
             <Button
-               color="primary"
                round
                onClick={() => this.tryAdjustCounters(1)}
                fullWidth
@@ -46,7 +45,6 @@ class Counters extends Component {
                <FaPlusCircle color="green" size="2em" /> Count
             </Button>
             <Button
-               color="primary"
                round
                onClick={() => this.tryAdjustCounters(-1)}
                fullWidth
