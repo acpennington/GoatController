@@ -83,12 +83,6 @@ const rightToolsStyle = {
       backgroundPosition: "50% 40%",
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url("/cards/art/ReinforcementoftheArmy.jpg")'
    },
-   LPbutton: {
-      marginRight: "3px"
-   },
-   LPbox: {
-      marginRight: "3px"
-   },
    inactivePhase: {
       opacity: 0.8
    },
