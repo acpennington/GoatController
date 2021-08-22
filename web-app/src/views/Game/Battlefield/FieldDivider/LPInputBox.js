@@ -15,6 +15,7 @@ class LPInputBox extends PureComponent {
    constructor(props) {
       super(props);
       this.state = { inputLP: "", LPmode: -1 };
+      this.ref = React.createRef();
    }
 
    componentDidUpdate() {
@@ -23,8 +24,10 @@ class LPInputBox extends PureComponent {
 
       const convertedPrepop = prepopLPvalue && (prepopLPvalue === "half" ? Math.floor(lifepoints / 2) : Math.abs(prepopLPvalue));
 
-      if (prepopLPvalue && convertedPrepop !== Number(inputLP))
+      if (prepopLPvalue && convertedPrepop !== Number(inputLP)) {
          this.setState({ inputLP: convertedPrepop, LPmode: prepopLPvalue === "half" || prepopLPvalue < 0 ? -1 : 1 });
+         this.ref.current.focus();
+      }
    }
 
    inputLP = (event) => {
@@ -78,7 +81,7 @@ class LPInputBox extends PureComponent {
 
       return (
          <div>
-            <CustomInput
+            <CustomInput ref={this.ref}
                white
                formControlProps={{ fullWidth: true }}
                inputCustomClasses={classes.LPinput}
