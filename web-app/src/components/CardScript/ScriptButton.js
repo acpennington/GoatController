@@ -135,7 +135,7 @@ class CardScript extends PureComponent {
 
    render() {
       const { classes, script, variant, field, activeCard } = this.props;
-      const { tooltip } = script;
+      const { tooltip, params } = script;
 
       if (variant && !fieldContains(field, variant)) return null;
 
@@ -150,7 +150,7 @@ class CardScript extends PureComponent {
             }
             round
          >
-            <ScriptName scriptName={script.name} />
+            <ScriptName scriptName={script.name} params={params} />
          </Button>
       );
 

@@ -58,5 +58,4 @@ Notes regarding cards labeled "easy".
 -  Exodia: fancy win script? (user can technically just reveal hand)
 -  Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
 -  Reversal Quiz - helper to send everything to graveyard? Optional script to swap LP?
--  Serial Spell: Discard entire hand script would be nice?
 -  Prohibition: Probably worked differently in Goat Format than it does in current format. We should perhaps research this and further clarify its text.

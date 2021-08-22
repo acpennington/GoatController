@@ -11,7 +11,7 @@ import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, FLIP_COINS, ROLL_DICE, DIS
 
 class ScriptName extends PureComponent {
    render() {
-      const { scriptName } = this.props;
+      const { scriptName, params } = this.props;
 
       switch (scriptName) {
          case SEARCH_DECK:
@@ -53,7 +53,7 @@ class ScriptName extends PureComponent {
          case DISCARD_AND_DRAW:
             return (
                <Fragment>
-                  <GiCardPlay /> Discard and Draw
+                  <GiCardPlay /> Discard {params === 0 ? "Hand" : "and Draw"}
                </Fragment>
             );
          case SKIP_DRAWS:
@@ -61,7 +61,7 @@ class ScriptName extends PureComponent {
                <Fragment>
                   <BiBlock /> Skip Draws
                </Fragment>
-            )
+            );
          default:
             return <Fragment>{scriptName && scriptName.replace(/_/g, " ")}</Fragment>;
       }
@@ -69,7 +69,8 @@ class ScriptName extends PureComponent {
 }
 
 ScriptName.propTypes = {
-   scriptName: PropTypes.string.isRequired
+   scriptName: PropTypes.string.isRequired,
+   params: PropTypes.any
 };
 
 export default ScriptName;
