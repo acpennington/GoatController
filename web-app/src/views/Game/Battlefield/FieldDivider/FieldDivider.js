@@ -14,9 +14,9 @@ class FieldDivider extends PureComponent {
 
       return (
          <div className={classes.fieldDivider}>
-            <LifeBar life={lifepoints.villain} isHero={false} />
-            <LPInputBox lifepoints={lifepoints.hero} heroPlayer={heroPlayer} />
             <LifeBar life={lifepoints.hero} isHero={true} />
+            <LPInputBox lifepoints={lifepoints.hero} heroPlayer={heroPlayer} />
+            <LifeBar life={lifepoints.villain} isHero={false} />
          </div>
       );
    }

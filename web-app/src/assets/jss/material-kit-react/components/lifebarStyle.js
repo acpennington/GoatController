@@ -10,6 +10,12 @@ const container = {
    width: "25%"
 };
 
+const arrow = {
+   position: "absolute",
+   top: "0%",
+   fontSize: 30
+};
+
 const lifebarStyle = {
    containerhero: {
       background: "linear-gradient(90deg, rgb(0, 255, 153), rgb(0, 0, 255))",
@@ -34,6 +40,13 @@ const lifebarStyle = {
       position: "relative",
       width: "100%",
       textAlign: "center"
+   },
+   heroArrow: {
+      ...arrow
+   },
+   villainArrow: {
+      ...arrow,
+      right: 0
    }
 };
 
