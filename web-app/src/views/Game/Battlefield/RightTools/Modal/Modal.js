@@ -2,7 +2,7 @@ import React, { Fragment, Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import RenderCards from "./CardsToRender.js";
+import CardsToRender from "./CardsToRender.js";
 import ModalHeader from "./ModalHeader.js";
 import ShortcutFooter from "./ShortcutFooter.js";
 
@@ -47,7 +47,7 @@ class Modal extends Component {
    };
 
    render() {
-      const { classes, height, player, row, filter, autoClose, isExtra, allFusions, heroPlayer } = this.props;
+      const { classes, height, player, row, filter, autoClose, oneParam, isExtra, allFusions, heroPlayer } = this.props;
       const { metaTargets, levelFilter, maxHeight } = this.state;
       const isHero = heroPlayer === player;
 
@@ -61,7 +61,7 @@ class Modal extends Component {
       return (
          <div className={classes.modalContainer} id="modalcontainer">
             <ModalHeader addName={!isExtra} player={player} row={row} />
-            <RenderCards
+            <CardsToRender
                height={height * MODAL_CARD_SIZE}
                player={player}
                row={row}
@@ -70,6 +70,7 @@ class Modal extends Component {
                filter={filter}
                isHero={isHero}
                autoClose={autoClose}
+               oneParam={oneParam}
             />
             {isHero && (
                <div id="modalfooter" className={classes["footer" + row]}>
@@ -107,12 +108,12 @@ class Modal extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-   const { player, row, filter, autoClose } = ownProps.pile;
+   const { player, row, filter, autoClose, oneParam } = ownProps.pile;
    const isExtra = row === EXTRA_DECK;
    const usedFusions = isExtra && state.field[player].usedFusions;
    const allFusions = isExtra && Object.keys(fusions).filter((name) => !usedFusions[name] || usedFusions[name] < 3);
 
-   return { player, row, filter, autoClose, isExtra, usedFusions, allFusions };
+   return { player, row, filter, autoClose, oneParam, isExtra, usedFusions, allFusions };
 }
 
 Modal.propTypes = {

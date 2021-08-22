@@ -5,8 +5,8 @@ function switchNames() {
    return { type: SWITCH_NAMES };
 }
 
-function openModal(player, row, filter = false, autoClose = false) {
-   return { type: OPEN_MODAL, data: { player, row, filter, autoClose } };
+function openModal(player, row, filter = false, autoClose = false, oneParam = false) {
+   return { type: OPEN_MODAL, data: { player, row, filter, autoClose, oneParam } };
 }
 
 function closeModal(row, player, socket = false) {

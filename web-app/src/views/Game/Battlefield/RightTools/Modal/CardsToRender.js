@@ -19,15 +19,16 @@ class CardsToRender extends Component {
    }
 
    filterZones = () => {
-      const { cardsLen, filter, cards } = this.props;
+      const { cardsLen, filter, cards, oneParam } = this.props;
+
       let zoneNumbers = [];
       for (let i = 0; i < cardsLen; i++) zoneNumbers.push(i);
 
       if (filter)
          zoneNumbers = zoneNumbers.filter((numb) => {
             const card = cards[numb];
-            const { fail } = checkParams(card, filter);
-            return fail.length === 0;
+            const { fail, pass } = checkParams(card, filter);
+            return oneParam ? pass.length > 0 : fail.length === 0;
          });
 
       return zoneNumbers;
@@ -78,9 +79,10 @@ CardsToRender.propTypes = {
    row: PropTypes.string.isRequired,
    cardNames: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
    maxHeight: PropTypes.number.isRequired,
-   filter: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+   filter: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
    isHero: PropTypes.bool.isRequired,
-   autoClose: PropTypes.bool.isRequired
+   autoClose: PropTypes.bool.isRequired,
+   oneParam: PropTypes.bool
 };
 
 CardsToRender.contextType = WebSocketContext;
