@@ -24,6 +24,7 @@ export default function CustomInput(props) {
       error,
       white,
       inputRootCustomClasses,
+      inputCustomClasses,
       success
    } = props;
 
@@ -42,7 +43,8 @@ export default function CustomInput(props) {
    });
    const inputClasses = classNames({
       [classes.input]: true,
-      [classes.whiteInput]: white
+      [classes.whiteInput]: white,
+      [inputCustomClasses]: inputCustomClasses !== undefined
    });
    var formControlClasses;
    if (formControlProps !== undefined) {
@@ -78,6 +80,7 @@ CustomInput.propTypes = {
    inputProps: PropTypes.object,
    formControlProps: PropTypes.object,
    inputRootCustomClasses: PropTypes.string,
+   inputCustomClasses: PropTypes.string,
    error: PropTypes.bool,
    success: PropTypes.bool,
    white: PropTypes.bool,

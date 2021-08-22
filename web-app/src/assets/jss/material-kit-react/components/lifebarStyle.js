@@ -4,7 +4,7 @@ const container = {
    borderWidth: "2px",
    borderColor: "black",
    borderRadius: "10px",
-   padding: "5px",
+   padding: "2px",
    margin: "3px 10px",
    userSelect: "none",
    width: "25%"

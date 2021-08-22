@@ -67,7 +67,6 @@ class LPInputBox extends PureComponent {
 
       const LPbutton = (
          <div
-            className={classes.LPbutton}
             onClick={() => {
                this.swapLPmode();
                if (prepopLPvalue) prepopLP(null);
@@ -78,10 +77,11 @@ class LPInputBox extends PureComponent {
       );
 
       return (
-         <div className={classes.LPbox}>
+         <div>
             <CustomInput
                white
                formControlProps={{ fullWidth: true }}
+               inputCustomClasses={classes.LPinput}
                inputProps={{
                   value: inputLP,
                   onChange: this.inputLP,
