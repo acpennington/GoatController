@@ -4114,6 +4114,12 @@
       "text": "Discard 1 card; destroy all face-up monsters your opponent controls.",
       "limit": 1
    },
+   "Limiter Removal": {
+      "id": "23171610",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "Double the ATK of all Machine monsters you currently control, until the end of this turn. <effect=Lingering>During the End Phase of this turn, destroy those monsters.</effect>"
+   },
    "Liquid Beast": {
       "id": "93108297",
       "cardType": "normalMonster",
