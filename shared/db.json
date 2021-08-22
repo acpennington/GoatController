@@ -15,7 +15,7 @@
       "levelOrSubtype": 4,
       "atk": 1800,
       "def": 800,
-      "text": "Fish – A rare rainbow fish that has never been caught by mortal man"
+      "text": "Fish – A rare rainbow fish that has never been caught by mortal man."
    },
    "8-Claws Scorpion": {
       "id": "14261867",
@@ -64,10 +64,10 @@
       "limit": 2
    },
    "Abyssal Designator": {
-      "id": "78053598",
+      "id": "89801755",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Pay 1000 LP and declare 1 Type and 1 Attribute; your opponent sends 1 monster with both the declared Type and Attribute from their hand or Deck to the Graveyard.",
+      "text": "Pay 1000 Life Points and declare 1 Type and 1 Attribute; your opponent sends 1 monster with both the declared Type and Attribute from their hand or Deck to the Graveyard.",
       "prepopLP": { "hero": 1000 },
       "script": {
          "name": "SEARCH_DECK",
@@ -200,7 +200,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1100,
-      "text": "Reptile – Before the dawn of time, this lizard warrior reigned supreme."
+      "text": "Reptile – Before the dawn of man, this lizard warrior ruled supreme."
    },
    "Ancient One of the Deep Forest": {
       "id": "14015067",
@@ -260,7 +260,7 @@
       "levelOrSubtype": 2,
       "atk": 400,
       "def": 600,
-      "text": "Beast – An air marmot that has a nefarious horna dnwings. It attacks by throwing acorns."
+      "text": "Beast – An air marmot that has a nefarious horn and wings. It attacks by throwing acorns."
    },
    "Archfiend Soldier": {
       "id": "49881766",
@@ -284,7 +284,7 @@
       "id": "22796548",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Ignition-like>Once per turn: You can pay 500 Life Points, then declare 1 card name; excavate the top card of your Deck, and if it is the declared card, add it to your hand.</effect> Otherwise, send it to the Graveyard",
+      "text": "<effect=Ignition-like>Once per turn: You can pay 500 Life Points, then declare 1 card name; excavate the top card of your Deck, and if it is the declared card, add it to your hand.</effect> Otherwise, send it to the Graveyard.",
       "prepopLP": { "hero": -500 }
    },
    "Armaill": {
@@ -577,7 +577,7 @@
       "id": "35149085",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Target 1 Beast monster you control; return it to the hand, and if you do, Special Summon 1 Beast-Type monster from your hand with the same Level as the monster that was returned to the hand."
+      "text": "Target 1 Beast monster you control; return it to the hand, and if you do, Special Summon 1 Beast monster from your hand with the same Level as the monster that was returned to the hand."
    },
    "Beast of Talwar": {
       "id": "11761845",
@@ -586,7 +586,7 @@
       "levelOrSubtype": 6,
       "atk": 2400,
       "def": 2150,
-      "text": "Fiend – Only the master of the sword among Fiend-Type monsters is permitted to hold the Talwar."
+      "text": "Fiend – Only the master of the sword among Fiend-Type monsters is permitted to hold the Talwar. (This card is always treated as an \"Archfiend\" card)."
    },
    "Beautiful Headhuntress": {
       "id": "16899564",
@@ -818,7 +818,7 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 1200,
-      "text": "Winged Beast – With hair shaped like a crown and a body incased in bluish white flames, this bird is a formidable sight."
+      "text": "Winged Beast – With hair shaped like a crown and a body encased in bluish white flames, this bird is a formidable sight."
    },
    "Boar Soldier": {
       "id": "21340051",
@@ -1007,7 +1007,7 @@
       "levelOrSubtype": 4,
       "atk": 2000,
       "def": 100,
-      "text": "Dragon/Effect – Cannot be Normal Summoned while you control a monster. <effect=Continuous>This card cannot declare an attack unless you control another Dragon-Type monster.</effect>"
+      "text": "Dragon/Effect – <effect=Summon>Cannot be Normal Summoned while you control a monster.</effect> <effect=Continuous>This card cannot declare an attack unless you control another Dragon-Type monster.</effect>"
    },
    "Ceasefire": {
       "id": "36468556",
@@ -1109,7 +1109,7 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 0,
-      "text": "Beast – A fiery mouse, traveling the world to become the strongest fighter in the world of mice. Be careful not to touch him, or you will get burned."
+      "text": "Beast – A fiery mouse, travelling the world to become the strongest fighter in the world of mice. Be careful not to touch him, or you will get burned."
    },
    "Cipher Soldier": {
       "id": "79853073",
@@ -1136,7 +1136,7 @@
       "levelOrSubtype": 2,
       "atk": 1350,
       "def": 0,
-      "text": "Zombie – A clown revived by the powers of darkenss. Its deadly dance has sent many monster to their graves."
+      "text": "Zombie – A clown revived by the powers of darkness. Its deadly dance has sent many monsters to their graves."
    },
    "Cobra Jar": {
       "id": "86801871",
@@ -1156,7 +1156,7 @@
       "id": "60682203",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "At the start of your Main Phase 1: <effect=LingeringUntil your next Draw Phase, neither player can Set or activate the effects of Spells and Traps.</effect>"
+      "text": "At the start of your Main Phase 1: <effect=Lingering>Until your next Draw Phase, neither player can Set or activate the effects of Spells and Traps.</effect>"
    },
    "Commencement Dance": {
       "id": "43417563",
@@ -1225,7 +1225,7 @@
       "levelOrSubtype": 5,
       "atk": 1600,
       "def": 1400,
-      "text": "Dragon – This weakened dragon can no longer fly, but it is still a deadly force to be reckoned with."
+      "text": "Dragon – This weakened dragon can no longer fly, but is still a deadly force to be reckoned with."
    },
    "Crawling Dragon #2": {
       "id": "38289717",
@@ -1240,7 +1240,7 @@
       "id": "31036355",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Each player chooses 1 monster they control and switches control of those monsters with each other. Those monsters cannot change their battle positions for the rest of this turn.",
+      "text": "Each player chooses 1 monster they control and switches control of those monsters with each other. <effect=Condition>Those monsters cannot change their battle positions for the rest of this turn.</effect>",
       "limit": 2
    },
    "Creeping Doom Manta": {
@@ -1538,7 +1538,7 @@
       "levelOrSubtype": 8,
       "atk": 2700,
       "def": 1500,
-      "text": "Fiend/Effect/Ritual – <effect=Summon>You can Ritual Summon this card with \"Contract with the Dark Master\".</effect> <effect=Ignition>Once per turn: You can roll a six-sided die, then destroy all monsters your opponent controls if you roll 1 or 2, destroy 1 monster your opponent controls if you roll 3, 4 or 5, or destroy all monsters you control if you roll 6</effect>.",
+      "text": "Fiend/Effect/Ritual – <effect=Summon>You can Ritual Summon this card with \"Contract with the Dark Master\".</effect> <effect=Ignition>Once per turn: You can roll a six-sided die, then destroy all monsters your opponent controls if you roll 1 or 2, destroy 1 monster your opponent controls if you roll 3, 4 or 5, or destroy all monsters you control if you roll 6.</effect>",
       "script": {
          "name": "ROLL_DICE",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -1571,14 +1571,14 @@
       "def": 1600,
       "text": "Fiend/Effect – <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with Fiend monsters you control.</effect>"
    },
-   "Dark Scorpion - Cliff the Trap Remover": {
+   "Dark Scorpion – Cliff the Trap Remover": {
       "id": "06967870",
       "cardType": "effectMonster",
       "attribute": "Dark",
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 1000,
-      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects:● Target 1 Spell/Trap on the field; destroy that target.● Send the top 2 cards of their Deck to the Graveyard</effect>"
+      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects:● Target 1 Spell/Trap on the field; destroy that target.● Send the top 2 cards of their Deck to the Graveyard.</effect>"
    },
    "Dark Scorpion Burglars": {
       "id": "40933924",
@@ -1626,7 +1626,7 @@
       "levelOrSubtype": 4,
       "atk": 1500,
       "def": 1250,
-      "text": "Dragon/Effect – \"Firegrass\" + \"Petit Dragon\""
+      "text": "Dragon/Fusion – \"Firegrass\" + \"Petit Dragon\""
    },
    "Darkfire Soldier #1": {
       "id": "05388481",
@@ -1653,7 +1653,7 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 900,
-      "text": "Plant – A thorny plant found in the darklands that wraps its body around any unwary travelers."
+      "text": "Plant – A thorny plant found in the darklands that wraps itself around any unwary traveler."
    },
    "Deepsea Shark": {
       "id": "28593363",
@@ -1776,7 +1776,7 @@
       "levelOrSubtype": 2,
       "atk": 900,
       "def": 500,
-      "text": "Machine – A monstrous creature whose body is lined with cannons that never miss their targets."
+      "text": "Machine – A monstrous creature whose body is fitted with cannons that never miss their targets."
    },
    "Dian Keto the Cure Master": {
       "id": "84257639",
@@ -2104,7 +2104,7 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 1400,
-      "text": "Spellcaster/Effect/Ritual – <effect=Summon>Must be Ritual Summoned with \"Doriado's Blessing\" and cannot be Ritual Summoned by other ways.</effect> <effect=Continuous>The Attribute of this card is also treated as WIND, WATER, FIRE, and EARTH while it is face-up on the field</effect>"
+      "text": "Spellcaster/Effect/Ritual – <effect=Summon>Must be Ritual Summoned with \"Doriado's Blessing\" and cannot be Ritual Summoned by other ways.</effect> <effect=Continuous>The Attribute of this card is also treated as WIND, WATER, FIRE, and EARTH while it is face-up on the field.</effect>"
    },
    "Elephant Statue of Blessing": {
       "id": "85166216",
@@ -2192,13 +2192,13 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 900,
-      "text": "Fish – A beautiful mermaid that lures voyagers to a watery death."
+      "text": "Fish – A beautiful mermaid that lures voyagers to a watery grave."
    },
    "Enemy Controller": {
       "id": "98045062",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "Activate 1 of these effects.● Target 1 face-up monster your opponent controls; change that target's battle position.● Tribute 1 monster, then target 1 face-up monster your opponent controls; take control of that target until the End Phase."
+      "text": "Activate 1 of these effects. ● Target 1 face-up monster your opponent controls; change that target's battle position. ● Tribute 1 monster, then target 1 face-up monster your opponent controls; take control of that target until the End Phase."
    },
    "Energy Drain": {
       "id": "56916805",
@@ -2322,7 +2322,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1200,
-      "text": "Beast/Effect – <effect=Summon>Cannot be Normal Summoned/Set.Must first be Special Summoned (from your hand) by banishing 2 WATER monsters from your Graveyard.</effect><effect=Trigger>When this card destroys an opponent's monster by battle: Your opponent skips their next Draw Phase.</effect>",
+      "text": "Beast/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by banishing 2 WATER monsters from your Graveyard.</effect> <effect=Trigger>When this card destroys an opponent's monster by battle: Your opponent skips their next Draw Phase.</effect>",
       "script": {
          "name": "SKIP_DRAWS",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
@@ -2342,7 +2342,7 @@
       "id": "81172176",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Toss a coin and call it. If you call it right, banish all cards from your opponent's Graveyard If you call it wrong, send cards from the top of your Deck to the Graveyard equal to the number of cards in your opponent's Graveyard",
+      "text": "Toss a coin and call it. If you call it right, banish all cards from your opponent's Graveyard If you call it wrong, send cards from the top of your Deck to the Graveyard equal to the number of cards in your opponent's Graveyard.",
       "script": {
          "name": "FLIP_COINS",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
@@ -3030,7 +3030,7 @@
       "levelOrSubtype": 4,
       "atk": 1200,
       "def": 2000,
-      "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Special Summon 1 \"Gravekeeper's\" monster with 1500 or less ATK from your Deck</effect>",
+      "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Special Summon 1 \"Gravekeeper's\" monster with 1500 or less ATK from your Deck.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -3119,7 +3119,7 @@
       "levelOrSubtype": 3,
       "atk": 500,
       "def": 1600,
-      "text": "Plant – This youthful king of the forest lives in a green world, abundant with trees and wildlife."
+      "text": "Plant – This youthful king of the forests lives in a green world, abundant with trees and wildlife."
    },
    "Greenkappa": {
       "id": "61831093",
@@ -3179,7 +3179,7 @@
       "levelOrSubtype": 4,
       "atk": 1650,
       "def": 1600,
-      "text": "Machine – A robot guard built to guard throne rooms, it is armed with homing missiles."
+      "text": "Machine – A robot guard built to protect throne rooms, it is armed with homing missiles."
    },
    "Gyaku-Gire Panda": {
       "id": "09817927",
@@ -3188,7 +3188,7 @@
       "levelOrSubtype": 3,
       "atk": 800,
       "def": 1600,
-      "text": "Beast/Effect – <effect=Continuous>Gains 500 ATK for each monster your opponent controls.</effect> <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent."
+      "text": "Beast/Effect – <effect=Continuous>Gains 500 ATK for each monster your opponent controls.</effect> <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
    },
    "Gyakutenno Megami": {
       "id": "31122090",
@@ -3310,7 +3310,7 @@
       "levelOrSubtype": 4,
       "atk": 1450,
       "def": 1000,
-      "text": "Warrior – Confuses enemies with a noise that is harsh to the ears."
+      "text": "Warrior – Confuses enemy monsters with a noise that is harsh to the ears."
    },
    "Hieroglyph Lithograph": {
       "id": "10248192",
@@ -3747,7 +3747,7 @@
    "King Dragun": {
       "id": "13756293",
       "cardType": "fusionMonster",
-      "attribute": "",
+      "attribute": "Dark",
       "levelOrSubtype": 7,
       "atk": 2400,
       "def": 1100,
@@ -3802,7 +3802,7 @@
       "levelOrSubtype": 4,
       "atk": 1500,
       "def": 1200,
-      "text": "Warrior – A man-hunter with powerful arms that can crush boulders"
+      "text": "Warrior – A man-hunter with powerful arms that can crush boulders."
    },
    "Koumori Dragon": {
       "id": "67724379",
@@ -4471,7 +4471,7 @@
       "levelOrSubtype": 3,
       "atk": 800,
       "def": 1000,
-      "text": "Machine – A cyborg snail that still travels at a slow place."
+      "text": "Machine – A cyborg snail that still travels at a slow pace."
    },
    "Mechanicalchaser": {
       "id": "07359741",
@@ -4489,7 +4489,7 @@
       "levelOrSubtype": 2,
       "atk": 800,
       "def": 400,
-      "text": "Fiend – An eyeball fiend created by a servant of the wicked, it uses \"Dark Bombs\" to blow away its enemies."
+      "text": "Fiend – An eyeball fiend created by a servant of the wicked, it uses \"Dark Blasts\" to blow away its enemies."
    },
    "Medusa Worm": {
       "id": "02694423",
@@ -4596,7 +4596,7 @@
       "id": "46411259",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Tribute 1 monster; Special Summon 1 Fusion Monster from your Extra Deck with the same Level as the Tributed monster."
+      "text": "Tribute 1 monster; Special Summon 1 Fusion Monster from your Fusion Deck with the same Level as the Tributed monster."
    },
    "Meteor of Destruction": {
       "id": "33767325",
@@ -4636,7 +4636,7 @@
       "levelOrSubtype": 5,
       "atk": 0,
       "def": 3000,
-      "text": "Warrior – A Millennium item, it's rumored to block any strong attack.",
+      "text": "Warrior – A famous shield said to belong to an ancient Egyptian Pharaoh. Legends tell of its power to block any strong attack.",
       "art": 2
    },
    "Milus Radiant": {
@@ -4777,7 +4777,7 @@
       "levelOrSubtype": 5,
       "atk": 1550,
       "def": 1300,
-      "text": "Fiend – A strange fiend with long arms and razor sharp talons."
+      "text": "Fiend – A strange fiend with long arms and razor-sharp talons."
    },
    "Morphing Jar": {
       "id": "33508719",
@@ -4998,7 +4998,7 @@
       "levelOrSubtype": 3,
       "atk": 1100,
       "def": 900,
-      "text": "Beast – A pussy-fairy. Contrary to her lovely beauty, she claws on her enemies."
+      "text": "Beast – A pussycat-fairy. Contrary to her lovely beauty, she claws on her enemies."
    },
    "Nemuriko": {
       "id": "90963488",
@@ -5077,7 +5077,7 @@
       "id": "54704216",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect><effect=Continuous-like>When it leaves the field, destroy this card.</effect><effect=Trigger-like>During each of your Standby Phases: Inflict 500 damage to your opponent.</effect> That monster must be on the field to activate and to resolve this effect.",
+      "text": "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect> <effect=Continuous-like>When it leaves the field, destroy this card.</effect> <effect=Trigger-like>During each of your Standby Phases: Inflict 500 damage to your opponent.</effect> <effect=Condition>That monster must be on the field to activate and to resolve this effect.</effect>",
       "prepopLP": { "villain": -500 }
    },
    "Nimble Momonga": {
@@ -5088,12 +5088,12 @@
       "atk": 1000,
       "def": 100,
       "text": "Beast/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Gain 1000 Life Points, then you can Special Summon any number of \"Nimble Momonga\" from your Deck in face-down Defense Position.</effect>",
+      "prepopLP": { "hero": 1000 },
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": { "name": { "value": "Nimble Momonga" } }
-      },
-      "prepopLP": { "hero": 1000 }
+      }
    },
    "Nin-Ken Dog": {
       "id": "11987744",
@@ -5139,7 +5139,7 @@
       "id": "17449108",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Target 1 face-down Spell/Trap on the field; destroy that target, and if you do, banish it, then, if it was a Trap, each player banishes all cards from their Deck with that card's name"
+      "text": "Target 1 face-down Spell/Trap on the field; destroy that target, and if you do, banish it, then, if it was a Trap, each player banishes all cards from their Deck with that card's name."
    },
    "Nobleman-Eater Bug": {
       "id": "65878864",
@@ -5381,7 +5381,7 @@
       "levelOrSubtype": 4,
       "atk": 1500,
       "def": 1200,
-      "text": "Beast – With skin tinged bluish-white, this strange creature is a fearsome sight to behold."
+      "text": "Beast – With skin tinged a bluish-white, this strange creature is a fearsome sight to behold."
    },
    "Pandemonium": {
       "id": "94585852",
@@ -5426,7 +5426,7 @@
       "id": "00967928",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "When your opponent has 4 cards in their hand: Activate 1 of these effects.● Your opponent cannot draw during their next Draw Phase.● Your opponent cannot activate Spell/Trap Cards this turn.",
+      "text": "When your opponent has 4 cards in their hand: Activate 1 of these effects. ● Your opponent cannot draw during their next Draw Phase. ● Your opponent cannot activate Spell/Trap Cards this turn.",
       "script": {
          "name": "SKIP_DRAWS",
          "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
@@ -5569,7 +5569,7 @@
       "id": "08842266",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "Activate 1 of these effects;● Gain 1200 Life Points.● Inflict 800 damage to your opponent",
+      "text": "Activate 1 of these effects; ● Gain 1200 Life Points. ● Inflict 800 damage to your opponent.",
       "prepopLP": { "hero": 1200, "villain": -800 }
    },
    "Poisonous Snake Token": {
@@ -5696,7 +5696,7 @@
       "levelOrSubtype": 5,
       "atk": 1200,
       "def": 2000,
-      "text": "Winged Beast – This monster attacks using its huge beak."
+      "text": "Winged Beast – This monster attacks enemies using its huge beak."
    },
    "Queen of Autumn Leaves": {
       "id": "04179849",
@@ -5800,7 +5800,7 @@
       "id": "58577036",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the Graveyard. If not, Special Summon the excavated monster, also send the remaining cards to the Graveyard",
+      "text": "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the Graveyard. If not, Special Summon the excavated monster, also send the remaining cards to the Graveyard.",
       "script": {
          "name": "MILL_UNTIL",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
@@ -5999,7 +5999,7 @@
       "id": "30450531",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Target 1 \"Gravekeeper's' monster in your Graveyard; Special Summon that target. This card's activation and effect are unaffected by \"Necrovalley\"."
+      "text": "Target 1 \"Gravekeeper's\" monster in your Graveyard; Special Summon that target. <effect=Condition>This card's activation and effect are unaffected by \"Necrovalley\".</effect>"
    },
    "Roaring Ocean Snake": {
       "id": "19066538",
@@ -6124,7 +6124,7 @@
       "levelOrSubtype": 4,
       "atk": 0,
       "def": 2000,
-      "text": "Spellcaster/Effect – <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect><effect=Ignition>You can remove 3 Spell Counters from this card; draw 1 card.</effect>"
+      "text": "Spellcaster/Effect – <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect> <effect=Ignition>You can remove 3 Spell Counters from this card; draw 1 card.</effect>"
    },
    "Royal Oppression": {
       "id": "93016201",
@@ -6310,7 +6310,7 @@
       "id": "73915051",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "Special Summon 4 \"Sheep Tokens\" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. They cannot be Tributed for a Tribute Summon. You cannot Summon other monsters the turn you activate this card (but you can Normal Set).",
+      "text": "Special Summon 4 \"Sheep Tokens\" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. <effect=Lingering>They cannot be Tributed for a Tribute Summon.</effect> <effect=Condition>You cannot Summon other monsters the turn you activate this card (but you can Normal Set).</effect>",
       "script": {
          "name": "MAKE_TOKENS",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
@@ -6354,7 +6354,7 @@
       "id": "77876207",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Target 1 face-up monster you control with 1000 or less ATK; That face-up monster can attack directly this turn"
+      "text": "Target 1 face-up monster you control with 1000 or less ATK; That face-up monster can attack directly this turn."
    },
    "Seiyaryu": {
       "id": "06740720",
@@ -6385,12 +6385,7 @@
       "id": "49398568",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "When you activate a Normal Spell Card: Discard all cards in your hand to the Graveyard; the effect of this card becomes the same as that Normal Spell Card.",
-      "script": {
-         "name": "DISCARD_AND_DRAW",
-         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
-         "params": 0
-      }
+      "text": "When you activate a Normal Spell Card: Discard all cards in your hand to the Graveyard; the effect of this card becomes the same as that Normal Spell Card."
    },
    "Serpent Night Dragon": {
       "id": "66516792",
@@ -6561,7 +6556,7 @@
       "levelOrSubtype": 4,
       "atk": 1700,
       "def": 1900,
-      "text": "Spellcaster/Effect – <effect=Continuous>When a Spell resolves: Place 1 Spell Counter on this card (max.</effect><effect=Ignition>3).</effect> You can Tribute this card with 3 Spell Counters on it; Special Summon 1 \"Buster Blader\" from your hand, Deck, or Graveyard",
+      "text": "Spellcaster/Effect – <effect=Continuous>Each time a Spell Card is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect> <effect=Ignition>You can Tribute this card with 3 Spell Counters on it; Special Summon 1 \"Buster Blader\" from your hand, Deck, or Graveyard.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
@@ -6627,7 +6622,7 @@
       "levelOrSubtype": 1,
       "atk": 300,
       "def": 200,
-      "text": "Zombie – A skeletal ghost that isn't strong, but can mean trouble in large numbers."
+      "text": "Zombie – A skeletal ghost that isn't strong but can mean trouble in large numbers."
    },
    "Skull-Mark Ladybug": {
       "id": "64306248",
@@ -6664,7 +6659,7 @@
       "levelOrSubtype": 4,
       "atk": 1900,
       "def": 400,
-      "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: This card gains 500 ATK/DEF.</effect> <effect=Trigger>If this card is destroyed by battle: The monster that destroyed it loses 500 ATK/DEF</effect>"
+      "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: This card gains 500 ATK/DEF.</effect> <effect=Trigger>If this card is destroyed by battle: The monster that destroyed it loses 500 ATK/DEF.</effect>"
    },
    "Sleeping Lion": {
       "id": "40200834",
@@ -6762,13 +6757,13 @@
       "levelOrSubtype": 4,
       "atk": 1450,
       "def": 1200,
-      "text": "Spellcaster – A slave of the dark arts, this sorcerer is a master of death-dealing spells."
+      "text": "Spellcaster – A slave of the dark arts, this sorcerer is a master of life-extinguishing spells."
    },
    "Soul Exchange": {
       "id": "68005187",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Target 1 monster your opponent controls; this turn, if you Tribute a monster, you must Tribute that target, as if you controlled it. You cannot conduct your Battle Phase the turn you activate this card."
+      "text": "Target 1 monster your opponent controls; this turn, if you Tribute a monster, you must Tribute that target, as if you controlled it. <effect=Condition>You cannot conduct your Battle Phase the turn you activate this card.</effect>"
    },
    "Soul Release": {
       "id": "05758500",
@@ -6862,7 +6857,7 @@
       "id": "38275183",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "Activate 1 of these effects;● When a Spell is activated that targets exactly 1 monster on the field: Negate the activation, and if you do, destroy it.● When a Spell is activated: Send 1 Spell from your hand to the Graveyard; negate the activation, and if you do, destroy it."
+      "text": "Activate 1 of these effects; ● When a Spell is activated that targets exactly 1 monster on the field: Negate the activation, and if you do, destroy it. ● When a Spell is activated: Send 1 Spell from your hand to the Graveyard; negate the activation, and if you do, destroy it."
    },
    "Spellbinding Circle": {
       "id": "18807108",
@@ -7012,7 +7007,7 @@
       "levelOrSubtype": 5,
       "atk": 1400,
       "def": 1800,
-      "text": "Machine – A steel idol worshiped in the Land of Machines."
+      "text": "Machine – A steel idol worshipped in the Land of Machines."
    },
    "Steel Ogre Grotto #2": {
       "id": "90908427",
@@ -7021,7 +7016,7 @@
       "levelOrSubtype": 6,
       "atk": 1900,
       "def": 2200,
-      "text": "Machine – A mechanized iron doll with tremedous strength."
+      "text": "Machine – A mechanized iron doll with tremendous strength."
    },
    "Stone Ogre Grotto": {
       "id": "15023985",
@@ -7045,7 +7040,7 @@
       "id": "60764581",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Special Summon 2 \"Lamb Tokens\" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. You cannot Summon other monsters the turn you activate this card (but you can Set).",
+      "text": "Special Summon 2 \"Lamb Tokens\" (Beast/EARTH/Level 1/ATK 0/DEF 0) in Defense Position. <effect=Condition>You cannot Summon other monsters the turn you activate this card (but you can Set).</effect>",
       "script": {
          "name": "MAKE_TOKENS",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
@@ -7102,7 +7097,7 @@
       "levelOrSubtype": 6,
       "atk": 1200,
       "def": 500,
-      "text": "Machine/Fusion/Effect – \"Robolady\" + \"Roboyarou\". <effect=Ignition>You can Special Summon \"Super Roboyarou\" by returning this card from the field to the Extra Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>In addition, increase the ATK of this monster by 1000 points during the Damage Step when this monster inflicts Direct Damage to your opponent's Life Points.</effect>"
+      "text": "Machine/Fusion/Effect – \"Robolady\" + \"Roboyarou\". <effect=Ignition>You can Special Summon \"Super Roboyarou\" by returning this card from the field to the Fusion Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>In addition, increase the ATK of this monster by 1000 points during the Damage Step when this monster inflicts Direct Damage to your opponent's Life Points.</effect>"
    },
    "Super Roboyarou": {
       "id": "01412158",
@@ -7111,7 +7106,7 @@
       "levelOrSubtype": 6,
       "atk": 1200,
       "def": 500,
-      "text": "Machine/Fusion/Effect – \"Roboyarou\" + \"Robolady\". <effect=Ignition>You can Special Summon \"Super Robolady\" by returning this card from the field to the Extra Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>In addition, increase the ATK of this monster by 1000 points during the Damage Step when this monster battles with a monster.</effect>"
+      "text": "Machine/Fusion/Effect – \"Roboyarou\" + \"Robolady\". <effect=Ignition>You can Special Summon \"Super Robolady\" by returning this card from the field to the Fusion Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>In addition, increase the ATK of this monster by 1000 points during the Damage Step when this monster battles with a monster.</effect>"
    },
    "Supply": {
       "id": "44072894",
@@ -7171,7 +7166,7 @@
       "id": "12923641",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Condition>Destroy this card during your 2nd Standby Phase after activation.</effect> When this card resolves, change all monsters your opponent controls to face-down Defense Position.<effect=Continuous-like>Monsters your opponent controls cannot change their battle positions.</effect>"
+      "text": "<effect=Condition>Destroy this card during your 2nd Standby Phase after activation.</effect> When this card resolves, change all monsters your opponent controls to face-down Defense Position. <effect=Continuous-like>Monsters your opponent controls cannot change their battle positions.</effect>"
    },
    "Swords of Revealing Light": {
       "id": "72302403",
@@ -7266,7 +7261,7 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 900,
-      "text": "Zombie – A zombie that suddenly appeared from plot #13 – an empty grave."
+      "text": "Zombie – A zombie that suddenly appeared from plot #13 - an empty grave."
    },
    "The Agent of Wisdom - Mercury": {
       "id": "38730226",
@@ -7620,7 +7615,7 @@
       "levelOrSubtype": 5,
       "atk": 1600,
       "def": 1500,
-      "text": "Thunder/Effect – You can discard this card; add up to 2 \"Thunder Dragon\" from your Deck to your hand.",
+      "text": "Thunder/Effect – <effect=Ignition>You can discard this card; add up to 2 \"Thunder Dragon\" from your Deck to your hand.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
@@ -7835,7 +7830,7 @@
       "levelOrSubtype": 6,
       "atk": 1900,
       "def": 1700,
-      "text": "Aqua – An unusual turtle that not only swims at tremendous speeds, but can also sail across the skies."
+      "text": "Aqua – An unusual turtle that not only swims at tremendous speed, but can also sail across the skies."
    },
    "Turtle Oath": {
       "id": "76806714",
@@ -8033,7 +8028,7 @@
       "levelOrSubtype": 3,
       "atk": 1000,
       "def": 500,
-      "text": "Warrior – A deadly duo consisting of a beast master and its loyal servant."
+      "text": "Warrior – The speed of this warrior creates an intense vacuum that can slice through a monster's hide."
    },
    "Upstart Goblin": {
       "id": "70368879",
@@ -8077,7 +8072,7 @@
       "levelOrSubtype": 3,
       "atk": 2000,
       "def": 1500,
-      "text": "Zombie/Effect – When this card inflicts battle damage to your opponent: Declare Monster, Spell, or Trap; your opponent sends 1 card of that type from their Deck to the Graveyard. Once per turn, during your next Standby Phase after this card in your possession was destroyed and sent to your Graveyard by an opponent's card effect: Special Summon this card from the Graveyard.",
+      "text": "Zombie/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent: Declare Monster, Spell, or Trap; your opponent sends 1 card of that type from their Deck to the Graveyard.</effect> <effect=Trigger>Once per turn, during your next Standby Phase after this card in your possession was destroyed and sent to your Graveyard by an opponent's card effect: Special Summon this card from the Graveyard.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
@@ -8107,7 +8102,7 @@
       "id": "17078030",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "Activate by paying any multiple of 1000 Life Points.<effect=Continuous-like>Monsters your opponent controls cannot attack if their ATK is less than or equal to the amount you paid.</effect>"
+      "text": "Activate by paying any multiple of 1000 Life Points. <effect=Continuous-like>Monsters your opponent controls cannot attack if their ATK is less than or equal to the amount you paid.</effect>"
    },
    "Warrior Dai Grepher": {
       "id": "75953262",
@@ -8177,7 +8172,7 @@
       "levelOrSubtype": 4,
       "atk": 1650,
       "def": 1600,
-      "text": "Fiend – Attacks from the sky with a whip-like tail."
+      "text": "Fiend – Attacks from the skies with a whip-like tail."
    },
    "White Dragon Ritual": {
       "id": "09786492",
@@ -8239,7 +8234,7 @@
       "levelOrSubtype": 4,
       "atk": 1200,
       "def": 1000,
-      "text": "Winged Beast – This creature's wings are capable of generating tornadoes."
+      "text": "Winged Beast – This monster's wings are capable of generating tornadoes."
    },
    "Winged Kuriboh": {
       "id": "57116033",
@@ -8276,7 +8271,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1300,
-      "text": "Fiend – Dressed in a night-black tuxedo, this creature presides over death."
+      "text": "Fiend – Dressed in a night-black tuxedo, this creature presides over the darkness."
    },
    "Wolf Axwielder": {
       "id": "56369281",
@@ -8294,7 +8289,7 @@
       "levelOrSubtype": 5,
       "atk": 500,
       "def": 2500,
-      "text": "Machine – The new form of the enigmatic Inpachi, remodeled by cutting-edge Dark World technology. Maneuverability has been sacrificed for strong armor, which was considered more important."
+      "text": "Machine – The new form of the enigmatic Inpachi, remodeled by cutting-edge Dark World technology. Maneuverability has been sacrificed for strong armor, which is considered more important."
    },
    "Worm Drake": {
       "id": "73216412",
@@ -8312,7 +8307,7 @@
       "levelOrSubtype": 4,
       "atk": 1250,
       "def": 900,
-      "text": "Fish – A fish with arms?"
+      "text": "Fish – A fish with arms, legs, and some very sharp teeth."
    },
    "X-Head Cannon": {
       "id": "62651957",
@@ -8330,7 +8325,7 @@
       "levelOrSubtype": 6,
       "atk": 2200,
       "def": 1900,
-      "text": "Machine/Fusion/Effect – \"X-Head Cannon\" + \"Y-Dragon Head\". <effect=Summon>Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use \"Polymerization\".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-up Spell/Trap your opponent controls; destroy that target.</effect>",
+      "text": "Machine/Fusion/Effect – \"X-Head Cannon\" + \"Y-Dragon Head\". <effect=Summon>Must first be Special Summoned (from your Fusion Deck) by banishing the above cards you control. (You do not use \"Polymerization\".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-up Spell/Trap your opponent controls; destroy that target.</effect>",
       "noMeta": true
    },
    "XYZ-Dragon Cannon": {
@@ -8340,7 +8335,7 @@
       "levelOrSubtype": 8,
       "atk": 2800,
       "def": 2600,
-      "text": "Machine/Fusion/Effect – \"X-Head Cannon\" + \"Y-Dragon Head\" + \"Z-Metal Tank\". <effect=Summon>Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use \"Polymerization\".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 card your opponent controls; destroy that target.</effect>",
+      "text": "Machine/Fusion/Effect – \"X-Head Cannon\" + \"Y-Dragon Head\" + \"Z-Metal Tank\". <effect=Summon>Must first be Special Summoned (from your Fusion Deck) by banishing the above cards you control. (You do not use \"Polymerization\".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 card your opponent controls; destroy that target.</effect>",
       "noMeta": true,
       "art": 2
    },
@@ -8351,7 +8346,7 @@
       "levelOrSubtype": 6,
       "atk": 2400,
       "def": 2100,
-      "text": "Machine/Fusion/Effect – \"X-Head Cannon\" + \"Z-Metal Tank\". <effect=Summon>Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use \"Polymerization\".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-down Spell/Trap your opponent controls; destroy that target.</effect>",
+      "text": "Machine/Fusion/Effect – \"X-Head Cannon\" + \"Z-Metal Tank\". <effect=Summon>Must first be Special Summoned (from your Fusion Deck) by banishing the above cards you control. (You do not use \"Polymerization\".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-down Spell/Trap your opponent controls; destroy that target.</effect>",
       "noMeta": true
    },
    "Xing Zhen Hu": {
@@ -8367,7 +8362,7 @@
       "levelOrSubtype": 6,
       "atk": 2100,
       "def": 2200,
-      "text": "Machine/Fusion/Effect – \"Y-Dragon Head\" + \"Z-Metal Tank\". <effect=Summon>Must first be Special Summoned (from your Extra Deck) by banishing the above cards you control. (You do not use \"Polymerization\".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-down monster your opponent controls; destroy that target.</effect>",
+      "text": "Machine/Fusion/Effect – \"Y-Dragon Head\" + \"Z-Metal Tank\". <effect=Summon>Must first be Special Summoned (from your Fusion Deck) by banishing the above cards you control. (You do not use \"Polymerization\".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-down monster your opponent controls; destroy that target.</effect>",
       "noMeta": true
    },
    "Yamadron": {
@@ -8416,7 +8411,7 @@
       "levelOrSubtype": 7,
       "atk": 2600,
       "def": 1900,
-      "text": "Fiend – A monster whose full potential can be achieved when outfitted with \"Metalmorph\""
+      "text": "Fiend – A monster whose full potential can be achieved when outfitted with \"Metalmorph\"."
    },
    "Zombyra the Dark": {
       "id": "88472456",
