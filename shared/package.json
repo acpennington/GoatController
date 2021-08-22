@@ -14,6 +14,7 @@
     "./verifyDeck": "./verifyDeck.js"
   },
   "dependencies": {
+    "@aitodotai/json-stringify-pretty-compact": "^1.3.0",
     "jest": "<27",
     "jest-expect-message": "^1.0.2"
   },
@@ -23,6 +24,7 @@
     ]
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "format": "node format"
   }
 }
