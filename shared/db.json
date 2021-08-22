@@ -968,7 +968,10 @@
       "text": "Both players discard as many cards as possible from their hands, then each player draws the same number of cards they discarded.",
       "script": {
          "name": "DISCARD_AND_DRAW",
-         "displayCondition": { "players": ["HERO", "VILLAIN"], "row": "spellTrap" },
+         "displayCondition": {
+            "players": ["HERO", "VILLAIN"],
+            "row": "spellTrap"
+         },
          "params": "same"
       },
       "limit": 1
@@ -2127,7 +2130,10 @@
       "text": "Fiend/Effect - <effect=Trigger>When this card is sent from the field to the Graveyard: Each player adds 1 Level 3 or lower Normal Monster from their Deck to their hand.</effect>",
       "script": {
          "name": "SEARCH_DECK",
-         "displayCondition": { "players": ["HERO", "VILLAIN"], "row": "graveyard" },
+         "displayCondition": {
+            "players": ["HERO", "VILLAIN"],
+            "row": "graveyard"
+         },
          "params": {
             "levelOrSubtype": { "operator": "<", "value": 3 },
             "cardType": { "value": "normalMonster" }
@@ -3011,7 +3017,9 @@
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
-         "params": { "name": { "operator": "CONTAINS", "value": "Gravekeeper's" } },
+         "params": {
+            "name": { "operator": "CONTAINS", "value": "Gravekeeper's" }
+         },
          "autoClose": true
       }
    },
@@ -4222,7 +4230,9 @@
          "name": "MILL_UNTIL",
          "message": "Spell or Trap",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
-         "params": { "cardType": { "operator": "OR", "value": ["Spell", "Trap"] } }
+         "params": {
+            "cardType": { "operator": "OR", "value": ["Spell", "Trap"] }
+         }
       }
    },
    "Magical Plant Mandragola": {
@@ -4307,17 +4317,10 @@
       "text": "Fairy/Effect – <effect=Trigger>When this card is Normal or Flip Summoned: You can add 1 Ritual Monster or 1 Ritual Spell Card from your Deck to your hand.</effect>",
       "script": {
          "name": "SEARCH_DECK",
-         "displayCondition": {
-            "players": ["HERO"],
-            "row": "monster"
-         },
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
          "params": {
-            "cardType": {
-               "value": "ritualMonster"
-            },
-            "levelOrSubtype": {
-               "value": "Ritual"
-            }
+            "cardType": { "value": "ritualMonster" },
+            "levelOrSubtype": { "value": "Ritual" }
          },
          "oneParam": true,
          "autoClose": true
@@ -4760,7 +4763,10 @@
       "text": "Rock/Flip/Effect – <effect=Trigger>FLIP: Both players discard their entire hands, then draw 5 cards.</effect>",
       "script": {
          "name": "DISCARD_AND_DRAW",
-         "displayCondition": { "players": ["HERO", "VILLAIN"], "row": "monster" },
+         "displayCondition": {
+            "players": ["HERO", "VILLAIN"],
+            "row": "monster"
+         },
          "params": 5
       },
       "limit": 1
