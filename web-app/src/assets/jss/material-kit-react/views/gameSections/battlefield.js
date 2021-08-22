@@ -41,6 +41,11 @@ const battlefieldStyle = {
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "center"
+   },
+   LPinput: {
+      paddingTop: "3px",
+      paddingBottom: "3px",
+      margin: "0 3px"
    }
 };
 

@@ -13,7 +13,7 @@ import styles from "assets/jss/material-kit-react/components/customInputStyle.js
 
 const useStyles = makeStyles(styles);
 
-export default function CustomInput(props) {
+const CustomInput = React.forwardRef((props, ref) => {
    const classes = useStyles();
    const {
       formControlProps,
@@ -24,6 +24,7 @@ export default function CustomInput(props) {
       error,
       white,
       inputRootCustomClasses,
+      inputCustomClasses,
       success
    } = props;
 
@@ -42,7 +43,8 @@ export default function CustomInput(props) {
    });
    const inputClasses = classNames({
       [classes.input]: true,
-      [classes.whiteInput]: white
+      [classes.whiteInput]: white,
+      [inputCustomClasses]: inputCustomClasses !== undefined
    });
    var formControlClasses;
    if (formControlProps !== undefined) {
@@ -57,7 +59,7 @@ export default function CustomInput(props) {
                {labelText}
             </InputLabel>
          ) : null}
-         <Input
+         <Input inputRef={ref}
             classes={{
                input: inputClasses,
                root: marginTop,
@@ -69,7 +71,7 @@ export default function CustomInput(props) {
          />
       </FormControl>
    );
-}
+});
 
 CustomInput.propTypes = {
    labelText: PropTypes.node,
@@ -78,7 +80,10 @@ CustomInput.propTypes = {
    inputProps: PropTypes.object,
    formControlProps: PropTypes.object,
    inputRootCustomClasses: PropTypes.string,
+   inputCustomClasses: PropTypes.string,
    error: PropTypes.bool,
    success: PropTypes.bool,
    white: PropTypes.bool,
 };
+
+export default CustomInput;
