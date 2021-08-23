@@ -15,6 +15,78 @@ const OPTIONAL = ["prepopLP", "script", "limit", "art"];
 const TOKEN_REQUIRED = MONSTER_REQUIRED.slice(1);
 const FUSION_OPTIONAL = ["order", "noMeta", ...OPTIONAL];
 
+const STYLIZATION = {
+  // NOTE: custom
+  "GY": "Graveyard",
+  "LP": "Life Points",
+  "Extra Deck": "Fusion Deck",
+  "(Quick Effect)": "<effect=Quick>...</effect>",
+  // Regular Konami stylization: https://yugioh.fandom.com/wiki/Problem-Solving_Card_Text#Changes
+  "Battle Damage": "battle damage",
+  "remove from play": "banish",
+  "removed from play": "banished",
+  "removed from the field": "leaves the field",
+  "select": "target",
+  "Effect Monster's effect": "monster effect",
+  "Union Monster": "Union monster",
+  "Toon Monster": "Toon monster",
+  "Flip Effect Monster": "Flip monster",
+  "Fusion Material": "Fusion material",
+  "side of the field": "field",
+  "Material": "material",
+  "pick up": "excavate",
+  "When": "If", // NOTE: Not for optional ("When ... you can")
+  "(this is a Quick Effect)": "<effect=Quick>...</effect>",
+  "during either player's": "<effect=Quick>...</effect>",
+  "Spell Card": "Spell",
+  "Trap Card": "Trap",
+  "Spell and Trap": "Spell/Trap",
+  "Spell/Trap Card": "Spell/Trap",
+  "Spell/Trap Cards": "Spells/Traps",
+  "(Damage calculation is applied normally)": "",
+  "(without damage calculation)": "",
+  "(This Special Summon is treated as a Fusion Summon.)": "",
+  "-Type": "",
+  "selected as an attack target": "targeted for an attack",
+  "attack once again": "make a second attack",
+  "attack twice": "make a second attack",
+  "make 3 attacks": "make a second and third attack",
+  "still treated as a Trap Card": "also still a Trap",
+  "also still a Trap Card": "also still a Trap",
+  "Flip Effects are not activated at this time": "(Flip monsters' effects are not activated at this time)",
+  "(Flip Effects are not activated at this time)": "(Flip monsters' effects are not activated at this time)",
+  "(Flip Effects are not activated)": "(Flip monsters' effects are not activated at this time)" ,
+  "(Flip monsters' effects are not activated)": "(Flip monsters' effects are not activated at this time)",
+  "This card's name is treated as": "This card's name becomes",
+  "its name is treated as": "This card's name becomes",
+  "This card's name is also treated as": "(This card is also always treated as ...)",
+  "This card cannot be Normal Summoned or Set.": "Cannot be Normal Summoned/Set.",
+  "This card can only be": "Must first be",
+  "This card cannot be Special Summoned except": "Must be Special Summoned",
+  "and cannot be Special Summoned by other ways": "Must be Special Summoned",
+  "This monster can only be Ritual Summoned with the Ritual Spell Card": "You can Ritual Summon this card with",
+  "You take no Battle Damage from battles involving this card.": "You take no battle damage from attacks involving this card.",
+  "(If it's a tie, you get to choose.)": "(your choice, if tied)",
+  "to the Graveyard, the Fusion Material Monsters that are listed on a Fusion Monster Card, then Special Summon that monster from your": "Fusion Summon 1 Fusion Monster from your Extra Deck, using monsters from",
+  "At the end of the Battle Phase, if this card attacked or was attacked": "At the end of the Battle Phase, if this card battled",
+  "If damage calculation is performed involving this card, at the end of the Battle Phase": "At the end of the Battle Phase, if this card battled",
+  "During each of your/your opponent's": "Once per turn, during your/your opponent's",
+  "negate its effects / its effects are negated": "negate its effects",
+  "it has its effects negated": "negate its effects",
+  "Cards and effects cannot be activated in response to this effect's activation": "Neither player can activate cards or effects in response to this effect's activation",
+  "Once per turn, during your opponent's turn": "Once per opponent's turn",
+  "This effect can only be used once while this card is face-up on the field.": "Once while face-up on the field:",
+  "This card gains": "Gains ... ATK/DEF",
+  "This card can attack your opponent directly": "This card can attack directly"
+};
+
+const STYLE_REGEX = new RegExp(`(${Object.keys(STYLIZATION).map(s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})`, 'g');
+
+const STYLE_WHITELIST = {
+  "Agido": "When",
+  "Mystical Shine Ball": "When",
+};
+
 function expectFields(name, card, required, optional = OPTIONAL) {
   const r = required.slice();
   const o = optional.slice();
@@ -36,6 +108,7 @@ test('database', () => {
   const order = [];
   const names = [];
   for (const name in db) {
+    expect(name.includes("–"), `"${name}" contains an em dash`).toBe(false);
     const card = db[name];
     if (card.cardType !== TOKEN_MONSTER) {
       expect(/\d{8}/.test(card.id), `"${name}"'s ID is not 8 digits long '${card.id}'`).toBe(true);
@@ -44,7 +117,11 @@ test('database', () => {
     expect(CARD_TYPES).toContain(card.cardType);
 
     expect(card.text.length).toBeGreaterThan(0);
-    expect(/ (GY|LP|Extra Deck) /.test(card.text), `"${name}" contains outdated text: '${card.text}'`).toBe(false)
+    for (const m of card.text.matchAll(STYLE_REGEX)) {
+      if (STYLE_WHITELIST[name] === m[0]) continue;
+      if (m[0] === "When" && /When[^.]+[Yy]ou can/.test(card.text)) continue;
+      expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${STYLIZATION[m[0]]}'`).toBe(true);
+    }
 
     expect([FUSION_MONSTER, TOKEN_MONSTER].includes(card.cardType) || /\.(<\/effect>)?$/.test(card.text), `"${name}"'s text does not end with a period: '${card.text}'`).toBe(true);
     expect(card.text.includes("><"), `"${name}"'s text is missing a space between tags: '${card.text}'`).toBe(false);
