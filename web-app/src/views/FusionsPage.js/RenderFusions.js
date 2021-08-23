@@ -15,7 +15,7 @@ class RenderFusions extends Component {
 
    render() {
       const cardsToRender = [];
-      Object.keys(fusions).forEach((cardName) => cardsToRender.unshift({ name: cardName, quantity: 1 }));
+      Object.keys(fusions).forEach((cardName) => cardsToRender.push({ name: cardName, quantity: 1 }));
       const cardHeight = this.context / 5.65; // this is a magic number to make the fusions all display nicely
 
       return (

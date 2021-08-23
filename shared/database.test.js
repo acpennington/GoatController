@@ -12,7 +12,8 @@ const EFFECTS = [
 const SPELL_TRAP_REQUIRED = ["id", "cardType", "levelOrSubtype", "text"];
 const MONSTER_REQUIRED = ["id", "cardType", "attribute", "levelOrSubtype", "atk", "def", "text"];
 const OPTIONAL = ["prepopLP", "script", "limit", "art"];
-const FUSION_OPTIONAL = ["noMeta", ...OPTIONAL];
+const TOKEN_REQUIRED = MONSTER_REQUIRED.slice(1);
+const FUSION_OPTIONAL = ["order", "noMeta", ...OPTIONAL];
 
 function expectFields(name, card, required, optional = OPTIONAL) {
   const r = required.slice();
@@ -32,6 +33,7 @@ function expectFields(name, card, required, optional = OPTIONAL) {
 
 test('database', () => {
   const ids = [];
+  const order = [];
   const names = [];
   for (const name in db) {
     const card = db[name];
@@ -57,12 +59,19 @@ test('database', () => {
       expect(trapSubtypes).toContain(card.levelOrSubtype);
       expectFields(name, card, SPELL_TRAP_REQUIRED);
     } else {
-      expectFields(name, card, card.cardType === TOKEN_MONSTER ? MONSTER_REQUIRED.slice(1) : MONSTER_REQUIRED, card.cardType === FUSION_MONSTER ? FUSION_OPTIONAL : OPTIONAL);
+      const required = card.cardType === TOKEN_MONSTER ? TOKEN_REQUIRED : MONSTER_REQUIRED;
+      const optional = card.cardType === FUSION_MONSTER ? FUSION_OPTIONAL : OPTIONAL;
+      expectFields(name, card, required, optional);
 
       expect(card.attribute === "???" || allAttributes.includes(card.attribute), `"${name}" has an unknown attribute: '${card.attribute}'`).toBe(true);
       expect(card.levelOrSubtype === "???" || !isNaN(card.levelOrSubtype), `"${name}" has an invalid level: '${card.levelOrSubtype}'`).toBe(true);
       expect(card.atk === "?" || !isNaN(card.atk), `"${name}" has an invalid atk: '${card.atk}'`).toBe(true);
       expect(card.def === "?" || !isNaN(card.def), `"${name}" has an invalid def: '${card.def}'`).toBe(true);
+
+      if (card.cardType === FUSION_MONSTER) {
+        expect(card.order === undefined || !isNaN(card.order), `"${name}" has an invalid order: '${card.order}'`).toBe(true);
+        if (card.order) order.push(card.order);
+      }
 
       expect(card.cardType === TOKEN_MONSTER || card.text.includes(" – "), `"${name}"'s text does not contain an em dash: '${card.text}'`).toBe(true);
       const label = card.text.includes(" – ") ? card.text.split(" – ")[0] : card.text;
@@ -73,6 +82,7 @@ test('database', () => {
     }
     expect([undefined, 1, 2].includes(card.limit), `"${name}" has an invalid limit: '${card.limit}'`).toBe(true);
   }
+  expect(order.sort((a, b) => a - b)).toEqual(Array.from({length: order.length}, (_, i) => i + 1));
   expect(Array.from(new Set(ids))).toEqual(ids);
   expect(names).toEqual(names.sort());
 });

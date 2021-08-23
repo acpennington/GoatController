@@ -1407,7 +1407,8 @@
       "levelOrSubtype": 5,
       "atk": 2000,
       "def": 1200,
-      "text": "Fiend/Fusion/Effect – \"Possessed Dark Soul\" + \"Frontier Wiseman\". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Spell Card is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>"
+      "text": "Fiend/Fusion/Effect – \"Possessed Dark Soul\" + \"Frontier Wiseman\". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Spell Card is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>",
+      "order": 2
    },
    "Dark Bat": {
       "id": "67049542",
@@ -1434,7 +1435,8 @@
       "levelOrSubtype": 6,
       "atk": 2200,
       "def": 1500,
-      "text": "Warrior/Fusion/Effect – \"Dark Blade\" + \"Pitch-Dark Dragon\". <effect=Trigger>When this card inflicts battle damage to your opponent: You can target up to 3 monsters in their Graveyard; banish those targets.</effect>"
+      "text": "Warrior/Fusion/Effect – \"Dark Blade\" + \"Pitch-Dark Dragon\". <effect=Trigger>When this card inflicts battle damage to your opponent: You can target up to 3 monsters in their Graveyard; banish those targets.</effect>",
+      "order": 6
    },
    "Dark Cat with White Tail": {
       "id": "08634636",
@@ -1472,7 +1474,8 @@
       "levelOrSubtype": 6,
       "atk": 2200,
       "def": 800,
-      "text": "Warrior/Fusion/Effect – \"Dark Magician\" + \"Flame Swordsman\". <effect=Continuous>You take no Battle Damage from battles involving this card.</effect> <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: Special Summon 1 \"Mirage Knight\" from your hand or Deck.</effect>"
+      "text": "Warrior/Fusion/Effect – \"Dark Magician\" + \"Flame Swordsman\". <effect=Continuous>You take no Battle Damage from battles involving this card.</effect> <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: Special Summon 1 \"Mirage Knight\" from your hand or Deck.</effect>",
+      "order": 17
    },
    "Dark Gray": {
       "id": "09159938",
@@ -1626,7 +1629,8 @@
       "levelOrSubtype": 4,
       "atk": 1500,
       "def": 1250,
-      "text": "Dragon/Fusion – \"Firegrass\" + \"Petit Dragon\""
+      "text": "Dragon/Fusion – \"Firegrass\" + \"Petit Dragon\"",
+      "order": 10
    },
    "Darkfire Soldier #1": {
       "id": "05388481",
@@ -1955,7 +1959,8 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 900,
-      "text": "Warrior/Fusion – \"Armaill\" + \"One-Eyed Shield Dragon\""
+      "text": "Warrior/Fusion – \"Armaill\" + \"One-Eyed Shield Dragon\"",
+      "order": 12
    },
    "Dream Clown": {
       "id": "13215230",
@@ -2375,7 +2380,8 @@
       "levelOrSubtype": 5,
       "atk": 2000,
       "def": 1200,
-      "text": "Dragon/Fusion/Effect – \"Cave Dragon\" + \"Lesser Fiend\". <effect=Condition>(This card is always treated as an \"Archfiend\" card.)</effect> <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Material Monsters.</effect> <effect=Continuous>Negate the effects of Flip Effect Monsters.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap Card.</effect>"
+      "text": "Dragon/Fusion/Effect – \"Cave Dragon\" + \"Lesser Fiend\". <effect=Condition>(This card is always treated as an \"Archfiend\" card.)</effect> <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Material Monsters.</effect> <effect=Continuous>Negate the effects of Flip Effect Monsters.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap Card.</effect>",
+      "order": 7
    },
    "Fiend's Hand Mirror": {
       "id": "58607704",
@@ -2484,7 +2490,8 @@
       "levelOrSubtype": 3,
       "atk": 1000,
       "def": 800,
-      "text": "Zombie/Fusion – \"Skull Servant\" + \"Dissolverock\""
+      "text": "Zombie/Fusion – \"Skull Servant\" + \"Dissolverock\"",
+      "order": 14
    },
    "Flame Manipulator": {
       "id": "34460851",
@@ -2673,6 +2680,7 @@
       "atk": 2600,
       "def": 1200,
       "text": "Machine/Fusion/Effect – \"Barrel Dragon\" + \"Blowback Dragon\". <effect=Ignition>Once per turn: You can toss a coin 3 times and destroy as many monsters on the field as possible, but not more than the number of heads.</effect>",
+      "order": 4,
       "script": {
          "name": "FLIP_COINS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
@@ -2831,7 +2839,8 @@
       "levelOrSubtype": 5,
       "atk": 1850,
       "def": 1500,
-      "text": "Warrior/Fusion – \"Guardian of the Labyrinth\" + \"Protector of the Throne\""
+      "text": "Warrior/Fusion – \"Guardian of the Labyrinth\" + \"Protector of the Throne\"",
+      "order": 16
    },
    "Girochin Kuwagata": {
       "id": "84620194",
@@ -3751,7 +3760,8 @@
       "levelOrSubtype": 7,
       "atk": 2400,
       "def": 1100,
-      "text": "Dragon/Fusion/Effect – \"Lord of D.\" + \"Divine Dragon Ragnarok\". <effect=Continuous>Your opponent cannot target Dragon monsters with card effects.</effect> <effect=Ignition>Once per turn: You can Special Summon 1 Dragon monster from your hand.</effect>"
+      "text": "Dragon/Fusion/Effect – \"Lord of D.\" + \"Divine Dragon Ragnarok\". <effect=Continuous>Your opponent cannot target Dragon monsters with card effects.</effect> <effect=Ignition>Once per turn: You can Special Summon 1 Dragon monster from your hand.</effect>",
+      "order": 11
    },
    "King Fog": {
       "id": "84686841",
@@ -4453,7 +4463,8 @@
       "levelOrSubtype": 9,
       "atk": 4200,
       "def": 3700,
-      "text": "Beast/Fusion – \"Big Koala\" + \"Des Kangaroo\""
+      "text": "Beast/Fusion – \"Big Koala\" + \"Des Kangaroo\"",
+      "order": 13
    },
    "Mataza the Zapper": {
       "id": "22609617",
@@ -5238,7 +5249,8 @@
       "levelOrSubtype": 6,
       "atk": 0,
       "def": 3000,
-      "text": "Beast/Fusion/Effect – \"Ojama Green\" + \"Ojama Yellow\" + \"Ojama Black\". <effect=Continuous>Select up to 3 of your opponent's Monster Card Zones. The selected zones cannot be used.</effect>"
+      "text": "Beast/Fusion/Effect – \"Ojama Green\" + \"Ojama Yellow\" + \"Ojama Black\". <effect=Continuous>Select up to 3 of your opponent's Monster Card Zones. The selected zones cannot be used.</effect>",
+      "order": 9
    },
    "Ojama Token": {
       "cardType": "tokenMonster",
@@ -5791,6 +5803,7 @@
       "atk": 800,
       "def": 600,
       "text": "Zombie/Fusion/Effect – \"Spirit Reaper\" + \"Nightmare Horse\". <effect=Continuous>This card is not destroyed as a result of battle.</effect> <effect=Continuous>After resolving a card effect that targets this face-up card, destroy this card.</effect> <effect=Continuous>This card can attack directly.</effect> <effect=Trigger>When this card inflicts battle damage to your opponent by a direct attack: Discard 1 random card from their hand.</effect>",
+      "order": 8,
       "script": {
          "name": "RANDOM_DISCARD",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" }
@@ -6008,7 +6021,8 @@
       "levelOrSubtype": 6,
       "atk": 2100,
       "def": 1800,
-      "text": "Aqua/Fusion – \"Mystic Lamp\" + \"Hyosube\""
+      "text": "Aqua/Fusion – \"Mystic Lamp\" + \"Hyosube\"",
+      "order": 18
    },
    "Robbin' Goblin": {
       "id": "88279736",
@@ -6158,7 +6172,8 @@
       "levelOrSubtype": 6,
       "atk": 2000,
       "def": 1200,
-      "text": "Warrior/Fusion/Effect – \"Warrior Dai Grepher\" + \"Spirit Ryu\". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Trap Card is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell Card that targets this card and destroy it.</effect>"
+      "text": "Warrior/Fusion/Effect – \"Warrior Dai Grepher\" + \"Spirit Ryu\". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion Materials.</effect> <effect=Quick>When a Normal Trap Card is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell Card that targets this card and destroy it.</effect>",
+      "order": 3
    },
    "Ryu-Kishin": {
       "id": "15303296",
@@ -7445,7 +7460,8 @@
       "levelOrSubtype": 7,
       "atk": 2350,
       "def": 2300,
-      "text": "Warrior/Fusion/Effect – \"Zombyra the Dark\" + \"Maryokutai\". <effect=Trigger>If this card is Special Summoned: Destroy all other monsters you control.</effect> <effect=Continuous>Neither player can Summon monsters.</effect>"
+      "text": "Warrior/Fusion/Effect – \"Zombyra the Dark\" + \"Maryokutai\". <effect=Trigger>If this card is Special Summoned: Destroy all other monsters you control.</effect> <effect=Continuous>Neither player can Summon monsters.</effect>",
+      "order": 5
    },
    "The Legendary Fisherman": {
       "id": "03643300",
@@ -7582,7 +7598,8 @@
       "levelOrSubtype": 1,
       "atk": 0,
       "def": 0,
-      "text": "Spellcaster/Fusion/Effect – \"Relinquished\" + \"Thousand-Eyes Idol\". <effect=Continuous>Other monsters on the field cannot change their battle positions or attack.</effect> <effect=Ignition>Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>This card's ATK/DEF become equal to that equipped monster's. If this card would be destroyed by battle, destroy that equipped monster instead.</effect>"
+      "text": "Spellcaster/Fusion/Effect – \"Relinquished\" + \"Thousand-Eyes Idol\". <effect=Continuous>Other monsters on the field cannot change their battle positions or attack.</effect> <effect=Ignition>Once per turn: You can target 1 monster your opponent controls; equip that target to this card (max. 1). This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>This card's ATK/DEF become equal to that equipped monster's. If this card would be destroyed by battle, destroy that equipped monster instead.</effect>",
+      "order": 1
    },
    "Threatening Roar": {
       "id": "36361633",
@@ -7891,7 +7908,8 @@
       "levelOrSubtype": 7,
       "atk": 2800,
       "def": 2100,
-      "text": "Thunder/Fusion – \"Thunder Dragon\" + \"Thunder Dragon\""
+      "text": "Thunder/Fusion – \"Thunder Dragon\" + \"Thunder Dragon\"",
+      "order": 15
    },
    "Twin-Headed Wolf": {
       "id": "88132637",

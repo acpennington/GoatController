@@ -53,10 +53,12 @@ class Modal extends Component {
 
       const fusionNames =
          allFusions &&
-         allFusions.filter((name) => {
-            const cardDetails = getCardDetails(name);
-            return !cardDetails.noMeta === metaTargets && (!levelFilter || levelFilter === cardDetails.levelOrSubtype);
-         });
+         allFusions
+            .filter((name) => {
+               const cardDetails = getCardDetails(name);
+               return !cardDetails.noMeta === metaTargets && (!levelFilter || levelFilter === cardDetails.levelOrSubtype);
+            })
+            .reverse();
 
       return (
          <div className={classes.modalContainer} id="modalcontainer">
