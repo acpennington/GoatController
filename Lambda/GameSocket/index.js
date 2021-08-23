@@ -50,7 +50,7 @@ exports.handler = async (event) => {
       case "SendTokens":
          return await sendTokens(id, username, data.params, connectionId, api);
       case "SendReveal":
-         return await sendReveal(id, username, connectionId, api);
+         return await sendReveal(id, username, data.hand, connectionId, api);
       case "SendCardMove":
          return await sendCardMove(id, username, data.from, data.fromCard, data.to, data.settingTrap, data.msg, connectionId, api);
       case "SendDrawPhase":
