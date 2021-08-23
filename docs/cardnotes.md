@@ -41,9 +41,8 @@ Notes regarding cards labeled "easy".
 -  Cyber Jar: Will require some sort of script to make this work. (see ticket #247)
 -  Morphing Jar #2: needs some sort of script. (see ticket #248)
 -  Parasite Paracide: requires complex scripting.
--  Manju of the Ten Thousand Hands: need to be able to search for EITHER a Ritual Spell or a Ritual Monster (see ticket #253)
 -  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script
--  Exchange: God only knows how we're going to make this work.
+-  Exchange/Amazoness Chain Master: God only knows how we're going to make this work.
 
 ### Optional / Convenience
 
@@ -55,5 +54,6 @@ Notes regarding cards labeled "easy".
 -  Des Koala: complex prepopLP (see ticket #225).
 -  Exodia: fancy win script? (user can technically just reveal hand)
 -  Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
--  Reversal Quiz - helper to send everything to graveyard? Optional script to swap LP?
+-  Reversal Quiz: helper to send everything to graveyard? Optional script to swap LP?
 -  Prohibition: Probably worked differently in Goat Format than it does in current format. We should perhaps research this and further clarify its text.
+-  Attack and Receive: could technically have a fancy complex prepopLP (see ticket #225) that counts "Attack and Receive" cards in the grave.

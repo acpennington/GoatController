@@ -9,7 +9,7 @@ const stringify = require("@aitodotai/json-stringify-pretty-compact");
 const db = require("./db.json");
 
 const sorted = {};
-for (const key of Object.keys(db)) {
+for (const key of Object.keys(db).sort()) {
   sorted[key] = db[key];
 }
 

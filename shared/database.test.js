@@ -49,7 +49,7 @@ test('database', () => {
     expect([FUSION_MONSTER, TOKEN_MONSTER].includes(card.cardType) || /\.(<\/effect>)?$/.test(card.text), `"${name}"'s text does not end with a period: '${card.text}'`).toBe(true);
     expect(card.text.includes("><"), `"${name}"'s text is missing a space between tags: '${card.text}'`).toBe(false);
     for (const effect of card.text.matchAll(/<effect=([^>]+)>/g)) {
-      expect(EFFECTS, `"${name}" has an unknown effect type: '${effect}'`).toContain(effect[1]);
+      expect(EFFECTS, `"${name}" has an unknown effect type: '${effect[1]}'`).toContain(effect[1]);
     }
 
     if (card.cardType === SPELL) {
