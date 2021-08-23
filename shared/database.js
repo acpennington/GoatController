@@ -19,7 +19,7 @@ const lookupByID = {};
 
 for (const name in db) {
   const card = db[name];
-  lookupByID[card.id] = card;
+  lookupByID[card.id] = name;
   switch (card.cardType) {
     case FUSION_MONSTER:
       fusions[name] = cards[name] = card;
