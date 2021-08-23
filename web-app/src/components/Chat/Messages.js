@@ -10,7 +10,7 @@ import { cards } from "shared/database";
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
-const DRAW_PHASE_MESSAGE = /set the phase to Draw./;
+const DRAW_PHASE_MESSAGE = /set the Phase to Draw./;
 
 class Messages extends PureComponent {
    transformCard = (msg) => {
