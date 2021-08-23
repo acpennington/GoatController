@@ -32,7 +32,7 @@ const lookupByID = {};
 
 for (const name in db) {
   const card = db[name];
-  lookupByID[card.id] = card;
+  lookupByID[card.id] = name;
   switch (card.cardType) {
     case FUSION_MONSTER:
       unordered[name] = cards[name] = card;

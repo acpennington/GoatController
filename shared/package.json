@@ -9,7 +9,9 @@
     "./database": "./database.js",
     "./display": "./display.js",
     "./expandDeck": "./expandDeck.js",
+    "./exportYDK": "./exportYDK.js",
     "./getCardDetails": "./getCardDetails.js",
+    "./importYDK": "./importYDK.js",
     "./shuffle": "./shuffle.js",
     "./verifyDeck": "./verifyDeck.js"
   },
