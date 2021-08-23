@@ -4,7 +4,7 @@
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
       "text": "If you control 3 \"7\": You can draw 3 cards, then destroy all \"7\" on the field. <effect=Trigger-like>When this card is sent from your field to the Graveyard: Gain 700 Life Points.</effect>."
-    },
+   },
    "3-Hump Lacooda": {
       "id": "86988864",
       "cardType": "effectMonster",
@@ -111,7 +111,7 @@
       "atk": 1600,
       "def": 1600,
       "text": "Spellcaster/Effect – <effect=Trigger>When this card is Normal Summoned, also once during your Standby Phase: Target 1 Set card your opponent controls; look at it.</effect>."
-    },
+   },
    "A Wingbeat of Giant Dragon": {
       "id": "28596933",
       "cardType": "Spell",
@@ -125,8 +125,8 @@
       "levelOrSubtype": 2,
       "atk": 300,
       "def": 400,
-      "text": "Machine/Effect – When your opponent activates a Trap: <effect=Quick>You can Tribute this card; negate its activation, and if you do, destroy it.</effect>."
-    },
+      "text": "Machine/Effect – <effect=Quick>When your opponent activates a Trap: You can Tribute this card; negate its activation, and if you do, destroy it.</effect>."
+   },
    "Abare Ushioni": {
       "id": "89718302",
       "cardType": "effectMonster",
@@ -138,7 +138,7 @@
       "prepopLP": { "hero": -1000, "villain": -1000 },
       "script": {
          "name": "FLIP_COINS",
-         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
          "params": 1
       }
    },
@@ -147,7 +147,7 @@
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "During your opponent's turn: This turn, the attacks from monsters your opponent controls become direct attacks."
-    },
+   },
    "Absorbing Kid from the Sky": {
       "id": "49771608",
       "cardType": "effectMonster",
@@ -211,7 +211,7 @@
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "During your Main Phase 1: At the end of the Battle Phase, destroy all monsters on the field involved in damage calculation this turn."
-    },
+   },
    "Agido": {
       "id": "16135253",
       "cardType": "effectMonster",
@@ -258,7 +258,7 @@
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "Target 1 monster you control and send it to the Graveyard; gain Life Points equal to that monster's original ATK."
-    },
+   },
    "Amazoness Archer": {
       "id": "91869203",
       "cardType": "effectMonster",
@@ -283,7 +283,7 @@
       "atk": 800,
       "def": 1500,
       "text": "Warrior/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Target 1 face-up monster your opponent controls; it loses 500 ATK until the end of this turn.</effect>."
-    },
+   },
    "Amazoness Fighter": {
       "id": "55821894",
       "cardType": "effectMonster",
@@ -353,7 +353,7 @@
       "atk": 1500,
       "def": 1300,
       "text": "Machine/Effect – <effect=Continuous>If \"Umi\" is on the field, this card can attack your opponent's Life Points directly.</effect>."
-    },
+   },
    "Amplifier": {
       "id": "00303660",
       "cardType": "Spell",
@@ -478,14 +478,15 @@
       "levelOrSubtype": 3,
       "atk": 0,
       "def": 1600,
-      "text": "Plant/Effect – <effect=Ignition>You can Tribute 1 Insect monster you control; inflict 800 damage to your opponent.</effect>."
-    },
+      "text": "Plant/Effect – <effect=Ignition>You can Tribute 1 Insect monster you control; inflict 800 damage to your opponent.</effect>.",
+      "prepopLP": { "villain": -800 }
+   },
    "Anti-Spell": {
       "id": "53112492",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
       "text": "When a Spell is activated: Remove 2 Spell Counters from your field; negate its activation, and if you do, destroy it."
-    },
+   },
    "Anti-Spell Fragrance": {
       "id": "58921041",
       "cardType": "Trap",
@@ -521,7 +522,7 @@
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>Monsters with the same name on the field gain 500 ATK/DEF.</effect>."
-    },
+   },
    "Aqua Madoor": {
       "id": "85639257",
       "cardType": "normalMonster",
@@ -598,7 +599,7 @@
       "atk": 2800,
       "def": 2300,
       "text": "Fairy/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 \"Warrior of Zera\" while \"The Sanctuary in the Sky\" is on the field and cannot be Special Summoned by other ways.</effect> <effect=Ignition>You can discard 1 LIGHT monster to the Graveyard; if you control \"The Sanctuary in the Sky\", destroy all monsters your opponent controls.</effect>"
-    },
+   },
    "Armaill": {
       "id": "53153481",
       "cardType": "normalMonster",
@@ -670,7 +671,7 @@
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
       "text": "When an Equip Spell is activated: Negate its activation, and if you do, destroy it."
-    },
+   },
    "Armor Exe": {
       "id": "07180418",
       "cardType": "effectMonster",
@@ -679,13 +680,13 @@
       "atk": 2400,
       "def": 1400,
       "text": "Rock/Effect – <effect=Continuous>Cannot attack the turn it is Normal, Flip, or Special Summoned.</effect> <effect=Maintenance Cost>Once per turn, during the Standby Phase, either remove 1 Spell Counter from your field or destroy this card.</effect>."
-    },
+   },
    "Armored Glass": {
       "id": "36868108",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "When a monster is equipped with an Equip Card: Negate all Equip Cards effects on the field this turn."
-    },
+   },
    "Armored Lizard": {
       "id": "15480588",
       "cardType": "normalMonster",
@@ -725,8 +726,8 @@
       "id": "69296555",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "<effect=Continuous-like>When this card is activated, declare 1 Type of monster. Monsters of the declared Type cannot declare an attack during the turn they are Normal, Flip, or Special Summoned.</effect>"
-    },
+      "text": "<effect=Continuous-like>When this card is activated, declare 1 Type of monster. Monsters of the declared Type cannot declare an attack during the turn they are Summoned.</effect>"
+   },
    "Arsenal Bug": {
       "id": "42364374",
       "cardType": "effectMonster",
@@ -735,7 +736,7 @@
       "atk": 2000,
       "def": 2000,
       "text": "Insect/Effect – <effect=Continuous>If you control no other Insect monsters, this card's ATK/DEF become 1000.</effect>."
-    },
+   },
    "Arsenal Robber": {
       "id": "55348096",
       "cardType": "Trap",
@@ -824,7 +825,7 @@
       "id": "71453557",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "Pay 1500 Life Points, then target 1 monster in your opponent's Graveyard; Special Summon that target on your side of the field in face-up Attack Position, and equip it with this card. When this card leaves the field, destroy the equipped monster.",
+      "text": "Pay 1500 Life Points, then target 1 monster in your opponent's Graveyard; Special Summon that target on your side of the field in face-up Attack Position, and equip it with this card. <effect=Continuous-like>When this card leaves the field, destroy the equipped monster.</effect>",
       "prepopLP": { "hero": -1500 }
    },
    "Avatar of The Pot": {
@@ -2012,7 +2013,7 @@
          "autoClose": true
       }
    },
-   "Dark Scorpion – Cliff the Trap Remover": {
+   "Dark Scorpion - Cliff the Trap Remover": {
       "id": "06967870",
       "cardType": "effectMonster",
       "attribute": "Dark",
