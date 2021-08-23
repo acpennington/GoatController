@@ -3,8 +3,8 @@
       "id": "67048711",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "When there are 3 face-up \"7\" cards on your side of the field, draw 3 cards from your Deck. Then destroy all \"7\" cards. <effect=Trigger-like>When this card is sent directly from the field to your Graveyard, increase your Life Points by 700 points.</effect>"
-   },
+      "text": "If you control 3 \"7\": You can draw 3 cards, then destroy all \"7\" on the field. <effect=Trigger-like>When this card is sent from your field to the Graveyard: Gain 700 Life Points.</effect>."
+    },
    "3-Hump Lacooda": {
       "id": "86988864",
       "cardType": "effectMonster",
@@ -110,13 +110,13 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 1600,
-      "text": "Spellcaster/Effect – <effect=Trigger>When you Normal Summon this card, and during each of your Standby Phases, select 1 Set card on your opponent's side of the field. Pick it up and look at it, then return it to its original position.</effect>"
-   },
+      "text": "Spellcaster/Effect – <effect=Trigger>When this card is Normal Summoned, also once during your Standby Phase: Target 1 Set card your opponent controls; look at it.</effect>."
+    },
    "A Wingbeat of Giant Dragon": {
       "id": "28596933",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Return 1 Level 5 or higher Dragon-Type monster you control to the hand, and if you do, destroy all Spell and Trap Cards on the field."
+      "text": "Return 1 Level 5 or higher Dragon-Type monster you control to the hand, and if you do, destroy all Spells and Traps on the field."
    },
    "A-Team: Trap Disposal Unit": {
       "id": "13026402",
@@ -125,8 +125,8 @@
       "levelOrSubtype": 2,
       "atk": 300,
       "def": 400,
-      "text": "Machine/Effect – <effect=Quick>This effect can be used during either player's turn. When your opponent activates a Trap Card, Tribute this face-up card to negate the activation of the Trap Card and destroy it.</effect>"
-   },
+      "text": "Machine/Effect – When your opponent activates a Trap: <effect=Quick>You can Tribute this card; negate its activation, and if you do, destroy it.</effect>."
+    },
    "Abare Ushioni": {
       "id": "89718302",
       "cardType": "effectMonster",
@@ -134,7 +134,7 @@
       "levelOrSubtype": 4,
       "atk": 1200,
       "def": 1200,
-      "text": "Beast-Warrior/Effect – <effect=Ignition>Once per turn, you can toss a coin and call it. If you call it right, inflict 1000 damage to your opponent. If you call it wrong, you take 1000 damage.</effect>",
+      "text": "Beast-Warrior/Effect – <effect=Ignition>Once per turn: You can toss a coin and call it. If you call it right, inflict 1000 damage to your opponent. If you call it wrong, take 1000 damage.</effect>",
       "prepopLP": { "hero": -1000, "villain": -1000 },
       "script": {
          "name": "FLIP_COINS",
@@ -146,8 +146,8 @@
       "id": "27744077",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Activate only during your opponent's turn. This turn, the attacks from your opponent's monsters become direct attacks."
-   },
+      "text": "During your opponent's turn: This turn, the attacks from monsters your opponent controls become direct attacks."
+    },
    "Absorbing Kid from the Sky": {
       "id": "49771608",
       "cardType": "effectMonster",
@@ -210,8 +210,8 @@
       "id": "25345186",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "This card can only be activated during Main Phase 1. All monsters on both sides of the field that have been involved in damage calculation are destroyed during the End Step of the turn."
-   },
+      "text": "During your Main Phase 1: At the end of the Battle Phase, destroy all monsters on the field involved in damage calculation this turn."
+    },
    "Agido": {
       "id": "16135253",
       "cardType": "effectMonster",
@@ -219,7 +219,7 @@
       "levelOrSubtype": 4,
       "atk": 1500,
       "def": 1300,
-      "text": "Fairy/Effect – <effect=Trigger>When this card is destroyed and sent to the Graveyard as a result of battle, roll a six-sided die. You can Special Summon 1 Fairy monster from your Graveyard whose Level is equal to the number rolled (If the result is 6, you can Special Summon a Level 6 or higher monster).</effect>",
+      "text": "Fairy/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: Roll a six-sided die. You can Special Summon 1 Fairy monster from your Graveyard whose Level is equal to the result. If the result is 6, you can Special Summon 1 Level 6 or higher Fairy monster from your Graveyard.</effect>",
       "script": {
          "name": "ROLL_DICE",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
@@ -257,8 +257,8 @@
       "id": "21070956",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Select 1 monster on your side of the field and send it to the Graveyard. Increase your Life Points by an amount equal to the original ATK of the monster."
-   },
+      "text": "Target 1 monster you control and send it to the Graveyard; gain Life Points equal to that monster's original ATK."
+    },
    "Amazoness Archer": {
       "id": "91869203",
       "cardType": "effectMonster",
@@ -282,8 +282,8 @@
       "levelOrSubtype": 3,
       "atk": 800,
       "def": 1500,
-      "text": "Warrior/Effect – <effect=Trigger>Select 1 face-up monster your opponent controls during each of your Standby Phases. It loses 500 ATK until the end of this turn.</effect>"
-   },
+      "text": "Warrior/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Target 1 face-up monster your opponent controls; it loses 500 ATK until the end of this turn.</effect>."
+    },
    "Amazoness Fighter": {
       "id": "55821894",
       "cardType": "effectMonster",
@@ -333,7 +333,7 @@
       "levelOrSubtype": 1,
       "atk": 300,
       "def": 350,
-      "text": "Aqua/Effect – <effect=Trigger>When the control of this face-up card on the field shifts to your opponent, inflict 2000 points of damage to your opponent's Life Points.</effect> <effect=Condition>This effect can only be used once as long as this card remains face-up on the field.</effect>.",
+      "text": "Aqua/Effect – <effect=Trigger>Once while face-up on the field, when the control of this face-up card is switched: Its new controller takes 2000 damage.</effect>.",
       "prepopLP": { "hero": -2000 }
    },
    "Amphibian Beast": {
@@ -352,8 +352,8 @@
       "levelOrSubtype": 4,
       "atk": 1500,
       "def": 1300,
-      "text": "Machine/Effect – <effect=Continuous>As long as \"Umi\" remains face-up on the field, this card can attack your opponent's Life Points directly.</effect>."
-   },
+      "text": "Machine/Effect – <effect=Continuous>If \"Umi\" is on the field, this card can attack your opponent's Life Points directly.</effect>."
+    },
    "Amplifier": {
       "id": "00303660",
       "cardType": "Spell",
@@ -367,7 +367,7 @@
       "levelOrSubtype": 2,
       "atk": 300,
       "def": 500,
-      "text": "Winged Beast/Flip/Effect – <effect=Trigger>FLIP: Select 1 Field Spell from your Deck and place it on top of your Deck.</effect> If \"Necrovalley\" is on the field, you can add the selected Field Spell to your hand, instead.",
+      "text": "Winged Beast/Flip/Effect – <effect=Trigger>FLIP: Choose 1 Field Spell from your Deck and place it on top of your Deck, or, if \"Necrovalley\" is on the field, you can add that Field Spell to your hand instead.</effect>.",
       "script": {
          "name": "SEARCH_DECK",
          "tooltip": "Search your deck for a Field Spell, then (if \"Necrovalley\" is not on the field) put it in your Graveyard, and move it to the top of your Deck.",
@@ -446,7 +446,7 @@
       "levelOrSubtype": 10,
       "atk": 3000,
       "def": 2500,
-      "text": "Beast/Effect – <effect=Ignition>You can pay 500 Life Points to Special Summon this card when \"Pyramid of Light\" is on the field.</effect> <effect=Condition>This card cannot attack during the turn that it is Normal Summoned or Special Summoned.</effect> <effect=Condition>This card cannot be Special Summoned from the Graveyard.</effect> <effect=Trigger>If this card destroys a Defense Position monster as a result of battle, inflict damage to your opponent's Life Points equal to half of the ATK of the destroyed monster.</effect>.",
+      "text": "Beast/Effect – <effect=Ignition>If \"Pyramid of Light\" is on the field: You can pay 500 Life Points; Special Summon this card from your hand.</effect> <effect=Condition>Cannot attack the turn it is Normal or Special Summoned.</effect> <effect=Condition>Cannot be Special Summoned from the Graveyard.</effect> <effect=Trigger>If this card destroys a Defense Position monster by battle: Inflict damage to your opponent equal to half that monster's original ATK.</effect>.",
       "prepopLP": { "hero": -500 }
    },
    "Ansatsu": {
@@ -478,15 +478,14 @@
       "levelOrSubtype": 3,
       "atk": 0,
       "def": 1600,
-      "text": "Plant/Effect – <effect=Ignition>By Tributing 1 Insect monster on your side of the field, inflict 800 points of damage to your opponent's Life Points.</effect>.",
-      "prepopLP": { "villain": -800 }
-   },
+      "text": "Plant/Effect – <effect=Ignition>You can Tribute 1 Insect monster you control; inflict 800 damage to your opponent.</effect>."
+    },
    "Anti-Spell": {
       "id": "53112492",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "Remove 2 Spell Counters on your side of the field to negate the activation of a Spell Card and destroy it."
-   },
+      "text": "When a Spell is activated: Remove 2 Spell Counters from your field; negate its activation, and if you do, destroy it."
+    },
    "Anti-Spell Fragrance": {
       "id": "58921041",
       "cardType": "Trap",
@@ -500,7 +499,7 @@
       "levelOrSubtype": 2,
       "atk": 400,
       "def": 800,
-      "text": "Spellcaster/Effect – <effect=Trigger>If this card is Summoned: Target 1 face-up card on the field that you can place a Spell Counter on; place 1 Spell Counter on that target.</effect> <effect=Trigger>If this card is destroyed by battle: You can Special Summon 1 Level 2 or lower Spellcaster monster from your Deck in face-down Defense Position.</effect>.",
+      "text": "Spellcaster/Effect – <effect=Trigger>When this card is Summoned: Target 1 face-up card on the field that you can place a Spell Counter on; place 1 Spell Counter on that target.</effect> <effect=Trigger>If this card is destroyed by battle, before this card leaves the field: You can Special Summon 1 Level 2 or lower Spellcaster monster from your Deck in face-down Defense Position.</effect>.",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
@@ -521,8 +520,8 @@
       "id": "95132338",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>If there are monsters with the same name on the field, increase the ATK and DEF of all those monsters with the same name by 500 points.</effect>."
-   },
+      "text": "<effect=Continuous-like>Monsters with the same name on the field gain 500 ATK/DEF.</effect>."
+    },
    "Aqua Madoor": {
       "id": "85639257",
       "cardType": "normalMonster",
@@ -598,8 +597,8 @@
       "levelOrSubtype": 8,
       "atk": 2800,
       "def": 2300,
-      "text": "Fairy/Effect – <effect=Summon>This card cannot be Normal Summoned or Set.</effect> <effect=Ignition>This card cannot be Special Summoned except by Tributing 1 face-up \"Warrior of Zera\" on your side of the field while \"The Sanctuary in the Sky\" is on the field.</effect> If \"The Sanctuary in the Sky\" is on your side of the field, by discarding 1 LIGHT Monster Card from your hand to the Graveyard, destroy all monsters on your opponent's side of the field. If \"The Sanctuary in the Sky\" is not on your side of the field, this effect is not applied."
-   },
+      "text": "Fairy/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 \"Warrior of Zera\" while \"The Sanctuary in the Sky\" is on the field and cannot be Special Summoned by other ways.</effect> <effect=Ignition>You can discard 1 LIGHT monster to the Graveyard; if you control \"The Sanctuary in the Sky\", destroy all monsters your opponent controls.</effect>"
+    },
    "Armaill": {
       "id": "53153481",
       "cardType": "normalMonster",
@@ -670,8 +669,8 @@
       "id": "79649195",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "Negate the activation of an Equip Spell and destroy it."
-   },
+      "text": "When an Equip Spell is activated: Negate its activation, and if you do, destroy it."
+    },
    "Armor Exe": {
       "id": "07180418",
       "cardType": "effectMonster",
@@ -679,14 +678,14 @@
       "levelOrSubtype": 4,
       "atk": 2400,
       "def": 1400,
-      "text": "Rock/Effect – <effect=Continuous>This card cannot attack in the same turn it is Normal Summoned, Flip Summoned, or Special Summoned.</effect> <effect=Maintenance Cost>During each of your and your opponent's Standby Phases, remove 1 Spell Counter on your side of the field. If you do not, destroy this card.</effect>"
-   },
+      "text": "Rock/Effect – <effect=Continuous>Cannot attack the turn it is Normal, Flip, or Special Summoned.</effect> <effect=Maintenance Cost>Once per turn, during the Standby Phase, either remove 1 Spell Counter from your field or destroy this card.</effect>."
+    },
    "Armored Glass": {
       "id": "36868108",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "You can only activate this card when a monster is equipped with an Equip Card. Negate the effects of all Equip Cards on the field during the turn this card is activated."
-   },
+      "text": "When a monster is equipped with an Equip Card: Negate all Equip Cards effects on the field this turn."
+    },
    "Armored Lizard": {
       "id": "15480588",
       "cardType": "normalMonster",
@@ -726,8 +725,8 @@
       "id": "69296555",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "<effect=Continuous-like>Declare 1 Type of monster. Any monster of the declared Type cannot declare an attack during the turn it is Normal Summoned, Flip Summoned, or Special Summoned.</effect>"
-   },
+      "text": "<effect=Continuous-like>When this card is activated, declare 1 Type of monster. Monsters of the declared Type cannot declare an attack during the turn they are Normal, Flip, or Special Summoned.</effect>"
+    },
    "Arsenal Bug": {
       "id": "42364374",
       "cardType": "effectMonster",
@@ -735,13 +734,13 @@
       "levelOrSubtype": 3,
       "atk": 2000,
       "def": 2000,
-      "text": "Insect/Effect – <effect=Continuous>If you control no other Insect monsters, this card's ATK and DEF become 1000.</effect>."
-   },
+      "text": "Insect/Effect – <effect=Continuous>If you control no other Insect monsters, this card's ATK/DEF become 1000.</effect>."
+    },
    "Arsenal Robber": {
       "id": "55348096",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Your opponent selects 1 Equip Spell Card from his/her Deck and sends it to the Graveyard.",
+      "text": "Your opponent sends 1 Equip Spell from their Deck to the Graveyard.",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
@@ -809,7 +808,7 @@
       "id": "63689843",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "You can only activate this card when you take damage to your Life Points. Inflict 700 points of damage to your opponent's Life Points. Also, inflict 300 points of damage to your opponent's Life Points for each \"Attack and Receive\" card in your Graveyard.",
+      "text": "When you take damage: Your opponent takes 700 damage, also they take 300 damage for each \"Attack and Receive\" in your Graveyard.",
       "prepopLP": { "villain": -700 }
    },
    "Aussa the Earth Charmer": {
