@@ -105,8 +105,8 @@ class Game extends Component {
                dispatch(moveCard(data));
                break;
             case MILL_UNTIL: {
-               const { player, deck, params } = data;
-               dispatch(millUntil(player, deck, params));
+               const { player, deck, params, message } = data;
+               dispatch(millUntil(player, deck, params, message));
                break;
             }
             default:

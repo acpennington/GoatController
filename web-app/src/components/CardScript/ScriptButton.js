@@ -44,7 +44,7 @@ class CardScript extends PureComponent {
 
    runScript = () => {
       const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw, script } = this.props;
-      const { name, params } = script;
+      const { name, message, params } = script;
       const socket = this.context;
       switch (name) {
          case SEARCH_DECK:
@@ -54,7 +54,7 @@ class CardScript extends PureComponent {
             banishAll(field, heroPlayer, activeCard, variant, socket);
             break;
          case MILL_UNTIL:
-            millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, socket);
+            millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, message, socket);
             break;
          case TOKENS:
             createTokens(heroPlayer, params, socket);

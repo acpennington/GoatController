@@ -3363,7 +3363,6 @@
       "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: Your opponent draws 3 cards, then they reveal those cards, also they discard any Spell drawn with this effect.</effect>",
       "script": {
          "name": "MILL_UNTIL",
-         "message": "FIXME",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
          "params": 3
       }
@@ -4756,6 +4755,7 @@
       "text": "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the Graveyard.",
       "script": {
          "name": "MILL_UNTIL",
+         "message": "Normal Summon Monster",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
          "params": {
             "cardType": {
@@ -4988,7 +4988,6 @@
       "text": "Insect/Flip/Effect – <effect=Trigger>FLIP: Send the top 5 cards of your opponent's Deck to the Graveyard.</effect>",
       "script": {
          "name": "MILL_UNTIL",
-         "message": "FIXME",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
          "params": 5
       }
@@ -5816,6 +5815,7 @@
       "text": "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the Graveyard. If not, Special Summon the excavated monster, also send the remaining cards to the Graveyard.",
       "script": {
          "name": "MILL_UNTIL",
+         "message": "Normal Summon Monster",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
          "params": {
             "cardType": {

@@ -10,7 +10,7 @@ function filterDeck(player, script) {
    return openModal(player, DECK, params, autoClose, oneParam);
 }
 
-function millUntil(player, deck, params, socket = false) {
+function millUntil(player, deck, params, message, socket = false) {
    const topCard = deck.length - 1;
    return (dispatch) => {
       let found = -1;
@@ -25,7 +25,7 @@ function millUntil(player, deck, params, socket = false) {
       }
 
       if (socket && socket.api) {
-         const payload = { action: MILL, data: { token: socket.token, id: socket.matchId, deck, params, fail: found < 0 } };
+         const payload = { action: MILL, data: { token: socket.token, id: socket.matchId, deck, params, fail: found < 0, message } };
          socket.api.send(JSON.stringify(payload));
       }
       if (found < 0) return;
