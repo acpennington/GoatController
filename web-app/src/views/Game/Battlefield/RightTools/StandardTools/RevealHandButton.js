@@ -26,7 +26,7 @@ class RevealHand extends PureComponent {
             }
             round
          >
-            {hand ? "Stop Revealing" : "Reveal Hand"}
+            {hand ? "Reveal Hand" : "Stop Revealing"}
          </Button>
       );
    }
@@ -35,7 +35,7 @@ class RevealHand extends PureComponent {
 function mapStateToProps(state, ownProps) {
    const handRevealed = state.field[ownProps.name] && state.field[ownProps.name].handRevealed;
    return {
-      hand: handRevealed ? state.field[ownProps.name][HAND].map(({name}) => name.split(SENTINEL)[0]) : null
+      hand: handRevealed ? null : state.field[ownProps.name][HAND].map(({ name }) => name.split(SENTINEL)[0])
    };
 }
 
