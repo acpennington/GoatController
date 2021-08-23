@@ -74,9 +74,9 @@ function attack(data) {
    return { type: ATTACK, data };
 }
 
-function revealHand(player, socket = false) {
+function revealHand(player, hand, socket = false) {
    if (socket && socket.api) {
-      const payload = { action: SEND_REVEAL, data: { token: socket.token, id: socket.matchId } };
+      const payload = { action: SEND_REVEAL, data: { hand, token: socket.token, id: socket.matchId } };
       socket.api.send(JSON.stringify(payload));
    }
 

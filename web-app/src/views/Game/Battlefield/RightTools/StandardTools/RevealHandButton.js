@@ -5,16 +5,17 @@ import { connect } from "react-redux";
 import Button from "components/CustomButtons/Button.js";
 import { revealHand } from "stateStore/actions/game/field.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
+import { HAND, SENTINEL } from "shared/constants";
 
 class RevealHand extends PureComponent {
    render() {
-      const { revealHand, handRevealed, name } = this.props;
+      const { revealHand, hand, name } = this.props;
 
       return (
          <Button
-            onClick={() => revealHand(name, this.context)}
+            onClick={() => revealHand(name, hand, this.context)}
             style={
-               handRevealed
+               hand
                   ? {
                        backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/cards/art/InfiniteCards.jpg")',
                        backgroundPosition: "50% 15%"
@@ -25,14 +26,17 @@ class RevealHand extends PureComponent {
             }
             round
          >
-            {handRevealed ? "Stop Revealing" : "Reveal Hand"}
+            {hand ? "Stop Revealing" : "Reveal Hand"}
          </Button>
       );
    }
 }
 
 function mapStateToProps(state, ownProps) {
-   return { handRevealed: state.field[ownProps.name] ? state.field[ownProps.name].handRevealed : false };
+   const handRevealed = state.field[ownProps.name] && state.field[ownProps.name].handRevealed;
+   return {
+      hand: handRevealed ? state.field[ownProps.name][HAND].map(({name}) => name.split(SENTINEL)[0]) : null
+   };
 }
 
 RevealHand.propTypes = {
