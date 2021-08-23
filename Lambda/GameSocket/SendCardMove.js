@@ -13,7 +13,7 @@ async function sendCardMove(id, username, from, fromCard, to, settingTrap, msg, 
    const unknown =
       settingTrap || (from.row === DECK && to.row === HAND && from.zone === -1) || (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED);
    const cardName = unknown ? "a card " : "<<" + fromCard.name + ">>";
-   const adverb = ` ${msg} ` || " ";
+   const adverb = msg ? ` ${msg} ` : " ";
    const noMessage = (from.row === HAND && to.row === HAND) || (from.row === DECK && to.row === DECK);
 
    const fromZone = ZONES.includes(from.row) ? `${display(from.row)} Zone` : display(from.row);
