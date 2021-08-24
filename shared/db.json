@@ -1222,7 +1222,12 @@
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
-         "params": { "name": { "value": "Harpie Lady" } },
+         "params": {
+            "name": {
+               "operator": "OR",
+               "value": ["Harpie Lady", "Cyber Harpie Lady"]
+            }
+         },
          "autoClose": true
       }
    },
@@ -1691,6 +1696,12 @@
       "def": 600,
       "text": "Fiend/Effect – <effect=Trigger>If this card is Summoned: Return all Set cards on the field to the hand.</effect>"
    },
+   "Call of the Grave": {
+      "id": "16970158",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "If your opponent activates \"Monster Reborn\": Negate the effect of that \"Monster Reborn\"."
+   },
    "Call of the Haunted": {
       "id": "97077563",
       "cardType": "Trap",
@@ -1698,6 +1709,12 @@
       "text": "Activate this card by targeting 1 monster in your Graveyard; Special Summon that target in Attack Position. <effect=Continuous-like>If this card leaves the field, destroy that monster.</effect> <effect=Continuous-like>If that monster is destroyed, destroy this card.</effect>",
       "limit": 1,
       "art": 2
+   },
+   "Call of the Mummy": {
+      "id": "04861205",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Ignition-like>Once per turn: You can Special Summon 1 Zombie monster from your hand.</effect> <effect=Condition>You must control no monsters to activate and to resolve this effect.</effect>."
    },
    "Cannon Soldier": {
       "id": "11384280",
@@ -1733,11 +1750,39 @@
       },
       "limit": 1
    },
+   "Card Shuffle": {
+      "id": "12183332",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Ignition-like>Once per turn: You can pay 300 Life Points; shuffle either your or your opponent's Deck.</effect>.",
+      "prepopLP": { "hero": -300 }
+   },
+   "Card of Safe Return": {
+      "id": "57953380",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>When a monster(s) is Special Summoned from your Graveyard: You can draw 1 card.</effect>."
+   },
+   "Card of Sanctity": {
+      "id": "42664989",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Banish all other cards you control and in your hand (min. 1 from each); draw until you have 2 cards in your hand."
+   },
    "Castle Walls": {
       "id": "44209392",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "Target 1 face-up monster on the field; it gains 500 DEF until the end of this turn."
+   },
+   "Castle of Dark Illusions": {
+      "id": "00062121",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 920,
+      "def": 1930,
+      "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: While this card is face-up on the field, all Zombie monsters currently on the field gain 200 ATK/DEF.</effect> <effect=Continuous>Once per turn, during your next 4 Standby Phases, while this card is face-up on the field: Those Zombie monsters gain 200 ATK/DEF.</effect>."
    },
    "Cat's Ear Tribe": {
       "id": "95841282",
@@ -1747,6 +1792,24 @@
       "atk": 200,
       "def": 100,
       "text": "Beast-Warrior/Effect – <effect=Continuous>During your opponent's Battle Phase, if a monster(s) your opponent controls battles this card, that monster's original ATK becomes 200 during damage calculation only.</effect>"
+   },
+   "Catapult Turtle": {
+      "id": "95727991",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 5,
+      "atk": 1000,
+      "def": 2000,
+      "text": "Aqua/Effect – <effect=Ignition>You can Tribute 1 monster; inflict damage to your opponent equal to half the Tributed monster's ATK on the field.</effect>."
+   },
+   "Catnipped Kitty": {
+      "id": "96501677",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 2,
+      "atk": 0,
+      "def": 500,
+      "text": "Beast/Effect – <effect=Continuous>If you control another Beast monster(s), monsters your opponent controls cannot target this card for an attack.</effect> <effect=Ignition>Once per turn: You can target 1 face-up monster your opponent controls; its DEF becomes 0 until the end of this turn.</effect>."
    },
    "Cave Dragon": {
       "id": "93220472",
@@ -1774,11 +1837,45 @@
       "text": "Warrior – An elf who learned to wield a sword, he baffles enemies with lightning-swift attacks.",
       "art": 2
    },
+   "Cemetary Bomb": {
+      "id": "51394546",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Inflict damage to your opponent for each card in their Graveyard x 100."
+   },
+   "Centrifugal Field": {
+      "id": "01801154",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>If a Fusion Monster(s) is destroyed by a card effect and sent to the Graveyard: Its owner targets 1 Fusion material Monster in their Graveyard that is listed on that Fusion Monster; that player Special Summons that target.</effect>."
+   },
+   "Ceremonial Bell": {
+      "id": "20228463",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 3,
+      "atk": 0,
+      "def": 1850,
+      "text": "Spellcaster/Effect – <effect=Continuous>Both players must keep their hands revealed.</effect>."
+   },
+   "Cestus of Dagla": {
+      "id": "28106077",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a Fairy monster.</effect> <effect=Continuous-like>It gains 500 ATK.</effect> <effect=Trigger-like>If it inflicts battle damage to your opponent: Gain Life Points equal to the damage inflicted.</effect>."
+   },
+   "Chain Burst": {
+      "id": "48276469",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>Each time a Trap is activated, immediately after it resolves, the player that activated it takes 1000 damage.</effect>.",
+      "prepopLP": { "hero": -1000, "villian": -1000 }
+   },
    "Chain Energy": {
       "id": "79323590",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>Each player must pay 500 Life Points per card to Normal Summon, Special Summon, Set or activate cards from his/her respective hand.</effect>",
+      "text": "<effect=Continuous-like>Each player must pay 500 Life Points per card to Normal Summon, Special Summon, Set or activate cards from their respective hands.</effect>",
       "prepopLP": { "hero": -500, "villain": -500 }
    },
    "Chaos Command Magician": {
@@ -1790,6 +1887,27 @@
       "def": 1900,
       "text": "Spellcaster/Effect – <effect=Continuous>Effects of monsters that target this 1 card are negated.</effect>"
    },
+   "Chaos End": {
+      "id": "61044390",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "If at least 7 of your cards are banished: Destroy all monsters on the field."
+   },
+   "Chaos Greed": {
+      "id": "97439308",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "If at least 4 of your cards are banished and there are no cards in your Graveyard: Draw 2 cards."
+   },
+   "Chaos Necromancer": {
+      "id": "01434352",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 1,
+      "atk": 0,
+      "def": 0,
+      "text": "Fiend/Effect – <effect=Continuous>This card's ATK is equal to the number of your banished monsters x 300.</effect>."
+   },
    "Chaos Sorcerer": {
       "id": "09596126",
       "cardType": "effectMonster",
@@ -1798,6 +1916,15 @@
       "atk": 2300,
       "def": 2000,
       "text": "Spellcaster/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by banishing 1 LIGHT and 1 DARK monster from your Graveyard.</effect> <effect=Ignition>Once per turn: You can target 1 face-up monster on the field; banish that target.</effect> <effect=Condition>This card cannot attack the turn you activate this effect.</effect>"
+   },
+   "Chaosrider Gustaph": {
+      "id": "47829960",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 4,
+      "atk": 1400,
+      "def": 1500,
+      "text": "Warrior/Effect – <effect=Ignition>Once per turn: You can banish up to 2 Spells from your Graveyard; this card gains 300 ATK for each, until the end of your opponent's turn.</effect>."
    },
    "Charcoal Inpachi": {
       "id": "13179332",
@@ -1825,6 +1952,12 @@
       "atk": 1100,
       "def": 800,
       "text": "Pyro/Fusion – \"Monster Egg\" + \"Hinotama Soul\""
+   },
+   "Checkmate": {
+      "id": "69313735",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Tribute 1 \"Archfiend\" monster; this turn, 1 \"Terrorking Archfiend\" you control can attack directly."
    },
    "Chiron the Mage": {
       "id": "16956455",
@@ -1900,11 +2033,66 @@
          "params": { "name": "Poisonous Snake Token", "pos": "atk", "count": 1 }
       }
    },
+   "Cobraman Sakuzy": {
+      "id": "75109441",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 800,
+      "def": 400,
+      "text": "Reptile/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is flipped face-up: Look at all Set Spells/Traps your opponent controls.</effect>."
+   },
+   "Cockroach Knight": {
+      "id": "33413638",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 800,
+      "def": 900,
+      "text": "Insect/Effect – <effect=Trigger>If this card is sent to the Graveyard: Return it to the top of the Deck.</effect>."
+   },
+   "Cocoon of Evolution": {
+      "id": "40240595",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 0,
+      "def": 2000,
+      "text": "Insect/Effect – <effect=Ignition>You can target 1 \"Petit Moth\" you control; equip this card from your hand to that target.</effect> <effect=Continuous-like>While equipped by this effect, the original ATK/DEF of that \"Petit Moth\" becomes the ATK/DEF of \"Cocoon of Evolution\".</effect>."
+   },
+   "Coffin Seller": {
+      "id": "65830223",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>Each time a monster(s) is sent to your opponent's Graveyard: Inflict 300 damage to your opponent.</effect>.",
+      "prepopLP": { "villian": -300 }
+   },
    "Cold Wave": {
       "id": "60682203",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "At the start of your Main Phase 1: <effect=Lingering>Until your next Draw Phase, neither player can Set or activate the effects of Spells and Traps.</effect>"
+   },
+   "Collected Power": {
+      "id": "07565547",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 face-up monster on the field; equip it with all Equip Cards on the field. <effect=Condition>If any of those Equip Cards is now equipped to an incorrect target, destroy that Equip Card.</effect>."
+   },
+   "Combination Attack": {
+      "id": "08964854",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "During the Battle Phase: Target 1 monster you control that battled this turn and that is equipped with 1 Union monster; Special Summon that Union monster, also that target can attack again."
+   },
+   "Command Knight": {
+      "id": "10375182",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1200,
+      "def": 1900,
+      "text": "Warrior/Effect – <effect=Continuous>All Warrior monsters you control gain 400 ATK.</effect> <effect=Continuous>If you control another monster, monsters your opponent controls cannot target this card for an attack.</effect>."
    },
    "Commencement Dance": {
       "id": "43417563",
@@ -1917,6 +2105,18 @@
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "Target 1 monster on the field; return that target to the hand."
+   },
+   "Continuous Destruction Punch": {
+      "id": "68057622",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>If a monster your opponent controls battled a Defense Position monster you control, after damage calculation destroy the attacking monster if its ATK is lower than the DEF of your monster.</effect>."
+   },
+   "Contract with Exodia": {
+      "id": "33244944",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "If you have all 5 of \"Exodia the Forbidden One\", \"Right Arm of the Forbidden One\", \"Left Arm of the Forbidden One\", \"Right Leg of the Forbidden One\", and \"Left Leg of the Forbidden One\" in your Graveyard: Special Summon 1 \"Exodia Necross\" from your hand."
    },
    "Contract with the Abyss": {
       "id": "69035382",
@@ -1947,6 +2147,18 @@
       "atk": 2900,
       "def": 2450,
       "text": "Spellcaster – Queen of the galaxies and mistress of the stars."
+   },
+   "Cost Down": {
+      "id": "23265313",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Discard 1 card; for the rest of this turn, reduce the Levels of all monsters in your hand by 2 (even after they are Summoned)."
+   },
+   "Covering Fire": {
+      "id": "74458486",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "During the Damage Step, while an opponent's monster is attacking a monster you control: Target 1 other face-up monster you control; your attacked monster gains ATK equal to that target's ATK during the Damage Step only."
    },
    "Crab Turtle": {
       "id": "91782219",
@@ -2000,6 +2212,30 @@
       "def": 1200,
       "text": "Fish/Effect – <effect=Continuous>If Normal Summoned, Traps cannot be activated.</effect>"
    },
+   "Crimson Ninja": {
+      "id": "14618326",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 1,
+      "atk": 300,
+      "def": 300,
+      "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 1 Trap on the field; destroy that target. (If the target is Set, reveal it, and destroy it if it is a Trap. Otherwise, return it to its original position).</effect>"
+   },
+   "Criosphinx": {
+      "id": "18654201",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 6,
+      "atk": 1200,
+      "def": 2400,
+      "text": "Rock/Effect – <effect=Trigger>If a monster(s) is returned from the field to the hand: Its owner sends 1 card from their hand to the Graveyard.</effect>."
+   },
+   "Cross Counter": {
+      "id": "37083210",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "If a monster your opponent controls attacks a Defense Position monster you control, and its DEF is higher than the attacking monster's ATK: Inflict double battle damage to your opponent, then destroy the attacking monster after damage calculation."
+   },
    "Cure Mermaid": {
       "id": "85802526",
       "cardType": "effectMonster",
@@ -2010,6 +2246,25 @@
       "text": "Fish/Effect – <effect=Trigger>As long as this card remains face-up on your field, increase your Life Points by 800 points during each of your Standby Phases.</effect>",
       "prepopLP": { "hero": 800 }
    },
+   "Curse of Aging": {
+      "id": "41398771",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Discard 1 card; face-up monsters your opponent currently controls lose 500 ATK/DEF until the end of this turn."
+   },
+   "Curse of Anubis": {
+      "id": "66742250",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Change all Effect Monsters on the field to Defense Position. <effect=Condition>Until the end of this turn, the original DEF of those monsters becomes 0, also their battle positions cannot be changed.</effect>."
+   },
+   "Curse of Darkness": {
+      "id": "84970821",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>Each time a Spell is activated, immediately after it resolves, the player that activated it takes 1000 damage.</effect>.",
+      "prepopLP": { "hero": -1000, "villain": -1000 }
+   },
    "Curse of Dragon": {
       "id": "28279543",
       "cardType": "normalMonster",
@@ -2018,6 +2273,18 @@
       "atk": 2000,
       "def": 1500,
       "text": "Dragon – A wicked dragon that taps into dark forces to execute a powerful attack."
+   },
+   "Curse of Fiend": {
+      "id": "12470447",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "During your Standby Phase (if this card is Set on your Spell & Trap Zone): Change the battle position of all monsters on the field. <effect=Condition>They cannot change their battle position for the rest of this turn, except by the effect of a card.</effect>."
+   },
+   "Curse of Royal": {
+      "id": "02926176",
+      "cardType": "Trap",
+      "levelOrSubtype": "Counter",
+      "text": "If a Spell/Trap is activated that includes the effect of destroying exactly 1 Spell/Trap: Negate its activation, and if you do, destroy it."
    },
    "Curse of the Masked Beast": {
       "id": "94377247",
@@ -2039,6 +2306,24 @@
       "atk": 1400,
       "def": 1200,
       "text": "Machine – A jet-powered hawk that travels at the speed of sound."
+   },
+   "Cyber Harpie Lady": {
+      "id": "80316585",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 4,
+      "atk": 1800,
+      "def": 1300,
+      "text": "Winged Beast/Effect – <effect=Condition>(This card's name is always treated as \"Harpie Lady\").</effect>"
+   },
+   "Cyber Raider": {
+      "id": "39978267",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1400,
+      "def": 1000,
+      "text": "Machine/Effect – <effect=Trigger>If this card is Summoned: Activate 1 of these effects. ● Target 1 Equip Card equipped to a monster on the field; destroy that target. ● Target 1 Equip Card equipped to a monster on the field; equip that target to this card.</effect>"
    },
    "Cyber Saurus": {
       "id": "89112729",
@@ -2067,6 +2352,12 @@
       "def": 500,
       "text": "Machine/Effect – <effect=Ignition>You can pay 5000 Life Points; Special Summon 1 Fusion Monster from your Fusion Deck in Attack Position.</effect>",
       "prepopLP": { "hero": -5000 }
+   },
+   "Cyclon Laser": {
+      "id": "05494820",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to \"Gradius\".</effect> <effect=Continuous-like>It gains 300 ATK.</effect> <effect=Continuous-like>If the equipped monster attacks a Defense Position monster, inflict piercing damage to your opponent.</effect>."
    },
    "D. Human": {
       "id": "81057959",
