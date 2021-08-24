@@ -6012,7 +6012,7 @@
       "id": "56948373",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>The monster equipped with this card cannot attack.</effect> <effect=Trigger-like>The controller of the equipped monster takes 500 points of damage during each of your Standby Phases.</effect>",
+      "text": "<effect=Continuous-like>The monster equipped with this card cannot attack.</effect> <effect=Trigger-like>Once per turn, during your Standby Phases: Inflict 500 damage to the controller of the equipped monster.</effect>",
       "prepopLP": { "hero": -500, "villain": -500 }
    },
    "Masked Dragon": {
