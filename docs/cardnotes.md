@@ -2,11 +2,10 @@
 
 This file contains notes regarding the monumental task of adding all Goat Format legal cards to Goat Duels. These cards all have not been added to the game yet.
 
-## Basic
-
-The following cards were labeled "basic" but are not.
+## Required
 
 -  Ancient Telescope: We could just use a mill 5 script for this (pre: seems like this would be wrong as it would reveal them to the opponent?)
+-  Big Eye: similar logic required as with Ancient Telescope?
 -  D.D. Dynamite: This card has been added. However, we could prehaps consider more complicated prepopLP parameters to handle cases like these in the future (see ticket #225).
 -  Fiend's Hand Mirror: It is possible that this card's PSCT may be incorrect, but this is not a big concern.
 -  Fruits of Kozaky's Studies: Requires script to look at top 3
@@ -21,11 +20,6 @@ The following cards were labeled "basic" but are not.
 -  Solar Ray: complex prepopLP (see ticket #225).
 -  Spellbook Organization: Requires significant scripting
 -  The Spell Absorbing Life: complex prepopLP (see ticket #225).
-
-## Easy
-
-Notes regarding cards labeled "easy".
-
 -  Balloon Lizard: complex prepopLP (see ticket #225).
 -  Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
 -  Maharaghi: Will require significant scripting
@@ -35,9 +29,6 @@ Notes regarding cards labeled "easy".
 -  Roc from the Valley of Haze: Requires shuffle button (see ticket #227)
 -  It is debatable (and almost entirely irrelevant) as to whether or not Tyler the Great Warrior is legal in Goat Format. It has not been added for now.
 -  White Magician Pikeru: complex prepopLP (see ticket #225).
-
-## User Requested Cards
-
 -  Cyber Jar: Will require some sort of script to make this work. (see ticket #247)
 -  Morphing Jar #2: needs some sort of script. (see ticket #248)
 -  Parasite Paracide: requires complex scripting.
@@ -57,3 +48,4 @@ Notes regarding cards labeled "easy".
 -  Reversal Quiz: helper to send everything to graveyard? Optional script to swap LP?
 -  Prohibition: Probably worked differently in Goat Format than it does in current format. We should perhaps research this and further clarify its text.
 -  Attack and Receive: could technically have a fancy complex prepopLP (see ticket #225) that counts "Attack and Receive" cards in the grave.
+-  Big Burn: could use a Banish All script to simplify removing everything from the graveyard
