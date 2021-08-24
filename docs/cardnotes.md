@@ -37,6 +37,9 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Chosen One: sadly random discard doesn't not work here - scripting is going to be annoying
 -  Coach Goblin: needs a bottom of deck script (see ticket #245)
 -  Crimson Sentry: needs a bottom of deck script (see ticket #245)
+-  Darkness Approaches: need ability to turn to face down Attack Position when this card is on the field :(
+-  Different Dimension Capsule: face down banishing script
+-  Drop Off: need a script to ensure the card discarded is the card that was just drawn
 
 ### Optional / Convenience
 
@@ -58,3 +61,5 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Attack and Receive: could technically have a fancy complex prepopLP (see ticket #225) that counts "Attack and Receive" cards in the grave.
 -  Big Burn: could use a Banish All script to simplify removing everything from the graveyard
 -  Cemetary Bomb: complex prepopLP (see ticket #225).
+-  Dark Snake Syndrome: can probably use a counter based complex prepopLP (see ticket #225).
+- Disturbance Strategy: possibly could use a helper script
