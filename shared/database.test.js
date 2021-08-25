@@ -119,11 +119,11 @@ test('database', () => {
     expect(card.text.length).toBeGreaterThan(0);
     for (const m of card.text.matchAll(STYLE_REGEX)) {
       if (STYLE_WHITELIST[name] === m[0]) continue;
-      if (m[0] === "When" && /When[^.]+[Yy]ou can/.test(card.text)) continue;
+      if (m[0] === "When" && (/When[^.]+[Yy]ou can/.test(card.text) || !card.text.includes("Trigger"))) continue;
       expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${STYLIZATION[m[0]]}'`).toBe(true);
     }
 
-    expect([FUSION_MONSTER, TOKEN_MONSTER].includes(card.cardType) || /\.(<\/effect>)?$/.test(card.text), `"${name}"'s text does not end with a period: '${card.text}'`).toBe(true);
+    expect([FUSION_MONSTER, TOKEN_MONSTER].includes(card.cardType) || /[^>]\.(<\/effect>)?$/.test(card.text), `"${name}"'s text does not end with a period/contains a period after a tag: '${card.text}'`).toBe(true);
     expect(card.text.includes("><"), `"${name}"'s text is missing a space between tags: '${card.text}'`).toBe(false);
     for (const effect of card.text.matchAll(/<effect=([^>]+)>/g)) {
       expect(EFFECTS, `"${name}" has an unknown effect type: '${effect[1]}'`).toContain(effect[1]);
