@@ -18,52 +18,55 @@ const OPTIONAL = ["prepopLP", "script", "limit", "art"];
 const TOKEN_REQUIRED = MONSTER_REQUIRED.slice(1);
 const FUSION_OPTIONAL = ["order", "noMeta", ...OPTIONAL];
 
-const STYLIZATION = {
+// Regular Konami stylization: https://yugioh.fandom.com/wiki/Problem-Solving_Card_Text#Changes
+
+const CASE_SENSITIVE = {
   // NOTE: custom
   "GY": "Graveyard",
   "LP": "Life Points",
   "Extra Deck": "Fusion Deck",
   "(Quick Effect)": "<effect=Quick>...</effect>",
-  // Regular Konami stylization: https://yugioh.fandom.com/wiki/Problem-Solving_Card_Text#Changes
   "Battle Damage": "battle damage",
-  "remove from play": "banish",
-  "removed from play": "banished",
-  "removed from the field": "leaves the field",
-  "select": "target",
-  "Effect Monster's effect": "monster effect",
   "Union Monster": "Union monster",
   "Toon Monster": "Toon monster",
-  "Flip Effect Monster": "Flip monster",
   "Fusion Material": "Fusion material",
-  "side of the field": "field",
   "Material": "material",
-  "pick up": "excavate",
-  "When": "If", // NOTE: Not for optional ("When ... you can")
+  "When": "If", // NOTE: For triggers, and not for optional ("When ... you can")
   "(this is a Quick Effect)": "<effect=Quick>...</effect>",
-  "during either player's": "<effect=Quick>...</effect>",
   "Spell Card": "Spell",
   "Trap Card": "Trap",
   "Spell and Trap": "Spell/Trap",
   "Spell/Trap Card": "Spell/Trap",
   "Spell/Trap Cards": "Spells/Traps",
-  "(Damage calculation is applied normally)": "",
-  "(without damage calculation)": "",
   "(This Special Summon is treated as a Fusion Summon.)": "",
   "-Type": "",
+  "This card cannot be Normal Summoned or Set.": "Cannot be Normal Summoned/Set.",
+}
+
+const STYLIZATION = {
+  "remove from play": "banish",
+  "removed from play": "banished",
+  "removed from the field": "leaves the field",
+  "select": "target",
+  "Effect Monster's effect": "monster effect",
+  "Flip Effect Monster": "Flip monster",
+  "side of the field": "field",
+  "pick up": "excavate",
+  "during either player's": "<effect=Quick>...</effect>",
+  "(Damage calculation is applied normally)": "",
+  "(without damage calculation)": "",
   "selected as an attack target": "targeted for an attack",
   "attack once again": "make a second attack",
   "attack twice": "make a second attack",
   "make 3 attacks": "make a second and third attack",
   "still treated as a Trap Card": "also still a Trap",
   "also still a Trap Card": "also still a Trap",
-  "Flip Effects are not activated at this time": "(Flip monsters' effects are not activated at this time)",
   "(Flip Effects are not activated at this time)": "(Flip monsters' effects are not activated at this time)",
   "(Flip Effects are not activated)": "(Flip monsters' effects are not activated at this time)" ,
   "(Flip monsters' effects are not activated)": "(Flip monsters' effects are not activated at this time)",
   "This card's name is treated as": "This card's name becomes",
   "its name is treated as": "This card's name becomes",
   "This card's name is also treated as": "(This card is also always treated as ...)",
-  "This card cannot be Normal Summoned or Set.": "Cannot be Normal Summoned/Set.",
   "This card can only be": "Must first be",
   "This card cannot be Special Summoned except": "Must be Special Summoned",
   "and cannot be Special Summoned by other ways": "Must be Special Summoned",
@@ -79,18 +82,27 @@ const STYLIZATION = {
   "Cards and effects cannot be activated in response to this effect's activation": "Neither player can activate cards or effects in response to this effect's activation",
   "Once per turn, during your opponent's turn": "Once per opponent's turn",
   "This effect can only be used once while this card is face-up on the field.": "Once while face-up on the field:",
+  "This card gains": "Gain(s) ... ATK/DEF",
+  "This card loses": "Lose(s) ... ATK/DEF",
   "This card can attack your opponent directly": "This card can attack directly"
 };
 
-const STYLE_REGEX = new RegExp(`(${Object.keys(STYLIZATION).map(s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})`, 'g');
+const CASE_INSENSITIVE = {};
+for (const key in STYLIZATION) {
+  CASE_INSENSITIVE[key.toLowerCase()] = STYLIZATION[key];
+}
+
+const CASE_SENSITIVE_REGEX = new RegExp(`(${Object.keys(CASE_SENSITIVE).map(s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})`, 'g');
+const CASE_INSENSITIVE_REGEX = new RegExp(`(${Object.keys(CASE_INSENSITIVE).map(s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|')})`, 'g');
 
 const STYLE_WHITELIST = {
   "Agido": "When",
-  "Mystical Shine Ball": "When",
-  "Familiar Knight": "When",
+  "Blade Knight": "this card gains",
   "Burning Land": "When",
   "Cobra Jar": "When",
   "Destiny Board": "When",
+  "Familiar Knight": "When",
+  "Gaia Soul the Combustible Collective": "this card gains",
   "Nightmare Wheel": "When"
 };
 
@@ -124,10 +136,13 @@ test('database', () => {
     expect(CARD_TYPES).toContain(card.cardType);
 
     expect(card.text.length).toBeGreaterThan(0);
-    for (const m of card.text.matchAll(STYLE_REGEX)) {
-      if (STYLE_WHITELIST[name] === m[0]) continue;
-      if (m[0] === "When" && (/When[^.]+[Yy]ou can/.test(card.text) || !card.text.includes("Trigger"))) continue;
-      expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${STYLIZATION[m[0]]}'`).toBe(true);
+    for (const [re, map] of [[CASE_SENSITIVE_REGEX, CASE_SENSITIVE], [CASE_INSENSITIVE_REGEX, CASE_INSENSITIVE]]) {
+      for (const m of card.text.matchAll(re)) {
+        if (STYLE_WHITELIST[name] === m[0]) continue;
+        if (m[0] === "When" && (/When[^.]+[Yy]ou can/.test(card.text) || !card.text.includes("Trigger"))) continue;
+        if (/^this card (gains|loses)/.test(m[0]) && !card.text.includes("Continuous")) continue;
+        expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${map[m[0]]}'`).toBe(true);
+      }
     }
 
     expect([FUSION_MONSTER, TOKEN_MONSTER].includes(card.cardType) || /[^>]\.(<\/effect>)?$/.test(card.text), `"${name}"'s text does not end with a period/contains a period after a tag: '${card.text}'`).toBe(true);
