@@ -34,7 +34,7 @@
    },
    "scripts": {
       "start": "react-scripts start",
-      "build": "react-scripts build",
+      "build": "cd .. && node build.js && cd web-app && react-scripts build",
       "test": "react-scripts test --env=jsdom",
       "eject": "react-scripts eject",
       "lint:check": "eslint . --ext=js,jsx;  exit 0",
