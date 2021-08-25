@@ -6186,6 +6186,12 @@
       "def": 2200,
       "text": "Spellcaster – Manipulates enemy attacks with the power of illusion."
    },
+   "Impenetrable Formation": {
+      "id": "96631852",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "Activate by targeting 1 monster you control; while you control 2 or more monsters, and all monsters you control are in Defense Position, <effect=Continuous-like>the targeted monster gains 700 DEF.</effect> <effect=Continuous-like>When the targeted monster leaves the field, destroy this card.</effect>"
+   },
    "Inaba White Rabbit": {
       "id": "77084837",
       "cardType": "effectMonster",
@@ -6200,6 +6206,67 @@
       "cardType": "Spell",
       "levelOrSubtype": "Ritual",
       "text": "This card is used to Ritual Summon \"Legendary Flame Lord\". You must also Tribute monsters whose total Levels equal 7 or more from the field or your hand."
+   },
+   "Infernal Flame Emperor": {
+      "id": "19847532",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 9,
+      "atk": 2700,
+      "def": 1600,
+      "text": "Pyro/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>When this card is Tribute Summoned: You can banish up to 5 FIRE monsters from your Graveyard; destroy Spells/Traps on the field equal to the number of FIRE monsters banished by this effect.</effect>"
+   },
+   "Infernalqueen Archfiend": {
+      "id": "08581705",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 900,
+      "def": 1500,
+      "text": "Fiend/Effect – <effect=Maintenance Cost>Once per turn, during your Standby Phase, you must pay 500 Life Points, or this card is destroyed (this is not optional).</effect> <effect=Continuous>Before resolving an opponent's card effect that targets this card, roll a six-sided die, negate the effect if you roll 2 or 5, and if you do, destroy that card.</effect> <effect=Trigger>Once per turn, during the Standby Phase: Target 1 \"Archfiend\" monster on the field; while this card is face-up on the field, that target gains 1000 ATK until the end of this turn.</effect>",
+      "prepopLP": { "hero": -500 },
+      "script": {
+         "name": "ROLL_DICE",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 1
+      }
+   },
+   "Inferno": {
+      "id": "74823665",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1100,
+      "def": 1900,
+      "text": "Pyro/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Trigger>Must first be Special Summoned (from your hand) by banishing 1 FIRE monster from your Graveyard.</effect> If this card destroys an opponent's monster by battle and sends it to the Graveyard: Inflict 1500 damage to your opponent.",
+      "prepopLP": { "villain": -1500 }
+   },
+   "Inferno Fire Blast": {
+      "id": "52684508",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 \"Red-Eyes Black Dragon\" in your Monster Zone; inflict damage to your opponent equal to the original ATK of that \"Red-Eyes Black Dragon\". <effect=Condition>\"Red-Eyes Black Dragon\" cannot attack the turn you activate this card.</effect>"
+   },
+   "Inferno Hammer": {
+      "id": "17185260",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 6,
+      "atk": 2400,
+      "def": 0,
+      "text": "Fiend/Effect – <effect=Trigger>When this card destroys an opponent's monster by battle and sends it to the Graveyard: You can target 1 face-up monster your opponent controls; change that target to face-down Defense Position.</effect>"
+   },
+   "Inferno Tempest": {
+      "id": "14391920",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "When you take 3000 or more battle damage: Banish all monsters from each player's Deck and Graveyard."
+   },
+   "Infinite Cards": {
+      "id": "94163677",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>There is no limit to the hand size for each player.</effect>"
    },
    "Infinite Dismissal": {
       "id": "54109233",
@@ -6227,6 +6294,24 @@
       "def": 1900,
       "text": "Machine – A log that attacks lost travelers in the forest. Originally a big tree, it was cut down and possessed by a wicked spirit."
    },
+   "Insect Barrier": {
+      "id": "23615409",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>Insect monsters your opponent controls cannot declare an attack.</effect>"
+   },
+   "Insect Imitation": {
+      "id": "96965364",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Tribute 1 monster; Special Summon 1 Insect monster from your Deck whose Level is 1 higher than the Tributed monster's.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "text": { "operator": "TYPEMATCH", "value": "Insect" } },
+         "autoClose": true
+      }
+   },
    "Insect Knight": {
       "id": "35052053",
       "cardType": "normalMonster",
@@ -6244,6 +6329,15 @@
       "def": 100,
       "text": "Insect"
    },
+   "Insect Princess": {
+      "id": "37957847",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 6,
+      "atk": 1900,
+      "def": 1200,
+      "text": "Insect/Effect – <effect=Continuous>All face-up Insect monsters your opponent controls are changed to Attack Position and their battle positions cannot be changed.</effect> <effect=Trigger>If this card destroys an Insect monster by battle: Gain 500 ATK.</effect>"
+   },
    "Insect Queen": {
       "id": "91512835",
       "cardType": "effectMonster",
@@ -6258,11 +6352,50 @@
          "params": { "name": "Insect Monster Token", "pos": "atk", "count": 1 }
       }
    },
+   "Insect Soldiers of the Sky": {
+      "id": "07019529",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 3,
+      "atk": 1000,
+      "def": 800,
+      "text": "Insect/Effect – <effect=Continuous>If this card attacks a WIND monster, during damage calculation, gain 1000 ATK during that damage calculation only.</effect>"
+   },
+   "Inspection": {
+      "id": "16227556",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>During your opponent's Standby Phase: You can pay 500 Life Points; look at 1 random card in your opponent's hand.</effect>",
+      "prepopLP": { "hero": -500 },
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "tooltip": "Discard a card and then add it back to your hand from the Graveyard",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+      }
+   },
    "Interdimensional Matter Transporter": {
       "id": "36261276",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "Target 1 face-up monster you control; banish that target until the End Phase."
+   },
+   "Invader of Darkness": {
+      "id": "56647086",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 8,
+      "atk": 2900,
+      "def": 2500,
+      "text": "Fiend/Effect – <effect=Continuous>Your opponent cannot activate Quick-Play Spells.</effect>"
+   },
+   "Invader of the Throne": {
+      "id": "03056267",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1350,
+      "def": 1700,
+      "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Except during the Battle Phase: Target 1 monster your opponent controls; switch control of it with this card.</effect>"
    },
    "Invasion of Flames": {
       "id": "26082229",
@@ -6272,6 +6405,21 @@
       "atk": 1300,
       "def": 1200,
       "text": "Pyro/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated.</effect>"
+   },
+   "Invigoration": {
+      "id": "98374133",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>Equip only to an EARTH monster. It gains 400 ATK, also it loses 200 DEF.</effect>"
+   },
+   "Invitation to a Dark Sleep": {
+      "id": "52675689",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 5,
+      "atk": 1500,
+      "def": 1800,
+      "text": "Spellcaster/Effect – <effect=Trigger>If this monster is Normal or Flip Summoned: Target 1 monster your opponent controls; while this card is face-up on the field, the targeted monster cannot attack.</effect>"
    },
    "Iron Blacksmith Kotetsu": {
       "id": "73431236",
