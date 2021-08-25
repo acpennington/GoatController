@@ -119,7 +119,7 @@ test('database', () => {
     expect(card.text.length).toBeGreaterThan(0);
     for (const m of card.text.matchAll(STYLE_REGEX)) {
       if (STYLE_WHITELIST[name] === m[0]) continue;
-      if (m[0] === "When" && /When[^.]+[Yy]ou can/.test(card.text)) continue;
+      if (m[0] === "When" && (/When[^.]+[Yy]ou can/.test(card.text) || !card.text.includes("Trigger"))) continue;
       expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${STYLIZATION[m[0]]}'`).toBe(true);
     }
 

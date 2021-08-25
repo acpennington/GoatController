@@ -951,7 +951,7 @@
       "id": "78783370",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "If a card or effect is activated that would inflict damage to your Life Points: Your opponent takes the damage instead.",
+      "text": "When a card or effect is activated that would inflict damage to your Life Points: Your opponent takes the damage instead.",
       "art": 2
    },
    "Barrel Dragon": {
@@ -1161,7 +1161,7 @@
       "id": "61127349",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>The equipped monster gains 400 ATK.</effect> <effect=Continuous-like>If the equipped monster attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Continuous-like>If this card leaves the field, banish the equipped monster.</effect>"
+      "text": "<effect=Continuous-like>The equipped monster gains 400 ATK.</effect> <effect=Continuous-like>If the equipped monster attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Continuous-like>When this card leaves the field, banish the equipped monster.</effect>"
    },
    "Big Burn": {
       "id": "95472621",
@@ -1185,7 +1185,7 @@
       "levelOrSubtype": 4,
       "atk": 100,
       "def": 2600,
-      "text": "Warrior/Effect – <effect=Quick>If a Spell is activated that targets this face-down card (and no other cards): Change this card to face-up Defense Position, and if you do, negate the activation.</effect> <effect=Continuous>If this card is attacked, change it to Attack Position at the end of the Damage Step.</effect>"
+      "text": "Warrior/Effect – <effect=Quick>When a Spell is activated that targets this face-down card (and no other cards): Change this card to face-up Defense Position, and if you do, negate the activation.</effect> <effect=Continuous>If this card is attacked, change it to Attack Position at the end of the Damage Step.</effect>"
    },
    "Big Wave Small Wave": {
       "id": "51562916",
@@ -1225,7 +1225,13 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Cyber Harpie Lady"]
+               "value": [
+                  "Harpie Lady",
+                  "Harpie Lady 1",
+                  "Harpie Lady 2",
+                  "Harpie Lady 3",
+                  "Cyber Harpie Lady"
+               ]
             }
          },
          "autoClose": true
@@ -1559,7 +1565,7 @@
       "id": "29401950",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If your opponent Summons a monster(s) with 1500 or more ATK: Destroy that monster(s) with 1500 or more ATK, and if you do, banish it."
+      "text": "When your opponent Summons a monster(s) with 1500 or more ATK: Destroy that monster(s) with 1500 or more ATK, and if you do, banish it."
    },
    "Bowganian": {
       "id": "52090844",
@@ -1706,7 +1712,7 @@
       "id": "97077563",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "Activate this card by targeting 1 monster in your Graveyard; Special Summon that target in Attack Position. <effect=Continuous-like>If this card leaves the field, destroy that monster.</effect> <effect=Continuous-like>If that monster is destroyed, destroy this card.</effect>",
+      "text": "Activate this card by targeting 1 monster in your Graveyard; Special Summon that target in Attack Position. <effect=Continuous-like>When this card leaves the field, destroy that monster.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>",
       "limit": 1,
       "art": 2
    },
@@ -2210,7 +2216,7 @@
       "levelOrSubtype": 3,
       "atk": 1300,
       "def": 1200,
-      "text": "Fish/Effect – <effect=Continuous>If Normal Summoned, Traps cannot be activated.</effect>"
+      "text": "Fish/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated.</effect>"
    },
    "Crimson Ninja": {
       "id": "14618326",
@@ -2296,7 +2302,7 @@
       "id": "58851034",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "If a Spell is activated: Discard 1 Spell; negate the activation, and if you do, destroy it, and if you do that, your opponent cannot activate Spells with that name for the rest of this Duel."
+      "text": "When a Spell is activated: Discard 1 Spell; negate the activation, and if you do, destroy it, and if you do that, your opponent cannot activate Spells with that name for the rest of this Duel."
    },
    "Cyber Falcon": {
       "id": "30655537",
@@ -3334,7 +3340,7 @@
       "id": "49010598",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "If a monster effect is activated: Discard 1 card; negate the activation, and if you do, destroy that monster."
+      "text": "When a monster effect is activated: Discard 1 card; negate the activation, and if you do, destroy that monster."
    },
    "Dokurorider": {
       "id": "99721536",
@@ -3606,7 +3612,7 @@
       "levelOrSubtype": 3,
       "atk": 1300,
       "def": 1200,
-      "text": "Winged Beast/Effect – <effect=Continuous>If Normal Summoned, Traps cannot be activated.</effect>"
+      "text": "Winged Beast/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated.</effect>"
    },
    "Earth Chant": {
       "id": "59820352",
@@ -3904,13 +3910,13 @@
       "id": "03027001",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If your opponent activates a card or effect that would destroy a Trap(s) you control: Destroy this card instead of that Trap(s). (Reveal all of your face-down Traps that would have been destroyed)."
+      "text": "When your opponent activates a card or effect that would destroy a Trap(s) you control: Destroy this card instead of that Trap(s). (Reveal all of your face-down Traps that would have been destroyed)."
    },
    "Fatal Abacus": {
       "id": "77910045",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>If a monster(s) is sent from the field to the Graveyard: Inflict 500 damage per card to its owner.</effect>"
+      "text": "<effect=Continuous-like>When a monster(s) is sent from the field to the Graveyard: Inflict 500 damage per card to its owner.</effect>"
    },
    "Fear from the Dark": {
       "id": "34193084",
@@ -3954,7 +3960,7 @@
       "id": "81172176",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Toss a coin and call it. If you call it right, banish all cards from your opponent's Graveyard. If you call it wrong, send cards from the top of your Deck to the Graveyard equal to the number of cards in your opponent's Graveyard.",
+      "text": "Toss a coin and call it. If you call it right, banish all cards from your opponent's Graveyard If you call it wrong, send cards from the top of your Deck to the Graveyard equal to the number of cards in your opponent's Graveyard.",
       "script": {
          "name": "FLIP_COINS",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
@@ -3994,7 +4000,7 @@
       "id": "58607704",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If your opponent activates a Spell that targets exactly 1 Spell/Trap (and no other cards) on the field: Target another card that would be an appropriate target; that Spell now targets the new target."
+      "text": "When your opponent activates a Spell that targets exactly 1 Spell/Trap (and no other cards) on the field: Target another card that would be an appropriate target; that Spell now targets the new target."
    },
    "Final Countdown": {
       "id": "95308449",
@@ -4806,7 +4812,7 @@
       "levelOrSubtype": 3,
       "atk": 800,
       "def": 1600,
-      "text": "Beast/Effect – <effect=Continuous>Gains 500 ATK for each monster your opponent controls.</effect> <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
+      "text": "Beast/Effect – <effect=Continuous>Gains 500 ATK for each monster your opponent controls.</effect> <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent."
    },
    "Gyakutenno Megami": {
       "id": "31122090",
@@ -5170,7 +5176,7 @@
       "levelOrSubtype": 3,
       "atk": 1300,
       "def": 1200,
-      "text": "Pyro/Effect – <effect=Continuous>If Normal Summoned, Traps cannot be activated.</effect>"
+      "text": "Pyro/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated.</effect>"
    },
    "Iron Blacksmith Kotetsu": {
       "id": "73431236",
@@ -5829,14 +5835,14 @@
       "id": "62279055",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.",
+      "text": "When an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.",
       "limit": 1
    },
    "Magic Jammer": {
       "id": "77414722",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "If a Spell is activated: Discard 1 card; negate the activation, and if you do, destroy it.",
+      "text": "When a Spell is activated: Discard 1 card; negate the activation, and if you do, destroy it.",
       "art": 2
    },
    "Magical Ghost": {
@@ -6303,7 +6309,7 @@
       "id": "44095762",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.",
+      "text": "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.",
       "limit": 1
    },
    "Misairuzame": {
@@ -6470,7 +6476,7 @@
       "id": "69279219",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "If your opponent activates a Spell/Trap or monster effect that would destroy a monster(s) on the field: Pay 1500 Life Points; negate the activation, and if you do, destroy it.",
+      "text": "When your opponent activates a Spell/Trap or monster effect that would destroy a monster(s) on the field: Pay 1500 Life Points; negate the activation, and if you do, destroy it.",
       "prepopLP": { "hero": -1500 }
    },
    "Mysterious Puppeteer": {
@@ -6590,7 +6596,7 @@
       "id": "38411870",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If there are 4 or more monsters on the field: Destroy all face-up monsters."
+      "text": "When there are 4 or more monsters on the field: Destroy all face-up monsters."
    },
    "Needle Worm": {
       "id": "81843628",
@@ -7051,7 +7057,7 @@
       "id": "00967928",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If your opponent has 4 cards in their hand: Activate 1 of these effects. ● Your opponent cannot draw during their next Draw Phase. ● Your opponent cannot activate Spells/Traps this turn.",
+      "text": "When your opponent has 4 cards in their hand: Activate 1 of these effects. ● Your opponent cannot draw during their next Draw Phase. ● Your opponent cannot activate Spells/Traps this turn.",
       "script": {
          "name": "SKIP_DRAWS",
          "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
@@ -7233,7 +7239,7 @@
       "id": "70828912",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "Activate this card by paying 800 Life Points, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. <effect=Continuous-like>If this card is destroyed, destroy the equipped monster.</effect>",
+      "text": "Activate this card by paying 800 Life Points, then target 1 monster in your Graveyard; Special Summon that target in Attack Position and equip it with this card. <effect=Continuous-like>When this card is destroyed, destroy the equipped monster.</effect>",
       "prepopLP": { "hero": -800 },
       "limit": 1,
       "art": 2
@@ -7856,7 +7862,7 @@
       "id": "56120475",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If an opponent's monster declares an attack: Target the attacking monster; destroy that target."
+      "text": "When an opponent's monster declares an attack: Target the attacking monster; destroy that target."
    },
    "Sand Stone": {
       "id": "73051941",
@@ -8013,7 +8019,12 @@
       "id": "49398568",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "If you activate a Normal Spell: Discard all cards in your hand to the Graveyard; the effect of this card becomes the same as that Normal Spell."
+      "text": "When you activate a Normal Spell: Discard all cards in your hand to the Graveyard; the effect of this card becomes the same as that Normal Spell.",
+      "script": {
+         "name": "DISCARD_AND_DRAW",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 0
+      }
    },
    "Serpent Night Dragon": {
       "id": "66516792",
@@ -8037,14 +8048,14 @@
       "id": "03819470",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "If a Trap is activated: Pay 1000 Life Points; negate the activation, and if you do, destroy it.",
+      "text": "When a Trap is activated: Pay 1000 Life Points; negate the activation, and if you do, destroy it.",
       "prepopLP": { "hero": -1000 }
    },
    "Shadow Spell": {
       "id": "29267084",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>Activate this card by targeting 1 face-up monster your opponent controls; it loses 700 ATK, also it cannot attack or change its battle position.</effect> <effect=Continuous-like>If it leaves the field, destroy this card.</effect>"
+      "text": "<effect=Continuous-like>Activate this card by targeting 1 face-up monster your opponent controls; it loses 700 ATK, also it cannot attack or change its battle position.</effect> <effect=Continuous-like>When it leaves the field, destroy this card.</effect>"
    },
    "Shadowslayer": {
       "id": "20939559",
@@ -8348,7 +8359,7 @@
       "id": "41420027",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "If a monster(s) would be Summoned, OR a Spell/Trap is activated: Pay half your Life Points; negate the Summon or activation, and if you do, destroy that card.",
+      "text": "When a monster(s) would be Summoned, OR a Spell/Trap is activated: Pay half your Life Points; negate the Summon or activation, and if you do, destroy that card.",
       "prepopLP": { "hero": "half" }
    },
    "Sonic Duck": {
@@ -8485,13 +8496,13 @@
       "id": "38275183",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
-      "text": "Activate 1 of these effects; ● If a Spell is activated that targets exactly 1 monster on the field: Negate the activation, and if you do, destroy it. ● If a Spell is activated: Send 1 Spell from your hand to the Graveyard; negate the activation, and if you do, destroy it."
+      "text": "Activate 1 of these effects; ● When a Spell is activated that targets exactly 1 monster on the field: Negate the activation, and if you do, destroy it. ● When a Spell is activated: Send 1 Spell from your hand to the Graveyard; negate the activation, and if you do, destroy it."
    },
    "Spellbinding Circle": {
       "id": "18807108",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect> <effect=Continuous-like>If that monster is destroyed, destroy this card.</effect>",
+      "text": "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect> <effect=Continuous-like>When that monster is destroyed, destroy this card.</effect>",
       "art": 2
    },
    "Spherous Lady": {
@@ -8822,13 +8833,13 @@
       "id": "12923641",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Condition>Destroy this card during your 2nd Standby Phase after activation.</effect> If this card resolves, change all monsters your opponent controls to face-down Defense Position. <effect=Continuous-like>Monsters your opponent controls cannot change their battle positions.</effect>"
+      "text": "<effect=Condition>Destroy this card during your 2nd Standby Phase after activation.</effect> When this card resolves, change all monsters your opponent controls to face-down Defense Position.<effect=Continuous-like>Monsters your opponent controls cannot change their battle positions.</effect>"
    },
    "Swords of Revealing Light": {
       "id": "72302403",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "<effect=Condition>After this card's activation, it remains on the field, but you must destroy it during the End Phase of your opponent's 3rd turn.</effect> If this card is activated: If your opponent controls a face-down monster, flip all monsters they control face-up. <effect=Continuous-like>While this card is face-up on the field, your opponent's monsters cannot declare an attack.</effect>",
+      "text": "<effect=Condition>After this card's activation, it remains on the field, but you must destroy it during the End Phase of your opponent's 3rd turn.</effect> When this card is activated: If your opponent controls a face-down monster, flip all monsters they control face-up. <effect=Continuous-like>While this card is face-up on the field, your opponent's monsters cannot declare an attack.</effect>",
       "limit": 1
    },
    "Swordsman of Landstar": {
@@ -8856,7 +8867,7 @@
       "levelOrSubtype": 3,
       "atk": 1300,
       "def": 1200,
-      "text": "Warrior/Effect – <effect=Continuous>If Normal Summoned, Traps cannot be activated.</effect>"
+      "text": "Warrior/Effect – <effect=Continuous>When Normal Summoned, Traps cannot be activated.</effect>"
    },
    "Takriminos": {
       "id": "44073668",
@@ -9381,14 +9392,14 @@
       "id": "53582587",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If a monster(s) is Summoned: Destroy all monsters on the field.",
+      "text": "When a monster(s) is Summoned: Destroy all monsters on the field.",
       "limit": 1
    },
    "Tragedy": {
       "id": "35686187",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If a face-up Attack Position monster(s) your opponent controls is changed to face-up Defense Position: Destroy all Defense Position monsters your opponent controls.",
+      "text": "When a face-up Attack Position monster(s) your opponent controls is changed to face-up Defense Position: Destroy all Defense Position monsters your opponent controls.",
       "art": 2
    },
    "Trap Dustshoot": {
@@ -9868,7 +9879,7 @@
       "id": "77754944",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied).",
+      "text": "When an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied).",
       "art": 2
    },
    "Windstorm of Etaqua": {
