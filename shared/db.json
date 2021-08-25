@@ -4062,7 +4062,7 @@
       "id": "21598948",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "<effect=Trigger-like>When your opponent's monster declares an attack: Toss a coin and call it. If you call it right, the attacking monster's ATK becomes 0 until the end of the Battle Phase.</effect> <effect=Maintenance Cost>During each of your Standby Phases, pay 500 Life Points or destroy this card.</effect>",
+      "text": "<effect=Trigger-like>If your opponent's monster declares an attack: Toss a coin and call it. If you call it right, the attacking monster's ATK becomes 0 until the end of the Battle Phase.</effect> <effect=Maintenance Cost>During each of your Standby Phases, pay 500 Life Points or destroy this card.</effect>",
       "script": {
          "name": "FLIP_COINS",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
@@ -7518,7 +7518,7 @@
       "id": "54704216",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect> <effect=Continuous-like>When it leaves the field, destroy this card.</effect> <effect=Trigger-like>During each of your Standby Phases: Inflict 500 damage to your opponent.</effect> <effect=Condition>That monster must be on the field to activate and to resolve this effect.</effect>",
+      "text": "<effect=Continuous-like>Activate this card by targeting 1 monster your opponent controls; it cannot attack or change its battle position.</effect> <effect=Continuous-like>When it leaves the field, destroy this card.</effect> <effect=Trigger-like>Once per turn, during your Standby Phase: Inflict 500 damage to your opponent.</effect> <effect=Condition>That monster must be on the field to activate and to resolve this effect.</effect>",
       "prepopLP": { "villain": -500 }
    },
    "Nimble Momonga": {
@@ -9159,7 +9159,7 @@
       "id": "45986603",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "Equip only to a monster your opponent controls. <effect=Continuous-like>Take control of the equipped monster.</effect> <effect=Trigger-like>During each of your opponent's Standby Phases: They gain 1000 Life Points.</effect>",
+      "text": "Equip only to a monster your opponent controls. <effect=Continuous-like>Take control of the equipped monster.</effect> <effect=Trigger-like>Once per turn, during your opponent's Standby Phase: They gain 1000 Life Points.</effect>",
       "prepopLP": { "villain": 1000 },
       "limit": 1
    },
@@ -9579,7 +9579,7 @@
       "levelOrSubtype": 6,
       "atk": 1200,
       "def": 500,
-      "text": "Machine/Fusion/Effect – \"Robolady\" + \"Roboyarou\". <effect=Ignition>You can Special Summon \"Super Roboyarou\" by returning this card from the field to the Fusion Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>When this monster attacks directly: It gains 1000 ATK during damage calculation only.</effect>"
+      "text": "Machine/Fusion/Effect – \"Robolady\" + \"Roboyarou\". <effect=Ignition>You can Special Summon \"Super Roboyarou\" by returning this card from the field to the Fusion Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>If this monster attacks directly: It gains 1000 ATK during damage calculation only.</effect>"
    },
    "Super Roboyarou": {
       "id": "01412158",
@@ -9588,7 +9588,7 @@
       "levelOrSubtype": 6,
       "atk": 1200,
       "def": 500,
-      "text": "Machine/Fusion/Effect – \"Roboyarou\" + \"Robolady\". <effect=Ignition>You can Special Summon \"Super Robolady\" by returning this card from the field to the Fusion Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>When this monster attacks directly: It gains 1000 ATK during damage calculation only</effect>"
+      "text": "Machine/Fusion/Effect – \"Roboyarou\" + \"Robolady\". <effect=Ignition>You can Special Summon \"Super Robolady\" by returning this card from the field to the Fusion Deck. You cannot use this effect during the same turn this monster is Special Summoned.</effect> <effect=Trigger>If this monster attacks directly: It gains 1000 ATK during damage calculation only</effect>"
    },
    "Supply": {
       "id": "44072894",
@@ -9870,7 +9870,7 @@
       "levelOrSubtype": 3,
       "atk": 1000,
       "def": 600,
-      "text": "Warrior/Effect – <effect=Trigger>If this card is Normal Summoned: Declare 1 Type.</effect> <effect=Trigger>When this card battles a monster of that Type: Gain 1000 ATK during Damage Calculation only.</effect>"
+      "text": "Warrior/Effect – <effect=Trigger>If this card is Normal Summoned: Declare 1 Type.</effect> <effect=Trigger>If this card battles a monster of that Type: This card gains 1000 ATK during Damage Calculation only.</effect>"
    },
    "The Illusory Gentleman": {
       "id": "83764996",
