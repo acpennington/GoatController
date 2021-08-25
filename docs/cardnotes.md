@@ -41,6 +41,8 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Different Dimension Capsule: face down banishing script
 -  Drop Off: need a script to ensure the card discarded is the card that was just drawn
 -  Freed the Matchless General: need to be able to turn off auto draw...
+-  Gamble: ditto, need ability to turn off auto draw when skipping turn
+-  Grave Lure: Convulsion/Parasite Paracide-esque
 
 ### Optional / Convenience
 
