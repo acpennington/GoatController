@@ -1049,7 +1049,7 @@
       "id": "46009906",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Beast monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Beast monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Beast Soul Swap": {
       "id": "35149085",
@@ -1539,7 +1539,7 @@
       "id": "91595718",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Spellcaster monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Spellcaster monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Book of Taiyou": {
       "id": "38699854",
@@ -1664,7 +1664,7 @@
       "id": "18937875",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a FIRE monster. It gains 400 ATK, also it loses 200 DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a FIRE monster.</effect> <effect=Continuous-like>It gains 400 ATK, also it loses 200 DEF.</effect>"
    },
    "Burst Breath": {
       "id": "80163754",
@@ -2605,7 +2605,7 @@
       "id": "04614116",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Fiend monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Fiend monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Dark Factory of Mass Production": {
       "id": "90928333",
@@ -3476,7 +3476,7 @@
       "id": "01435851",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Dragon monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Dragon monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Dragon Zombie": {
       "id": "66672569",
@@ -3683,7 +3683,7 @@
       "id": "37820550",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Thunder monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Thunder monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Elegant Egotist": {
       "id": "90219263",
@@ -3859,7 +3859,7 @@
       "id": "39897277",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a LIGHT monster. It gains 400 ATK, also it loses 200 DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a LIGHT monster.</effect> <effect=Continuous-like>It gains 400 ATK, also it loses 200 DEF.</effect>"
    },
    "Emblem of Dragon Destroyer": {
       "id": "06390406",
@@ -4474,7 +4474,7 @@
       "id": "98252586",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Winged-Beast monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Winged-Beast monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Forced Ceasefire": {
       "id": "97806240",
@@ -5611,7 +5611,7 @@
       "id": "55321970",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a WIND monster. It gains 400 ATK and loses 200 DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a WIND monster.</effect> <effect=Continuous-like>It gains 400 ATK and loses 200 DEF.</effect>"
    },
    "Gyaku-Gire Panda": {
       "id": "09817927",
@@ -6410,7 +6410,7 @@
       "id": "98374133",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to an EARTH monster. It gains 400 ATK, also it loses 200 DEF.</effect>"
+      "text": "<effect=Condition>Equip only to an EARTH monster.</effect> <effect=Continuous-like>It gains 400 ATK, also it loses 200 DEF.</effect>"
    },
    "Invitation to a Dark Sleep": {
       "id": "52675689",
@@ -6968,6 +6968,22 @@
       "def": 3000,
       "text": "Rock – These walls form a labyrinth with no exit for enemies."
    },
+   "Labyrinth of Nightmare": {
+      "id": "66526672",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>Once per turn, during each player's End Phase: Change the battle positions of all face-up monsters the turn player controls.</effect>"
+   },
+   "Lady Assailant of Flames": {
+      "id": "90147755",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1000,
+      "text": "Pyro/Flip/Effect – <effect=Trigger>FLIP: Banish the top 3 cards of your Deck; inflict 800 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -800 }
+   },
    "Lady Ninja Yae": {
       "id": "82005435",
       "cardType": "effectMonster",
@@ -6976,6 +6992,15 @@
       "atk": 1100,
       "def": 200,
       "text": "Warrior/Effect – <effect=Ignition>You can discard 1 WIND monster to the Graveyard; return all Spells/Traps your opponent controls to the hand.</effect>"
+   },
+   "Lady Panther": {
+      "id": "38480590",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1400,
+      "def": 1300,
+      "text": "Beast-Warrior/Effect – <effect=Ignition>During your Main Phase 1: You can Tribute this card (for cost). This turn, the first time (and if) a monster you control is destroyed by battle and sent to the Graveyard: You can target that monster in the Graveyard; place that target on the top of the Deck.</effect>"
    },
    "Lady of Faith": {
       "id": "17358176",
@@ -6995,6 +7020,15 @@
       "text": "Beast",
       "art": 2
    },
+   "Larvae Moth": {
+      "id": "87756343",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 2,
+      "atk": 500,
+      "def": 400,
+      "text": "Insect/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 \"Petit Moth\" on your 2nd turn or later after it was equipped with \"Cocoon of Evolution\".</effect>"
+   },
    "Larvas": {
       "id": "94675535",
       "cardType": "normalMonster",
@@ -7008,7 +7042,19 @@
       "id": "77007920",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to an Insect monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to an Insect monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
+   },
+   "Last Turn": {
+      "id": "28566710",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "During your opponent's turn, if your Life Points is 1000 or less: Choose 1 monster you control and send as many other cards in both players' hands and on the field as possible to the Graveyard. After that, your opponent Special Summons 1 monster from their Deck in Attack Position, and attacks your chosen monster (neither player takes battle damage from this battle). <effect=Lingering>During the End Phase, the player who controls a monster(s) while the other does not control any wins the Duel. Any other case results in a DRAW.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "autoClose": true
+      },
+      "limit": 2
    },
    "Last Will": {
       "id": "85602018",
@@ -7074,6 +7120,26 @@
       "limit": 1,
       "art": 2
    },
+   "Legacy Hunter": {
+      "id": "87010442",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1500,
+      "text": "Warrior/Effect – <effect=Trigger>If this card destroys a face-down Defense Position monster by battle and sends it to the Graveyard: Your opponent shuffles 1 random card from their hand into the Deck.</effect>",
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "tooltip": "Discard a card and then move it from the Graveyard to your Deck and shuffle",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" }
+      }
+   },
+   "Legendary Black Belt": {
+      "id": "96458440",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to \"Chu-Ske the Mouse Fighter\", \"Monk Fighter\", or \"Master Monk\".</effect> <effect=Trigger-like>If the equipped monster destroys your opponent's monster by battle and sends it to the Graveyard: Inflict damage to your opponent equal to the destroyed monster's original DEF in the Graveyard.</effect>"
+   },
    "Legendary Flame Lord": {
       "id": "60258960",
       "cardType": "ritualMonster",
@@ -7082,6 +7148,21 @@
       "atk": 2400,
       "def": 2000,
       "text": "Spellcaster/Effect/Ritual – <effect=Summon>You can Ritual Summon this card with \"Incandescent Ordeal\".</effect> <effect=Continuous>Each time a Spell is activated, place 1 Spell Counter on this card immediately after it resolves.</effect> <effect=Ignition>You can remove 3 Spell Counters from this card; destroy all monsters on the field, except this card.</effect>"
+   },
+   "Legendary Jujitsu Master": {
+      "id": "25773409",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1300,
+      "def": 1800,
+      "text": "Rock/Effect – <effect=Trigger>If this Defense Position card battled a monster, at the end of the Damage Step: Place that monster on the top of the Deck.</effect>"
+   },
+   "Legendary Sword": {
+      "id": "61854111",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a Warrior monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Leghul": {
       "id": "12472242",
@@ -7142,12 +7223,43 @@
       "text": "Fiend/Effect – (This card is always treated as an \"Archfiend\" card.) <effect=Continuous>Banish any monster destroyed by battle with this card.</effect>",
       "art": 2
    },
+   "Level Conversion Lab": {
+      "id": "84397023",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Reveal 1 monster in your hand, then roll a six-sided die. If the result is 1, send that monster to the Graveyard. If the result is 2-6, the Level of that monster becomes equal to the result until the end of this turn.",
+      "script": {
+         "name": "ROLL_DICE",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 1
+      }
+   },
    "Level Limit - Area B": {
       "id": "03136426",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>Change all face-up Level 4 or higher monsters to Defense Position.</effect>",
       "limit": 2
+   },
+   "Level Up!": {
+      "id": "25290459",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Send 1 face-up \"LV\" monster you control to the Graveyard; Special Summon 1 monster from your hand or Deck that is listed in the sent monster's text, ignoring its Summoning conditions.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "autoClose": true
+      }
+   },
+   "Levia-Dragon - Daedalus": {
+      "id": "37721209",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 7,
+      "atk": 2600,
+      "def": 1500,
+      "text": "Sea Serpent/Effect – <effect=Ignition>You can send 1 face-up \"Umi\" you control to the Graveyard; destroy all other cards on the field.</effect>"
    },
    "Life Absorbing Machine": {
       "id": "14318794",
@@ -7160,6 +7272,24 @@
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>While this card is on the field, Monster Cards cannot be Set or flipped face-down.</effect> <effect=Continuous-like>Monsters can be Normal Summoned in face-up Defense Position.</effect>"
+   },
+   "Light of Judgment": {
+      "id": "44595286",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "If \"The Sanctuary in the Sky\" is on the field: Discard 1 LIGHT monster to the Graveyard; apply 1 of the following effects: ● Look at your opponent's hand and discard 1 card from their hand. ● Send 1 card your opponent controls to the Graveyard."
+   },
+   "Lighten the Load": {
+      "id": "37231841",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Ignition-like>Once per turn: You can shuffle 1 Level 7 or higher monster from your hand to the Deck, then draw 1 card.</effect>"
+   },
+   "Lightning Blade": {
+      "id": "55226821",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a Warrior monster.</effect> <effect=Continuous-like>It gains 800 ATK.</effect> <effect=Continuous-like>All WATER monsters on the field lose 500 ATK.</effect>"
    },
    "Lightning Conger": {
       "id": "27671321",
@@ -7192,6 +7322,24 @@
       "def": 800,
       "text": "Aqua – A liquid life form that thrives on water."
    },
+   "Little Chimera": {
+      "id": "68658728",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 2,
+      "atk": 600,
+      "def": 550,
+      "text": "Beast/Effect – <effect=Continuous>All FIRE monsters on the field gain 500 ATK, also all WATER monsters on the field lose 400 ATK.</effect>"
+   },
+   "Little-Winguard": {
+      "id": "90790253",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 4,
+      "atk": 1400,
+      "def": 1800,
+      "text": "Warrior/Effect – <effect=Trigger>Once per turn, during your End Phase: You can change the battle position of this card.</effect>"
+   },
    "Lizard Soldier": {
       "id": "20831168",
       "cardType": "normalMonster",
@@ -7201,6 +7349,30 @@
       "def": 800,
       "text": "Dragon – A beast soldier derived from dragons, it is small for a Dragon. Moving very quickly, this monster is an excellent strategist."
    },
+   "Lone Wolf": {
+      "id": "82452993",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "If the only monster you control is  \"Chu-Ske the Mouse Fighter\", \"Monk Fighter\", or \"Master Monk\": Target the appropriate monster; while that target is face-up on the field, it cannot be destroyed by battle, also it is unaffected by your opponent's monster effects."
+   },
+   "Lord Poison": {
+      "id": "40320754",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1000,
+      "text": "Plant/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Target 1 Plant monster in your Graveyard, except \"Lord Poison\"; Special Summon that target.</effect>"
+   },
+   "Lord of D.": {
+      "id": "17985575",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1200,
+      "def": 1100,
+      "text": "Spellcaster/Effect – <effect=Continuous>Neither player can target Dragon monsters on the field with card effects.</effect>"
+   },
    "Lord of the Lamp": {
       "id": "99510761",
       "cardType": "normalMonster",
@@ -7209,6 +7381,30 @@
       "atk": 1400,
       "def": 1200,
       "text": "Fiend – This spirit emerges from the mystic lamp and obeys the wishes of its summoner."
+   },
+   "Lost Guardian": {
+      "id": "45871897",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 100,
+      "def": "?",
+      "text": "Rock/Effect – <effect=Continuous>The original DEF of this card is equal to the number of your banished Rock monsters x 700.</effect>"
+   },
+   "Luminous Soldier": {
+      "id": "57482479",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 5,
+      "atk": 2100,
+      "def": 1400,
+      "text": "Warrior/Effect – <effect=Continuous>During damage calculation only, gain 500 ATK if battling a DARK monster.</effect>"
+   },
+   "Luminous Spark": {
+      "id": "81777047",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All LIGHT monsters on the field gain 500 ATK, also they lose 400 DEF.</effect>"
    },
    "Luster Dragon": {
       "id": "11091375",
@@ -7250,7 +7446,7 @@
       "id": "25769732",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Machine monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Machine monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Mad Dog of Darkness": {
       "id": "79182538",
@@ -8825,7 +9021,7 @@
       "id": "51267887",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Dinosaur monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Dinosaur monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Rare Metal Dragon": {
       "id": "25236056",
@@ -9592,7 +9788,7 @@
       "id": "01557499",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Fairy monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Fairy monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Silver Fang": {
       "id": "90357090",
@@ -11208,7 +11404,7 @@
       "id": "39774685",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "<effect=Continuous-like>Equip only to a Plant monster. It gains 300 ATK/DEF.</effect>"
+      "text": "<effect=Condition>Equip only to a Plant monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
    "Waboku": {
       "id": "12607053",
