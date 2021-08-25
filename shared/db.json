@@ -4057,6 +4057,26 @@
       "limit": 1,
       "art": 2
    },
+   "Fairy Box": {
+      "id": "21598948",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "<effect=Trigger-like>When your opponent's monster declares an attack: Toss a coin and call it. If you call it right, the attacking monster's ATK becomes 0 until the end of the Battle Phase.</effect> <effect=Maintenance Cost>During each of your Standby Phases, pay 500 Life Points or destroy this card.</effect>",
+      "script": {
+         "name": "FLIP_COINS",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 1
+      }
+   },
+   "Fairy Guardian": {
+      "id": "22419772",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 3,
+      "atk": 1000,
+      "def": 1000,
+      "text": "Fairy/Effect – <effect=Ignition>You can Tribute this card, then target 1 Spell in your Graveyard that was sent there this turn by an opponent's card; place that target on the bottom of the Deck.</effect>"
+   },
    "Fairy King Truesdale": {
       "id": "45425051",
       "cardType": "effectMonster",
@@ -4066,6 +4086,18 @@
       "def": 1500,
       "text": "Plant/Effect – <effect=Continuous>While this card is in Defense Position, Plant monsters you control gain 500 ATK/DEF.</effect>"
    },
+   "Fairy Meteor Crush": {
+      "id": "97687912",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>If the equipped monster attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
+   },
+   "Fairy of the Spring": {
+      "id": "20188127",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 Equip Spell in your Graveyard; add that target to your hand. <effect=Condition>That Equip Spell cannot be activated this turn.</effect>"
+   },
    "Fairy's Gift": {
       "id": "68401546",
       "cardType": "normalMonster",
@@ -4074,6 +4106,12 @@
       "atk": 1400,
       "def": 1000,
       "text": "Spellcaster – This flying monster is known for delivering happiness to all."
+   },
+   "Fairy's Hand Mirror": {
+      "id": "17653779",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When your opponent activates a Spell that targets exactly 1 monster (and no other cards) on the field: Target another card that would be an appropriate target; that Spell now targets the new target."
    },
    "Faith Bird": {
       "id": "75582395",
@@ -4089,6 +4127,22 @@
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "If your opponent activates a card or effect that would destroy a Trap(s) you control: Destroy this card instead of that Trap(s). (Reveal all of your face-down Traps that would have been destroyed)."
+   },
+   "Falling Down": {
+      "id": "32919136",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>Equip only to a monster your opponent controls; take control of it.</effect> <effect=Continuous-like>Destroy this card unless you control an \"Archfiend\" card.</effect> <effect=Trigger-like>Once per turn, during your opponent's Standby Phase: Take 800 damage.</effect>",
+      "prepopLP": { "hero": -800 }
+   },
+   "Familiar Knight": {
+      "id": "89731911",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 3,
+      "atk": 1200,
+      "def": 1400,
+      "text": "Warrior/Effect – <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: Each player can Special Summon 1 Level 4 monster from their hand.</effect>"
    },
    "Fatal Abacus": {
       "id": "77910045",
@@ -4153,7 +4207,7 @@
       "levelOrSubtype": 4,
       "atk": 1100,
       "def": 1400,
-      "text": "Winged Beast – A bird-beast that summons reinforcements with a hand mirror."
+      "text": "Winged Beast – A bird-beast that summons .</effect>ements with a hand mirror."
    },
    "Fiend Scorpion": {
       "id": "26566878",
@@ -4180,12 +4234,24 @@
       "levelOrSubtype": "Normal",
       "text": "If your opponent activates a Spell that targets exactly 1 Spell/Trap (and no other cards) on the field: Target another card that would be an appropriate target; that Spell now targets the new target."
    },
+   "Final Attack Orders": {
+      "id": "52503575",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>All face-up monsters on the field are changed to Attack Position and their battle positions cannot be changed.</effect>"
+   },
    "Final Countdown": {
       "id": "95308449",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "Pay 2000 Life Points. <effect=Lingering>After 20 turns have passed (counting the turn you activate this card as the 1st turn), you win the Duel.</effect>",
       "prepopLP": { "hero": -2000 }
+   },
+   "Final Destiny": {
+      "id": "18591904",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Discard 5 cards; destroy all cards on the field."
    },
    "Final Flame": {
       "id": "73134081",
@@ -4220,6 +4286,21 @@
       "text": "Pyro/Effect – <effect=Continuous>Each time you gain Life Points, inflict 500 damage to your opponent.</effect>",
       "prepopLP": { "villain": -500 }
    },
+   "Fire Sorcerer": {
+      "id": "27132350",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1500,
+      "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Banish 2 random cards from your hand; inflict 800 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -800 },
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "tooltip": "Activate this script twice and banish each card after discarding",
+         "displayCondition": { "players": ["HERO"], "row": "monster" }
+      }
+   },
    "Firebird": {
       "id": "87473172",
       "cardType": "effectMonster",
@@ -4246,6 +4327,12 @@
       "atk": 1300,
       "def": 1000,
       "text": "Pyro – A malevolent creature wrapped in flames that attacks enemies with intense fire."
+   },
+   "Fissure": {
+      "id": "66788016",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Destroy the 1 face-up monster your opponent controls that has the lowest ATK (your choice, if tied)."
    },
    "Flame Cerebrus": {
       "id": "60862676",
@@ -4293,6 +4380,15 @@
       "def": 1000,
       "text": "Spellcaster – This Spellcaster attacks enemies with fire-related spells such as \"Sea of Flames\" and \"Wall of Fire\"."
    },
+   "Flame Ruler": {
+      "id": "41089128",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1600,
+      "text": "Pyro/Effect – This card can be treated as 2 Tributes for the Tribute Summon of a FIRE monster."
+   },
    "Flame Swordsman": {
       "id": "45231177",
       "cardType": "fusionMonster",
@@ -4302,6 +4398,21 @@
       "def": 1600,
       "text": "Warrior/Fusion – \"Flame Manipulator\" + \"Masaki the Legendary Swordsman\"",
       "art": 2
+   },
+   "Flash Assailant": {
+      "id": "96890582",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 2000,
+      "def": 2000,
+      "text": "Fiend/Effect – <effect=Continuous>Loses 400 ATK/DEF for each card in your hand.</effect>"
+   },
+   "Flint": {
+      "id": "75560629",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>The equipped monster loses 300 ATK and cannot change its battle position.</effect> <effect=Trigger-like>If the equipped monster is destroyed: Target 1 monster on the field; equip this card to that target.</effect>"
    },
    "Flower Wolf": {
       "id": "95952802",
@@ -4363,6 +4474,57 @@
       "levelOrSubtype": "Equip",
       "text": "<effect=Continuous-like>Equip only to a Winged-Beast monster. It gains 300 ATK/DEF.</effect>"
    },
+   "Forced Ceasefire": {
+      "id": "97806240",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Discard 1 card; Traps cannot be activated until the end of this turn."
+   },
+   "Forced Requisition": {
+      "id": "74923978",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "You can activate this card when you discard from your hand. <effect=Continuous-like>After that, each time you discard from your hand, your opponent must also discard the same number of cards from their hand.</effect>"
+   },
+   "Forest": {
+      "id": "87430998",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All Insect, Beast, Plant, and Beast-Warrior monsters on the field gain 200 ATK/DEF.</effect>"
+   },
+   "Formation Union": {
+      "id": "26931058",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Select and activate 1 of the following effects: ● Equip 1 Union monster on your field to an appropriate monster on your field as an Equip Spell. ● Unequip 1 of your equipped Union monsters and Special Summon it to your field in face-up Attack Position."
+   },
+   "Fox Fire": {
+      "id": "88753985",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 2,
+      "atk": 300,
+      "def": 200,
+      "text": "Pyro/Effect – <effect=Trigger>Once per turn, during the End Phase, if this card was destroyed by battle and sent to the Graveyard this turn and was face-up at the start of the Damage Step: Special Summon this card from the Graveyard.</effect> <effect=Continuous>This face-up card cannot be Tributed for a Tribute Summon.</effect>"
+   },
+   "Freed the Brave Wanderer": {
+      "id": "16556849",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1700,
+      "def": 1200,
+      "text": "Warrior/Effect – <effect=Ignition>Once per turn: You can banish 2 LIGHT monsters from your Graveyard, then target 1 face-up monster on the field with higher ATK than this face-up card; destroy that target.</effect>"
+   },
+   "Freezing Beast": {
+      "id": "85359414",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1000,
+      "text": "Aqua/Union/Effect – <effect=Ignition>Once per turn, you can either: Target 1 \"Burning Beast\" you control; equip this card to that target,</effect> OR: <effect=Ignition-like>Unequip this card and Special Summon it in face-up Attack Position.</effect> <effect=Trigger-like>While equipped to a monster by this card's effect, each time the equipped monster inflicts battle damage to your opponent: Target 1 face-up Spell/Trap on the field; destroy that target.</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>"
+   },
    "Frenzied Panda": {
       "id": "98818516",
       "cardType": "normalMonster",
@@ -4371,6 +4533,52 @@
       "atk": 1200,
       "def": 1000,
       "text": "Beast – A savage beast that carries a big bamboo stick for beating down its enemies."
+   },
+   "Frontier Wiseman": {
+      "id": "38742075",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1600,
+      "def": 800,
+      "text": "Spellcaster/Effect – <effect=Continuous>Negate any Spell effects that target a Warrior monster(s) you control, and if you do, destroy that card.</effect>"
+   },
+   "Frontline Base": {
+      "id": "46181000",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Ignition-like>Once per turn: You can Special Summon 1 Level 4 or lower Union monster from your hand.</effect>"
+   },
+   "Frozen Soul": {
+      "id": "57069605",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "If your Life Points are at least 2000 lower than your opponent's: Skip your opponent's next Battle Phase."
+   },
+   "Fuh-Rin-Ka-Zan": {
+      "id": "01781310",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When there are face-up WIND, WATER, FIRE and EARTH monster(s) on the field: Apply 1 of these effects. ● Destroy all monsters your opponent controls. ● Destroy all Spells/Traps your opponent controls. ● Discard 2 random cards from your opponent's hand. ● Draw 2 cards.",
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "tooltip": "Activate this script twice",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+      }
+   },
+   "Fuhma Shuriken": {
+      "id": "09373534",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a \"Ninja\" monster.</effect> <effect=Continuous-like>It gains 700 ATK.</effect> <effect=Trigger-like>If this card is sent from the field to the Graveyard: Inflict 700 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -700 }
+   },
+   "Fulfillment of the Contract": {
+      "id": "48206762",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "Activate this card by paying 800 Life Points, then target 1 Ritual Monster in your Graveyard; Special Summon it and equip it with this card. <effect=Continuous-like>When this card is destroyed, banish the equipped monster.</effect>",
+      "prepopLP": { "hero": -800 }
    },
    "Fushi No Tori": {
       "id": "38538445",
@@ -4381,6 +4589,15 @@
       "def": 0,
       "text": "Winged Beast/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>If this card inflicts battle damage to your opponent: Gain Life Points equal to the battle damage inflicted.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>"
    },
+   "Fushioh Richie": {
+      "id": "39711336",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 7,
+      "atk": 2600,
+      "def": 2900,
+      "text": "Zombie/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned with the effect of \"Great Dezard\".</effect> <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Quick>When a Spell/Trap is activated that targets this card: Negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Trigger> When this card is flipped face-up: You can target 1 Zombie monster in your Graveyard; Special Summon that target.</effect>"
+   },
    "Fusilier Dragon, the Dual-Mode Beast": {
       "id": "51632798",
       "cardType": "effectMonster",
@@ -4389,6 +4606,36 @@
       "atk": 2800,
       "def": 2000,
       "text": "Machine/Effect – You can Normal Summon/Set this card without Tributing, but its original ATK/DEF become halved."
+   },
+   "Fusion Gate": {
+      "id": "33550694",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Ignition-like>While this card is on the field: The turn player can Fusion Summon 1 Fusion Monster from their Fusion Deck, by banishing Fusion materials listed on it from their hand or field.</effect>"
+   },
+   "Fusion Sage": {
+      "id": "26902560",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Add 1 \"Polymerization\" from your Deck to your hand.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": { "name": { "value": "Polymerization" } },
+         "autoClose": true
+      }
+   },
+   "Fusion Sword Murasame Blade": {
+      "id": "37684215",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a Warrior monster.</effect> <effect=Continuous-like>It gains 800 ATK.</effect> <effect=Continuous-like>While equipped to a monster, this card cannot be destroyed by card effects.</effect>"
+   },
+   "Fusion Weapon": {
+      "id": "27967615",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a Level 6 or lower Fusion Monster.</effect> <effect=Continuous-like>It gains 1500 ATK/DEF.</effect>"
    },
    "Fusionist": {
       "id": "01641882",

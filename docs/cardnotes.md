@@ -40,6 +40,7 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Darkness Approaches: need ability to turn to face down Attack Position when this card is on the field :(
 -  Different Dimension Capsule: face down banishing script
 -  Drop Off: need a script to ensure the card discarded is the card that was just drawn
+-  Freed the Matchless General: need to be able to turn off auto draw...
 
 ### Optional / Convenience
 
@@ -62,4 +63,5 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Big Burn: could use a Banish All script to simplify removing everything from the graveyard
 -  Cemetary Bomb: complex prepopLP (see ticket #225).
 -  Dark Snake Syndrome: can probably use a counter based complex prepopLP (see ticket #225).
-- Disturbance Strategy: possibly could use a helper script
+-  Disturbance Strategy: possibly could use a helper script
+-  Fire Sorceror/Fuh-Rin-Ka-Zan: add a parameter to RANDOM_DISCARD to allow it to discard 2 cards

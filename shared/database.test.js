@@ -88,6 +88,8 @@ const STYLE_REGEX = new RegExp(`(${Object.keys(STYLIZATION).map(s => s.replace(/
 const STYLE_WHITELIST = {
   "Agido": "When",
   "Mystical Shine Ball": "When",
+  "Fairy Box": "When", // TODO is this correct?
+  "Familiar Knight": "When",
 };
 
 function expectFields(name, card, required, optional = OPTIONAL) {
