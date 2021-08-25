@@ -6475,6 +6475,12 @@
       "levelOrSubtype": "Continuous",
       "text": "<effect=Trigger-like>When an opponent's monster declares an attack on a monster you control: You can target 1 \"Revival Jam\" you control; switch the attack target to that target.</effect>"
    },
+   "Jar Robber": {
+      "id": "33784505",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "When either player activates \"Pot of Greed\": Negate the effect of that \"Pot of Greed\", and if you do, draw 1 card."
+   },
    "Jar of Greed": {
       "id": "83968380",
       "cardType": "Trap",
@@ -6489,6 +6495,15 @@
       "atk": 1200,
       "def": 1500,
       "text": "Aqua – An almost invisible, semi-transparent jellyfish that drifts in the sea."
+   },
+   "Jigen Bakudan": {
+      "id": "90020065",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 2,
+      "atk": 200,
+      "def": 1000,
+      "text": "Pyro/Flip/Effect – <effect=Trigger>FLIP: If this card was flipped face-up, during your Standby Phase: Tribute this card; destroy all monsters you control, and if you do, inflict damage to your opponent equal to half the combined ATK of those monsters on the field, except this card.</effect>"
    },
    "Jinzo": {
       "id": "77585513",
@@ -6510,6 +6525,16 @@
       "def": 400,
       "text": "Machine/Effect – <effect=Continuous>This card can attack directly.</effect>"
    },
+   "Jirai Gumo": {
+      "id": "94773007",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 2200,
+      "def": 100,
+      "text": "Insect/Effect – <effect=Trigger>If this card declares an attack: Toss a coin and call it. If you call it wrong, lose half your Life Points.</effect>",
+      "prepopLP": { "hero": "half" }
+   },
    "Jowgen the Spiritualist": {
       "id": "41855169",
       "cardType": "effectMonster",
@@ -6523,6 +6548,15 @@
          "displayCondition": { "players": ["HERO"], "row": "monster" }
       }
    },
+   "Jowls of Dark Demise": {
+      "id": "05257687",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 2,
+      "atk": 200,
+      "def": 100,
+      "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: Target 1 monster your opponent controls; until the end of this turn, take control of it, also it can attack directly.</effect>"
+   },
    "Judge Man": {
       "id": "30113682",
       "cardType": "normalMonster",
@@ -6531,6 +6565,18 @@
       "atk": 2200,
       "def": 1500,
       "text": "Warrior – This club-wielding warrior battles to the end and will never surrender."
+   },
+   "Judgment of Anubis": {
+      "id": "55256016",
+      "cardType": "Trap",
+      "levelOrSubtype": "Counter",
+      "text": "When your opponent activates a Spell that would destroy a Spell/Trap(s) on the field: Discard 1 card; negate the activation, and if you do, destroy it, then you can destroy 1 face-up monster your opponent controls, and if you do that, inflict damage to your opponent equal to the destroyed monster's ATK on the field."
+   },
+   "Judgment of the Desert": {
+      "id": "04869446",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>The Battle Position of face-up monsters that are flipped face-up after activation of this card cannot be changed, except with a card effect.</effect>"
    },
    "Just Desserts": {
       "id": "24068492",
