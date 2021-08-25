@@ -1226,7 +1226,13 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Cyber Harpie Lady"]
+               "value": [
+                  "Harpie Lady",
+                  "Harpie Lady 1",
+                  "Harpie Lady 2",
+                  "Harpie Lady 3",
+                  "Cyber Harpie Lady"
+               ]
             }
          },
          "autoClose": true
@@ -3624,11 +3630,35 @@
       "def": 2000,
       "text": "Fiend – A vengeful creature formed by the spirits of fallen warriors, it drags any who dare approach it into the deepest bowels of the earth."
    },
+   "Earthquake": {
+      "id": "82828051",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Change all face-up monsters on the field to Defense Position."
+   },
    "Earthshaker": {
       "id": "60866277",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "Declare 2 monster Attributes; your opponent chooses 1 of them and destroys all monsters on the field with that Attribute."
+   },
+   "Eatgaboon": {
+      "id": "42578427",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "If your opponent Normal or Flip Summons a monster with 500 or less ATK: Target that face-up monster; destroy that target."
+   },
+   "Ectoplasmer": {
+      "id": "97342942",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>Once per turn, during each player's End Phase: The turn player must Tribute 1 face-up monster, and if they do, inflict damage to their opponent equal to half the original ATK of the Tributed monster.</effect>"
+   },
+   "Ekibyo Drakmord": {
+      "id": "69954399",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>The equipped monster cannot attack.</effect> <effect=Trigger-like>At the end of its controller's second turn after this card's activation: Destroy the equipped monster.</effect> <effect=Trigger-like>If this card is destroyed by its own effect: Return it to the hand.</effect>"
    },
    "Electric Lizard": {
       "id": "55875323",
@@ -3647,6 +3677,96 @@
       "atk": 800,
       "def": 900,
       "text": "Thunder/Effect – <effect=Trigger>If this card is discarded your hand to the Graveyard by an opponent's card effect: Draw 2 cards.</effect>"
+   },
+   "Electro-Whip": {
+      "id": "37820550",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>Equip only to a Thunder monster. It gains 300 ATK/DEF.</effect>"
+   },
+   "Elegant Egotist": {
+      "id": "90219263",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "If \"Harpie Lady\" is on the field: Special Summon 1 \"Harpie Lady\" or \"Harpie Lady Sisters\" from your hand or Deck.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": {
+            "name": {
+               "operator": "OR",
+               "value": [
+                  "Harpie Lady",
+                  "Harpie Lady 1",
+                  "Harpie Lady 2",
+                  "Harpie Lady 3",
+                  "Harpie Lady Sisters",
+                  "Cyber Harpie Lady"
+               ]
+            }
+         },
+         "autoClose": true
+      }
+   },
+   "Element Doom": {
+      "id": "23118924",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1200,
+      "text": "Fiend/Effect – <effect=Condition>Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field:</effect> <effect=Continuous>● EARTH: Negate the effects of monsters destroyed by battle with this card.</effect> <effect=Trigger>● WIND: At the end of the Damage Step, if this card destroyed an opponent's monster by battle: It can make another attack in a row.</effect>"
+   },
+   "Element Dragon": {
+      "id": "30314994",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1200,
+      "text": "Dragon/Effect – <effect=Condition>Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field:</effect> <effect=Continuous>● FIRE: Gain 500 ATK.</effect> <effect=Trigger>● WIND: At the end of the Damage Step, if this card destroyed an opponent's monster by battle: It can make another attack in a row.</effect>"
+   },
+   "Element Magician": {
+      "id": "65260293",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1200,
+      "text": "Spellcaster/Effect – <effect=Condition>Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field:</effect> <effect=Continuous>● WATER: Control of this face-up card cannot switch.</effect> <effect=Trigger>● WIND: At the end of the Damage Step, if this card destroyed an opponent's monster by battle: It can make another attack in a row.</effect>"
+   },
+   "Element Saurus": {
+      "id": "92755808",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1200,
+      "text": "Dinosaur/Effect – <effect=Condition>Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field:</effect> <effect=Continuous>● FIRE: Gain 500 ATK.</effect> <effect=Continuous>● EARTH: Negate the effects of monsters destroyed by battle with this card.</effect>"
+   },
+   "Element Soldier": {
+      "id": "66712593",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1200,
+      "text": "Fiend/Effect – <effect=Condition>Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field:</effect> <effect=Continuous>● WATER: Control of this face-up card cannot switch.</effect> <effect=Continuous>● EARTH: Negate the effects of monsters destroyed by battle with this card.</effect>"
+   },
+   "Element Valkyrie": {
+      "id": "97623219",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1200,
+      "text": "Fairy/Effect – <effect=Condition>Gains the following effect(s) while there is a monster(s) with the following Attribute(s) on the field:</effect> <effect=Continuous>● FIRE: Gain 500 ATK.</effect> <effect=Continuous>● WATER: Control of this face-up card cannot switch.</effect>"
+   },
+   "Elemental Burst": {
+      "id": "61411502",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Tribute 1 each of WIND, WATER, FIRE, and EARTH monsters; destroy all cards your opponent controls."
    },
    "Elemental HERO Avian": {
       "id": "21844576",
@@ -3734,6 +3854,30 @@
       "def": 0,
       "text": "Rock/Effect – <effect=Trigger>If this card is sent from your hand to your Graveyard by an opponent's card effect: Inflict 2000 damage to your opponent.</effect>"
    },
+   "Elf's Light": {
+      "id": "39897277",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>Equip only to a LIGHT monster. It gains 400 ATK, also it loses 200 DEF.</effect>"
+   },
+   "Emblem of Dragon Destroyer": {
+      "id": "06390406",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Add 1 \"Buster Blader\" from your Deck or Graveyard to your hand.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": { "name": { "value": "Buster Blader" } },
+         "autoClose": true
+      }
+   },
+   "Embodiment of Apophis": {
+      "id": "28649820",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "During the Main Phase: Special Summon this card as a Normal Monster (Reptile/EARTH/Level 4/ATK 1600/DEF 1800). (This card is also still a Trap)."
+   },
    "Emergency Provisions": {
       "id": "53046408",
       "cardType": "Spell",
@@ -3798,6 +3942,19 @@
       "def": 1400,
       "text": "Insect – Queen of an army of giant mantises whose command moves legions."
    },
+   "Enchanted Javelin": {
+      "id": "96355986",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When an opponent's monster declares an attack: Target the attacking monster; gain Life Points equal to its ATK."
+   },
+   "Enchanting Fitting Room": {
+      "id": "30531525",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Pay 800 Life Points; excavate the top 4 cards of your Deck and Special Summon all the excavated Level 3 or lower Normal Monsters, also, after that, shuffle the rest back into your Deck.",
+      "prepopLP": { "hero": -800 }
+   },
    "Enchanting Mermaid": {
       "id": "75376965",
       "cardType": "normalMonster",
@@ -3834,6 +3991,24 @@
       "def": 1000,
       "text": "Beast-Warrior/Effect – <effect=Continuous>If a Beast, Beast-Warrior, or Winged Beast monster you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
    },
+   "Enraged Muka Muka": {
+      "id": "91862578",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 5,
+      "atk": 1200,
+      "def": 600,
+      "text": "Rock/Effect – <effect=Continuous>This card gains 400 ATK/DEF for each card in your hand.</effect>"
+   },
+   "Eria the Water Charmer": {
+      "id": "74364659",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 3,
+      "atk": 500,
+      "def": 1500,
+      "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Target 1 WATER monster your opponent controls; take control of that target while this card is face-up on the field.</effect>"
+   },
    "Eternal Rest": {
       "id": "95051344",
       "cardType": "Spell",
@@ -3863,6 +4038,15 @@
       "text": "Warrior/Effect – <effect=Ignition>You can Tribute this card to target 1 monster on the field; destroy that target.</effect>",
       "limit": 1
    },
+   "Exodia Necross": {
+      "id": "12600382",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1800,
+      "def": 0,
+      "text": "Spellcaster/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned with \"Contract with Exodia\".</effect> <effect=Continuous>Cannot be destroyed by battle or Spell/Trap effect.</effect> <effect=Trigger>Once per turn, during your Standby Phase: Gain 500 ATK.</effect> <effect=Continuous>Destroy this card unless all 5 of these cards are in your Graveyard - \"Exodia the Forbidden One\", \"Right Arm of the Forbidden One\", \"Left Arm of the Forbidden One\", \"Right Leg of the Forbidden One\" and \"Left Leg of the Forbidden One\".</effect>"
+   },
    "Exodia the Forbidden One": {
       "id": "33396948",
       "cardType": "effectMonster",
@@ -3874,6 +4058,26 @@
       "limit": 1,
       "art": 2
    },
+   "Fairy Box": {
+      "id": "21598948",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "<effect=Trigger-like>When your opponent's monster declares an attack: Toss a coin and call it. If you call it right, the attacking monster's ATK becomes 0 until the end of the Battle Phase.</effect> <effect=Maintenance Cost>During each of your Standby Phases, pay 500 Life Points or destroy this card.</effect>",
+      "script": {
+         "name": "FLIP_COINS",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 1
+      }
+   },
+   "Fairy Guardian": {
+      "id": "22419772",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 3,
+      "atk": 1000,
+      "def": 1000,
+      "text": "Fairy/Effect – <effect=Ignition>You can Tribute this card, then target 1 Spell in your Graveyard that was sent there this turn by an opponent's card; place that target on the bottom of the Deck.</effect>"
+   },
    "Fairy King Truesdale": {
       "id": "45425051",
       "cardType": "effectMonster",
@@ -3883,6 +4087,18 @@
       "def": 1500,
       "text": "Plant/Effect – <effect=Continuous>If this card is in Defense Position, Plant monsters you control gain 500 ATK/DEF.</effect>"
    },
+   "Fairy Meteor Crush": {
+      "id": "97687912",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>If the equipped monster attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
+   },
+   "Fairy of the Spring": {
+      "id": "20188127",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 Equip Spell in your Graveyard; add that target to your hand. <effect=Condition>That Equip Spell cannot be activated this turn.</effect>"
+   },
    "Fairy's Gift": {
       "id": "68401546",
       "cardType": "normalMonster",
@@ -3891,6 +4107,12 @@
       "atk": 1400,
       "def": 1000,
       "text": "Spellcaster – This flying monster is known for delivering happiness to all."
+   },
+   "Fairy's Hand Mirror": {
+      "id": "17653779",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When your opponent activates a Spell that targets exactly 1 monster (and no other cards) on the field: Target another card that would be an appropriate target; that Spell now targets the new target."
    },
    "Faith Bird": {
       "id": "75582395",
@@ -3906,6 +4128,22 @@
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "When your opponent activates a card or effect that would destroy a Trap(s) you control: Destroy this card instead of that Trap(s). (Reveal all of your face-down Traps that would have been destroyed)."
+   },
+   "Falling Down": {
+      "id": "32919136",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>Equip only to a monster your opponent controls; take control of it.</effect> <effect=Continuous-like>Destroy this card unless you control an \"Archfiend\" card.</effect> <effect=Trigger-like>Once per turn, during your opponent's Standby Phase: Take 800 damage.</effect>",
+      "prepopLP": { "hero": -800 }
+   },
+   "Familiar Knight": {
+      "id": "89731911",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 3,
+      "atk": 1200,
+      "def": 1400,
+      "text": "Warrior/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Each player can Special Summon 1 Level 4 monster from their hand.</effect>"
    },
    "Fatal Abacus": {
       "id": "77910045",
@@ -3997,12 +4235,24 @@
       "levelOrSubtype": "Normal",
       "text": "When your opponent activates a Spell that targets exactly 1 Spell/Trap (and no other cards) on the field: Target another card that would be an appropriate target; that Spell now targets the new target."
    },
+   "Final Attack Orders": {
+      "id": "52503575",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>All face-up monsters on the field are changed to Attack Position and their battle positions cannot be changed.</effect>"
+   },
    "Final Countdown": {
       "id": "95308449",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "Pay 2000 Life Points. <effect=Lingering>After 20 turns have passed (counting the turn you activate this card as the 1st turn), you win the Duel.</effect>",
       "prepopLP": { "hero": -2000 }
+   },
+   "Final Destiny": {
+      "id": "18591904",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Discard 5 cards; destroy all cards on the field."
    },
    "Final Flame": {
       "id": "73134081",
@@ -4037,6 +4287,21 @@
       "text": "Pyro/Effect – <effect=Continuous>Each time you gain Life Points, inflict 500 damage to your opponent.</effect>",
       "prepopLP": { "villain": -500 }
    },
+   "Fire Sorcerer": {
+      "id": "27132350",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1500,
+      "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Banish 2 random cards from your hand; inflict 800 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -800 },
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "tooltip": "Activate this script twice and banish each card after discarding",
+         "displayCondition": { "players": ["HERO"], "row": "monster" }
+      }
+   },
    "Firebird": {
       "id": "87473172",
       "cardType": "effectMonster",
@@ -4063,6 +4328,12 @@
       "atk": 1300,
       "def": 1000,
       "text": "Pyro – A malevolent creature wrapped in flames that attacks enemies with intense fire."
+   },
+   "Fissure": {
+      "id": "66788016",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Destroy the face-up monster your opponent controls with the lowest ATK (your choice, if tied)."
    },
    "Flame Cerebrus": {
       "id": "60862676",
@@ -4110,6 +4381,15 @@
       "def": 1000,
       "text": "Spellcaster – This Spellcaster attacks enemies with fire-related spells such as \"Sea of Flames\" and \"Wall of Fire\"."
    },
+   "Flame Ruler": {
+      "id": "41089128",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1600,
+      "text": "Pyro/Effect – This card can be treated as 2 Tributes for the Tribute Summon of a FIRE monster."
+   },
    "Flame Swordsman": {
       "id": "45231177",
       "cardType": "fusionMonster",
@@ -4119,6 +4399,21 @@
       "def": 1600,
       "text": "Warrior/Fusion – \"Flame Manipulator\" + \"Masaki the Legendary Swordsman\"",
       "art": 2
+   },
+   "Flash Assailant": {
+      "id": "96890582",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 2000,
+      "def": 2000,
+      "text": "Fiend/Effect – <effect=Continuous>This card loses 400 ATK/DEF for each card in your hand.</effect>"
+   },
+   "Flint": {
+      "id": "75560629",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>The equipped monster loses 300 ATK and cannot change its battle position.</effect> <effect=Trigger-like>If the equipped monster is destroyed: Target 1 monster on the field; equip this card to that target.</effect>"
    },
    "Flower Wolf": {
       "id": "95952802",
@@ -4180,6 +4475,57 @@
       "levelOrSubtype": "Equip",
       "text": "<effect=Continuous-like>Equip only to a Winged-Beast monster. It gains 300 ATK/DEF.</effect>"
    },
+   "Forced Ceasefire": {
+      "id": "97806240",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Discard 1 card; Traps cannot be activated until the end of this turn."
+   },
+   "Forced Requisition": {
+      "id": "74923978",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "Activate only when you discard from your hand. <effect=Continuous-like>After that, each time you discard from your hand, your opponent must also discard the same number of cards from their hand.</effect>"
+   },
+   "Forest": {
+      "id": "87430998",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All Insect, Beast, Plant, and Beast-Warrior monsters on the field gain 200 ATK/DEF.</effect>"
+   },
+   "Formation Union": {
+      "id": "26931058",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Select and activate 1 of the following effects: ● Equip 1 Union monster on your field to an appropriate monster on your field as an Equip Spell. ● Unequip 1 of your equipped Union monsters and Special Summon it to your field in face-up Attack Position."
+   },
+   "Fox Fire": {
+      "id": "88753985",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 2,
+      "atk": 300,
+      "def": 200,
+      "text": "Pyro/Effect – <effect=Trigger>Once per turn, during the End Phase, if this card was destroyed by battle and sent to the Graveyard this turn and was face-up at the start of the Damage Step: Special Summon this card from the Graveyard.</effect> <effect=Continuous>This face-up card cannot be Tributed for a Tribute Summon.</effect>"
+   },
+   "Freed the Brave Wanderer": {
+      "id": "16556849",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1700,
+      "def": 1200,
+      "text": "Warrior/Effect – <effect=Ignition>Once per turn: You can banish 2 LIGHT monsters from your Graveyard, then target 1 face-up monster on the field with higher ATK than this card; destroy that target.</effect>"
+   },
+   "Freezing Beast": {
+      "id": "85359414",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1000,
+      "text": "Aqua/Union/Effect – <effect=Ignition>Once per turn, you can either: Target 1 \"Burning Beast\" you control; equip this card to that target,</effect> OR: <effect=Ignition-like>Unequip this card and Special Summon it in face-up Attack Position.</effect> <effect=Trigger-like>While equipped to a monster by this card's effect, each time the equipped monster inflicts battle damage to your opponent: Target 1 face-up Spell/Trap on the field; destroy that target.</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>"
+   },
    "Frenzied Panda": {
       "id": "98818516",
       "cardType": "normalMonster",
@@ -4188,6 +4534,52 @@
       "atk": 1200,
       "def": 1000,
       "text": "Beast – A savage beast that carries a big bamboo stick for beating down its enemies."
+   },
+   "Frontier Wiseman": {
+      "id": "38742075",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1600,
+      "def": 800,
+      "text": "Spellcaster/Effect – <effect=Continuous>Negate any Spell effects that target a Warrior monster(s) you control, and if you do, destroy that card.</effect>"
+   },
+   "Frontline Base": {
+      "id": "46181000",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Ignition-like>Once per turn: You can Special Summon 1 Level 4 or lower Union monster from your hand.</effect>"
+   },
+   "Frozen Soul": {
+      "id": "57069605",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "If your Life Points are at least 2000 lower than your opponent's: Skip your opponent's next Battle Phase."
+   },
+   "Fuh-Rin-Ka-Zan": {
+      "id": "01781310",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When there are face-up WIND, WATER, FIRE and EARTH monster(s) on the field: Apply 1 of these effects. ● Destroy all monsters your opponent controls. ● Destroy all Spells/Traps your opponent controls. ● Discard 2 random cards from your opponent's hand. ● Draw 2 cards.",
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "tooltip": "Activate this script twice",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+      }
+   },
+   "Fuhma Shuriken": {
+      "id": "09373534",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a \"Ninja\" monster.</effect> <effect=Continuous-like>It gains 700 ATK.</effect> <effect=Trigger-like>If this card is sent from the field to the Graveyard: Inflict 700 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -700 }
+   },
+   "Fulfillment of the Contract": {
+      "id": "48206762",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "Activate this card by paying 800 Life Points, then target 1 Ritual Monster in your Graveyard; Special Summon it and equip it with this card. <effect=Continuous-like>When this card is destroyed, banish the equipped monster.</effect>",
+      "prepopLP": { "hero": -800 }
    },
    "Fushi No Tori": {
       "id": "38538445",
@@ -4198,6 +4590,15 @@
       "def": 0,
       "text": "Winged Beast/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>If this card inflicts battle damage to your opponent: Gain Life Points equal to the battle damage inflicted.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>"
    },
+   "Fushioh Richie": {
+      "id": "39711336",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 7,
+      "atk": 2600,
+      "def": 2900,
+      "text": "Zombie/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned with the effect of \"Great Dezard\".</effect> <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Quick>When a Spell/Trap is activated that targets this card: Negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Trigger>When this card is flipped face-up: You can target 1 Zombie monster in your Graveyard; Special Summon that target.</effect>"
+   },
    "Fusilier Dragon, the Dual-Mode Beast": {
       "id": "51632798",
       "cardType": "effectMonster",
@@ -4206,6 +4607,36 @@
       "atk": 2800,
       "def": 2000,
       "text": "Machine/Effect – You can Normal Summon/Set this card without Tributing, but its original ATK/DEF become halved."
+   },
+   "Fusion Gate": {
+      "id": "33550694",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Ignition-like>While this card is on the field: The turn player can Fusion Summon 1 Fusion Monster from their Fusion Deck, by banishing Fusion materials listed on it from their hand or field.</effect>"
+   },
+   "Fusion Sage": {
+      "id": "26902560",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Add 1 \"Polymerization\" from your Deck to your hand.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": { "name": { "value": "Polymerization" } },
+         "autoClose": true
+      }
+   },
+   "Fusion Sword Murasame Blade": {
+      "id": "37684215",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a Warrior monster.</effect> <effect=Continuous-like>It gains 800 ATK.</effect> <effect=Continuous-like>While equipped to a monster, this card cannot be destroyed by card effects.</effect>"
+   },
+   "Fusion Weapon": {
+      "id": "27967615",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a Level 6 or lower Fusion Monster.</effect> <effect=Continuous-like>It gains 1500 ATK/DEF.</effect>"
    },
    "Fusionist": {
       "id": "01641882",
@@ -4234,6 +4665,21 @@
       "def": 1000,
       "text": "Reptile – This young evildoer used to have an evil heart, but by meeting a special person, he discovered justice."
    },
+   "Gaia Power": {
+      "id": "56594520",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All EARTH monsters on the field gain 500 ATK and lose 400 DEF.</effect>"
+   },
+   "Gaia Soul the Combustible Collective": {
+      "id": "51355346",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 2000,
+      "def": 0,
+      "text": "Pyro/Effect – <effect=Ignition>Once per turn: You can Tribute up to 2 Pyro monsters; this card gains 1000 ATK for each.</effect> <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Trigger>Once per turn, during the End Phase: Destroy this card.</effect>"
+   },
    "Gaia The Fierce Knight": {
       "id": "06368038",
       "cardType": "normalMonster",
@@ -4252,6 +4698,15 @@
       "atk": 2600,
       "def": 2100,
       "text": "Dragon/Fusion – \"Gaia The Fierce Knight\" + \"Curse of Dragon\""
+   },
+   "Gale Lizard": {
+      "id": "77491079",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 1400,
+      "def": 700,
+      "text": "Reptile/Flip/Effect – <effect=Trigger>FLIP: Target 1 monster your opponent controls; return that target to the hand.</effect>"
    },
    "Gamma The Magnet Warrior": {
       "id": "11549357",
@@ -4280,6 +4735,36 @@
       "def": 1500,
       "text": "Beast-Warrior – An axe-swinging beast-warrior with the head of a dragon."
    },
+   "Garuda the Wind Spirit": {
+      "id": "12800777",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 4,
+      "atk": 1600,
+      "def": 1200,
+      "text": "Winged Beast/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by banishing 1 WIND monster from your Graveyard.</effect> <effect=Trigger>Once per turn, during your opponent's End Phase: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect>"
+   },
+   "Gate Guardian": {
+      "id": "25833572",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 11,
+      "atk": 3750,
+      "def": 3400,
+      "text": "Warrior/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by Tributing 1 \"Sanga of the Thunder\", \"Kazejin\", and \"Suijin\".</effect>"
+   },
+   "Gather Your Mind": {
+      "id": "07512044",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Add 1 \"Gather Your Mind\" from your Deck to your hand. <effect=Condition>You can only activate 1 \"Gather Your Mind\" per turn.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": { "name": { "value": "Gather Your Mind" } },
+         "autoClose": true
+      }
+   },
    "Gatling Dragon": {
       "id": "87751584",
       "cardType": "fusionMonster",
@@ -4304,6 +4789,34 @@
       "def": 1200,
       "text": "Beast – This monster moves so fast that it looks like an illusion to mortal eyes."
    },
+   "Gear Golem the Moving Fortress": {
+      "id": "30190809",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 800,
+      "def": 2200,
+      "text": "Machine/Effect – <effect=Ignition>Once per turn, during your Main Phase 1: You can pay 800 Life Points; this card can attack your opponent directly this turn.</effect>",
+      "prepopLP": { "hero": -800 }
+   },
+   "Gearfried the Iron Knight": {
+      "id": "00423705",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1800,
+      "def": 1600,
+      "text": "Warrior/Effect – <effect=Continuous>Destroy any Equip Card(s) any player equips to this card.</effect>"
+   },
+   "Gearfried the Swordmaster": {
+      "id": "57046845",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 7,
+      "atk": 2600,
+      "def": 2200,
+      "text": "Warrior/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned by \"Release Restraint\".</effect> <effect=Trigger>If an Equip Card(s) is equipped to this card: Target 1 monster your opponent controls; destroy that target.</effect>"
+   },
    "Gemini Elf": {
       "id": "69140098",
       "cardType": "normalMonster",
@@ -4319,6 +4832,15 @@
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
       "text": "<effect=Continuous-like>Equip only to a non-Machine monster. During its controller's Standby Phase, it loses 300 ATK.</effect>"
+   },
+   "Getsu Fuhma": {
+      "id": "21887179",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1700,
+      "def": 1200,
+      "text": "Warrior/Effect – <effect=Trigger>If this card battles a Fiend or Zombie monster: Destroy that monster at the end of the Damage Step.</effect>"
    },
    "Ghost Knight of Jackal": {
       "id": "13386503",
@@ -4346,6 +4868,30 @@
       "atk": 1500,
       "def": 1200,
       "text": "Insect – A massive flea that feeds on the blood of its enemies."
+   },
+   "Giant Germ": {
+      "id": "95178994",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 2,
+      "atk": 1000,
+      "def": 100,
+      "text": "Fiend/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Inflict 500 damage to your opponent, then you can Special Summon any number of \"Giant Germ\" from your Deck in face-up Attack Position.</effect>",
+      "prepopLP": { "villain": -500 },
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Giant Germ" } }
+      }
+   },
+   "Giant Orc": {
+      "id": "73698349",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 2200,
+      "def": 0,
+      "text": "Fiend/Effect – <effect=Continuous>If this card attacks, it is changed to Defense Position at the end of the Battle Phase, and its battle position cannot be changed until the end of your next turn.</effect>"
    },
    "Giant Rat": {
       "id": "97017120",
@@ -4404,6 +4950,12 @@
       "levelOrSubtype": "Normal",
       "text": "Gain 300 Life Points for each monster on the field."
    },
+   "Gift of the Martyr": {
+      "id": "98792570",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Send 1 monster you control to the Graveyard, then target 1 monster you control; until the end of this turn, the targeted monster gains ATK equal to the sent monster's original ATK."
+   },
    "Giga Gagagigo": {
       "id": "43793530",
       "cardType": "normalMonster",
@@ -4439,6 +4991,15 @@
       "atk": 350,
       "def": 300,
       "text": "Reptile – He has a tranquil soul, but carries a destiny that one day his heart shall be tainted by evil...."
+   },
+   "Gilasaurus": {
+      "id": "45894482",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1400,
+      "def": 400,
+      "text": "Dinosaur/Effect – <effect=Summon>You can Special Summon this card (from your hand).</effect> <effect=Trigger>If Summoned this way: Activate this effect; your opponent can Special Summon 1 monster from their Graveyard.</effect>"
    },
    "Giltia the D. Knight": {
       "id": "51828629",
@@ -4477,6 +5038,12 @@
       "def": 400,
       "text": "Fiend – A Goblin who devotes himself to mastering perfect calligraphy of the word \"False\". He gives his all to each stroke."
    },
+   "Goblin Fan": {
+      "id": "04149689",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>When a Level 2 or lower monster(s) is Flip Summoned, destroy it.</effect> <effect=Condition>Its effects do not activate at that time.</effect>"
+   },
    "Goblin King": {
       "id": "18590133",
       "cardType": "effectMonster",
@@ -4501,6 +5068,36 @@
       "atk": 1000,
       "def": 1800,
       "text": "Fiend/Effect – <effect=Continuous>Neither player can activate cards or effects that would make them discard a card(s) as a cost.</effect>"
+   },
+   "Goblin's Secret Remedy": {
+      "id": "11868825",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Gain 600 Life Points.",
+      "prepopLP": { "hero": 600 }
+   },
+   "Goddess of Whim": {
+      "id": "67959180",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 3,
+      "atk": 950,
+      "def": 700,
+      "text": "Fairy/Effect – <effect=Ignition>Once per turn: You can toss a coin and call it. If you call it right, double this card's ATK during this turn. If you call it wrong, halve its ATK during this turn.</effect>",
+      "script": {
+         "name": "FLIP_COINS",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 1
+      }
+   },
+   "Goddess with the Third Eye": {
+      "id": "53493204",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1200,
+      "def": 1000,
+      "text": "Fairy/Effect – This card can be used as a substitute for any 1 Fusion material, but the other Fusion material(s) must be correct."
    },
    "Gogiga Gagagigo": {
       "id": "39674352",
@@ -4538,12 +5135,29 @@
       "def": 1400,
       "text": "Aqua/Effect – <effect=Continuous>Negate any of your opponent's Spell/Trap effects that target this face-up card.</effect>"
    },
+   "Gorgon's Eye": {
+      "id": "52648457",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Until the end of this turn, negate the effects of all face-up Defense Position monsters while those monsters are face-up on the field (but their effects can still be activated)."
+   },
    "Graceful Charity": {
       "id": "79571449",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "Draw 3 cards, then discard 2 cards.",
       "limit": 1
+   },
+   "Graceful Dice": {
+      "id": "74137509",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "Roll a six-sided die. All monsters you currently control gain ATK/DEF equal to the result x 100, until the end of this turn.",
+      "script": {
+         "name": "ROLL_DICE",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 1
+      }
    },
    "Gradius": {
       "id": "10992251",
@@ -4553,6 +5167,25 @@
       "atk": 1200,
       "def": 800,
       "text": "Machine – A high-performance jet fighter with power capsules for variable attack capabilities."
+   },
+   "Gradius' Option": {
+      "id": "14291024",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 1,
+      "atk": 0,
+      "def": 0,
+      "text": "Machine/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by choosing a face-up \"Gradius\" you control.</effect> <effect=Continuous>This card's ATK/DEF are equal to the chosen \"Gradius\"'s.</effect> <effect=Continuous>When the chosen \"Gradius\" leaves the field, destroy this card.</effect>"
+   },
+   "Granadora": {
+      "id": "13944422",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 1900,
+      "def": 700,
+      "text": "Reptile/Effect – <effect=Trigger>If this card is Summoned: Gain 1000 Life Points.</effect> <effect=Trigger>If this card is destroyed and sent to the Graveyard: Take 2000 damage.</effect>",
+      "prepopLP": { "hero": 1000 }
    },
    "Grand Tiki Elder": {
       "id": "13676474",
@@ -4571,6 +5204,25 @@
       "atk": 2400,
       "def": 1000,
       "text": "Rock/Effect – <effect=Trigger>If this card is Tribute Summoned: Target 1 Set card on the field; destroy that target.</effect>"
+   },
+   "Grave Ohja": {
+      "id": "40937767",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1600,
+      "def": 1500,
+      "text": "Rock/Effect – <effect=Continuous>While you control a face-down Defense Position monster(s), this card cannot be targeted for an attack.</effect> <effect=Trigger>If a monster(s) you control is Flip Summoned: Inflict 300 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -300 }
+   },
+   "Grave Protector": {
+      "id": "11448373",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 0,
+      "def": 2000,
+      "text": "Fiend/Effect – <effect=Continuous>Any monster destroyed by battle is shuffled into the Deck instead of going to the Graveyard.</effect>"
    },
    "Gravedigger Ghoul": {
       "id": "82542267",
@@ -4688,12 +5340,27 @@
       "levelOrSubtype": "Continuous",
       "text": "<effect=Trigger-like>Once per turn, during your Standby Phase: Your opponent takes 100 damage for each of their banished monsters.</effect>"
    },
+   "Gravity Axe - Grarl": {
+      "id": "32022366",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>The equipped monster gains 500 ATK.</effect> <effect=Continuous-like>Monsters your opponent controls cannot change their battle positions.</effect>"
+   },
    "Gravity Bind": {
       "id": "85742772",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>Level 4 or higher monsters cannot attack.</effect>",
       "limit": 2
+   },
+   "Gray Wing": {
+      "id": "29618570",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 3,
+      "atk": 1300,
+      "def": 700,
+      "text": "Dragon/Effect – <effect=Ignition>During your Main Phase 1: You can discard 1 card; this card can make a second attack this turn.</effect>"
    },
    "Great Angus": {
       "id": "11813953",
@@ -4703,6 +5370,21 @@
       "atk": 1800,
       "def": 600,
       "text": "Beast – A very violent beast, it is always berserk. People say that they have never seen it silent."
+   },
+   "Great Dezard": {
+      "id": "88989706",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 6,
+      "atk": 1900,
+      "def": 2300,
+      "text": "Spellcaster/Effect – <effect=Condition>Gains the following effects, depending on the number of monsters this card destroys by battle:</effect> <effect=Quick>● 1: When a Spell/Trap or effect is activated that targets this card: Negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Ignition>● 2: You can Tribute this card; Special Summon 1 \"Fushioh Richie\" from your hand or Deck.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Fushioh Richie" } },
+         "autoClose": true
+      }
    },
    "Great Long Nose": {
       "id": "02356994",
@@ -4722,6 +5404,24 @@
       "def": 0,
       "text": "Fiend/Effect – <effect=Continuous>This card's ATK becomes twice 1 monster Tributed for the Tribute Summon of this card.</effect>"
    },
+   "Great Moth": {
+      "id": "14141448",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 8,
+      "atk": 2600,
+      "def": 2500,
+      "text": "Insect/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by Tributing 1 \"Petit Moth\" on your 4th turn or later after it was equipped with \"Cocoon of Evolution\".</effect>"
+   },
+   "Great Phantom Thief": {
+      "id": "10809984",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1000,
+      "def": 1000,
+      "text": "Spellcaster/Effect – <effect=Trigger>If this card inflicts battle damage to your opponent: Declare 1 card name; look at your opponent's hand, then discard all copies of it.</effect>"
+   },
    "Great White": {
       "id": "13429800",
       "cardType": "normalMonster",
@@ -4730,6 +5430,12 @@
       "atk": 1600,
       "def": 800,
       "text": "Fish – A giant white shark with razor-sharp teeth."
+   },
+   "Greed": {
+      "id": "89405199",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>Once per turn, during the End Phase: Both players take 500 damage for each card they drew by a card effect.</effect>"
    },
    "Green Phantom King": {
       "id": "22910685",
@@ -4749,6 +5455,25 @@
       "def": 900,
       "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 2 Set Spells/Traps on the field; destroy those targets.</effect>"
    },
+   "Gren Maju Da Eiza": {
+      "id": "36584821",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 3,
+      "atk": "?",
+      "def": "?",
+      "text": "Fiend/Effect – <effect=Continuous>This card's ATK/DEF are each equal to the number of your banished cards x 400.</effect>"
+   },
+   "Griggle": {
+      "id": "95744531",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 1,
+      "atk": 350,
+      "def": 300,
+      "text": "Plant/Effect – <effect=Trigger>Once while face-up on the field, when the control of this face-up card is switched: The opponent of its new controller gains 3000 Life Points.</effect>",
+      "prepopLP": { "villain": 3000 }
+   },
    "Ground Attacker Bugroth": {
       "id": "58314394",
       "cardType": "normalMonster",
@@ -4757,6 +5482,18 @@
       "atk": 1500,
       "def": 1000,
       "text": "Machine – A surface battle robot that was once used for sea warfare."
+   },
+   "Ground Collapse": {
+      "id": "90502999",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>Choose 2 unused Monster Zones. Those Zones cannot be used.</effect>"
+   },
+   "Gryphon Wing": {
+      "id": "55608151",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When your opponent activates \"Harpie's Feather Duster\": Negate its effect, and if you do, destroy all Spells and Traps your opponent controls."
    },
    "Gryphon's Feather Duster": {
       "id": "34370473",
@@ -4773,6 +5510,51 @@
       "def": 2000,
       "text": "Fairy/Effect – <effect=Trigger>If this card destroys a monster by battle and sends it to the Graveyard: Gain Life Points equal to the original ATK of that destroyed monster in the Graveyard.</effect>"
    },
+   "Guardian Baou": {
+      "id": "73544866",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 800,
+      "def": 400,
+      "text": "Fiend/Effect – <effect=Summon>Cannot be Summoned unless you control a face-up \"Wicked-Breaking Flamberge - Baou\".</effect> <effect=Trigger>If this card destroys an opponent's monster by battle and sends it to the Graveyard: This card gains 1000 ATK.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>"
+   },
+   "Guardian Ceal": {
+      "id": "10755153",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1700,
+      "def": 1400,
+      "text": "Pyro/Effect – <effect=Summon>Cannot be Summoned unless you control a face-up \"Shooting Star Bow - Ceal\".</effect> <effect=Ignition>You can send 1 Equip Spell you control that is equipped to this card to the Graveyard, then target 1 monster your opponent controls; destroy that target.</effect>"
+   },
+   "Guardian Elma": {
+      "id": "74367458",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 3,
+      "atk": 1300,
+      "def": 1200,
+      "text": "Fairy/Effect – <effect=Summon>Cannot be Summoned unless you control a face-up \"Butterfly Dagger - Elma\".</effect> <effect=Trigger>When this card is Normal or Special Summoned: You can target 1 appropriate Equip Spell in your Graveyard; equip that target to this card.</effect>"
+   },
+   "Guardian Grarl": {
+      "id": "47150851",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 5,
+      "atk": 2500,
+      "def": 1000,
+      "text": "Dinosaur/Effect – <effect=Summon>Cannot be Summoned unless you control a face-up \"Gravity Axe - Grarl\".</effect> <effect=Summon>If this is the only card in your hand, you can Special Summon it (from your hand).</effect>"
+   },
+   "Guardian Kay'est": {
+      "id": "09633505",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1800,
+      "text": "Sea Serpent/Effect – <effect=Summon>Cannot be Summoned unless you control a face-up \"Rod of Silence - Kay'est\".</effect> <effect=Continuous>This card is unaffected by Spell effects and cannot be targeted for attacks, but does not prevent your opponent from attacking you directly.</effect>"
+   },
    "Guardian Sphinx": {
       "id": "40659562",
       "cardType": "effectMonster",
@@ -4781,6 +5563,24 @@
       "atk": 1700,
       "def": 2400,
       "text": "Rock/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Return all monsters your opponent controls to the hand.</effect>"
+   },
+   "Guardian Statue": {
+      "id": "75209824",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 800,
+      "def": 1400,
+      "text": "Rock/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card if Flip Summoned: Target 1 monster your opponent controls; return that target to the hand.</effect>"
+   },
+   "Guardian Tryce": {
+      "id": "46037213",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 5,
+      "atk": 1900,
+      "def": 1700,
+      "text": "Thunder/Effect – <effect=Summon>Cannot be Summoned unless you control a face-up \"Twin Swords of Flashing Light - Tryce\".</effect> <effect=Trigger>If this card is destroyed and sent to the Graveyard: Special Summon the monster from the Graveyard that was used for its Tribute Summon.</effect>"
    },
    "Guardian of the Labyrinth": {
       "id": "89272878",
@@ -4799,6 +5599,18 @@
       "atk": 1650,
       "def": 1600,
       "text": "Machine – A robot guard built to protect throne rooms, it is armed with homing missiles."
+   },
+   "Gust": {
+      "id": "73079365",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a Spell(s) you control is destroyed by an opponent's card effect and sent from the field to the Graveyard: Target 1 Spell/Trap on the field; destroy that target."
+   },
+   "Gust Fan": {
+      "id": "55321970",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>Equip only to a WIND monster. It gains 400 ATK and loses 200 DEF.</effect>"
    },
    "Gyaku-Gire Panda": {
       "id": "09817927",
@@ -6272,7 +7084,11 @@
       "id": "15800838",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Declare 1 card name; look at your opponent's hand, then discard all copies of it, otherwise you discard 1 random card."
+      "text": "Declare 1 card name; look at your opponent's hand, then discard all copies of it, otherwise you discard 1 random card.",
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" }
+      }
    },
    "Mirage Dragon": {
       "id": "15960641",

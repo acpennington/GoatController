@@ -4,10 +4,13 @@ const db = require("./db.json");
 
 const CARD_TYPES = [...orderedCardTypes, FUSION_MONSTER, TOKEN_MONSTER];
 const MONSTER_TYPES = ["???", ...allMonsterTypes];
-const EFFECTS = [
-  "Condition", "Summon", "Ignition", "Ignition-like", "Trigger", "Trigger-like",
-  "Quick", "Quick-like", "Continuous", "Continuous-like", "Lingering", "Maintenance Cost"
+const MONSTER_EFFECTS = [
+  "Condition", "Summon", "Ignition", "Trigger", "Quick", "Continuous", "Lingering", "Maintenance Cost"
 ];
+const OTHER_EFFECTS = [
+  "Condition", "Ignition-like", "Trigger-like", "Quick-like", "Continuous-like", "Lingering", "Maintenance Cost"
+];
+const EFFECTS = [...MONSTER_EFFECTS, ...OTHER_EFFECTS];
 
 const SPELL_TRAP_REQUIRED = ["id", "cardType", "levelOrSubtype", "text"];
 const MONSTER_REQUIRED = ["id", "cardType", "attribute", "levelOrSubtype", "atk", "def", "text"];
@@ -84,6 +87,8 @@ const STYLE_REGEX = new RegExp(`(${Object.keys(STYLIZATION).map(s => s.replace(/
 const STYLE_WHITELIST = {
   "Agido": "When",
   "Mystical Shine Ball": "When",
+  "Fairy Box": "When", // TODO is this correct?
+  "Familiar Knight": "When",
 };
 
 function expectFields(name, card, required, optional = OPTIONAL) {
@@ -122,10 +127,10 @@ test('database', () => {
       expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${STYLIZATION[m[0]]}'`).toBe(true);
     }
 
-    expect([FUSION_MONSTER, TOKEN_MONSTER].includes(card.cardType) || /\.(<\/effect>)?$/.test(card.text), `"${name}"'s text does not end with a period: '${card.text}'`).toBe(true);
+    expect([FUSION_MONSTER, TOKEN_MONSTER].includes(card.cardType) || /[^>]\.(<\/effect>)?$/.test(card.text), `"${name}"'s text does not end with a period/contains a period after a tag: '${card.text}'`).toBe(true);
     expect(card.text.includes("><"), `"${name}"'s text is missing a space between tags: '${card.text}'`).toBe(false);
     for (const effect of card.text.matchAll(/<effect=([^>]+)>/g)) {
-      expect(EFFECTS, `"${name}" has an unknown effect type: '${effect[1]}'`).toContain(effect[1]);
+      expect([SPELL, TRAP].includes(card.cardType) ? OTHER_EFFECTS : card.text.includes("equip") ? EFFECTS : MONSTER_EFFECTS, `"${name}" has an unknown/invalid effect type: '${effect[1]}'`).toContain(effect[1]);
     }
 
     if (card.cardType === SPELL) {
