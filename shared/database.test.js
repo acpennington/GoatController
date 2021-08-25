@@ -76,7 +76,6 @@ const STYLIZATION = {
   "Cards and effects cannot be activated in response to this effect's activation": "Neither player can activate cards or effects in response to this effect's activation",
   "Once per turn, during your opponent's turn": "Once per opponent's turn",
   "This effect can only be used once while this card is face-up on the field.": "Once while face-up on the field:",
-  "This card gains": "Gains ... ATK/DEF",
   "This card can attack your opponent directly": "This card can attack directly"
 };
 
@@ -119,7 +118,7 @@ test('database', () => {
     expect(card.text.length).toBeGreaterThan(0);
     for (const m of card.text.matchAll(STYLE_REGEX)) {
       if (STYLE_WHITELIST[name] === m[0]) continue;
-      if (m[0] === "When" && /When[^.]+[Yy]ou can/.test(card.text)) continue;
+      if (m[0] === "When" && (/When[^.]+[Yy]ou can/.test(card.text) || !card.text.includes("Trigger"))) continue;
       expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${STYLIZATION[m[0]]}'`).toBe(true);
     }
 
