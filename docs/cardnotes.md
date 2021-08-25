@@ -67,3 +67,4 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Dark Snake Syndrome: can probably use a counter based complex prepopLP (see ticket #225).
 -  Disturbance Strategy: possibly could use a helper script
 -  Fire Sorceror/Fuh-Rin-Ka-Zan: add a parameter to RANDOM_DISCARD to allow it to discard 2 cards
+-  Heavy Slump: needing to shuffle 8+ cards back into your deck is kind of obnoxious

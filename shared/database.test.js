@@ -103,6 +103,7 @@ const STYLE_WHITELIST = {
   "Destiny Board": "When",
   "Familiar Knight": "When",
   "Gaia Soul the Combustible Collective": "this card gains",
+  "Heavy Mech Support Platform": "this card gains",
   "Nightmare Wheel": "When"
 };
 
