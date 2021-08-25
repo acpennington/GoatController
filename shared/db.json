@@ -6584,6 +6584,15 @@
       "levelOrSubtype": "Normal",
       "text": "Inflict 500 damage to your opponent for each monster they control."
    },
+   "KA-2 Des Scissors": {
+      "id": "52768103",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1000,
+      "text": "Machine/Effect – <effect=Trigger>If this card destroys a monster by battle and sends it to the Graveyard: Inflict damage to your opponent equal to the destroyed monster's original Level x 500.</effect>"
+   },
    "Kabazauls": {
       "id": "51934376",
       "cardType": "normalMonster",
@@ -6601,6 +6610,30 @@
       "atk": 800,
       "def": 400,
       "text": "Warrior – Serving as a double for the Ruler of the Blue Flame, he's a master swordsman that wields a fine blade."
+   },
+   "Kaibaman": {
+      "id": "34627841",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 3,
+      "atk": 200,
+      "def": 700,
+      "text": "Warrior/Effect – <effect=Ignition>You can Tribute this card; Special Summon 1 \"Blue-Eyes White Dragon\" from your hand.</effect>"
+   },
+   "Kaiser Colosseum": {
+      "id": "35059553",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>If you control at least 1 monster, your opponent cannot place a monster(s) on the field if they would control more monsters than you do.</effect> <effect=Condition>Cards that are already on the field before this card's activation are unaffected by this effect.</effect>"
+   },
+   "Kaiser Glider": {
+      "id": "52824910",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 6,
+      "atk": 2400,
+      "def": 2200,
+      "text": "Dragon/Effect – <effect=Continuous>Cannot be destroyed by battle with a monster that has the same ATK.</effect> <effect=Trigger>If this card is destroyed and sent to the Graveyard: Target 1 monster on the field; return that target to the hand.</effect>"
    },
    "Kaiser Sea Horse": {
       "id": "17444133",
@@ -6620,6 +6653,12 @@
       "def": 1400,
       "text": "Thunder/Fusion – \"Ocubeam\" + \"Mega Thunderball\""
    },
+   "Kaminote Blow": {
+      "id": "97570038",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "If you control \"Chu-Ske the Mouse Fighter\", \"Monk Fighter\", or \"Master Monk\": this turn, if any of these monsters you control battles a monster(s), destroy that monster(s) at the end of each Damage Step."
+   },
    "Kangaroo Champ": {
       "id": "95789089",
       "cardType": "effectMonster",
@@ -6629,6 +6668,15 @@
       "def": 700,
       "text": "Beast/Effect – <effect=Trigger>If this card battles a monster: That monster is changed to Defense Position after damage calculation.</effect>"
    },
+   "Karate Man": {
+      "id": "23289281",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1000,
+      "def": 1000,
+      "text": "Warrior/Effect – <effect=Ignition>Once per turn: You can double this card's original ATK until the end of this turn.</effect> <effect=Trigger>Once per turn, during the End Phase, if this effect was activated this turn: Destroy this card.</effect>"
+   },
    "Karbonala Warrior": {
       "id": "54541900",
       "cardType": "fusionMonster",
@@ -6637,6 +6685,24 @@
       "atk": 1500,
       "def": 1200,
       "text": "Warrior/Fusion – \"M-Warrior #1\" + \"M-Warrior #2\""
+   },
+   "Kazejin": {
+      "id": "62340868",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 7,
+      "atk": 2400,
+      "def": 2200,
+      "text": "Spellcaster/Effect – <effect=Condition>Once while face-up on the field:</effect> <effect=Quick>During damage calculation in your opponent's turn, if this card is being attacked: You can target the attacking monster; make that target's ATK 0 during damage calculation only.</effect>"
+   },
+   "Kelbek": {
+      "id": "54878498",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1800,
+      "text": "Fairy/Effect – <effect=Trigger>If this card is attacked by a monster, after damage calculation: Return that monster to the hand.</effect>"
    },
    "Keldo": {
       "id": "80441106",
@@ -6693,6 +6759,39 @@
       "def": 1530,
       "text": "Fiend – Wields the power of darkness to destroy its enemies."
    },
+   "King of the Skull Servants": {
+      "id": "36021814",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 1,
+      "atk": "?",
+      "def": 0,
+      "text": "Zombie/Effect – <effect=Continuous>The original ATK of this card is the combined number of \"King of the Skull Servants\" and \"Skull Servant\" in your Graveyard x 1000.</effect> <effect=Trigger>When this card is destroyed by battle and sent to the Graveyard: You can banish 1 other \"King of the Skull Servants\" or 1 \"Skull Servant\" from your Graveyard; Special Summon this card.</effect>"
+   },
+   "King of the Swamp": {
+      "id": "79109599",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 3,
+      "atk": 500,
+      "def": 1100,
+      "text": "Aqua/Effect – This card can be used as a substitute for any 1 Fusion material whose name is specifically listed on the Fusion Monster Card, but the other Fusion material(s) must be correct.<effect=Ignition>You can discard this card to the Graveyard; add 1 \"Polymerization\" from your Deck to your hand.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Polymerization" } },
+         "autoClose": true
+      }
+   },
+   "Kiryu": {
+      "id": "84814897",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 5,
+      "atk": 2000,
+      "def": 1500,
+      "text": "Dragon/Union/Effect – Once per turn, you can either: <effect=Ignition>Target 1 \"Dark Blade\" you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in face-up Attack Position.</effect> <effect=Continuous-like>While equipped to a monster with this effect, that monster gains 900 ATK/DEF.</effect> <effect=Ignition-like>While equipped to a monster with this effect: You can Tribute this card; the previously equipped monster can attack directly this turn.</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>"
+   },
    "Kiseitai": {
       "id": "04266839",
       "cardType": "effectMonster",
@@ -6708,6 +6807,27 @@
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>Monsters you control are not destroyed by battle if they battle a monster with the same ATK.</effect>"
    },
+   "Knight's Title": {
+      "id": "87210505",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Tribute 1 face-up \"Dark Magician\"; Special Summon 1 \"Dark Magician Knight\" from your hand, Deck or Graveyard.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Dark Magician Knight" } },
+         "autoClose": true
+      }
+   },
+   "Koitsu": {
+      "id": "69456283",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 10,
+      "atk": 200,
+      "def": 100,
+      "text": "Fairy/Union/Effect – Once per turn, you can either: <effect=Ignition>Target 1 \"Aitsu\" you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in face-up Attack Position.</effect> <effect=Continuous-like>While equipped to a monster with this effect, that monster gains 3000 ATK, also it inflicts piercing battle damage to your opponent.</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>"
+   },
    "Kojikocy": {
       "id": "01184620",
       "cardType": "normalMonster",
@@ -6716,6 +6836,15 @@
       "atk": 1500,
       "def": 1200,
       "text": "Warrior – A man-hunter with powerful arms that can crush boulders."
+   },
+   "Kotodama": {
+      "id": "19406822",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 0,
+      "def": 1600,
+      "text": "Fairy/Effect – <effect=Continuous>If there are face-up monsters with the same name on the field, destroy those monsters. (If a monster is Summoned or flipped face-up that has the same name as a monster that is already face-up on the field, the new face-up monster is destroyed. If they are Summoned or flipped face-up at the same time, they are all destroyed).</effect>"
    },
    "Koumori Dragon": {
       "id": "67724379",
@@ -6734,6 +6863,27 @@
       "atk": 400,
       "def": 400,
       "text": "Fiend – A workaholic fiend who devotes everything to his research into the languages of Dark World. His mind has collapsed because of working too hard."
+   },
+   "Kozaky's Self-Destruct Button": {
+      "id": "21908319",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "<effect=Trigger-like>If this Set card is destroyed: inflict 1000 damage to the player who destroyed it.</effect>",
+      "prepopLP": { "hero": -1000, "villain": -1000 }
+   },
+   "Kryuel": {
+      "id": "82642348",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1700,
+      "text": "Fiend/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Toss a coin and call it. If you call it right, target 1 monster your opponent controls, and if you do, destroy it.</effect>",
+      "script": {
+         "name": "FLIP_COINS",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": 1
+      }
    },
    "Kumootoko": {
       "id": "56283725",
