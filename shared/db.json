@@ -1226,13 +1226,7 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": [
-                  "Harpie Lady",
-                  "Harpie Lady 1",
-                  "Harpie Lady 2",
-                  "Harpie Lady 3",
-                  "Cyber Harpie Lady"
-               ]
+               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Cyber Harpie Lady"]
             }
          },
          "autoClose": true
@@ -2006,7 +2000,7 @@
       "levelOrSubtype": 3,
       "atk": 1350,
       "def": 1800,
-      "text": "Machine/Effect – <effect=Trigger>If this card battles a Warrior monster, during damage calculation: Gain 2000 ATK and DEF during that damage calculation only.</effect>"
+      "text": "Machine/Effect – <effect=Trigger>If this card battles a Warrior monster, during damage calculation: Gain 2000 ATK/DEF during that damage calculation only.</effect>"
    },
    "Claw Reacher": {
       "id": "41218256",
@@ -3695,14 +3689,7 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": [
-                  "Harpie Lady",
-                  "Harpie Lady 1",
-                  "Harpie Lady 2",
-                  "Harpie Lady 3",
-                  "Harpie Lady Sisters",
-                  "Cyber Harpie Lady"
-               ]
+               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Harpie Lady Sisters", "Cyber Harpie Lady"]
             }
          },
          "autoClose": true
