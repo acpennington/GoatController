@@ -2323,6 +2323,21 @@
       "def": 1300,
       "text": "Winged Beast/Effect – <effect=Condition>(This card's name is always treated as \"Harpie Lady\").</effect>"
    },
+   "Cyber Jar": {
+      "id": "34124316",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 3,
+      "atk": 900,
+      "def": 900,
+      "text": "Rock/Flip/Effect – <effect=Trigger>FLIP: Destroy all monsters on the field, then both players reveal the top 5 cards from their Decks, then Special Summon all revealed Level 4 or lower monsters in face-up Attack Position or face-down Defense Position, also add any remaining cards to their hand. (If either player has less than 5 cards in their Deck, reveal as many as possible).</effect>",
+      "script": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["HERO", "VILLAIN"], "row": "monster" },
+         "params": 5
+      },
+      "limit": 1
+   },
    "Cyber Raider": {
       "id": "39978267",
       "cardType": "effectMonster",
