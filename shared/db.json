@@ -992,7 +992,7 @@
       "levelOrSubtype": 3,
       "atk": 0,
       "def": 0,
-      "text": "Thunder/Effect – <effect=Continuous>If all \"Batteryman AA\"(s) you control are in Attack Position, this card gains 1000 ATK for each.</effect> <effect=Continuous>If all \"Batteryman AA\"(s) you control are in Defense Position, this card gains 1000 DEF for each.</effect>"
+      "text": "Thunder/Effect – <effect=Continuous>If all \"Batteryman AA\"(s) you control are in Attack Position, gains 1000 ATK for each.</effect> <effect=Continuous>If all \"Batteryman AA\"(s) you control are in Defense Position, gains 1000 DEF for each.</effect>"
    },
    "Battle Footballer": {
       "id": "48094997",
@@ -1129,7 +1129,7 @@
       "levelOrSubtype": 8,
       "atk": 3500,
       "def": 0,
-      "text": "Zombie/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned with \"A Deal with Dark Ruler\".</effect> <effect=Continuous>This card can attack all monsters your opponent controls once each.</effect> <effect=Continuous>During each of your End Phases, this card loses 500 ATK.</effect>"
+      "text": "Zombie/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned with \"A Deal with Dark Ruler\".</effect> <effect=Continuous>This card can attack all monsters your opponent controls once each.</effect> <effect=Continuous>During each of your End Phases, loses 500 ATK.</effect>"
    },
    "Berserk Gorilla": {
       "id": "39168895",
@@ -1304,7 +1304,7 @@
       "levelOrSubtype": 7,
       "atk": 2600,
       "def": 1800,
-      "text": "Dinosaur/Effect – <effect=Continuous>If the only cards your opponent controls are Defense Position monsters, this card can attack your opponent directly.</effect>"
+      "text": "Dinosaur/Effect – <effect=Continuous>If the only cards your opponent controls are Defense Position monsters, this card can attack directly.</effect>"
    },
    "Blackland Fire Dragon": {
       "id": "87564352",
@@ -1322,7 +1322,7 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 1000,
-      "text": "Warrior/Effect – <effect=Continuous>While you have 1 or less cards in your hand, this card gains 400 ATK.</effect> <effect=Continuous>If you control no other monsters, the effects of Flip monsters destroyed by battle with this card are negated.</effect>"
+      "text": "Warrior/Effect – <effect=Continuous>While you have 1 or fewer cards in your hand, this card gains 400 ATK.</effect> <effect=Continuous>If you control no other monsters, the effects of Flip monsters destroyed by battle with this card are negated.</effect>"
    },
    "Blade Rabbit": {
       "id": "58268433",
@@ -1488,7 +1488,7 @@
       "levelOrSubtype": 4,
       "atk": 2000,
       "def": 500,
-      "text": "Beast-Warrior/Effect – <effect=Trigger>If this card is Normal Summoned: Destroy this card.</effect> <effect=Continuous>If your opponent controls a monster(s), this card loses 1000 ATK.</effect>"
+      "text": "Beast-Warrior/Effect – <effect=Trigger>If this card is Normal Summoned: Destroy this card.</effect> <effect=Continuous>If your opponent controls a monster(s), loses 1000 ATK.</effect>"
    },
    "Bokoichi the Freightening Car": {
       "id": "08715625",
@@ -1554,7 +1554,7 @@
       "id": "76532077",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>Once per turn, during your opponent's End Phase: Destroy the face-up monster(s) on the field with the highest ATK.</effect> <effect=Continuous-like>During your Standby Phase, if you have 4 or less cards in your hand, destroy this card.</effect>"
+      "text": "<effect=Trigger-like>Once per turn, during your opponent's End Phase: Destroy the face-up monster(s) on the field with the highest ATK.</effect> <effect=Continuous-like>During your Standby Phase, if you have 4 or fewer cards in your hand, destroy this card.</effect>"
    },
    "Bottomless Trap Hole": {
       "id": "29401950",
@@ -2500,8 +2500,9 @@
       "levelOrSubtype": 5,
       "atk": 2000,
       "def": 1200,
-      "text": "Fiend/Fusion/Effect – \"Possessed Dark Soul\" + \"Frontier Wiseman\". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion materials.</effect> <effect=Quick>When a Normal Spell is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>",
-      "order": 2
+      "text": "Fiend/Fusion/Effect – \"Possessed Dark Soul\" + \"Frontier Wiseman\". <effect=Summon>A Fusion Summon of must first be done with the above Fusion materials.</effect> <effect=Quick>When a Normal Spell is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>",
+      "order": 2,
+      "prepopLP": { "hero": -1000 }
    },
    "Dark Bat": {
       "id": "67049542",
@@ -3562,7 +3563,7 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 1100,
-      "text": "Machine/Effect – <effect=Continuous>If the only cards your opponent controls are face-up monsters with 1600 or more ATK, this card can attack your opponent directly.</effect>"
+      "text": "Machine/Effect – <effect=Continuous>If the only cards your opponent controls are face-up monsters with 1600 or more ATK, this card can attack directly.</effect>"
    },
    "Driving Snow": {
       "id": "00473469",
@@ -3985,7 +3986,7 @@
       "levelOrSubtype": 5,
       "atk": 1200,
       "def": 600,
-      "text": "Rock/Effect – <effect=Continuous>This card gains 400 ATK/DEF for each card in your hand.</effect>"
+      "text": "Rock/Effect – <effect=Continuous>Gains 400 ATK/DEF for each card in your hand.</effect>"
    },
    "Eria the Water Charmer": {
       "id": "74364659",
@@ -4213,7 +4214,7 @@
       "levelOrSubtype": 5,
       "atk": 2000,
       "def": 1200,
-      "text": "Dragon/Fusion/Effect – \"Cave Dragon\" + \"Lesser Fiend\". <effect=Condition>(This card is always treated as an \"Archfiend\" card.)</effect> <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion material Monsters.</effect> <effect=Continuous>Negate the effects of Flip monsters.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap.</effect>",
+      "text": "Dragon/Fusion/Effect – \"Cave Dragon\" + \"Lesser Fiend\". <effect=Condition>(This card is always treated as an \"Archfiend\" card.)</effect> <effect=Summon>A Fusion Summon of must first be done with the above Fusion material monsters.</effect> <effect=Continuous>Negate the effects of Flip monsters.</effect> <effect=Continuous>Negate any Trap effects that target this card on the field, and if you do, destroy that Trap.</effect>",
       "order": 7
    },
    "Fiend's Hand Mirror": {
@@ -4394,7 +4395,7 @@
       "levelOrSubtype": 4,
       "atk": 2000,
       "def": 2000,
-      "text": "Fiend/Effect – <effect=Continuous>This card loses 400 ATK/DEF for each card in your hand.</effect>"
+      "text": "Fiend/Effect – <effect=Continuous>Loses 400 ATK/DEF for each card in your hand.</effect>"
    },
    "Flint": {
       "id": "75560629",
@@ -4783,7 +4784,7 @@
       "levelOrSubtype": 4,
       "atk": 800,
       "def": 2200,
-      "text": "Machine/Effect – <effect=Ignition>Once per turn, during your Main Phase 1: You can pay 800 Life Points; this card can attack your opponent directly this turn.</effect>",
+      "text": "Machine/Effect – <effect=Ignition>Once per turn, during your Main Phase 1: You can pay 800 Life Points; this card can attack directly this turn.</effect>",
       "prepopLP": { "hero": -800 }
    },
    "Gearfried the Iron Knight": {
@@ -7093,7 +7094,7 @@
       "levelOrSubtype": 8,
       "atk": 2800,
       "def": 2000,
-      "text": "Warrior/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned by \"Dark Flare Knight\".</effect> <effect=Continuous>During damage calculation only, this card gains ATK equal to the original ATK of the opponent's monster it is battling.</effect> <effect=Trigger>Once per turn, during the End Phase of a turn this card attacked or was attacked: Banish this card.</effect>"
+      "text": "Warrior/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned by \"Dark Flare Knight\".</effect> <effect=Continuous>During damage calculation only, gain ATK equal to the original ATK of the opponent's monster it is battling.</effect> <effect=Trigger>Once per turn, during the End Phase of a turn this card attacked or was attacked: Banish this card.</effect>"
    },
    "Mirage Token": {
       "cardType": "tokenMonster",
@@ -7600,7 +7601,7 @@
       "levelOrSubtype": 4,
       "atk": 2000,
       "def": 800,
-      "text": "Fiend/Effect – <effect=Trigger>If this monster is Normal Summoned, destroy this card.</effect> <effect=Continuous>This card loses 200 ATK for each monster your opponent controls.</effect>"
+      "text": "Fiend/Effect – <effect=Trigger>If this monster is Normal Summoned, destroy this card.</effect> <effect=Continuous>Loses 200 ATK for each monster your opponent controls.</effect>"
    },
    "Octoberser": {
       "id": "74637266",
@@ -8589,8 +8590,9 @@
       "levelOrSubtype": 6,
       "atk": 2000,
       "def": 1200,
-      "text": "Warrior/Fusion/Effect – \"Warrior Dai Grepher\" + \"Spirit Ryu\". <effect=Summon>A Fusion Summon of this card can only be done with the above Fusion materials.</effect> <effect=Quick>When a Normal Trap is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell that targets this card and destroy it.</effect>",
-      "order": 3
+      "text": "Warrior/Fusion/Effect – \"Warrior Dai Grepher\" + \"Spirit Ryu\". <effect=Summon>A Fusion Summon of must first be done with the above Fusion materials.</effect> <effect=Quick>When a Normal Trap is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of any Spell that targets this card and destroy it.</effect>",
+      "order": 3,
+      "prepopLP": { "hero": -1000 }
    },
    "Ryu-Kishin": {
       "id": "15303296",
