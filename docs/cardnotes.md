@@ -27,7 +27,6 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Recycle: Requires some sort of bottom of the deck script (see ticket #245)
 -  Good Goblin Housekeeping: also requires the bottom of the deck script (see ticket #245)
 -  Roc from the Valley of Haze: Requires shuffle button (see ticket #227)
--  Morphing Jar #2: needs some sort of script. (see ticket #248)
 -  Parasite Paracide: requires complex scripting.
 -  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script (see ticket #245)
 -  Exchange/Amazoness Chain Master: God only knows how we're going to make this work.
@@ -55,3 +54,4 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Disturbance Strategy: possibly could use a helper script
 -  Fire Sorceror/Fuh-Rin-Ka-Zan: add a parameter to RANDOM_DISCARD to allow it to discard 2 cards
 -  Heavy Slump: needing to shuffle 8+ cards back into your deck is kind of obnoxious
+-  Mazera DeVille: needs to discard up to 3 cards

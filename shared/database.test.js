@@ -125,6 +125,8 @@ const STYLE_WHITELIST = {
    "Heavy Mech Support Platform": "this card gains",
    "Insect Soldiers of the Sky": "this card gains",
    "Luminous Soldier": "this card gains",
+   "Mask of Dispel": "When",
+   "Mucus Yolk": "this card gains",
    "Nightmare Wheel": "When"
 };
 

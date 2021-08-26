@@ -7498,6 +7498,26 @@
       "levelOrSubtype": "Equip",
       "text": "<effect=Condition>Equip only to a Machine monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
    },
+   "Machine Duplication": {
+      "id": "63995093",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 Machine monster you control with 500 or less ATK; Special Summon up to 2 monsters from your Deck with the same name as that face-up monster.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": { "text": { "operator": "TYPEMATCH", "value": "Machine" } }
+      }
+   },
+   "Machine King": {
+      "id": "46700124",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 6,
+      "atk": 2200,
+      "def": 2000,
+      "text": "Machine/Effect – <effect=Continuous>Gains 100 ATK for each Machine monster on the field.</effect>"
+   },
    "Mad Dog of Darkness": {
       "id": "79182538",
       "cardType": "normalMonster",
@@ -7516,6 +7536,12 @@
       "def": 1200,
       "text": "Dinosaur/Effect – <effect=Continuous>If this card attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect>"
    },
+   "Mage Power": {
+      "id": "83746708",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>The equipped monster gains 500 ATK/DEF for each Spell/Trap you control.</effect>"
+   },
    "Magic Cylinder": {
       "id": "62279055",
       "cardType": "Trap",
@@ -7523,12 +7549,24 @@
       "text": "When an opponent's monster declares an attack: Target the attacking monster; negate the attack, and if you do, inflict damage to your opponent equal to its ATK.",
       "limit": 1
    },
+   "Magic Drain": {
+      "id": "59344077",
+      "cardType": "Trap",
+      "levelOrSubtype": "Counter",
+      "text": "When your opponent activates a Spell: They can discard 1 Spell to negate this card's effect, otherwise negate the activation of their Spell, and if you do, destroy it."
+   },
    "Magic Jammer": {
       "id": "77414722",
       "cardType": "Trap",
       "levelOrSubtype": "Counter",
       "text": "When a Spell is activated: Discard 1 card; negate the activation, and if you do, destroy it.",
       "art": 2
+   },
+   "Magic Reflector": {
+      "id": "61844784",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 face-up Spell you control; place 1 counter on it. <effect=Condition>If it would ever be destroyed, remove the counter instead.</effect>"
    },
    "Magical Ghost": {
       "id": "46474915",
@@ -7538,6 +7576,32 @@
       "atk": 1300,
       "def": 1400,
       "text": "Zombie – This creature casts a spell of terror and confusion just before attacking its enemies."
+   },
+   "Magical Hats": {
+      "id": "81210420",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "During your opponent's Battle Phase: Choose 2 Spells/Traps from your Deck and 1 monster in your Monster Zone. Special Summon them as Normal Monsters (ATK 0/DEF 0) in face-down Defense Position, Set the chosen monster if it is face-up, and shuffle them on the field. <effect=Condition>The 2 cards chosen from your Deck are destroyed at the end of the Battle Phase, and cannot remain on the field except during this Battle Phase.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "tooltip": "Take all cards from your hand and set them on the field. Take the selected monster into your hand. Search your Deck for 2 Spells/Traps. Place the cards from your hand that you previously set on the field on top of your Deck. Take the 3 cards in your hand and Set them on the field as monsters. Draw cards to restore your hand",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": {
+            "cardType": { "operator": "OR", "value": ["Spell", "Trap"] }
+         }
+      }
+   },
+   "Magical Labyrinth": {
+      "id": "64389297",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to \"Labyrinth Wall\".</effect> <effect=Ignition-like>You can Tribute the equipped monster; Special Summon 1 \"Wall Shadow\" from your Deck.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Wall Shadow" } },
+         "autoClose": true
+      }
    },
    "Magical Marionette": {
       "id": "08034697",
@@ -7573,6 +7637,13 @@
       "def": 200,
       "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Place 1 Spell Counter on each face-up card on the field that you can place a Spell Counter on.</effect>"
    },
+   "Magical Thorn": {
+      "id": "53119267",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>Each time your opponent discards a card(s) to the Graveyard, inflict 500 damage to your opponent for each card discarded.</effect>",
+      "prepopLP": { "villain": -500 }
+   },
    "Magician of Faith": {
       "id": "31560081",
       "cardType": "effectMonster",
@@ -7591,6 +7662,15 @@
       "def": 1400,
       "text": "Spellcaster/Effect – <effect=Continuous>Gains 500 ATK for each Equip Card equipped to this card.</effect>"
    },
+   "Maiden of the Aqua": {
+      "id": "17214465",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 700,
+      "def": 2000,
+      "text": "Aqua/Effect – <effect=Continuous>While there is no face-up Field Spell, the field is treated as \"Umi\".</effect>"
+   },
    "Maiden of the Moonlight": {
       "id": "79629370",
       "cardType": "normalMonster",
@@ -7600,6 +7680,21 @@
       "def": 1300,
       "text": "Spellcaster – A sorcerer blessed by lunar light with powers far beyond mortal comprehension."
    },
+   "Maji-Gire Panda": {
+      "id": "60102563",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 800,
+      "text": "Beast/Effect – <effect=Trigger>Each time a Beast monster(s) on the field is destroyed: This card gains 500 ATK.</effect>"
+   },
+   "Major Riot": {
+      "id": "09074847",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a monster(s) is returned from the field to your hand by an opponent's card effect: Return all monsters on the field to the hand, then both players reveal their hand and Special Summon Level 4 or lower monsters from their hand in face-down Defense Position equal to the number of monsters returned to their hand with this effect."
+   },
    "Maju Garzett": {
       "id": "08794435",
       "cardType": "effectMonster",
@@ -7608,6 +7703,28 @@
       "atk": 0,
       "def": 0,
       "text": "Fiend/Effect – <effect=Continuous>This Tribute Summoned card's ATK becomes the 2 Tributed monsters' combined original ATKs.</effect>"
+   },
+   "Malevolent Nuzzler": {
+      "id": "99597615",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>The equipped monster gains 700 ATK.</effect> <effect=Trigger-like>When this card is sent from the field to the Graveyard: You can pay 500 Life Points; place this card on the top of the Deck.</effect>",
+      "prepopLP": { "hero": -500 }
+   },
+   "Malice Dispersion": {
+      "id": "13626450",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "Discard 1 card; destroy all face-up Continuous Traps."
+   },
+   "Malice Doll of Demise": {
+      "id": "72657739",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1600,
+      "def": 1700,
+      "text": "Fiend/Effect – <effect=Trigger>During your next Standby Phase after this card was sent from the field to the Graveyard by the effect of a Continuous Spell: Special Summon this card from the Graveyard.</effect>"
    },
    "Mammoth Graveyard": {
       "id": "40374923",
@@ -7627,6 +7744,15 @@
       "def": 600,
       "text": "Plant – Man-eating plant with poison feelers for attacking enemies."
    },
+   "Man-Eater Bug": {
+      "id": "54652250",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 2,
+      "atk": 450,
+      "def": 600,
+      "text": "Insect/Flip/Effect – <effect=Trigger>FLIP: Target 1 monster on the field; destroy it.</effect>"
+   },
    "Man-Eating Treasure Chest": {
       "id": "13723605",
       "cardType": "normalMonster",
@@ -7635,6 +7761,25 @@
       "atk": 1600,
       "def": 1000,
       "text": "Fiend – A monster disguised as a treasure chest that is known to attack the unwary adventurer."
+   },
+   "Man-Thro' Tro'": {
+      "id": "43714890",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1000,
+      "text": "Beast-Warrior/Effect – <effect=Ignition>You can Tribute 1 non-Token Normal Monster; inflict 800 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -800 }
+   },
+   "Manga Ryu-Ran": {
+      "id": "38369349",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 7,
+      "atk": 2200,
+      "def": 2600,
+      "text": "Dragon/Toon/Effect – <effect=Condition>(This card is always treated as a \"Toon\" card.)</effect> <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by Tributing 2 monsters, while you control \"Toon World\".</effect> <effect=Summon>Cannot attack the turn it is Special Summoned.</effect> <effect=Continuous>You must pay 500 Life Points to declare an attack with this monster.</effect> <effect=Continuous>If \"Toon World\" on the field is destroyed, destroy this card.</effect> <effect=Continuous>Can attack your opponent directly, unless they control a Toon monster, in which case this card must target a Toon monster for its attacks.</effect>"
    },
    "Manju of the Ten Thousand Hands": {
       "id": "95492061",
@@ -7675,6 +7820,15 @@
       "text": "Warrior/Effect – <effect=Continuous>Your opponent cannot target Warrior monsters for attacks, except this one.</effect> <effect=Trigger>When this card is Normal Summoned: You can Special Summon 1 Level 4 or lower monster from your hand.</effect>",
       "limit": 2
    },
+   "Maryokutai": {
+      "id": "71466592",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 3,
+      "atk": 900,
+      "def": 900,
+      "text": "Aqua/Effect – <effect=Condition>During your opponent's turn, when your opponent activates a Spell:</effect> <effect=Quick>You can Tribute this card; negate the activation, and if you do, destroy it.</effect>"
+   },
    "Masaki the Legendary Swordsman": {
       "id": "44287299",
       "cardType": "normalMonster",
@@ -7683,6 +7837,13 @@
       "atk": 1100,
       "def": 1100,
       "text": "Warrior – Legendary swordmaster Masaki is a veteran of over 100 battles."
+   },
+   "Mask of Brutality": {
+      "id": "82432018",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>The equipped monster gains 1000 ATK and loses 1000 DEF.</effect> <effect=Maintenance Cost>Once per turn, during your Standby Phase, you must pay 1000 Life Points or this card is destroyed.</effect>",
+      "prepopLP": { "hero": -1000 }
    },
    "Mask of Darkness": {
       "id": "28933734",
@@ -7693,11 +7854,24 @@
       "def": 400,
       "text": "Fiend/Flip/Effect – <effect=Trigger>FLIP: Target 1 Trap in your Graveyard; add that target to your hand.</effect>"
    },
+   "Mask of Dispel": {
+      "id": "20765952",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>Activate this card by targeting 1 face-up Spell on the field.</effect> <effect=Continuous-like>Once per turn, during your Standby Phase: Inflict 500 damage to its controller. When that target leaves the field, destroy this card.</effect>",
+      "prepopLP": { "villain": -500 }
+   },
    "Mask of Restrict": {
       "id": "29549364",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>Neither player can Tribute cards.</effect>"
+   },
+   "Mask of Weakness": {
+      "id": "57882509",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 attacking monster; that target loses 700 ATK until the end of this turn."
    },
    "Mask of the Accursed": {
       "id": "56948373",
@@ -7724,6 +7898,15 @@
          "autoClose": true
       }
    },
+   "Masked Sorcerer": {
+      "id": "10189126",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 900,
+      "def": 1400,
+      "text": "Spellcaster/Effect – <effect=Trigger>If this card inflicts battle damage to your opponent's Life Points, draw 1 card from your Deck.</effect>"
+   },
    "Mass Driver": {
       "id": "34906152",
       "cardType": "Spell",
@@ -7749,6 +7932,15 @@
       "def": 1000,
       "text": "Zombie – A wandering Kyonshee searching for a strong rival to defeat. They say he was known as the master of all martial arts."
    },
+   "Master Monk": {
+      "id": "49814180",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 5,
+      "atk": 1900,
+      "def": 1000,
+      "text": "Rock/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 \"Monk Fighter\".</effect> <effect=Continuous>This card can make a second attack during each Battle Phase.</effect>"
+   },
    "Master of Oz": {
       "id": "27134689",
       "cardType": "fusionMonster",
@@ -7767,6 +7959,30 @@
       "atk": 1300,
       "def": 800,
       "text": "Warrior/Effect – <effect=Continuous>This card can make a second attack during each Battle Phase.</effect> <effect=Continuous>Control of this face-up card on the field cannot switch.</effect>"
+   },
+   "Mazera DeVille": {
+      "id": "06133894",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 8,
+      "atk": 2800,
+      "def": 2300,
+      "text": "Fiend/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 \"Warrior of Zera\" while \"Pandemonium\" is on the field.</effect> <effect=Trigger>If this card is Special Summoned: if you control \"Pandemonium\", your opponent discards 3 random cards (or their entire hand, if less than 3).</effect>",
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "tooltip": "Activate this script three times",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" }
+      }
+   },
+   "Mecha-Dog Marron": {
+      "id": "94667532",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1000,
+      "text": "Machine/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Inflict 1000 damage to both players.</effect> <effect=Trigger>If this card on the field is destroyed and sent to the Graveyard, except by battle: Inflict 1000 damage to your opponent.</effect>",
+      "prepopLP": { "hero": -1000, "villain": -1000 }
    },
    "Mechanical Snail": {
       "id": "34442949",
@@ -7826,11 +8042,26 @@
       "def": 600,
       "text": "Thunder – Rolls along the ground releasing bolts of electricity to attack its enemies."
    },
+   "Mega Ton Magical Cannon": {
+      "id": "32062913",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Remove 10 Spell Counters from your field; destroy all cards your opponent controls."
+   },
    "Megamorph": {
       "id": "22046459",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
       "text": "<effect=Continuous-like>While your Life Points is lower than your opponent's, the equipped monster's ATK becomes double its original ATK.</effect> <effect=Continuous-like>While your Life Points is higher, the equipped monster's ATK becomes half its original ATK.</effect>"
+   },
+   "Megarock Dragon": {
+      "id": "71544954",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 7,
+      "atk": "?",
+      "def": "?",
+      "text": "Rock/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by banishing any number of Rock monsters from your Graveyard (min. 1).</effect> <effect=Continuous>This card's original ATK/DEF are each equal to the number of Rock monsters you banished for its Special Summon x 700.</effect>"
    },
    "Megasonic Eye": {
       "id": "07562372",
@@ -7850,6 +8081,15 @@
       "def": 1200,
       "text": "Fiend – This monster has four different masks for four different attacks."
    },
+   "Mermaid Knight": {
+      "id": "24435369",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 700,
+      "text": "Aqua/Effect – <effect=Continuous>If \"Umi\" is on the field, this card can make a second attack during each Battle Phase.</effect>"
+   },
    "Messenger of Peace": {
       "id": "44656491",
       "cardType": "Spell",
@@ -7865,6 +8105,12 @@
       "atk": 2800,
       "def": 1500,
       "text": "Insect – A gigantic insect-like creature covered by thick armor. Everything in his path is destroyed."
+   },
+   "Metal Detector": {
+      "id": "75646520",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a Continuous Trap is activated: This turn, negate the effects of all Continuous Traps."
    },
    "Metal Dragon": {
       "id": "09293977",
@@ -7884,6 +8130,15 @@
       "def": 1900,
       "text": "Machine – A metal fish with a razor-sharp caudal fin."
    },
+   "Metallizing Parasite - Lunatite": {
+      "id": "07369217",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 7,
+      "atk": 1000,
+      "def": 500,
+      "text": "Aqua/Union/Effect – Once per turn, you can either: <effect=Ignition>Target 1 monster you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in face-up Attack Position.</effect> <effect=Continuous-like>While equipped to a monster with this effect, that monster is unaffected by your opponent's Spell effects.</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>"
+   },
    "Metalmorph": {
       "id": "68540058",
       "cardType": "Trap",
@@ -7895,6 +8150,15 @@
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
       "text": "<effect=Continuous-like>If you control the equipped monster, your opponent cannot activate cards or effects that target exactly 1 monster, except the equipped monster.</effect>"
+   },
+   "Metalzoa": {
+      "id": "50705071",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 8,
+      "atk": 3000,
+      "def": 2300,
+      "text": "Machine/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your Deck) by Tributing 1 \"Zoa\" equipped with \"Metalmorph\".</effect>"
    },
    "Metamorphosis": {
       "id": "46411259",
@@ -7915,6 +8179,27 @@
       "levelOrSubtype": "Normal",
       "text": "This turn, monsters you control inflict piercing battle damage to your opponent."
    },
+   "Michizure": {
+      "id": "37580756",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a monster is sent from the field to your Graveyard (except during the Damage Step): Target 1 monster on the field; destroy it."
+   },
+   "Micro Ray": {
+      "id": "18190572",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 face-up monster on the field; that target's DEF becomes 0 until the end of this turn."
+   },
+   "Mid Shield Gardna": {
+      "id": "75487237",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 100,
+      "def": 1800,
+      "text": "Warrior/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Quick>When a Spell is activated that targets this face-down card (and no other cards): Change this card to face-up Defense Position, and if you do, negate the activation.</effect>"
+   },
    "Mighty Guard": {
       "id": "62327910",
       "cardType": "normalMonster",
@@ -7932,6 +8217,15 @@
       "atk": 2200,
       "def": 2350,
       "text": "Dragon – A dragon warrior of the moon armed with a crescent sword."
+   },
+   "Millennium Scorpion": {
+      "id": "82482194",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 5,
+      "atk": 2000,
+      "def": 1800,
+      "text": "Insect/Effect – <effect=Trigger>Each time this card destroys 1 monster your opponent controls and sends it to the Graveyard: This card gains 500 ATK.</effect>"
    },
    "Millennium Shield": {
       "id": "32012841",
@@ -7952,6 +8246,16 @@
       "def": 250,
       "text": "Beast/Effect – <effect=Continuous>All EARTH monsters on the field gain 500 ATK, also all WIND monsters on the field lose 400 ATK.</effect>"
    },
+   "Minar": {
+      "id": "32539892",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 850,
+      "def": 750,
+      "text": "Insect/Effect – <effect=Trigger>If this card is discarded to the Graveyard by an opponent's card effect: Inflict 1000 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -1000 }
+   },
    "Mind Control": {
       "id": "37520316",
       "cardType": "Spell",
@@ -7967,6 +8271,64 @@
          "name": "RANDOM_DISCARD",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" }
       }
+   },
+   "Mind Haxorz": {
+      "id": "75392615",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Pay 500 Life Points; look at your opponent' hand and all Set cards they control.",
+      "prepopLP": { "hero": -500 }
+   },
+   "Mind Wipe": {
+      "id": "52817046",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "If your opponent has 3 or less cards in their hand: Your opponent shuffles their hand into the Deck, then draws the same number of cards shuffled."
+   },
+   "Mind on Air": {
+      "id": "66690411",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 6,
+      "atk": 1000,
+      "def": 1600,
+      "text": "Spellcaster/Effect – <effect=Continuous>Your opponent must play with their hand revealed.</effect>"
+   },
+   "Mine Golem": {
+      "id": "76321376",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1000,
+      "def": 1900,
+      "text": "Rock/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Inflict 500 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -500 }
+   },
+   "Minefield Eruption": {
+      "id": "85519211",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Inflict 1000 damage to your opponent for each \"Mine Golem\" you control, then destroy all \"Mine-Golem\" you control.",
+      "prepopLP": { "villain": -1000 }
+   },
+   "Minor Goblin Official": {
+      "id": "01918087",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "Activate this card if your opponent's Life Points is 3000 or less. <effect=Trigger-like>Once per turn, during your opponent's Standby Phase: Inflict 500 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -500 }
+   },
+   "Miracle Dig": {
+      "id": "06343408",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "If at least 5 of your monsters are banished: Target 3 of them; return them to the Graveyard."
+   },
+   "Miracle Restoring": {
+      "id": "68334074",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Remove 2 Spell Counters from your field, then target 1 \"Dark Magician\" or \"Buster Blader\" in your Graveyard; Special Summon that target."
    },
    "Mirage Dragon": {
       "id": "15960641",
@@ -8001,6 +8363,13 @@
       "text": "When an opponent's monster declares an attack: Destroy all your opponent's Attack Position monsters.",
       "limit": 1
    },
+   "Mirror Wall": {
+      "id": "22359980",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>Halve the ATK of your opponent's attacking monsters.</effect> <effect=Maintenance Cost>Once per turn, during your Standby Phase, you must pay 2000 Life Points or this card is destroyed.</effect>",
+      "prepopLP": { "hero": -2000 }
+   },
    "Misairuzame": {
       "id": "33178416",
       "cardType": "normalMonster",
@@ -8010,6 +8379,21 @@
       "def": 1600,
       "text": "Fish – A missile-launching fish protected by deadly spikes."
    },
+   "Mispolymerization": {
+      "id": "58392024",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a Fusion Monster is Special Summoned: Return all Fusion Monsters on the field to the Fusion Deck."
+   },
+   "Moai Interceptor Cannons": {
+      "id": "45159319",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1100,
+      "def": 2000,
+      "text": "Rock/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect>"
+   },
    "Mobius the Frost Monarch": {
       "id": "04929256",
       "cardType": "effectMonster",
@@ -8018,6 +8402,15 @@
       "atk": 2400,
       "def": 1000,
       "text": "Aqua/Effect – <effect=Trigger>When this card is Tribute Summoned: You can target up to 2 Spells/Traps on the field; destroy those targets.</effect>"
+   },
+   "Moisture Creature": {
+      "id": "75285069",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 9,
+      "atk": 2800,
+      "def": 2900,
+      "text": "Fairy/Effect – <effect=Summon>You can Tribute 3 monsters to Tribute Summon (but not Set) this card.</effect> <effect=Trigger>If Summoned this way: Destroy all Spells and Traps your opponent controls.</effect>"
    },
    "Mokey Mokey": {
       "id": "27288416",
@@ -8037,6 +8430,12 @@
       "def": 100,
       "text": "Fairy/Fusion/Effect – \"Mokey Mokey\" + \"Mokey Mokey\" + \"Mokey Mokey\". <effect=Trigger>When this card leaves the field: You can Special Summon as many \"Mokey Mokey\" as possible from your Graveyard.</effect>"
    },
+   "Mokey Mokey Smackdown": {
+      "id": "01965724",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>If you control a \"Mokey Mokey\"(s), if a Fairy monster you control is destroyed: The ATK of each \"Mokey Mokey\" you control becomes 3000 until the end of this turn.</effect>"
+   },
    "Molten Behemoth": {
       "id": "17192817",
       "cardType": "normalMonster",
@@ -8045,6 +8444,30 @@
       "atk": 1000,
       "def": 2200,
       "text": "Pyro – A giant born from magma, it attacks with a magma punch."
+   },
+   "Molten Destruction": {
+      "id": "19384334",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All FIRE monsters gain 500 ATK and lose 400 DEF.</effect>"
+   },
+   "Molten Zombie": {
+      "id": "04732017",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1600,
+      "def": 400,
+      "text": "Pyro/Effect – <effect=Trigger>If this card is Special Summoned from the Graveyard: this card's controller draws 1 card.</effect>"
+   },
+   "Monk Fighter": {
+      "id": "03810071",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1300,
+      "def": 1000,
+      "text": "Rock/Effect – <effect=Continuous>Any battle damage you would have taken from attacks involving this card is 0.</effect>"
    },
    "Monster Egg": {
       "id": "36121917",
@@ -8074,6 +8497,12 @@
             }
          }
       }
+   },
+   "Monster Recovery": {
+      "id": "93108433",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "Target 1 monster you control that is owned by you; if that monster is still on the field, shuffle it and your entire hand into the Deck, also, after that, draw cards equal to the number of cards you shuffled from your hand into the Deck by this effect. <effect=Condition>(You cannot activate this card if you have a card in your hand that is owned by your opponent).</effect>"
    },
    "Monster Reincarnation": {
       "id": "74848038",
@@ -8114,6 +8543,15 @@
       },
       "limit": 1
    },
+   "Morphing Jar #2": {
+      "id": "79106360",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 800,
+      "def": 700,
+      "text": "Rock/Flip/Effect – <effect=Trigger>FLIP: Shuffle all monsters on the field into the Deck, then, each player excavates cards from the top of their Deck, until they excavate the same number of monsters they shuffled into their Main Deck, then Special Summon all excavated Level 4 or lower monsters in face-down Defense Position, also send the remaining cards to the Graveyard.</effect>"
+   },
    "Mother Grizzly": {
       "id": "57839750",
       "cardType": "effectMonster",
@@ -8132,6 +8570,12 @@
          "autoClose": true
       }
    },
+   "Mountain": {
+      "id": "50913601",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All Dragon, Winged Beast, and Thunder monsters on the field gain 200 ATK/DEF.</effect>"
+   },
    "Mr. Volcano": {
       "id": "31477025",
       "cardType": "normalMonster",
@@ -8140,6 +8584,39 @@
       "atk": 2100,
       "def": 1300,
       "text": "Pyro – This seemingly mild-mannered creature has an extremely volatile temper."
+   },
+   "Mucus Yolk": {
+      "id": "70307656",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 3,
+      "atk": 0,
+      "def": 100,
+      "text": "Aqua/Effect – <effect=Continuous>This card can attack your opponent's Life Points directly.</effect> <effect=Trigger>Each time this card inflicts battle damage to your opponent's Life Points: While this card is face-up on the field, this card gains 1000 ATK during your next Standby Phase.</effect>"
+   },
+   "Mudora": {
+      "id": "82108372",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1800,
+      "text": "Fairy/Effect – <effect=Continuous>Gains 200 ATK for each Fairy monster in your Graveyard.</effect>"
+   },
+   "Muka Muka": {
+      "id": "46657337",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 2,
+      "atk": 600,
+      "def": 300,
+      "text": "Rock/Effect – <effect=Continuous>Gains 300 ATK/DEF for each card in your hand.</effect>"
+   },
+   "Muko": {
+      "id": "80863132",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a card or effect is activated that draws a card(s), including during the Damage Step: Both players reveal the cards drawn by the effect and discard them."
    },
    "Multiplication of Ants": {
       "id": "22493811",
@@ -8152,6 +8629,16 @@
          "params": { "name": "Army Ant Token", "pos": "atk", "count": 2 }
       }
    },
+   "Mushroom Man #2": {
+      "id": "93900406",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1250,
+      "def": 800,
+      "text": "Warrior/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Take 300 damage.</effect> <effect=Trigger>Once per turn, during your End Phase: You can pay 500 Life Points; shift control of this card to your opponent.</effect>",
+      "prepopLP": { "hero": -300 }
+   },
    "Musician King": {
       "id": "56907389",
       "cardType": "fusionMonster",
@@ -8161,12 +8648,27 @@
       "def": 1500,
       "text": "Spellcaster/Fusion – \"Witch of the Black Forest\" + \"Lady of Faith\""
    },
+   "Mustering of the Dark Scorpions": {
+      "id": "68191243",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "If you control a face-up \"Don Zaloog\": You can Special Summon any number of \"Dark Scorpion\" monsters from your hand, but only 1 copy of each."
+   },
    "My Body as a Shield": {
       "id": "69279219",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
       "text": "When your opponent activates a Spell/Trap or monster effect that would destroy a monster(s) on the field: Pay 1500 Life Points; negate the activation, and if you do, destroy it.",
       "prepopLP": { "hero": -1500 }
+   },
+   "Mysterious Guard": {
+      "id": "01347977",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 800,
+      "def": 1200,
+      "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Target 1 face-up monster on the field, and if you control a face-up Warrior monster, you can target 1 additional face-up monster on the field; return the first target to the top of the Deck, then return the additional target (if any) to the hand if you still control a face-up Warrior monster.</effect>"
    },
    "Mysterious Puppeteer": {
       "id": "54098121",
@@ -8195,6 +8697,27 @@
       "def": 1550,
       "text": "Beast – Half man and half horse, this monster is known for its extreme speed."
    },
+   "Mystic Lamp": {
+      "id": "98049915",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 1,
+      "atk": 400,
+      "def": 300,
+      "text": "Spellcaster/Effect – <effect=Continuous>This card can attack your opponent's Life Points directly.</effect>"
+   },
+   "Mystic Plasma Zone": {
+      "id": "18161786",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All DARK monsters on the field gain 500 ATK and lose 400 DEF.</effect>"
+   },
+   "Mystic Probe": {
+      "id": "49251811",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a Continuous Spell is activated: This turn, negate the effects of all Continuous Spells."
+   },
    "Mystic Swordsman LV2": {
       "id": "47507260",
       "cardType": "effectMonster",
@@ -8202,7 +8725,37 @@
       "levelOrSubtype": 2,
       "atk": 900,
       "def": 0,
-      "text": "Warrior/Effect – <effect=Trigger>At the start of the Damage Step, if this card attacked a face-down Defense Position monster: Destroy that monster.</effect> <effect=Trigger>During the End Phase, if this card destroyed a monster by battle this turn: You can send this face-up card to the Graveyard; Special Summon 1 \"Mystic Swordsman LV4\" from your hand or Deck.</effect>"
+      "text": "Warrior/Effect – <effect=Trigger>At the start of the Damage Step, if this card attacked a face-down Defense Position monster: Destroy that monster.</effect> <effect=Trigger>During the End Phase, if this card destroyed a monster by battle this turn: You can send this face-up card to the Graveyard; Special Summon 1 \"Mystic Swordsman LV4\" from your hand or Deck.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Mystic Swordsman LV4" } },
+         "autoClose": true
+      }
+   },
+   "Mystic Swordsman LV4": {
+      "id": "74591968",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1900,
+      "def": 1600,
+      "text": "Warrior/Effect – <effect=Summon>Cannot be Normal Summoned (but can be Normal Set).</effect> <effect=Trigger>At the start of the Damage Step, if this card attacked a face-down Defense Position monster: Destroy that monster.</effect> <effect=Trigger>During the End Phase, if this card destroyed a monster by battle this turn: You can send this face-up card to the Graveyard; Special Summon 1 \"Mystic Swordsman LV6\" from your hand or Deck.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Mystic Swordsman LV6" } },
+         "autoClose": true
+      }
+   },
+   "Mystic Swordsman LV6": {
+      "id": "60482781",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 6,
+      "atk": 2300,
+      "def": 1700,
+      "text": "Warrior/Effect – <effect=Summon>Cannot be Normal Summoned (but can be Normal Set).</effect> <effect=Trigger>At the start of the Damage Step, if this card attacked a face-down Defense Position monster: Destroy that monster, and if you do, you can place it on top of your opponent's Deck instead of sending it to the Graveyard.</effect>"
    },
    "Mystic Tomato": {
       "id": "83011277",
@@ -8241,6 +8794,21 @@
       "def": 1200,
       "text": "Beast-Warrior/Effect – <effect=Trigger>When this card destroys a monster by battle and sends it to your opponent's Graveyard: You can return it to the top of the Deck.</effect>"
    },
+   "Mystical Moon": {
+      "id": "36607978",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a Beast-Warrior monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
+   },
+   "Mystical Sheep #1": {
+      "id": "30451366",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1150,
+      "def": 900,
+      "text": "Beast/Effect – This card can be used as a substitute for any 1 Fusion material, but the other Fusion material(s) must be correct."
+   },
    "Mystical Sheep #2": {
       "id": "83464209",
       "cardType": "normalMonster",
@@ -8265,6 +8833,12 @@
       "levelOrSubtype": "Quick-Play",
       "text": "Target 1 Spell/Trap on the field; destroy that target.",
       "limit": 1
+   },
+   "Mystik Wok": {
+      "id": "80161395",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "Tribute 1 monster; gain Life Points equal to either its ATK or DEF on the field (or its original ATK or DEF, if face-down)."
    },
    "Necrovalley": {
       "id": "47355498",
