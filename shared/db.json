@@ -1226,13 +1226,7 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": [
-                  "Harpie Lady",
-                  "Harpie Lady 1",
-                  "Harpie Lady 2",
-                  "Harpie Lady 3",
-                  "Cyber Harpie Lady"
-               ]
+               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Cyber Harpie Lady"]
             }
          },
          "autoClose": true
@@ -3696,14 +3690,7 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": [
-                  "Harpie Lady",
-                  "Harpie Lady 1",
-                  "Harpie Lady 2",
-                  "Harpie Lady 3",
-                  "Harpie Lady Sisters",
-                  "Cyber Harpie Lady"
-               ]
+               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Harpie Lady Sisters", "Cyber Harpie Lady"]
             }
          },
          "autoClose": true
@@ -5657,7 +5644,7 @@
       "id": "26412047",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Destroy the 1 face-up Attack Position monster on the field that has the highest ATK (your choice, if tied)."
+      "text": "Destroy the face-up Attack Position monster on the field that has the highest ATK (your choice, if tied)."
    },
    "Hand of Nephthys": {
       "id": "98446407",
@@ -6030,7 +6017,7 @@
       "levelOrSubtype": 1,
       "atk": 100,
       "def": 100,
-      "text": "Beast-Warrior/Effect – <effect=Continuous>Your opponent cannot target face-up \"Horus the Black Flame Dragon\" monsters with Spells, Traps, or card effects.</effect>"
+      "text": "Beast-Warrior/Effect – <effect=Continuous>Your opponent cannot target face-up \"Horus the Black Flame Dragon\" monsters.</effect>"
    },
    "Hoshiningen": {
       "id": "67629977",
@@ -6190,7 +6177,7 @@
       "id": "96631852",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "Activate by targeting 1 monster you control; while you control 2 or more monsters, and all monsters you control are in Defense Position, <effect=Continuous-like>the targeted monster gains 700 DEF.</effect> <effect=Continuous-like>When the targeted monster leaves the field, destroy this card.</effect>"
+      "text": "Activate by targeting 1 monster you control; <effect=Continuous-like>while you control 2 or more monsters, and all monsters you control are in Defense Position, the targeted monster gains 700 DEF.</effect> <effect=Continuous-like>When the targeted monster leaves the field, destroy this card.</effect>"
    },
    "Inaba White Rabbit": {
       "id": "77084837",
@@ -6238,14 +6225,15 @@
       "levelOrSubtype": 4,
       "atk": 1100,
       "def": 1900,
-      "text": "Pyro/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Trigger>Must first be Special Summoned (from your hand) by banishing 1 FIRE monster from your Graveyard.</effect> If this card destroys an opponent's monster by battle and sends it to the Graveyard: Inflict 1500 damage to your opponent.",
+      "text": "Pyro/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by banishing 1 FIRE monster from your Graveyard.</effect> <effect=Trigger>If this card destroys an opponent's monster by battle and sends it to the Graveyard: Inflict 1500 damage to your opponent.</effect>",
       "prepopLP": { "villain": -1500 }
    },
    "Inferno Fire Blast": {
       "id": "52684508",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Target 1 \"Red-Eyes Black Dragon\" in your Monster Zone; inflict damage to your opponent equal to the original ATK of that \"Red-Eyes Black Dragon\". <effect=Condition>\"Red-Eyes Black Dragon\" cannot attack the turn you activate this card.</effect>"
+      "text": "Target 1 \"Red-Eyes Black Dragon\" in your Monster Zone; inflict damage to your opponent equal to the original ATK of that \"Red-Eyes Black Dragon\". <effect=Condition>\"Red-Eyes Black Dragon\" cannot attack the turn you activate this card.</effect>",
+      "prepopLP": { "villain": -2400 }
    },
    "Inferno Hammer": {
       "id": "17185260",
@@ -6336,7 +6324,7 @@
       "levelOrSubtype": 6,
       "atk": 1900,
       "def": 1200,
-      "text": "Insect/Effect – <effect=Continuous>All face-up Insect monsters your opponent controls are changed to Attack Position and their battle positions cannot be changed.</effect> <effect=Trigger>If this card destroys an Insect monster by battle: Gain 500 ATK.</effect>"
+      "text": "Insect/Effect – <effect=Continuous>All face-up Insect monsters your opponent controls are changed to Attack Position and their battle positions cannot be changed.</effect> <effect=Trigger>If this card destroys an Insect monster by battle: This card gains 500 ATK.</effect>"
    },
    "Insect Queen": {
       "id": "91512835",
@@ -6359,7 +6347,7 @@
       "levelOrSubtype": 3,
       "atk": 1000,
       "def": 800,
-      "text": "Insect/Effect – <effect=Continuous>If this card attacks a WIND monster, during damage calculation, gain 1000 ATK during that damage calculation only.</effect>"
+      "text": "Insect/Effect – <effect=Continuous>If this card attacks a WIND monster, during damage calculation, this card gains 1000 ATK during that damage calculation only.</effect>"
    },
    "Inspection": {
       "id": "16227556",
@@ -6503,7 +6491,7 @@
       "levelOrSubtype": 2,
       "atk": 200,
       "def": 1000,
-      "text": "Pyro/Flip/Effect – <effect=Trigger>FLIP: If this card was flipped face-up, during your Standby Phase: Tribute this card; destroy all monsters you control, and if you do, inflict damage to your opponent equal to half the combined ATK of those monsters on the field, except this card.</effect>"
+      "text": "Pyro/Flip/Effect – <effect=Trigger>FLIP: After this card was flipped face-up, during your Standby Phase: Tribute this card; destroy all monsters you control, and if you do, inflict damage to your opponent equal to half the combined ATK of those monsters on the field, except this card.</effect>"
    },
    "Jinzo": {
       "id": "77585513",
@@ -6533,7 +6521,12 @@
       "atk": 2200,
       "def": 100,
       "text": "Insect/Effect – <effect=Trigger>If this card declares an attack: Toss a coin and call it. If you call it wrong, lose half your Life Points.</effect>",
-      "prepopLP": { "hero": "half" }
+      "prepopLP": { "hero": "half" },
+      "script": {
+         "name": "FLIP_COINS",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 1
+      }
    },
    "Jowgen the Spiritualist": {
       "id": "41855169",
@@ -6576,7 +6569,7 @@
       "id": "04869446",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>The Battle Position of face-up monsters that are flipped face-up after activation of this card cannot be changed, except with a card effect.</effect>"
+      "text": "<effect=Continuous-like>The Battle Position of face-up monsters that are flipped face-up after activation of this card cannot be changed.</effect>"
    },
    "Just Desserts": {
       "id": "24068492",
@@ -6624,7 +6617,7 @@
       "id": "35059553",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>If you control at least 1 monster, your opponent cannot place a monster(s) on the field if they would control more monsters than you do.</effect> <effect=Condition>Cards that are already on the field before this card's activation are unaffected by this effect.</effect>"
+      "text": "<effect=Continuous-like>If you control at least 1 monster, your opponent cannot place a monster(s) on the field if they would control more monsters than you do.</effect>"
    },
    "Kaiser Glider": {
       "id": "52824910",
@@ -6657,7 +6650,7 @@
       "id": "97570038",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "If you control \"Chu-Ske the Mouse Fighter\", \"Monk Fighter\", or \"Master Monk\": this turn, if any of these monsters you control battles a monster(s), destroy that monster(s) at the end of each Damage Step."
+      "text": "If you control \"Chu-Ske the Mouse Fighter\", \"Monk Fighter\", or \"Master Monk\": This turn, if any of these monsters you control battles a monster(s), destroy that monster(s) at the end of each Damage Step."
    },
    "Kangaroo Champ": {
       "id": "95789089",
@@ -6814,7 +6807,7 @@
       "text": "Tribute 1 face-up \"Dark Magician\"; Special Summon 1 \"Dark Magician Knight\" from your hand, Deck or Graveyard.",
       "script": {
          "name": "SEARCH_DECK",
-         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
          "params": { "name": { "value": "Dark Magician Knight" } },
          "autoClose": true
       }
@@ -7000,7 +6993,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1300,
-      "text": "Beast-Warrior/Effect – <effect=Ignition>During your Main Phase 1: You can Tribute this card (for cost). This turn, the first time (and if) a monster you control is destroyed by battle and sent to the Graveyard: You can target that monster in the Graveyard; place that target on the top of the Deck.</effect>"
+      "text": "Beast-Warrior/Effect – <effect=Ignition>You can Tribute this card; Gain the following effect:</effect> <effect=Lingering>This turn, the first time a monster you control is destroyed by battle and sent to the Graveyard: Place that monster on the top of the Deck.</effect>"
    },
    "Lady of Faith": {
       "id": "17358176",
@@ -7048,10 +7041,11 @@
       "id": "28566710",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "During your opponent's turn, if your Life Points is 1000 or less: Choose 1 monster you control and send as many other cards in both players' hands and on the field as possible to the Graveyard. After that, your opponent Special Summons 1 monster from their Deck in Attack Position, and attacks your chosen monster (neither player takes battle damage from this battle). <effect=Lingering>During the End Phase, the player who controls a monster(s) while the other does not control any wins the Duel. Any other case results in a DRAW.</effect>",
+      "text": "During your opponent's turn, if your Life Points are 1000 or less: Choose 1 monster you control and send all other cards in both players' hands and on the field to the Graveyard. After that, your opponent Special Summons 1 monster from their Deck in Attack Position, and attacks your chosen monster (neither player takes battle damage from this battle). <effect=Lingering>During the End Phase, the player who controls a monster(s) while the other does not control any wins the Duel. Any other case results in a DRAW.</effect>",
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": { "cardType": { "operator": "CONTAINS", "value": "Monster" } },
          "autoClose": true
       },
       "limit": 2
@@ -7249,6 +7243,7 @@
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": { "cardType": { "operator": "CONTAINS", "value": "Monster" }, "name": { "operator": "CONTAINS", "value": "LV" } },
          "autoClose": true
       }
    },
@@ -7353,7 +7348,7 @@
       "id": "82452993",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "If the only monster you control is  \"Chu-Ske the Mouse Fighter\", \"Monk Fighter\", or \"Master Monk\": Target the appropriate monster; while that target is face-up on the field, it cannot be destroyed by battle, also it is unaffected by your opponent's monster effects."
+      "text": "If the only monster you control is  \"Chu-Ske the Mouse Fighter\", \"Monk Fighter\", or \"Master Monk\": Target that monster; while that target is face-up on the field, it cannot be destroyed by battle, also it is unaffected by your opponent's monster effects."
    },
    "Lord Poison": {
       "id": "40320754",
@@ -7371,7 +7366,7 @@
       "levelOrSubtype": 4,
       "atk": 1200,
       "def": 1100,
-      "text": "Spellcaster/Effect – <effect=Continuous>Neither player can target Dragon monsters on the field with card effects.</effect>"
+      "text": "Spellcaster/Effect – <effect=Continuous>Dragon monsters cannot be targeted by card effects.</effect>"
    },
    "Lord of the Lamp": {
       "id": "99510761",
@@ -7398,7 +7393,7 @@
       "levelOrSubtype": 5,
       "atk": 2100,
       "def": 1400,
-      "text": "Warrior/Effect – <effect=Continuous>During damage calculation only, gain 500 ATK if battling a DARK monster.</effect>"
+      "text": "Warrior/Effect – <effect=Continuous>While battling a DARK monster, this card gains 500 ATK during damage calculation only.</effect>"
    },
    "Luminous Spark": {
       "id": "81777047",
