@@ -7,10 +7,9 @@ function newSelection(selectingPlayer, player, row, zone, name, facedown = false
       dispatch({ type: NEW_SELECTION, data: { selectingPlayer, socket, player, row, zone, name, facedown } });
       const card = getCardDetails(name);
       if (card.prepopLP) {
-         const isHero = selectingPlayer === player;
-         if (isHero && card.prepopLP.hero) dispatch(prepopLP(card.prepopLP.hero));
-         else if (!isHero && card.prepopLP.villain) dispatch(prepopLP(card.prepopLP.villain));
-      }
+         if (selectingPlayer === player) dispatch(prepopLP(card.prepopLP.hero));
+         else dispatch(prepopLP(card.prepopLP.villain));
+      } else dispatch(prepopLP(null));
    };
 }
 

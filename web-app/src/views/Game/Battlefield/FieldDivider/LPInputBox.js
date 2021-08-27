@@ -88,7 +88,7 @@ class LPInputBox extends PureComponent {
       if (convertedPrepop && convertedPrepop !== Number(inputLP)) {
          this.setState({ inputLP: Math.abs(convertedPrepop), LPmode: convertedPrepop < 0 ? -1 : 1 });
          this.ref.current.focus();
-      }
+      } else if (inputLP && !convertedPrepop) this.setState({ inputLP: "", LPmode: -1 });
    }
 
    handAndField(params, player) {
