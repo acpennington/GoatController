@@ -29,7 +29,7 @@ class ScriptName extends PureComponent {
          case MILL_UNTIL:
             return (
                <Fragment>
-                  <BiDownload /> Mill Until
+                  <BiDownload /> Mill  {typeof params === "number" ? params : "Until"}
                </Fragment>
             );
          case TOKENS:

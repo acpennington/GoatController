@@ -27,7 +27,6 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Recycle: Requires some sort of bottom of the deck script (see ticket #245)
 -  Good Goblin Housekeeping: also requires the bottom of the deck script (see ticket #245)
 -  Roc from the Valley of Haze: Requires shuffle button (see ticket #227)
--  Cyber Jar: Will require some sort of script to make this work. (see ticket #247)
 -  Morphing Jar #2: needs some sort of script. (see ticket #248)
 -  Parasite Paracide: requires complex scripting.
 -  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script (see ticket #245)
@@ -39,6 +38,7 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Crimson Sentry: needs a bottom of deck script (see ticket #245)
 -  Darkness Approaches: need ability to turn to face down Attack Position when this card is on the field :(
 -  Different Dimension Capsule: face down banishing script
+-  Lightforce Sword: similar to Different Dimension Capsule
 -  Drop Off: need a script to ensure the card discarded is the card that was just drawn
 -  Freed the Matchless General: need to be able to turn off auto draw...
 -  Gamble: ditto, need ability to turn off auto draw when skipping turn
@@ -46,6 +46,7 @@ This file contains notes regarding the monumental task of adding all Goat Format
 
 ### Optional / Convenience
 
+-  Cyber Jar: Could use a more detailed script. (see ticket #247)
 -  D.D. Dynamite: This card has been added. However, we could prehaps consider more complicated prepopLP parameters to handle cases like these in the future (see ticket #225).
 -  Wave-Motion Cannon: could track number of turns since activated for complex prepopLP (see ticket #225).
 -  Ceasefire: complex prepopLP (see ticket #225).
@@ -67,3 +68,4 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Dark Snake Syndrome: can probably use a counter based complex prepopLP (see ticket #225).
 -  Disturbance Strategy: possibly could use a helper script
 -  Fire Sorceror/Fuh-Rin-Ka-Zan: add a parameter to RANDOM_DISCARD to allow it to discard 2 cards
+-  Heavy Slump: needing to shuffle 8+ cards back into your deck is kind of obnoxious
