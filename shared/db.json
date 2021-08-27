@@ -13838,17 +13838,56 @@
       },
       "limit": 2
    },
+   "Vampiric Orchis": {
+      "id": "46571052",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1700,
+      "def": 1000,
+      "text": "Plant/Effect – <effect=Trigger>When this card is Normal Summoned: You can Special Summon 1 \"Des Dendle\" from your hand.</effect>"
+   },
    "Vengeful Bog Spirit": {
       "id": "95220856",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>Monsters cannot attack the turn they are Summoned.</effect>"
    },
+   "Versago the Destroyer": {
+      "id": "50259460",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 3,
+      "atk": 1100,
+      "def": 900,
+      "text": "Fiend/Effect – You can substitute this card for any 1 Fusion material Monster. When you do this, the other Fusion material Monster(s) must be the correct one(s)."
+   },
    "Vile Germs": {
       "id": "39774685",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
       "text": "<effect=Condition>Equip only to a Plant monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
+   },
+   "Vilepawn Archfiend": {
+      "id": "73219648",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 2,
+      "atk": 1200,
+      "def": 200,
+      "text": "Fiend/Effect – <effect=Maintenance Cost>Once per turn, during your Standby Phase: Pay 500 Life Points.</effect> <effect=Continuous>If this card is targeted your opponent's card effect: Roll a six-sided die. If the result is 3, negate the effect, and if you do, destroy that card.</effect> <effect=Continuous> Your opponent cannot target \"Archfiend\" monsters for attacks, except \"Vilepawn Archfiend\".</effect>",
+      "prepopLP": { "hero": -500 },
+      "script": {
+         "name": "ROLL_DICE",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 1
+      }
+   },
+   "Violet Crystal": {
+      "id": "15052462",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Continuous-like>A Zombie monster equipped with this card gains 300 ATK/DEF.</effect>"
    },
    "Waboku": {
       "id": "12607053",
