@@ -27,6 +27,7 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Good Goblin Housekeeping: also requires the bottom of the deck script (see ticket #245)
 -  Roc from the Valley of Haze: Requires shuffle button (see ticket #227)
 -  Parasite Paracide: requires complex scripting.
+-  Pharaoh's Treasure: Needs to be shuffled face up into the deck
 -  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script (see ticket #245)
 -  Exchange/Amazoness Chain Master: God only knows how we're going to make this work.
 -  Chain Destruction: can maybe just use Search Deck and count on player being honest, but really this is more similar to a one-sided Nobleman-type script
@@ -51,8 +52,10 @@ s-  Exodia: fancy win script? (user can technically just reveal hand)
 -  Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
 -  Reversal Quiz: helper to send everything to graveyard? Optional script to swap LP?
 -  Attack and Receive: could technically have a fancy complex prepopLP (see ticket #225) that counts "Attack and Receive" cards in the grave.
+-  Princess of Tsurugi: complex prepopLP (see ticket #225).
 -  Big Burn: could use a Banish All script to simplify removing everything from the graveyard
 -  Disturbance Strategy: possibly could use a helper script
 -  Fire Sorceror/Fuh-Rin-Ka-Zan: add a parameter to RANDOM_DISCARD to allow it to discard 2 cards
 -  Heavy Slump: needing to shuffle 8+ cards back into your deck is kind of obnoxious
 -  Mazera DeVille: needs to discard up to 3 cards
+-  Penguin Knight: tedious to resolve without a helper

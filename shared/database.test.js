@@ -127,7 +127,8 @@ const STYLE_WHITELIST = {
    "Luminous Soldier": "this card gains",
    "Mask of Dispel": "When",
    "Mucus Yolk": "this card gains",
-   "Nightmare Wheel": "When"
+   "Nightmare Wheel": "When",
+   "Pitch-Dark Dragon": "this card gains",
 };
 
 function expectFields(name, card, required, optional = OPTIONAL) {

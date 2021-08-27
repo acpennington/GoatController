@@ -9449,6 +9449,15 @@
       "levelOrSubtype": "Field",
       "text": "<effect=Continuous-like>Neither player has to pay Life Points during the Standby Phase for \"Archfiend\" monsters.</effect> <effect=Trigger-like>If an \"Archfiend\" monster(s) is destroyed and sent to the Graveyard (except by battle): that player can add 1 \"Archfiend\" monster from their Deck to the hand with a lower Level than the destroyed monster's.</effect>"
    },
+   "Pandemonium Watchbear": {
+      "id": "75375465",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1300,
+      "def": 1800,
+      "text": "Beast/Effect – <effect=Continuous>\"Pandemonium\" you control cannot be destroyed by card effects.</effect>"
+   },
    "Paralyzing Potion": {
       "id": "50152549",
       "cardType": "Spell",
@@ -9473,6 +9482,15 @@
       "def": 1400,
       "text": "Zombie/Effect – <effect=Continuous>You choose the attack targets for your opponent's attacks.</effect>"
    },
+   "Patrol Robo": {
+      "id": "76775123",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1100,
+      "def": 900,
+      "text": "Machine/Effect – <effect=Trigger>Once per turn, during your Standby Phase: You can target 1 Set card your opponent controls; look at it. This card must be face-up on the field to activate and to resolve this effect.</effect>"
+   },
    "Peacock": {
       "id": "20624263",
       "cardType": "normalMonster",
@@ -9493,6 +9511,15 @@
          "params": 1
       }
    },
+   "Penguin Knight": {
+      "id": "36039163",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 3,
+      "atk": 900,
+      "def": 800,
+      "text": "Aqua/Effect – <effect=Trigger>If this card is sent from your Deck to the Graveyard by an opponent's card effect: Shuffle your Graveyard into the Deck.</effect>"
+   },
    "Penguin Soldier": {
       "id": "93920745",
       "cardType": "effectMonster",
@@ -9501,6 +9528,15 @@
       "atk": 750,
       "def": 500,
       "text": "Aqua/Flip/Effect – <effect=Trigger>FLIP: You can target up to 2 monsters on the field; return those targets to the hand.</effect>"
+   },
+   "Penumbral Soldier Lady": {
+      "id": "64751286",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 6,
+      "atk": 2100,
+      "def": 1400,
+      "text": "Warrior/Effect – <effect=Trigger>If this card battles a LIGHT monster: This card gains 1000 ATK during the Damage Step only.</effect>"
    },
    "People Running About": {
       "id": "12143771",
@@ -9511,6 +9547,24 @@
       "def": 600,
       "text": "Pyro – Although they always suffer in silence, they swear an oath to inevitably revolt."
    },
+   "Perfect Machine King": {
+      "id": "18891691",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 8,
+      "atk": 2700,
+      "def": 1500,
+      "text": "Machine/Effect – <effect=Continuous>Gains 500 ATK for each other Machine monster on the field.</effect>"
+   },
+   "Perfectly Ultimate Great Moth": {
+      "id": "48579379",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 8,
+      "atk": 3500,
+      "def": 3000,
+      "text": "Insect/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must first be Special Summoned (from your hand) by Tributing 1 \"Petit Moth\" on your 6th turn or later after it was equipped with \"Cocoon of Evolution\".</effect>"
+   },
    "Performance of Sword": {
       "id": "04849037",
       "cardType": "ritualMonster",
@@ -9519,6 +9573,21 @@
       "atk": 1950,
       "def": 1850,
       "text": "Warrior/Ritual – You can Ritual Summon this card with \"Commencement Dance\"."
+   },
+   "Peten the Dark Clown": {
+      "id": "52624755",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 3,
+      "atk": 500,
+      "def": 1200,
+      "text": "Spellcaster/Effect – <effect=Trigger>When this card is sent to the Graveyard: You can banish this card from your Graveyard; Special Summon 1 \"Peten the Dark Clown\" from your hand or Deck.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Peten the Dark Clown" } },
+         "autoClose": true
+      }
    },
    "Petit Angel": {
       "id": "38142739",
@@ -9588,6 +9657,27 @@
       "levelOrSubtype": "Normal",
       "text": "You take no damage from card effects this turn."
    },
+   "Pikeru's Second Sight": {
+      "id": "58015506",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Until your opponent's second End Phase, your opponent shows you all cards that they draw before adding them to their hand."
+   },
+   "Pinch Hopper": {
+      "id": "26185991",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1200,
+      "text": "Insect/Effect – <effect=Trigger>When this card you control is sent to your Graveyard: You can Special Summon 1 Insect monster from your hand.</effect>"
+   },
+   "Pineapple Blast": {
+      "id": "90669991",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When you Normal Summon a monster, if your opponent controls more monsters than you do: Destroy your opponent's monsters so that your opponent controls the same number of monsters as you (your opponent chooses which of their monsters are destroyed)."
+   },
    "Piranha Army": {
       "id": "50823978",
       "cardType": "effectMonster",
@@ -9596,6 +9686,12 @@
       "atk": 800,
       "def": 200,
       "text": "Fish/Effect – <effect=Continuous>Damage this card inflicts by direct attacks is doubled.</effect>"
+   },
+   "Pitch-Black Power Stone": {
+      "id": "34029630",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "Activate this card by placing 3 Spell Counters on it. <effect=Quick-like>Once per turn, during your turn: You can target 1 other face-up card on the field that you can place a Spell Counter on; remove 1 Spell Counter from this card, and if you do, place 1 Spell Counter on that target.</effect> <effect=Continuous-like>When the last Spell Counter(s) is removed from this card, destroy it.</effect>"
    },
    "Pitch-Black Warwolf": {
       "id": "88975532",
@@ -9606,6 +9702,15 @@
       "def": 600,
       "text": "Beast-Warrior/Effect – <effect=Continuous>Your opponent cannot activate Traps during the Battle Phase.</effect>"
    },
+   "Pitch-Dark Dragon": {
+      "id": "47415292",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 3,
+      "atk": 900,
+      "def": 600,
+      "text": "Dragon/Union/Effect – Once per turn, you can either: <effect=Ignition>Target 1 \"Dark Blade\" you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in Attack Position.</effect> <effect=Continuous-like>A monster equipped with this card gains 400 ATK and DEF and inflicts piercing damage</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>"
+   },
    "Pixie Knight": {
       "id": "35429292",
       "cardType": "effectMonster",
@@ -9614,6 +9719,13 @@
       "atk": 1300,
       "def": 200,
       "text": "Spellcaster/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Your opponent targets 1 Spell in your Graveyard; place that card on top of the Deck.</effect>"
+   },
+   "Poison Fangs": {
+      "id": "76539047",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>If a Beast monster inflicts battle damage to your opponent: Inflict 500 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -500 }
    },
    "Poison Mummy": {
       "id": "43716289",
@@ -9641,6 +9753,12 @@
       "text": "Reptile",
       "prepopLP": { "villain": -500 }
    },
+   "Pole Position": {
+      "id": "73578229",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>The face-up monster(s) with the highest ATK on the field is unaffected by Spells.</effect> <effect=Continuous-like>When \"Pole Position\" leaves the field, destroy the face-up monster(s) with the highest ATK on the field.</effect>"
+   },
    "Polymerization": {
       "id": "24094653",
       "cardType": "Spell",
@@ -9664,6 +9782,18 @@
       "text": "Draw 2 cards.",
       "limit": 1
    },
+   "Power of Kaishin": {
+      "id": "77027445",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to an Aqua monster.</effect> <effect=Continuous-like>It gains 300 ATK/DEF.</effect>"
+   },
+   "Precious Cards from Beyond": {
+      "id": "68304813",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>If you Tribute Summon a monster using 2 or more Tributes: Draw 2 cards.</effect>"
+   },
    "Premature Burial": {
       "id": "70828912",
       "cardType": "Spell",
@@ -9681,6 +9811,30 @@
       "atk": 500,
       "def": 2000,
       "text": "Beast – This creature is shielded with a tough hide of hair and is excellent at defending itself."
+   },
+   "Prickle Fairy": {
+      "id": "91559748",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 300,
+      "def": 2000,
+      "text": "Plant/Effect – <effect=Continuous>Your opponent cannot attack Insect monsters.</effect> <effect=Trigger>If this card battled a monster, at the end of the Damage Step: Change that monster to Defense Position.</effect>"
+   },
+   "Primal Seed": {
+      "id": "23701465",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "If \"Black Luster Soldier - Envoy of the Beginning\" or \"Chaos Emperor Dragon - Envoy of the End\" is on the field: Target 2 of your banished cards; add both those targets to your hand."
+   },
+   "Princess of Tsurugi": {
+      "id": "51371017",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 3,
+      "atk": 900,
+      "def": 700,
+      "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Inflict 500 damage to your opponent for each Spell/Trap on your opponent's field.</effect>"
    },
    "Prohibition": {
       "id": "43711255",
@@ -9716,6 +9870,15 @@
       "def": 1000,
       "text": "Aqua – An amphibian with a myriad of powers to shield it from enemy attacks."
    },
+   "Pumpking the King of Ghosts": {
+      "id": "29155212",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 6,
+      "atk": 1800,
+      "def": 2000,
+      "text": "Zombie/Effect – <effect=Continuous>If \"Castle of Dark Illusions\" is face-up on the field, increase the ATK and DEF of this card by 100 points. As long as this \"Castle of Dark Illusions\" remains face-up on the field, the ATK and DEF of this card continues to increase by 100 points during each of your Standby Phases. This effect continues until your 4th turn after the card is activated.</effect>"
+   },
    "Punished Eagle": {
       "id": "74703140",
       "cardType": "fusionMonster",
@@ -9724,6 +9887,12 @@
       "atk": 2100,
       "def": 1800,
       "text": "Winged Beast/Fusion – \"Blue-Winged Crown\" + \"Niwatori\""
+   },
+   "Pyramid Energy": {
+      "id": "76754619",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "Activate 1 of these effects; ● Increase the ATK of all face-up monsters on your field by 200 points until the End Phase of this turn. ● Increase the DEF of all face-up monsters on your field by 500 points until the End Phase of this turn."
    },
    "Pyramid Turtle": {
       "id": "77044671",
@@ -9748,6 +9917,12 @@
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>If this face-up card leaves the field, destroy \"Andro Sphinx\" and \"Sphinx Teleia\" on your field, and if you do, banish them.</effect>"
+   },
+   "Pyro Clock of Destiny": {
+      "id": "01082946",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Move the turn count forward by 1 turn. The turn in which this card is activated continues as normal."
    },
    "Queen Bird": {
       "id": "73081602",
