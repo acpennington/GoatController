@@ -13654,6 +13654,70 @@
          "autoClose": true
       }
    },
+   "Ultimate Baseball Kid": {
+      "id": "67934141",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 3,
+      "atk": 500,
+      "def": 100,
+      "text": "Warrior/Effect – <effect=Continuous>Gains 1000 ATK for each face-up FIRE monster on the field, except this card.</effect> <effect=Ignition>You can send 1 other face-up FIRE monster you control to the Graveyard; inflict 500 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -500 }
+   },
+   "Ultimate Insect LV1": {
+      "id": "49441499",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 1,
+      "atk": 0,
+      "def": 0,
+      "text": "Insect/Effect – <effect=Continuous>This card is unaffected by Spells.</effect> <effect=Trigger>During your Standby Phase, if this card was not summoned this turn: You can send this face-up card to the Graveyard; Special Summon 1 \"Ultimate Insect LV3\" from your hand or Deck.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Ultimate Insect LV3" } },
+         "autoClose": true
+      }
+   },
+   "Ultimate Insect LV3": {
+      "id": "34088136",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 3,
+      "atk": 1400,
+      "def": 900,
+      "text": "Insect/Effect – <effect=Continuous>If this card was Special Summoned by the effect of \"Ultimate Insect LV1\": Monsters your opponent controls lose 300 ATK.</effect> <effect=Trigger>During your Standby Phase, if this card was not summoned this turn: You can send this face-up card to the Graveyard; Special Summon 1 \"Ultimate Insect LV5\" from your hand or Deck.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Ultimate Insect LV5" } },
+         "autoClose": true
+      }
+   },
+   "Ultimate Insect LV5": {
+      "id": "34830502",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 5,
+      "atk": 2300,
+      "def": 900,
+      "text": "Insect/Effect – <effect=Continuous>If this card was Special Summoned by the effect of \"Ultimate Insect LV3\": Monsters your opponent controls lose 500 ATK.</effect> <effect=Trigger>During your Standby Phase, if this card was not summoned this turn: You can send this face-up card to the Graveyard; Special Summon 1 \"Ultimate Insect LV7\" from your hand or Deck.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Ultimate Insect LV7" } },
+         "autoClose": true
+      }
+   },
+   "Ultimate Insect LV7": {
+      "id": "19877898",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 7,
+      "atk": 2600,
+      "def": 1200,
+      "text": "Insect/Effect – <effect=Continuous>If this card was Special Summoned by the effect of \"Ultimate Insect LV5\": Monsters your opponent controls lose 700 ATK and DEF.</effect>"
+   },
    "Ultimate Obedient Fiend": {
       "id": "32240937",
       "cardType": "effectMonster",
@@ -13662,6 +13726,33 @@
       "atk": 3500,
       "def": 3000,
       "text": "Fiend/Effect – <effect=Continuous>Cannot attack unless you control no other cards and you have no cards in your hand.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>"
+   },
+   "Ultra Evolution Pill": {
+      "id": "22431243",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Tribute 1 Reptile monster; Special Summon 1 Dinosaur monster from your hand."
+   },
+   "Umi": {
+      "id": "22702055",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All Fish, Sea Serpent, Thunder, and Aqua monsters on the field gain 200 ATK/DEF, also all Machine and Pyro monsters on the field lose 200 ATK/DEF.</effect>"
+   },
+   "Umiiruka": {
+      "id": "82999629",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All WATER monsters gain 500 ATK and lose 400 DEF.</effect>"
+   },
+   "Union Rider": {
+      "id": "11743119",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 2,
+      "atk": 1000,
+      "def": 1000,
+      "text": "Machine/Effect – <effect=Ignition>Target 1 face-up Attack/Defense Position Union monster your opponent controls; equip that target to this card (max.1). A Union monster that is equipped to this card cannot be Special Summoned using its own effect.</effect>"
    },
    "United Resistance": {
       "id": "85936485",
@@ -13687,6 +13778,15 @@
       "atk": 1000,
       "def": 500,
       "text": "Warrior – The speed of this warrior creates an intense vacuum that can slice through a monster's hide."
+   },
+   "Unshaven Angler": {
+      "id": "92084010",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1600,
+      "text": "Fish/Effect – This card can be treated as 2 Tributes for the Tribute Summon of a WATER monster."
    },
    "Upstart Goblin": {
       "id": "70368879",
