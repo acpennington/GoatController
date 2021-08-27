@@ -916,7 +916,8 @@
       "levelOrSubtype": 4,
       "atk": 500,
       "def": 1900,
-      "text": "Reptile/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Place 1 counter on this card.</effect> <effect=Trigger>If this card is destroyed: Your opponent takes 400 damage for each of the counters that were on it.</effect>"
+      "text": "Reptile/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Place 1 counter on this card.</effect> <effect=Trigger>If this card is destroyed: Your opponent takes 400 damage for each of the counters that were on it.</effect>",
+      "prepopLP": { "villain": { "name": "COUNTER", "params": -400 } }
    },
    "Banisher of the Light": {
       "id": "61528025",
@@ -1226,7 +1227,13 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Cyber Harpie Lady"]
+               "value": [
+                  "Harpie Lady",
+                  "Harpie Lady 1",
+                  "Harpie Lady 2",
+                  "Harpie Lady 3",
+                  "Cyber Harpie Lady"
+               ]
             }
          },
          "autoClose": true
@@ -1826,6 +1833,15 @@
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "If a face-down Defense Position monster or an Effect Monster is on the field: Change all face-down Defense Position monsters on the field to face-up Defense Position (Flip monsters' effects are not activated at this time), also inflict 500 damage to your opponent for each Effect Monster on the field.",
+      "prepopLP": {
+         "villain": {
+            "name": "FIELD_MONSTER",
+            "params": {
+               "filter": { "cardType": { "value": "effectMonster" } },
+               "multiplier": -500
+            }
+         }
+      },
       "limit": 1
    },
    "Celtic Guardian": {
@@ -1842,7 +1858,8 @@
       "id": "51394546",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Inflict 100 damage to your opponent for each card in their Graveyard."
+      "text": "Inflict 100 damage to your opponent for each card in their Graveyard.",
+      "prepopLP": { "villain": { "name": "VILLAIN_GRAVEYARD", "params": -100 } }
    },
    "Centrifugal Field": {
       "id": "01801154",
@@ -2327,7 +2344,10 @@
       "text": "Rock/Flip/Effect – <effect=Trigger>FLIP: Destroy all monsters on the field, then both players reveal the top 5 cards from their Decks, then Special Summon all revealed Level 4 or lower monsters in face-up Attack Position or face-down Defense Position, also add any remaining cards to their hand. (If either player has less than 5 cards in their Deck, reveal as many as possible).</effect>",
       "script": {
          "name": "MILL_UNTIL",
-         "displayCondition": { "players": ["HERO", "VILLAIN"], "row": "monster" },
+         "displayCondition": {
+            "players": ["HERO", "VILLAIN"],
+            "row": "monster"
+         },
          "params": 5
       },
       "limit": 1
@@ -2429,7 +2449,8 @@
       "id": "08628798",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Inflict 300 damage to your opponent for each of their banished cards."
+      "text": "Inflict 300 damage to your opponent for each of their banished cards.",
+      "prepopLP": { "villain": { "name": "VILLAIN_BANISHED", "params": -300 } }
    },
    "D.D. Scout Plane": {
       "id": "03773196",
@@ -2858,7 +2879,11 @@
       "id": "47233801",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>Once per turn, during your Standby Phase: Inflict damage to both players.</effect> <effect=Condition>This damage begins at 200 and is doubled during each of your following Standby Phases.</effect>"
+      "text": "<effect=Trigger-like>Once per turn, during your Standby Phase: Inflict damage to both players.</effect> <effect=Condition>This damage begins at 200 and is doubled during each of your following Standby Phases.</effect>",
+      "prepopLP": {
+         "hero": { "name": "EXPONENTIAL_COUNTER", "params": 200 },
+         "villain": { "name": "EXPONENTIAL_COUNTER", "params": 200 }
+      }
    },
    "Dark Spirit of the Silent": {
       "id": "93599951",
@@ -3107,7 +3132,8 @@
       "levelOrSubtype": 3,
       "atk": 1100,
       "def": 1800,
-      "text": "Beast/Flip/Effect – <effect=Trigger>FLIP: Inflict 400 damage to your opponent for each card in their hand.</effect>"
+      "text": "Beast/Flip/Effect – <effect=Trigger>FLIP: Inflict 400 damage to your opponent for each card in their hand.</effect>",
+      "prepopLP": { "villain": { "name": "VILLAIN_HAND", "params": -400 } }
    },
    "Des Lacooda": {
       "id": "02326738",
@@ -3705,7 +3731,14 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Harpie Lady Sisters", "Cyber Harpie Lady"]
+               "value": [
+                  "Harpie Lady",
+                  "Harpie Lady 1",
+                  "Harpie Lady 2",
+                  "Harpie Lady 3",
+                  "Harpie Lady Sisters",
+                  "Cyber Harpie Lady"
+               ]
             }
          },
          "autoClose": true
@@ -4951,7 +4984,8 @@
       "id": "98299011",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Gain 300 Life Points for each monster on the field."
+      "text": "Gain 300 Life Points for each monster on the field.",
+      "prepopLP": { "hero": { "name": "FIELD_MONSTER", "params": 300 } }
    },
    "Gift of the Martyr": {
       "id": "98792570",
@@ -6590,7 +6624,8 @@
       "id": "24068492",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Inflict 500 damage to your opponent for each monster they control."
+      "text": "Inflict 500 damage to your opponent for each monster they control.",
+      "prepopLP": { "villain": { "name": "VILLAIN_MONSTER", "params": -500 } }
    },
    "KA-2 Des Scissors": {
       "id": "52768103",
@@ -7060,7 +7095,9 @@
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
-         "params": { "cardType": { "operator": "CONTAINS", "value": "Monster" } },
+         "params": {
+            "cardType": { "operator": "CONTAINS", "value": "Monster" }
+         },
          "autoClose": true
       },
       "limit": 2
@@ -7258,7 +7295,10 @@
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
-         "params": { "cardType": { "operator": "CONTAINS", "value": "Monster" }, "name": { "operator": "CONTAINS", "value": "LV" } },
+         "params": {
+            "cardType": { "operator": "CONTAINS", "value": "Monster" },
+            "name": { "operator": "CONTAINS", "value": "LV" }
+         },
          "autoClose": true
       }
    },
@@ -9215,7 +9255,8 @@
       "id": "99518961",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Inflict 200 damage to your opponent for each card in their hand."
+      "text": "Inflict 200 damage to your opponent for each card in their hand.",
+      "prepopLP": { "villain": { "name": "VILLAIN_HAND", "params": -200 } }
    },
    "Return from the Different Dimension": {
       "id": "27174286",
@@ -9632,7 +9673,10 @@
       "id": "27053506",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Inflict 200 damage to your opponent for each card in their hand and each card they control."
+      "text": "Inflict 200 damage to your opponent for each card in their hand and each card they control.",
+      "prepopLP": {
+         "villain": { "name": "VILLAIN_HAND_AND_FIELD", "params": -200 }
+      }
    },
    "Secret Pass to the Treasures": {
       "id": "77876207",
@@ -10006,7 +10050,17 @@
       "id": "44472639",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Inflict 600 damage to your opponent for each face-up LIGHT monster you control."
+      "text": "Inflict 600 damage to your opponent for each face-up LIGHT monster you control.",
+      "prepopLP": {
+         "villain": {
+            "name": "HERO_MONSTER",
+            "params": {
+               "filter": { "attribute": { "value": "Light" } },
+               "faceUp": true,
+               "multiplier": -600
+            }
+         }
+      }
    },
    "Solemn Judgment": {
       "id": "41420027",
@@ -10812,7 +10866,16 @@
       "id": "99517131",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If a face-down Defense Position monster or an Effect Monster is on the field: Change all face-down Defense Position monsters on the field to face-up Defense Position (Flip monsters' effects are not activated at this time), also gain 400 Life Points for each Effect Monster on the field."
+      "text": "If a face-down Defense Position monster or an Effect Monster is on the field: Change all face-down Defense Position monsters on the field to face-up Defense Position (Flip monsters' effects are not activated at this time), also gain 400 Life Points for each Effect Monster on the field.",
+      "prepopLP": {
+         "hero": {
+            "name": "FIELD_MONSTER",
+            "params": {
+               "filter": { "cardType": { "value": "effectMonster" } },
+               "multiplier": 400
+            }
+         }
+      }
    },
    "The Statue of Easter Island": {
       "id": "10262698",
@@ -11487,7 +11550,8 @@
       "id": "38992735",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Ignition-like>During your Main Phase: You can send this face-up card to the Graveyard; inflict 1000 damage to your opponent for each of your Standby Phases that have passed since this card was activated.</effect>"
+      "text": "<effect=Ignition-like>During your Main Phase: You can send this face-up card to the Graveyard; inflict 1000 damage to your opponent for each of your Standby Phases that have passed since this card was activated.</effect>",
+      "prepopLP": { "villain": { "name": "COUNTER", "params": -1000 } }
    },
    "Whiptail Crow": {
       "id": "91996584",
@@ -11511,7 +11575,8 @@
       "levelOrSubtype": 2,
       "atk": 1200,
       "def": 0,
-      "text": "Spellcaster/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Gain 400 Life Points for each monster you control.</effect>"
+      "text": "Spellcaster/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Gain 400 Life Points for each monster you control.</effect>",
+      "prepopLP": { "hero": { "name": "HERO_MONSTER", "params": 400 } }
    },
    "Wicked Plant Token": {
       "cardType": "tokenMonster",

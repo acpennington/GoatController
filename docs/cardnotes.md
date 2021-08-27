@@ -47,25 +47,11 @@ This file contains notes regarding the monumental task of adding all Goat Format
 ### Optional / Convenience
 
 -  Cyber Jar: Could use a more detailed script. (see ticket #247)
--  D.D. Dynamite: This card has been added. However, we could prehaps consider more complicated prepopLP parameters to handle cases like these in the future (see ticket #225).
--  Wave-Motion Cannon: could track number of turns since activated for complex prepopLP (see ticket #225).
--  Ceasefire: complex prepopLP (see ticket #225).
--  Just Desserts: complex prepopLP (see ticket #225).
--  Secret Barrel: complex prepopLP (see ticket #225).
--  Des Koala: complex prepopLP (see ticket #225).
--  Restructer complex prepopLP (see ticket #225).
--  Solar Ray: complex prepopLP (see ticket #225).
--  The Spell Absorbing Life: complex prepopLP (see ticket #225).
--  Balloon Lizard: complex prepopLP (see ticket #225).
--  White Magician Pikeru: complex prepopLP (see ticket #225).
--  Gift of the Mystical Elf: complex prepopLP (see ticket #225).
 -  Exodia: fancy win script? (user can technically just reveal hand)
 -  Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
 -  Reversal Quiz: helper to send everything to graveyard? Optional script to swap LP?
 -  Attack and Receive: could technically have a fancy complex prepopLP (see ticket #225) that counts "Attack and Receive" cards in the grave.
 -  Big Burn: could use a Banish All script to simplify removing everything from the graveyard
--  Cemetary Bomb: complex prepopLP (see ticket #225).
--  Dark Snake Syndrome: can probably use a counter based complex prepopLP (see ticket #225).
 -  Disturbance Strategy: possibly could use a helper script
 -  Fire Sorceror/Fuh-Rin-Ka-Zan: add a parameter to RANDOM_DISCARD to allow it to discard 2 cards
 -  Heavy Slump: needing to shuffle 8+ cards back into your deck is kind of obnoxious
