@@ -122,16 +122,13 @@ const STYLE_WHITELIST = {
    "Destiny Board": "When",
    "Familiar Knight": "When",
    "Gaia Soul the Combustible Collective": "this card gains",
-   "Heavy Mech Support Platform": "this card gains",
    "Insect Soldiers of the Sky": "this card gains",
    "Luminous Soldier": "this card gains",
    "Mask of Dispel": "When",
    "Mucus Yolk": "this card gains",
    "Nightmare Wheel": "When",
-   "Pitch-Dark Dragon": "this card gains",
    "The Agent of Force - Mars": "this card gains",
    "Violet Crystal": "this card gains",
-   "Y-Dragon Head": "this card gains",
 };
 
 function expectFields(name, card, required, optional = OPTIONAL) {
@@ -171,7 +168,7 @@ test("database", () => {
          for (const m of card.text.matchAll(re)) {
             if (STYLE_WHITELIST[name] === m[0]) continue;
             if (m[0] === "When" && (/When[^.]+[Yy]ou can/.test(card.text) || !card.text.includes("Trigger"))) continue;
-            if (/^this card (gains|loses)/.test(m[0]) && !card.text.includes("Continuous")) continue;
+            if (/^this card (gains|loses)/.test(m[0]) && (!card.text.includes("Continuous") || card.text.includes("Union"))) continue;
             expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${map[m[0]]}'`).toBe(true);
          }
       }

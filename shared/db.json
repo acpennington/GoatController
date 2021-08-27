@@ -14389,6 +14389,15 @@
       "def": 1400,
       "text": "Aqua/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Destroy the monster that destroyed this card.</effect>"
    },
+   "Z-Metal Tank": {
+      "id": "64500000",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1300,
+      "text": "Machine/Union/Effect – Once per turn, you can either: <effect=Ignition>Target 1 \"X-Head Cannon\" or \"Y-Dragon Head\" you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in Attack Position.</effect> <effect=Continuous-like>A monster equipped with this card gains 600 ATK/DEF.</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>"
+   },
    "Zaborg the Thunder Monarch": {
       "id": "51945556",
       "cardType": "effectMonster",
@@ -14412,6 +14421,29 @@
       "atk": 2600,
       "def": 1900,
       "text": "Fiend – A monster whose full potential can be achieved when outfitted with \"Metalmorph\"."
+   },
+   "Zolga": {
+      "id": "16268841",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1700,
+      "def": 1200,
+      "text": "Fairy/Effect – <effect=Trigger>If a monster is Tribute Summoned by Tributing this card: Gain 2000 Life Points.</effect>",
+      "prepopLP": { "hero": 2000 }
+   },
+   "Zombie Tiger": {
+      "id": "47693640",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 1400,
+      "def": 1600,
+      "text": "Zombie/Union/Effect – Once per turn, you can either: <effect=Ignition>Target 1 \"Decayed Commander\" you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in Attack Position.</effect> <effect=Continuous-like>A monster equipped with this card gains 500 ATK/DEF.</effect> <effect=Trigger-like>If the equipped monster destroys an opponent's monster by battle: Discard 1 random card from their hand.</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>",
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+      }
    },
    "Zombyra the Dark": {
       "id": "88472456",
