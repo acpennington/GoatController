@@ -1898,6 +1898,26 @@
       "text": "<effect=Continuous-like>Each time a Trap is activated, immediately after it resolves, the player that activated it takes 1000 damage.</effect>",
       "prepopLP": { "hero": -1000, "villain": -1000 }
    },
+   "Chain Destruction": {
+      "id": "01248895",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a monster(s) with 2000 or less ATK is Summoned: Target 1 of them; destroy all cards with that name in its controller's hand and Main Deck.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+      }
+   },
+   "Chain Disappearance": {
+      "id": "57139487",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a monster(s) with 1000 or less ATK is Summoned: Banish that monster(s) with 1000 or less ATK, then your opponent banishes all cards with the same name as that card(s) from their hand and Deck.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+      }
+   },
    "Chain Energy": {
       "id": "79323590",
       "cardType": "Spell",
@@ -2009,6 +2029,12 @@
       "cardType": "Spell",
       "levelOrSubtype": "Field",
       "text": "<effect=Continuous-like>Defense Position monsters gain 500 DEF.</effect>"
+   },
+   "Chosen One": {
+      "id": "21888494",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 Monster Card and 2 non-Monster Cards from your hand. Your opponent randomly chooses 1 card among them. If it is a Monster Card, Special Summon it and send the remaining 2 cards to the Graveyard. Otherwise, send all those cards to the Graveyard."
    },
    "Chu-Ske the Mouse Fighter": {
       "id": "08508055",
@@ -13849,6 +13875,15 @@
       "def": 1950,
       "text": "Fiend – A bull fiend restored by the dark arts, this monster appears out of a jar."
    },
+   "Valkyrion the Magna Warrior": {
+      "id": "75347539",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 8,
+      "atk": 3500,
+      "def": 3850,
+      "text": "Rock/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned (from your hand) by Tributing 1 \"Alpha The Magnet Warrior\", \"Beta The Magnet Warrior\", and \"Gamma The Magnet Warrior\" from your hand and/or field.</effect> <effect=Ignition>You can Tribute this card, then target 1 \"Alpha The Magnet Warrior\", \"Beta The Magnet Warrior\", and \"Gamma The Magnet Warrior\" in your Graveyard; Special Summon them.</effect>"
+   },
    "Vampire Baby": {
       "id": "56387350",
       "cardType": "effectMonster",
@@ -13857,6 +13892,24 @@
       "atk": 700,
       "def": 1000,
       "text": "Zombie/Effect – <effect=Trigger>At the end of the Battle Phase, if this card destroyed a monster by battle and sent it to the Graveyard this turn: You can Special Summon that monster to your field.</effect>"
+   },
+   "Vampire Genesis": {
+      "id": "22056710",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 8,
+      "atk": 3000,
+      "def": 2100,
+      "text": "Zombie/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned (from your hand) by banishing 1 \"Vampire Lord\" you control.</effect> <effect=Ignition>Once per turn: You can discard 1 Zombie monster to the Graveyard, then target 1 Zombie monster in your Graveyard with a Level less than the discarded Zombie monster's; Special Summon that target.</effect>"
+   },
+   "Vampire Lady": {
+      "id": "26495087",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1550,
+      "def": 1550,
+      "text": "Zombie/Effect – <effect=Trigger>If this card inflicts battle damage to your opponent: Declare Monster, Spell, or Trap; your opponent sends 1 card of that type from their Deck to the Graveyard.</effect>"
    },
    "Vampire Lord": {
       "id": "53839837",

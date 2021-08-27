@@ -14,9 +14,6 @@ This file contains notes regarding the monumental task of adding all Goat Format
 
 -  Ancient Telescope: We could just use a mill 5 script for this (pre: seems like this would be wrong as it would reveal them to the opponent?)
 -  Big Eye: similar logic required as with Ancient Telescope?
--  Chain Destruction: can maybe just use Search Deck and count on player being honest, but really this is more similar to a one-sided Nobleman-type script
--  Chain Disappearance: similarly, though is closer to a more powerful one sided BANISH_ALL given it also covers the hand
--  Chosen One: sadly random discard doesn't not work here - scripting is going to be annoying
 -  Coach Goblin: needs a bottom of deck script (see ticket #245)
 -  Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
 -  Crimson Sentry: needs a bottom of deck script (see ticket #245)
