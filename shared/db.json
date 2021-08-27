@@ -14322,6 +14322,15 @@
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>Activate by targeting 2 Set Spells/Traps on the field; those targets cannot be activated.</effect>"
    },
+   "Y-Dragon Head": {
+      "id": "65622692",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1600,
+      "text": "Machine/Union/Effect – Once per turn, you can either: <effect=Ignition>Target 1 \"X-Head Cannon\" you control; equip this card to that target</effect>, OR: <effect=Ignition-like>Unequip this card and Special Summon it in Attack Position.</effect> <effect=Continuous-like>A monster equipped with this card gains 400 ATK/DEF</effect> <effect=Condition>1 monster can only be equipped with 1 Union monster at a time.</effect> <effect=Continuous-like>If the equipped monster would be destroyed by battle, destroy this card instead.</effect>"
+   },
    "YZ-Tank Dragon": {
       "id": "25119460",
       "cardType": "fusionMonster",
@@ -14341,6 +14350,21 @@
       "def": 1800,
       "text": "Dragon – This monster has three fire-breathing heads and can form a sea of blazing flames."
    },
+   "Yamata Dragon": {
+      "id": "76862289",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 7,
+      "atk": 2600,
+      "def": 3100,
+      "text": "Dragon/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>If this card inflicts battle damage to your opponent, draw until you have 5 cards in your hand.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>"
+   },
+   "Yami": {
+      "id": "59197169",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All Fiend and Spellcaster monsters on the field gain 200 ATK/DEF, also all Fairy monsters on the field lose 200 ATK/DEF.</effect>"
+   },
    "Yaranzo": {
       "id": "71280811",
       "cardType": "normalMonster",
@@ -14355,6 +14379,15 @@
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>All monsters you control gain 300 DEF.</effect>"
+   },
+   "Yomi Ship": {
+      "id": "51534754",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 3,
+      "atk": 800,
+      "def": 1400,
+      "text": "Aqua/Effect – <effect=Trigger>If this card is destroyed by battle and sent to the Graveyard: Destroy the monster that destroyed this card.</effect>"
    },
    "Zaborg the Thunder Monarch": {
       "id": "51945556",

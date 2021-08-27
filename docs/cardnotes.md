@@ -42,13 +42,14 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Grave Lure: Convulsion/Parasite Paracide-esque
 -  Question: Need to be able to disable looking in the graveyard somehow (alternatively - log when looking in the Graveyard/Banished zone always)
 -  Senri Eye: Look at card on opponent's deck without them seeing.
+-  Yado Karu: needs a bottom of deck script (see ticket #245)
 
 ### Optional / Convenience
 
 -  Ninjitsu Art of Transformation: TYPEMATCH and OR
 -  Cyber Jar: Could use a more detailed script. (see ticket #247)
 -  Numinous Healer: complex prepopLP (see ticket #225).
-s-  Exodia: fancy win script? (user can technically just reveal hand)
+-  Exodia: fancy win script? (user can technically just reveal hand)
 -  Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
 -  Reversal Quiz: helper to send everything to graveyard? Optional script to swap LP?
 -  Attack and Receive: could technically have a fancy complex prepopLP (see ticket #225) that counts "Attack and Receive" cards in the grave.
