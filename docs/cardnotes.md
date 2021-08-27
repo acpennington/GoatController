@@ -23,7 +23,6 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Spellbook Organization: Requires significant scripting
 -  Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
 -  Maharaghi: Will require significant scripting
--  Outstanding Dog Marron: Requires shuffle button (see ticket #227)
 -  Recycle: Requires some sort of bottom of the deck script (see ticket #245)
 -  Good Goblin Housekeeping: also requires the bottom of the deck script (see ticket #245)
 -  Roc from the Valley of Haze: Requires shuffle button (see ticket #227)

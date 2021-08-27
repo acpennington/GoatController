@@ -9142,6 +9142,32 @@
       "def": 800,
       "text": "Fiend/Effect – <effect=Trigger>If this monster is Normal Summoned, destroy this card.</effect> <effect=Continuous>Loses 200 ATK for each monster your opponent controls.</effect>"
    },
+   "Obnoxious Celtic Guard": {
+      "id": "52077741",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1400,
+      "def": 1200,
+      "text": "Warrior/Effect – <effect=Continuous>Cannot be destroyed by battle with a monster that has 1900 or more ATK.</effect>"
+   },
+   "Ocean Dragon Lord - Neo-Daedalus": {
+      "id": "10485110",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 8,
+      "atk": 2900,
+      "def": 1600,
+      "text": "Sea Serpent/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned (from your hand) by Tributing 1 \"Levia-Dragon - Daedalus\".</effect> <effect=Ignition>You can send 1 face-up \"Umi\" you control to the Graveyard; send as many cards in both players' hands and on the field as possible to the Graveyard, except this card.</effect>",
+      "script": {
+         "name": "DISCARD_AND_DRAW",
+         "displayCondition": {
+            "players": ["HERO", "VILLAIN"],
+            "row": "monster"
+         },
+         "params": 0
+      }
+   },
    "Octoberser": {
       "id": "74637266",
       "cardType": "normalMonster",
@@ -9189,6 +9215,12 @@
       "atk": 0,
       "def": 1000,
       "text": "Beast – He's one of the Ojama Trio. It's said that he butts in by any means necessary. It's also said that when the three are together, something happens."
+   },
+   "Ojama Delta Hurricane!!": {
+      "id": "08251996",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "If you control \"Ojama Green\", \"Ojama Yellow\", and \"Ojama Black\": Destroy all cards your opponent controls."
    },
    "Ojama Green": {
       "id": "12482652",
@@ -9248,6 +9280,18 @@
       "def": 600,
       "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Target 1 monster your opponent controls; destroy that target.</effect>"
    },
+   "Ominous Fortunetelling": {
+      "id": "56995655",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>Once per turn, during your Standby Phase: Choose 1 random card from your opponent's hand and call the type of the card (Monster, Spell, or Trap), and if you call it right, inflict 700 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -700 },
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "tooltip": "Return the card to your hand after discarding",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+      }
+   },
    "One-Eyed Shield Dragon": {
       "id": "33064647",
       "cardType": "normalMonster",
@@ -9291,6 +9335,12 @@
       "def": 2000,
       "text": "Aqua – They are oppressed, but believe they will have their freedom someday."
    },
+   "Opti-Camouflage Armor": {
+      "id": "44762290",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a Level 1 monster.</effect> <effect=Continuous-like>It can attack your opponent's Life Points directly.</effect>"
+   },
    "Opticlops": {
       "id": "14531242",
       "cardType": "normalMonster",
@@ -9299,6 +9349,38 @@
       "atk": 1800,
       "def": 1700,
       "text": "Fiend – A one-eyed giant that serves the \"Dark Ruler Ha Des\", it skewers its enemies with its sharp horn, shattering them to pieces."
+   },
+   "Orca Mega-Fortress of Darkness": {
+      "id": "63120904",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 5,
+      "atk": 2100,
+      "def": 1200,
+      "text": "Sea Serpent/Effect – <effect=Ignition>You can Tribute 1 \"Torpedo Fish\", then target 1 monster on the field; destroy that target.</effect> <effect=Ignition>You can Tribute 1 \"Cannonball Spear Shellfish\", then target 1 Spell/Trap on the field; destroy that target.</effect>"
+   },
+   "Ordeal of a Traveler": {
+      "id": "39537362",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>If an opponent's monster declares an attack: Your opponent chooses 1 random card in your hand and calls the type of the card (Monster, Spell, or Trap), and if they call it wrong, return the attacking monster to the hand.</effect>",
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "tooltip": "Return the card to your hand after discarding",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" }
+      }
+   },
+   "Order to Charge": {
+      "id": "78986941",
+      "cardType": "Spell",
+      "levelOrSubtype": "Quick-Play",
+      "text": "Target 1 non-Token Normal Monster you control; Tribute that Normal Monster, and if you do, destroy 1 monster your opponent controls."
+   },
+   "Order to Smash": {
+      "id": "39019325",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 Level 2 or lower non-Token Normal Monster you control; Tribute that Normal Monster, and if you do, destroy up to 2 Spells/Traps your opponent controls."
    },
    "Oscillo Hero": {
       "id": "82065276",
@@ -9318,6 +9400,15 @@
       "def": 100,
       "text": "Spellcaster/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>When this card is Normal Summoned or flipped face-up: You can target 1 face-up monster your opponent controls; change that target's battle position.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>",
       "art": 2
+   },
+   "Outstanding Dog Marron": {
+      "id": "11548522",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 1,
+      "atk": 100,
+      "def": 100,
+      "text": "Beast/Effect – <effect=Trigger>If this card is sent to your Graveyard: Shuffle it into the Deck.</effect>"
    },
    "Overdrive": {
       "id": "02311603",
