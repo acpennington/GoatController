@@ -42,6 +42,7 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Freed the Matchless General: need to be able to turn off auto draw...
 -  Gamble: ditto, need ability to turn off auto draw when skipping turn
 -  Grave Lure: Convulsion/Parasite Paracide-esque
+-  Question: Need to be able to disable looking in the graveyard somehow (alternatively - log when looking in the Graveyard/Banished zone always)
 
 ### Optional / Convenience
 
