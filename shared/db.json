@@ -189,7 +189,8 @@
       "id": "41356845",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Target 1 face-down Defense Position monster on the field; flip it face-up, then destroy it if its DEF is 2000 or less, or return it face-down if its DEF is more than 2000."
+      "text": "Target 1 face-down Defense Position monster on the field; flip it face-up, then destroy it if its DEF is 2000 or less, or return it face-down if its DEF is more than 2000.",
+      "art": 2
    },
    "Acrobat Monkey": {
       "id": "47372349",
@@ -977,7 +978,8 @@
          "name": "FLIP_COINS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
          "params": 3
-      }
+      },
+      "art": 2
    },
    "Basic Insect": {
       "id": "89091579",
@@ -1861,7 +1863,7 @@
       "atk": 1400,
       "def": 1200,
       "text": "Warrior – An elf who learned to wield a sword, he baffles enemies with lightning-swift attacks.",
-      "art": 2
+      "art": 3
    },
    "Cemetary Bomb": {
       "id": "51394546",
