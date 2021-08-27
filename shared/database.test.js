@@ -131,6 +131,11 @@ const STYLE_WHITELIST = {
    "Violet Crystal": "this card gains",
 };
 
+const KONAMI_TERMS = new Set([
+   'Graveyard', 'Life', 'Extra', 'Fusion', 'Union', 'Toon', 'Special', 'Spell', 'Spells',
+   'Trap', 'Traps', 'Tribute', 'Summon', 'Normal', 'Ritual', 'Field', 'Monster', 'Flip', 'Battle',
+ ]);
+
 function expectFields(name, card, required, optional = OPTIONAL) {
    const r = required.slice();
    const o = optional.slice();
@@ -171,6 +176,12 @@ test("database", () => {
             if (/^this card (gains|loses)/.test(m[0]) && (!card.text.includes("Continuous") || card.text.includes("Union"))) continue;
             expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${map[m[0]]}'`).toBe(true);
          }
+      }
+
+      if (/: [a-z]/.test(card.text)) console.log(`"${name}" contains inconsistent text which has a lower-case letter after a colon`);
+      for (const m of card.text.matchAll(/; ([A-Z]\w*)/g)) {
+        if (KONAMI_TERMS.has(m[1])) continue;
+        console.log(`"${name}" contains inconsistent text which has an upper-case letter after a semi-colon`);
       }
 
       expect(

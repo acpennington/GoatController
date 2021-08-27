@@ -1619,7 +1619,7 @@
       "id": "61622107",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If a player(s) has at least 6 total cards in their hand and/or field: that player(s) sends cards from their hand and/or field to the Graveyard so the remaining amount of cards on their field and/or hand is 5."
+      "text": "If a player(s) has at least 6 total cards in their hand and/or field: That player(s) sends cards from their hand and/or field to the Graveyard so the remaining amount of cards on their field and/or hand is 5."
    },
    "Bubonic Vermin": {
       "id": "06104968",
@@ -5954,7 +5954,7 @@
       "levelOrSubtype": 8,
       "atk": 2800,
       "def": 2900,
-      "text": "Pyro/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>If this card inflicts battle damage to your opponent: they discard all cards in their hand at the beginning of their next turn, before they would draw.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>",
+      "text": "Pyro/Spirit/Effect – <effect=Summon>Cannot be Special Summoned.</effect> <effect=Trigger>If this card inflicts battle damage to your opponent: They discard all cards in their hand at the beginning of their next turn, before they would draw.</effect> <effect=Trigger>Once per turn, during the End Phase, if this card was Normal Summoned or flipped face-up this turn: Return it to the hand.</effect>",
       "script": {
          "name": "DISCARD_AND_DRAW",
          "tooltip": "Discard hand during opponent's End Phase instead of in the Draw Phase",
@@ -6920,7 +6920,7 @@
       "id": "21908319",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "<effect=Trigger-like>If this Set card is destroyed: inflict 1000 damage to the player who destroyed it.</effect>",
+      "text": "<effect=Trigger-like>If this Set card is destroyed: Inflict 1000 damage to the player who destroyed it.</effect>",
       "prepopLP": { "hero": -1000, "villain": -1000 }
    },
    "Kryuel": {
@@ -7052,7 +7052,7 @@
       "levelOrSubtype": 4,
       "atk": 1400,
       "def": 1300,
-      "text": "Beast-Warrior/Effect – <effect=Ignition>You can Tribute this card; Gain the following effect:</effect> <effect=Lingering>This turn, the first time a monster you control is destroyed by battle and sent to the Graveyard: Place that monster on the top of the Deck.</effect>"
+      "text": "Beast-Warrior/Effect – <effect=Ignition>You can Tribute this card; gain the following effect:</effect> <effect=Lingering>This turn, the first time a monster you control is destroyed by battle and sent to the Graveyard: Place that monster on the top of the Deck.</effect>"
    },
    "Lady of Faith": {
       "id": "17358176",
@@ -7976,7 +7976,7 @@
       "levelOrSubtype": 8,
       "atk": 2800,
       "def": 2300,
-      "text": "Fiend/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 \"Warrior of Zera\" while \"Pandemonium\" is on the field.</effect> <effect=Trigger>If this card is Special Summoned: if you control \"Pandemonium\", your opponent discards 3 random cards (or their entire hand, if less than 3).</effect>",
+      "text": "Fiend/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 \"Warrior of Zera\" while \"Pandemonium\" is on the field.</effect> <effect=Trigger>If this card is Special Summoned: Ff you control \"Pandemonium\", your opponent discards 3 random cards (or their entire hand, if less than 3).</effect>",
       "script": {
          "name": "RANDOM_DISCARD",
          "tooltip": "Activate this script three times",
@@ -8467,7 +8467,7 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 400,
-      "text": "Pyro/Effect – <effect=Trigger>If this card is Special Summoned from the Graveyard: this card's controller draws 1 card.</effect>"
+      "text": "Pyro/Effect – <effect=Trigger>If this card is Special Summoned from the Graveyard: This card's controller draws 1 card.</effect>"
    },
    "Monk Fighter": {
       "id": "03810071",
@@ -9466,7 +9466,7 @@
       "id": "94585852",
       "cardType": "Spell",
       "levelOrSubtype": "Field",
-      "text": "<effect=Continuous-like>Neither player has to pay Life Points during the Standby Phase for \"Archfiend\" monsters.</effect> <effect=Trigger-like>If an \"Archfiend\" monster(s) is destroyed and sent to the Graveyard (except by battle): that player can add 1 \"Archfiend\" monster from their Deck to the hand with a lower Level than the destroyed monster's.</effect>"
+      "text": "<effect=Continuous-like>Neither player has to pay Life Points during the Standby Phase for \"Archfiend\" monsters.</effect> <effect=Trigger-like>If an \"Archfiend\" monster(s) is destroyed and sent to the Graveyard (except by battle): That player can add 1 \"Archfiend\" monster from their Deck to the hand with a lower Level than the destroyed monster's.</effect>"
    },
    "Pandemonium Watchbear": {
       "id": "75375465",
@@ -10939,7 +10939,7 @@
       "id": "77876207",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Target 1 face-up monster you control with 1000 or less ATK; That face-up monster can attack directly this turn."
+      "text": "Target 1 face-up monster you control with 1000 or less ATK; that face-up monster can attack directly this turn."
    },
    "Seiyaryu": {
       "id": "06740720",
@@ -13387,7 +13387,7 @@
       "levelOrSubtype": 3,
       "atk": 500,
       "def": 1100,
-      "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 1 Trap on the field; Destroy it. If the target is Set, reveal it if it is a Spell, return it to its original position.</effect>"
+      "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 1 Trap on the field; destroy it. If the target is Set, reveal it if it is a Spell, return it to its original position.</effect>"
    },
    "Trap of Board Eraser": {
       "id": "03055837",
@@ -13449,7 +13449,7 @@
       "levelOrSubtype": 4,
       "atk": 1600,
       "def": 1000,
-      "text": "Aqua/Effect – <effect=Ignition>You can discard 1 card, then declare 1 Type of monster; Destroy all face-up monsters of the declared Type on the field.</effect>",
+      "text": "Aqua/Effect – <effect=Ignition>You can discard 1 card, then declare 1 Type of monster; destroy all face-up monsters of the declared Type on the field.</effect>",
       "limit": 1
    },
    "Tribute Doll": {
