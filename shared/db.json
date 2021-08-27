@@ -811,7 +811,16 @@
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "When you take damage: Your opponent takes 700 damage, also they take 300 damage for each \"Attack and Receive\" in your Graveyard.",
-      "prepopLP": { "villain": -700 }
+      "prepopLP": {
+         "villain": {
+            "name": "HERO_GRAVEYARD",
+            "params": {
+               "filter": { "name": { "value": "Attack and Receive" } },
+               "multiplier": -300,
+               "base": -700
+            }
+         }
+      }
    },
    "Aussa the Earth Charmer": {
       "id": "37970940",
@@ -9124,7 +9133,17 @@
       "id": "02130625",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "When you take damage: Gain 1000 Life Points, also, gain 500 Life Points for each \"Numinous Healer\" in your Graveyard."
+      "text": "When you take damage: Gain 1000 Life Points, also, gain 500 Life Points for each \"Numinous Healer\" in your Graveyard.",
+      "prepopLP": {
+         "hero": {
+            "name": "HERO_GRAVEYARD",
+            "params": {
+               "filter": { "name": { "value": "Numinous Healer" } },
+               "multiplier": 500,
+               "base": 1000
+            }
+         }
+      }
    },
    "Nutrient Z": {
       "id": "29389368",
@@ -9834,7 +9853,18 @@
       "levelOrSubtype": 3,
       "atk": 900,
       "def": 700,
-      "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Inflict 500 damage to your opponent for each Spell/Trap on your opponent's field.</effect>"
+      "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Inflict 500 damage to your opponent for each Spell/Trap on your opponent's field.</effect>",
+      "prepopLP": {
+         "villain": {
+            "name": "VILLAIN_FIELD",
+            "params": {
+               "filter": {
+                  "cardType": { "operator": "OR", "value": ["Spell", "Trap"] }
+               },
+               "multiplier": -500
+            }
+         }
+      }
    },
    "Prohibition": {
       "id": "43711255",
@@ -10303,7 +10333,12 @@
       "id": "05990062",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Send all cards from your hand and your field to the Graveyard, then call Spell, Trap, or Monster; reveal the top card of your Deck. If you called it right, both players exchange Life Points."
+      "text": "Send all cards from your hand and your field to the Graveyard, then call Spell, Trap, or Monster; reveal the top card of your Deck. If you called it right, both players exchange Life Points.",
+      "script": {
+         "name": "DISCARD_AND_DRAW",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 0
+      }
    },
    "Reverse Trap": {
       "id": "77622396",

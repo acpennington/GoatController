@@ -4,61 +4,54 @@ This file contains notes regarding the monumental task of adding all Goat Format
 
 ## Notes
 
+-  Cipher Soldier: should this be named Kinetic Soldier? At minimum should have alias?
 -  Fiend's Hand Mirror: It is possible that this card's PSCT may be incorrect, but this is not a big concern.
 -  Graverobber: Already added, but its text not may be correct.
 -  It is debatable (and almost entirely irrelevant) as to whether or not Tyler the Great Warrior is legal in Goat Format. It has not been added for now.
--  Cipher Soldier: should this be named Kinetic Soldier? At minimum should have alias?
 -  Prohibition: Probably worked differently in Goat Format than it does in current format. We should perhaps research this and further clarify its text.
 
 ## Required
 
 -  Ancient Telescope: We could just use a mill 5 script for this (pre: seems like this would be wrong as it would reveal them to the opponent?)
 -  Big Eye: similar logic required as with Ancient Telescope?
--  Fruits of Kozaky's Studies: Requires script to look at top 3
--  Ray of Hope: Requires shuffle button (see ticket #227)
--  Reckless Greed: Requires draw skip script (see ticket #244)
--  Offerings to the Doomed: Requires draw skip script (see ticket #244)
--  Time Seal: Requires draw skip script (see ticket #244)
--  Spellbook Organization: Requires significant scripting
--  Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
--  Maharaghi: Will require significant scripting
--  Recycle: Requires some sort of bottom of the deck script (see ticket #245)
--  Good Goblin Housekeeping: also requires the bottom of the deck script (see ticket #245)
--  Parasite Paracide: requires complex scripting.
--  Pharaoh's Treasure: Needs to be shuffled face up into the deck
--  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script (see ticket #245)
--  Exchange/Amazoness Chain Master: God only knows how we're going to make this work.
 -  Chain Destruction: can maybe just use Search Deck and count on player being honest, but really this is more similar to a one-sided Nobleman-type script
 -  Chain Disappearance: similarly, though is closer to a more powerful one sided BANISH_ALL given it also covers the hand
 -  Chosen One: sadly random discard doesn't not work here - scripting is going to be annoying
 -  Coach Goblin: needs a bottom of deck script (see ticket #245)
+-  Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
 -  Crimson Sentry: needs a bottom of deck script (see ticket #245)
+-  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script (see ticket #245)
 -  Darkness Approaches: need ability to turn to face down Attack Position when this card is on the field :(
 -  Different Dimension Capsule: face down banishing script
--  Lightforce Sword: similar to Different Dimension Capsule
 -  Drop Off: need a script to ensure the card discarded is the card that was just drawn
+-  Exchange/Amazoness Chain Master: God only knows how we're going to make this work.
 -  Freed the Matchless General: need to be able to turn off auto draw...
+-  Fruits of Kozaky's Studies: Requires script to look at top 3
 -  Gamble: ditto, need ability to turn off auto draw when skipping turn
+-  Good Goblin Housekeeping: also requires the bottom of the deck script (see ticket #245)
 -  Grave Lure: Convulsion/Parasite Paracide-esque
+-  Lightforce Sword: similar to Different Dimension Capsule
+-  Maharaghi: Will require significant scripting
+-  Parasite Paracide: requires complex scripting.
+-  Pharaoh's Treasure: Needs to be shuffled face up into the deck
 -  Question: Need to be able to disable looking in the graveyard somehow (alternatively - log when looking in the Graveyard/Banished zone always)
+-  Recycle: Requires some sort of bottom of the deck script (see ticket #245)
 -  Senri Eye: Look at card on opponent's deck without them seeing.
+-  Spellbook Organization: Requires significant scripting
 -  Yado Karu: needs a bottom of deck script (see ticket #245)
 
 ### Optional / Convenience
 
--  Ninjitsu Art of Transformation: TYPEMATCH and OR
+-  Big Burn: could use a Banish All script to simplify removing everything from the graveyard
 -  Cyber Jar: Could use a more detailed script. (see ticket #247)
--  Numinous Healer: complex prepopLP (see ticket #225).
+-  Disturbance Strategy: possibly could use a helper script
 -  Exodia: fancy win script? (user can technically just reveal hand)
 -  Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
--  Reversal Quiz: helper to send everything to graveyard? Optional script to swap LP?
--  Attack and Receive: could technically have a fancy complex prepopLP (see ticket #225) that counts "Attack and Receive" cards in the grave.
--  Princess of Tsurugi: complex prepopLP (see ticket #225).
--  Big Burn: could use a Banish All script to simplify removing everything from the graveyard
--  Disturbance Strategy: possibly could use a helper script
 -  Fire Sorceror/Fuh-Rin-Ka-Zan: add a parameter to RANDOM_DISCARD to allow it to discard 2 cards
 -  Heavy Slump: needing to shuffle 8+ cards back into your deck is kind of obnoxious
 -  Mazera DeVille: needs to discard up to 3 cards
+-  Ninjitsu Art of Transformation: TYPEMATCH and OR
 -  Penguin Knight: tedious to resolve without a helper
 -  Reload: could use a helper function (#MakeLibraryFTKFast)
+-  Reversal Quiz: helper to send everything to graveyard? Optional script to swap LP?
 -  The Agent of Judgment - Saturn: complex prepopLP, but probably too niche to be worth it?
