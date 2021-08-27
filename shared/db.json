@@ -13895,11 +13895,38 @@
       "levelOrSubtype": "Normal",
       "text": "You take no battle damage this turn. Your monsters cannot be destroyed by battle this turn."
    },
+   "Wall Shadow": {
+      "id": "63162310",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 7,
+      "atk": 1600,
+      "def": 3000,
+      "text": "Warrior/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must first be Special Summoned with \"Magical Labyrinth\".</effect>"
+   },
+   "Wall of Illusion": {
+      "id": "13945283",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 4,
+      "atk": 1000,
+      "def": 1850,
+      "text": "Fiend/Effect – <effect=Trigger>If this card is attacked by a monster, after damage calculation: Return that monster to the hand.</effect>"
+   },
    "Wall of Revealing Light": {
       "id": "17078030",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
       "text": "Activate by paying any multiple of 1000 Life Points. <effect=Continuous-like>Monsters your opponent controls cannot attack if their ATK is less than or equal to the amount you paid.</effect>"
+   },
+   "Wandering Mummy": {
+      "id": "42994702",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1500,
+      "text": "Zombie/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position, and if you do, rearrange the face-down Defense Position monsters in your Monster Card Zones, then return them in face-down Defense Position.</effect>"
    },
    "Warrior Dai Grepher": {
       "id": "75953262",
@@ -13927,6 +13954,21 @@
       "atk": 1600,
       "def": 1600,
       "text": "Warrior – A wandering warrior who seeks the sanctuary where he can gain the power of the Archlords. To escape the temptation of evil fiends, he fights solo day by day."
+   },
+   "Wasteland": {
+      "id": "23424603",
+      "cardType": "Spell",
+      "levelOrSubtype": "Field",
+      "text": "<effect=Continuous-like>All Dinosaur, Zombie, and Rock monsters on the field gain 200 ATK/DEF.</effect>"
+   },
+   "Watapon": {
+      "id": "87774234",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 1,
+      "atk": 200,
+      "def": 300,
+      "text": "Fairy/Effect – <effect=Trigger>If this card is added from your Deck to your hand by a card effect: You can Special Summon this card.</effect>"
    },
    "Water Magician": {
       "id": "93343894",
@@ -13963,6 +14005,22 @@
       "text": "<effect=Ignition-like>During your Main Phase: You can send this face-up card to the Graveyard; inflict 1000 damage to your opponent for each of your Standby Phases that have passed since this card was activated.</effect>",
       "prepopLP": { "villain": { "name": "COUNTER", "params": -1000 } }
    },
+   "Weapon Change": {
+      "id": "10035717",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>Once per turn, during your Standby Phase: You can pay 700 Life Points, then target 1 Warrior or Machine monster you control; switch the current ATK and DEF of that target until the end of your opponent's next turn.</effect>",
+      "prepopLP": { "hero": -700 }
+   },
+   "Weather Report": {
+      "id": "72053645",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 950,
+      "def": 1500,
+      "text": "Aqua/Flip/Effect – <effect=Trigger>FLIP: Destroy all face-up \"Swords of Revealing Light\" your opponent controls. If \"Swords of Revealing Light\" is destroyed, you can perform your next Battle Phase twice.</effect>"
+   },
    "Whiptail Crow": {
       "id": "91996584",
       "cardType": "normalMonster",
@@ -13972,11 +14030,39 @@
       "def": 1600,
       "text": "Fiend – Attacks from the skies with a whip-like tail."
    },
+   "Whirlwind Prodigy": {
+      "id": "15090429",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1600,
+      "text": "Fairy/Effect – <effect=Condition>This card can be treated as 2 Tributes for the Tribute Summon of a WIND monster.</effect>"
+   },
    "White Dragon Ritual": {
       "id": "09786492",
       "cardType": "Spell",
       "levelOrSubtype": "Ritual",
       "text": "This card is used to Ritual Summon \"Paladin of White Dragon\". You must also Tribute monsters from your hand or field whose total Levels equal 4 or more."
+   },
+   "White Hole": {
+      "id": "43487744",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When your opponent activates \"Dark Hole\": Monsters you control cannot be destroyed by that \"Dark Hole's\" effect."
+   },
+   "White Magical Hat": {
+      "id": "15150365",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 3,
+      "atk": 1000,
+      "def": 700,
+      "text": "Spellcaster/Effect – <effect=Trigger>If this card inflicts battle damage to your opponent: Discard 1 random card from their hand.</effect>",
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" }
+      }
    },
    "White Magician Pikeru": {
       "id": "81383947",
@@ -13987,6 +14073,15 @@
       "def": 0,
       "text": "Spellcaster/Effect – <effect=Trigger>Once per turn, during your Standby Phase: Gain 400 Life Points for each monster you control.</effect>",
       "prepopLP": { "hero": { "name": "HERO_MONSTER", "params": 400 } }
+   },
+   "White Ninja": {
+      "id": "01571945",
+      "cardType": "effectMonster",
+      "attribute": "Light",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 800,
+      "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 1 Defense Position monster on the field; destroy that target.</effect>"
    },
    "Wicked Plant Token": {
       "cardType": "tokenMonster",
@@ -14004,12 +14099,24 @@
       "def": 1000,
       "text": "Fiend"
    },
+   "Wicked-Breaking Flamberge - Baou": {
+      "id": "68427465",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "Send 1 card from your hand to the Graveyard, then target 1 monster on the field; equip this card to that target. <effect=Continuous-like>It gains 500 ATK.</effect> <effect=Continuous-like>Negate the effects of monsters destroyed by battle with the equipped monster.</effect>"
+   },
    "Widespread Ruin": {
       "id": "77754944",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "When an opponent's monster declares an attack: Destroy the Attack Position monster your opponent controls with the highest ATK (your choice, if tied).",
       "art": 2
+   },
+   "Wild Nature's Release": {
+      "id": "61166988",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Target 1 Beast or Beast-Warrior monster; it gains ATK equal to its current DEF (until the End Phase), and if it does, it is destroyed during the End Phase."
    },
    "Windstorm of Etaqua": {
       "id": "59744639",
@@ -14045,6 +14152,24 @@
       "text": "Fairy/Effect – <effect=Trigger>If this card on the field is destroyed and sent to the Graveyard: For the rest of this turn, you take no battle damage.</effect>",
       "art": 2
    },
+   "Winged Minion": {
+      "id": "89258225",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 2,
+      "atk": 700,
+      "def": 700,
+      "text": "Fiend/Effect – <effect=Ignition>You can Tribute this card, then target 1 face-up Fiend monster on the field; it gains 700 ATK/DEF.</effect>"
+   },
+   "Winged Sage Falcos": {
+      "id": "87523462",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 4,
+      "atk": 1700,
+      "def": 1200,
+      "text": "Winged Beast/Effect – <effect=Trigger>When this card destroys an opponent's face-up Attack Position monster by battle and sends it to their Graveyard: You can place that monster on top of their Deck.</effect>"
+   },
    "Wingweaver": {
       "id": "31447217",
       "cardType": "normalMonster",
@@ -14053,6 +14178,15 @@
       "atk": 2750,
       "def": 2400,
       "text": "Fairy – A six-winged fairy who prays for peace and hope."
+   },
+   "Witch Doctor of Chaos": {
+      "id": "75946257",
+      "cardType": "effectMonster",
+      "attribute": "Dark",
+      "levelOrSubtype": 2,
+      "atk": 500,
+      "def": 500,
+      "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Select 1 Monster Card from you or your opponent's Graveyard. Remove it from play.</effect>"
    },
    "Witch's Apprentice": {
       "id": "80741828",
@@ -14072,6 +14206,15 @@
       "def": 1300,
       "text": "Fiend – Dressed in a night-black tuxedo, this creature presides over the darkness."
    },
+   "Wodan the Resident of the Forest": {
+      "id": "42883273",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 900,
+      "def": 1200,
+      "text": "Warrior/Effect – <effect=Continuous>Increase this card's ATK by 100 points for every Plant monster that is face-up on the field.</effect>"
+   },
    "Wolf Axwielder": {
       "id": "56369281",
       "cardType": "normalMonster",
@@ -14090,6 +14233,22 @@
       "def": 2500,
       "text": "Machine – The new form of the enigmatic Inpachi, remodeled by cutting-edge Dark World technology. Maneuverability has been sacrificed for strong armor, which is considered more important."
    },
+   "Woodland Sprite": {
+      "id": "06979239",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 3,
+      "atk": 900,
+      "def": 400,
+      "text": "Plant/Effect – <effect=Ignition>You can send 1 Equip Card equipped to this card to the Graveyard; inflict 500 damage to your opponent.</effect>",
+      "prepopLP": { "villain": -500 }
+   },
+   "World Suppression": {
+      "id": "12253117",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When a Field Spell is activated: Negate its effects until the end of this turn."
+   },
    "Worm Drake": {
       "id": "73216412",
       "cardType": "normalMonster",
@@ -14107,6 +14266,15 @@
       "atk": 1250,
       "def": 900,
       "text": "Fish – A fish with arms, legs, and some very sharp teeth."
+   },
+   "Wynn the Wind Charmer": {
+      "id": "37744402",
+      "cardType": "effectMonster",
+      "attribute": "Wind",
+      "levelOrSubtype": 3,
+      "atk": 500,
+      "def": 1500,
+      "text": "Spellcaster/Flip/Effect – <effect=Trigger>FLIP: Target 1 WIND monster your opponent controls; take control of that target while this card is face-up on the field.</effect>"
    },
    "X-Head Cannon": {
       "id": "62651957",
