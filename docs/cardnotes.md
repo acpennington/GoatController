@@ -45,8 +45,10 @@ This file contains notes regarding the monumental task of adding all Goat Format
 
 ### Optional / Convenience
 
+-  Ninjitsu Art of Transformation: TYPEMATCH and OR
 -  Cyber Jar: Could use a more detailed script. (see ticket #247)
--  Exodia: fancy win script? (user can technically just reveal hand)
+-  Numinous Healer: complex prepopLP (see ticket #225).
+s-  Exodia: fancy win script? (user can technically just reveal hand)
 -  Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
 -  Reversal Quiz: helper to send everything to graveyard? Optional script to swap LP?
 -  Attack and Receive: could technically have a fancy complex prepopLP (see ticket #225) that counts "Attack and Receive" cards in the grave.

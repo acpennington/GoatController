@@ -8840,6 +8840,22 @@
       "levelOrSubtype": "Quick-Play",
       "text": "Tribute 1 monster; gain Life Points equal to either its ATK or DEF on the field (or its original ATK or DEF, if face-down)."
    },
+   "Narrow Pass": {
+      "id": "40172183",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "Activate this card when both players control 2 monsters or less. <effect=Continuous-like>Both players can only Normal Summon up to 2 additional monsters.</effect>"
+   },
+   "Necklace of Command": {
+      "id": "48576971",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Trigger-like>When the equipped monster you control is destroyed by battle and this card is sent to the Graveyard, you can either: ● Draw 1 card. OR ● Discard 1 random card from your opponent's hand.</effect>",
+      "script": {
+         "name": "RANDOM_DISCARD",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+      }
+   },
    "Necrovalley": {
       "id": "47355498",
       "cardType": "Spell",
@@ -8861,6 +8877,17 @@
       "levelOrSubtype": "Normal",
       "text": "When there are 4 or more monsters on the field: Destroy all face-up monsters."
    },
+   "Needle Wall": {
+      "id": "38299233",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>Once per turn, during your Standby Phase: Roll a six-sided die. Treat your opponent's Main Monster Zones as numbers 1-5, counting from your right, and destroy the monster that is in the same Main Monster Zone as the result. If the result is 6, roll again.</effect>",
+      "script": {
+         "name": "ROLL_DICE",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 1
+      }
+   },
    "Needle Worm": {
       "id": "81843628",
       "cardType": "effectMonster",
@@ -8874,6 +8901,12 @@
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
          "params": 5
       }
+   },
+   "Negate Attack": {
+      "id": "14315573",
+      "cardType": "Trap",
+      "levelOrSubtype": "Counter",
+      "text": "When an opponent's monster declares an attack: Target the attacking monster; negate the attack, then end the Battle Phase."
    },
    "Neko Mane King": {
       "id": "11021521",
@@ -9012,6 +9045,23 @@
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>Target 1 face-up \"Ninja\" monster you control; it cannot be destroyed by battle.</effect>"
    },
+   "Ninjitsu Art of Transformation": {
+      "id": "70861343",
+      "cardType": "Trap",
+      "levelOrSubtype": "Continuous",
+      "text": "Activate this card by Tributing 1 face-up \"Ninja\" monster; Special Summon 1 Beast, Winged Beast, or Insect monster from your hand or Deck whose Level is less than or equal to the Level the Tributed monster had on the field +3. When this card leaves the field, destroy that monster.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "autoClose": true
+      }
+   },
+   "Nitro Unit": {
+      "id": "23842445",
+      "cardType": "Spell",
+      "levelOrSubtype": "Equip",
+      "text": "<effect=Condition>Equip only to a monster your opponent controls.</effect> <effect=Trigger-like>If the equipped monster is destroyed by battle and sent to the Graveyard: Inflict damage to your opponent equal to that monster's original ATK.</effect>"
+   },
    "Niwatori": {
       "id": "07805359",
       "cardType": "normalMonster",
@@ -9043,6 +9093,18 @@
       "def": 1200,
       "text": "Insect/Flip/Effect – <effect=Trigger>FLIP: Target as many monsters on the field as possible, but no more than 2; destroy them.</effect>"
    },
+   "Non Aggression Area": {
+      "id": "76848240",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "During your Standby Phase: Discard 1 card; your opponent cannot Normal Summon, Set and/or Special Summon during their next turn."
+   },
+   "Non-Spellcasting Area": {
+      "id": "20065549",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Continuous-like>All face-up non-Effect Monsters on the field are unaffected by other Spell effects.</effect>"
+   },
    "Novox's Prayer": {
       "id": "43694075",
       "cardType": "Spell",
@@ -9057,6 +9119,19 @@
       "atk": 500,
       "def": 500,
       "text": "Warrior/Effect – <effect=Trigger>If this card inflicts battle damage to your opponent: You can target 1 Continuous Spell in your Graveyard; return it on the top of the Deck.</effect>"
+   },
+   "Numinous Healer": {
+      "id": "02130625",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When you take damage: Gain 1000 Life Points, also, gain 500 Life Points for each \"Numinous Healer\" in your Graveyard."
+   },
+   "Nutrient Z": {
+      "id": "29389368",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "During damage calcuation, when you are about to take 2000 or more battle damage: Gain 4000 Life Points first.",
+      "prepopLP": { "hero": 4000 }
    },
    "Nuvia the Wicked": {
       "id": "12953226",
