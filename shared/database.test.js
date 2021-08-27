@@ -129,6 +129,7 @@ const STYLE_WHITELIST = {
    "Mucus Yolk": "this card gains",
    "Nightmare Wheel": "When",
    "Pitch-Dark Dragon": "this card gains",
+   "The Agent of Force - Mars": "this card gains",
 };
 
 function expectFields(name, card, required, optional = OPTIONAL) {

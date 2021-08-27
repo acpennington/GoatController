@@ -60,3 +60,4 @@ s-  Exodia: fancy win script? (user can technically just reveal hand)
 -  Mazera DeVille: needs to discard up to 3 cards
 -  Penguin Knight: tedious to resolve without a helper
 -  Reload: could use a helper function (#MakeLibraryFTKFast)
+-  The Agent of Judgment - Saturn: complex prepopLP, but probably too niche to be worth it?
