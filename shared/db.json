@@ -1896,7 +1896,7 @@
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Continuous-like>Each time a Trap is activated, immediately after it resolves, the player that activated it takes 1000 damage.</effect>",
-      "prepopLP": { "hero": -1000, "villian": -1000 }
+      "prepopLP": { "hero": -1000, "villain": -1000 }
    },
    "Chain Energy": {
       "id": "79323590",
@@ -2092,7 +2092,7 @@
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
       "text": "<effect=Trigger-like>Each time a monster(s) is sent to your opponent's Graveyard: Inflict 300 damage to your opponent.</effect>",
-      "prepopLP": { "villian": -300 }
+      "prepopLP": { "villain": -300 }
    },
    "Cold Wave": {
       "id": "60682203",
@@ -3208,7 +3208,7 @@
       "text": "<effect=Condition>When this card and all 4 \"Spirit Message\" cards with different names are placed on your field, you win the Duel.</effect> <effect=Trigger-like>Once per turn, during your opponent's End Phase: Place 1 \"Spirit Message\" card from your hand or Deck in your Spell & Trap Zone face-up, in the proper order of \"I\", \"N\", \"A\", and \"L\".</effect> <effect=Continuous-like>When any \"Spirit Message\" card or \"Destiny Board\" you control leaves the field, send all \"Spirit Message\" cards and \"Destiny Board\" you control to the Graveyard.</effect>",
       "script": {
          "name": "SEARCH_DECK",
-         "displayCondition": { "players": ["HERO"], "row": "spellTrrap" },
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
          "params": {
             "name": { "operator": "CONTAINS", "value": "Spirit Message" }
          },
