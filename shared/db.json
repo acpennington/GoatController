@@ -3392,7 +3392,12 @@
       "id": "77561728",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Your opponent shuffles their entire hand into the Deck, then draws the same number of cards."
+      "text": "Your opponent shuffles their entire hand into the Deck, then draws the same number of cards.",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": "same"
+      }
    },
    "Divine Dragon Ragnarok": {
       "id": "62113340",
@@ -5857,7 +5862,12 @@
       "id": "52417194",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If your opponent has 8 or more cards in their hand: They shuffle their entire hand into the Deck, then draw 2 cards."
+      "text": "If your opponent has 8 or more cards in their hand: They shuffle their entire hand into the Deck, then draw 2 cards.",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Heavy Storm": {
       "id": "19613556",
@@ -8308,7 +8318,12 @@
       "id": "52817046",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "If your opponent has 3 or fewer cards in their hand: Your opponent shuffles their hand into the Deck, then draws cards equal to the number that they shuffled into their deck."
+      "text": "If your opponent has 3 or fewer cards in their hand: Your opponent shuffles their hand into the Deck, then draws cards equal to the number that they shuffled into their deck.",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": "same"
+      }
    },
    "Mind on Air": {
       "id": "66690411",
@@ -8527,7 +8542,12 @@
       "id": "93108433",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "Target 1 monster you control that is owned by you; if that monster is still on the field, shuffle it and your entire hand into the Deck, also, after that, draw cards equal to the number of cards you shuffled from your hand into the Deck by this effect. <effect=Condition>(You cannot activate this card if you have a card in your hand that is owned by your opponent).</effect>"
+      "text": "Target 1 monster you control that is owned by you; if that monster is still on the field, shuffle it and your entire hand into the Deck, also, after that, draw cards equal to the number of cards you shuffled from your hand into the Deck by this effect. <effect=Condition>(You cannot activate this card if you have a card in your hand that is owned by your opponent).</effect>",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": "same"
+      }
    },
    "Monster Reincarnation": {
       "id": "74848038",
@@ -9553,7 +9573,12 @@
       "levelOrSubtype": 3,
       "atk": 900,
       "def": 800,
-      "text": "Aqua/Effect – <effect=Trigger>If this card is sent from your Deck to the Graveyard by an opponent's card effect: Shuffle your Graveyard into the Deck.</effect>"
+      "text": "Aqua/Effect – <effect=Trigger>If this card is sent from your Deck to the Graveyard by an opponent's card effect: Shuffle your Graveyard into the Deck.</effect>",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": "graveyard"
+      }
    },
    "Penguin Soldier": {
       "id": "93920745",
@@ -10280,7 +10305,12 @@
       "id": "22589918",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "Send all cards from your hand to the Deck, then shuffle. Then, draw the same number of cards you added to the Deck."
+      "text": "Send all cards from your hand to the Deck, then shuffle. Then, draw the same number of cards you added to the Deck.",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": "same"
+      }
    },
    "Remove Brainwashing": {
       "id": "94739788",

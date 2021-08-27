@@ -19,8 +19,12 @@ import {
    SEND_REVEAL,
    ADJUST_COUNTERS,
    DISCARD_AND_DRAW,
+   SHUFFLE_AND_DRAW,
+   SEND_SHUFFLE_AND_DRAW,
+   HAND,
    SEND_DND,
-   SENTINEL
+   SENTINEL,
+   GRAVEYARD
 } from "shared/constants";
 
 function soundOn() {
@@ -125,6 +129,18 @@ function discardAndDraw(player, count, socket = false) {
    return { type: DISCARD_AND_DRAW, data: { player, count } };
 }
 
+function shuffleAndDraw(player, params, socket = false) {
+   const source = params === GRAVEYARD ? GRAVEYARD : HAND;
+   const count = params === GRAVEYARD ? 0 : params;
+
+   if (socket && socket.api) {
+      const payload = { action: SEND_SHUFFLE_AND_DRAW, data: { token: socket.token, id: socket.matchId, source, count } };
+      socket.api.send(JSON.stringify(payload));
+   }
+
+   return { type: SHUFFLE_AND_DRAW, data: { player, source, count } };
+}
+
 export {
    playSound,
    moveCard,
@@ -137,5 +153,6 @@ export {
    adjustLP,
    resetSolo,
    shuffleDeck,
+   shuffleAndDraw,
    discardAndDraw
 };

@@ -39,7 +39,8 @@ import {
    ATTACKING,
    DEFENDING,
    SEND_COUNTERS,
-   DISCARD_AND_DRAW
+   DISCARD_AND_DRAW,
+   SHUFFLE_AND_DRAW
 } from "shared/constants.js";
 
 const blankField = {
@@ -249,6 +250,26 @@ export default function (state = initialState, action) {
          for (let i = 0; i < count; i++) if (field.deck.length > 0) field.hand.push(field.deck.pop());
 
          playSound(count === 0 ? "/sounds/tograve.mp3" : "/sounds/drawcard.mp3");
+
+         return { ...state };
+      }
+      case SHUFFLE_AND_DRAW: {
+         let { player, source, count } = data;
+         const field = state[player];
+         if (count === "same") count = state[player].hand.length;
+
+         if (source !== GRAVEYARD) {
+            field.deck.push(...field.hand);
+            field.hand = [];
+         } else {
+            field.deck.push(...field.graveyard);
+            field.graveyard = [];
+         }
+
+         playSound("/sounds/shuffle.mp3");
+         field.deck = shuffle(state[player].deck);
+
+         for (let i = 0; source !== GRAVEYARD && i < count; i++) if (field.deck.length > 0) field.hand.push(field.deck.pop());
 
          return { ...state };
       }

@@ -6,7 +6,7 @@ import { bind, unbind } from "mousetrap";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
-import { moveCard, createTokens, discardAndDraw } from "stateStore/actions/game/field.js";
+import { moveCard, createTokens, discardAndDraw, shuffleAndDraw } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
 import compress from "utils/compressName.js";
@@ -25,6 +25,7 @@ import {
    FLIP_COINS,
    ROLL_DICE,
    DISCARD_AND_DRAW,
+   SHUFFLE_AND_DRAW,
    SKIP_DRAWS
 } from "shared/constants.js";
 
@@ -60,7 +61,7 @@ class ScriptButton extends PureComponent {
    }
 
    runScript = () => {
-      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw, script } = this.props;
+      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw, shuffleAndDraw, script } = this.props;
       const { name, params } = script;
       const socket = this.context;
       switch (name) {
@@ -87,6 +88,9 @@ class ScriptButton extends PureComponent {
             break;
          case DISCARD_AND_DRAW:
             discardAndDraw(heroPlayer, params, socket);
+            break;
+         case SHUFFLE_AND_DRAW:
+            shuffleAndDraw(heroPlayer, params, socket);
             break;
          case SKIP_DRAWS:
             this.skipDraws(params);
@@ -208,6 +212,6 @@ ScriptButton.propTypes = {
 
 ScriptButton.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw })(
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw, shuffleAndDraw })(
    withStyles(styles)(ScriptButton)
 );
