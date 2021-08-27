@@ -19,13 +19,11 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Reckless Greed: Requires draw skip script (see ticket #244)
 -  Offerings to the Doomed: Requires draw skip script (see ticket #244)
 -  Time Seal: Requires draw skip script (see ticket #244)
--  Reload: Requires shuffle button (see ticket #227)
 -  Spellbook Organization: Requires significant scripting
 -  Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
 -  Maharaghi: Will require significant scripting
 -  Recycle: Requires some sort of bottom of the deck script (see ticket #245)
 -  Good Goblin Housekeeping: also requires the bottom of the deck script (see ticket #245)
--  Roc from the Valley of Haze: Requires shuffle button (see ticket #227)
 -  Parasite Paracide: requires complex scripting.
 -  Pharaoh's Treasure: Needs to be shuffled face up into the deck
 -  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script (see ticket #245)
@@ -60,3 +58,4 @@ s-  Exodia: fancy win script? (user can technically just reveal hand)
 -  Heavy Slump: needing to shuffle 8+ cards back into your deck is kind of obnoxious
 -  Mazera DeVille: needs to discard up to 3 cards
 -  Penguin Knight: tedious to resolve without a helper
+-  Reload: could use a helper function (#MakeLibraryFTKFast)
