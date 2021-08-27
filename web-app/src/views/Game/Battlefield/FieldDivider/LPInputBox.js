@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import { adjustLP } from "stateStore/actions/game/field.js";
 import { prepopLP } from "stateStore/actions/shared/settings.js";
+import { BANISHED, MONSTER, PREPOP_LP_HELPER, HAND, GRAVEYARD, SPELL_TRAP, FIELD_SPELL } from "shared/constants.js";
+import checkParams from "utils/checkParams.js";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
@@ -18,16 +20,84 @@ class LPInputBox extends PureComponent {
       this.ref = React.createRef();
    }
 
+   convertPrepopLP() {
+      const { field, activeCard, lifepoints, prepopLPvalue: prepopLP } = this.props;
+      if (!prepopLP) return undefined;
+      if (typeof prepopLP === "number") return prepopLP;
+      if (prepopLP === "half") return -Math.floor(lifepoints / 2);
+
+      const { name, params } = prepopLP;
+
+      let hero = activeCard.player;
+      let villain;
+      for (const player in field) {
+         if (player !== hero) {
+            villain = player;
+            break;
+         }
+      }
+
+      const counters = field[activeCard.player]?.[activeCard.row]?.[activeCard.zone]?.counters;
+
+      switch (name) {
+         case PREPOP_LP_HELPER.COUNTER:
+            return counters && params * counters; // FIXME: rerender on adjustCounters
+         case PREPOP_LP_HELPER.EXPONENTIAL_COUNTER:
+            return counters ? params * (2 ** (counters - 1)) : 0; // FIXME: rerender on adjustCounters
+         case PREPOP_LP_HELPER.FIELD_MONSTER:
+            return this.monsters(params);
+         case PREPOP_LP_HELPER.HERO_MONSTER:
+            return this.monsters(params, hero);
+         case PREPOP_LP_HELPER.VILLAIN_BANISHED:
+            return params * field[villain][BANISHED].length;
+         case PREPOP_LP_HELPER.VILLAIN_HAND_AND_FIELD:
+            return this.handAndField(params, villain);
+         case PREPOP_LP_HELPER.VILLAIN_HAND:
+            return params * field[villain][HAND].length;
+         case PREPOP_LP_HELPER.VILLAIN_GRAVEYARD:
+            return params * field[villain][GRAVEYARD].length;
+         case PREPOP_LP_HELPER.VILLAIN_MONSTER:
+            return this.monsters(params, villain);
+         default:
+            console.log("Error: Undefined card script");
+      }
+   }
+
+   monsters(params, player) {
+      const { field } = this.props;
+      let monsters = 0;
+      for (const key in field) {
+         if (player && player !== key) continue;
+         for (const monster of field[key][MONSTER]) {
+            if (monster) {
+               if (typeof params === "object") {
+                  if (params.filter && checkParams(monster, params.filter).fail.length) continue;
+                  if (params.faceup && monster.facedown) continue
+               }
+               monsters++;
+            }
+         }
+      }
+      return monsters * (typeof params === "number" ?  params : params.multiplier);
+   }
+
    componentDidUpdate() {
-      const { prepopLPvalue, lifepoints } = this.props;
       const { inputLP } = this.state;
+      const convertedPrepop = this.convertPrepopLP();
 
-      const convertedPrepop = prepopLPvalue && (prepopLPvalue === "half" ? Math.floor(lifepoints / 2) : Math.abs(prepopLPvalue));
-
-      if (prepopLPvalue && convertedPrepop !== Number(inputLP)) {
-         this.setState({ inputLP: convertedPrepop, LPmode: prepopLPvalue === "half" || prepopLPvalue < 0 ? -1 : 1 });
+      if (convertedPrepop && convertedPrepop !== Number(inputLP)) {
+         this.setState({ inputLP: Math.abs(convertedPrepop), LPmode: convertedPrepop < 0 ? -1 : 1 });
          this.ref.current.focus();
       }
+   }
+
+   handAndField(params, player) {
+      const { field } = this.props;
+      const monster = field[player][MONSTER].filter(Boolean).length;
+      const spellTrap = field[player][SPELL_TRAP].filter(Boolean).length;
+      const fieldSpell = field[player][FIELD_SPELL] ? 1 : 0;
+      const hand = field[player][HAND].length;
+      return params * (monster + spellTrap + fieldSpell + hand);
    }
 
    inputLP = (event) => {
@@ -98,8 +168,12 @@ class LPInputBox extends PureComponent {
    }
 }
 
-function mapStateToProps(state) {
-   return { prepopLPvalue: state.settings.prepopLP };
+function mapStateToProps(state, ownProps) {
+   return {
+      field: state.field,
+      activeCard: state.selectedCard[ownProps.heroPlayer] || state.hoverCard,
+      prepopLPvalue: state.settings.prepopLP
+   };
 }
 
 LPInputBox.propTypes = {
