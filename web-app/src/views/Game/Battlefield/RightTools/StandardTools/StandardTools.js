@@ -43,7 +43,7 @@ class StandardTools extends PureComponent {
                )}
                <Phases heroPlayer={name} />
                <Counters heroPlayer={name} />
-               <RevealHandButton name={name} />
+               {!solo && <RevealHandButton name={name} />}
                <ShuffleDeckButton heroPlayer={name} />
                <CardScript heroPlayer={name} />
                <Shadow>

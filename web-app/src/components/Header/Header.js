@@ -53,7 +53,7 @@ export default function Header(props) {
       [classes.fixed]: fixed
    });
    const brandComponent = (
-      <Button className={classes.title}>
+      <Button href={props.loggedInAs ? "/wall" : "/"} className={classes.title}>
          <img src="Goat_Token_Logo.svg" style={{ height: "2.4em", marginRight: "8px" }} alt="Goat Duels logo" />
          Goat Duels
          {document.documentElement.clientWidth > 1205 && ": A Dueling Simulator Just for Goat Format!"}
@@ -110,11 +110,12 @@ Header.propTypes = {
    color: PropTypes.string,
    rightLinks: PropTypes.node,
    leftLinks: PropTypes.node,
+   loggedInAs: PropTypes.string,
    fixed: PropTypes.bool,
    absolute: PropTypes.bool,
    // this will cause the sidebar to change the color from
    // props.color (see above) to changeColorOnScroll.color
-   // when the window.pageYOffset is heigher or equal to
+   // when the window.pageYOffset is higher or equal to
    // changeColorOnScroll.height and then when it is smaller than
    // changeColorOnScroll.height change it back to
    // props.color (see above)

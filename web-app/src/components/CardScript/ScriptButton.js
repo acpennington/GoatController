@@ -31,15 +31,32 @@ import {
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
-class CardScript extends PureComponent {
+class ScriptButton extends PureComponent {
+   constructor(props) {
+      super(props);
+      this.ref = React.createRef();
+   }
+
    componentDidMount() {
       const { variant, script } = this.props;
 
       if (!variant) bind("s", () => this.runScript(script));
+
+      this.maybeFocus();
+   }
+
+   componentDidUpdate() {
+      this.maybeFocus();
    }
 
    componentWillUnmount() {
       unbind(["s"]);
+   }
+
+   maybeFocus() {
+      const { focus } = this.props;
+
+      if (focus && this.ref.current) this.ref.current.focus();
    }
 
    runScript = () => {
@@ -141,6 +158,7 @@ class CardScript extends PureComponent {
 
       const button = (
          <Button
+            ref={this.ref}
             color="primary"
             onClick={this.runScript}
             style={
@@ -179,16 +197,17 @@ function mapStateToProps(state) {
    return { field: state.field };
 }
 
-CardScript.propTypes = {
+ScriptButton.propTypes = {
    classes: PropTypes.object.isRequired,
    script: PropTypes.object.isRequired,
    heroPlayer: PropTypes.string.isRequired,
    activeCard: PropTypes.object.isRequired,
-   variant: PropTypes.string
+   variant: PropTypes.string,
+   focus: PropTypes.bool,
 };
 
-CardScript.contextType = WebSocketContext;
+ScriptButton.contextType = WebSocketContext;
 
 export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw })(
-   withStyles(styles)(CardScript)
+   withStyles(styles)(ScriptButton)
 );
