@@ -769,8 +769,7 @@
       "id": "62633180",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Target 1 monster you control; destroy that monster, then send 2 cards from the top of your opponent's Deck to the Graveyard.",
-      "art": 2
+      "text": "Target 1 monster you control; destroy that monster, then send 2 cards from the top of your opponent's Deck to the Graveyard."
    },
    "Astral Barrier": {
       "id": "37053871",
@@ -1852,7 +1851,7 @@
       "atk": 1400,
       "def": 1200,
       "text": "Warrior – An elf who learned to wield a sword, he baffles enemies with lightning-swift attacks.",
-      "art": 2
+      "art": 3
    },
    "Cemetary Bomb": {
       "id": "51394546",
