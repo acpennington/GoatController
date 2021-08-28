@@ -32,15 +32,13 @@ class CardArt extends PureComponent {
 
       return (
          <Fragment>
-            <div className={classes.art} style={{ backgroundImage: `url("/cards/art/${compress(name)}${art ? `.${art}` : ''}.jpg")` }}>
+            <div className={classes.art} style={{ backgroundImage: `url("/cards/art/${compress(name)}${art ? `.${art}` : ""}.jpg")` }}>
                {battle && (
                   <div className={classes.battleImgContainer} style={{ position: "absolute", top: 0, background: "rgba(0,0,0,0.5)" }}>
                      <img src={"/battle/" + battle + ".png"} className={classes.battleImg} alt={battle} />
                   </div>
                )}
-            {this.foilOn() && (
-               <FoilStars nameHeight={nameHeight} />
-            )}
+               {this.foilOn() && <FoilStars nameHeight={nameHeight} />}
             </div>
             {showNames && (
                <div className={classes["name" + villExtension]} style={{ fontSize: nameHeight + "px", lineHeight: nameHeight + "px" }}>
@@ -49,17 +47,11 @@ class CardArt extends PureComponent {
             )}
             <div className={classes.lowerHalf}>
                {levelOrSubtype === "???" ? (
-                 <div
-                    className={classes["iconsMonster"]}
-                    style={{lineHeight: nameHeight + "px"}}
-                 >
-                    ???
-                 </div>
+                  <div className={classes["iconsMonster"]} style={{ lineHeight: nameHeight + "px" }}>
+                     ???
+                  </div>
                ) : (
-                  <div
-                     className={classes["icons" + (isMonster ? "Monster" : "SpellTrap")]}
-                     style={{lineHeight: nameHeight + "px"}}
-                  >
+                  <div className={classes["icons" + (isMonster ? "Monster" : "SpellTrap")]} style={{ lineHeight: nameHeight + "px" }}>
                      {levelOrSubtype !== "Normal" && this.getSubtitle()}
                      <img
                         src={"/cards/svgs/attributes/" + cardTypeIcon + ".svg"}
@@ -99,8 +91,8 @@ CardArt.propTypes = {
    nameHeight: PropTypes.number.isRequired,
    cardTypeIcon: PropTypes.string.isRequired,
    levelOrSubtype: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-   atk: PropTypes.number,
-   def: PropTypes.number,
+   atk: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+   def: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
    villExtension: PropTypes.string,
    battle: PropTypes.string
 };
