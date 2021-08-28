@@ -3,7 +3,13 @@
       "id": "67048711",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>If you control 3 \"7\": Draw 3 cards, then destroy all \"7\" on the field.</effect> <effect=Trigger-like>If this card is sent from your field to the Graveyard: Gain 700 Life Points.</effect>"
+      "text": "<effect=Trigger-like>If you control 3 \"7\": Draw 3 cards, then destroy all \"7\" on the field.</effect> <effect=Trigger-like>If this card is sent from your field to the Graveyard: Gain 700 Life Points.</effect>",
+      "prepopLP": { "hero": 700 },
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 3
+      }
    },
    "3-Hump Lacooda": {
       "id": "86988864",
@@ -12,7 +18,12 @@
       "levelOrSubtype": 3,
       "atk": 500,
       "def": 1500,
-      "text": "Beast/Effect – <effect=Ignition>If you control 3 \"3-Hump Lacooda\": You can Tribute 2 of them; draw 3 cards.</effect>"
+      "text": "Beast/Effect – <effect=Ignition>If you control 3 \"3-Hump Lacooda\": You can Tribute 2 of them; draw 3 cards.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 3
+      }
    },
    "4-Starred Ladybug of Doom": {
       "id": "83994646",
@@ -845,7 +856,12 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 1300,
-      "text": "Rock/Effect – <effect=Ignition>Send 1 \"Pot of Greed\" from your hand to the Graveyard; draw 3 cards.</effect>"
+      "text": "Rock/Effect – <effect=Ignition>Send 1 \"Pot of Greed\" from your hand to the Graveyard; draw 3 cards.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 3
+      }
    },
    "Axe Raider": {
       "id": "48305365",
@@ -1779,7 +1795,12 @@
       "id": "42664989",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Banish all other cards you control and in your hand (min. 1); draw until you have 2 cards in your hand."
+      "text": "Banish all other cards you control and in your hand (min. 1); draw until you have 2 cards in your hand.",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Castle Walls": {
       "id": "44209392",
@@ -1939,7 +1960,12 @@
       "id": "97439308",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "If at least 4 of your cards are banished and there are no cards in your Graveyard: Draw 2 cards."
+      "text": "If at least 4 of your cards are banished and there are no cards in your Graveyard: Draw 2 cards.",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Chaos Necromancer": {
       "id": "01434352",
@@ -3757,7 +3783,12 @@
       "levelOrSubtype": 3,
       "atk": 800,
       "def": 900,
-      "text": "Thunder/Effect – <effect=Trigger>If this card is discarded your hand to the Graveyard by an opponent's card effect: Draw 2 cards.</effect>"
+      "text": "Thunder/Effect – <effect=Trigger>If this card is discarded your hand to the Graveyard by an opponent's card effect: Draw 2 cards.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 2
+      }
    },
    "Electro-Whip": {
       "id": "37820550",
@@ -5222,6 +5253,12 @@
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "Draw 3 cards, then discard 2 cards.",
+      "script": {
+         "name": "DRAW_N",
+         "tooltip": "Discard 2 after drawing",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 3
+      },
       "limit": 1
    },
    "Graceful Dice": {
@@ -9856,6 +9893,11 @@
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "Draw 2 cards.",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      },
       "limit": 1
    },
    "Power of Kaishin": {
@@ -9868,7 +9910,12 @@
       "id": "68304813",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>If you Tribute Summon a monster using 2 or more Tributes: Draw 2 cards.</effect>"
+      "text": "<effect=Trigger-like>If you Tribute Summon a monster using 2 or more Tributes: Draw 2 cards.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Premature Burial": {
       "id": "70828912",
@@ -11937,7 +11984,13 @@
       "id": "49328340",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>If \"Gaia The Fierce Knight\", \"Swift Gaia the Fierce Knight\", or \"Gaia the Dragon Champion\" you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Trigger-like>If \"Gaia the Dragon Champion\" inflicts battle damage with this effect: Draw 2 cards, then discard 1 card.</effect>"
+      "text": "<effect=Continuous-like>If \"Gaia The Fierce Knight\", \"Swift Gaia the Fierce Knight\", or \"Gaia the Dragon Champion\" you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Trigger-like>If \"Gaia the Dragon Champion\" inflicts battle damage with this effect: Draw 2 cards, then discard 1 card.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "tooltip": "Discard 1 after drawing",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Spirit Barrier": {
       "id": "53239672",

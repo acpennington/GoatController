@@ -232,6 +232,7 @@ const ROLL_DICE = "ROLL_DICE";
 const DISCARD_AND_DRAW = "DISCARD_AND_DRAW";
 const SHUFFLE_AND_DRAW = "SHUFFLE_AND_DRAW";
 const SKIP_DRAWS = "SKIP_DRAWS";
+const DRAW_N = "DRAW_N";
 
 // complex prepopLP helpers
 const PREPOP_LP_HELPER = {
@@ -304,6 +305,7 @@ module.exports = {
   DRAW_CARD,
   DRAW_PHASE_DRAW,
   DRAW,
+  DRAW_N,
   dynamicZones,
   EARTH,
   EFFECT_MONSTER,

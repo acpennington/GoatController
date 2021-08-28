@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import { FaSearch, FaDice } from "react-icons/fa";
 import { BiDownload, BiBlock } from "react-icons/bi";
 import { CgCardHearts } from "react-icons/cg";
-import { GiTwoCoins, GiCardPlay } from "react-icons/gi";
+import { GiTwoCoins, GiCardPlay, GiUpCard } from "react-icons/gi";
 import { ImShuffle } from "react-icons/im";
 import FindInPageIcon from "@material-ui/icons/FindInPage";
 
-import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, FLIP_COINS, ROLL_DICE, DISCARD_AND_DRAW, SHUFFLE_AND_DRAW, SKIP_DRAWS, GRAVEYARD } from "shared/constants";
+import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, FLIP_COINS, ROLL_DICE, DISCARD_AND_DRAW, SHUFFLE_AND_DRAW, SKIP_DRAWS, GRAVEYARD, DRAW_N } from "shared/constants";
 
 class ScriptName extends PureComponent {
    render() {
@@ -67,6 +67,12 @@ class ScriptName extends PureComponent {
             return (
                <Fragment>
                   <BiBlock /> Skip Draws
+               </Fragment>
+            );
+         case DRAW_N:
+            return (
+               <Fragment>
+                  <GiUpCard /> Draw {params > 1 && params}
                </Fragment>
             );
          default:

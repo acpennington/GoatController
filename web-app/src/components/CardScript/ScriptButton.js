@@ -14,6 +14,7 @@ import compress from "utils/compressName.js";
 import Tooltip from "@material-ui/core/Tooltip";
 
 import {
+   DECK,
    GRAVEYARD,
    HAND,
    SPELL_TRAP,
@@ -26,7 +27,8 @@ import {
    ROLL_DICE,
    DISCARD_AND_DRAW,
    SHUFFLE_AND_DRAW,
-   SKIP_DRAWS
+   SKIP_DRAWS,
+   DRAW_N
 } from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -86,6 +88,9 @@ class ScriptButton extends PureComponent {
          case ROLL_DICE:
             this.rollDice(params);
             break;
+         case DRAW_N:
+            this.drawN(params);
+            break;
          case DISCARD_AND_DRAW:
             discardAndDraw(heroPlayer, params, socket);
             break;
@@ -108,7 +113,6 @@ class ScriptButton extends PureComponent {
    };
 
    randomDiscard = (count) => {
-      console.log(count); // DEBUG
       const { field, heroPlayer, moveCard } = this.props;
       const hand = field[heroPlayer].hand;
 
@@ -122,6 +126,18 @@ class ScriptButton extends PureComponent {
             // NOTE: this gets turned into <b>randomly</b> by the client.
             { ...this.context, msg: "RANDOMLY" }
          );
+      }
+   };
+
+   drawN = (count) => {
+      const { field, heroPlayer, moveCard } = this.props;
+      const deck = field[heroPlayer][DECK];
+
+      for (let i = count || 1; i > 0 && deck.length > 0; i--) {
+         moveCard({
+            from: { player: heroPlayer, row: DECK, zone: 0 },
+            to: { player: heroPlayer, row: HAND, zone: 0 }
+         });
       }
    };
 
