@@ -35,18 +35,19 @@ class CardScript extends PureComponent {
 
       if (!cardName) return null;
 
-      const { cardType, text, script } = getCardDetails(cardName);
+      const { cardType, text, script, prepopLP } = getCardDetails(cardName);
+      const focus = !(prepopLP && (player === heroPlayer ? prepopLP.hero : prepopLP.villain));
 
       return (
          <Fragment>
             {script && this.validScript(activeCard, player, script) && (
-               <ScriptButton script={script} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} />
+               <ScriptButton script={script} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} focus={focus} />
             )}
             {text.includes("/Flip/") && (
-               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} />
+               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus} />
             )}
             {cardType === TRAP && (
-               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Extermination" activeCard={activeCard} heroPlayer={heroPlayer} />
+               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Extermination" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus} />
             )}
          </Fragment>
       );
