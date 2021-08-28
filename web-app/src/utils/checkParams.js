@@ -11,7 +11,7 @@ export default function checkParams(card, params) {
       const singleParam = params[paramName];
 
       // this is a hacky way to allow multiple searches of the same param type
-      if (paramName.endsWith("2")) paramName = paramName.slice(0, -1);
+      if (/\d$/.test(paramName)) paramName = paramName.slice(0, -1);
 
       const { operator, value } = singleParam;
       const cardParam = paramName === "name" ? cardName : cardDetails[paramName];

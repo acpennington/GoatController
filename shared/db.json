@@ -9151,6 +9151,12 @@
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": {
+            "text": { "operator": "TYPEMATCH", "value": "Beast" },
+            "text2": { "operator": "TYPEMATCH", "value": "Winged Beast" },
+            "text3": { "operator": "TYPEMATCH", "value": "Insect" }
+         },
+         "oneParam": true,
          "autoClose": true
       }
    },

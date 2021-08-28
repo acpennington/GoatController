@@ -43,14 +43,5 @@ This file contains notes regarding the monumental task of adding all Goat Format
 
 -  Big Burn: could use a Banish All script to simplify removing everything from the graveyard
 -  Cyber Jar: Could use a more detailed script. (see ticket #247)
--  Disturbance Strategy: possibly could use a helper script
 -  Exodia: fancy win script? (user can technically just reveal hand)
 -  Fiend Comedian: can have a custom script which handles the banishing (tedious to conditionally banish/mill cards)
--  Fire Sorceror/Fuh-Rin-Ka-Zan: add a parameter to RANDOM_DISCARD to allow it to discard 2 cards
--  Heavy Slump: needing to shuffle 8+ cards back into your deck is kind of obnoxious
--  Mazera DeVille: needs to discard up to 3 cards
--  Ninjitsu Art of Transformation: TYPEMATCH and OR
--  Penguin Knight: tedious to resolve without a helper
--  Reload: could use a helper function (#MakeLibraryFTKFast)
--  Reversal Quiz: helper to send everything to graveyard? Optional script to swap LP?
--  The Agent of Judgment - Saturn: complex prepopLP, but probably too niche to be worth it?
