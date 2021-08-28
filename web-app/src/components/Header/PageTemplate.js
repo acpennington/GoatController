@@ -30,6 +30,7 @@ class PageTemplate extends Component {
             <Header
                absolute
                color="transparent"
+               loggedInAs={this.username}
                rightLinks={<HeaderLinks loggedInAs={this.username} goatGold={this.goatGold} />}
                fixed
                changeColorOnScroll={{
