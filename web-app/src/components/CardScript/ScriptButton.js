@@ -78,7 +78,7 @@ class ScriptButton extends PureComponent {
             createTokens(heroPlayer, params, socket);
             break;
          case RANDOM_DISCARD:
-            this.randomDiscard();
+            this.randomDiscard(params);
             break;
          case FLIP_COINS:
             this.flipCoins(params);
@@ -107,12 +107,13 @@ class ScriptButton extends PureComponent {
       addMessage("Game", message, this.context);
    };
 
-   randomDiscard = () => {
+   randomDiscard = (count) => {
+      console.log(count); // DEBUG
       const { field, heroPlayer, moveCard } = this.props;
-      const handLength = field[heroPlayer].hand.length;
+      const hand = field[heroPlayer].hand;
 
-      if (handLength > 0) {
-         const zone = Math.floor(Math.random() * (handLength - 1));
+      for (let i = count || 1; i > 0 && hand.length > 0; i--) {
+         const zone = Math.floor(Math.random() * (hand.length - 1));
          moveCard(
             {
                from: { player: heroPlayer, row: HAND, zone },

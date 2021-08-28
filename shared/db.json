@@ -4362,8 +4362,9 @@
       "prepopLP": { "villain": -800 },
       "script": {
          "name": "RANDOM_DISCARD",
-         "tooltip": "Activate this script twice and banish each card after discarding",
-         "displayCondition": { "players": ["HERO"], "row": "monster" }
+         "tooltip": "Banish cards after discarding",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 2
       }
    },
    "Firebird": {
@@ -4627,8 +4628,8 @@
       "text": "When there are face-up WIND, WATER, FIRE and EARTH monster(s) on the field: Apply 1 of these effects. ● Destroy all monsters your opponent controls. ● Destroy all Spells/Traps your opponent controls. ● Discard 2 random cards from your opponent's hand. ● Draw 2 cards.",
       "script": {
          "name": "RANDOM_DISCARD",
-         "tooltip": "Activate this script twice",
-         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": 2
       }
    },
    "Fuhma Shuriken": {
@@ -8005,8 +8006,8 @@
       "text": "Fiend/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 \"Warrior of Zera\" while \"Pandemonium\" is on the field.</effect> <effect=Trigger>If this card is Special Summoned: If you control \"Pandemonium\", your opponent discards 3 random cards (or their entire hand, if less than 3).</effect>",
       "script": {
          "name": "RANDOM_DISCARD",
-         "tooltip": "Activate this script three times",
-         "displayCondition": { "players": ["VILLAIN"], "row": "monster" }
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "params": 3
       }
    },
    "Mecha-Dog Marron": {
