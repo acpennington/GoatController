@@ -14,9 +14,11 @@ This file contains notes regarding the monumental task of adding all Goat Format
 
 -  Ancient Telescope: We could just use a mill 5 script for this (pre: seems like this would be wrong as it would reveal them to the opponent?)
 -  Big Eye: similar logic required as with Ancient Telescope?
+-  Chain Destruction, Chain Disappearance, Spell Vanishing: These should use some kind of banish all script similar to Nobleman.
 -  Coach Goblin: needs a bottom of deck script (see ticket #245)
 -  Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
 -  Crimson Sentry: needs a bottom of deck script (see ticket #245)
+-  Dark Sage: This card is currently impossible to search/summon. Need to figure out how we're going to do this.
 -  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script (see ticket #245)
 -  Darkness Approaches: need ability to turn to face down Attack Position when this card is on the field :(
 -  Different Dimension Capsule: face down banishing script

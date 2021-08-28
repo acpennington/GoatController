@@ -8,7 +8,8 @@ const {
    TRAP,
    allAttributes,
    allMonsterTypes,
-   EFFECT_MONSTER
+   EFFECT_MONSTER,
+   NORMAL_MONSTER
 } = require("./constants");
 
 const db = require("./db.json");
@@ -93,7 +94,8 @@ const STYLIZATION = {
    "This effect can only be used once while this card is face-up on the field.": "Once while face-up on the field:",
    "This card gains": "Gain(s) ... ATK/DEF",
    "This card loses": "Lose(s) ... ATK/DEF",
-   "This card can attack your opponent directly": "This card can attack directly"
+   "This card can attack your opponent directly": "This card can attack directly",
+   "Until the End Phase": "Until the end of this turn"
 };
 
 const CASE_INSENSITIVE = {};
@@ -127,14 +129,33 @@ const STYLE_WHITELIST = {
    "Mask of Dispel": "When",
    "Mucus Yolk": "this card gains",
    "Nightmare Wheel": "When",
+   "Ojama Trio": "each time",
+   "Pumpking the King of Ghosts": "this card gains",
    "The Agent of Force - Mars": "this card gains",
-   "Violet Crystal": "this card gains",
+   "Violet Crystal": "this card gains"
 };
 
 const KONAMI_TERMS = new Set([
-   'Graveyard', 'Life', 'Extra', 'Fusion', 'Union', 'Toon', 'Special', 'Spell', 'Spells',
-   'Trap', 'Traps', 'Tribute', 'Summon', 'Normal', 'Ritual', 'Field', 'Monster', 'Flip', 'Battle',
- ]);
+   "Graveyard",
+   "Life",
+   "Extra",
+   "Fusion",
+   "Union",
+   "Toon",
+   "Special",
+   "Spell",
+   "Spells",
+   "Trap",
+   "Traps",
+   "Tribute",
+   "Summon",
+   "Normal",
+   "Ritual",
+   "Field",
+   "Monster",
+   "Flip",
+   "Battle"
+]);
 
 function expectFields(name, card, required, optional = OPTIONAL) {
    const r = required.slice();
@@ -175,13 +196,15 @@ test("database", () => {
             if (m[0] === "When" && (/When[^.]+[Yy]ou can/.test(card.text) || !card.text.includes("Trigger"))) continue;
             if (/^this card (gains|loses)/.test(m[0]) && (!card.text.includes("Continuous") || card.text.includes("Union"))) continue;
             expect(false, `"${name}" contains inconsistent text, '${m[0]}' should be '${map[m[0]]}'`).toBe(true);
+            if (!card.text.includes("Continuous"))
+               expect(card.text.includes("each time"), `"${name}": "each time" should be replaced with "when" or "if"`).toBe(false);
          }
       }
 
       if (/: [a-z]/.test(card.text)) console.log(`"${name}" contains inconsistent text which has a lower-case letter after a colon`);
       for (const m of card.text.matchAll(/; ([A-Z]\w*)/g)) {
-        if (KONAMI_TERMS.has(m[1])) continue;
-        console.log(`"${name}" contains inconsistent text which has an upper-case letter after a semi-colon`);
+         if (KONAMI_TERMS.has(m[1])) continue;
+         console.log(`"${name}" contains inconsistent text which has an upper-case letter after a semi-colon`);
       }
 
       expect(
@@ -225,6 +248,7 @@ test("database", () => {
          expect(card.cardType !== EFFECT_MONSTER || label.includes("Effect"), invalidLabelMessage).toBe(true);
       }
       expect([undefined, 1, 2].includes(card.limit), `"${name}" has an invalid limit: '${card.limit}'`).toBe(true);
+      expect(card.cardType !== NORMAL_MONSTER && card.text.includes(".."), `"${name}" has a double period ..`).toBe(false);
    }
    expect(order.sort((a, b) => a - b)).toEqual(Array.from({ length: order.length }, (_, i) => i + 1));
    expect(Array.from(new Set(ids))).toEqual(ids);
