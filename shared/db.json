@@ -10460,7 +10460,7 @@
       "id": "77622396",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "until the end of this turn, all effects that add or subtract ATK or DEF are reversed. (Additions now subtract, and subtractions now add, instead. Multiplications and divisions, including halving/doubling, are not affected)."
+      "text": "Until the end of this turn, all effects that add or subtract ATK or DEF are reversed. (Additions now subtract, and subtractions now add, instead. Multiplications and divisions, including halving/doubling, are not affected)."
    },
    "Revival Jam": {
       "id": "31709826",
@@ -12017,7 +12017,7 @@
       "id": "69832741",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "until the end of this turn, if a monster(s) in the Graveyard would be banished: Banish an equal number of monsters on your field instead."
+      "text": "Until the end of this turn, if a monster(s) in the Graveyard would be banished: Banish an equal number of monsters on your field instead."
    },
    "Spirit Message \"A\"": {
       "id": "94772232",
