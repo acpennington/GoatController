@@ -15,6 +15,7 @@ import {
    RITUAL_MONSTER,
    SPELL,
    SPELL_TRAP,
+   SENTINEL,
    TRAP,
    allSubtypes,
    spellSubtypes,
@@ -96,7 +97,13 @@ class CardSearch extends PureComponent {
    setDefStart = (event) => this.setNumberParam(event, ">", "def");
    setDefEnd = (event) => this.setNumberParam(event, "<", "def2");
 
-   getResults = (value) => this.props.newResults([value]);
+   getResults = (name) => {
+      const results = [];
+      for (let i = 0; i < (nonfusions[name].art || 1); i++) {
+         results.push(i > 0 ? `${name}${SENTINEL}${i}` : name);
+      }
+      return this.props.newResults(results);
+   };
 
    search = () => {
       const { params } = this.state;
@@ -104,7 +111,11 @@ class CardSearch extends PureComponent {
 
       for (const cardName in nonfusions) {
          const { fail } = checkParams({ name: cardName }, params);
-         if (fail.length === 0) results.push(cardName);
+         if (fail.length === 0) {
+            for (let i = 0; i < (nonfusions[cardName].art || 1); i++) {
+               results.push(i > 0 ? `${cardName}${SENTINEL}${i}` : cardName);
+            }
+         }
       }
 
       this.props.newResults(results);
