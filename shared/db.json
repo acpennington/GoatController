@@ -2856,7 +2856,12 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 1000,
-      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects: ● Target 1 Spell/Trap on the field; destroy that target. ● Send the top 2 cards of their Deck to the Graveyard.</effect>"
+      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects: ● Target 1 Spell/Trap on the field; destroy that target. ● Send the top 2 cards of their Deck to the Graveyard.</effect>",
+      "script": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "params": 2
+      }
    },
    "Dark Scorpion - Gorg the Strong": {
       "id": "48768179",
@@ -2865,7 +2870,12 @@
       "levelOrSubtype": 5,
       "atk": 1800,
       "def": 1500,
-      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects: ● Target 1 monster your opponent controls; return that target to the top of the Deck. ● Send the top card of their Deck to the Graveyard.</effect>"
+      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects: ● Target 1 monster your opponent controls; return that target to the top of the Deck. ● Send the top card of their Deck to the Graveyard.</effect>",
+      "script": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "params": 1
+      }
    },
    "Dark Scorpion - Meanae the Thorn": {
       "id": "74153887",
@@ -5347,7 +5357,12 @@
       "id": "16762927",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>Your opponent cannot declare an attack, unless they send 1 card from the top of their Deck to the Graveyard.</effect>"
+      "text": "<effect=Continuous-like>Your opponent cannot declare an attack, unless they send 1 card from the top of their Deck to the Graveyard.</effect>",
+      "script": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": 1
+      }
    },
    "Gravekeeper's Spear Soldier": {
       "id": "63695531",
@@ -10506,7 +10521,12 @@
       "id": "83258273",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>If your monster inflicts battle damage to your opponent: Send the top card of their Deck to the Graveyard.</effect>"
+      "text": "<effect=Trigger-like>If your monster inflicts battle damage to your opponent: Send the top card of their Deck to the Graveyard.</effect>",
+      "script": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": 1
+      }
    },
    "Robolady": {
       "id": "92421852",
@@ -10549,7 +10569,13 @@
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "Send 1 Rock monster from your Deck to the Graveyard; inflict 500 damage to your opponent.",
-      "prepopLP": { "villain": -500 }
+      "prepopLP": { "villain": -500 },
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "text": { "operator": "TYPEMATCH", "value": "Rock" },
+         "autoClose": true
+      }
    },
    "Rock Ogre Grotto #1": {
       "id": "68846917",
