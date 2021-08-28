@@ -41,26 +41,43 @@ class LPInputBox extends PureComponent {
 
       switch (name) {
          case PREPOP_LP_HELPER.COUNTER:
-            return counters && params * counters; // FIXME: rerender on adjustCounters
+            return counters && params * counters;
          case PREPOP_LP_HELPER.EXPONENTIAL_COUNTER:
-            return counters ? params * (2 ** (counters - 1)) : 0; // FIXME: rerender on adjustCounters
+            return counters ? params * (2 ** (counters - 1)) : 0;
          case PREPOP_LP_HELPER.FIELD_MONSTER:
             return this.monsters(params);
+         case PREPOP_LP_HELPER.HERO_GRAVEYARD:
+            return this.graveyard(params, hero);
          case PREPOP_LP_HELPER.HERO_MONSTER:
             return this.monsters(params, hero);
          case PREPOP_LP_HELPER.VILLAIN_BANISHED:
             return params * field[villain][BANISHED].length;
+         case PREPOP_LP_HELPER.VILLAIN_FIELD:
+            return this.field(params, villain);
          case PREPOP_LP_HELPER.VILLAIN_HAND_AND_FIELD:
             return this.handAndField(params, villain);
          case PREPOP_LP_HELPER.VILLAIN_HAND:
             return params * field[villain][HAND].length;
          case PREPOP_LP_HELPER.VILLAIN_GRAVEYARD:
-            return params * field[villain][GRAVEYARD].length;
+            return this.graveyard(params, villain);
          case PREPOP_LP_HELPER.VILLAIN_MONSTER:
             return this.monsters(params, villain);
          default:
             console.log("Error: Undefined card script");
       }
+   }
+
+   graveyard(params, player) {
+      const { field } = this.props;
+      let cards = 0;
+      for (const key in field) {
+         if (player && player !== key) continue;
+         for (const card of field[key][GRAVEYARD]) {
+            if (typeof params === "object" && params.filter && checkParams(card, params.filter).fail.length) continue;
+            cards++;
+         }
+      }
+      return typeof params === "number" ? params * cards : + (params.base || 0) + cards * (params.multiplier || 0);
    }
 
    monsters(params, player) {
@@ -91,13 +108,21 @@ class LPInputBox extends PureComponent {
       } else if (inputLP && !convertedPrepop) this.setState({ inputLP: "", LPmode: -1 });
    }
 
+   field(params, player) {
+      const { field } = this.props;
+      const fn = typeof params === "object" && params.filter ? (c => c && !checkParams(c, params.filter).fail.length) : Boolean;
+      const monster = field[player][MONSTER].filter(fn).length;
+      const spellTrap = field[player][SPELL_TRAP].filter(fn).length;
+      const fieldSpell = fn(field[player][FIELD_SPELL]) ? 1 : 0;
+      const multiplier = typeof params === "object" ? params.multiplier : params;
+      return multiplier * (monster + spellTrap + fieldSpell);
+   }
+
    handAndField(params, player) {
       const { field } = this.props;
-      const monster = field[player][MONSTER].filter(Boolean).length;
-      const spellTrap = field[player][SPELL_TRAP].filter(Boolean).length;
-      const fieldSpell = field[player][FIELD_SPELL] ? 1 : 0;
-      const hand = field[player][HAND].length;
-      return params * (monster + spellTrap + fieldSpell + hand);
+      const fn = typeof params === "object" && params.filter ? (c => c && !checkParams(c, params.filter).fail.length) : Boolean;
+      const multiplier = typeof params === "object" ? params.multiplier : params;
+      return multiplier * field[player][HAND].filte(fn).length + this.field(params, player);
    }
 
    inputLP = (event) => {
