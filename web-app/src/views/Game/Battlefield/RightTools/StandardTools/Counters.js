@@ -14,11 +14,13 @@ import { onField } from "shared/constants.js";
 class Counters extends Component {
    componentDidMount() {
       bind("=", () => this.tryAdjustCounters(1));
+      bind("+", () => this.tryAdjustCounters(1));
       bind("-", () => this.tryAdjustCounters(-1));
+      bind("_", () => this.tryAdjustCounters(-1));
    }
 
    componentWillUnmount() {
-      unbind(["=", "-"]);
+      unbind(["=", "+", "-", "_"]);
    }
 
    shouldComponentUpdate() {
