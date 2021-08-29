@@ -138,6 +138,7 @@ const CLEAR_HOVER = "CLEAR_HOVER";
 const NEW_SELECTION = "NEW_SELECTION";
 const CLEAR_SELECTION = "CLEAR_SELECTION";
 const SWITCH_NAMES = "SWITCH_NAMES";
+const CHAT_SHORTCUTS = "CHAT_SHORTCUTS";
 const OPEN_MODAL = "OPEN_MODAL";
 const CLOSE_MODAL = "CLOSE_MODAL";
 const PREPOP_LP = "PREPOP_LP";
@@ -258,6 +259,7 @@ const OFFICIAL_UNRANKED = {
 
 // misc
 const SENTINEL = '|';
+const LP_INPUT_ID = "lpinput";
 
 module.exports = {
   ADD_MESSAGE,
@@ -282,6 +284,7 @@ module.exports = {
   BUFFER,
   CARD_RATIO,
   cardTypeColors,
+  CHAT_SHORTCUTS,
   CLEANUP_GAME,
   CLEAR_BATTLE,
   CLEAR_HOVER,
@@ -335,6 +338,7 @@ module.exports = {
   LEFT_PANEL_SIZE,
   LIGHT,
   LOAD_DECK,
+  LP_INPUT_ID,
   MACHINE,
   MAIN1,
   MAIN2,

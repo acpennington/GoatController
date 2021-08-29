@@ -18,15 +18,20 @@ import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
 const EFFECT_MESSAGE = "Effect!";
-const cannedMessages = ["OK", "No", "Thinking", "Response?", EFFECT_MESSAGE];
+const cannedMessages = {
+   "OK": "k",
+   "No": 'n',
+   "Thinking": null, // NB: "t" is already used to cycle through spell/traps
+    "Response?": "?",
+    [EFFECT_MESSAGE]: "f"
+};
 
 class Chat extends PureComponent {
-   componentDidMount() {
-      bind("f", () => this.sendMessage(this.props.name, EFFECT_MESSAGE));
-   }
-
    componentWillUnmount() {
-      unbind(["f"]);
+      for (const message in cannedMessages) {
+         const shortcut = cannedMessages[message];
+         if (shortcut) unbind(shortcut);
+      }
    }
 
    submitMessage = (event) => {
@@ -53,7 +58,19 @@ class Chat extends PureComponent {
    };
 
    render() {
-      const { classes, chat, watching, name } = this.props;
+      const { classes, chat, watching, name, chatShortcuts } = this.props;
+
+
+      for (const message in cannedMessages) {
+         const shortcut = cannedMessages[message];
+         if (shortcut) {
+            if (chatShortcuts || message === EFFECT_MESSAGE) {
+               bind(shortcut, () => this.sendMessage(name, message));
+            } else {
+               unbind(shortcut);
+            }
+         }
+      }
 
       return (
          <div className={classes.container}>
@@ -74,7 +91,7 @@ class Chat extends PureComponent {
                      }}
                   />
                   <ButtonRow>
-                     {cannedMessages.map((canned, index) => (
+                     {Object.keys(cannedMessages).map((canned, index) => (
                         <Button color="primary" size="sm" fullWidth onClick={() => this.sendMessage(name, canned)} key={index}>
                            {canned}
                         </Button>
@@ -88,7 +105,12 @@ class Chat extends PureComponent {
 }
 
 function mapStateToProps(state, ownProps) {
-   return { chat: state.chat, heroSelected: state.selectedCard[ownProps.name], heroField: state.field[ownProps.name] };
+   return {
+      chat: state.chat,
+      heroSelected: state.selectedCard[ownProps.name],
+      heroField: state.field[ownProps.name],
+      chatShortcuts: state.settings.chatShortcuts
+   };
 }
 
 Chat.propTypes = {

@@ -1,8 +1,12 @@
 import { shuffleDeck } from "../game/field.js";
-import { DECK, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK } from "shared/constants.js";
+import { DECK, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK, CHAT_SHORTCUTS } from "shared/constants.js";
 
 function switchNames() {
    return { type: SWITCH_NAMES };
+}
+
+function switchChatShortcuts() {
+   return { type: CHAT_SHORTCUTS };
 }
 
 function openModal(player, row, filter = false, autoClose = false, oneParam = false) {
@@ -36,4 +40,4 @@ function setCardSize(data) {
    return { type: SET_CARDSIZE, data };
 }
 
-export { switchNames, openModal, closeModal, prepopLP, setStackSameName, loadDeck, setUnsaved, setCardSize };
+export { switchNames, openModal, closeModal, prepopLP, setStackSameName, loadDeck, setUnsaved, setCardSize, switchChatShortcuts };

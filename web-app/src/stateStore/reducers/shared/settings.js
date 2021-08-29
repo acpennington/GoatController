@@ -1,8 +1,9 @@
-import { SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK } from "shared/constants.js";
+import { SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, CONCEDE_GAME, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK, CHAT_SHORTCUTS } from "shared/constants.js";
 
 const initialState = {
    concessionLink: false,
    showNames: false,
+   chatShortcuts: false,
    modal: null,
    prepopLP: null,
    stackSameName: false,
@@ -16,6 +17,8 @@ export default function (state = initialState, action) {
    switch (type) {
       case SWITCH_NAMES:
          return { ...state, showNames: !state.showNames };
+      case CHAT_SHORTCUTS:
+         return { ...state, chatShortcuts: !state.chatShortcuts };
       case OPEN_MODAL:
          if (state.modal && state.modal.row === data.row && state.modal.player === data.player) state.modal = null;
          else state.modal = data;

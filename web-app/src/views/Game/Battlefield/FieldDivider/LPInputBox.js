@@ -1,11 +1,12 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { bind, unbind } from "mousetrap";
 
 import CustomInput from "components/CustomInput/CustomInput.js";
 import { adjustLP } from "stateStore/actions/game/field.js";
 import { prepopLP } from "stateStore/actions/shared/settings.js";
-import { BANISHED, MONSTER, PREPOP_LP_HELPER, HAND, GRAVEYARD, SPELL_TRAP, FIELD_SPELL } from "shared/constants.js";
+import { BANISHED, MONSTER, PREPOP_LP_HELPER, HAND, GRAVEYARD, SPELL_TRAP, FIELD_SPELL, LP_INPUT_ID } from "shared/constants.js";
 import checkParams from "utils/checkParams.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 
@@ -19,6 +20,14 @@ class LPInputBox extends PureComponent {
       super(props);
       this.state = { inputLP: "", LPmode: -1 };
       this.ref = React.createRef();
+   }
+
+   componentDidMount() {
+      for (let i = 0; i <= 9; i++) bind(`${i}`, () => this.ref.current.focus());
+   }
+
+   componentWillUnmount() {
+      for (let i = 0; i <= 9; i++) unbind(`${i}`);
    }
 
    convertPrepopLP() {
@@ -126,9 +135,8 @@ class LPInputBox extends PureComponent {
       return multiplier * field[player][HAND].filte(fn).length + this.field(params, player);
    }
 
-   inputLP = (event) => {
+   updateValue = (value) => {
       const { prepopLP, prepopLPvalue } = this.props;
-      const value = event.target.value;
 
       if (!isNaN(value)) {
          if (prepopLPvalue) {
@@ -139,6 +147,10 @@ class LPInputBox extends PureComponent {
 
          this.setState({ inputLP: value });
       }
+   };
+
+   inputLP = (event) => {
+      this.updateValue(event.target.value);
    };
 
    swapLPmode = () => {
@@ -183,6 +195,7 @@ class LPInputBox extends PureComponent {
                formControlProps={{ fullWidth: true }}
                inputCustomClasses={classes.LPinput}
                inputProps={{
+                  id: LP_INPUT_ID,
                   value: inputLP,
                   onChange: this.inputLP,
                   onKeyPress: this.submitMessage,
