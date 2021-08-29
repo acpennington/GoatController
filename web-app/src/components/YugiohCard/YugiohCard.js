@@ -46,24 +46,27 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone } = getBools(row, zone);
 
-   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase } = useSelector((state) => {
-      const sfPlayer = state.field[player];
-      const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
-      const counters = (card && card.counters) || 0;
-      const otherPlayer = getOtherPlayer(player, state.field);
-      const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[otherPlayer].sleeves;
-      const selections = state.selectedCard;
-      const heroPlayer = isHero ? player : otherPlayer;
-      const villPlayer = isHero ? otherPlayer : player;
-      const heroSelection = selections && selections[heroPlayer];
-      const villSelection = selections && selections[villPlayer];
-      const heroSelected = heroSelection && heroSelection.player === player && heroSelection.row === row && heroSelection.zone === zone;
-      const villSelected = villSelection && villSelection.player === player && villSelection.row === row && villSelection.zone === zone;
-      const handRevealed = sfPlayer.handRevealed;
-      const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
-      const inBattlePhase = state.turn.phase === BATTLE;
-      return { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase };
-   });
+   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, modalRow } = useSelector(
+      (state) => {
+         const sfPlayer = state.field[player];
+         const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
+         const counters = (card && card.counters) || 0;
+         const otherPlayer = getOtherPlayer(player, state.field);
+         const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[otherPlayer].sleeves;
+         const selections = state.selectedCard;
+         const heroPlayer = isHero ? player : otherPlayer;
+         const villPlayer = isHero ? otherPlayer : player;
+         const heroSelection = selections && selections[heroPlayer];
+         const villSelection = selections && selections[villPlayer];
+         const heroSelected = heroSelection && heroSelection.player === player && heroSelection.row === row && heroSelection.zone === zone;
+         const villSelected = villSelection && villSelection.player === player && villSelection.row === row && villSelection.zone === zone;
+         const handRevealed = sfPlayer.handRevealed;
+         const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
+         const inBattlePhase = state.turn.phase === BATTLE;
+         const modalRow = state.settings.modal && state.settings.modal.row;
+         return { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, modalRow };
+      }
+   );
 
    if (isDiscardZone) {
       const cardLength = card ? card.length : 0;
@@ -176,7 +179,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
                   dispatch(clearSelection(socket));
                }
             } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row));
-            else if (isHero && deckZone) dispatch(closeModal(row, player, socket));
+            else if (isHero && deckZone && modalRow === DECK) dispatch(closeModal(row, player, socket));
          }}
          onMouseEnter={() => {
             if (!blank && !deckZone) dispatch(newHover(player, row, zone, name, facedown));
