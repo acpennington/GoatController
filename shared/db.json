@@ -3,7 +3,13 @@
       "id": "67048711",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>If you control 3 \"7\": Draw 3 cards, then destroy all \"7\" on the field.</effect> <effect=Trigger-like>If this card is sent from your field to the Graveyard: Gain 700 Life Points.</effect>"
+      "text": "<effect=Trigger-like>If you control 3 \"7\": Draw 3 cards, then destroy all \"7\" on the field.</effect> <effect=Trigger-like>If this card is sent from your field to the Graveyard: Gain 700 Life Points.</effect>",
+      "prepopLP": { "hero": 700 },
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 3
+      }
    },
    "3-Hump Lacooda": {
       "id": "86988864",
@@ -12,7 +18,12 @@
       "levelOrSubtype": 3,
       "atk": 500,
       "def": 1500,
-      "text": "Beast/Effect – <effect=Ignition>If you control 3 \"3-Hump Lacooda\": You can Tribute 2 of them; draw 3 cards.</effect>"
+      "text": "Beast/Effect – <effect=Ignition>If you control 3 \"3-Hump Lacooda\": You can Tribute 2 of them; draw 3 cards.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 3
+      }
    },
    "4-Starred Ladybug of Doom": {
       "id": "83994646",
@@ -845,7 +856,12 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 1300,
-      "text": "Rock/Effect – <effect=Ignition>Send 1 \"Pot of Greed\" from your hand to the Graveyard; draw 3 cards.</effect>"
+      "text": "Rock/Effect – <effect=Ignition>Send 1 \"Pot of Greed\" from your hand to the Graveyard; draw 3 cards.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 3
+      }
    },
    "Axe Raider": {
       "id": "48305365",
@@ -1779,7 +1795,12 @@
       "id": "42664989",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Banish all other cards you control and in your hand (min. 1); draw until you have 2 cards in your hand."
+      "text": "Banish all other cards you control and in your hand (min. 1); draw until you have 2 cards in your hand.",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Castle Walls": {
       "id": "44209392",
@@ -1939,7 +1960,12 @@
       "id": "97439308",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "If at least 4 of your cards are banished and there are no cards in your Graveyard: Draw 2 cards."
+      "text": "If at least 4 of your cards are banished and there are no cards in your Graveyard: Draw 2 cards.",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Chaos Necromancer": {
       "id": "01434352",
@@ -2856,7 +2882,12 @@
       "levelOrSubtype": 3,
       "atk": 1200,
       "def": 1000,
-      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects: ● Target 1 Spell/Trap on the field; destroy that target. ● Send the top 2 cards of their Deck to the Graveyard.</effect>"
+      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects: ● Target 1 Spell/Trap on the field; destroy that target. ● Send the top 2 cards of their Deck to the Graveyard.</effect>",
+      "script": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "params": 2
+      }
    },
    "Dark Scorpion - Gorg the Strong": {
       "id": "48768179",
@@ -2865,7 +2896,12 @@
       "levelOrSubtype": 5,
       "atk": 1800,
       "def": 1500,
-      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects: ● Target 1 monster your opponent controls; return that target to the top of the Deck. ● Send the top card of their Deck to the Graveyard.</effect>"
+      "text": "Warrior/Effect – <effect=Trigger>When this card inflicts battle damage to your opponent, you can activate 1 of these effects: ● Target 1 monster your opponent controls; return that target to the top of the Deck. ● Send the top card of their Deck to the Graveyard.</effect>",
+      "script": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "params": 1
+      }
    },
    "Dark Scorpion - Meanae the Thorn": {
       "id": "74153887",
@@ -3392,7 +3428,12 @@
       "id": "77561728",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Your opponent shuffles their entire hand into the Deck, then draws the same number of cards."
+      "text": "Your opponent shuffles their entire hand into the Deck, then draws the same number of cards.",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": "same"
+      }
    },
    "Divine Dragon Ragnarok": {
       "id": "62113340",
@@ -3742,7 +3783,12 @@
       "levelOrSubtype": 3,
       "atk": 800,
       "def": 900,
-      "text": "Thunder/Effect – <effect=Trigger>If this card is discarded your hand to the Graveyard by an opponent's card effect: Draw 2 cards.</effect>"
+      "text": "Thunder/Effect – <effect=Trigger>If this card is discarded your hand to the Graveyard by an opponent's card effect: Draw 2 cards.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 2
+      }
    },
    "Electro-Whip": {
       "id": "37820550",
@@ -4357,8 +4403,9 @@
       "prepopLP": { "villain": -800 },
       "script": {
          "name": "RANDOM_DISCARD",
-         "tooltip": "Activate this script twice and banish each card after discarding",
-         "displayCondition": { "players": ["HERO"], "row": "monster" }
+         "tooltip": "Banish cards after discarding",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 2
       }
    },
    "Firebird": {
@@ -4622,8 +4669,8 @@
       "text": "When there are face-up WIND, WATER, FIRE and EARTH monster(s) on the field: Apply 1 of these effects. ● Destroy all monsters your opponent controls. ● Destroy all Spells/Traps your opponent controls. ● Discard 2 random cards from your opponent's hand. ● Draw 2 cards.",
       "script": {
          "name": "RANDOM_DISCARD",
-         "tooltip": "Activate this script twice",
-         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": 2
       }
    },
    "Fuhma Shuriken": {
@@ -5206,6 +5253,12 @@
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "Draw 3 cards, then discard 2 cards.",
+      "script": {
+         "name": "DRAW_N",
+         "tooltip": "Discard 2 after drawing",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 3
+      },
       "limit": 1
    },
    "Graceful Dice": {
@@ -5341,7 +5394,12 @@
       "id": "16762927",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>Your opponent cannot declare an attack, unless they send 1 card from the top of their Deck to the Graveyard.</effect>"
+      "text": "<effect=Continuous-like>Your opponent cannot declare an attack, unless they send 1 card from the top of their Deck to the Graveyard.</effect>",
+      "script": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": 1
+      }
    },
    "Gravekeeper's Spear Soldier": {
       "id": "63695531",
@@ -5857,7 +5915,12 @@
       "id": "52417194",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "If your opponent has 8 or more cards in their hand: They shuffle their entire hand into the Deck, then draw 2 cards."
+      "text": "If your opponent has 8 or more cards in their hand: They shuffle their entire hand into the Deck, then draw 2 cards.",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Heavy Storm": {
       "id": "19613556",
@@ -7995,8 +8058,8 @@
       "text": "Fiend/Effect – <effect=Summon>Cannot be Normal Summoned/Set. Must be Special Summoned (from your hand) by Tributing 1 \"Warrior of Zera\" while \"Pandemonium\" is on the field.</effect> <effect=Trigger>If this card is Special Summoned: If you control \"Pandemonium\", your opponent discards 3 random cards (or their entire hand, if less than 3).</effect>",
       "script": {
          "name": "RANDOM_DISCARD",
-         "tooltip": "Activate this script three times",
-         "displayCondition": { "players": ["VILLAIN"], "row": "monster" }
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "params": 3
       }
    },
    "Mecha-Dog Marron": {
@@ -8308,7 +8371,12 @@
       "id": "52817046",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "If your opponent has 3 or fewer cards in their hand: Your opponent shuffles their hand into the Deck, then draws cards equal to the number that they shuffled into their deck."
+      "text": "If your opponent has 3 or fewer cards in their hand: Your opponent shuffles their hand into the Deck, then draws cards equal to the number that they shuffled into their deck.",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": "same"
+      }
    },
    "Mind on Air": {
       "id": "66690411",
@@ -8527,7 +8595,12 @@
       "id": "93108433",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "Target 1 monster you control that is owned by you; if that monster is still on the field, shuffle it and your entire hand into the Deck, also, after that, draw cards equal to the number of cards you shuffled from your hand into the Deck by this effect. <effect=Condition>(You cannot activate this card if you have a card in your hand that is owned by your opponent).</effect>"
+      "text": "Target 1 monster you control that is owned by you; if that monster is still on the field, shuffle it and your entire hand into the Deck, also, after that, draw cards equal to the number of cards you shuffled from your hand into the Deck by this effect. <effect=Condition>(You cannot activate this card if you have a card in your hand that is owned by your opponent).</effect>",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": "same"
+      }
    },
    "Monster Reincarnation": {
       "id": "74848038",
@@ -9078,6 +9151,12 @@
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": {
+            "text": { "operator": "TYPEMATCH", "value": "Beast" },
+            "text2": { "operator": "TYPEMATCH", "value": "Winged Beast" },
+            "text3": { "operator": "TYPEMATCH", "value": "Insect" }
+         },
+         "oneParam": true,
          "autoClose": true
       }
    },
@@ -9553,7 +9632,12 @@
       "levelOrSubtype": 3,
       "atk": 900,
       "def": 800,
-      "text": "Aqua/Effect – <effect=Trigger>If this card is sent from your Deck to the Graveyard by an opponent's card effect: Shuffle your Graveyard into the Deck.</effect>"
+      "text": "Aqua/Effect – <effect=Trigger>If this card is sent from your Deck to the Graveyard by an opponent's card effect: Shuffle your Graveyard into the Deck.</effect>",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": "graveyard"
+      }
    },
    "Penguin Soldier": {
       "id": "93920745",
@@ -9815,6 +9899,11 @@
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "Draw 2 cards.",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      },
       "limit": 1
    },
    "Power of Kaishin": {
@@ -9827,7 +9916,12 @@
       "id": "68304813",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>If you Tribute Summon a monster using 2 or more Tributes: Draw 2 cards.</effect>"
+      "text": "<effect=Trigger-like>If you Tribute Summon a monster using 2 or more Tributes: Draw 2 cards.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Premature Burial": {
       "id": "70828912",
@@ -10280,7 +10374,12 @@
       "id": "22589918",
       "cardType": "Spell",
       "levelOrSubtype": "Quick-Play",
-      "text": "Send all cards from your hand to the Deck, then shuffle. Then, draw the same number of cards you added to the Deck."
+      "text": "Send all cards from your hand to the Deck, then shuffle. Then, draw the same number of cards you added to the Deck.",
+      "script": {
+         "name": "SHUFFLE_AND_DRAW",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": "same"
+      }
    },
    "Remove Brainwashing": {
       "id": "94739788",
@@ -10361,7 +10460,7 @@
       "id": "77622396",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "until the end of this turn, all effects that add or subtract ATK or DEF are reversed. (Additions now subtract, and subtractions now add, instead. Multiplications and divisions, including halving/doubling, are not affected)."
+      "text": "Until the end of this turn, all effects that add or subtract ATK or DEF are reversed. (Additions now subtract, and subtractions now add, instead. Multiplications and divisions, including halving/doubling, are not affected)."
    },
    "Revival Jam": {
       "id": "31709826",
@@ -10475,7 +10574,12 @@
       "id": "83258273",
       "cardType": "Trap",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>If your monster inflicts battle damage to your opponent: Send the top card of their Deck to the Graveyard.</effect>"
+      "text": "<effect=Trigger-like>If your monster inflicts battle damage to your opponent: Send the top card of their Deck to the Graveyard.</effect>",
+      "script": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": 1
+      }
    },
    "Robolady": {
       "id": "92421852",
@@ -10518,7 +10622,13 @@
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
       "text": "Send 1 Rock monster from your Deck to the Graveyard; inflict 500 damage to your opponent.",
-      "prepopLP": { "villain": -500 }
+      "prepopLP": { "villain": -500 },
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "text": { "operator": "TYPEMATCH", "value": "Rock" },
+         "autoClose": true
+      }
    },
    "Rock Ogre Grotto #1": {
       "id": "68846917",
@@ -11880,7 +11990,13 @@
       "id": "49328340",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Continuous-like>If \"Gaia The Fierce Knight\", \"Swift Gaia the Fierce Knight\", or \"Gaia the Dragon Champion\" you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Trigger-like>If \"Gaia the Dragon Champion\" inflicts battle damage with this effect: Draw 2 cards, then discard 1 card.</effect>"
+      "text": "<effect=Continuous-like>If \"Gaia The Fierce Knight\", \"Swift Gaia the Fierce Knight\", or \"Gaia the Dragon Champion\" you control attacks a Defense Position monster, inflict piercing battle damage to your opponent.</effect> <effect=Trigger-like>If \"Gaia the Dragon Champion\" inflicts battle damage with this effect: Draw 2 cards, then discard 1 card.</effect>",
+      "script": {
+         "name": "DRAW_N",
+         "tooltip": "Discard 1 after drawing",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      }
    },
    "Spirit Barrier": {
       "id": "53239672",
@@ -11901,7 +12017,7 @@
       "id": "69832741",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "until the end of this turn, if a monster(s) in the Graveyard would be banished: Banish an equal number of monsters on your field instead."
+      "text": "Until the end of this turn, if a monster(s) in the Graveyard would be banished: Banish an equal number of monsters on your field instead."
    },
    "Spirit Message \"A\"": {
       "id": "94772232",

@@ -6,7 +6,7 @@ import { bind, unbind } from "mousetrap";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
-import { moveCard, createTokens, discardAndDraw } from "stateStore/actions/game/field.js";
+import { moveCard, createTokens, discardAndDraw, shuffleAndDraw } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
 import compress from "utils/compressName.js";
@@ -14,6 +14,7 @@ import compress from "utils/compressName.js";
 import Tooltip from "@material-ui/core/Tooltip";
 
 import {
+   DECK,
    GRAVEYARD,
    HAND,
    SPELL_TRAP,
@@ -25,7 +26,9 @@ import {
    FLIP_COINS,
    ROLL_DICE,
    DISCARD_AND_DRAW,
-   SKIP_DRAWS
+   SHUFFLE_AND_DRAW,
+   SKIP_DRAWS,
+   DRAW_N
 } from "shared/constants.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -60,7 +63,7 @@ class ScriptButton extends PureComponent {
    }
 
    runScript = () => {
-      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw, script } = this.props;
+      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw, shuffleAndDraw, script } = this.props;
       const { name, params } = script;
       const socket = this.context;
       switch (name) {
@@ -77,7 +80,7 @@ class ScriptButton extends PureComponent {
             createTokens(heroPlayer, params, socket);
             break;
          case RANDOM_DISCARD:
-            this.randomDiscard();
+            this.randomDiscard(params);
             break;
          case FLIP_COINS:
             this.flipCoins(params);
@@ -85,8 +88,14 @@ class ScriptButton extends PureComponent {
          case ROLL_DICE:
             this.rollDice(params);
             break;
+         case DRAW_N:
+            this.drawN(params);
+            break;
          case DISCARD_AND_DRAW:
             discardAndDraw(heroPlayer, params, socket);
+            break;
+         case SHUFFLE_AND_DRAW:
+            shuffleAndDraw(heroPlayer, params, socket);
             break;
          case SKIP_DRAWS:
             this.skipDraws(params);
@@ -103,12 +112,12 @@ class ScriptButton extends PureComponent {
       addMessage("Game", message, this.context);
    };
 
-   randomDiscard = () => {
+   randomDiscard = (count) => {
       const { field, heroPlayer, moveCard } = this.props;
-      const handLength = field[heroPlayer].hand.length;
+      const hand = field[heroPlayer].hand;
 
-      if (handLength > 0) {
-         const zone = Math.floor(Math.random() * (handLength - 1));
+      for (let i = count || 1; i > 0 && hand.length > 0; i--) {
+         const zone = Math.floor(Math.random() * (hand.length - 1));
          moveCard(
             {
                from: { player: heroPlayer, row: HAND, zone },
@@ -117,6 +126,18 @@ class ScriptButton extends PureComponent {
             // NOTE: this gets turned into <b>randomly</b> by the client.
             { ...this.context, msg: "RANDOMLY" }
          );
+      }
+   };
+
+   drawN = (count) => {
+      const { field, heroPlayer, moveCard } = this.props;
+      const deck = field[heroPlayer][DECK];
+
+      for (let i = count || 1; i > 0 && deck.length > 0; i--) {
+         moveCard({
+            from: { player: heroPlayer, row: DECK, zone: 0 },
+            to: { player: heroPlayer, row: HAND, zone: 0 }
+         });
       }
    };
 
@@ -208,6 +229,6 @@ ScriptButton.propTypes = {
 
 ScriptButton.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw })(
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw, shuffleAndDraw })(
    withStyles(styles)(ScriptButton)
 );

@@ -185,6 +185,7 @@ const SEND_SELECTION = "SendSelection";
 const REMOVE_SELECTION = "RemoveSelection";
 const SEND_COUNTERS = "SendCounters";
 const SEND_DND = "SendDnd";
+const SEND_SHUFFLE_AND_DRAW = "SendShuffleAndDraw";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -229,7 +230,9 @@ const RANDOM_DISCARD = "RANDOM_DISCARD";
 const FLIP_COINS = "FLIP_COINS";
 const ROLL_DICE = "ROLL_DICE";
 const DISCARD_AND_DRAW = "DISCARD_AND_DRAW";
+const SHUFFLE_AND_DRAW = "SHUFFLE_AND_DRAW";
 const SKIP_DRAWS = "SKIP_DRAWS";
+const DRAW_N = "DRAW_N";
 
 // complex prepopLP helpers
 const PREPOP_LP_HELPER = {
@@ -302,6 +305,7 @@ module.exports = {
   DRAW_CARD,
   DRAW_PHASE_DRAW,
   DRAW,
+  DRAW_N,
   dynamicZones,
   EARTH,
   EFFECT_MONSTER,
@@ -392,6 +396,7 @@ module.exports = {
   SEND_POS_CHANGE,
   SEND_REVEAL,
   SEND_SELECTION,
+  SEND_SHUFFLE_AND_DRAW,
   SEND_TOKENS,
   SENTINEL,
   SET_CARDSIZE,
@@ -403,6 +408,7 @@ module.exports = {
   SET_STACK,
   SET_TURN,
   SET_UNSAVED,
+  SHUFFLE_AND_DRAW,
   SHUFFLE_DECK,
   SIDEDECK,
   SKIP_DRAWS,
