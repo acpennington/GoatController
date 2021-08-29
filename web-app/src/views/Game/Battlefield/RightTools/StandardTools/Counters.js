@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
+import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import ButtonRow from "components/CustomButtons/ButtonRow.js";
 import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
@@ -37,24 +38,33 @@ class Counters extends Component {
 
    render() {
       return (
-         <ButtonRow>
-            <Button
-               round
-               onClick={() => this.tryAdjustCounters(1)}
-               fullWidth
-               style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/RoyalMagicalLibrary.jpg")' }}
-            >
-               <FaPlusCircle color="green" size="2em" /> Count
-            </Button>
-            <Button
-               round
-               onClick={() => this.tryAdjustCounters(-1)}
-               fullWidth
-               style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/BreakertheMagicalWarrior.jpg")' }}
-            >
-               <FaMinusCircle color="yellow" size="2em" /> Count
-            </Button>
-         </ButtonRow>
+         <SizeContext.Consumer>
+            {(size) => {
+               const roomForRow = size > 960;
+               const buttons = (
+                  <Fragment>
+                     <Button
+                        round
+                        onClick={() => this.tryAdjustCounters(1)}
+                        fullWidth={roomForRow}
+                        style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/RoyalMagicalLibrary.jpg")' }}
+                     >
+                        <FaPlusCircle color="green" size="2em" /> Counter
+                     </Button>
+                     <Button
+                        round
+                        onClick={() => this.tryAdjustCounters(-1)}
+                        fullWidth={roomForRow}
+                        style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/BreakertheMagicalWarrior.jpg")' }}
+                     >
+                        <FaMinusCircle color="yellow" size="2em" /> Counter
+                     </Button>
+                  </Fragment>
+               );
+
+               return roomForRow ? <ButtonRow>{buttons}</ButtonRow> : <Fragment>{buttons}</Fragment>;
+            }}
+         </SizeContext.Consumer>
       );
    }
 }
