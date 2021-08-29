@@ -38,6 +38,7 @@ class ScriptButton extends PureComponent {
    constructor(props) {
       super(props);
       this.ref = React.createRef();
+      this.action = React.createRef();
    }
 
    componentDidMount() {
@@ -59,7 +60,10 @@ class ScriptButton extends PureComponent {
    maybeFocus() {
       const { focus } = this.props;
 
-      if (focus && this.ref.current) this.ref.current.focus();
+      if (focus) {
+         if (this.ref.current) this.ref.current.focus();
+         if (this.action.current) this.action.current.focusVisible();
+      }
    }
 
    runScript = () => {
@@ -180,6 +184,7 @@ class ScriptButton extends PureComponent {
       const button = (
          <Button
             ref={this.ref}
+            action={this.action}
             color="primary"
             onClick={this.runScript}
             style={
