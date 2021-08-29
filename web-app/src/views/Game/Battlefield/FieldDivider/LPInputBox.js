@@ -7,6 +7,7 @@ import { adjustLP } from "stateStore/actions/game/field.js";
 import { prepopLP } from "stateStore/actions/shared/settings.js";
 import { BANISHED, MONSTER, PREPOP_LP_HELPER, HAND, GRAVEYARD, SPELL_TRAP, FIELD_SPELL } from "shared/constants.js";
 import checkParams from "utils/checkParams.js";
+import { WebSocketContext } from "views/Game/WebSocketContext";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
@@ -43,7 +44,7 @@ class LPInputBox extends PureComponent {
          case PREPOP_LP_HELPER.COUNTER:
             return counters && params * counters;
          case PREPOP_LP_HELPER.EXPONENTIAL_COUNTER:
-            return counters ? params * (2 ** (counters - 1)) : 0;
+            return counters ? params * 2 ** (counters - 1) : 0;
          case PREPOP_LP_HELPER.FIELD_MONSTER:
             return this.monsters(params);
          case PREPOP_LP_HELPER.HERO_GRAVEYARD:
@@ -77,7 +78,7 @@ class LPInputBox extends PureComponent {
             cards++;
          }
       }
-      return typeof params === "number" ? params * cards : + (params.base || 0) + cards * (params.multiplier || 0);
+      return typeof params === "number" ? params * cards : +(params.base || 0) + cards * (params.multiplier || 0);
    }
 
    monsters(params, player) {
@@ -89,13 +90,13 @@ class LPInputBox extends PureComponent {
             if (monster) {
                if (typeof params === "object") {
                   if (params.filter && checkParams(monster, params.filter).fail.length) continue;
-                  if (params.faceup && monster.facedown) continue
+                  if (params.faceup && monster.facedown) continue;
                }
                monsters++;
             }
          }
       }
-      return monsters * (typeof params === "number" ?  params : params.multiplier);
+      return monsters * (typeof params === "number" ? params : params.multiplier);
    }
 
    componentDidUpdate() {
@@ -105,12 +106,12 @@ class LPInputBox extends PureComponent {
       if (convertedPrepop && convertedPrepop !== Number(inputLP)) {
          this.setState({ inputLP: Math.abs(convertedPrepop), LPmode: convertedPrepop < 0 ? -1 : 1 });
          this.ref.current.focus();
-      } else if (inputLP && !convertedPrepop) this.setState({ inputLP: "", LPmode: -1 });
+      } else if (!inputLP && !convertedPrepop) this.setState({ inputLP: "" });
    }
 
    field(params, player) {
       const { field } = this.props;
-      const fn = typeof params === "object" && params.filter ? (c => c && !checkParams(c, params.filter).fail.length) : Boolean;
+      const fn = typeof params === "object" && params.filter ? (c) => c && !checkParams(c, params.filter).fail.length : Boolean;
       const monster = field[player][MONSTER].filter(fn).length;
       const spellTrap = field[player][SPELL_TRAP].filter(fn).length;
       const fieldSpell = fn(field[player][FIELD_SPELL]) ? 1 : 0;
@@ -120,7 +121,7 @@ class LPInputBox extends PureComponent {
 
    handAndField(params, player) {
       const { field } = this.props;
-      const fn = typeof params === "object" && params.filter ? (c => c && !checkParams(c, params.filter).fail.length) : Boolean;
+      const fn = typeof params === "object" && params.filter ? (c) => c && !checkParams(c, params.filter).fail.length : Boolean;
       const multiplier = typeof params === "object" ? params.multiplier : params;
       return multiplier * field[player][HAND].filte(fn).length + this.field(params, player);
    }
@@ -176,7 +177,8 @@ class LPInputBox extends PureComponent {
 
       return (
          <div>
-            <CustomInput ref={this.ref}
+            <CustomInput
+               ref={this.ref}
                white
                formControlProps={{ fullWidth: true }}
                inputCustomClasses={classes.LPinput}
@@ -206,5 +208,7 @@ LPInputBox.propTypes = {
    heroPlayer: PropTypes.string.isRequired,
    lifepoints: PropTypes.number.isRequired
 };
+
+LPInputBox.contextType = WebSocketContext;
 
 export default connect(mapStateToProps, { adjustLP, prepopLP })(withStyles(styles)(LPInputBox));
