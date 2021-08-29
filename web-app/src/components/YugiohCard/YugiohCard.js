@@ -46,7 +46,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone } = getBools(row, zone);
 
-   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, modalRow } = useSelector(
+   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, shortcut, modalRow } = useSelector(
       (state) => {
          const sfPlayer = state.field[player];
          const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
@@ -63,8 +63,9 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          const handRevealed = sfPlayer.handRevealed;
          const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
          const inBattlePhase = state.turn.phase === BATTLE;
+         const shortcut = card && [MONSTER, SPELL_TRAP].includes(row) && locate(sfPlayer, { row, zone });
          const modalRow = state.settings.modal && state.settings.modal.row;
-         return { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, modalRow };
+         return { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, shortcut, modalRow };
       }
    );
 
@@ -135,12 +136,18 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          dispatch(moveCard({ from: { player, row, zone }, to: { player, row: BANISHED, zone: 0 } }, socket));
       });
    }
+   if (shortcut) {
+      bind(shortcut, () => {
+         dispatch(newSelection(heroPlayer, player, row, zone, name, facedown, socket));
+      });
+   }
    useEffect(() => {
       return function cleanup() {
          unbind("d");
          unbind("b");
+         if (shortcut) unbind(shortcut);
       };
-   }, []);
+   }, [shortcut]);
 
    const width = Math.floor(height / CARD_RATIO);
    const margin = !notFull && (height - width) / 2 + 2; // the +2 is to leave a little space between cards
@@ -215,6 +222,16 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          />
       </div>
    );
+}
+
+function locate(field, location) {
+   let i = 0;
+   for (const row of [MONSTER, SPELL_TRAP]) {
+      for (let zone = 0; zone < field[row].length; zone++) {
+         if (field[row][zone]) i++;
+         if (location.row === row && location.zone === zone) return `${i % 10}`;
+      }
+   }
 }
 
 YugiohCard.propTypes = {
