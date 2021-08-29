@@ -1,0 +1,12 @@
+{
+   "name": "game_socket",
+   "version": "1.0.0",
+   "description": "Game socket Lambda function for AWS",
+   "main": "index.js",
+   "author": "ACP and the Goat Format community",
+   "license": "ISC",
+   "dependencies": {
+      "jsonwebtoken": "^8.5.1",
+      "ioredis": "^4.27.8"
+   }
+}
