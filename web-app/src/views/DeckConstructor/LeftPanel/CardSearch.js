@@ -100,7 +100,6 @@ class CardSearch extends PureComponent {
 
    search = () => {
       const { params } = this.state;
-      console.log();
       const results = [];
 
       for (const cardName in nonfusions) {

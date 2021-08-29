@@ -192,7 +192,7 @@ export default function (state = initialState, action) {
          const currentCounters = card.counters || 0;
          const newCounters = currentCounters + counters;
 
-         if (newCounters < 0) return {...state};
+         if (newCounters < 0) return { ...state };
          card.counters = newCounters;
 
          if (socket && socket.api) {
@@ -201,7 +201,7 @@ export default function (state = initialState, action) {
             socket.api.send(JSON.stringify(payload));
          }
 
-         return {...state};
+         return { ...state };
       }
       case CLEAR_BATTLE:
          if (clearBattle(state) && data && data.api) {
@@ -293,7 +293,6 @@ export default function (state = initialState, action) {
 }
 
 function clearBattle(field) {
-   console.log(JSON.stringify(field));
    let clearedCards = 0;
    for (const player in field) {
       const oneField = field[player];

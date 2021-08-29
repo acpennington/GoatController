@@ -85,7 +85,6 @@ function revealHand(player, hand, socket = false) {
 
 function adjustLP(player, change, currentLP, socket = false) {
    if (socket && socket.api) {
-      console.log("sending lp change to socket");
       const payload = { action: SEND_LP_CHANGE, data: { token: socket.token, id: socket.matchId, amount: change, currentLP } };
       socket.api.send(JSON.stringify(payload));
    }
