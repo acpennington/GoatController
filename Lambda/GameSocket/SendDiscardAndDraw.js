@@ -12,4 +12,4 @@ async function SendDiscardAndDraw(id, username, count, connectionId, api) {
    return { statusCode: 200, body: "Discard and draw" };
 }
 
-module.exports = SendDnd;
+module.exports = SendDiscardAndDraw;
