@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { bind, unbind } from "mousetrap";
 
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import Button from "components/CustomButtons/Button.js";
@@ -42,19 +41,11 @@ class ScriptButton extends PureComponent {
    }
 
    componentDidMount() {
-      const { variant, script } = this.props;
-
-      if (!variant) bind("s", () => this.runScript(script));
-
       this.maybeFocus();
    }
 
    componentDidUpdate() {
       this.maybeFocus();
-   }
-
-   componentWillUnmount() {
-      unbind(["s"]);
    }
 
    maybeFocus() {

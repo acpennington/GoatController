@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -11,12 +11,13 @@ import Counters from "./Counters.js";
 import ConcedeButton from "./ConcedeButton.js";
 import RevealHandButton from "./RevealHandButton.js";
 import ShuffleDeckButton from "./ShuffleDeckButton.js";
+import SoundButton from "./SoundButton.js";
+import ShowCardNames from "./ShowCardNames";
+import ShortcutMenuButton from "components/CustomButtons/ShortcutMenuButton.js";
 import Phases from "./Phases.js";
+import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { resetSolo } from "stateStore/actions/game/field.js";
-import ShowCardNames from "components/Switches/ShowCardNames.js";
-import Shadow from "components/Shadow/Shadow.js";
-import Sound from "components/Switches/Sound.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
@@ -25,6 +26,30 @@ class StandardTools extends PureComponent {
    render() {
       const { classes, player, resetSolo } = this.props;
       const { name, solo } = player;
+
+      const bottomButtons = (
+         <SizeContext.Consumer>
+            {size => (
+               size > 825 ? (
+                  <ButtonRow>
+                     <SoundButton />
+                     <ShowCardNames small />
+                     <ShortcutMenuButton />
+                  </ButtonRow>
+               ) : (
+                  <Fragment>
+                     <ButtonRow>
+                        <ShowCardNames />
+                     </ButtonRow>
+                     <ButtonRow>
+                        <SoundButton />
+                        <ShortcutMenuButton />
+                     </ButtonRow>
+                  </Fragment>
+               )
+            )}
+         </SizeContext.Consumer>
+      );
 
       return (
          <div className={classes.container}>
@@ -46,10 +71,7 @@ class StandardTools extends PureComponent {
                {!solo && <RevealHandButton name={name} />}
                <ShuffleDeckButton heroPlayer={name} />
                <CardScript heroPlayer={name} />
-               <Shadow>
-                  <Sound />
-                  <ShowCardNames />
-               </Shadow>
+               {bottomButtons}
             </FriendlyScroll>
          </div>
       );

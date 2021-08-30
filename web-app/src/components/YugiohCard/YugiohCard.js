@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { useDrag, useDrop } from "react-dnd";
 import { useSelector, useDispatch } from "react-redux";
-import { bind, unbind } from "mousetrap";
+import Mousetrap from "mousetrap";
 
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { getBools, rowClass, isAcceptable } from "./utils.js";
@@ -33,12 +33,23 @@ import {
    HERO_SELECTION_COLOR,
    VILLAIN_SELECTION_COLOR,
    REVEAL_COLOR,
-   BATTLE
+   BATTLE,
+   LP_INPUT_ID
 } from "shared/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 const useStyles = makeStyles(cardStyle);
+
+const { bind, unbind } = Mousetrap;
+
+// If we select a card with prepopLP the focus gets shifted to the LPinputBox which then disables further keybindings.
+// Mousetrap's recommended way of working around this (https://craig.is/killing/mice#api.stopCallback) is to patch stopCallback.
+const stopCallback = Mousetrap.prototype.stopCallback;
+Mousetrap.prototype.stopCallback = function(e, element, combo, sequence) {
+   if (element.id === LP_INPUT_ID && ['m', 'M', 's', 'S', 't', 'T'].includes(e.key)) return false;
+   return stopCallback(e, element, combo, sequence);
+};
 
 function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHero, style }) {
    const classes = useStyles();
@@ -46,7 +57,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone } = getBools(row, zone);
 
-   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, shortcut, modalRow } = useSelector(
+   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, cycle, modalRow } = useSelector(
       (state) => {
          const sfPlayer = state.field[player];
          const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
@@ -63,9 +74,9 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          const handRevealed = sfPlayer.handRevealed;
          const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
          const inBattlePhase = state.turn.phase === BATTLE;
-         const shortcut = card && [MONSTER, SPELL_TRAP].includes(row) && locate(sfPlayer, { row, zone });
+         const cycle = makeCycle(sfPlayer, heroSelection && heroSelection.player === player ? heroSelection : null);
          const modalRow = state.settings.modal && state.settings.modal.row;
-         return { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, shortcut, modalRow };
+         return { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, cycle, modalRow };
       }
    );
 
@@ -128,26 +139,34 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       else if (!isExtraDeck) dragOrDrop = drag;
    } else if (row === MONSTER && (blank || inBattlePhase)) dragOrDrop = drop;
 
+   bind("d", () => {
+      dispatch(moveCard({ from: { player, row: DECK, zone: 0 }, to: { player, row: HAND, zone: 0 } }, socket));
+   });
    if (isHero && heroSelected) {
-      bind("d", () => {
+      bind("g", () => {
          dispatch(moveCard({ from: { player, row, zone }, to: { player, row: GRAVEYARD, zone: 0 } }, socket));
       });
       bind("b", () => {
          dispatch(moveCard({ from: { player, row, zone }, to: { player, row: BANISHED, zone: 0 } }, socket));
       });
    }
-   if (shortcut) {
-      bind(shortcut, () => {
-         dispatch(newSelection(heroPlayer, player, row, zone, name, facedown, socket));
-      });
-   }
+   const shortcut = (row, direction) => {
+      return () => {
+         const card = cycle(row, direction);
+         if (card) dispatch(newSelection(heroPlayer, heroPlayer, card.row, card.zone, card.name, card.facedown, socket));
+      }
+   };
+   bind("m", shortcut(MONSTER, 1));
+   bind("M", shortcut(MONSTER, -1));
+   bind("s", shortcut(SPELL_TRAP, 1));
+   bind("S", shortcut(SPELL_TRAP, -1));
+   bind("t", shortcut(SPELL_TRAP, 1));
+   bind("T", shortcut(SPELL_TRAP, -1));
    useEffect(() => {
       return function cleanup() {
-         unbind("d");
-         unbind("b");
-         if (shortcut) unbind(shortcut);
+         unbind(["d", "g", "b", "m", "M", "s", "S", "t", "T"]);
       };
-   }, [shortcut]);
+   }, []);
 
    const width = Math.floor(height / CARD_RATIO);
    const margin = !notFull && (height - width) / 2 + 2; // the +2 is to leave a little space between cards
@@ -224,15 +243,20 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    );
 }
 
-function locate(field, location) {
-   let i = 0;
-   for (const row of [MONSTER, SPELL_TRAP]) {
-      for (let zone = 0; zone < field[row].length; zone++) {
-         if (field[row][zone]) i++;
-         if (location.row === row && location.zone === zone) return `${i % 10}`;
+function makeCycle(field, selection) {
+   return (row, direction) => {
+      const length = field[row].length;
+      const current = typeof (selection?.row === row && selection?.zone) === "number" ? mod(selection.zone + direction, length) : 0;
+      for (let zone = current, i = 0; i < length; zone = mod(zone + direction, length), i++) {
+         if (field[row][zone]) return {...field[row][zone], row, zone};
       }
-   }
+   };
 }
+
+// Turn Javascript's modulo operator which uses truncated division into one which uses Euclidean division
+function mod(n, m) {
+   return ((n % m) + m) % m;
+ }
 
 YugiohCard.propTypes = {
    height: PropTypes.number.isRequired,
