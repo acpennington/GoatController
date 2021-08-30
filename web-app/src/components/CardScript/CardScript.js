@@ -44,19 +44,25 @@ class CardScript extends PureComponent {
 
       if (!cardName) return null;
 
-      const { cardType, text, script, prepopLP } = getCardDetails(cardName);
+      const { cardType, text, script, script2, prepopLP } = getCardDetails(cardName);
       const focus = !(prepopLP && (player === heroPlayer ? prepopLP.hero : prepopLP.villain));
+
+      const validScript = script && this.validScript(activeCard, player, script);
+      const validScript2 = script2 && this.validScript(activeCard, player, script2);
 
       return (
          <Fragment>
-            {script && this.validScript(activeCard, player, script) && (
+            {validScript && (
                <ScriptButton script={script} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} focus={focus} />
             )}
+            {validScript2 && (
+               <ScriptButton script={script2} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} focus={focus && !validScript} />
+            )}
             {[BANISHED, MONSTER].includes(activeCard.row) && text.includes("/Flip/") && (
-               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus} />
+               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus && !validScript && !validScript2} />
             )}
             {[BANISHED, SPELL_TRAP].includes(activeCard.row) && cardType === TRAP && (
-               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Extermination" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus} />
+               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Extermination" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus && !validScript && !validScript2} />
             )}
          </Fragment>
       );

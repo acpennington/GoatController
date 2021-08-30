@@ -35,7 +35,7 @@ const EFFECTS = [...MONSTER_EFFECTS, ...OTHER_EFFECTS];
 
 const SPELL_TRAP_REQUIRED = ["id", "cardType", "levelOrSubtype", "text"];
 const MONSTER_REQUIRED = ["id", "cardType", "attribute", "levelOrSubtype", "atk", "def", "text"];
-const OPTIONAL = ["prepopLP", "script", "limit", "art"];
+const OPTIONAL = ["prepopLP", "script", "script2", "limit", "art"];
 const TOKEN_REQUIRED = MONSTER_REQUIRED.slice(1);
 const FUSION_OPTIONAL = ["order", "noMeta", ...OPTIONAL];
 
@@ -387,21 +387,22 @@ test("database", () => {
          }
       }
 
-      const script = card.script;
-      if (script) {
-         expectFields(`"${name}" script.displayCondition`, script, [], ["name", "tooltip", "displayCondition", "params", "oneParam", "autoClose"]);
-         expect(scriptNames).toContain(script.name);
-         if (script.tooltip) expect(script.tooltip.length).toBeGreaterThan(0);
-         expectFields(`"${name}" script.displayCondition`, script.displayCondition, ["players", "row"]);
-         expect(allZones).toContain(script.displayCondition.row);
+      for (const script of [card.script, card.script2]) {
+         if (script) {
+            expectFields(`"${name}" script.displayCondition`, script, [], ["name", "tooltip", "displayCondition", "params", "oneParam", "autoClose"]);
+            expect(scriptNames).toContain(script.name);
+            if (script.tooltip) expect(script.tooltip.length).toBeGreaterThan(0);
+            expectFields(`"${name}" script.displayCondition`, script.displayCondition, ["players", "row"]);
+            expect(allZones).toContain(script.displayCondition.row);
 
-         const players = JSON.stringify(script.displayCondition.players);
-         expect(['["HERO"]', '["VILLAIN"]', '["HERO","VILLAIN"]'].includes(players), `"${name}" has an invalid script.displayConditions.players: "${players}"`).toBe(true);
+            const players = JSON.stringify(script.displayCondition.players);
+            expect(['["HERO"]', '["VILLAIN"]', '["HERO","VILLAIN"]'].includes(players), `"${name}" has an invalid script.displayConditions.players: "${players}"`).toBe(true);
 
-         verifyScriptParams(name, script);
+            verifyScriptParams(name, script);
 
-         expect([undefined, true].includes(script.oneParam)).toBe(true);
-         expect([undefined, true].includes(script.autoClose)).toBe(true);
+            expect([undefined, true].includes(script.oneParam)).toBe(true);
+            expect([undefined, true].includes(script.autoClose)).toBe(true);
+         }
       }
 
       expect([undefined, 1, 2].includes(card.limit), `"${name}" has an invalid limit: '${card.limit}'`).toBe(true);
