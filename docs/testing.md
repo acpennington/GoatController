@@ -48,7 +48,7 @@ For this page, significant functionality changes will need be tested by actually
 
 # DeckConstructor/Decklist
 
-Any changes here can be verified by loading different kinds of decks. Big ones, small ones, etc. Make sure that the maindeck and sidedeck are clearly visible in all situations. Also mess around with the card size slider.
+Any changes here can be verified by loading different kinds of decks. Big ones, small ones, etc. Make sure that the maindeck and sidedeck are clearly visible in all situations. Also mess around with the card size slider. Note that whether or not you can set an illegal deck as active depends on the environment, so be sure to test in production if changes are made to the deck verification logic.
 
 # DeckConstructor/LeftPanel
 

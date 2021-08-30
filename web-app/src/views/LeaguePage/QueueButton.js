@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import Shadow from "components/Shadow/Shadow.js";
@@ -91,10 +90,8 @@ class QueueButton extends PureComponent {
                      aria-describedby="alert-dialog-description"
                      >
                      <DialogTitle id="alert-dialog-title">Errors</DialogTitle>
-                     <DialogContent>
-                        <DialogContentText id="alert-dialog-description">
-                           <ul>{errors}</ul>
-                        </DialogContentText>
+                     <DialogContent id="alert-dialog-description">
+                        <ul>{errors}</ul>
                      </DialogContent>
                      <DialogActions>
                         <Button onClick={this.handleDialogClose} color="primary" autoFocus>
