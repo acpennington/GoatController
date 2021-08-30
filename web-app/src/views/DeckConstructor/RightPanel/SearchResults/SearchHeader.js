@@ -30,8 +30,11 @@ class SearchHeader extends Component {
 
       return (
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
-            <div id="searchHeader" className={classes.header} onClick={this.closeSearch}>
-               Search Results
+             <div onClick={this.closeSearch}>
+               <b style={{position: "absolute", right: "2px", top: 0, fontSize: "1.5em"}}>&times;</b>
+               <div id="searchHeader" className={classes.header}>
+                  Search Results
+               </div>
             </div>
          </Tooltip>
       );
