@@ -11,10 +11,10 @@ import Button from "components/CustomButtons/Button.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 import { loadDeck, setUnsaved } from "stateStore/actions/shared/settings.js";
 
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 import { FaSave, FaUndo } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
@@ -147,7 +147,7 @@ class DeckSelector extends PureComponent {
    };
 
    render() {
-      const { classes, deckLoaded, unsavedChanges, player } = this.props;
+      const { classes, deckLoaded, unsavedChanges, player, decklist } = this.props;
       const { dialogOpen } = this.state;
       const decks = this.getDecks();
 
@@ -157,13 +157,7 @@ class DeckSelector extends PureComponent {
       const activeDeck = window.sessionStorage.getItem("activeDeck");
       const deckIsActive = deckLoaded === activeDeck;
 
-      const errors = getApiStage() === "dev"
-         ? []
-         : verifyDecks(deckLoaded.maindeck, deckLoaded.sidedeck, EXARION_ALLOWED).map((error, index) =>
-            <li key={index}>
-               {error}
-            </li>
-         );
+      const errors = verifyDecks(decklist.maindeck, decklist.sidedeck, EXARION_ALLOWED).map((error, index) => <li key={index}>{error}</li>);
 
       return (
          <div className={classes.deckSelector}>
@@ -175,12 +169,12 @@ class DeckSelector extends PureComponent {
                         <MdDeleteForever /> Delete
                      </Button>
                      {!errors.length ? (
-                         <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
+                        <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
                            <BsStarFill /> Set Active
                         </Button>
                      ) : (
                         <Fragment>
-                           <Button color="warning" size="lg" round onClick={this.handleDialogOpen}>
+                           <Button color="warning" fullWidth round onClick={this.handleDialogOpen}>
                               Illegal Deck
                            </Button>
                            <Dialog
@@ -188,7 +182,7 @@ class DeckSelector extends PureComponent {
                               onClose={this.handleDialogClose}
                               aria-labelledby="alert-dialog-title"
                               aria-describedby="alert-dialog-description"
-                              >
+                           >
                               <DialogTitle id="alert-dialog-title">Errors</DialogTitle>
                               <DialogContent id="alert-dialog-description">
                                  <ul>{errors}</ul>
@@ -214,7 +208,14 @@ class DeckSelector extends PureComponent {
                   </ButtonRow>
                )}
             </div>
-            <GenericFinder value={deckLoaded} options={options} onChange={this.loadDeck} />
+            <GenericFinder
+               value={deckLoaded}
+               options={options}
+               onChange={(value) => {
+                  this.loadDeck(value);
+                  this.forceUpdate();
+               }}
+            />
             <Visibility player={player} />
             <div className={classes.flexRow}>
                <Button color="success" round onClick={this.createDeck}>
