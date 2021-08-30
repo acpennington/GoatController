@@ -40,7 +40,8 @@ import {
    DEFENDING,
    SEND_COUNTERS,
    DISCARD_AND_DRAW,
-   SHUFFLE_AND_DRAW
+   SHUFFLE_AND_DRAW,
+   UNDO_DRAW,
 } from "shared/constants.js";
 
 const blankField = {
@@ -51,6 +52,7 @@ const blankField = {
    usedFusions: {},
    [HAND]: [],
    skippedDraws: 0,
+   lastDraw: 0,
    handRevealed: false,
    [MONSTER]: [null, null, null, null, null],
    [SPELL_TRAP]: [null, null, null, null, null],
@@ -78,6 +80,7 @@ export default function (state = initialState, action) {
          if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = from.cardName ? { name: from.cardName } : fieldSpell ? state[from.player][FIELD_SPELL] : state[from.player][from.row][from.zone];
+         if (drawingFromDeck) fromCard.order = ++state[from.player].lastDraw;
          if (fromCard.battle) clearBattle(state);
          const facedown = fromCard.facedown;
          let settingTrap = false;
@@ -87,7 +90,7 @@ export default function (state = initialState, action) {
 
          if (!fromCard.name.includes("Token") || to.row === MONSTER || to.row === SPELL_TRAP) {
             if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) state[to.player].usedFusions[fromCard.name] -= 1;
-            else if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name });
+            else if (dynamicZones.includes(to.row)) state[to.player][to.row].push({ name: fromCard.name, order: fromCard.order });
             else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
             else state[to.player][to.row][to.zone] = { ...fromCard };
          }
@@ -129,13 +132,15 @@ export default function (state = initialState, action) {
          const { player, socket } = data;
          const shouldSkipDraw = state[player].skippedDraws > 0;
 
-         if (shouldSkipDraw) state[player].skippedDraws -= 1;
-         else {
-            const topDeckZone = state[player][DECK].length - 1;
-            const topCard = state[player][DECK][topDeckZone];
-            state[player][HAND].push(topCard);
-            state[player][DECK].splice(topDeckZone, 1);
+         if (shouldSkipDraw) {
+            state[player].skippedDraws -= 1;
+         } else if (state[player][DECK].length > 0) {
+            const card = state[player][DECK].pop();
+            card.order = ++state[player].lastDraw;
+            state[player][HAND].push(card);
             playSound("/sounds/drawcard.mp3");
+         } else {
+            // TODO: player loses
          }
 
          if (socket && socket.api) {
@@ -249,7 +254,13 @@ export default function (state = initialState, action) {
          field.graveyard.push(...field.hand);
          field.hand = [];
 
-         for (let i = 0; i < count; i++) if (field.deck.length > 0) field.hand.push(field.deck.pop());
+         for (let i = 0; i < count; i++) {
+            if (field.deck.length > 0) {
+               const card = field.deck.pop();
+               card.order = ++field.lastDraw;
+               field.hand.push(card);
+            }
+         }
 
          playSound(count === 0 ? "/sounds/tograve.mp3" : "/sounds/drawcard.mp3");
 
@@ -271,7 +282,13 @@ export default function (state = initialState, action) {
          playSound("/sounds/shuffle.mp3");
          field.deck = shuffle(state[player].deck);
 
-         for (let i = 0; source !== GRAVEYARD && i < count; i++) if (field.deck.length > 0) field.hand.push(field.deck.pop());
+         for (let i = 0; source !== GRAVEYARD && i < count; i++) {
+            if (field.deck.length > 0) {
+               const card = field.deck.pop();
+               card.order = ++field.lastDraw;
+               field.hand.push(card);
+            }
+         }
 
          return { ...state };
       }
@@ -293,6 +310,30 @@ export default function (state = initialState, action) {
             hand: newHand
          };
          return newState;
+      case UNDO_DRAW: {
+         const { player, socket } = data;
+
+         let lastDrawn = -1;
+         for (const [i, card] of state[player].hand.entries()) {
+            if (!card.notOwned && card.order === state[player].lastDraw) {
+               lastDrawn = i;
+               break;
+            }
+         }
+         if (lastDrawn < 0) return state;
+
+         const card = state[player].hand[lastDrawn];
+         state[player].hand.splice(lastDrawn, 1);
+         state[player].deck.push(card)
+         state[player].lastDraw--;
+
+         if (socket && socket.api) {
+            const payload = { action: UNDO_DRAW, data: { token: socket.token, id: socket.matchId } };
+            socket.api.send(JSON.stringify(payload));
+         }
+
+         return { ...state };
+      }
       case SHUFFLE_DECK: {
          const { player, socket } = data;
          state[player].deck = shuffle(state[player].deck);

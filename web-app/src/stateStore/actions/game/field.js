@@ -21,6 +21,7 @@ import {
    DISCARD_AND_DRAW,
    SHUFFLE_AND_DRAW,
    SEND_SHUFFLE_AND_DRAW,
+   UNDO_DRAW,
    HAND,
    SEND_DND,
    SENTINEL,
@@ -120,6 +121,10 @@ function shuffleDeck(player, socket = false, noSound = false) {
    return { type: SHUFFLE_DECK, data: { player, socket } };
 }
 
+function undoDraw(player, socket = false) {
+   return { type: UNDO_DRAW, data: { player, socket } };
+}
+
 function discardAndDraw(player, count, socket = false) {
    if (socket && socket.api) {
       const payload = { action: SEND_DND, data: { token: socket.token, id: socket.matchId, count } };
@@ -154,5 +159,6 @@ export {
    resetSolo,
    shuffleDeck,
    shuffleAndDraw,
-   discardAndDraw
+   discardAndDraw,
+   undoDraw
 };

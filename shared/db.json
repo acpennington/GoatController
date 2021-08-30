@@ -3697,6 +3697,12 @@
       "def": 800,
       "text": "Reptile – A blood-sucking snake in human form that attacks any living being that passes nearby."
    },
+   "Drop Off": {
+      "id": "55773067",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "When your opponent draws for their normal draw in their Draw Phase: Your opponent discards 1 card they just drew."
+   },
    "Dummy Golem": {
       "id": "13532663",
       "cardType": "effectMonster",

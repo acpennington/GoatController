@@ -11,6 +11,7 @@ import Counters from "./Counters.js";
 import ConcedeButton from "./ConcedeButton.js";
 import RevealHandButton from "./RevealHandButton.js";
 import ShuffleDeckButton from "./ShuffleDeckButton.js";
+import UndoDrawButton from "./UndoDrawButton.js";
 import SoundButton from "./SoundButton.js";
 import ShowCardNames from "./ShowCardNames";
 import ShortcutMenuButton from "components/CustomButtons/ShortcutMenuButton.js";
@@ -70,6 +71,7 @@ class StandardTools extends PureComponent {
                <Counters heroPlayer={name} />
                {!solo && <RevealHandButton name={name} />}
                <ShuffleDeckButton heroPlayer={name} />
+               <UndoDrawButton heroPlayer={name} />
                <CardScript heroPlayer={name} />
                {bottomButtons}
             </FriendlyScroll>
