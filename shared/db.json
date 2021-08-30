@@ -3498,6 +3498,11 @@
          "name": "RANDOM_DISCARD",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" }
       },
+      "script2": {
+         "name": "MILL_UNTIL",
+         "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
+         "params": 2
+      },
       "art": 2
    },
    "Dora of Fate": {
@@ -4623,6 +4628,30 @@
       "def": 1200,
       "text": "Warrior/Effect – <effect=Ignition>Once per turn: You can banish 2 LIGHT monsters from your Graveyard, then target 1 face-up monster on the field with higher ATK than this card; destroy that target.</effect>"
    },
+   "Freed the Matchless General": {
+      "id": "49681811",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 5,
+      "atk": 2300,
+      "def": 1700,
+      "text": "Warrior/Effect – <effect=Continuous>Negate any Spell effects that target this card, and if you do, destroy that Spell.</effect> <effect=Trigger>During your Draw Phase, instead of conducting your normal draw: You can add 1 Level 4 or lower Warrior monster from your Deck to your hand. This card must be face-up on the field to activate and to resolve this effect.</effect>",
+      "script": {
+         "name": "SKIP_DRAWS",
+         "tooltip": "Activate in opponent's End Phase if you plan to search next Draw Phase",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": 1
+      },
+      "script2": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": {
+            "levelOrSubtype": { "operator": "<", "value": 4 },
+            "text": { "operator": "TYPEMATCH", "value": "Warrior" }
+         },
+         "autoClose": true
+      }
+   },
    "Freezing Beast": {
       "id": "85359414",
       "cardType": "effectMonster",
@@ -4670,6 +4699,11 @@
       "script": {
          "name": "RANDOM_DISCARD",
          "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" },
+         "params": 2
+      },
+      "script2": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
          "params": 2
       }
    },
@@ -4813,6 +4847,22 @@
       "atk": 1400,
       "def": 700,
       "text": "Reptile/Flip/Effect – <effect=Trigger>FLIP: Target 1 monster your opponent controls; return that target to the hand.</effect>"
+   },
+   "Gamble": {
+      "id": "37313786",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "If your opponent has 6 or more cards in their hand, while you have 2 or less cards in your hand: Toss a coin and call it. If you call it right, draw until you have 5 cards in your hand. If you call it wrong, skip your next turn.",
+      "script": {
+         "name": "FLIP_COINS",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 1
+      },
+      "script2": {
+         "name": "SKIP_DRAWS",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 1
+      }
    },
    "Gamma The Magnet Warrior": {
       "id": "11549357",
@@ -10261,6 +10311,11 @@
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
          "params": 2
       },
+      "script2": {
+         "name": "DRAW_N",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "params": 2
+      },
       "limit": 1
    },
    "Red Archery Girl": {
@@ -13297,6 +13352,12 @@
          "name": "FLIP_COINS",
          "displayCondition": { "players": ["HERO"], "row": "monster" },
          "params": 1
+      },
+      "script2": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "monster" },
+         "params": { "name": { "value": "Dark Sage" } },
+         "autoClose": true
       }
    },
    "Timeater": {
