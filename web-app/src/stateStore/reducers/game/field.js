@@ -193,6 +193,8 @@ export default function (state = initialState, action) {
          const currentCounters = card.counters || 0;
          const newCounters = currentCounters + counters;
 
+         if (newCounters > currentCounters) playSound("/sounds/counter.mp3");
+
          if (newCounters < 0) return { ...state };
          card.counters = newCounters;
 

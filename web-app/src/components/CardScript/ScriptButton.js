@@ -8,6 +8,7 @@ import ScriptName from "./ScriptName.js";
 import { moveCard, createTokens, discardAndDraw, shuffleAndDraw } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
+import { playSound } from "stateStore/actions/game/field.js";
 import compress from "utils/compressName.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
@@ -147,6 +148,8 @@ class ScriptButton extends PureComponent {
          else tails++;
       }
 
+      playSound("/sounds/coin.mp3");
+
       const message = `${heroPlayer} flipped ${count} coins; ${heads} came up heads and ${tails} came up tails.`;
       addMessage("Game", message, this.context);
    };
@@ -156,6 +159,8 @@ class ScriptButton extends PureComponent {
       const results = [];
 
       for (let i = 0; i < count; i++) results.push(Math.ceil(Math.random() * 6));
+
+      playSound("/sounds/dice.mp3");
 
       const message =
          heroPlayer +

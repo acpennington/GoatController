@@ -12,6 +12,7 @@ class ZoneLabel extends PureComponent {
    render() {
       const { zoneLabel, counters, villExtension, height, classes } = this.props;
       const size = `${height / (zoneLabel === EXTRA_DECK ? 6.5 : 5)}px`;
+      const style = counters ? { fontSize: "80%", position: "relative", zIndex: "1", top: "-13%" } : {};
 
       return (
          <Fragment>
@@ -20,8 +21,8 @@ class ZoneLabel extends PureComponent {
                   className={classes["zoneLabel" + villExtension + (counters ? "Counters" : "")]}
                   style={{ fontSize: size, lineHeight: size }}
                >
-                  <div>{counters || display(zoneLabel)}</div>
-                  {(counters ? <img className={classes.counterImg} src="/battle/Counter.png" alt="Counter" /> : '')}
+                  {(counters ? <img className={classes.counterImg} src="/battle/Counter.svg" alt="Counter" /> : '')}
+                  <div style={style}>{counters || display(zoneLabel)}</div>
                </div>
             )}
          </Fragment>

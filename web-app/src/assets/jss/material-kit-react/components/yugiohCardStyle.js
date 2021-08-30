@@ -77,8 +77,7 @@ const zoneLabelCounters = {
    width: "2em",
    height: "2em",
    fontWeight: "bolder",
-   color: "black",
-   backgroundColor: "white"
+   color: "black"
 };
 
 const cardStyle = {
