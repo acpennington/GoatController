@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -11,12 +11,18 @@ import Button from "components/CustomButtons/Button.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 import { loadDeck, setUnsaved } from "stateStore/actions/shared/settings.js";
 
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+
 import { FaSave, FaUndo } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { BsStarFill } from "react-icons/bs";
 import { IoMdCreate } from "react-icons/io";
 
 import getApiStage from "utils/getApiStage.js";
+import verifyDecks from "shared/verifyDecks.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL } from "shared/constants.js";
 
@@ -32,10 +38,14 @@ const blankDeck = {
    deckType: "Unknown"
 };
 
+// We need to allow Exarion Universe during deck verification at this stage and allow stricter
+// checking to take place when the player actually attempts to use the deck in a League
+const EXARION_ALLOWED = true;
+
 class DeckSelector extends PureComponent {
    constructor(props) {
       super(props);
-      this.state = { deckName: "" };
+      this.state = { deckName: "", dialogOpen: false };
    }
 
    getDecks = () => JSON.parse(window.sessionStorage.getItem("decks"));
@@ -128,8 +138,17 @@ class DeckSelector extends PureComponent {
       }
    };
 
+   handleDialogOpen = () => {
+      this.setState({ dialogOpen: true });
+   };
+
+   handleDialogClose = () => {
+      this.setState({ dialogOpen: false });
+   };
+
    render() {
-      const { classes, deckLoaded, unsavedChanges, player } = this.props;
+      const { classes, deckLoaded, unsavedChanges, player, decklist } = this.props;
+      const { dialogOpen } = this.state;
       const decks = this.getDecks();
 
       const options = [];
@@ -137,6 +156,8 @@ class DeckSelector extends PureComponent {
 
       const activeDeck = window.sessionStorage.getItem("activeDeck");
       const deckIsActive = deckLoaded === activeDeck;
+
+      const errors = verifyDecks(decklist.maindeck, decklist.sidedeck, EXARION_ALLOWED).map((error, index) => <li key={index}>{error}</li>);
 
       return (
          <div className={classes.deckSelector}>
@@ -147,9 +168,33 @@ class DeckSelector extends PureComponent {
                      <Button color="primary" fullWidth round onClick={this.deleteDeck}>
                         <MdDeleteForever /> Delete
                      </Button>
-                     <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
-                        <BsStarFill /> Set Active
-                     </Button>
+                     {!errors.length ? (
+                        <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
+                           <BsStarFill /> Set Active
+                        </Button>
+                     ) : (
+                        <Fragment>
+                           <Button color="warning" fullWidth round onClick={this.handleDialogOpen}>
+                              Illegal Deck
+                           </Button>
+                           <Dialog
+                              open={dialogOpen}
+                              onClose={this.handleDialogClose}
+                              aria-labelledby="alert-dialog-title"
+                              aria-describedby="alert-dialog-description"
+                           >
+                              <DialogTitle id="alert-dialog-title">Errors</DialogTitle>
+                              <DialogContent id="alert-dialog-description">
+                                 <ul>{errors}</ul>
+                              </DialogContent>
+                              <DialogActions>
+                                 <Button onClick={this.handleDialogClose} color="primary" autoFocus>
+                                    OK
+                                 </Button>
+                              </DialogActions>
+                           </Dialog>
+                        </Fragment>
+                     )}
                   </ButtonRow>
                )}
                {unsavedChanges && (
@@ -163,7 +208,14 @@ class DeckSelector extends PureComponent {
                   </ButtonRow>
                )}
             </div>
-            <GenericFinder value={deckLoaded} options={options} onChange={this.loadDeck} />
+            <GenericFinder
+               value={deckLoaded}
+               options={options}
+               onChange={(value) => {
+                  this.loadDeck(value);
+                  this.forceUpdate();
+               }}
+            />
             <Visibility player={player} />
             <div className={classes.flexRow}>
                <Button color="success" round onClick={this.createDeck}>
