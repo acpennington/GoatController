@@ -6,6 +6,7 @@ import RenderCards from "components/RenderCards/RenderCards.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import getCardDetails from "shared/getCardDetails";
+import { SENTINEL } from "shared/constants.js";
 
 class CardsToRender extends Component {
    componentDidUpdate() {
@@ -17,9 +18,10 @@ class CardsToRender extends Component {
       const { searchResults, maindeck, sidedeck } = this.props;
       const cardsToRender = [];
 
-      for (const cardName of searchResults) {
-         const quantity = (getCardDetails(cardName).limit || 3) - (maindeck[cardName] || 0) - (sidedeck[cardName] || 0);
-         if (quantity > 0) cardsToRender.push({ name: cardName, quantity });
+      for (const name of searchResults) {
+         const cardName = name.split(SENTINEL)[0];
+         const quantity = (getCardDetails(cardName).limit || 3) - (deduped(maindeck)[cardName] || 0) - (deduped(sidedeck)[cardName] || 0);
+         if (quantity > 0) cardsToRender.push({ name, quantity });
       }
 
       return cardsToRender;
@@ -33,6 +35,15 @@ class CardsToRender extends Component {
 
       return <RenderCards cardsToRender={cardsToRender} maxHeight={maxHeight} cardHeight={cardHeight} player={player} decklist />;
    }
+}
+
+function deduped(deck) {
+   const names = {};
+   for (const raw in deck) {
+      const name = raw.split(SENTINEL)[0];
+      names[name] = (names[name] ? names[name] + deck[raw] : deck[raw]);
+   }
+   return names;
 }
 
 function mapStateToProps(state) {
