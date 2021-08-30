@@ -111,6 +111,7 @@ const dndZones = [DECK, ...discardZones];
 const dynamicZones = [HAND, DECK, ...discardZones];
 const toExtraZones = [HAND, ...deckZones];
 const onField = [MONSTER, SPELL_TRAP, FIELD_SPELL];
+const allZones = [MONSTER, SPELL_TRAP, FIELD_SPELL, HAND, DECK, EXTRA_DECK, GRAVEYARD, BANISHED];
 const allCardTypes = [MONSTER, NORMAL_MONSTER, EFFECT_MONSTER, RITUAL_MONSTER, SPELL_TRAP, SPELL, TRAP];
 
 // battle
@@ -234,6 +235,7 @@ const DISCARD_AND_DRAW = "DISCARD_AND_DRAW";
 const SHUFFLE_AND_DRAW = "SHUFFLE_AND_DRAW";
 const SKIP_DRAWS = "SKIP_DRAWS";
 const DRAW_N = "DRAW_N";
+const scriptNames = [SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, RANDOM_DISCARD, FLIP_COINS, ROLL_DICE, DISCARD_AND_DRAW, SHUFFLE_AND_DRAW, SKIP_DRAWS, DRAW_N];
 
 // complex prepopLP helpers
 const PREPOP_LP_HELPER = {
@@ -271,6 +273,7 @@ module.exports = {
   allMonsterTypes,
   allSubtypes,
   allTypes,
+  allZones,
   API_URL,
   AQUA,
   ATTACK,
@@ -382,10 +385,11 @@ module.exports = {
   REVEAL_COLOR,
   REVEAL_HAND,
   RIGHT_PANEL_SIZE,
-  RITUAL,
   RITUAL_MONSTER,
+  RITUAL,
   ROCK,
   ROLL_DICE,
+  scriptNames,
   SEA_SERPENT,
   SEARCH_DECK,
   SEARCH_RESULTS,

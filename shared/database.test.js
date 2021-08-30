@@ -1,15 +1,28 @@
 const {
-   orderedCardTypes,
-   spellSubtypes,
-   trapSubtypes,
-   FUSION_MONSTER,
-   TOKEN_MONSTER,
-   SPELL,
-   TRAP,
    allAttributes,
    allMonsterTypes,
+   allZones,
+   DISCARD_AND_DRAW,
+   DRAW_N,
    EFFECT_MONSTER,
-   NORMAL_MONSTER
+   FLIP_COINS,
+   FUSION_MONSTER,
+   MILL_UNTIL,
+   NORMAL_MONSTER,
+   orderedCardTypes,
+   RANDOM_DISCARD,
+   ROLL_DICE,
+   scriptNames,
+   SEARCH_DECK,
+   SHUFFLE_AND_DRAW,
+   SKIP_DRAWS,
+   SPELL,
+   spellSubtypes,
+   TOKEN_MONSTER,
+   TOKENS,
+   TRAP,
+   trapSubtypes,
+   PREPOP_LP_HELPER
 } = require("./constants");
 
 const db = require("./db.json");
@@ -25,6 +38,10 @@ const MONSTER_REQUIRED = ["id", "cardType", "attribute", "levelOrSubtype", "atk"
 const OPTIONAL = ["prepopLP", "script", "limit", "art"];
 const TOKEN_REQUIRED = MONSTER_REQUIRED.slice(1);
 const FUSION_OPTIONAL = ["order", "noMeta", ...OPTIONAL];
+
+// NB: MONSTER_REQUIRED is a superset of SPELL_TRAP_REQUIRED.
+const PARAMS = ["name", ...MONSTER_REQUIRED, "text2", "text3"];
+const OPERATORS = [">", "<", "OR", "TYPEMATCH", "CONTAINS", "DOES_NOT_CONTAIN"];
 
 // Regular Konami stylization: https://yugioh.fandom.com/wiki/Problem-Solving_Card_Text#Changes
 
@@ -157,19 +174,124 @@ const KONAMI_TERMS = new Set([
    "Battle"
 ]);
 
-function expectFields(name, card, required, optional = OPTIONAL) {
+// NB: Javascript is stupid and !isNaN is different than this...
+function isNumber(value) {
+   return typeof value === "number";
+}
+
+function expectFields(name, obj, required, optional = OPTIONAL) {
    const r = required.slice();
    const o = optional.slice();
-   for (const field of Object.keys(card)) {
+   for (const field of Object.keys(obj)) {
       if (r.length) {
-         expect(field, `"${name}" has an ${required.includes(field) ? "improperly ordered" : "unknown"} field: '${field}'`).toEqual(r[0]);
+         expect(field, `${name} has an ${required.includes(field) ? "improperly ordered" : "unknown"} field: '${field}'`).toEqual(r[0]);
          r.shift();
       } else if (o.length) {
-         expect(o, `"${name}" has an ${optional.includes(field) ? "improperly ordered" : "unknown"} field: '${field}'`).toContain(field);
+         expect(o, `${name} has an ${optional.includes(field) ? "improperly ordered" : "unknown"} field: '${field}'`).toContain(field);
          while (o.shift() !== field) continue;
       } else {
-         throw new Exception(`"${name}" has an unknown field: '${field}'`);
+         throw new Error(`${name} has an ${[...required, ...optional].includes(field) ? "improperly ordered" : "unknown"} field: '${field}'`);
       }
+   }
+}
+
+function verifyComplexPrepopLP(name, prepopLP) {
+   expectFields(name, prepopLP, ["name", "params"]);
+   expect(Object.values(PREPOP_LP_HELPER)).toContain(prepopLP.name);
+   const params = prepopLP.params;
+   switch (prepopLP.name) {
+      case PREPOP_LP_HELPER.COUNTER:
+      case PREPOP_LP_HELPER.EXPONENTIAL_COUNTER:
+      case PREPOP_LP_HELPER.VILLAIN_BANISHED:
+      case PREPOP_LP_HELPER.VILLAIN_HAND:
+         expect(isNumber(params)).toBe(true);
+      case PREPOP_LP_HELPER.HERO_GRAVEYARD:
+      case PREPOP_LP_HELPER.VILLAIN_GRAVEYARD:
+      case PREPOP_LP_HELPER.VILLAIN_FIELD:
+      case PREPOP_LP_HELPER.VILLAIN_HAND_AND_FIELD:
+      case PREPOP_LP_HELPER.FIELD_MONSTER:
+      case PREPOP_LP_HELPER.HERO_MONSTER:
+      case PREPOP_LP_HELPER.VILLAIN_MONSTER: {
+         if (!isNumber(params)) {
+            expectFields(`${name}.params`, params, [], ["filter", "faceup", "multiplier", "base"]);
+            expect(params.base === undefined || isNumber(params.base)).toBe(true);
+            expect(params.multiplier === undefined || isNumber(params.multiplier)).toBe(true);
+            expect(isNumber(params.base || params.multiplier)).toBe(true);
+            expect([undefined, true].includes(params.faceup)).toBe(true);
+            if (params.filter) verifyParams(`${name}.filter`, params.filter);
+         }
+         break;
+      }
+      default:
+         throw new Error(`${name} has an unknown prepopLP helper name: '${prepopLP.name}'`);
+   }
+}
+
+function verifyParams(name, params) {
+   expectFields(name, params, [], PARAMS);
+   for (const field in params) {
+      expect(params[field].value).toBeDefined();
+      if (params[field].operator) {
+         switch (params[field].operator) {
+            case ">":
+            case "<":
+               expect(isNumber(params[field].value)).toBe(true);
+               break;
+            case "OR":
+               expect(Array.isArray(params[field].value)).toBe(true);
+               expect(Array.isArray(params[field].value)).toBe(true);
+               break;
+            case "CONTAINS":
+            case "DOES_NOT_CONTAIN":
+               expect(typeof params[field].value === "string").toBe(true)
+               expect(params[field].value.length).toBeGreaterThan(0);
+               break;
+            case "TYPEMATCH":
+               expect(MONSTER_TYPES).toContain(params[field].value);
+               break;
+            default:
+               throw new Error(`${name} has an unknown operator name: '${params}'`);
+         }
+      }
+   }
+}
+
+function verifyScriptParams(name, script) {
+   const params = script.params;
+   switch (script.name) {
+      case SEARCH_DECK:
+         if (params) verifyParams(`"${name}" script.params`, params);
+         break;
+      case MILL_UNTIL:
+         if (isNumber(params)) {
+            expect(params).toBeGreaterThan(0);
+         } else {
+            verifyParams(`"${name}" script.params`, params);
+         }
+         break;
+      case TOKENS:
+         expectFields(`"${name}" script.params`, params, ["name", "pos", "count"]);
+         expect(params.name.length).toBeGreaterThan(0);
+         expect(["atk", "def"]).toContain(params.pos);
+         expect(params.count).toBeGreaterThan(0);
+         break;
+      case RANDOM_DISCARD:
+         expect(isNumber(params) || params === undefined).toBe(true);
+         break;
+      case DRAW_N:
+      case FLIP_COINS:
+      case ROLL_DICE:
+      case SKIP_DRAWS:
+         expect(params).toBeGreaterThan(0);
+         break;
+      case DISCARD_AND_DRAW:
+         expect(isNumber(params) || params === "same").toBe(true);
+         break;
+      case SHUFFLE_AND_DRAW:
+         expect(isNumber(params) || params === "same" || params === "graveyard").toBe(true);
+         break;
+      default:
+         throw new Error(`"${name}" has an unknown script name: '${script.name}'`);
    }
 }
 
@@ -231,12 +353,12 @@ test("database", () => {
          expectFields(name, card, required, optional);
 
          expect(card.attribute === "???" || allAttributes.includes(card.attribute), `"${name}" has an unknown attribute: '${card.attribute}'`).toBe(true);
-         expect(card.levelOrSubtype === "???" || !isNaN(card.levelOrSubtype), `"${name}" has an invalid level: '${card.levelOrSubtype}'`).toBe(true);
-         expect(card.atk === "?" || !isNaN(card.atk), `"${name}" has an invalid atk: '${card.atk}'`).toBe(true);
-         expect(card.def === "?" || !isNaN(card.def), `"${name}" has an invalid def: '${card.def}'`).toBe(true);
+         expect(card.levelOrSubtype === "???" || isNumber(card.levelOrSubtype), `"${name}" has an invalid level: '${card.levelOrSubtype}'`).toBe(true);
+         expect(card.atk === "?" || isNumber(card.atk), `"${name}" has an invalid atk: '${card.atk}'`).toBe(true);
+         expect(card.def === "?" || isNumber(card.def), `"${name}" has an invalid def: '${card.def}'`).toBe(true);
 
          if (card.cardType === FUSION_MONSTER) {
-            expect(card.order === undefined || !isNaN(card.order), `"${name}" has an invalid order: '${card.order}'`).toBe(true);
+            expect(card.order === undefined || isNumber(card.order), `"${name}" has an invalid order: '${card.order}'`).toBe(true);
             if (card.order) order.push(card.order);
          }
 
@@ -247,6 +369,41 @@ test("database", () => {
          expect(card.cardType !== FUSION_MONSTER || label.includes("Fusion"), invalidLabelMessage).toBe(true);
          expect(card.cardType !== EFFECT_MONSTER || label.includes("Effect"), invalidLabelMessage).toBe(true);
       }
+
+      const prepopLP = card.prepopLP;
+      if (prepopLP) {
+         expectFields(`"${name}" prepopLP`, prepopLP, [], ["hero", "villain"]);
+
+         if (typeof prepopLP.hero === "object") {
+            verifyComplexPrepopLP(`"${name}" prepopLP.hero`, prepopLP.hero);
+         } else {
+            expect(prepopLP.hero === undefined || prepopLP.hero === "half" || isNumber(prepopLP.hero), `"${name}" has an invalid hero prepopLP: '${prepopLP.hero}'`).toBe(true);
+         }
+
+         if (typeof prepopLP.villain === "object") {
+            verifyComplexPrepopLP(`"${name}" prepopLP.villain`, prepopLP.villain);
+         } else {
+            expect(prepopLP.villain === undefined || prepopLP.villain === "half" || isNumber(prepopLP.villain), `"${name}" has an invalid villain prepopLP: '${prepopLP.villain}'`).toBe(true);
+         }
+      }
+
+      const script = card.script;
+      if (script) {
+         expectFields(`"${name}" script.displayCondition`, script, [], ["name", "tooltip", "displayCondition", "params", "oneParam", "autoClose"]);
+         expect(scriptNames).toContain(script.name);
+         if (script.tooltip) expect(script.tooltip.length).toBeGreaterThan(0);
+         expectFields(`"${name}" script.displayCondition`, script.displayCondition, ["players", "row"]);
+         expect(allZones).toContain(script.displayCondition.row);
+
+         const players = JSON.stringify(script.displayCondition.players);
+         expect(['["HERO"]', '["VILLAIN"]', '["HERO","VILLAIN"]'].includes(players), `"${name}" has an invalid script.displayConditions.players: "${players}"`).toBe(true);
+
+         verifyScriptParams(name, script);
+
+         expect([undefined, true].includes(script.oneParam)).toBe(true);
+         expect([undefined, true].includes(script.autoClose)).toBe(true);
+      }
+
       expect([undefined, 1, 2].includes(card.limit), `"${name}" has an invalid limit: '${card.limit}'`).toBe(true);
       expect(card.cardType !== NORMAL_MONSTER && card.text.includes(".."), `"${name}" has a double period ..`).toBe(false);
    }

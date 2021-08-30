@@ -132,7 +132,7 @@ class LPInputBox extends PureComponent {
       const { field } = this.props;
       const fn = typeof params === "object" && params.filter ? (c) => c && !checkParams(c, params.filter).fail.length : Boolean;
       const multiplier = typeof params === "object" ? params.multiplier : params;
-      return multiplier * field[player][HAND].filte(fn).length + this.field(params, player);
+      return multiplier * field[player][HAND].filter(fn).length + this.field(params, player);
    }
 
    updateValue = (value) => {

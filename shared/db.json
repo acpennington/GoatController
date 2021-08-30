@@ -4014,8 +4014,8 @@
             "row": "graveyard"
          },
          "params": {
-            "levelOrSubtype": { "operator": "<", "value": 3 },
-            "cardType": { "value": "normalMonster" }
+            "cardType": { "value": "normalMonster" },
+            "levelOrSubtype": { "operator": "<", "value": 3 }
          },
          "autoClose": true
       }
@@ -4551,8 +4551,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": {
-            "atk": { "operator": "<", "value": 1500 },
-            "attribute": { "value": "Wind" }
+            "attribute": { "value": "Wind" },
+            "atk": { "operator": "<", "value": 1500 }
          },
          "autoClose": true
       }
@@ -5011,8 +5011,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": {
-            "atk": { "operator": "<", "value": 1500 },
-            "attribute": { "value": "Earth" }
+            "attribute": { "value": "Earth" },
+            "atk": { "operator": "<", "value": 1500 }
          },
          "autoClose": true
       }
@@ -6181,8 +6181,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": {
-            "text": { "operator": "TYPEMATCH", "value": "Insect" },
-            "atk": { "operator": "<", "value": 1500 }
+            "atk": { "operator": "<", "value": 1500 },
+            "text": { "operator": "TYPEMATCH", "value": "Insect" }
          },
          "autoClose": true
       }
@@ -6207,8 +6207,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": {
-            "levelOrSubtype": { "operator": "<", "value": 2 },
-            "cardType": { "value": "normalMonster" }
+            "cardType": { "value": "normalMonster" },
+            "levelOrSubtype": { "operator": "<", "value": 2 }
          }
       }
    },
@@ -7382,8 +7382,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
          "params": {
-            "cardType": { "operator": "CONTAINS", "value": "Monster" },
-            "name": { "operator": "CONTAINS", "value": "LV" }
+            "name": { "operator": "CONTAINS", "value": "LV" },
+            "cardType": { "operator": "CONTAINS", "value": "Monster" }
          },
          "autoClose": true
       }
@@ -8662,8 +8662,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": {
-            "atk": { "operator": "<", "value": 1500 },
-            "attribute": { "value": "Water" }
+            "attribute": { "value": "Water" },
+            "atk": { "operator": "<", "value": 1500 }
          },
          "autoClose": true
       }
@@ -8867,8 +8867,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": {
-            "atk": { "operator": "<", "value": 1500 },
-            "attribute": { "value": "Dark" }
+            "attribute": { "value": "Dark" },
+            "atk": { "operator": "<", "value": 1500 }
          },
          "autoClose": true
       },
@@ -10046,8 +10046,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": {
-            "text": { "operator": "TYPEMATCH", "value": "Zombie" },
-            "def": { "operator": "<", "value": 2000 }
+            "def": { "operator": "<", "value": 2000 },
+            "text": { "operator": "TYPEMATCH", "value": "Zombie" }
          },
          "autoClose": true
       }
@@ -10336,8 +10336,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
          "params": {
-            "text": { "operator": "TYPEMATCH", "value": "Warrior" },
-            "levelOrSubtype": { "operator": "<", "value": 4 }
+            "levelOrSubtype": { "operator": "<", "value": 4 },
+            "text": { "operator": "TYPEMATCH", "value": "Warrior" }
          },
          "autoClose": true
       },
@@ -10626,7 +10626,7 @@
       "script": {
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["VILLAIN"], "row": "monster" },
-         "text": { "operator": "TYPEMATCH", "value": "Rock" },
+         "params": { "text": { "operator": "TYPEMATCH", "value": "Rock" } },
          "autoClose": true
       }
    },
@@ -11287,8 +11287,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": {
-            "atk": { "operator": "<", "value": 1500 },
-            "attribute": { "value": "Light" }
+            "attribute": { "value": "Light" },
+            "atk": { "operator": "<", "value": 1500 }
          },
          "autoClose": true
       }
@@ -11654,7 +11654,7 @@
             "name": "HERO_MONSTER",
             "params": {
                "filter": { "attribute": { "value": "Light" } },
-               "faceUp": true,
+               "faceup": true,
                "multiplier": -600
             }
          }
@@ -13813,8 +13813,8 @@
          "name": "SEARCH_DECK",
          "displayCondition": { "players": ["HERO"], "row": "graveyard" },
          "params": {
-            "atk": { "operator": "<", "value": 1500 },
-            "attribute": { "value": "Fire" }
+            "attribute": { "value": "Fire" },
+            "atk": { "operator": "<", "value": 1500 }
          },
          "autoClose": true
       }
