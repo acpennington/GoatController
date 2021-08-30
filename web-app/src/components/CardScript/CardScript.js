@@ -6,7 +6,7 @@ import ScriptButton from "./ScriptButton.js";
 import getCardDetails from "shared/getCardDetails.js";
 import checkParams from "utils/checkParams.js";
 
-import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, TRAP, SEARCH_DECK, DECK } from "shared/constants";
+import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, TRAP, SEARCH_DECK, DECK, BANISHED, MONSTER, SPELL_TRAP } from "shared/constants";
 
 class CardScript extends PureComponent {
    validScript = (activeCard, cardPlayer, script) => {
@@ -52,10 +52,10 @@ class CardScript extends PureComponent {
             {script && this.validScript(activeCard, player, script) && (
                <ScriptButton script={script} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} focus={focus} />
             )}
-            {text.includes("/Flip/") && (
+            {[BANISHED, MONSTER].includes(activeCard.row) && text.includes("/Flip/") && (
                <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus} />
             )}
-            {cardType === TRAP && (
+            {[BANISHED, SPELL_TRAP].includes(activeCard.row) && cardType === TRAP && (
                <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Extermination" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus} />
             )}
          </Fragment>
