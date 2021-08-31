@@ -8,6 +8,7 @@ module.exports = {
       usedFusions: {},
       hand: [],
       skippedDraws: 0,
+      lastDraw: 0,
       handRevealed: false,
       spellTrap: [null, null, null, null, null],
       fieldSpell: null,

@@ -70,6 +70,7 @@ class ShortcutMenuButton extends PureComponent {
                      <li><kbd>+</kbd>/<kbd>=</kbd> &mdash; increment selected card's counters</li>
                      <li><kbd>-</kbd>/<kbd>_</kbd> &mdash; decrement selected card's counters</li>
                      <li><kbd>d</kbd> &mdash; draw a card from the Deck</li>
+                     <li><kbd>u</kbd> &mdash; undo the last draw</li>
                      <li><kbd>g</kbd> &mdash; move selected card to Graveyard</li>
                      <li><kbd>b</kbd> &mdash; move selected card to banished cards</li>
                      <li><kbd>m</kbd> &mdash; select next card in Monster Zone</li>

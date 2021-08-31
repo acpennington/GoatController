@@ -147,6 +147,7 @@ const CONCEDE_GAME = "CONCEDE_GAME";
 const SET_TURN = "SET_TURN";
 const SHUFFLE_DECK = "SHUFFLE_DECK";
 const SET_DECK = "SET_DECK";
+const UNDO_DRAW = "UNDO_DRAW";
 
 // deck constructor actions
 const SET_DECKLIST = "SET_DECKLIST";
@@ -309,9 +310,9 @@ module.exports = {
   dndZones,
   DRAGON,
   DRAW_CARD,
+  DRAW_N,
   DRAW_PHASE_DRAW,
   DRAW,
-  DRAW_N,
   dynamicZones,
   EARTH,
   EFFECT_MONSTER,
@@ -434,6 +435,7 @@ module.exports = {
   TRANSFER_CARD,
   TRAP,
   trapSubtypes,
+  UNDO_DRAW,
   VILLAIN_HAND_HEIGHT_FRACTION,
   VILLAIN_SELECTION_COLOR,
   VILLAIN,

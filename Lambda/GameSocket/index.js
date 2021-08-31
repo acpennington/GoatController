@@ -10,6 +10,7 @@ const sendTokens = require("./SendTokens.js");
 const sendReveal = require("./SendReveal.js");
 const sendCardMove = require("./SendCardMove.js");
 const sendDrawPhase = require("./SendDrawPhase");
+const undoDraw = require("./UndoDraw.js");
 const sendPosChange = require("./SendPosChange.js");
 const sendAttack = require("./SendAttack.js");
 const sendClear = require("./SendClear.js");
@@ -55,6 +56,8 @@ exports.handler = async (event) => {
          return await sendCardMove(id, username, data.from, data.fromCard, data.to, data.settingTrap, data.msg, connectionId, api);
       case "SendDrawPhase":
          return await sendDrawPhase(id, username, data.shouldSkipDraw, connectionId, api);
+      case "SendDrawUndone":
+         return await undoDraw(id, username, connectionId, api);
       case "SendPosChange":
          return await sendPosChange(id, username, data.row, data.zone, data.cardName, connectionId, api);
       case "SendAttack":
