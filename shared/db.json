@@ -1918,21 +1918,13 @@
       "id": "01248895",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "When a monster(s) with 2000 or less ATK is Summoned: Target 1 of them; destroy all cards with that name in its controller's hand and Deck.",
-      "script": {
-         "name": "SEARCH_DECK",
-         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
-      }
+      "text": "When a monster(s) with 2000 or less ATK is Summoned: Target 1 of them; destroy all cards with that name in its controller's hand and Deck."
    },
    "Chain Disappearance": {
       "id": "57139487",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "When a monster(s) with 1000 or less ATK is Summoned: Banish that monster(s) with 1000 or less ATK, then your opponent banishes all cards with the same name as that card(s) from their hand and Deck.",
-      "script": {
-         "name": "SEARCH_DECK",
-         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
-      }
+      "text": "When a monster(s) with 1000 or less ATK is Summoned: Banish that monster(s) with 1000 or less ATK, then your opponent banishes all cards with the same name as that card(s) from their hand and Deck."
    },
    "Chain Energy": {
       "id": "79323590",
@@ -3042,6 +3034,12 @@
       "def": 1200,
       "text": "Fiend/Effect – <effect=Trigger>Once per turn, during your Standby Phase: You gain 200 Life Points.</effect> <effect=Condition>This card must be in the Graveyard to activate and to resolve this effect.</effect>",
       "prepopLP": { "hero": 200 }
+   },
+   "Darkness Approaches": {
+      "id": "80168720",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Discard 2 cards, then target 1 face-up monster on the field; change that target to face-down in the same position."
    },
    "Darkworld Thorns": {
       "id": "43500484",

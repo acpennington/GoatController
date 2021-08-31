@@ -27,6 +27,11 @@ const cannedMessages = {
 };
 
 class Chat extends PureComponent {
+   constructor(props) {
+      super(props);
+      this.ref = React.createRef();
+   }
+
    componentWillUnmount() {
       for (const message in cannedMessages) {
          const shortcut = cannedMessages[message];
@@ -73,13 +78,14 @@ class Chat extends PureComponent {
       }
 
       return (
-         <div className={classes.container}>
+         <div className={classes.container} onClick={() => this.ref.current.focus()}>
             <FriendlyScroll id="chatScroll" style={{ position: "absolute", bottom: 0 }} contStyle={{ height: watching ? "100%" : "calc(100% - 85px)" }}>
                <Messages messages={chat} hero={name} />
             </FriendlyScroll>
             {!watching && (
                <Fragment>
                   <CustomInput
+                     ref={this.ref}
                      id="Message"
                      white
                      formControlProps={{

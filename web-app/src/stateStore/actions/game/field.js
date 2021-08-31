@@ -20,7 +20,6 @@ import {
    ADJUST_COUNTERS,
    DISCARD_AND_DRAW,
    SHUFFLE_AND_DRAW,
-   SEND_SHUFFLE_AND_DRAW,
    UNDO_DRAW,
    HAND,
    SEND_DND,
@@ -137,13 +136,7 @@ function discardAndDraw(player, count, socket = false) {
 function shuffleAndDraw(player, params, socket = false) {
    const source = params === GRAVEYARD ? GRAVEYARD : HAND;
    const count = params === GRAVEYARD ? 0 : params;
-
-   if (socket && socket.api) {
-      const payload = { action: SEND_SHUFFLE_AND_DRAW, data: { token: socket.token, id: socket.matchId, source, count } };
-      socket.api.send(JSON.stringify(payload));
-   }
-
-   return { type: SHUFFLE_AND_DRAW, data: { player, source, count } };
+   return { type: SHUFFLE_AND_DRAW, data: { player, source, count, socket } };
 }
 
 export {
