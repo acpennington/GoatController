@@ -140,7 +140,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    } else if (row === MONSTER && (blank || inBattlePhase)) dragOrDrop = drop;
 
    bind("d", () => {
-      dispatch(moveCard({ from: { player, row: DECK, zone: 0 }, to: { player, row: HAND, zone: 0 } }, socket));
+      dispatch(moveCard({ from: { player, row: DECK, zone: -1 }, to: { player, row: HAND, zone: 0 } }, socket));
    });
    if (isHero && heroSelected) {
       bind("g", () => {

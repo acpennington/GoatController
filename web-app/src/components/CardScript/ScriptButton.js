@@ -131,7 +131,7 @@ class ScriptButton extends PureComponent {
 
       for (let i = count || 1; i > 0 && deck.length > 0; i--) {
          moveCard({
-            from: { player: heroPlayer, row: DECK, zone: 0 },
+            from: { player: heroPlayer, row: DECK, zone: -1 },
             to: { player: heroPlayer, row: HAND, zone: 0 }
          },
          this.context);
