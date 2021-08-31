@@ -19,7 +19,6 @@ const reorderDeck = require("./ReorderDeck.js");
 const mill = require("./Mill.js");
 const sendCounters = require("./SendCounters.js");
 const sendDiscardAndDraw = require("./SendDiscardAndDraw.js");
-const sendShuffleAndDraw = require("./SendShuffleAndDraw.js");
 const playerConceded = require("./PlayerConceded.js");
 const cleanupGame = require("./CleanupGame.js");
 const sendEntireGamestate = require("./SendEntireGamestate.js");
@@ -74,8 +73,6 @@ exports.handler = async (event) => {
          return await sendCounters(id, username, data.row, data.zone, data.counters, data.cardName, connectionId, api);
       case "SendDnd":
          return await sendDiscardAndDraw(id, username, data.count, connectionId, api);
-      case "SendShuffleAndDraw":
-         return await sendShuffleAndDraw(id, username, data.source, data.count, connectionId, api);
       case "PlayerConceded":
          return await playerConceded(id, username, api);
       case "CleanupGame":
