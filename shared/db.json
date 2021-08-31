@@ -1918,21 +1918,13 @@
       "id": "01248895",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "When a monster(s) with 2000 or less ATK is Summoned: Target 1 of them; destroy all cards with that name in its controller's hand and Deck.",
-      "script": {
-         "name": "SEARCH_DECK",
-         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
-      }
+      "text": "When a monster(s) with 2000 or less ATK is Summoned: Target 1 of them; destroy all cards with that name in its controller's hand and Deck."
    },
    "Chain Disappearance": {
       "id": "57139487",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "When a monster(s) with 1000 or less ATK is Summoned: Banish that monster(s) with 1000 or less ATK, then your opponent banishes all cards with the same name as that card(s) from their hand and Deck.",
-      "script": {
-         "name": "SEARCH_DECK",
-         "displayCondition": { "players": ["VILLAIN"], "row": "spellTrap" }
-      }
+      "text": "When a monster(s) with 1000 or less ATK is Summoned: Banish that monster(s) with 1000 or less ATK, then your opponent banishes all cards with the same name as that card(s) from their hand and Deck."
    },
    "Chain Energy": {
       "id": "79323590",

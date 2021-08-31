@@ -67,7 +67,7 @@ class ScriptButton extends PureComponent {
             filterDeck(heroPlayer, script);
             break;
          case BANISH_ALL:
-            banishAll(field, heroPlayer, activeCard, variant, socket);
+            banishAll(field, heroPlayer, activeCard, variant, params, socket);
             break;
          case MILL_UNTIL:
             millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, socket);
@@ -186,7 +186,7 @@ class ScriptButton extends PureComponent {
             onClick={this.runScript}
             style={
                activeCard && activeCard.name
-                  ? { backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/' + compress(activeCard.name) + '.jpg")' }
+                  ? { backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/' + compress(variant || activeCard.name) + '.jpg")' }
                   : {}
             }
             round
@@ -209,6 +209,8 @@ function fieldContains(field, card) {
    switch (card) {
       case "Nobleman of Extermination":
       case "Nobleman of Crossout":
+      case "Chain Destruction":
+      case "Chain Disappearance":
          for (const key in field) for (const zone of field[key][SPELL_TRAP]) if (zone && !zone.facedown && zone.name === card) return true;
          return false;
       default:
