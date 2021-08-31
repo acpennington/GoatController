@@ -1,7 +1,7 @@
 import { playSound } from "../../actions/game/field.js";
 import getCardDetails from "shared/getCardDetails.js";
 import getOtherPlayer from "utils/getOtherPlayer.js";
-import { shuffle, expandDeck } from "shared";
+import { shuffle, expandDeck, display } from "shared";
 
 import {
    FUSION_MONSTER,
@@ -256,7 +256,7 @@ export default function (state = initialState, action) {
          return { ...state };
       }
       case SHUFFLE_AND_DRAW: {
-         let { player, source, count } = data;
+         let { player, source, count, socket} = data;
          const field = state[player];
          if (count === "same") count = state[player].hand.length;
 
@@ -272,6 +272,12 @@ export default function (state = initialState, action) {
          field.deck = shuffle(state[player].deck);
 
          for (let i = 0; source !== GRAVEYARD && i < count; i++) if (field.deck.length > 0) field.hand.push(field.deck.pop());
+
+         if (socket && socket.api) {
+            const message = `${player} shuffled their ${display(source)} into their Deck${count > 0 ? ` and drew ${count} cards.` : "."}`
+            const payload = { action: SEND_ENTIRE_GAMESTATE, data: { token: socket.token, id: socket.matchId, gamestate: state, message } };
+            socket.api.send(JSON.stringify(payload));
+         }
 
          return { ...state };
       }
