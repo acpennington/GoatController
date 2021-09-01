@@ -64,8 +64,8 @@ class ShortcutMenuButton extends PureComponent {
                <DialogContent id="alert-dialog-description">
                   <h4><strong>Duel</strong></h4>
                   <ul>
-                     <li><kbd>↑</kbd> &mdash; go forward one Phase</li>
-                     <li><kbd>↓</kbd> &mdash; go back one Phase</li>
+                     <li><kbd>↓</kbd>/<kbd>→</kbd> &mdash; go forward one Phase</li>
+                     <li><kbd>↑</kbd>/<kbd>←</kbd> &mdash; go back one Phase</li>
                      <li><kbd>f</kbd> &mdash; declare effect of selected card</li>
                      <li><kbd>+</kbd>/<kbd>=</kbd> &mdash; increment selected card's counters</li>
                      <li><kbd>-</kbd>/<kbd>_</kbd> &mdash; decrement selected card's counters</li>
