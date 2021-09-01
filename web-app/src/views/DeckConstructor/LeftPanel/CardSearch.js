@@ -1,6 +1,7 @@
 import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { bind, unbind } from "mousetrap";
 
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
@@ -36,6 +37,14 @@ class CardSearch extends PureComponent {
    constructor(props) {
       super(props);
       this.state = { params: {} };
+   }
+
+   componentDidMount() {
+      bind("enter", this.search);
+   }
+
+   componentWillUnmount() {
+      unbind("enter");
    }
 
    setName = (event) => {
