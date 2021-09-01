@@ -15,11 +15,13 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 class Phases extends PureComponent {
    componentDidMount() {
       bind("up", this.tryPrevPhase);
+      bind("left", this.tryPrevPhase);
       bind("down", this.tryNextPhase);
+      bind("right", this.tryNextPhase);
    }
 
    componentWillUnmount() {
-      unbind(["up", "down"]);
+      unbind(["up", "left", "down", "right"]);
    }
 
    tryNextPhase = () => {
