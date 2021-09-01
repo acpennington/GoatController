@@ -50,8 +50,8 @@ const rightToolsStyle = {
          fontWeight: 700,
          lineHeight: 1,
          padding: "2px 4px",
-         whiteSpace: "nowrap",
-      },
+         whiteSpace: "nowrap"
+      }
    },
    container: {
       justifyContent: "center",
@@ -60,6 +60,9 @@ const rightToolsStyle = {
    modalContainer: {
       backgroundColor: "rgba(0, 0, 0, 0.82)",
       ...allContainers
+   },
+   headerContainer: {
+      position: "relative"
    },
    ["header" + GRAVEYARD]: {
       ...header,

@@ -17,6 +17,9 @@ const rightPanelStyle = {
       marginLeft: "3px",
       backgroundColor: "rgba(0, 0, 0, 0.82)"
    },
+   headerContainer: {
+      position: "relative"
+   },
    header: {
       width: "100%",
       padding: "8px 5px",
