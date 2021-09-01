@@ -5,6 +5,7 @@ import { bind, unbind } from "mousetrap";
 
 import Tooltip from "@material-ui/core/Tooltip";
 
+import CloseX from "components/CloseX/CloseX.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 
 import { withStyles } from "@material-ui/core/styles";
@@ -30,8 +31,8 @@ class SearchHeader extends Component {
 
       return (
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
-             <div onClick={this.closeSearch}>
-               <b style={{position: "absolute", right: "2px", top: 0, fontSize: "1.5em"}}>&times;</b>
+            <div className={classes.headerContainer} onClick={this.closeSearch}>
+               <CloseX />
                <div id="searchHeader" className={classes.header}>
                   Search Results
                </div>
