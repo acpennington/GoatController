@@ -5,7 +5,7 @@
    "scripts": {
       "format": "node shared/format.js && prettier --ignore-path .gitignore --write .",
       "lint": "prettier --ignore-path .gitignore --check .",
-      "build": "npm -C web-app build",
+      "build": "npm -C web-app run build",
       "start": "npm -C web-app start",
       "test": "npm run lint && npm -C shared test",
       "postinstall": "npm -C shared install"
