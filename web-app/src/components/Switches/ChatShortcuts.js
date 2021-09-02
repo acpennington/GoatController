@@ -37,4 +37,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, { switchChatShortcuts })(ChatShortcuts);
-

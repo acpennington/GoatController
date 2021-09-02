@@ -52,23 +52,45 @@ class CardScript extends PureComponent {
 
       return (
          <Fragment>
-            {validScript && (
-               <ScriptButton script={script} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} focus={focus} />
-            )}
+            {validScript && <ScriptButton script={script} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} focus={focus} />}
             {validScript2 && (
                <ScriptButton script={script2} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} focus={focus && !validScript} />
             )}
             {[BANISHED, MONSTER].includes(activeCard.row) && text.includes("/Flip/") && (
-               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Crossout" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus && !validScript && !validScript2} />
+               <ScriptButton
+                  script={{ name: BANISH_ALL }}
+                  variant="Nobleman of Crossout"
+                  activeCard={activeCard}
+                  heroPlayer={heroPlayer}
+                  focus={focus && !validScript && !validScript2}
+               />
             )}
             {[BANISHED, SPELL_TRAP].includes(activeCard.row) && cardType === TRAP && (
-               <ScriptButton script={{ name: BANISH_ALL }} variant="Nobleman of Extermination" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus && !validScript && !validScript2} />
+               <ScriptButton
+                  script={{ name: BANISH_ALL }}
+                  variant="Nobleman of Extermination"
+                  activeCard={activeCard}
+                  heroPlayer={heroPlayer}
+                  focus={focus && !validScript && !validScript2}
+               />
             )}
-             {[BANISHED, MONSTER].includes(activeCard.row) && cardType.includes("Monster") && atk <= 2000 && (
-               <ScriptButton script={{ name: BANISH_ALL, params: true }} variant="Chain Destruction" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus && !validScript && !validScript2} />
+            {[BANISHED, MONSTER].includes(activeCard.row) && cardType.includes("Monster") && atk <= 2000 && (
+               <ScriptButton
+                  script={{ name: BANISH_ALL, params: true }}
+                  variant="Chain Destruction"
+                  activeCard={activeCard}
+                  heroPlayer={heroPlayer}
+                  focus={focus && !validScript && !validScript2}
+               />
             )}
             {[BANISHED, MONSTER].includes(activeCard.row) && cardType.includes("Monster") && atk <= 1000 && (
-               <ScriptButton script={{ name: BANISH_ALL, params: true }} variant="Chain Disappearance" activeCard={activeCard} heroPlayer={heroPlayer} focus={focus && !validScript && !validScript2} />
+               <ScriptButton
+                  script={{ name: BANISH_ALL, params: true }}
+                  variant="Chain Disappearance"
+                  activeCard={activeCard}
+                  heroPlayer={heroPlayer}
+                  focus={focus && !validScript && !validScript2}
+               />
             )}
          </Fragment>
       );
@@ -87,7 +109,7 @@ function mapStateToProps(state, ownProps) {
    return {
       activeCard: state.selectedCard[ownProps.heroPlayer] || state.hoverCard,
       deck: state.field[ownProps.heroPlayer][DECK]
-  };
+   };
 }
 
 export default connect(mapStateToProps)(CardScript);

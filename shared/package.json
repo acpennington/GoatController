@@ -1,32 +1,32 @@
 {
-  "private": true,
-  "name": "shared",
-  "version": "1.0.0",
-  "main": "index.js",
-  "exports": {
-    "./cardCount": "./cardCount.js",
-    "./constants": "./constants.js",
-    "./database": "./database.js",
-    "./display": "./display.js",
-    "./expandDeck": "./expandDeck.js",
-    "./exportYDK": "./exportYDK.js",
-    "./getCardDetails": "./getCardDetails.js",
-    "./importYDK": "./importYDK.js",
-    "./shuffle": "./shuffle.js",
-    "./verifyDeck": "./verifyDeck.js"
-  },
-  "dependencies": {
-    "@aitodotai/json-stringify-pretty-compact": "^1.3.0",
-    "jest": "<27",
-    "jest-expect-message": "^1.0.2"
-  },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "jest-expect-message"
-    ]
-  },
-  "scripts": {
-    "test": "jest",
-    "format": "node format"
-  }
+   "private": true,
+   "name": "shared",
+   "version": "1.0.0",
+   "main": "index.js",
+   "exports": {
+      "./cardCount": "./cardCount.js",
+      "./constants": "./constants.js",
+      "./database": "./database.js",
+      "./display": "./display.js",
+      "./expandDeck": "./expandDeck.js",
+      "./exportYDK": "./exportYDK.js",
+      "./getCardDetails": "./getCardDetails.js",
+      "./importYDK": "./importYDK.js",
+      "./shuffle": "./shuffle.js",
+      "./verifyDeck": "./verifyDeck.js"
+   },
+   "dependencies": {
+      "@aitodotai/json-stringify-pretty-compact": "^1.3.0",
+      "jest": "<27",
+      "jest-expect-message": "^1.0.2"
+   },
+   "jest": {
+      "setupFilesAfterEnv": [
+         "jest-expect-message"
+      ]
+   },
+   "scripts": {
+      "test": "jest",
+      "format": "node format"
+   }
 }

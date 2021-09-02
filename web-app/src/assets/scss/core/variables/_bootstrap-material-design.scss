@@ -80,10 +80,7 @@ $bmd-switch-handle-checked-bg: $brand-primary !default;
 $bmd-switch-handle-unchecked-bg: #f1f1f1 !default;
 $bmd-switch-handle-disabled-bg: #bdbdbd !default;
 $bmd-switch-unchecked-bg: $gray-lighter !default;
-$bmd-switch-checked-bg: desaturate(
-  lighten($bmd-switch-handle-checked-bg, 28%),
-  32%
-); // kind of magic recipe
+$bmd-switch-checked-bg: desaturate(lighten($bmd-switch-handle-checked-bg, 28%), 32%); // kind of magic recipe
 $bmd-switch-disabled-bg: $gray-lighter !default;
 
 // Popovers and Popups
@@ -99,10 +96,7 @@ $bmd-radio-label-padding: 0.3125rem !default; // 5px
 $bmd-radio-color-off: $bmd-label-color-inner-focus !default;
 $bmd-radio-color-on: $brand-primary !default;
 $bmd-radio-color-disabled: $gray-lighter; //
-$bmd-radio-color-disabled-inverse: rgba(
-  $white,
-  0.3
-); // dark theme spec: Disabled: #FFFFFF, Opacity  30%
+$bmd-radio-color-disabled-inverse: rgba($white, 0.3); // dark theme spec: Disabled: #FFFFFF, Opacity  30%
 
 $white-color: #fff !default;
 $navbar-color: #555 !default;

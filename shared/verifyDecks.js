@@ -13,7 +13,7 @@ module.exports = function verifyDecks(main, side, exarion = false) {
    for (const deck in decks) {
       for (const raw in decks[deck]) {
          const name = raw.split(SENTINEL)[0];
-         names[name] = (names[name] ? names[name] + decks[deck][raw] : decks[deck][raw]);
+         names[name] = names[name] ? names[name] + decks[deck][raw] : decks[deck][raw];
          total[deck] += decks[deck][raw];
 
          const card = cards[name];

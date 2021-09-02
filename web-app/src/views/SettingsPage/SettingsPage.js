@@ -190,7 +190,7 @@ class SettingsPage extends PureComponent {
                   </div>
                </GridItem>
                <GridItem xs={12}>
-                  <div className={classes.center} style={{ marginBottom: "30px"}}>
+                  <div className={classes.center} style={{ marginBottom: "30px" }}>
                      <Foil />
                   </div>
                </GridItem>

@@ -13,8 +13,8 @@ class CardFinder extends PureComponent {
       const cardKeys = Object.keys(withFusions ? cards : nonfusions);
       cardKeys.sort();
 
-      const total = 1699 - 1 /* Tyler the Great Warrior */ - 17 /* forbidden */ - (withFusions ? 0 : 52) /* fusions */;
-      console.log(`${(cardKeys.length / total * 100).toFixed(2)}% of Goat Format legal cards loaded.`);
+      const total = 1699 - 1 /* Tyler the Great Warrior */ - 17 /* forbidden */ - (withFusions ? 0 : 52); /* fusions */
+      console.log(`${((cardKeys.length / total) * 100).toFixed(2)}% of Goat Format legal cards loaded.`);
 
       for (const card of cardKeys) {
          cardList.push({ name: card, value: card });

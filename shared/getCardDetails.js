@@ -15,4 +15,4 @@ module.exports = function getCardDetails(raw) {
    const name = raw.split(SENTINEL)[0];
    if (name.includes("Token")) return tokens[name] ? tokens[name] : emptyCard;
    return cards[name] ? cards[name] : emptyCard;
-}
+};

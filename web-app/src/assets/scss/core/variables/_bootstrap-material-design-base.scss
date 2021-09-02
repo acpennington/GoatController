@@ -2,10 +2,7 @@ $gray-lighter: rgba($black, 0.12) !default;
 $gray-light: #999 !default;
 $gray-alpha: 0.54 !default;
 $gray: #555 !default; // spec color
-$gray-dark: rgba(
-  $black,
-  0.87
-) !default; // used for text color - others use grey-600 which is considerably lighter
+$gray-dark: rgba($black, 0.87) !default; // used for text color - others use grey-600 which is considerably lighter
 
 $bmd-font-weight-base: 400;
 

@@ -37,8 +37,7 @@ async function post(body, token) {
    };
    try {
       await DynamoDB.put(params).promise();
-   }
-   catch (err) {
+   } catch (err) {
       return { statusCode: 400, body: { errors: [err] } };
    }
 

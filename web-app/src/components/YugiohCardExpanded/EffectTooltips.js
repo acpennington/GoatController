@@ -11,7 +11,7 @@ class EffectTooltips extends PureComponent {
       const { text, classes } = this.props;
 
       // NOTE: safe given we control all the card text as it comes the card database
-      const br = s => <span dangerouslySetInnerHTML={{__html: s.replace(/●/g, '<br />●')}}></span>;
+      const br = (s) => <span dangerouslySetInnerHTML={{ __html: s.replace(/●/g, "<br />●") }}></span>;
 
       let rtn = [];
       let remainingText = text;

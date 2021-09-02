@@ -1,11 +1,11 @@
 import React, { PureComponent, Fragment } from "react";
 import { connect } from "react-redux";
 
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 import Button from "components/CustomButtons/Button.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
@@ -37,17 +37,10 @@ class ConcedeButton extends PureComponent {
             <Button color={color} round href={concessionLink ? concessionLink : undefined} onClick={func} style={{ marginBottom: "15px" }}>
                {concessionLink ? "Quit" : "Concede Duel"}
             </Button>
-            <Dialog
-               open={dialogOpen}
-               onClose={this.handleDialogClose}
-               aria-labelledby="alert-dialog-title"
-               aria-describedby="alert-dialog-description"
-               >
+            <Dialog open={dialogOpen} onClose={this.handleDialogClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                <DialogTitle id="alert-dialog-title">Concede Duel</DialogTitle>
                <DialogContent>
-                  <DialogContentText id="alert-dialog-description">
-                     Are you sure you wish to concede?
-                  </DialogContentText>
+                  <DialogContentText id="alert-dialog-description">Are you sure you wish to concede?</DialogContentText>
                </DialogContent>
                <DialogActions>
                   <Button onClick={() => this.handleDialogClose(true)} color="primary">
