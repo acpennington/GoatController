@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -7,14 +7,10 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import GenericFinder from "components/CardFinder/GenericFinder.js";
 import Visibility from "components/Switches/Visibility.js";
 import ButtonRow from "components/CustomButtons/ButtonRow";
+import DialogButton from "components/CustomButtons/DialogButton.js";
 import Button from "components/CustomButtons/Button.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 import { loadDeck, setUnsaved } from "stateStore/actions/shared/settings.js";
-
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
 
 import { FaSave, FaUndo } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
@@ -45,7 +41,7 @@ const EXARION_ALLOWED = true;
 class DeckSelector extends PureComponent {
    constructor(props) {
       super(props);
-      this.state = { deckName: "", dialogOpen: false };
+      this.state = { deckName: "" };
    }
 
    getDecks = () => JSON.parse(window.sessionStorage.getItem("decks"));
@@ -138,17 +134,8 @@ class DeckSelector extends PureComponent {
       }
    };
 
-   handleDialogOpen = () => {
-      this.setState({ dialogOpen: true });
-   };
-
-   handleDialogClose = () => {
-      this.setState({ dialogOpen: false });
-   };
-
    render() {
       const { classes, deckLoaded, unsavedChanges, player, decklist } = this.props;
-      const { dialogOpen } = this.state;
       const decks = this.getDecks();
 
       const options = [];
@@ -174,27 +161,14 @@ class DeckSelector extends PureComponent {
                            <BsStarFill /> Set Active
                         </Button>
                      ) : (
-                        <Fragment>
-                           <Button color="warning" fullWidth round onClick={this.handleDialogOpen}>
-                              Illegal Deck
-                           </Button>
-                           <Dialog
-                              open={dialogOpen}
-                              onClose={this.handleDialogClose}
-                              aria-labelledby="alert-dialog-title"
-                              aria-describedby="alert-dialog-description"
-                           >
-                              <DialogTitle id="alert-dialog-title">Errors</DialogTitle>
-                              <DialogContent id="alert-dialog-description">
-                                 <ul>{errors}</ul>
-                              </DialogContent>
-                              <DialogActions>
-                                 <Button onClick={this.handleDialogClose} color="primary" autoFocus>
-                                    OK
-                                 </Button>
-                              </DialogActions>
-                           </Dialog>
-                        </Fragment>
+                        <DialogButton
+                           button={"Illegal Deck"}
+                           buttonProps={{ color: "warning", round: true, fullWidth: true }}
+                           dialogTitle={"Errors"}
+                           dialogContent={<ul>{errors}</ul>}
+                           affirmative={"OK"}
+                           affirmativeProps={{ color: "primary" }}
+                        />
                      )}
                   </ButtonRow>
                )}

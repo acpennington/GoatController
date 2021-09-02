@@ -1,11 +1,6 @@
 import React, { PureComponent, Fragment } from "react";
 
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogTitle from "@material-ui/core/DialogTitle";
-
-import Button from "components/CustomButtons/Button.js";
+import DialogButton from "components/CustomButtons/DialogButton.js";
 import ChatShorcuts from "components/Switches/ChatShortcuts.js";
 import { switchChatShortcuts } from "stateStore/actions/shared/settings.js";
 import { FaKeyboard } from "react-icons/fa";
@@ -16,25 +11,14 @@ class ShortcutMenuButton extends PureComponent {
    constructor(props) {
       super(props);
 
-      this.state = { dialogOpen: false };
-
       const storage = window.localStorage;
       const chatShortcuts = storage.getItem("chatShortcuts");
       if (chatShortcuts === null) storage.setItem("chatShortcuts", false);
       else if (chatShortcuts === "true" && !props.chatShortcuts) this.props.switchChatShortcuts();
    }
 
-   handleDialogOpen = () => {
-      this.setState({ dialogOpen: true });
-   };
-
-   handleDialogClose = () => {
-      this.setState({ dialogOpen: false });
-   };
-
    render() {
       const { chatShortcuts } = this.props;
-      const { dialogOpen } = this.state;
 
       const chat = chatShortcuts ? (
          <Fragment>
@@ -56,13 +40,12 @@ class ShortcutMenuButton extends PureComponent {
       );
 
       return (
-         <Fragment>
-            <Button color="primary" fullWidth round onClick={this.handleDialogOpen}>
-               <FaKeyboard />
-            </Button>
-            <Dialog open={dialogOpen} onClose={this.handleDialogClose} aria-labelledby="dialog-title" aria-describedby="alert-dialog-description">
-               <DialogTitle id="dialog-title">Keyboard Shortcuts</DialogTitle>
-               <DialogContent id="alert-dialog-description">
+         <DialogButton
+            button={<FaKeyboard />}
+            buttonProps={{ color: "primary", round: true, fullWidth: true }}
+            dialogTitle={"Keyboard Shortcuts"}
+            dialogContent={
+               <Fragment>
                   <h4>
                      <strong>Duel</strong>
                   </h4>
@@ -131,14 +114,11 @@ class ShortcutMenuButton extends PureComponent {
                         <kbd>ESC</kbd> &mdash; exit out of search results
                      </li>
                   </ul>
-               </DialogContent>
-               <DialogActions>
-                  <Button onClick={this.handleDialogClose} color="primary" autoFocus>
-                     Close
-                  </Button>
-               </DialogActions>
-            </Dialog>
-         </Fragment>
+               </Fragment>
+            }
+            affirmative={"Close"}
+            affirmativeProps={{ color: "primary" }}
+         />
       );
    }
 }
