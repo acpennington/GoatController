@@ -9,7 +9,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Button from "./Button.js";
 
 const DialogButton = React.forwardRef(
-   ({ button, buttonProps, onConfirm, dialogTitle, dialogContent, affirmative, affirmativeProps, negative, negativeProps }, ref) => {
+   ({ button, buttonProps, onConfirm, onDeny, dialogTitle, dialogContent, affirmative, affirmativeProps, negative, negativeProps }, ref) => {
       const [dialogOpen, setDialogOpen] = useState(false);
 
       const handleDialogOpen = () => {
@@ -23,6 +23,7 @@ const DialogButton = React.forwardRef(
 
       const handleDialogNegativeClose = () => {
          setDialogOpen(false);
+         if (onDeny) onDeny();
       };
 
       const actions = negative ? (
@@ -61,6 +62,7 @@ DialogButton.propTypes = {
    button: PropTypes.node.isRequired,
    buttonProps: PropTypes.object,
    onConfirm: PropTypes.func,
+   onDeny: PropTypes.func,
    dialogTitle: PropTypes.node.isRequired,
    dialogContent: PropTypes.node.isRequired,
    affirmative: PropTypes.node.isRequired,
