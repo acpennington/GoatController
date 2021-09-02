@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -8,6 +8,7 @@ import GenericFinder from "components/CardFinder/GenericFinder.js";
 import Visibility from "components/Switches/Visibility.js";
 import ButtonRow from "components/CustomButtons/ButtonRow";
 import DialogButton from "components/CustomButtons/DialogButton.js";
+import DialogContentText from "@material-ui/core/DialogContentText";
 import Button from "components/CustomButtons/Button.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 import { loadDeck, setUnsaved } from "stateStore/actions/shared/settings.js";
@@ -41,7 +42,7 @@ const EXARION_ALLOWED = true;
 class DeckSelector extends PureComponent {
    constructor(props) {
       super(props);
-      this.state = { deckName: "" };
+      this.state = { deckName: "", saving: false, deleting: false, settingActive: false, creating: false };
    }
 
    getDecks = () => JSON.parse(window.sessionStorage.getItem("decks"));
@@ -58,7 +59,10 @@ class DeckSelector extends PureComponent {
       const config = getAuthHeaders();
       const body = { deckName: deckLoaded };
 
+      this.setState({ deleting: true });
       const res = await axios.delete(API_URL + getApiStage() + "/users/deck", { data: body, ...config });
+      this.setState({ deleting: false });
+
       if (res.data.statusCode === 200) {
          const storage = window.sessionStorage;
          const decks = this.getDecks();
@@ -77,7 +81,10 @@ class DeckSelector extends PureComponent {
       const config = getAuthHeaders();
       const body = { deckName: deckLoaded };
 
+      this.setState({ settingActive: true });
       const res = await axios.patch(API_URL + getApiStage() + "/users/deck", body, config);
+      this.setState({ settingActive: false });
+
       if (res.data.statusCode === 200) {
          const storage = window.sessionStorage;
          storage.setItem("activeDeck", deckLoaded);
@@ -92,7 +99,10 @@ class DeckSelector extends PureComponent {
       const config = getAuthHeaders();
       const body = { deckName: deckLoaded, maindeck, sidedeck };
 
+      this.setState({ saving: true });
       const res = await axios.put(API_URL + getApiStage() + "/users/deck", body, config);
+      this.setState({ saving: false });
+
       if (res.data.statusCode === 200) {
          const storage = window.sessionStorage;
          const decks = this.getDecks();
@@ -117,7 +127,10 @@ class DeckSelector extends PureComponent {
          const config = getAuthHeaders();
          const body = { deckName };
 
+         this.setState({ creating: true });
          const res = await axios.post(API_URL + getApiStage() + "/users/deck", body, config);
+         this.setState({ creating: false });
+
          if (res.data.statusCode === 200) {
             const { loadDeck, setDecklist } = this.props;
             const storage = window.sessionStorage;
@@ -136,6 +149,7 @@ class DeckSelector extends PureComponent {
 
    render() {
       const { classes, deckLoaded, unsavedChanges, player, decklist } = this.props;
+      const { saving, deleting, settingActive, creating } = this.state;
       const decks = this.getDecks();
 
       const options = [];
@@ -147,18 +161,56 @@ class DeckSelector extends PureComponent {
       const errors =
          getApiStage() === "dev" ? [] : verifyDecks(decklist.maindeck, decklist.sidedeck, EXARION_ALLOWED).map((error, index) => <li key={index}>{error}</li>);
 
+      const newDeck = unsavedChanges ? (
+         <DialogButton
+            button={
+               <Fragment>
+                  <IoMdCreate /> {creating ? "Creating..." : "New Deck"}
+               </Fragment>
+            }
+            buttonProps={{ color: "success", round: true }}
+            onConfirm={async () => {
+               await this.saveDeck();
+               this.createDeck();
+            }}
+            onDeny={this.createDeck}
+            dialogTitle={"Unsaved Changes"}
+            dialogContent={<DialogContentText>{`Save changes to "${deckLoaded}"?`}</DialogContentText>}
+            affirmative={"Yes"}
+            affirmativeProps={{ color: "primary" }}
+            negative={"No"}
+            negativeProps={{ color: "primary" }}
+         />
+      ) : (
+         <Button color="success" round onClick={this.createDeck}>
+            <IoMdCreate /> New Deck
+         </Button>
+      );
+
       return (
          <div className={classes.deckSelector}>
             <h3>Decks</h3>
             <div className={classes.buttonRow}>
                {!deckIsActive && (
                   <ButtonRow>
-                     <Button color="primary" fullWidth round onClick={this.deleteDeck}>
-                        <MdDeleteForever /> Delete
-                     </Button>
+                     <DialogButton
+                        button={
+                           <Fragment>
+                              <MdDeleteForever /> {deleting ? "Deleting..." : "Delete"}
+                           </Fragment>
+                        }
+                        buttonProps={{ color: "primary", fullWidth: true, round: true }}
+                        onConfirm={this.deleteDeck}
+                        dialogTitle={"Confirm Delete"}
+                        dialogContent={<DialogContentText>{`Are you sure you wish to delete "${deckLoaded}"?`}</DialogContentText>}
+                        affirmative={"Yes"}
+                        affirmativeProps={{ color: "primary" }}
+                        negative={"No"}
+                        negativeProps={{ color: "primary" }}
+                     />
                      {!errors.length ? (
                         <Button color="primary" fullWidth round onClick={this.setActiveDeck}>
-                           <BsStarFill /> Set Active
+                           <BsStarFill /> {settingActive ? "Setting..." : "Set Active"}
                         </Button>
                      ) : (
                         <DialogButton
@@ -175,7 +227,7 @@ class DeckSelector extends PureComponent {
                {unsavedChanges && (
                   <ButtonRow>
                      <Button color="primary" fullWidth round onClick={this.saveDeck}>
-                        <FaSave /> Save
+                        <FaSave /> {saving ? "Saving..." : "Save"}
                      </Button>
                      <Button color="primary" fullWidth round onClick={this.undoChanges}>
                         <FaUndo /> Undo
@@ -183,6 +235,7 @@ class DeckSelector extends PureComponent {
                   </ButtonRow>
                )}
             </div>
+            {/* FIXME: add dialog prompting to save if unsaved */}
             <GenericFinder
                value={deckLoaded}
                options={options}
@@ -193,9 +246,7 @@ class DeckSelector extends PureComponent {
             />
             <Visibility player={player} />
             <div className={classes.flexRow}>
-               <Button color="success" round onClick={this.createDeck}>
-                  <IoMdCreate /> New Deck
-               </Button>
+               {newDeck}
                <CustomInput
                   id="Message"
                   white
