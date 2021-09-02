@@ -19,11 +19,11 @@ import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
 const EFFECT_MESSAGE = "Effect!";
 const cannedMessages = {
-   "OK": "k",
-   "No": 'n',
-   "Thinking": null, // NB: "t" is already used to cycle through spell/traps
-    "Response?": "?",
-    [EFFECT_MESSAGE]: "f"
+   OK: "k",
+   No: "n",
+   Thinking: null, // NB: "t" is already used to cycle through spell/traps
+   "Response?": "?",
+   [EFFECT_MESSAGE]: "f"
 };
 
 class Chat extends PureComponent {
@@ -64,7 +64,6 @@ class Chat extends PureComponent {
 
    render() {
       const { classes, chat, watching, name, chatShortcuts } = this.props;
-
 
       for (const message in cannedMessages) {
          const shortcut = cannedMessages[message];

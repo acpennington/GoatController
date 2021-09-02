@@ -27,7 +27,7 @@ class YugiohCardExpanded extends PureComponent {
          <div
             className={classes.largePic}
             style={{
-               backgroundImage: `url("/cards/art/${compress(name)}${art ? `.${art}` : ''}.jpg")`,
+               backgroundImage: `url("/cards/art/${compress(name)}${art ? `.${art}` : ""}.jpg")`,
                height,
                width
             }}

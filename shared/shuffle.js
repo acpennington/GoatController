@@ -7,4 +7,4 @@ module.exports = function shuffle(deck) {
    }
 
    return deck;
-}
+};

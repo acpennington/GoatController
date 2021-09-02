@@ -41,7 +41,7 @@ function deduped(deck) {
    const names = {};
    for (const raw in deck) {
       const name = raw.split(SENTINEL)[0];
-      names[name] = (names[name] ? names[name] + deck[raw] : deck[raw]);
+      names[name] = names[name] ? names[name] + deck[raw] : deck[raw];
    }
    return names;
 }

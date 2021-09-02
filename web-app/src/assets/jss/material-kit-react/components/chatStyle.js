@@ -15,7 +15,7 @@ const messageHero = {
    ...message,
    float: "right",
    backgroundColor: "rgb(0,132,255)",
-   color: "white",
+   color: "white"
 };
 
 const messageSystem = {
@@ -24,7 +24,7 @@ const messageSystem = {
    color: "white",
    padding: "4px",
    margin: "0px",
-   width: "100%",
+   width: "100%"
 };
 
 const chatStyle = {
@@ -55,18 +55,18 @@ const chatStyle = {
    messageHero,
    messageStartHero: {
       ...messageHero,
-      borderRadius: "15px 15px 4px 15px",
+      borderRadius: "15px 15px 4px 15px"
    },
    messageMidHero: {
       ...messageHero,
-      borderRadius: "15px 4px 4px 15px",
+      borderRadius: "15px 4px 4px 15px"
    },
    messageEndHero: {
       ...messageHero,
-      borderRadius: "15px 4px 15px 15px",
+      borderRadius: "15px 4px 15px 15px"
    },
    Server: messageSystem,
-   Game: messageSystem,
+   Game: messageSystem
 };
 
 export default chatStyle;

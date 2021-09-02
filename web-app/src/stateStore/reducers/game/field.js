@@ -41,7 +41,7 @@ import {
    SEND_COUNTERS,
    DISCARD_AND_DRAW,
    SHUFFLE_AND_DRAW,
-   UNDO_DRAW,
+   UNDO_DRAW
 } from "shared/constants.js";
 
 const blankField = {
@@ -267,7 +267,7 @@ export default function (state = initialState, action) {
          return { ...state };
       }
       case SHUFFLE_AND_DRAW: {
-         let { player, source, count, socket} = data;
+         let { player, source, count, socket } = data;
          const field = state[player];
          if (count === "same") count = state[player].hand.length;
 
@@ -291,7 +291,7 @@ export default function (state = initialState, action) {
          }
 
          if (socket && socket.api) {
-            const message = `${player} shuffled their ${display(source)} into their Deck${count > 0 ? ` and drew ${count} cards.` : "."}`
+            const message = `${player} shuffled their ${display(source)} into their Deck${count > 0 ? ` and drew ${count} cards.` : "."}`;
             const payload = { action: SEND_ENTIRE_GAMESTATE, data: { token: socket.token, id: socket.matchId, gamestate: state, message } };
             socket.api.send(JSON.stringify(payload));
          }
@@ -330,7 +330,7 @@ export default function (state = initialState, action) {
 
          const card = state[player].hand[lastDrawn];
          state[player].hand.splice(lastDrawn, 1);
-         state[player].deck.push(card)
+         state[player].deck.push(card);
          state[player].lastDraw--;
 
          if (socket && socket.api) {

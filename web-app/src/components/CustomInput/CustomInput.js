@@ -15,18 +15,7 @@ const useStyles = makeStyles(styles);
 
 const CustomInput = React.forwardRef((props, ref) => {
    const classes = useStyles();
-   const {
-      formControlProps,
-      labelText,
-      id,
-      labelProps,
-      inputProps,
-      error,
-      white,
-      inputRootCustomClasses,
-      inputCustomClasses,
-      success
-   } = props;
+   const { formControlProps, labelText, id, labelProps, inputProps, error, white, inputRootCustomClasses, inputCustomClasses, success } = props;
 
    const labelClasses = classNames({
       [" " + classes.labelRootError]: error,
@@ -59,7 +48,8 @@ const CustomInput = React.forwardRef((props, ref) => {
                {labelText}
             </InputLabel>
          ) : null}
-         <Input inputRef={ref}
+         <Input
+            inputRef={ref}
             classes={{
                input: inputClasses,
                root: marginTop,
@@ -83,7 +73,7 @@ CustomInput.propTypes = {
    inputCustomClasses: PropTypes.string,
    error: PropTypes.bool,
    success: PropTypes.bool,
-   white: PropTypes.bool,
+   white: PropTypes.bool
 };
 
 export default CustomInput;

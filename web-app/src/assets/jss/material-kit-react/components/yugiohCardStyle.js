@@ -222,7 +222,7 @@ const cardStyle = {
       alignItems: "center",
       width: "100%",
       height: "100%",
-      zIndex: 1,
+      zIndex: 1
    },
    battleImg: {
       opacity: 0.9,

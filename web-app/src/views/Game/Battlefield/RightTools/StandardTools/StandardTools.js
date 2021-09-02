@@ -30,7 +30,7 @@ class StandardTools extends PureComponent {
 
       const bottomButtons = (
          <SizeContext.Consumer>
-            {size => (
+            {(size) =>
                size > 825 ? (
                   <ButtonRow>
                      <SoundButton />
@@ -48,7 +48,7 @@ class StandardTools extends PureComponent {
                      </ButtonRow>
                   </Fragment>
                )
-            )}
+            }
          </SizeContext.Consumer>
       );
 

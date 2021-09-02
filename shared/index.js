@@ -8,12 +8,12 @@ const shuffle = require("./shuffle");
 const verifyDecks = require("./verifyDecks");
 
 module.exports = {
-  cardCount,
-  display,
-  expandDeck,
-  exportYDK,
-  getCardDetails,
-  importYDK,
-  shuffle,
-  verifyDecks
+   cardCount,
+   display,
+   expandDeck,
+   exportYDK,
+   getCardDetails,
+   importYDK,
+   shuffle,
+   verifyDecks
 };

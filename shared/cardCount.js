@@ -6,4 +6,4 @@ module.exports = function cardCount(cardsMap) {
    });
 
    return count;
-}
+};

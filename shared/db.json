@@ -1270,13 +1270,7 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": [
-                  "Harpie Lady",
-                  "Harpie Lady 1",
-                  "Harpie Lady 2",
-                  "Harpie Lady 3",
-                  "Cyber Harpie Lady"
-               ]
+               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Cyber Harpie Lady"]
             }
          },
          "autoClose": true
@@ -3865,14 +3859,7 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": [
-                  "Harpie Lady",
-                  "Harpie Lady 1",
-                  "Harpie Lady 2",
-                  "Harpie Lady 3",
-                  "Harpie Lady Sisters",
-                  "Cyber Harpie Lady"
-               ]
+               "value": ["Harpie Lady", "Harpie Lady 1", "Harpie Lady 2", "Harpie Lady 3", "Harpie Lady Sisters", "Cyber Harpie Lady"]
             }
          },
          "autoClose": true
@@ -12980,11 +12967,7 @@
          "params": {
             "name": {
                "operator": "OR",
-               "value": [
-                  "The Second Sarcophagus",
-                  "The Third Sarcophagus",
-                  "Spirit of the Pharaoh"
-               ]
+               "value": ["The Second Sarcophagus", "The Third Sarcophagus", "Spirit of the Pharaoh"]
             }
          },
          "autoClose": true

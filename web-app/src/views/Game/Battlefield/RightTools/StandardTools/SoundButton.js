@@ -25,7 +25,7 @@ class SoundButton extends PureComponent {
 
       return (
          <Button color="primary" fullWidth round onClick={this.flipSound}>
-           {soundOn ? <FaVolumeUp /> : <FaVolumeMute />}
+            {soundOn ? <FaVolumeUp /> : <FaVolumeMute />}
          </Button>
       );
    }

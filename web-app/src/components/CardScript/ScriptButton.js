@@ -130,11 +130,13 @@ class ScriptButton extends PureComponent {
       const deck = field[heroPlayer][DECK];
 
       for (let i = count || 1; i > 0 && deck.length > 0; i--) {
-         moveCard({
-            from: { player: heroPlayer, row: DECK, zone: -1 },
-            to: { player: heroPlayer, row: HAND, zone: 0 }
-         },
-         this.context);
+         moveCard(
+            {
+               from: { player: heroPlayer, row: DECK, zone: -1 },
+               to: { player: heroPlayer, row: HAND, zone: 0 }
+            },
+            this.context
+         );
       }
    };
 
@@ -186,7 +188,10 @@ class ScriptButton extends PureComponent {
             onClick={this.runScript}
             style={
                activeCard && activeCard.name
-                  ? { backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/' + compress(variant || activeCard.name) + '.jpg")' }
+                  ? {
+                       backgroundImage:
+                          'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/' + compress(variant || activeCard.name) + '.jpg")'
+                    }
                   : {}
             }
             round
@@ -228,7 +233,7 @@ ScriptButton.propTypes = {
    heroPlayer: PropTypes.string.isRequired,
    activeCard: PropTypes.object.isRequired,
    variant: PropTypes.string,
-   focus: PropTypes.bool,
+   focus: PropTypes.bool
 };
 
 ScriptButton.contextType = WebSocketContext;

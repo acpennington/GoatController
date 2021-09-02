@@ -44,20 +44,8 @@ class CustomDropdown extends React.Component {
    };
    render() {
       const { open } = this.state;
-      const {
-         classes,
-         buttonText,
-         buttonIcon,
-         dropdownList,
-         buttonProps,
-         dropup,
-         dropdownHeader,
-         caret,
-         hoverColor,
-         left,
-         rtlActive,
-         noLiPadding
-      } = this.props;
+      const { classes, buttonText, buttonIcon, dropdownList, buttonProps, dropup, dropdownHeader, caret, hoverColor, left, rtlActive, noLiPadding } =
+         this.props;
       const caretClasses = classNames({
          [classes.caret]: true,
          [classes.caretActive]: open,
@@ -116,31 +104,18 @@ class CustomDropdown extends React.Component {
                })}
             >
                {({ TransitionProps, placement }) => (
-                  <Grow
-                     in={open}
-                     id="menu-list"
-                     style={dropup ? { transformOrigin: "0 100% 0" } : { transformOrigin: "0 0 0" }}
-                  >
+                  <Grow in={open} id="menu-list" style={dropup ? { transformOrigin: "0 100% 0" } : { transformOrigin: "0 0 0" }}>
                      <Paper className={classes.dropdown}>
                         <ClickAwayListener onClickAway={this.handleCloseAway}>
                            <MenuList role="menu" className={classes.menuList}>
                               {dropdownHeader !== undefined ? (
-                                 <MenuItem
-                                    onClick={() => this.handleClose(dropdownHeader)}
-                                    className={classes.dropdownHeader}
-                                 >
+                                 <MenuItem onClick={() => this.handleClose(dropdownHeader)} className={classes.dropdownHeader}>
                                     {dropdownHeader}
                                  </MenuItem>
                               ) : null}
                               {dropdownList.map((prop, key) => {
                                  if (prop.divider) {
-                                    return (
-                                       <Divider
-                                          key={key}
-                                          onClick={() => this.handleClose("divider")}
-                                          className={classes.dropdownDividerItem}
-                                       />
-                                    );
+                                    return <Divider key={key} onClick={() => this.handleClose("divider")} className={classes.dropdownDividerItem} />;
                                  }
                                  return (
                                     <MenuItem key={key} onClick={() => this.handleClose(prop)} className={dropdownItem}>

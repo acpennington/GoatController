@@ -9,22 +9,22 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 class ShortcutFooter extends PureComponent {
    render() {
       const { row } = this.props;
-      return (<Fragment>Shortcut: {getShortcut(row)}</Fragment>);
+      return <Fragment>Shortcut: {getShortcut(row)}</Fragment>;
    }
 }
 
 function getShortcut(row) {
-    switch (row) {
-       case GRAVEYARD:
-          return "Double-click a card to banish it.";
-       case BANISHED:
-          return "Double-click a card to move it back to your Graveyard.";
-       case DECK:
-          return "Double-click a card to add it to your hand.";
-       default:
-          return "None";
-    }
- }
+   switch (row) {
+      case GRAVEYARD:
+         return "Double-click a card to banish it.";
+      case BANISHED:
+         return "Double-click a card to move it back to your Graveyard.";
+      case DECK:
+         return "Double-click a card to add it to your hand.";
+      default:
+         return "None";
+   }
+}
 
 ShortcutFooter.propTypes = {
    row: PropTypes.string.isRequired

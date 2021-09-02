@@ -1,27 +1,26 @@
 name: Tests
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+   push:
+      branches: [main]
+   pull_request:
+      branches: [main]
 
 jobs:
-  build:
+   build:
+      runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
+      strategy:
+         matrix:
+            node-version: [14.x]
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm -C shared install
-    - run: npm -C shared test
-      env:
-        CI: true
+      steps:
+         - uses: actions/checkout@v2
+         - name: Use Node.js ${{ matrix.node-version }}
+           uses: actions/setup-node@v2
+           with:
+              node-version: ${{ matrix.node-version }}
+         - run: npm install
+         - run: npm test
+           env:
+              CI: true

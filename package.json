@@ -1,0 +1,16 @@
+{
+   "dependencies": {
+      "prettier": "^2.3.2"
+   },
+   "scripts": {
+      "format": "node shared/format.js && prettier --ignore-path .gitignore --write .",
+      "lint": "prettier --ignore-path .gitignore --check .",
+      "test": "npm run lint && npm -C shared test",
+      "postinstall": "npm -C shared install"
+   },
+   "prettier": {
+      "tabWidth": 3,
+      "printWidth": 160,
+      "trailingComma": "none"
+   }
+}

@@ -27,8 +27,7 @@ export default function Footer(props) {
             <div className={classes.right} style={{ width: "100%", borderRadius: "10px", backgroundColor: "rgba(0,0,0,0.5)" }}>
                Best viewed in Chrome, Edge, or any Chromium-based web browser. Make sure your browser is up to date!
                <br />
-               &copy; {1900 + new Date().getYear()}, made with <Favorite className={classes.icon} /> by ACP {"&"} the
-               Goat Format community
+               &copy; {1900 + new Date().getYear()}, made with <Favorite className={classes.icon} /> by ACP {"&"} the Goat Format community
             </div>
          </div>
       </footer>

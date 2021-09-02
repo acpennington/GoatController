@@ -1,10 +1,10 @@
 import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 import Shadow from "components/Shadow/Shadow.js";
 import Button from "components/CustomButtons/Button.js";
@@ -13,7 +13,6 @@ import verifyDecks from "shared/verifyDecks.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
 import { LEAGUE_SOCKET_URL, ENTER_QUEUE, NEW_GAME } from "shared/constants.js";
-
 
 class QueueButton extends PureComponent {
    constructor(props) {
@@ -66,11 +65,7 @@ class QueueButton extends PureComponent {
    render() {
       const { webSocket, dialogOpen } = this.state;
 
-      const errors = this.errors.map((error, index) =>
-         <li key={index}>
-            {error}
-         </li>
-      );
+      const errors = this.errors.map((error, index) => <li key={index}>{error}</li>);
 
       return (
          <Fragment>
@@ -83,12 +78,7 @@ class QueueButton extends PureComponent {
                   <Button color="warning" size="lg" round onClick={this.handleDialogOpen}>
                      Illegal Deck
                   </Button>
-                  <Dialog
-                     open={dialogOpen}
-                     onClose={this.handleDialogClose}
-                     aria-labelledby="alert-dialog-title"
-                     aria-describedby="alert-dialog-description"
-                     >
+                  <Dialog open={dialogOpen} onClose={this.handleDialogClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                      <DialogTitle id="alert-dialog-title">Errors</DialogTitle>
                      <DialogContent id="alert-dialog-description">
                         <ul>{errors}</ul>

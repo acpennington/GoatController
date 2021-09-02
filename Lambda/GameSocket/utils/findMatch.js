@@ -6,18 +6,18 @@ const DynamoDB = new AWS.DynamoDB.DocumentClient();
 // @desc Finds a match by id and returns it
 // @db 1 reads, 0 writes
 async function findMatch(id, projection = false) {
-    const params = {
-        TableName: "matches",
-        Key: { id }
-    };
-    if (projection) params.ProjectionExpression = projection;
+   const params = {
+      TableName: "matches",
+      Key: { id }
+   };
+   if (projection) params.ProjectionExpression = projection;
 
-    try {
-        const result = await DynamoDB.get(params).promise();
-        return result.Item;
-    } catch (err) {
-        return false;
-    }
+   try {
+      const result = await DynamoDB.get(params).promise();
+      return result.Item;
+   } catch (err) {
+      return false;
+   }
 }
 
 module.exports = findMatch;

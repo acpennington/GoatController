@@ -46,8 +46,8 @@ const { bind, unbind } = Mousetrap;
 // If we select a card with prepopLP the focus gets shifted to the LPinputBox which then disables further keybindings.
 // Mousetrap's recommended way of working around this (https://craig.is/killing/mice#api.stopCallback) is to patch stopCallback.
 const stopCallback = Mousetrap.prototype.stopCallback;
-Mousetrap.prototype.stopCallback = function(e, element, combo, sequence) {
-   if (element.id === LP_INPUT_ID && ['m', 'M', 's', 'S', 't', 'T'].includes(e.key)) return false;
+Mousetrap.prototype.stopCallback = function (e, element, combo, sequence) {
+   if (element.id === LP_INPUT_ID && ["m", "M", "s", "S", "t", "T"].includes(e.key)) return false;
    return stopCallback(e, element, combo, sequence);
 };
 
@@ -154,7 +154,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       return () => {
          const card = cycle(row, direction);
          if (card) dispatch(newSelection(heroPlayer, heroPlayer, card.row, card.zone, card.name, card.facedown, socket));
-      }
+      };
    };
    bind("m", shortcut(MONSTER, 1));
    bind("M", shortcut(MONSTER, -1));
@@ -248,7 +248,7 @@ function makeCycle(field, selection) {
       const length = field[row].length;
       const current = typeof (selection?.row === row && selection?.zone) === "number" ? mod(selection.zone + direction, length) : 0;
       for (let zone = current, i = 0; i < length; zone = mod(zone + direction, length), i++) {
-         if (field[row][zone]) return {...field[row][zone], row, zone};
+         if (field[row][zone]) return { ...field[row][zone], row, zone };
       }
    };
 }
@@ -256,7 +256,7 @@ function makeCycle(field, selection) {
 // Turn Javascript's modulo operator which uses truncated division into one which uses Euclidean division
 function mod(n, m) {
    return ((n % m) + m) % m;
- }
+}
 
 YugiohCard.propTypes = {
    height: PropTypes.number.isRequired,

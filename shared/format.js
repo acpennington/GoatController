@@ -10,7 +10,7 @@ const db = require("./db.json");
 
 const sorted = {};
 for (const key of Object.keys(db).sort()) {
-  sorted[key] = db[key];
+   sorted[key] = db[key];
 }
 
-fs.writeFileSync(path.resolve(__dirname, "db.json"), stringify(sorted, {objectMargins: true, indent: 3}) + "\n");
+fs.writeFileSync(path.resolve(__dirname, "db.json"), stringify(sorted, { objectMargins: true, indent: 3 }) + "\n");

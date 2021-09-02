@@ -243,7 +243,7 @@ function verifyParams(name, params) {
                break;
             case "CONTAINS":
             case "DOES_NOT_CONTAIN":
-               expect(typeof params[field].value === "string").toBe(true)
+               expect(typeof params[field].value === "string").toBe(true);
                expect(params[field].value.length).toBeGreaterThan(0);
                break;
             case "TYPEMATCH":
@@ -377,13 +377,19 @@ test("database", () => {
          if (typeof prepopLP.hero === "object") {
             verifyComplexPrepopLP(`"${name}" prepopLP.hero`, prepopLP.hero);
          } else {
-            expect(prepopLP.hero === undefined || prepopLP.hero === "half" || isNumber(prepopLP.hero), `"${name}" has an invalid hero prepopLP: '${prepopLP.hero}'`).toBe(true);
+            expect(
+               prepopLP.hero === undefined || prepopLP.hero === "half" || isNumber(prepopLP.hero),
+               `"${name}" has an invalid hero prepopLP: '${prepopLP.hero}'`
+            ).toBe(true);
          }
 
          if (typeof prepopLP.villain === "object") {
             verifyComplexPrepopLP(`"${name}" prepopLP.villain`, prepopLP.villain);
          } else {
-            expect(prepopLP.villain === undefined || prepopLP.villain === "half" || isNumber(prepopLP.villain), `"${name}" has an invalid villain prepopLP: '${prepopLP.villain}'`).toBe(true);
+            expect(
+               prepopLP.villain === undefined || prepopLP.villain === "half" || isNumber(prepopLP.villain),
+               `"${name}" has an invalid villain prepopLP: '${prepopLP.villain}'`
+            ).toBe(true);
          }
       }
 
@@ -396,7 +402,10 @@ test("database", () => {
             expect(allZones).toContain(script.displayCondition.row);
 
             const players = JSON.stringify(script.displayCondition.players);
-            expect(['["HERO"]', '["VILLAIN"]', '["HERO","VILLAIN"]'].includes(players), `"${name}" has an invalid script.displayConditions.players: "${players}"`).toBe(true);
+            expect(
+               ['["HERO"]', '["VILLAIN"]', '["HERO","VILLAIN"]'].includes(players),
+               `"${name}" has an invalid script.displayConditions.players: "${players}"`
+            ).toBe(true);
 
             verifyScriptParams(name, script);
 

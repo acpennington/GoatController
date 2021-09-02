@@ -8,7 +8,19 @@ import { GiTwoCoins, GiCardPlay, GiUpCard } from "react-icons/gi";
 import { ImShuffle } from "react-icons/im";
 import FindInPageIcon from "@material-ui/icons/FindInPage";
 
-import { SEARCH_DECK, BANISH_ALL, MILL_UNTIL, TOKENS, FLIP_COINS, ROLL_DICE, DISCARD_AND_DRAW, SHUFFLE_AND_DRAW, SKIP_DRAWS, GRAVEYARD, DRAW_N } from "shared/constants";
+import {
+   SEARCH_DECK,
+   BANISH_ALL,
+   MILL_UNTIL,
+   TOKENS,
+   FLIP_COINS,
+   ROLL_DICE,
+   DISCARD_AND_DRAW,
+   SHUFFLE_AND_DRAW,
+   SKIP_DRAWS,
+   GRAVEYARD,
+   DRAW_N
+} from "shared/constants";
 
 class ScriptName extends PureComponent {
    render() {
@@ -30,7 +42,7 @@ class ScriptName extends PureComponent {
          case MILL_UNTIL:
             return (
                <Fragment>
-                  <BiDownload /> Mill  {typeof params === "number" ? params : "Until"}
+                  <BiDownload /> Mill {typeof params === "number" ? params : "Until"}
                </Fragment>
             );
          case TOKENS:
