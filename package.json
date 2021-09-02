@@ -8,7 +8,7 @@
       "build": "npm -C web-app run build",
       "start": "npm -C web-app start",
       "test": "npm run lint && npm -C shared test",
-      "postinstall": "npm -C shared install"
+      "postinstall": "npm -C shared install && npm -C web-app install"
    },
    "prettier": {
       "tabWidth": 3,
