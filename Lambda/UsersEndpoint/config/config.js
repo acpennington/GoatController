@@ -45,7 +45,13 @@ module.exports = {
       },
       sidedeck: {
          "Mobius the Frost Monarch": 2,
-         "Gravekeeper's Spy": 2
+         "Gravekeeper's Spy": 2,
+         "Kycoo the Ghost Destroyer": 2,
+         Kuriboh: 2,
+         Scapegoat: 1,
+         "Creature Swap": 2,
+         "Cursed Seal of the Forbidden Spell": 2,
+         "Seven Tools of the Bandit": 2
       }
    }
 };
