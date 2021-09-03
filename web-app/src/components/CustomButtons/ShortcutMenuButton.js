@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from "react";
 
 import DialogButton from "components/CustomButtons/DialogButton.js";
-import ChatShorcuts from "components/Switches/ChatShortcuts.js";
+import ChatShortcuts from "components/Switches/ChatShortcuts.js";
 import { switchChatShortcuts } from "stateStore/actions/shared/settings.js";
 import { FaKeyboard } from "react-icons/fa";
 
@@ -22,7 +22,7 @@ class ShortcutMenuButton extends PureComponent {
 
       const chat = chatShortcuts ? (
          <Fragment>
-            <ChatShorcuts />
+            <ChatShortcuts />
             <ul>
                <li>
                   <kbd>k</kbd> &mdash; send "OK" in chat
@@ -36,7 +36,7 @@ class ShortcutMenuButton extends PureComponent {
             </ul>
          </Fragment>
       ) : (
-         <ChatShorcuts />
+         <ChatShortcuts />
       );
 
       return (
