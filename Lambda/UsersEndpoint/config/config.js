@@ -43,6 +43,9 @@ module.exports = {
          "Sakuretsu Armor": 2,
          "Dust Tornado": 2
       },
-      sidedeck: {}
+      sidedeck: {
+         "Mobius the Frost Monarch": 2,
+         "Gravekeeper's Spy": 2
+      }
    }
 };
