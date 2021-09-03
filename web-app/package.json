@@ -27,8 +27,6 @@
       "react-scripts": "3.4.1",
       "react-select-search": "^3.0.5",
       "react-slick": "^0.28.1",
-      "react-virtualized": "^9.22.3",
-      "react-virtualized-auto-sizer": "^1.0.6",
       "redux": "^4.0.5",
       "redux-thunk": "^2.3.0",
       "shared": "file:../shared",
