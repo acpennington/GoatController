@@ -48,8 +48,8 @@ const name = {
 const monsterStats = {
    position: "absolute",
    left: 0,
-   top: "90%",
-   transform: "translateY(-90%)",
+   top: "82%",
+   transform: "translateY(-82%)",
    display: "flex",
    justifyContent: "center",
    fontWeight: 400,
@@ -172,10 +172,8 @@ const cardStyle = {
    statBox: {
       fontFamily: "Matrix",
       fontWeight: 500,
-      margin: "0% 5%",
-      paddingTop: "3%",
-      paddingBottom: "3%",
-      width: "40%",
+      lineHeight: "1em",
+      width: "50%",
       textAlign: "center"
    },
    zoneLabel,
