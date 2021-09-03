@@ -26,7 +26,7 @@ class CardsToRender extends Component {
          const card = getCardDetails(originalName);
          const effectiveName = card.treatedAs || originalName;
          const quantity = (card.limit || 3) - (main[effectiveName] || 0) - (side[effectiveName] || 0);
-         if (quantity > 0) cardsToRender.push({ name: originalName, quantity });
+         if (quantity > 0) cardsToRender.push({ name, quantity });
       }
 
       return cardsToRender;

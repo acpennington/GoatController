@@ -22,6 +22,7 @@ import getApiStage from "utils/getApiStage.js";
 import verifyDecks from "shared/verifyDecks.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL } from "shared/constants.js";
+import { getDeckOptions, getDecks } from "./utils.js";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/rightPanel.js";
@@ -45,11 +46,9 @@ class DeckSelector extends PureComponent {
       this.state = { deckName: "", saving: false, deleting: false, settingActive: false, creating: false };
    }
 
-   getDecks = () => JSON.parse(window.sessionStorage.getItem("decks"));
-
    loadDeck = (value) => {
       const { loadDeck, setDecklist } = this.props;
-      const decks = this.getDecks();
+      const decks = getDecks();
       loadDeck(value);
       setDecklist(decks[value]);
    };
@@ -65,7 +64,7 @@ class DeckSelector extends PureComponent {
 
       if (res.data.statusCode === 200) {
          const storage = window.sessionStorage;
-         const decks = this.getDecks();
+         const decks = getDecks();
          delete decks[deckLoaded];
          storage.setItem("decks", JSON.stringify(decks));
 
@@ -105,7 +104,7 @@ class DeckSelector extends PureComponent {
 
       if (res.data.statusCode === 200) {
          const storage = window.sessionStorage;
-         const decks = this.getDecks();
+         const decks = getDecks();
          decks[deckLoaded] = decklist;
          storage.setItem("decks", JSON.stringify(decks));
 
@@ -135,7 +134,7 @@ class DeckSelector extends PureComponent {
             const { loadDeck, setDecklist } = this.props;
             const storage = window.sessionStorage;
 
-            const decks = this.getDecks();
+            const decks = getDecks();
             decks[deckName] = blankDeck;
 
             storage.setItem("decks", JSON.stringify(decks));
@@ -150,10 +149,6 @@ class DeckSelector extends PureComponent {
    render() {
       const { classes, deckLoaded, unsavedChanges, player, decklist } = this.props;
       const { saving, deleting, settingActive, creating } = this.state;
-      const decks = this.getDecks();
-
-      const options = [];
-      for (const deck in decks) options.push({ name: deck, value: deck });
 
       const activeDeck = window.sessionStorage.getItem("activeDeck");
       const deckIsActive = deckLoaded === activeDeck;
@@ -238,7 +233,7 @@ class DeckSelector extends PureComponent {
             {/* FIXME: add dialog prompting to save if unsaved */}
             <GenericFinder
                value={deckLoaded}
-               options={options}
+               options={getDeckOptions()}
                onChange={(value) => {
                   this.loadDeck(value);
                   this.forceUpdate();

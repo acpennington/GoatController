@@ -8,6 +8,12 @@ import Button from "components/CustomButtons/Button.js";
 import CardFinder from "components/CardFinder/CardFinder.js";
 import GenericFinder from "components/CardFinder/GenericFinder.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
+import display from "shared/display.js";
+import checkParams from "utils/checkParams.js";
+import { getDeckOptions, getDecks } from "../RightPanel/DeckSettings/utils";
+import { nonfusions } from "shared/database";
+import { FaSearch } from "react-icons/fa";
+
 import {
    allCardTypes,
    EFFECT_MONSTER,
@@ -24,11 +30,6 @@ import {
    allAttributes,
    allMonsterTypes
 } from "shared/constants.js";
-import display from "shared/display.js";
-import checkParams from "utils/checkParams";
-import { nonfusions } from "shared/database";
-
-import { FaSearch } from "react-icons/fa";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/leftPanel.js";
@@ -111,6 +112,21 @@ class CardSearch extends PureComponent {
       for (let i = 0; i < (nonfusions[name].art || 1); i++) {
          results.push(i > 0 ? `${name}${SENTINEL}${i}` : name);
       }
+
+      return this.props.newResults(results);
+   };
+
+   getFromDeck = (deckName) => {
+      const results = [];
+      const decks = getDecks();
+      const maindeck = decks[deckName].maindeck;
+
+      for (const name in maindeck) {
+         for (let i = 0; i < (nonfusions[name].art || 1); i++) {
+            results.push(i > 0 ? `${name}${SENTINEL}${i}` : name);
+         }
+      }
+
       return this.props.newResults(results);
    };
 
@@ -263,6 +279,10 @@ class CardSearch extends PureComponent {
             <div className={classes.flexRow}>
                <span className={classes.descSpan}>Quick Find:</span>
                <CardFinder withFusions={false} onChange={this.getResults} />
+            </div>
+            <div className={classes.flexRow}>
+               <span className={classes.descSpan}>Find From Deck:</span>
+               <GenericFinder options={getDeckOptions()} onChange={this.getFromDeck} />
             </div>
             <div className={classes.flexRow}>
                <span className={classes.descSpan}>Name Contains:</span>
