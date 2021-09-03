@@ -29,8 +29,8 @@
       "react-slick": "^0.28.1",
       "redux": "^4.0.5",
       "redux-thunk": "^2.3.0",
-      "use-force-update": "^1.0.7",
-      "shared": "file:../shared"
+      "shared": "file:../shared",
+      "use-force-update": "^1.0.7"
    },
    "scripts": {
       "start": "react-scripts start",

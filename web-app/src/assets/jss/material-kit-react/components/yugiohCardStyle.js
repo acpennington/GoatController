@@ -155,6 +155,13 @@ const cardStyle = {
       borderRight: "3px solid #535351",
       zIndex: 2
    },
+   artImage: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%"
+   },
    lowerHalf: {
       position: "absolute",
       bottom: 0,
@@ -220,7 +227,10 @@ const cardStyle = {
       alignItems: "center",
       width: "100%",
       height: "100%",
-      zIndex: 1
+      zIndex: 1,
+      position: "absolute",
+      top: 0,
+      background: "rgba(0,0,0,0.5)"
    },
    battleImg: {
       opacity: 0.9,
