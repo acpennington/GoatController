@@ -37,7 +37,9 @@ class ModalHeader extends PureComponent {
             <div className={classes.headerContainer} onClick={() => closeModal(row, player, this.context)}>
                <CloseX />
                <div id="modalheader" className={classes["header" + row]}>
-                  Viewing {addName && player + "'s"} {display(row)}
+                  <div style={{width: "85%"}}>
+                     Viewing {addName && player + "'s"} {display(row)}
+                  </div>
                </div>
             </div>
          </Tooltip>
