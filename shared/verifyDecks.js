@@ -13,10 +13,12 @@ module.exports = function verifyDecks(main, side, exarion = false) {
    for (const deck in decks) {
       for (const raw in decks[deck]) {
          const name = raw.split(SENTINEL)[0];
-         names[name] = names[name] ? names[name] + decks[deck][raw] : decks[deck][raw];
+         const card = cards[name];
+         const deduped = card.treatedAs || name;
+
+         names[deduped] = names[deduped] ? names[deduped] + decks[deck][raw] : decks[deck][raw];
          total[deck] += decks[deck][raw];
 
-         const card = cards[name];
          if (!card) {
             errors.push(`Unknown card: "${name}".`);
             continue;
@@ -27,15 +29,15 @@ module.exports = function verifyDecks(main, side, exarion = false) {
          }
 
          const limit = card.limit || 3;
-         if (names[name] > limit) {
-            excess[name] = { limit, actual: names[name] };
+         if (names[deduped] > limit) {
+            excess[deduped] = { limit, actual: names[deduped] };
          }
       }
    }
 
    for (const name in excess) {
       const { limit, actual } = excess[name];
-      errors.push(`"${name} is limited to ${limit} but you have ${actual}.`);
+      errors.push(`"${name}" is limited to ${limit} but you have ${actual}.`);
    }
 
    if (total.main < 40) errors.push(`Your main deck must contain at least 40 cards.`);
