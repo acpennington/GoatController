@@ -34,7 +34,8 @@ import {
    VILLAIN_SELECTION_COLOR,
    REVEAL_COLOR,
    BATTLE,
-   LP_INPUT_ID
+   LP_INPUT_ID,
+   FIELD
 } from "shared/constants.js";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -100,7 +101,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
    const type = dynamicZones.includes(row)
-      ? (levelOrSubtype === FIELD_SPELL && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : SPELL_TRAP)
+      ? (levelOrSubtype === FIELD && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : SPELL_TRAP)
       : row;
 
    const [{ isDragging }, drag] = useDrag({

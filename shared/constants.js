@@ -99,7 +99,7 @@ const allLocations = [MAINDECK, SIDEDECK, SEARCH_RESULTS];
 // rows & zones
 const MONSTER = "monster";
 const SPELL_TRAP = "spellTrap";
-const FIELD_SPELL = "Field";
+const FIELD_SPELL = "fieldSpell";
 const HAND = "hand";
 const DECK = "deck";
 const EXTRA_DECK = "extraDeck";

@@ -11,7 +11,7 @@ module.exports = {
       lastDraw: 0,
       handRevealed: false,
       spellTrap: [null, null, null, null, null],
-      Field: null,
+      fieldSpell: null,
       monster: [null, null, null, null, null]
    }
 };
