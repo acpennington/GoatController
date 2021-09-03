@@ -41,7 +41,9 @@ class CardSearch extends PureComponent {
    }
 
    componentDidMount() {
-      bind("enter", this.search);
+      bind("enter", () => {
+         if (!document.getElementById("dialog-title")) this.search();
+      });
    }
 
    componentWillUnmount() {

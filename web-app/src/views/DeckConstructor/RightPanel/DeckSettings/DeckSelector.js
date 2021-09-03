@@ -153,8 +153,7 @@ class DeckSelector extends PureComponent {
       const activeDeck = window.sessionStorage.getItem("activeDeck");
       const deckIsActive = deckLoaded === activeDeck;
 
-      const errors =
-         getApiStage() === "dev" ? [] : verifyDecks(decklist.maindeck, decklist.sidedeck, EXARION_ALLOWED).map((error, index) => <li key={index}>{error}</li>);
+      const errors = verifyDecks(decklist.maindeck, decklist.sidedeck, EXARION_ALLOWED).map((error, index) => <li key={index}>{error}</li>);
 
       const newDeck = unsavedChanges ? (
          <DialogButton
