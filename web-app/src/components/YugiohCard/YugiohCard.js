@@ -100,9 +100,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
 
    const { cardType, attribute, levelOrSubtype, atk, def } = getCardDetails(name);
 
-   const type = dynamicZones.includes(row)
-      ? (levelOrSubtype === FIELD && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : SPELL_TRAP)
-      : row;
+   const type = dynamicZones.includes(row) ? (levelOrSubtype === FIELD && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : SPELL_TRAP) : row;
 
    const [{ isDragging }, drag] = useDrag({
       item: { type, player, row, zone, cardName },
