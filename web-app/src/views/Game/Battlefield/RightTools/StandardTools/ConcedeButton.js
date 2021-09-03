@@ -22,7 +22,7 @@ class ConcedeButton extends PureComponent {
             buttonProps={{ color, round: true, style: { marginBottom: "15px" } }}
             onConfirm={() => concedeGame(this.context)}
             dialogTitle={"Concede Duel"}
-            dialogContent={<DialogContentText id="alert-dialog-description">Are you sure you wish to concede?</DialogContentText>}
+            dialogContent={<DialogContentText>Are you sure you wish to concede?</DialogContentText>}
             affirmative={"Yes"}
             affirmativeProps={{ color: "primary" }}
             negative={"No"}
