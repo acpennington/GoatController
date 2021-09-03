@@ -15,10 +15,13 @@ class CardArt extends PureComponent {
       if (Number.isInteger(levelOrSubtype)) {
          const starList = [];
          for (let i = 0; i < levelOrSubtype; i++) {
-            starList.push(<img src="/cards/svgs/subtypes/star.svg" draggable="false" height={nameHeight * 0.67} alt="yugioh level star" key={i} />);
+            starList.push(
+               <img src="/cards/svgs/subtypes/star.svg" draggable="false" height={nameHeight * 0.67} alt="yugioh level star" loading="lazy" key={i} />
+            );
          }
          return <Fragment>{starList}</Fragment>;
-      } else return <img src={"/cards/svgs/subtypes/" + levelOrSubtype + ".svg"} draggable="false" height={nameHeight * 0.8} alt="yugioh subtype" />;
+      } else
+         return <img src={"/cards/svgs/subtypes/" + levelOrSubtype + ".svg"} draggable="false" height={nameHeight * 0.8} alt="yugioh subtype" loading="lazy" />;
    };
 
    foilOn() {
@@ -32,9 +35,10 @@ class CardArt extends PureComponent {
 
       return (
          <Fragment>
-            <div className={classes.art} style={{ backgroundImage: `url("/cards/art/${compress(name)}${art ? `.${art}` : ""}.jpg")` }}>
+            <div className={classes.art}>
+               <img src={`/cards/art/${compress(name)}${art ? `.${art}` : ""}.jpg`} className={classes.artImage} draggable="false" loading="lazy" alt={name} />
                {battle && (
-                  <div className={classes.battleImgContainer} style={{ position: "absolute", top: 0, background: "rgba(0,0,0,0.5)" }}>
+                  <div className={classes.battleImgContainer}>
                      <img src={"/battle/" + battle + ".png"} className={classes.battleImg} alt={battle} />
                   </div>
                )}
@@ -58,6 +62,7 @@ class CardArt extends PureComponent {
                         draggable="false"
                         height={nameHeight * 1.05 + "px"}
                         alt=""
+                        loading="lazy"
                         style={{ marginLeft: "2.05%" }}
                      />
                   </div>
