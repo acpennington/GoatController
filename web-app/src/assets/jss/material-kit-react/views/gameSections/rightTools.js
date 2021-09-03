@@ -64,6 +64,9 @@ const rightToolsStyle = {
    headerContainer: {
       position: "relative"
    },
+   headerText: {
+      width: "85%"
+   },
    ["header" + GRAVEYARD]: {
       ...header,
       backgroundPosition: "50% 95%",
