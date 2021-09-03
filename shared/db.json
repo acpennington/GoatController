@@ -114,7 +114,8 @@
       "id": "00295517",
       "cardType": "Spell",
       "levelOrSubtype": "Field",
-      "text": "<effect=Condition>(This card's name is always treated as \"Umi\".)</effect> <effect=Continuous-like>All WATER monsters on the field gain 200 ATK/DEF.</effect> <effect=Continuous-like>Reduce the Level of all WATER monsters in both players' hands and on the field by 1.</effect>"
+      "text": "<effect=Condition>(This card's name is always treated as \"Umi\".)</effect> <effect=Continuous-like>All WATER monsters on the field gain 200 ATK/DEF.</effect> <effect=Continuous-like>Reduce the Level of all WATER monsters in both players' hands and on the field by 1.</effect>",
+      "treatedAs": "Umi"
    },
    "A Man with Wdjat": {
       "id": "51351302",
@@ -2409,6 +2410,7 @@
       "atk": 1800,
       "def": 1300,
       "text": "Winged Beast/Effect – <effect=Condition>(This card's name is always treated as \"Harpie Lady\").</effect>",
+      "treatedAs": "Harpie Lady",
       "art": 2
    },
    "Cyber Jar": {
@@ -5952,6 +5954,7 @@
       "atk": 1300,
       "def": 1400,
       "text": "Winged Beast/Effect – <effect=Condition>(This card's name is always treated as \"Harpie Lady\".)</effect> <effect=Continuous>All WIND monsters gain 300 ATK.</effect>",
+      "treatedAs": "Harpie Lady",
       "art": 2
    },
    "Harpie Lady 2": {
@@ -5962,6 +5965,7 @@
       "atk": 1300,
       "def": 1400,
       "text": "Winged Beast/Effect – <effect=Condition>(This card's name is always treated as \"Harpie Lady\".)</effect> <effect=Continuous>Negate the effects of Flip monsters this card destroys by battle.</effect>",
+      "treatedAs": "Harpie Lady",
       "art": 2
    },
    "Harpie Lady 3": {
@@ -5972,6 +5976,7 @@
       "atk": 1300,
       "def": 1400,
       "text": "Winged Beast/Effect – <effect=Condition>(This card's name is always treated as \"Harpie Lady\".)</effect> <effect=Lingering>An opponent's monster that battles this card cannot declare an attack during your opponent's next 2 turns.</effect>",
+      "treatedAs": "Harpie Lady",
       "art": 2
    },
    "Harpie Lady Sisters": {

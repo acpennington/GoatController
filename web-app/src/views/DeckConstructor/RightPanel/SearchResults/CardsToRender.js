@@ -18,10 +18,15 @@ class CardsToRender extends Component {
       const { searchResults, maindeck, sidedeck } = this.props;
       const cardsToRender = [];
 
+      const main = deduped(maindeck);
+      const side = deduped(sidedeck);
+
       for (const name of searchResults) {
-         const cardName = name.split(SENTINEL)[0];
-         const quantity = (getCardDetails(cardName).limit || 3) - (deduped(maindeck)[cardName] || 0) - (deduped(sidedeck)[cardName] || 0);
-         if (quantity > 0) cardsToRender.push({ name, quantity });
+         const originalName = name.split(SENTINEL)[0];
+         const card = getCardDetails(originalName);
+         const effectiveName = card.treatedAs || originalName;
+         const quantity = (card.limit || 3) - (main[effectiveName] || 0) - (side[effectiveName] || 0);
+         if (quantity > 0) cardsToRender.push({ name: originalName, quantity });
       }
 
       return cardsToRender;
@@ -40,7 +45,9 @@ class CardsToRender extends Component {
 function deduped(deck) {
    const names = {};
    for (const raw in deck) {
-      const name = raw.split(SENTINEL)[0];
+      let name = raw.split(SENTINEL)[0];
+      const card = getCardDetails(name);
+      name = card.treatedAs || name;
       names[name] = names[name] ? names[name] + deck[raw] : deck[raw];
    }
    return names;

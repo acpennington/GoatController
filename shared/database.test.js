@@ -35,7 +35,7 @@ const EFFECTS = [...MONSTER_EFFECTS, ...OTHER_EFFECTS];
 
 const SPELL_TRAP_REQUIRED = ["id", "cardType", "levelOrSubtype", "text"];
 const MONSTER_REQUIRED = ["id", "cardType", "attribute", "levelOrSubtype", "atk", "def", "text"];
-const OPTIONAL = ["prepopLP", "script", "script2", "limit", "art"];
+const OPTIONAL = ["prepopLP", "script", "script2", "limit", "treatedAs", "art"];
 const TOKEN_REQUIRED = MONSTER_REQUIRED.slice(1);
 const FUSION_OPTIONAL = ["order", "noMeta", ...OPTIONAL];
 
@@ -340,6 +340,8 @@ test("database", () => {
             `"${name}" has an unknown/invalid effect type: '${effect[1]}'`
          ).toContain(effect[1]);
       }
+
+      if (card.treatedAs) expect(db[card.treatedAs]).toBeDefined();
 
       if (card.cardType === SPELL) {
          expect(spellSubtypes).toContain(card.levelOrSubtype);
