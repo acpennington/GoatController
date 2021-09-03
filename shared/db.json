@@ -5898,7 +5898,13 @@
       "levelOrSubtype": 2,
       "atk": 600,
       "def": 600,
-      "text": "Spellcaster/Effect – <effect=Ignition>You can Tribute this card and 1 other monster; Special Summon 1 \"Sacred Phoenix of Nephthys\" from your hand or Deck.</effect>"
+      "text": "Spellcaster/Effect – <effect=Ignition>You can Tribute this card and 1 other monster; Special Summon 1 \"Sacred Phoenix of Nephthys\" from your hand or Deck.</effect>",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "graveyard" },
+         "params": { "name": { "value": "Sacred Phoenix of Nephthys" } },
+         "autoClose": true
+      }
    },
    "Hane-Hane": {
       "id": "07089711",
