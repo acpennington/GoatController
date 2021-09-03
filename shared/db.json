@@ -2872,6 +2872,7 @@
       "atk": 2900,
       "def": 2400,
       "text": "Spellcaster/Fusion/Effect – \"Dark Magician\" + \"Buster Blader\". <effect=Summon>Must be Fusion Summoned.</effect> <effect=Quick>When a Spell is activated: You can discard 1 card; negate the activation, and if you do, destroy it. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Gains 500 ATK for each Dragon monster on the field and in the Graveyard.</effect>",
+      "noMeta": true,
       "art": 2
    },
    "Dark Room of Nightmare": {
