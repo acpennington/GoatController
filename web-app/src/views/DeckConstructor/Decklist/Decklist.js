@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import DeckDivider from "./DeckDivider.js";
 import DeckPile from "./DeckPile.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
@@ -36,8 +37,7 @@ class Decklist extends Component {
       const mainCount = cardCount(maindeck);
       const sideCount = cardCount(sidedeck);
 
-      const containerDiv = document.getElementById("decklistContainer");
-      const maxHeight = containerDiv ? containerDiv.offsetHeight : 0;
+      const maxHeight = this.context;
 
       return (
          <div id="decklistContainer" className={classes.container}>
@@ -67,5 +67,7 @@ Decklist.propTypes = {
    player: PropTypes.string.isRequired,
    sharing: PropTypes.bool
 };
+
+Decklist.contextType = SizeContext;
 
 export default connect(mapStateToProps, { setDecklist })(withStyles(styles)(Decklist));
