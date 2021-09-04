@@ -2791,7 +2791,7 @@
       "atk": 2000,
       "def": 1700,
       "text": "Spellcaster/Effect – <effect=Continuous>Gains 300 ATK for every \"Dark Magician\" or \"Magician of Black Chaos\" in the Graveyard.</effect>",
-      "art": 6
+      "art": 9
    },
    "Dark Magician Knight": {
       "id": "50725996",
@@ -3946,7 +3946,7 @@
       "atk": 1200,
       "def": 800,
       "text": "Warrior – A flame manipulator who was the first Elemental HERO woman. Her Burstfire burns away villainy.",
-      "art": 2
+      "art": 4
    },
    "Elemental HERO Clayman": {
       "id": "84327329",
@@ -4210,7 +4210,7 @@
       "atk": 1800,
       "def": 0,
       "text": "Spellcaster/Effect – <effect=Summon>Cannot be Normal Summoned/Set.</effect> <effect=Summon>Must be Special Summoned with \"Contract with Exodia\".</effect> <effect=Continuous>Cannot be destroyed by battle or Spell/Trap effect.</effect> <effect=Trigger>Once per turn, during your Standby Phase: Gain 500 ATK.</effect> <effect=Continuous>Destroy this card unless all 5 of these cards are in your Graveyard - \"Exodia the Forbidden One\", \"Right Arm of the Forbidden One\", \"Left Arm of the Forbidden One\", \"Right Leg of the Forbidden One\" and \"Left Leg of the Forbidden One\".</effect>",
-      "art": 2
+      "art": 3
    },
    "Exodia the Forbidden One": {
       "id": "33396948",
@@ -5041,7 +5041,7 @@
       "atk": 1900,
       "def": 900,
       "text": "Spellcaster – Elf twins that alternate their attacks.",
-      "art": 2
+      "art": 4
    },
    "Germ Infection": {
       "id": "24668830",
@@ -10039,7 +10039,7 @@
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
       "text": "Fusion Summon 1 Fusion Monster from your Fusion Deck, using monsters from your hand or field as Fusion material.",
-      "art": 2
+      "art": 3
    },
    "Possessed Dark Soul": {
       "id": "52860176",
