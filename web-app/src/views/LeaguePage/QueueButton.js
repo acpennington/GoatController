@@ -38,7 +38,7 @@ class QueueButton extends PureComponent {
             const { data } = message;
             window.sessionStorage.setItem("activeMatch", data);
             window.location.href = "/game?id=" + data;
-         }
+         } else console.log(message);
       };
 
       webSocket.onclose = () => {
