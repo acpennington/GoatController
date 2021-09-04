@@ -2,6 +2,9 @@ const AWS = require("aws-sdk");
 AWS.config.update({ region: "us-east-2" });
 const DynamoDB = new AWS.DynamoDB.DocumentClient();
 
+const Redis = require("ioredis");
+const redis = new Redis("goatmatches.z9dvan.0001.use2.cache.amazonaws.com:6379");
+
 const { blankField } = require("../config/config.js");
 const { shuffle, expandDeck, verifyDecks } = require("../shared");
 
@@ -54,6 +57,19 @@ async function createMatch(leagueId, playersParam, api) {
    };
    try {
       await DynamoDB.put(params).promise();
+
+      // also send the game to redis
+      await redis.set(
+         matchId,
+         JSON.stringify({
+            league: leagueId,
+            players,
+            watchers: [],
+            gamestate,
+            turn: { player: goingFirstPlayer, phase: "Draw" },
+            chat: [{ author: "Server", content: `New Match started. ${goingFirstPlayer} will go first. Good luck to both Duelists.` }]
+         })
+      );
    } catch (err) {
       return { statusCode: 400, body: { errors: [err] } };
    }
