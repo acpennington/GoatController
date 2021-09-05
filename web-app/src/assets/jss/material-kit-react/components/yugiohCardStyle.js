@@ -153,14 +153,15 @@ const cardStyle = {
       borderLeft: "3px solid #6b6d6e",
       borderBottom: "3px solid #535351",
       borderRight: "3px solid #535351",
+      overflow: "hidden",
       zIndex: 2
    },
    artImage: {
       position: "absolute",
+      height: "100%",
       top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%"
+      left: "50%",
+      transform: "translate(-50%, 0)"
    },
    lowerHalf: {
       position: "absolute",
