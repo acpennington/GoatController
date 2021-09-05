@@ -6,6 +6,7 @@
    "author": "ACP and the Goat Format community",
    "license": "ISC",
    "dependencies": {
+      "ioredis": "^4.27.9",
       "jsonwebtoken": "^8.5.1"
    }
 }
