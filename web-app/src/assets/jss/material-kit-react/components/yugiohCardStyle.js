@@ -48,8 +48,8 @@ const name = {
 const monsterStats = {
    position: "absolute",
    left: 0,
-   top: "82%",
-   transform: "translateY(-82%)",
+   top: "75%",
+   transform: "translateY(-75%)",
    display: "flex",
    justifyContent: "center",
    fontWeight: 400,
@@ -81,6 +81,15 @@ const zoneLabelCounters = {
 };
 
 const cardStyle = {
+   "@global": {
+      "@font-face": {
+         fontFamily: "Matrix",
+         fontStyle: "normal",
+         fontWeight: 400,
+         fontDisplay: "swap",
+         src: "local('Matrix'), local('Matrix-Regular'), url('/fonts/matrix-400.ttf') format('truetype')"
+      }
+   },
    container: {
       ...container
    },
