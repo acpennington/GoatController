@@ -56,9 +56,6 @@ async function createMatch(leagueId, playersParam, api) {
       }
    };
    try {
-      await DynamoDB.put(params).promise();
-
-      // also send the game to redis
       await redis.set(
          matchId,
          JSON.stringify({
