@@ -2967,7 +2967,7 @@
       "id": "20858318",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "When \"Don Zaloog\", \"Cliff the Trap Remover\", \"Dark Scorpion - Chick the Yellow\", \"Dark Scorpion - Gorg the Strong\", and \"Dark Scorpion - Meanae the Thorn\" face-up on your field: During this turn, any of these 5 cards can attack your opponent's Life Points directly. If they do, they inflict 400 points of battle damage."
+      "text": "When \"Don Zaloog\", \"Dark Scorpion - Cliff the Trap Remover\", \"Dark Scorpion - Chick the Yellow\", \"Dark Scorpion - Gorg the Strong\", and \"Dark Scorpion - Meanae the Thorn\" face-up on your field: During this turn, any of these 5 cards can attack your opponent's Life Points directly. If they do, they inflict 400 points of battle damage."
    },
    "Dark Snake Syndrome": {
       "id": "47233801",
@@ -3523,7 +3523,7 @@
       "levelOrSubtype": 3,
       "atk": 1100,
       "def": 1200,
-      "text": "Reptile/Effect – <effect=Trigger>When this card is Normal or Flip Summoned: You can Special Suppon any number of \"Don Turtle\" from your hand.</effect>"
+      "text": "Reptile/Effect – <effect=Trigger>When this card is Normal or Flip Summoned: You can Special Summon any number of \"Don Turtle\" from your hand.</effect>"
    },
    "Don Zaloog": {
       "id": "76922029",
@@ -4233,15 +4233,6 @@
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
          "params": 1
       }
-   },
-   "Fairy Guardian": {
-      "id": "22419772",
-      "cardType": "effectMonster",
-      "attribute": "Wind",
-      "levelOrSubtype": 3,
-      "atk": 1000,
-      "def": 1000,
-      "text": "Fairy/Effect – <effect=Ignition>You can Tribute this card, then target 1 Spell in your Graveyard that was sent there this turn by an opponent's card; place that target on the bottom of the Deck.</effect>"
    },
    "Fairy King Truesdale": {
       "id": "45425051",
@@ -8548,7 +8539,7 @@
       "id": "85519211",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Inflict 1000 damage to your opponent for each \"Mine Golem\" you control, then destroy all \"Mine-Golem\" you control.",
+      "text": "Inflict 1000 damage to your opponent for each \"Mine Golem\" you control, then destroy all \"Mine Golem\" you control.",
       "prepopLP": { "villain": -1000 }
    },
    "Minor Goblin Official": {
@@ -10351,7 +10342,7 @@
       "id": "74694807",
       "cardType": "Spell",
       "levelOrSubtype": "Equip",
-      "text": "Activate by this card paying 800 Life Points, then target 1 Fusion monster in your Graveyard; Special Summon it and equip it with this card. <effect=Continuous-like>When this card is destroyed, banish the equipped monster.</effect>",
+      "text": "Activate by this card paying 800 Life Points, then target 1 Fusion Monster in your Graveyard; Special Summon it and equip it with this card. <effect=Continuous-like>When this card is destroyed, banish the equipped monster.</effect>",
       "prepopLP": { "hero": -800 }
    },
    "Ready for Intercepting": {
@@ -10898,7 +10889,7 @@
       "levelOrSubtype": 4,
       "atk": 0,
       "def": 2000,
-      "text": "Spellcaster/Effect – <effect=Continuous>Rach time a Spell is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect> <effect=Ignition>You can remove 3 Spell Counters from this card; draw 1 card.</effect>"
+      "text": "Spellcaster/Effect – <effect=Continuous>Each time a Spell is activated, place 1 Spell Counter on this card when that Spell resolves (max. 3).</effect> <effect=Ignition>You can remove 3 Spell Counters from this card; draw 1 card.</effect>"
    },
    "Royal Oppression": {
       "id": "93016201",
@@ -12510,7 +12501,7 @@
       "levelOrSubtype": 6,
       "atk": 2500,
       "def": 1200,
-      "text": "Fiend – A fiend with dark powers for confusing the enemy. Among the Fiend monsters, this monster boasts considerable force.",
+      "text": "Fiend – A fiend with dark powers for confusing the enemy. Among the Fiend monsters, this monster boasts considerable force. (This card is always treated as an \"Archfiend\" card).",
       "art": 4
    },
    "Summoner of Illusions": {
