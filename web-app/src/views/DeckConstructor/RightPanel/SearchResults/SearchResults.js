@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { useDrop } from "react-dnd";
 import useForceUpdate from "use-force-update";
 
+import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll";
 import SearchHeader from "./SearchHeader.js";
 import CardsToRender from "./CardsToRender.js";
@@ -19,9 +20,9 @@ function SearchResults({ classes, player }) {
    const forceUpdate = useForceUpdate();
    useEffect(forceUpdate, []);
 
-   const containerDiv = document.getElementById("searchContainer");
+   const size = useContext(SizeContext);
    const headerDiv = document.getElementById("searchHeader");
-   const maxHeight = containerDiv && headerDiv ? containerDiv.offsetHeight - headerDiv.offsetHeight : 0;
+   const maxHeight = headerDiv ? size - headerDiv.offsetHeight : 0;
 
    const [{ isOver, canDrop }, drop] = useDrop({
       accept: allLocations,
