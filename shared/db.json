@@ -2616,7 +2616,7 @@
       "levelOrSubtype": 5,
       "atk": 2000,
       "def": 1200,
-      "text": "Fiend/Fusion/Effect – \"Possessed Dark Soul\" + \"Frontier Wiseman\". <effect=Summon>q this card must first be done with the above Fusion materials.</effect> <effect=Quick>When a Normal Spell is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>",
+      "text": "Fiend/Fusion/Effect – \"Possessed Dark Soul\" + \"Frontier Wiseman\". <effect=Summon>A Fusion Summon of this card must first be done with the above Fusion materials.</effect> <effect=Quick>When a Normal Spell is activated: You can pay 1000 Life Points; negate that effect. This card must be face-up on the field to activate and to resolve this effect.</effect> <effect=Continuous>Negate the effects of monsters destroyed by battle with this card.</effect>",
       "order": 2,
       "prepopLP": { "hero": -1000 },
       "art": 2
