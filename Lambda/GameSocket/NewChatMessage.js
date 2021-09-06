@@ -10,7 +10,7 @@ async function newChatMessage(id, username, message, connectionId, api) {
    if (message.author !== username && message.author !== "Game")
       return { statusCode: 401, body: { errors: [{ msg: "You are not authorized to send this message" }] } };
 
-   const match = await findMatch(id, "players, watchers");
+   const match = await findMatch(id);
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Match not found" }] } };
    const { players, watchers } = match;
 

@@ -1,23 +1,12 @@
-const AWS = require("aws-sdk");
-AWS.config.update({ region: "us-east-2" });
-const DynamoDB = new AWS.DynamoDB.DocumentClient();
+const Redis = require("ioredis");
+const redis = new Redis("goatmatches.z9dvan.0001.use2.cache.amazonaws.com:6379");
 
 // @function findMatch
 // @desc Finds a match by id and returns it
 // @db 1 reads, 0 writes
-async function findMatch(id, projection = false) {
-   const params = {
-      TableName: "matches",
-      Key: { id }
-   };
-   if (projection) params.ProjectionExpression = projection;
-
-   try {
-      const result = await DynamoDB.get(params).promise();
-      return result.Item;
-   } catch (err) {
-      return false;
-   }
+async function findMatch(id, noParse = false) {
+   const match = await redis.get(id);
+   return noParse ? match : JSON.parse(match);
 }
 
 module.exports = findMatch;

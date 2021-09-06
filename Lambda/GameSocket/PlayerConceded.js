@@ -6,7 +6,7 @@ const sendMultiPayload = require("./utils/sendMultiPayload.js");
 // @access Private
 // @db 1 read, 0 writes
 async function playerConceded(id, username, api) {
-   const match = await findMatch(id, "players, watchers, league");
+   const match = await findMatch(id);
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Match not found" }] } };
    const { players, watchers, league } = match;
 

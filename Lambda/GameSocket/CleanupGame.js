@@ -10,7 +10,7 @@ const findMatch = require("./utils/findMatch.js");
 // @access Private
 // @db 1 read, 3 writes
 async function cleanupGame(id, connectionId, api) {
-   const match = await findMatch(id, "players, league");
+   const match = await findMatch(id);
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Match not found" }] } };
 
    const params = {

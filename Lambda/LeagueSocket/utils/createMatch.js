@@ -19,7 +19,7 @@ async function createMatch(leagueId, playersParam, api) {
    const matchId = stripSpecialChars(player1connection) + stripSpecialChars(player2connection);
 
    let playersInGame;
-   let params = {
+   const params = {
       RequestItems: {
          users: {
             Keys: [{ username: player1name }, { username: player2name }],
@@ -43,18 +43,6 @@ async function createMatch(leagueId, playersParam, api) {
    players[player1name] = "";
    players[player2name] = "";
 
-   params = {
-      TableName: "matches",
-      Item: {
-         id: matchId,
-         league: leagueId,
-         players,
-         watchers: [],
-         gamestate,
-         turn: { player: goingFirstPlayer, phase: "Draw" },
-         chat: [{ author: "Server", content: `New Match started. ${goingFirstPlayer} will go first. Good luck to both Duelists.` }]
-      }
-   };
    try {
       await redis.set(
          matchId,
