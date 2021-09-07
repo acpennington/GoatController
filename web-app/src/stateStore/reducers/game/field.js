@@ -41,7 +41,8 @@ import {
    SEND_COUNTERS,
    DISCARD_AND_DRAW,
    SHUFFLE_AND_DRAW,
-   UNDO_DRAW
+   UNDO_DRAW,
+   SEND_DRAW_UNDONE
 } from "shared/constants.js";
 
 const blankField = {
@@ -334,7 +335,7 @@ export default function (state = initialState, action) {
          state[player].lastDraw--;
 
          if (socket && socket.api) {
-            const payload = { action: UNDO_DRAW, data: { token: socket.token, id: socket.matchId } };
+            const payload = { action: SEND_DRAW_UNDONE, data: { token: socket.token, id: socket.matchId } };
             socket.api.send(JSON.stringify(payload));
          }
 

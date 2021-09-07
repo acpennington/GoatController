@@ -189,6 +189,7 @@ const REMOVE_SELECTION = "RemoveSelection";
 const SEND_COUNTERS = "SendCounters";
 const SEND_DND = "SendDnd";
 const SEND_SHUFFLE_AND_DRAW = "SendShuffleAndDraw";
+const SEND_DRAW_UNDONE = "SendDrawUndone";
 
 // ItemTypes
 const OFF_FIELD = "offField";
@@ -412,6 +413,7 @@ module.exports = {
    SEND_COUNTERS,
    SEND_DND,
    SEND_DRAW_PHASE,
+   SEND_DRAW_UNDONE,
    SEND_ENTIRE_GAMESTATE,
    SEND_LP_CHANGE,
    SEND_POS_CHANGE,
