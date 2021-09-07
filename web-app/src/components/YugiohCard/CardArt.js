@@ -67,10 +67,13 @@ class CardArt extends PureComponent {
                      />
                   </div>
                )}
-               <div className={classes["monsterStats" + villExtension]} style={{
-                  fontSize: nameHeight * 1.29 + "px",
-                  lineHeight: nameHeight * 1.29 + "px"
-               }}>
+               <div
+                  className={classes["monsterStats" + villExtension]}
+                  style={{
+                     fontSize: nameHeight * 1.29 + "px",
+                     lineHeight: nameHeight * 1.29 + "px"
+                  }}
+               >
                   {isMonster && (
                      <Fragment>
                         <div className={classes.statBox}>{atk}</div>
