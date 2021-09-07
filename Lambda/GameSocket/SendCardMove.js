@@ -9,10 +9,10 @@ const ZONES = [MONSTER, SPELL_TRAP, FIELD_SPELL];
 // @access Private
 // @db 1 read, 0 writes
 async function sendCardMove(id, username, from, fromCard, to, settingTrap, msg, connectionId, api) {
-   const player = to.player === username ? " their " : to.player + "'s ";
+   const player = to.player === username ? "their" : `${to.player}'s`;
    const unknown =
       settingTrap || (from.row === DECK && to.row === HAND && from.zone === -1) || (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED);
-   const cardName = unknown ? "a card " : "<<" + fromCard.name + ">>";
+   const cardName = unknown ? "a card" : "<<" + fromCard.name + ">>";
    const adverb = msg ? ` ${msg} ` : " ";
    const noMessage = (from.row === HAND && to.row === HAND) || (from.row === DECK && to.row === DECK);
 
