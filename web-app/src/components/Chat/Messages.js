@@ -5,12 +5,15 @@ import Fuse from "fuse.js";
 
 import { newHover } from "stateStore/actions/shared/hoverCard";
 import { newSelection } from "stateStore/actions/shared/selectedCard";
-import { cards } from "shared/database";
+import { cards, tokens } from "shared/database";
 
 import { withStyles } from "@material-ui/core/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
+import { SENTINEL } from "shared/constants.js";
 
 const DRAW_PHASE_MESSAGE = /set the Phase to Draw./;
+
+const CARD_LIST = Object.keys(cards);
 
 class Messages extends PureComponent {
    transformCard = (msg) => {
@@ -31,9 +34,10 @@ class Messages extends PureComponent {
 
          if (secondPart) {
             let cardName = secondPart;
-            const cardList = Object.keys(cards);
-            if (!cardList.includes(cardName)) {
-               const fuse = new Fuse(cardList, { threshold: 0.3 });
+            cardName = cardName.split(SENTINEL)[0];
+
+            if (!cards[cardName] && !tokens[cardName]) {
+               const fuse = new Fuse(CARD_LIST, { threshold: 0.3 });
                const results = fuse.search(cardName);
                const firstResult = results.length > 0 && results[0].item;
                if (firstResult) cardName = firstResult;
