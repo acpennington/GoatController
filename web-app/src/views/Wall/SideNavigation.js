@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 
 import NavButton from "./NavButton";
 import { FaGamepad, FaWrench, FaSearch, FaChartBar } from "react-icons/fa";
@@ -44,5 +45,9 @@ class SideNavigation extends PureComponent {
       );
    }
 }
+
+SideNavigation.propTypes = {
+   classes: PropTypes.object
+};
 
 export default withStyles(styles)(SideNavigation);

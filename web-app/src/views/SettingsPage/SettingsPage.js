@@ -157,7 +157,13 @@ class SettingsPage extends PureComponent {
                      <CustomDropdown
                         buttonText={`Game Background: ${gamebg.startsWith("http") ? "Custom" : formatFileName(gamebg)}`}
                         buttonProps={{ color: "transparent" }}
-                        dropdownList={[...backgrounds.map((bg) => <div onClick={() => this.setBg(bg)}>{formatFileName(bg)}</div>)]}
+                        dropdownList={[
+                           ...backgrounds.map((bg, index) => (
+                              <div onClick={() => this.setBg(bg)} key={index}>
+                                 {formatFileName(bg)}
+                              </div>
+                           ))
+                        ]}
                      />
                      <CustomInput
                         labelText="Custom Background URL"
@@ -181,7 +187,13 @@ class SettingsPage extends PureComponent {
                            buttonProps={{
                               color: "transparent"
                            }}
-                           dropdownList={[...sleeveChoices.map((sleeve) => <div onClick={() => this.setSleeves(sleeve)}>{formatFileName(sleeve)}</div>)]}
+                           dropdownList={[
+                              ...sleeveChoices.map((sleeve, index) => (
+                                 <div onClick={() => this.setSleeves(sleeve)} key={index}>
+                                    {formatFileName(sleeve)}
+                                 </div>
+                              ))
+                           ]}
                         />
                         <div className={classes.sleeves}>
                            <JustSleeves height={250} sleeves={sleeves} />

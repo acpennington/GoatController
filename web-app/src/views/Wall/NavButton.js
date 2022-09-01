@@ -31,7 +31,8 @@ class NavButton extends PureComponent {
 NavButton.propTypes = {
    classes: PropTypes.object.isRequired,
    href: PropTypes.string,
-   tip: PropTypes.string
+   tip: PropTypes.string,
+   children: PropTypes.element
 };
 
 export default withStyles(styles)(NavButton);
