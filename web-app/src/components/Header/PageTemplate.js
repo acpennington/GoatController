@@ -54,7 +54,7 @@ PageTemplate.propTypes = {
    noToken: PropTypes.bool,
    gap: PropTypes.bool,
    addFooter: PropTypes.bool,
-   children: PropTypes.element.isRequired
+   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired
 };
 
 export default withStyles(styles)(PageTemplate);

@@ -32,7 +32,7 @@ NavButton.propTypes = {
    classes: PropTypes.object.isRequired,
    href: PropTypes.string,
    tip: PropTypes.string,
-   children: PropTypes.element
+   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired
 };
 
 export default withStyles(styles)(NavButton);

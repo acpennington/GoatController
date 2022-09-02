@@ -17,7 +17,7 @@ class CardForm extends Component {
 
 CardForm.propTypes = {
    classes: PropTypes.object.isRequired,
-   children: PropTypes.element.isRequired
+   children: PropTypes.oneOfType([PropTypes.element, PropTypes.array]).isRequired
 };
 
 export default CardForm;
