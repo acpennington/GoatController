@@ -14,7 +14,7 @@
       "history": "^5.0.0",
       "howler": "^2.2.3",
       "mousetrap": "^1.6.5",
-      "node-sass": "^4.14.1",
+      "node-sass": "^6.0.0",
       "prop-types": "^15.8.1",
       "react": "^18.2.0",
       "react-dnd": "^13.1.0",
