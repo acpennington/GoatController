@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { Router, Route, Switch } from "react-router-dom";
 import store, { history } from "stateStore/gameStore.js";
 import deckStore from "stateStore/deckConstructorStore.js";
@@ -18,7 +18,9 @@ import CreateLeague from "views/CreateLeague/CreateLeague.js";
 import FusionsPage from "views/FusionsPage.js/FusionsPage";
 import ShareableDeck from "views/ShareableDeck/ShareableDeck.js";
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root"));
+
+root.render(
    <Router history={history}>
       <Switch>
          <Route path="/league" component={LeaguePage} />
@@ -62,6 +64,5 @@ ReactDOM.render(
          <Route path="/wall" component={Wall} />
          <Route path="/" component={LoginPage} />
       </Switch>
-   </Router>,
-   document.getElementById("root")
+   </Router>
 );
