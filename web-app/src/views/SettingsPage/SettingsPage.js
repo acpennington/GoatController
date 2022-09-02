@@ -275,7 +275,7 @@ class SettingsPage extends PureComponent {
                               onChange: this.setNewPasswordTwo,
                               endAdornment: (
                                  <InputAdornment position="end">
-                                    <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                    <MdLockOutline className={classes.inputIconsColor} />
                                  </InputAdornment>
                               )
                            }}
@@ -291,7 +291,7 @@ class SettingsPage extends PureComponent {
                               onChange: this.setOldPassword,
                               endAdornment: (
                                  <InputAdornment position="end">
-                                    <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                    <MdLockOutline className={classes.inputIconsColor} />
                                  </InputAdornment>
                               )
                            }}
