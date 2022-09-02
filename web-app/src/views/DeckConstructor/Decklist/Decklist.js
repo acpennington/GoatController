@@ -65,7 +65,10 @@ function mapStateToProps(state) {
 Decklist.propTypes = {
    classes: PropTypes.object.isRequired,
    player: PropTypes.string.isRequired,
-   sharing: PropTypes.bool
+   sharing: PropTypes.bool,
+   deckLoaded: PropTypes.string.isRequired,
+   setDecklist: PropTypes.func.isRequired,
+   decklist: PropTypes.object.isRequired
 };
 
 Decklist.contextType = SizeContext;

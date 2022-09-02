@@ -34,7 +34,9 @@ function mapStateToProps(state) {
 }
 
 ResizeCards.propTypes = {
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   setCardSize: PropTypes.func.isRequired,
+   cardSize: PropTypes.number.isRequired
 };
 
 ResizeCards.contextType = SizeContext;

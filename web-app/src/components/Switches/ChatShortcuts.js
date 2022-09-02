@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import Switch from "@material-ui/core/Switch";
@@ -35,5 +36,10 @@ class ChatShortcuts extends PureComponent {
 function mapStateToProps(state) {
    return { chatShortcuts: state.settings.chatShortcuts };
 }
+
+ChatShortcuts.propTypes = {
+   switchChatShortcuts: PropTypes.func.isRequired,
+   chatShortcuts: PropTypes.bool
+};
 
 export default connect(mapStateToProps, { switchChatShortcuts })(ChatShortcuts);

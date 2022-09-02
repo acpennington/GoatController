@@ -13,12 +13,13 @@ class RightPanel extends Component {
    }
 }
 
-RightPanel.propTypes = {
-   player: PropTypes.string.isRequired
-};
-
 function mapStateToProps(state) {
    return { thereAreResults: state.searchResults.length > 0 };
 }
+
+RightPanel.propTypes = {
+   player: PropTypes.string.isRequired,
+   thereAreResults: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps)(RightPanel);

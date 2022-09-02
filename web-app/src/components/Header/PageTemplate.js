@@ -53,7 +53,8 @@ PageTemplate.propTypes = {
    classes: PropTypes.object.isRequired,
    noToken: PropTypes.bool,
    gap: PropTypes.bool,
-   addFooter: PropTypes.bool
+   addFooter: PropTypes.bool,
+   children: PropTypes.element.isRequired
 };
 
 export default withStyles(styles)(PageTemplate);

@@ -109,7 +109,9 @@ class Messages extends PureComponent {
 Messages.propTypes = {
    classes: PropTypes.object.isRequired,
    messages: PropTypes.array.isRequired,
-   hero: PropTypes.string.isRequired
+   hero: PropTypes.string.isRequired,
+   newHover: PropTypes.func.isRequired,
+   newSelection: PropTypes.func.isRequired
 };
 
 export default connect(null, { newHover, newSelection })(withStyles(chatStyle)(Messages));

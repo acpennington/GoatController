@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import Button from "components/CustomButtons/Button";
@@ -51,6 +52,10 @@ function quitGame(socket) {
 function mapStateToProps(state) {
    return { concessionLink: state.settings.concessionLink };
 }
+
+ConcedeButton.propTypes = {
+   concessionLink: PropTypes.string
+};
 
 ConcedeButton.contextType = WebSocketContext;
 

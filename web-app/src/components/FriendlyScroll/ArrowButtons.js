@@ -77,6 +77,7 @@ class ArrowButtons extends PureComponent {
 }
 
 ArrowButtons.propTypes = {
+   classes: PropTypes.object.isRequired,
    id: PropTypes.string.isRequired,
    count: PropTypes.number,
    horiz: PropTypes.bool,

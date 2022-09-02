@@ -61,7 +61,11 @@ function mapStateToProps(state, ownProps) {
 }
 
 UndoDrawButton.propTypes = {
-   heroPlayer: PropTypes.string.isRequired
+   heroPlayer: PropTypes.string.isRequired,
+   undoDraw: PropTypes.func.isRequired,
+   addMessage: PropTypes.func.isRequired,
+   lastDraw: PropTypes.object,
+   lastDrawn: PropTypes.object
 };
 
 UndoDrawButton.contextType = WebSocketContext;

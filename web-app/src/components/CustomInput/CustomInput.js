@@ -76,4 +76,6 @@ CustomInput.propTypes = {
    white: PropTypes.bool
 };
 
+CustomInput.displayName = "CustomInput";
+
 export default CustomInput;

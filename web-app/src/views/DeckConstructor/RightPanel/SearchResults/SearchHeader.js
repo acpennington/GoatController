@@ -43,7 +43,8 @@ class SearchHeader extends Component {
 }
 
 SearchHeader.propTypes = {
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   newResults: PropTypes.func.isRequired
 };
 
 export default connect(null, { newResults })(withStyles(styles)(SearchHeader));

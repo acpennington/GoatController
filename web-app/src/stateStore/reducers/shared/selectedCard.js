@@ -23,8 +23,8 @@ export default function (state = initialState, action) {
          state[selectingPlayer] = { player, ...rest };
          return { ...state };
       }
-      case CLEAR_SELECTION:
-         const socket = data;
+      case CLEAR_SELECTION: {
+         const { socket } = data;
 
          if (socket && socket.api) {
             const payload = { action: REMOVE_SELECTION, data: { token: socket.token, id: socket.matchId } };
@@ -32,6 +32,7 @@ export default function (state = initialState, action) {
          }
 
          return {};
+      }
       default:
          return state;
    }

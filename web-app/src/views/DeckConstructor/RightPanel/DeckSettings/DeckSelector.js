@@ -268,7 +268,13 @@ function mapStateToProps(state) {
 
 DeckSelector.propTypes = {
    classes: PropTypes.object.isRequired,
-   player: PropTypes.string.isRequired
+   player: PropTypes.string.isRequired,
+   setDecklist: PropTypes.func.isRequired,
+   loadDeck: PropTypes.func.isRequired,
+   setUnsaved: PropTypes.func.isRequired,
+   deckLoaded: PropTypes.string.isRequired,
+   unsavedChanges: PropTypes.bool.isRequired,
+   decklist: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps, { setDecklist, loadDeck, setUnsaved })(withStyles(styles)(DeckSelector));

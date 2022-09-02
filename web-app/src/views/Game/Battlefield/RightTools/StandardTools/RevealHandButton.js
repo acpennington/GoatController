@@ -40,7 +40,9 @@ function mapStateToProps(state, ownProps) {
 }
 
 RevealHand.propTypes = {
-   name: PropTypes.string.isRequired
+   name: PropTypes.string.isRequired,
+   revealHand: PropTypes.func.isRequired,
+   hand: PropTypes.array.isRequired
 };
 
 RevealHand.contextType = WebSocketContext;

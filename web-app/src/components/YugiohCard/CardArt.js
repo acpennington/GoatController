@@ -99,7 +99,9 @@ CardArt.propTypes = {
    atk: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
    def: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
    villExtension: PropTypes.string,
-   battle: PropTypes.string
+   battle: PropTypes.string,
+   showNames: PropTypes.bool.isRequired,
+   classes: PropTypes.object.isRequired
 };
 
 CardArt.defaultProps = {

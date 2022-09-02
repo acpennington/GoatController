@@ -36,7 +36,8 @@ function mapStateToProps(state, ownProps) {
 
 FieldDivider.propTypes = {
    classes: PropTypes.object.isRequired,
-   heroPlayer: PropTypes.string.isRequired
+   heroPlayer: PropTypes.string.isRequired,
+   lifepoints: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(FieldDivider));

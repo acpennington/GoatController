@@ -54,7 +54,11 @@ function mapStateToProps(state) {
 }
 
 Visibility.propTypes = {
-   player: PropTypes.string.isRequired
+   player: PropTypes.string.isRequired,
+   deckLoaded: PropTypes.string.isRequired,
+   decklist: PropTypes.object.isRequired,
+   setPublic: PropTypes.func.isRequired,
+   isPublic: PropTypes.bool.isRequired
 };
 
 export default connect(mapStateToProps, { setPublic })(Visibility);

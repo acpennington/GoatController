@@ -233,7 +233,16 @@ ScriptButton.propTypes = {
    heroPlayer: PropTypes.string.isRequired,
    activeCard: PropTypes.object.isRequired,
    variant: PropTypes.string,
-   focus: PropTypes.bool
+   focus: PropTypes.bool,
+   field: PropTypes.object.isRequired,
+   filterDeck: PropTypes.func.isRequired,
+   moveCard: PropTypes.func.isRequired,
+   createTokens: PropTypes.func.isRequired,
+   millUntil: PropTypes.func.isRequired,
+   banishAll: PropTypes.func.isRequired,
+   addMessage: PropTypes.func.isRequired,
+   discardAndDraw: PropTypes.func.isRequired,
+   shuffleAndDraw: PropTypes.func.isRequired
 };
 
 ScriptButton.contextType = WebSocketContext;

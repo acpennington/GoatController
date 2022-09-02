@@ -1,4 +1,5 @@
 import React, { PureComponent, Fragment } from "react";
+import PropTypes from "prop-types";
 
 import DialogButton from "components/CustomButtons/DialogButton.js";
 import ChatShortcuts from "components/Switches/ChatShortcuts.js";
@@ -25,13 +26,13 @@ class ShortcutMenuButton extends PureComponent {
             <ChatShortcuts />
             <ul>
                <li>
-                  <kbd>k</kbd> &mdash; send "OK" in chat
+                  <kbd>k</kbd> &mdash; send &quot;OK&quot; in chat
                </li>
                <li>
-                  <kbd>n</kbd> &mdash; send "No" in chat
+                  <kbd>n</kbd> &mdash; send &quot;No&quot; in chat
                </li>
                <li>
-                  <kbd>?</kbd> &mdash; send "Response?" in chat
+                  <kbd>?</kbd> &mdash; send &quot;Response?&quot; in chat
                </li>
             </ul>
          </Fragment>
@@ -60,10 +61,10 @@ class ShortcutMenuButton extends PureComponent {
                         <kbd>f</kbd> &mdash; declare effect of selected card
                      </li>
                      <li>
-                        <kbd>+</kbd>/<kbd>=</kbd> &mdash; increment selected card's counters
+                        <kbd>+</kbd>/<kbd>=</kbd> &mdash; increment selected card&apos;s counters
                      </li>
                      <li>
-                        <kbd>-</kbd>/<kbd>_</kbd> &mdash; decrement selected card's counters
+                        <kbd>-</kbd>/<kbd>_</kbd> &mdash; decrement selected card&apos;s counters
                      </li>
                      <li>
                         <kbd>d</kbd> &mdash; draw a card from the Deck
@@ -126,5 +127,10 @@ class ShortcutMenuButton extends PureComponent {
 function mapStateToProps(state) {
    return { chatShortcuts: state.settings.chatShortcuts };
 }
+
+ShortcutMenuButton.propTypes = {
+   switchChatShortcuts: PropTypes.func.isRequired,
+   chatShortcuts: PropTypes.bool
+};
 
 export default connect(mapStateToProps, { switchChatShortcuts })(ShortcutMenuButton);
