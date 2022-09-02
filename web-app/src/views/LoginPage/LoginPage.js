@@ -2,9 +2,7 @@ import React, { useState, Fragment } from "react";
 import axios from "axios";
 
 import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
-import People from "@material-ui/icons/People";
-import RecordVoiceOver from "@material-ui/icons/RecordVoiceOver";
+import { MdPeople, MdLockOutline, MdRecordVoiceOver } from "react-icons/md";
 
 import PageTemplate from "components/Header/PageTemplate.js";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -110,7 +108,7 @@ export default function LoginPage() {
                            type: "text",
                            endAdornment: (
                               <InputAdornment position="end">
-                                 <People className={classes.inputIconsColor} />
+                                 <MdPeople className={classes.inputIconsColor} />
                               </InputAdornment>
                            )
                         }}
@@ -125,7 +123,7 @@ export default function LoginPage() {
                            type: "password",
                            endAdornment: (
                               <InputAdornment position="end">
-                                 <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                 <MdLockOutline className={classes.inputIconsColor} />
                               </InputAdornment>
                            ),
                            autoComplete: "off"
@@ -143,7 +141,7 @@ export default function LoginPage() {
                                  type: "password",
                                  endAdornment: (
                                     <InputAdornment position="end">
-                                       <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                       <MdLockOutline className={classes.inputIconsColor} />
                                     </InputAdornment>
                                  ),
                                  autoComplete: "off"
@@ -162,7 +160,7 @@ export default function LoginPage() {
                                  type: "text",
                                  endAdornment: (
                                     <InputAdornment position="end">
-                                       <RecordVoiceOver className={classes.inputIconsColor} />
+                                       <MdRecordVoiceOver className={classes.inputIconsColor} />
                                     </InputAdornment>
                                  ),
                                  autoComplete: "off"

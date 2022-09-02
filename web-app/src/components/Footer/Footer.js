@@ -7,8 +7,7 @@ import classNames from "classnames";
 // material-ui core components
 import { makeStyles } from "@material-ui/core/styles";
 
-// @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
+import { MdFavorite } from "react-icons/md";
 
 import styles from "assets/jss/material-kit-react/components/footerStyle.js";
 
@@ -27,7 +26,7 @@ export default function Footer(props) {
             <div className={classes.right} style={{ width: "100%", borderRadius: "10px", backgroundColor: "rgba(0,0,0,0.5)" }}>
                Best viewed in Chrome, Edge, or any Chromium-based web browser. Make sure your browser is up to date!
                <br />
-               &copy; {1900 + new Date().getYear()}, made with <Favorite className={classes.icon} /> by ACP {"&"} the Goat Format community
+               &copy; {1900 + new Date().getYear()}, made with <MdFavorite className={classes.icon} /> by ACP {"&"} the Goat Format community
             </div>
          </div>
       </footer>

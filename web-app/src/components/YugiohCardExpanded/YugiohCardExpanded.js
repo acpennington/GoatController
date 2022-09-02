@@ -7,7 +7,7 @@ import compress from "utils/compressName.js";
 import getCardDetails from "shared/getCardDetails.js";
 import { FACEDOWN_CARD, NORMAL_MONSTER, SENTINEL } from "shared/constants";
 
-import { Description } from "@material-ui/icons";
+import { MdDescription } from "react-icons/md";
 
 import { withStyles } from "@material-ui/core/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
@@ -36,7 +36,7 @@ class YugiohCardExpanded extends PureComponent {
                {!noButtons && cardType !== NORMAL_MONSTER && (
                   <div className={classes.buttons}>
                      <Button color="primary">
-                        <Description />
+                        <MdDescription />
                         Rulings
                      </Button>
                   </div>

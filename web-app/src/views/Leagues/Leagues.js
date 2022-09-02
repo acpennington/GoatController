@@ -10,9 +10,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
 import Tooltip from "@material-ui/core/Tooltip";
-import ArrowRightIcon from "@material-ui/icons/ArrowRight";
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import { MdCreate } from "react-icons/md";
+import { MdCreate, MdArrowRight, MdArrowDropDown } from "react-icons/md";
 
 import apiErrors from "utils/apiErrors.js";
 import { getAuthHeaders } from "utils/authToken.js";
@@ -84,7 +82,7 @@ class Leagues extends PureComponent {
                         classes={{ tooltip: classes.tooltip }}
                         placement="top"
                      >
-                        <h3 onClick={this.swapExpanded}>Join League {joinExpanded ? <ArrowDropDownIcon /> : <ArrowRightIcon />}</h3>
+                        <h3 onClick={this.swapExpanded}>Join League {joinExpanded ? <MdArrowDropDown /> : <MdArrowRight />}</h3>
                      </Tooltip>
                      {joinExpanded && (
                         <div className={classes.leaguesList}>

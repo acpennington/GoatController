@@ -6,7 +6,7 @@ import { BiDownload, BiBlock } from "react-icons/bi";
 import { CgCardHearts } from "react-icons/cg";
 import { GiTwoCoins, GiCardPlay, GiUpCard } from "react-icons/gi";
 import { ImShuffle } from "react-icons/im";
-import FindInPageIcon from "@material-ui/icons/FindInPage";
+import { MdFindInPage } from "react-icons/md";
 
 import {
    SEARCH_DECK,
@@ -36,7 +36,7 @@ class ScriptName extends PureComponent {
          case BANISH_ALL:
             return (
                <Fragment>
-                  <FindInPageIcon /> Banish All
+                  <MdFindInPage /> Banish All
                </Fragment>
             );
          case MILL_UNTIL:

@@ -6,7 +6,7 @@ import { FaGamepad, FaWrench, FaSearch, FaChartBar } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { RiSettings4Fill } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import { MdShoppingCart } from "react-icons/md";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/views/wall.js";
@@ -36,7 +36,7 @@ class SideNavigation extends PureComponent {
                <CgProfile /> Profile Viewer
             </NavButton>
             <NavButton>
-               <ShoppingCartIcon /> Shop
+               <MdShoppingCart /> Shop
             </NavButton>
             <NavButton href="/settings">
                <RiSettings4Fill /> Settings

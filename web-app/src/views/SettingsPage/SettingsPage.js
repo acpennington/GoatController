@@ -24,8 +24,7 @@ import getApiStage from "utils/getApiStage.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL, backgrounds } from "shared/constants.js";
 
-import Warning from "@material-ui/icons/Warning";
-import Email from "@material-ui/icons/Email";
+import { MdEmail } from "react-icons/md";
 import Icon from "@material-ui/core/Icon";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { FaSave } from "react-icons/fa";
@@ -222,7 +221,7 @@ class SettingsPage extends PureComponent {
                               onChange: this.setEmail,
                               endAdornment: (
                                  <InputAdornment position="end">
-                                    <Email className={classes.inputIconsColor} />
+                                    <MdEmail className={classes.inputIconsColor} />
                                  </InputAdornment>
                               )
                            }}
@@ -303,7 +302,7 @@ class SettingsPage extends PureComponent {
                </GridItem>
                <GridItem xs={12}>
                   <div className={classes.center}>
-                     {errors && <Snackbar message={"ERROR: " + errors} color="danger" icon={Warning} />}
+                     {errors && <Snackbar message={"ERROR: " + errors} color="danger" />}
                      <BackButton />
                      <Button color={unsaved && (!requirePass || oldPassword) && "primary"} size="lg" round onClick={this.save}>
                         <FaSave /> Save Settings

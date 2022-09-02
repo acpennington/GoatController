@@ -1,8 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
-import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
-import ArrowDropUpIcon from "@material-ui/icons/ArrowDropUp";
+import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
 import { withStyles } from "@material-ui/core/styles";
 import styles from "assets/jss/material-kit-react/components/lifebarStyle.js";
@@ -17,7 +16,7 @@ class LifeBar extends PureComponent {
          <div className={classes["container" + (isHero ? "hero" : "villain")]}>
             <div className={classes.blackBar} style={{ width }}></div>
             <div className={classes.life}>{life}</div>
-            {isHero ? <ArrowDropDownIcon className={classes.heroArrow} /> : <ArrowDropUpIcon className={classes.villainArrow} />}
+            {isHero ? <MdArrowDropDown className={classes.heroArrow} /> : <MdArrowDropUp className={classes.villainArrow} />}
          </div>
       );
    }

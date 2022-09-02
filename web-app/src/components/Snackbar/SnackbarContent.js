@@ -6,8 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Snack from "@material-ui/core/SnackbarContent";
 import IconButton from "@material-ui/core/IconButton";
 import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Close from "@material-ui/icons/Close";
+import { MdWarning, MdClose } from "react-icons/md";
 // core components
 
 import styles from "assets/jss/material-kit-react/components/snackbarContentStyle.js";
@@ -24,7 +23,7 @@ export default function SnackbarContent(props) {
    if (close !== undefined) {
       action = [
          <IconButton className={classes.iconButton} key="close" aria-label="Close" color="inherit" onClick={closeAlert}>
-            <Close className={classes.close} />
+            <MdClose className={classes.close} />
          </IconButton>
       ];
    }
@@ -37,7 +36,7 @@ export default function SnackbarContent(props) {
          snackIcon = <Icon className={classes.icon}>{props.icon}</Icon>;
          break;
       default:
-         snackIcon = null;
+         snackIcon = <MdWarning />;
          break;
    }
    const [alert, setAlert] = React.useState(

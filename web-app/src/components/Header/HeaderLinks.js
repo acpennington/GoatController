@@ -5,10 +5,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
-import { Description, Help, YouTube } from "@material-ui/icons";
-import { SiDiscord } from "react-icons/si";
+import { MdDescription, MdHelp, MdPeople } from "react-icons/md";
+import { SiDiscord, SiYoutube } from "react-icons/si";
 import { GiTwoCoins } from "react-icons/gi";
-import People from "@material-ui/icons/People";
 
 import Button from "components/CustomButtons/Button.js";
 
@@ -24,14 +23,14 @@ class HeaderLinks extends PureComponent {
             <ListItem className={classes.listItem}>
                <Tooltip id="FAQ" title="More about GoatDuels.com" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                   <Button href="/faq" color="transparent" target="_blank" className={classes.navLink}>
-                     <Help className={classes.icons} /> FAQ
+                     <MdHelp className={classes.icons} /> FAQ
                   </Button>
                </Tooltip>
             </ListItem>
             <ListItem className={classes.listItem}>
                <Tooltip id="rulings" title="Lookup any Goat ruling" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                   <Button href="/rulings" color="transparent" target="_blank" className={classes.navLink}>
-                     <Description className={classes.icons} /> Card Rulings
+                     <MdDescription className={classes.icons} /> Card Rulings
                   </Button>
                </Tooltip>
             </ListItem>
@@ -62,7 +61,7 @@ class HeaderLinks extends PureComponent {
                   classes={{ tooltip: classes.tooltip }}
                >
                   <Button color="transparent" href="https://www.youtube.com/allencpennington" target="_blank" className={classes.navLink}>
-                     <YouTube className={classes.socialIcons} />
+                     <SiYoutube className={classes.socialIcons} />
                   </Button>
                </Tooltip>
             </ListItem>
@@ -70,7 +69,7 @@ class HeaderLinks extends PureComponent {
                <ListItem className={classes.listItem}>
                   <Tooltip id="settings" title="Account settings" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                      <Button color="transparent" className={classes.navLink} href="/settings">
-                        <People /> {loggedInAs}
+                        <MdPeople /> {loggedInAs}
                      </Button>
                   </Tooltip>
                </ListItem>
