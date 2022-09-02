@@ -27,7 +27,7 @@
       "react-scripts": "4.0.3",
       "react-select-search": "^3.0.10",
       "react-slick": "^0.29.0",
-      "redux": "^4.0.5",
+      "redux": "^4.2.0",
       "redux-thunk": "^2.4.1",
       "shared": "file:../shared",
       "use-force-update": "^1.0.7"
