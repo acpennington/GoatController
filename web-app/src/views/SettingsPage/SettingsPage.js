@@ -24,8 +24,7 @@ import getApiStage from "utils/getApiStage.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL, backgrounds } from "shared/constants.js";
 
-import { MdEmail } from "react-icons/md";
-import Icon from "@material-ui/core/Icon";
+import { MdEmail, MdLockOutline } from "react-icons/md";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { FaSave } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
@@ -262,7 +261,7 @@ class SettingsPage extends PureComponent {
                               onChange: this.setNewPassword,
                               endAdornment: (
                                  <InputAdornment position="end">
-                                    <Icon className={classes.inputIconsColor}>lock_outline</Icon>
+                                    <MdLockOutline className={classes.inputIconsColor} />
                                  </InputAdornment>
                               )
                            }}

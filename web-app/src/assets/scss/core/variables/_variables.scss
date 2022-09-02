@@ -747,21 +747,6 @@ $popover-arrow-color: $popover-bg !default;
 
 $popover-arrow-outer-color: fade-in($popover-border-color, 0.05) !default;
 
-// Badges
-
-$badge-font-size: 75% !default;
-$badge-font-weight: $font-weight-bold !default;
-$badge-padding-y: 0.25em !default;
-$badge-padding-x: 0.4em !default;
-$badge-border-radius: $border-radius !default;
-
-$badge-pill-padding-x: 0.6em !default;
-// Use a higher than normal value to ensure completely rounded edges when
-// customizing padding or font-size on labels.
-$badge-pill-border-radius: 10rem !default;
-
-// Modals
-
 // Padding applied to the modal body
 $modal-inner-padding: 1rem !default;
 
