@@ -111,7 +111,7 @@ function mapStateToProps(state, ownProps) {
 CardScript.propTypes = {
    heroPlayer: PropTypes.string.isRequired,
    activeCard: PropTypes.object,
-   deck: PropTypes.object.isRequired
+   deck: PropTypes.array.isRequired
 };
 
 export default connect(mapStateToProps)(CardScript);

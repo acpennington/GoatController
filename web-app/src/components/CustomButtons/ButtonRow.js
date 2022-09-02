@@ -6,7 +6,7 @@ function ButtonRow({ children }) {
 }
 
 ButtonRow.propTypes = {
-   children: PropTypes.element.isRequired
+   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired
 };
 
 export default ButtonRow;

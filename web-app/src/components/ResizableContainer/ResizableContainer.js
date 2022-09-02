@@ -48,7 +48,7 @@ ResizableContainer.propTypes = {
    classes: PropTypes.object.isRequired,
    isGame: PropTypes.bool,
    noToken: PropTypes.bool,
-   children: PropTypes.element.isRequired
+   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired
 };
 
 export default withStyles(styles)(ResizableContainer);

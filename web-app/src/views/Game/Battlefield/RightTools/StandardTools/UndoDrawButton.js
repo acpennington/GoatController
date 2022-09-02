@@ -64,7 +64,7 @@ UndoDrawButton.propTypes = {
    heroPlayer: PropTypes.string.isRequired,
    undoDraw: PropTypes.func.isRequired,
    addMessage: PropTypes.func.isRequired,
-   lastDraw: PropTypes.object,
+   lastDraw: PropTypes.number,
    lastDrawn: PropTypes.object
 };
 

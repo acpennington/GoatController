@@ -17,8 +17,8 @@
       "node-sass": "^4.14.1",
       "prop-types": "^15.8.1",
       "react": "^18.2.0",
-      "react-dnd": "^13.1.1",
-      "react-dnd-html5-backend": "^12.1.1",
+      "react-dnd": "^13.1.0",
+      "react-dnd-html5-backend": "^12.1.0",
       "react-dom": "^18.2.0",
       "react-icons": "^4.4.0",
       "react-redux": "^8.0.2",
@@ -29,7 +29,7 @@
       "redux": "^4.2.0",
       "redux-thunk": "^2.4.1",
       "shared": "file:../shared",
-      "use-force-update": "^1.0.7"
+      "use-force-update": "^1.0.10"
    },
    "scripts": {
       "start": "react-scripts start",

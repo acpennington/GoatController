@@ -82,7 +82,7 @@ Battlefield.propTypes = {
    columnHeight: PropTypes.number.isRequired,
    rowHeight: PropTypes.number.isRequired,
    webSocket: PropTypes.object,
-   handCounts: PropTypes.array.isRequired,
+   handCounts: PropTypes.object.isRequired,
    players: PropTypes.object.isRequired
 };
 
