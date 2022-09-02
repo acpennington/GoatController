@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { switchNames } from "stateStore/actions/shared/settings.js";
@@ -35,5 +36,10 @@ class ShowCardNames extends PureComponent {
 function mapStateToProps(state) {
    return { showNames: state.settings.showNames };
 }
+
+ShowCardNames.propTypes = {
+   showNames: PropTypes.bool,
+   switchNames: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, { switchNames })(ShowCardNames);

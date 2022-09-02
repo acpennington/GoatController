@@ -122,7 +122,14 @@ Modal.propTypes = {
    classes: PropTypes.object.isRequired,
    height: PropTypes.number.isRequired,
    pile: PropTypes.object.isRequired,
-   heroPlayer: PropTypes.string.isRequired
+   heroPlayer: PropTypes.string.isRequired,
+   player: PropTypes.string.isRequired,
+   row: PropTypes.string.isRequired,
+   filter: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+   autoClose: PropTypes.bool.isRequired,
+   oneParam: PropTypes.bool,
+   isExtra: PropTypes.bool.isRequired,
+   allFusions: PropTypes.any.isRequired
 };
 
 export default connect(mapStateToProps, {})(withStyles(styles)(Modal));

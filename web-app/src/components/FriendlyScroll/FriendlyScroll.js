@@ -39,7 +39,12 @@ FriendlyScroll.propTypes = {
    countStyle: PropTypes.object,
    horiz: PropTypes.bool,
    bgcolor: PropTypes.string,
-   flexDirection: PropTypes.string
+   flexDirection: PropTypes.string,
+   classes: PropTypes.object.isRequired,
+   drop: PropTypes.any,
+   contStyle: PropTypes.object,
+   bgColor: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)])
 };
 
 FriendlyScroll.defaultProps = {

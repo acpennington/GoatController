@@ -83,7 +83,9 @@ Hand.propTypes = {
    player: PropTypes.string.isRequired,
    handCount: PropTypes.number.isRequired,
    rowHeight: PropTypes.number.isRequired,
-   isHero: PropTypes.bool.isRequired
+   isHero: PropTypes.bool.isRequired,
+   revealed: PropTypes.bool.isRequired,
+   phase: PropTypes.string.isRequired
 };
 
 export default connect(mapStateToProps)(Hand);

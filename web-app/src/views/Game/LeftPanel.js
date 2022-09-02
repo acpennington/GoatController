@@ -27,6 +27,8 @@ function mapStateToProps(state, ownProps) {
 
 LeftPanel.propTypes = {
    classes: PropTypes.object.isRequired,
+   hoverCard: PropTypes.object,
+   selectedCard: PropTypes.object,
    name: PropTypes.string.isRequired
 };
 

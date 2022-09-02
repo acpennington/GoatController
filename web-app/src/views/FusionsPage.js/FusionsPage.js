@@ -23,15 +23,15 @@ class FusionsPage extends PureComponent {
                <YugiohCardExpanded hoverCard={hoverCard} selectedCard={selectedCard} />
                <div className={classes.bottomContainer}>
                   <FriendlyScroll id="leftPanel" flexDirection="column" contStyle={{ height: "100%" }} style={{ height: "100%" }}>
-                     <h3 className={classes.center}>Dude, Where's My Fusions?</h3>
+                     <h3 className={classes.center}>Dude, Where&apos;s My Fusions?</h3>
                      <h4>
                         In Goat Format, players can use an unlimited number of Fusion Monsters in the Fusion Deck. Additionally, there is no downside to using
                         three copies of every legal Fusion Monster in the game, just in case. Because of this, and to save our users the effort, GoatDuels
                         automatically pre-loads three copies of each legal Fusion Monster into every game.
                      </h4>
                      <h4>
-                        Adding Fusion Monsters to your Fusion Deck is not part of the deck-building process. It's all done for you! To the right, you will see a
-                        list of every Goat Format legal Fusion Monster, just in case you need it for reference.
+                        Adding Fusion Monsters to your Fusion Deck is not part of the deck-building process. It&apos;s all done for you! To the right, you will
+                        see a list of every Goat Format legal Fusion Monster, just in case you need it for reference.
                      </h4>
                      <div className={classes.center}>
                         <ShowCardNames />
@@ -52,7 +52,9 @@ function mapStateToProps(state) {
 }
 
 FusionsPage.propTypes = {
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   hoverCard: PropTypes.object,
+   selectedCard: PropTypes.object
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(FusionsPage));

@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
 import { DndProvider } from "react-dnd";
@@ -57,5 +58,10 @@ class ShareableDeck extends PureComponent {
       );
    }
 }
+
+ShareableDeck.propTypes = {
+   setDecklist: PropTypes.func,
+   loadDeck: PropTypes.func
+};
 
 export default connect(null, { loadDeck, setDecklist })(ShareableDeck);

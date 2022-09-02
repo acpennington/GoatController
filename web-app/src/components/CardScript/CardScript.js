@@ -101,15 +101,17 @@ function rename(card) {
    return card && card.name !== FACEDOWN_CARD && card.name;
 }
 
-CardScript.propTypes = {
-   heroPlayer: PropTypes.string.isRequired
-};
-
 function mapStateToProps(state, ownProps) {
    return {
       activeCard: state.selectedCard[ownProps.heroPlayer] || state.hoverCard,
       deck: state.field[ownProps.heroPlayer][DECK]
    };
 }
+
+CardScript.propTypes = {
+   heroPlayer: PropTypes.string.isRequired,
+   activeCard: PropTypes.object,
+   deck: PropTypes.array.isRequired
+};
 
 export default connect(mapStateToProps)(CardScript);

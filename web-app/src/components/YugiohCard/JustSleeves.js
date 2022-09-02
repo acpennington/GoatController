@@ -26,7 +26,8 @@ class JustSleeves extends PureComponent {
 
 JustSleeves.propTypes = {
    height: PropTypes.number.isRequired,
-   sleeves: PropTypes.string.isRequired
+   sleeves: PropTypes.string.isRequired,
+   classes: PropTypes.object.isRequired
 };
 
 export default withStyles(cardStyle)(JustSleeves);

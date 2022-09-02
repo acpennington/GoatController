@@ -13,22 +13,23 @@ export default function (state = initialState, action) {
          return { ...data };
       case SET_PUBLIC:
          return { ...state, public: data };
-      case TRANSFER_CARD:
+      case TRANSFER_CARD: {
          const { to, from, cardName } = data;
 
          if (to === from) return state;
 
-         if (state.hasOwnProperty(to)) {
-            if (state[to].hasOwnProperty(cardName)) state[to][cardName] += 1;
+         if (Object.prototype.hasOwnProperty.call(state, to)) {
+            if (Object.prototype.hasOwnProperty.call(state[to], cardName)) state[to][cardName] += 1;
             else state[to][cardName] = 1;
          }
 
-         if (state.hasOwnProperty(from)) {
+         if (Object.prototype.hasOwnProperty.call(state, from)) {
             if (state[from][cardName] === 1) delete state[from][cardName];
             else state[from][cardName] -= 1;
          }
 
          return { ...state };
+      }
       default:
          return state;
    }

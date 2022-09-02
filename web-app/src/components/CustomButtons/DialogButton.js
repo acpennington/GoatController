@@ -71,4 +71,6 @@ DialogButton.propTypes = {
    negativeProps: PropTypes.object
 };
 
+DialogButton.displayName = "DialogButton";
+
 export default DialogButton;

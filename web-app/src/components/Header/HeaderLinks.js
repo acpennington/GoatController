@@ -96,7 +96,8 @@ class HeaderLinks extends PureComponent {
 
 HeaderLinks.propTypes = {
    loggedInAs: PropTypes.string,
-   goatGold: PropTypes.string
+   goatGold: PropTypes.string,
+   classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(HeaderLinks);

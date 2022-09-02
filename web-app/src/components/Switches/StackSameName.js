@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import Switch from "@material-ui/core/Switch";
@@ -25,5 +26,10 @@ class StackSameName extends PureComponent {
 function mapStateToProps(state) {
    return { stackSameName: state.settings.stackSameName };
 }
+
+StackSameName.propTypes = {
+   setStackSameName: PropTypes.func.isRequired,
+   stackSameName: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps, { setStackSameName })(StackSameName);

@@ -33,7 +33,8 @@ class FoilStars extends PureComponent {
 }
 
 FoilStars.propTypes = {
-   nameHeight: PropTypes.number.isRequired
+   nameHeight: PropTypes.number.isRequired,
+   classes: PropTypes.object.isRequired
 };
 
 export default withStyles(cardStyle)(FoilStars);

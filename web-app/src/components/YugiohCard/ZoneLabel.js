@@ -46,7 +46,9 @@ ZoneLabel.propTypes = {
    isExtraDeck: PropTypes.bool.isRequired,
    isDiscardZone: PropTypes.bool.isRequired,
    cardName: PropTypes.string,
-   villExtension: PropTypes.string.isRequired
+   villExtension: PropTypes.string.isRequired,
+   classes: PropTypes.object.isRequired,
+   zoneLabel: PropTypes.any.isRequired
 };
 
 export default connect(mapStateToProps, {})(withStyles(cardStyle)(ZoneLabel));

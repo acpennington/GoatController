@@ -73,7 +73,9 @@ function mapStateToProps(state) {
 DeckSettings.propTypes = {
    classes: PropTypes.object.isRequired,
    player: PropTypes.string,
-   sharing: PropTypes.bool
+   sharing: PropTypes.bool,
+   deckLoaded: PropTypes.string.isRequired,
+   unsavedChanges: PropTypes.bool.isRequired
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(DeckSettings));

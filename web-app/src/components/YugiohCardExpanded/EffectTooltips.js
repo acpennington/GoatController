@@ -45,7 +45,8 @@ class EffectTooltips extends PureComponent {
 }
 
 EffectTooltips.propTypes = {
-   text: PropTypes.string.isRequired
+   text: PropTypes.string.isRequired,
+   classes: PropTypes.object.isRequired
 };
 
 export default withStyles(cardStyle)(EffectTooltips);

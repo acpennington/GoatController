@@ -65,16 +65,17 @@ const initialState = {};
 export default function (state = initialState, action) {
    const { type, data } = action;
    switch (type) {
-      case SET_GAMESTATE_TO:
+      case SET_GAMESTATE_TO: {
          playSound("/sounds/shuffle.mp3");
          return data;
+      }
       case SEND_ENTIRE_GAMESTATE: {
          const { socket, message } = data;
          const payload = { action: SEND_ENTIRE_GAMESTATE, data: { token: socket.token, id: socket.matchId, gamestate: state, message } };
          socket.api.send(JSON.stringify(payload));
          return state;
       }
-      case MOVE_CARD:
+      case MOVE_CARD: {
          const { from, to, socket, noSound } = data;
          const oldFromZone = from.zone;
          const drawingFromDeck = from.row === DECK && from.zone === -1;
@@ -129,6 +130,7 @@ export default function (state = initialState, action) {
          }
 
          return { ...state };
+      }
       case DRAW_PHASE_DRAW: {
          const { player, socket } = data;
          const shouldSkipDraw = state[player].skippedDraws > 0;
@@ -151,7 +153,7 @@ export default function (state = initialState, action) {
 
          return { ...state };
       }
-      case CREATE_TOKEN:
+      case CREATE_TOKEN: {
          const { name, inDef, player: tokenPlayer } = data;
          clearBattle(state);
          let tokenZone = 0;
@@ -161,6 +163,7 @@ export default function (state = initialState, action) {
 
          state[tokenPlayer][MONSTER][tokenZone] = { name, inDef };
          return { ...state };
+      }
       case SWITCH_POSITION: {
          const { player, row, zone, socket } = data;
          const myCard = row === FIELD_SPELL ? state[player][FIELD_SPELL] : state[player][row][zone];
@@ -212,13 +215,14 @@ export default function (state = initialState, action) {
 
          return { ...state };
       }
-      case CLEAR_BATTLE:
+      case CLEAR_BATTLE: {
          if (clearBattle(state) && data && data.api) {
             const socket = data;
             const payload = { action: SEND_CLEAR, data: { token: socket.token, id: socket.matchId } };
             socket.api.send(JSON.stringify(payload));
          }
          return state;
+      }
       case ATTACK: {
          const { to, from, socket } = data;
          clearBattle(state);
@@ -240,13 +244,15 @@ export default function (state = initialState, action) {
 
          return state;
       }
-      case ADJUST_LP:
+      case ADJUST_LP: {
          const { player, change } = data;
          state[player].lifepoints += change;
          return { ...state };
-      case REVEAL_HAND:
+      }
+      case REVEAL_HAND: {
          state[data].handRevealed = !state[data].handRevealed;
          return { ...state };
+      }
       case DISCARD_AND_DRAW: {
          let { player, count } = data;
          const field = state[player];
@@ -299,7 +305,7 @@ export default function (state = initialState, action) {
 
          return { ...state };
       }
-      case NEW_SOLO_GAME:
+      case NEW_SOLO_GAME: {
          const storage = window.sessionStorage;
          const decks = JSON.parse(storage.getItem("decks"));
          const active = storage.getItem("activeDeck");
@@ -317,6 +323,7 @@ export default function (state = initialState, action) {
             hand: newHand
          };
          return newState;
+      }
       case UNDO_DRAW: {
          const { player, socket } = data;
 

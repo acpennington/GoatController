@@ -35,7 +35,9 @@ function mapStateToProps(state, ownProps) {
 LeftPanel.propTypes = {
    classes: PropTypes.object.isRequired,
    player: PropTypes.string.isRequired,
-   noBottom: PropTypes.bool
+   noBottom: PropTypes.bool,
+   hoverCard: PropTypes.object,
+   selectedCard: PropTypes.object
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(LeftPanel));

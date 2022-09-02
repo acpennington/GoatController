@@ -59,7 +59,11 @@ function mapStateToProps(state) {
 
 CardsToRender.propTypes = {
    player: PropTypes.string.isRequired,
-   maxHeight: PropTypes.number.isRequired
+   maxHeight: PropTypes.number.isRequired,
+   newResults: PropTypes.func.isRequired,
+   searchResults: PropTypes.array.isRequired,
+   maindeck: PropTypes.object.isRequired,
+   sidedeck: PropTypes.object.isRequired
 };
 
 CardsToRender.contextType = SizeContext;

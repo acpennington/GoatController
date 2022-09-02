@@ -121,7 +121,12 @@ function mapStateToProps(state, ownProps) {
 Chat.propTypes = {
    watching: PropTypes.bool,
    name: PropTypes.string.isRequired,
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   chat: PropTypes.array.isRequired,
+   addMessage: PropTypes.func.isRequired,
+   heroSelected: PropTypes.object,
+   heroField: PropTypes.object.isRequired,
+   chatShortcuts: PropTypes.any
 };
 
 Chat.contextType = WebSocketContext;

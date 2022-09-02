@@ -65,7 +65,8 @@ YugiohCardExpanded.propTypes = {
    selectedCard: PropTypes.object,
    height: PropTypes.string,
    width: PropTypes.string,
-   noButtons: PropTypes.bool
+   noButtons: PropTypes.bool,
+   classes: PropTypes.object.isRequired
 };
 
 export default withStyles(cardStyle)(YugiohCardExpanded);

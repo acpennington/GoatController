@@ -74,7 +74,9 @@ function mapStateToProps(state, ownProps) {
 }
 
 Counters.propTypes = {
-   heroPlayer: PropTypes.string.isRequired
+   heroPlayer: PropTypes.string.isRequired,
+   selectedCard: PropTypes.object,
+   adjustCounters: PropTypes.func.isRequired
 };
 
 Counters.contextType = WebSocketContext;

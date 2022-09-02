@@ -50,7 +50,10 @@ class ModalHeader extends PureComponent {
 ModalHeader.propTypes = {
    addName: PropTypes.bool.isRequired,
    player: PropTypes.string.isRequired,
-   row: PropTypes.string.isRequired
+   row: PropTypes.string.isRequired,
+   closeModal: PropTypes.func.isRequired,
+   shuffleDeck: PropTypes.func.isRequired,
+   classes: PropTypes.object.isRequired
 };
 
 ModalHeader.contextType = WebSocketContext;

@@ -219,7 +219,12 @@ function mapStateToProps(state, ownProps) {
 LPInputBox.propTypes = {
    classes: PropTypes.object.isRequired,
    heroPlayer: PropTypes.string.isRequired,
-   lifepoints: PropTypes.number.isRequired
+   lifepoints: PropTypes.number.isRequired,
+   field: PropTypes.object.isRequired,
+   activeCard: PropTypes.object,
+   prepopLPvalue: PropTypes.number,
+   prepopLP: PropTypes.func.isRequired,
+   adjustLP: PropTypes.func.isRequired
 };
 
 LPInputBox.contextType = WebSocketContext;

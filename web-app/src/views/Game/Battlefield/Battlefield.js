@@ -81,7 +81,9 @@ Battlefield.propTypes = {
    player: PropTypes.object.isRequired,
    columnHeight: PropTypes.number.isRequired,
    rowHeight: PropTypes.number.isRequired,
-   webSocket: PropTypes.object
+   webSocket: PropTypes.object,
+   handCounts: PropTypes.object.isRequired,
+   players: PropTypes.object.isRequired
 };
 
 export default connect(mapStateToProps)(withStyles(styles)(Battlefield));

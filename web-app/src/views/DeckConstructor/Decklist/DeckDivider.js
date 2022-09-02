@@ -17,14 +17,15 @@ class DeckDivider extends PureComponent {
    }
 }
 
-DeckDivider.propTypes = {
-   classes: PropTypes.object.isRequired,
-   mainCount: PropTypes.number.isRequired,
-   sideCount: PropTypes.number.isRequired
-};
-
 function mapStateToProps(state) {
    return { deckLoaded: state.settings.deckLoaded };
 }
+
+DeckDivider.propTypes = {
+   classes: PropTypes.object.isRequired,
+   mainCount: PropTypes.number.isRequired,
+   sideCount: PropTypes.number.isRequired,
+   deckLoaded: PropTypes.string.isRequired
+};
 
 export default connect(mapStateToProps)(withStyles(styles)(DeckDivider));

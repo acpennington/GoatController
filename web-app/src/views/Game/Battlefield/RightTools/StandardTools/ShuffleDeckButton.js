@@ -30,7 +30,8 @@ class ShuffleDeckButton extends Component {
 }
 
 ShuffleDeckButton.propTypes = {
-   heroPlayer: PropTypes.string.isRequired
+   heroPlayer: PropTypes.string.isRequired,
+   shuffleDeck: PropTypes.func.isRequired
 };
 
 ShuffleDeckButton.contextType = WebSocketContext;

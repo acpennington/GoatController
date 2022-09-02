@@ -83,7 +83,10 @@ function mapStateToProps(state, ownProps) {
 
 Phases.propTypes = {
    heroPlayer: PropTypes.string.isRequired,
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   turn: PropTypes.object.isRequired,
+   setTurn: PropTypes.func.isRequired,
+   handCount: PropTypes.number.isRequired
 };
 
 Phases.contextType = WebSocketContext;

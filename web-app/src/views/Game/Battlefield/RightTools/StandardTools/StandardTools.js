@@ -81,7 +81,9 @@ class StandardTools extends PureComponent {
 }
 
 StandardTools.propTypes = {
-   player: PropTypes.object.isRequired
+   player: PropTypes.object.isRequired,
+   classes: PropTypes.object.isRequired,
+   resetSolo: PropTypes.func.isRequired
 };
 
 StandardTools.contextType = WebSocketContext;

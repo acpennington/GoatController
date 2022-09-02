@@ -82,7 +82,9 @@ CardsToRender.propTypes = {
    filter: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
    isHero: PropTypes.bool.isRequired,
    autoClose: PropTypes.bool.isRequired,
-   oneParam: PropTypes.bool
+   oneParam: PropTypes.bool,
+   closeModal: PropTypes.func.isRequired,
+   cards: PropTypes.oneOfType([PropTypes.array, PropTypes.bool])
 };
 
 CardsToRender.contextType = WebSocketContext;

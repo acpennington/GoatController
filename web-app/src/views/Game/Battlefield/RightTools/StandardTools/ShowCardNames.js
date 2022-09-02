@@ -44,7 +44,9 @@ function mapStateToProps(state) {
 }
 
 ShowCardNames.propTypes = {
-   small: PropTypes.bool
+   small: PropTypes.bool,
+   showNames: PropTypes.bool.isRequired,
+   switchNames: PropTypes.func.isRequired
 };
 
 ShowCardNames.contextType = SizeContext;

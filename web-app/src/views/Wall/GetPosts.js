@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
 
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 
@@ -46,8 +47,14 @@ class GetPosts extends PureComponent {
                   color: "transparent"
                }}
                dropdownList={[
-                  <div onClick={() => this.setPostFilter("All")}>All</div>,
-                  ...subbedTo.map((name) => <div onClick={() => this.setPostFilter(name)}>{name}</div>)
+                  <div onClick={() => this.setPostFilter("All")} key={1}>
+                     All
+                  </div>,
+                  ...subbedTo.map((name, index) => (
+                     <div onClick={() => this.setPostFilter(name)} key={1 + index}>
+                        {name}
+                     </div>
+                  ))
                ]}
             />
             <div className={classes.container}>
@@ -69,5 +76,9 @@ class GetPosts extends PureComponent {
       );
    }
 }
+
+GetPosts.propTypes = {
+   classes: PropTypes.object
+};
 
 export default withStyles(styles)(GetPosts);
