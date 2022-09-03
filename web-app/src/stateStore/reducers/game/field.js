@@ -76,7 +76,7 @@ export default function (state = initialState, action) {
          return state;
       }
       case MOVE_CARD: {
-         const { from, to, socket, noSound } = data;
+         const { from, to, socket } = data;
          const oldFromZone = from.zone;
          const drawingFromDeck = from.row === DECK && from.zone === -1;
          if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
@@ -106,7 +106,7 @@ export default function (state = initialState, action) {
             }
          }
 
-         if (!noSound && to.row !== DECK) {
+         if (to.row !== DECK) {
             if (to.row === GRAVEYARD) playSound("/sounds/tograve.mp3");
             else if (to.row === BANISHED) playSound("/sounds/tobanished.mp3");
             else if (settingTrap || (facedown && from.row !== to.row && to.row !== HAND)) playSound("/sounds/set.mp3");
@@ -122,9 +122,19 @@ export default function (state = initialState, action) {
          else state[from.player][from.row][from.zone] = null;
 
          if (socket && socket.api) {
+            const shouldShuffle = from.row === DECK && from.autoClose;
             const payload = {
                action: SEND_CARD_MOVE,
-               data: { token: socket.token, id: socket.matchId, from: { ...from, zone: oldFromZone }, fromCard, to, settingTrap, msg: socket.msg }
+               data: {
+                  token: socket.token,
+                  id: socket.matchId,
+                  from: { ...from, zone: oldFromZone },
+                  fromCard,
+                  to,
+                  settingTrap,
+                  shuffleDeck: shouldShuffle && state[from.player][DECK],
+                  msg: socket.msg
+               }
             };
             socket.api.send(JSON.stringify(payload));
          }

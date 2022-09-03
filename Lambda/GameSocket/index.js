@@ -53,7 +53,7 @@ exports.handler = async (event) => {
       case "SendReveal":
          return await sendReveal(id, username, data.hand, connectionId, api);
       case "SendCardMove":
-         return await sendCardMove(id, username, data.from, data.fromCard, data.to, data.settingTrap, data.msg, connectionId, api);
+         return await sendCardMove(id, username, data.from, data.fromCard, data.to, data.settingTrap, data.shuffleDeck, data.msg, connectionId, api);
       case "SendDrawPhase":
          return await sendDrawPhase(id, username, data.shouldSkipDraw, connectionId, api);
       case "SendDrawUndone":

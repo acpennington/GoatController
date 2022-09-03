@@ -1,5 +1,15 @@
-import { shuffleDeck } from "../game/field.js";
-import { DECK, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK, CHAT_SHORTCUTS } from "shared/constants.js";
+/*import { shuffleDeck } from "../game/field.js";*/
+import {
+   /*DECK,*/ SWITCH_NAMES,
+   OPEN_MODAL,
+   CLOSE_MODAL,
+   PREPOP_LP,
+   LOAD_DECK,
+   SET_UNSAVED,
+   SET_CARDSIZE,
+   SET_STACK,
+   CHAT_SHORTCUTS
+} from "shared/constants.js";
 
 function switchNames() {
    return { type: SWITCH_NAMES };
@@ -13,13 +23,15 @@ function openModal(player, row, filter = false, autoClose = false, oneParam = fa
    return { type: OPEN_MODAL, data: { player, row, filter, autoClose, oneParam } };
 }
 
-function closeModal(row, player, socket = false) {
-   const isSocket = socket && socket.api;
+function closeModal(/*row, player, socket = false*/) {
+   return { type: CLOSE_MODAL };
+
+   /* const isSocket = socket && socket.api;
 
    return (dispatch) => {
       dispatch({ type: CLOSE_MODAL });
       if (row === DECK && !isSocket) dispatch(shuffleDeck(player));
-   };
+   }; */
 }
 
 function prepopLP(data) {

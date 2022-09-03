@@ -58,8 +58,8 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone } = getBools(row, zone);
 
-   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, cycle, modalRow } = useSelector(
-      (state) => {
+   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, cycle, modalRow, autoClose } =
+      useSelector((state) => {
          const sfPlayer = state.field[player];
          const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
          const counters = (card && card.counters) || 0;
@@ -77,9 +77,23 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          const inBattlePhase = state.turn.phase === BATTLE;
          const cycle = makeCycle(sfPlayer, heroSelection && heroSelection.player === player ? heroSelection : null);
          const modalRow = state.settings.modal && state.settings.modal.row;
-         return { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, cycle, modalRow };
-      }
-   );
+         const autoClose = state.settings.modal && state.settings.modal.autoClose;
+         return {
+            deckCount,
+            card,
+            counters,
+            sleeves,
+            selected,
+            heroPlayer,
+            heroSelected,
+            villSelected,
+            handRevealed,
+            inBattlePhase,
+            cycle,
+            modalRow,
+            autoClose
+         };
+      });
 
    if (isDiscardZone) {
       const cardLength = card ? card.length : 0;
@@ -104,7 +118,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
 
    const [{ isDragging }, drag] = useDrag({
       type,
-      item: { type, player, row, zone, cardName },
+      item: { type, player, row, zone, cardName, autoClose },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
       })
