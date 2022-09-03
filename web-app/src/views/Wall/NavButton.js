@@ -2,9 +2,9 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
 import Button from "components/CustomButtons/Button.js";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/wall.js";
 
 class NavButton extends PureComponent {
@@ -13,7 +13,7 @@ class NavButton extends PureComponent {
 
       if (!href || tip)
          return (
-            <Tooltip id={href} title={tip || "Coming soon!"} classes={{ tooltip: classes.tooltip }}>
+            <Tooltip id={href} title={tip || "Coming soon!"}>
                <Button color={href && "primary"} size="lg" round className={classes.fullButton} href={href}>
                   {children}
                </Button>

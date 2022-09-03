@@ -9,7 +9,7 @@ import getApiStage from "utils/getApiStage.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL } from "shared/constants.js";
 
-import Switch from "@material-ui/core/Switch";
+import Switch from "@mui/material/Switch";
 import { RiShareFill } from "react-icons/ri";
 
 class Visibility extends PureComponent {

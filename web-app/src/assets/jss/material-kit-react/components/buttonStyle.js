@@ -250,7 +250,7 @@ const buttonStyle = {
       borderRadius: "30px"
    },
    block: {
-      width: "100% !important"
+      width: "100%"
    },
    link: {
       "&,&:hover,&:focus": {
@@ -288,7 +288,7 @@ const buttonStyle = {
          minWidth: "30px",
          width: "30px",
          "& .fab,& .fas,& .far,& .fal,& .material-icons": {
-            fontSize: "17px",
+            fontSize: "17px !imporant",
             lineHeight: "29px"
          },
          "& svg": {

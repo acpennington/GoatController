@@ -6,7 +6,7 @@ import GridItem from "components/Grid/GridItem.js";
 
 import PageTemplate from "components/Header/PageTemplate.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/betaPage.js";
 
 class BetaPage extends PureComponent {

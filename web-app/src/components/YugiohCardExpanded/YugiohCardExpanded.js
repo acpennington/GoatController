@@ -9,7 +9,7 @@ import { FACEDOWN_CARD, NORMAL_MONSTER, SENTINEL } from "shared/constants";
 
 import { MdDescription } from "react-icons/md";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
 class YugiohCardExpanded extends PureComponent {

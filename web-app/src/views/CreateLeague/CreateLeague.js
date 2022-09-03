@@ -16,9 +16,9 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import Info from "components/Info/Info.js";
 import { validUrl, getError, nameToId, deleteAttributes } from "./utils.js";
 
-import Tooltip from "@material-ui/core/Tooltip";
-import Switch from "@material-ui/core/Switch";
-import InputAdornment from "@material-ui/core/InputAdornment";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
+import Switch from "@mui/material/Switch";
+import InputAdornment from "@mui/material/InputAdornment";
 import { FaSave } from "react-icons/fa";
 import { MdCreate } from "react-icons/md";
 
@@ -27,7 +27,7 @@ import getApiStage from "utils/getApiStage.js";
 import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/createLeague.js";
 
 const charMax = { name: 30, description: 60 };

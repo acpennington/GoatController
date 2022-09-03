@@ -8,7 +8,7 @@ import DeckSelector from "./DeckSelector.js";
 import ResizeCards from "components/Sliders/ResizeCards.js";
 import BackButton from "components/CustomButtons/BackButton.js";
 import DialogButton from "components/CustomButtons/DialogButton.js";
-import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogContentText from "@mui/material/DialogContentText";
 import ShowCardNames from "components/Switches/ShowCardNames.js";
 import StackSameName from "components/Switches/StackSameName.js";
 import DeckWL from "./DeckWL.js";
@@ -16,7 +16,7 @@ import DeckWL from "./DeckWL.js";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { IoMdHelpCircle } from "react-icons/io";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/rightPanel.js";
 import { Fragment } from "react";
 

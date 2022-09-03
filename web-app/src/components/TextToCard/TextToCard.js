@@ -1,12 +1,12 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
-import Tooltip from "@material-ui/core/Tooltip";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
+import ClickAwayListener from "@mui/base/ClickAwayListener";
 
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 
 const ExpandedCardTooltip = withStyles((theme) => ({
    tooltip: {

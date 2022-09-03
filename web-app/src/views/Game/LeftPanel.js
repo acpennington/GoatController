@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
 import Chat from "components/Chat/Chat.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/leftPanel.js";
 
 class LeftPanel extends Component {

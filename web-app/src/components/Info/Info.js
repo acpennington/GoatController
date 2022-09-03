@@ -1,10 +1,10 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
 import { IoMdHelpCircle } from "react-icons/io";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
 class Info extends PureComponent {

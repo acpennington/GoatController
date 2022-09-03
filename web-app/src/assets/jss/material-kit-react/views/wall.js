@@ -1,3 +1,4 @@
+import commonDeckConstructor from "../views/deckConstructorSections/deckConstructorCommon.js";
 import tooltip from "../tooltipsStyle.js";
 
 const wallStyle = {
@@ -36,6 +37,7 @@ const wallStyle = {
    fullButton: {
       width: "99%"
    },
+   ...commonDeckConstructor,
    ...tooltip
 };
 

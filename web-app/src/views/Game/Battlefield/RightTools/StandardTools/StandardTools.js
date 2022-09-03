@@ -20,7 +20,7 @@ import { SizeContext } from "components/ResizableContainer/ResizableContainer.js
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import { resetSolo } from "stateStore/actions/game/field.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 class StandardTools extends PureComponent {

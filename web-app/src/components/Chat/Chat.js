@@ -14,7 +14,7 @@ import { WebSocketContext } from "views/Game/WebSocketContext.js";
 
 import { FIELD_SPELL, HAND } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
 const EFFECT_MESSAGE = "Effect!";

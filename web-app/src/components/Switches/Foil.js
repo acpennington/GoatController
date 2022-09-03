@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 
-import Switch from "@material-ui/core/Switch";
+import Switch from "@mui/material/Switch";
 
 class Foil extends PureComponent {
    constructor(props) {

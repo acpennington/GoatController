@@ -38,7 +38,7 @@ import {
    FIELD
 } from "shared/constants.js";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 const useStyles = makeStyles(cardStyle);
 

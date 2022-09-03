@@ -31,7 +31,7 @@ import {
    allMonsterTypes
 } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/leftPanel.js";
 
 class CardSearch extends PureComponent {

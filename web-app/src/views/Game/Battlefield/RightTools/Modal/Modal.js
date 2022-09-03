@@ -11,9 +11,9 @@ import { EXTRA_DECK, MODAL_CARD_SIZE } from "shared/constants.js";
 import { fusions } from "shared/database";
 
 import Button from "components/CustomButtons/Button.js";
-import Switch from "@material-ui/core/Switch";
+import Switch from "@mui/material/Switch";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 const levels = [1, 3, 4, 5, 6, 7, 8, 9];

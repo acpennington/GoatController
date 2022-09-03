@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import Button from "components/CustomButtons/Button";
 import DialogButton from "components/CustomButtons/DialogButton";
-import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogContentText from "@mui/material/DialogContentText";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 import { PLAYER_CONCEDED, CLEANUP_GAME } from "shared/constants.js";
 

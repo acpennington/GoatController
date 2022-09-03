@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/battlefield.js";
 
 class FieldRow extends Component {

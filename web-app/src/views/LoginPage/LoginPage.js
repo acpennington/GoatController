@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react";
 import axios from "axios";
 
-import InputAdornment from "@material-ui/core/InputAdornment";
+import InputAdornment from "@mui/material/InputAdornment";
 import { MdPeople, MdLockOutline, MdRecordVoiceOver } from "react-icons/md";
 
 import PageTemplate from "components/Header/PageTemplate.js";
@@ -19,7 +19,7 @@ import getApiStage from "utils/getApiStage.js";
 import getQueryParams from "utils/getQueryParams.js";
 import { API_URL, headers } from "shared/constants.js";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 const useStyles = makeStyles(styles);
 

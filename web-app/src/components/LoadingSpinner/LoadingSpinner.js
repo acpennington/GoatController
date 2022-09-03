@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Shadow from "components/Shadow/Shadow.js";
 import setBodyImage from "utils/setBodyImage.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/loadingSpinnerStyle.js";
 
 class LoadingSpinner extends PureComponent {

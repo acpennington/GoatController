@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { switchNames } from "stateStore/actions/shared/settings.js";
 
-import Switch from "@material-ui/core/Switch";
+import Switch from "@mui/material/Switch";
 
 class ShowCardNames extends PureComponent {
    constructor(props) {

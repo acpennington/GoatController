@@ -9,7 +9,7 @@ import PageTemplate from "components/Header/PageTemplate.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
 import { MdCreate, MdArrowRight, MdArrowDropDown } from "react-icons/md";
 
 import apiErrors from "utils/apiErrors.js";
@@ -17,7 +17,7 @@ import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
 import { API_URL } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/leagues.js";
 
 class Leagues extends PureComponent {

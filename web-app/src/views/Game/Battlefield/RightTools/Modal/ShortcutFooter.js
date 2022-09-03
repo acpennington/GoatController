@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { GRAVEYARD, BANISHED, DECK } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 class ShortcutFooter extends PureComponent {

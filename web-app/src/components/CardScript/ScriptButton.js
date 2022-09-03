@@ -11,7 +11,7 @@ import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/script
 import { playSound } from "stateStore/actions/game/field.js";
 import compress from "utils/compressName.js";
 
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
 
 import {
    DECK,
@@ -31,7 +31,7 @@ import {
    DRAW_N
 } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
 class ScriptButton extends PureComponent {

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import LifeBar from "./LifeBar.js";
 import LPInputBox from "./LPInputBox.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/battlefield.js";
 
 class FieldDivider extends PureComponent {
