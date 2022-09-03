@@ -9,6 +9,7 @@ import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import { MdMenu } from "react-icons/md";
 
+import StyledEngineProvider from "@mui/material/StyledEngineProvider";
 import { makeStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 const useStyles = makeStyles(styles);
@@ -59,31 +60,33 @@ export default function Header(props) {
    );
 
    return (
-      <AppBar className={appBarClasses}>
-         <Toolbar className={classes.container}>
-            {brandComponent}
-            {clientWidth > 900 ? (
-               rightLinks
-            ) : (
-               <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerToggle}>
-                  <MdMenu />
-               </IconButton>
+      <StyledEngineProvider injectFirst>
+         <AppBar className={appBarClasses}>
+            <Toolbar className={classes.container}>
+               {brandComponent}
+               {clientWidth > 900 ? (
+                  rightLinks
+               ) : (
+                  <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerToggle}>
+                     <MdMenu />
+                  </IconButton>
+               )}
+            </Toolbar>
+            {clientWidth < 900 && (
+               <Drawer
+                  variant="temporary"
+                  anchor={"right"}
+                  open={mobileOpen}
+                  classes={{
+                     paper: classes.drawerPaper
+                  }}
+                  onClose={handleDrawerToggle}
+               >
+                  <div className={classes.appResponsive}>{rightLinks}</div>
+               </Drawer>
             )}
-         </Toolbar>
-         {clientWidth < 900 && (
-            <Drawer
-               variant="temporary"
-               anchor={"right"}
-               open={mobileOpen}
-               classes={{
-                  paper: classes.drawerPaper
-               }}
-               onClose={handleDrawerToggle}
-            >
-               <div className={classes.appResponsive}>{rightLinks}</div>
-            </Drawer>
-         )}
-      </AppBar>
+         </AppBar>
+      </StyledEngineProvider>
    );
 }
 
