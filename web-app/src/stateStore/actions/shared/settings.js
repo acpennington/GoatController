@@ -14,9 +14,11 @@ function openModal(player, row, filter = false, autoClose = false, oneParam = fa
 }
 
 function closeModal(row, player, socket = false) {
+   const isSocket = socket && socket.api;
+
    return (dispatch) => {
       dispatch({ type: CLOSE_MODAL });
-      if (row === DECK) dispatch(shuffleDeck(player, socket));
+      if (row === DECK && !isSocket) dispatch(shuffleDeck(player));
    };
 }
 
