@@ -33,7 +33,7 @@ export default function (state = initialState, action) {
       case OPEN_MODAL:
          if (state.modal && state.modal.row === data.row && state.modal.player === data.player) state.modal = null;
          else state.modal = data;
-         return state;
+         return { ...state };
       case CLOSE_MODAL:
          return { ...state, modal: null };
       case PREPOP_LP:
