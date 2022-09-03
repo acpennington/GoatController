@@ -2,17 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 
-import { makeStyles } from "@mui/styles";
-import { Button, StyledEngineProvider } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import Button from "@mui/material/Button";
+import StyledEngineProvider from "@mui/material/StyledEngineProvider";
 import buttonStyle from "assets/jss/material-kit-react/components/buttonStyle.js";
-const makeComponentStyles = makeStyles(() => ({
-   ...buttonStyle
-}));
+const useStyles = makeStyles(buttonStyle);
 
 const RegularButton = (props) => {
    const { color, round, children, fullWidth, disabled, simple, size, block, link, justIcon, className, ...rest } = props;
 
-   const classes = makeComponentStyles();
+   const classes = useStyles();
 
    const btnClasses = classNames({
       [classes.button]: true,

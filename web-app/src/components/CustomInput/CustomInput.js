@@ -6,7 +6,8 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
 
-import { makeStyles } from "@mui/styles";
+import StyledEngineProvider from "@mui/material/StyledEngineProvider";
+import makeStyles from "@mui/styles/makeStyles";
 import styles from "assets/jss/material-kit-react/components/customInputStyle.js";
 const useStyles = makeStyles(styles);
 
@@ -39,24 +40,26 @@ const CustomInput = React.forwardRef((props, ref) => {
       formControlClasses = classes.formControl;
    }
    return (
-      <FormControl {...formControlProps} className={formControlClasses}>
-         {labelText !== undefined ? (
-            <InputLabel className={classes.labelRoot + " " + labelClasses} htmlFor={id} {...labelProps}>
-               {labelText}
-            </InputLabel>
-         ) : null}
-         <Input
-            inputRef={ref}
-            classes={{
-               input: inputClasses,
-               root: marginTop,
-               disabled: classes.disabled,
-               underline: underlineClasses
-            }}
-            id={id}
-            {...inputProps}
-         />
-      </FormControl>
+      <StyledEngineProvider injectFirst>
+         <FormControl {...formControlProps} className={formControlClasses}>
+            {labelText !== undefined ? (
+               <InputLabel className={classes.labelRoot + " " + labelClasses} htmlFor={id} {...labelProps}>
+                  {labelText}
+               </InputLabel>
+            ) : null}
+            <Input
+               inputRef={ref}
+               classes={{
+                  input: inputClasses,
+                  root: marginTop,
+                  disabled: classes.disabled,
+                  underline: underlineClasses
+               }}
+               id={id}
+               {...inputProps}
+            />
+         </FormControl>
+      </StyledEngineProvider>
    );
 });
 
