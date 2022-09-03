@@ -1,15 +1,10 @@
 import React from "react";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
-// nodejs library that concatenates classes
 import classNames from "classnames";
 
-// @material-ui/core components
 import { makeStyles } from "@mui/styles";
 import { Button, StyledEngineProvider } from "@mui/material";
-
 import buttonStyle from "assets/jss/material-kit-react/components/buttonStyle.js";
-
 const makeComponentStyles = makeStyles(() => ({
    ...buttonStyle
 }));
@@ -18,8 +13,6 @@ const RegularButton = (props) => {
    const { color, round, children, fullWidth, disabled, simple, size, block, link, justIcon, className, ...rest } = props;
 
    const classes = makeComponentStyles();
-
-   console.log("Button color: " + classes[color]);
 
    const btnClasses = classNames({
       [classes.button]: true,

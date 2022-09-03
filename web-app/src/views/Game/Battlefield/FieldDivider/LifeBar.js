@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { MdArrowDropDown, MdArrowDropUp } from "react-icons/md";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/lifebarStyle.js";
 
 class LifeBar extends PureComponent {

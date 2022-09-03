@@ -2,9 +2,9 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
 import Button from "components/CustomButtons/Button.js";
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 class LeaguesMap extends PureComponent {

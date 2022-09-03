@@ -1,9 +1,9 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
+import GenericFinder from "components/CardFinder/GenericFinder.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/wall.js";
 
 const newPosts = [
@@ -41,22 +41,19 @@ class GetPosts extends PureComponent {
 
       return (
          <div className={classes.bigContainer}>
-            <CustomDropdown
-               buttonText={"Posts By: " + postFilter}
-               buttonProps={{
-                  color: "transparent"
-               }}
-               dropdownList={[
-                  <div onClick={() => this.setPostFilter("All")} key={1}>
-                     All
-                  </div>,
-                  ...subbedTo.map((name, index) => (
-                     <div onClick={() => this.setPostFilter(name)} key={1 + index}>
-                        {name}
-                     </div>
-                  ))
-               ]}
-            />
+            <div className={classes.flexRow}>
+               <span style={{ textAlign: "right", paddingRight: "5px", width: "50%" }}>Posts by:</span>
+               <GenericFinder
+                  value="All"
+                  options={[
+                     { value: "All", name: "All" },
+                     ...subbedTo.map((name) => {
+                        return { value: name, name };
+                     })
+                  ]}
+                  onChange={this.setPostFilter}
+               />
+            </div>
             <div className={classes.container}>
                {posts.map((post, index) => (
                   <div className={classes.post} key={index}>

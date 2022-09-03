@@ -1,9 +1,10 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Stack from "@mui/material/Stack";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
 
 import { MdDescription, MdHelp, MdPeople } from "react-icons/md";
 import { SiDiscord, SiYoutube } from "react-icons/si";
@@ -11,7 +12,7 @@ import { GiTwoCoins } from "react-icons/gi";
 
 import Button from "components/CustomButtons/Button.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
 class HeaderLinks extends PureComponent {
@@ -19,7 +20,7 @@ class HeaderLinks extends PureComponent {
       const { classes, loggedInAs, goatGold } = this.props;
 
       return (
-         <List className={classes.list}>
+         <List component={Stack} direction="row" className={classes.list}>
             <ListItem className={classes.listItem}>
                <Tooltip id="FAQ" title="More about GoatDuels.com" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                   <Button href="/faq" color="transparent" target="_blank" className={classes.navLink}>

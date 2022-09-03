@@ -12,7 +12,7 @@ import { transferCard } from "stateStore/actions/deckConstructor/decklist";
 
 import { allLocations, SEARCH_RESULTS, OVER_COLOR } from "shared/constants";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/rightPanel.js";
 
 function SearchResults({ classes, player }) {

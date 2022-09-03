@@ -11,7 +11,7 @@ import { newSelection, clearSelection } from "stateStore/actions/shared/selected
 import { transferCard } from "stateStore/actions/deckConstructor/decklist.js";
 import { CARD_RATIO, HERO_SELECTION_COLOR, MAINDECK, SEARCH_RESULTS, SIDEDECK } from "shared/constants.js";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 const useStyles = makeStyles(cardStyle);
 

@@ -5,7 +5,7 @@ import { MdLanguage } from "react-icons/md";
 import { FaTwitch } from "react-icons/fa";
 import { SiDiscord, SiYoutube } from "react-icons/si";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/commonPages.js";
 
 class FieldIcon extends PureComponent {

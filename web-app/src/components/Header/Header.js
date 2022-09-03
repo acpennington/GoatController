@@ -1,20 +1,16 @@
 import React from "react";
-// nodejs library that concatenates classes
 import classNames from "classnames";
-// nodejs library to set properties for components
 import PropTypes from "prop-types";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
-import { MdMenu } from "react-icons/md";
-// core components
-import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+import Drawer from "@mui/material/Drawer";
+import { MdMenu } from "react-icons/md";
+
+import { makeStyles } from "@mui/styles";
+import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 const useStyles = makeStyles(styles);
 
 export default function Header(props) {
@@ -44,44 +40,37 @@ export default function Header(props) {
          document.body.getElementsByTagName("header")[0].classList.remove(classes[changeColorOnScroll.color]);
       }
    };
-   const { color, rightLinks, leftLinks, fixed, absolute } = props;
+   const { color, rightLinks, fixed, absolute } = props;
    const appBarClasses = classNames({
       [classes.appBar]: true,
       [classes[color]]: color,
       [classes.absolute]: absolute,
       [classes.fixed]: fixed
    });
+
+   const clientWidth = document.documentElement.clientWidth;
+
    const brandComponent = (
       <Button href={props.loggedInAs ? "/wall" : "/"} className={classes.title}>
          <img src="Goat_Token_Logo.svg" style={{ height: "2.4em", marginRight: "8px" }} alt="Goat Duels logo" />
          Goat Duels
-         {document.documentElement.clientWidth > 1205 && ": A Dueling Simulator Just for Goat Format!"}
+         {clientWidth > 1205 && ": A Dueling Simulator Just for Goat Format!"}
       </Button>
    );
 
    return (
       <AppBar className={appBarClasses}>
          <Toolbar className={classes.container}>
-            {leftLinks !== undefined ? brandComponent : null}
-            <div className={classes.flex}>
-               {leftLinks !== undefined ? (
-                  <Hidden smDown implementation="css">
-                     {leftLinks}
-                  </Hidden>
-               ) : (
-                  brandComponent
-               )}
-            </div>
-            <Hidden smDown implementation="css">
-               {rightLinks}
-            </Hidden>
-            <Hidden mdUp>
+            {brandComponent}
+            {clientWidth > 900 ? (
+               rightLinks
+            ) : (
                <IconButton color="inherit" aria-label="open drawer" onClick={handleDrawerToggle}>
                   <MdMenu />
                </IconButton>
-            </Hidden>
+            )}
          </Toolbar>
-         <Hidden mdUp implementation="js">
+         {clientWidth < 900 && (
             <Drawer
                variant="temporary"
                anchor={"right"}
@@ -91,12 +80,9 @@ export default function Header(props) {
                }}
                onClose={handleDrawerToggle}
             >
-               <div className={classes.appResponsive}>
-                  {leftLinks}
-                  {rightLinks}
-               </div>
+               <div className={classes.appResponsive}>{rightLinks}</div>
             </Drawer>
-         </Hidden>
+         )}
       </AppBar>
    );
 }
@@ -108,7 +94,6 @@ Header.defaultProp = {
 Header.propTypes = {
    color: PropTypes.string,
    rightLinks: PropTypes.node,
-   leftLinks: PropTypes.node,
    loggedInAs: PropTypes.string,
    fixed: PropTypes.bool,
    absolute: PropTypes.bool,

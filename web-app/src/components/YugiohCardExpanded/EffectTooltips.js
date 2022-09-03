@@ -1,9 +1,9 @@
 import React, { PureComponent, Fragment } from "react";
 import PropTypes from "prop-types";
 
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardExpandedStyle.js";
 
 class EffectTooltips extends PureComponent {

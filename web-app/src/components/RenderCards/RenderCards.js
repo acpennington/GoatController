@@ -6,7 +6,7 @@ import YugiohCard from "components/YugiohCard/YugiohCard.js";
 
 import { SEARCH_RESULTS } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/renderCardsStyle.js";
 
 class RenderCards extends Component {

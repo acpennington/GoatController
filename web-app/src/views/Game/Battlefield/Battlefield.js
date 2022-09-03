@@ -12,7 +12,7 @@ import RightTools from "./RightTools/RightTools.js";
 
 import { MONSTER, SPELL_TRAP, FIELD_SPELL, DECK, EXTRA_DECK, GRAVEYARD, BANISHED, VILLAIN_HAND_HEIGHT_FRACTION } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/battlefield.js";
 
 class Battlefield extends Component {

@@ -6,7 +6,7 @@ import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import YugiohCardExpanded from "components/YugiohCardExpanded/YugiohCardExpanded.js";
 import CardSearch from "./CardSearch.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/leftPanel.js";
 
 class LeftPanel extends PureComponent {

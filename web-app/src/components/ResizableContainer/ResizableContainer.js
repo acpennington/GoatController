@@ -5,7 +5,7 @@ import { GAME_ASPECT_RATIO } from "shared/constants.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/resizableContainerStyle.js";
 
 export const SizeContext = createContext(null);

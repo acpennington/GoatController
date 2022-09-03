@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 
 import { setCardSize } from "stateStore/actions/shared/settings";
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
-import Slider from "@material-ui/core/Slider";
+import Slider from "@mui/material/Slider";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/resizeCardsStyle.js";
 
 const MINIMUM_CARD_HEIGHT = 30;

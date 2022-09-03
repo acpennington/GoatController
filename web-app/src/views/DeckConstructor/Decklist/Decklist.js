@@ -11,7 +11,7 @@ import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 
 import { MAINDECK, SIDEDECK } from "shared/constants";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
 
 class Decklist extends Component {

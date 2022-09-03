@@ -8,7 +8,7 @@ import Footer from "components/Footer/Footer.js";
 import setBodyImage from "utils/setBodyImage.js";
 import { checkToken } from "utils/authToken.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/pageTemplateStyle.js";
 
 class PageTemplate extends Component {

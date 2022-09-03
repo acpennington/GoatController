@@ -12,7 +12,7 @@ import { WebSocketContext } from "views/Game/WebSocketContext";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/battlefield.js";
 
 class LPInputBox extends PureComponent {

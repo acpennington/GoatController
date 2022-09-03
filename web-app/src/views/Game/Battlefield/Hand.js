@@ -10,7 +10,7 @@ import { moveCard, attack } from "stateStore/actions/game/field.js";
 import { WebSocketContext } from "../WebSocketContext";
 import { VILLAIN_HAND_HEIGHT_FRACTION, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "shared/constants.js";
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/battlefield.js";
 const useStyles = makeStyles(styles);
 

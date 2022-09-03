@@ -8,7 +8,7 @@ import { RiSettings4Fill } from "react-icons/ri";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdShoppingCart } from "react-icons/md";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/wall.js";
 
 class SideNavigation extends PureComponent {

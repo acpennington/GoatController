@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { BsArrowLeftShort, BsArrowRightShort, BsArrowDownShort, BsArrowUpShort } from "react-icons/bs";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import friendlyScrollStyles from "assets/jss/material-kit-react/components/friendlyScrollStyle.js";
 import { BUFFER } from "shared/constants.js";
 

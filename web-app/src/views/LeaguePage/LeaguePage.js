@@ -21,7 +21,7 @@ import apiErrors from "utils/apiErrors.js";
 import getApiStage from "utils/getApiStage.js";
 import { API_URL, OFFICIAL_UNRANKED } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/leaguePage.js";
 
 const LOADING = "Loading league...";

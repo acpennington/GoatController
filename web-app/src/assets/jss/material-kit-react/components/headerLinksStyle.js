@@ -2,7 +2,9 @@ import { defaultFont } from "assets/jss/material-kit-react.js";
 
 import tooltip from "assets/jss/material-kit-react/tooltipsStyle.js";
 
-const headerLinksStyle = (theme) => ({
+const mobileBreak = "@media (max-width: 600px)";
+
+const headerLinksStyle = {
    list: {
       ...defaultFont,
       fontSize: "14px",
@@ -21,7 +23,7 @@ const headerLinksStyle = (theme) => ({
       width: "auto",
       margin: "0",
       padding: "0",
-      [theme.breakpoints.down("sm")]: {
+      [mobileBreak]: {
          width: "100%",
          "&:after": {
             width: "calc(100% - 30px)",
@@ -52,7 +54,7 @@ const headerLinksStyle = (theme) => ({
          color: "inherit",
          background: "rgba(200, 200, 200, 0.2)"
       },
-      [theme.breakpoints.down("sm")]: {
+      [mobileBreak]: {
          width: "calc(100% - 30px)",
          marginLeft: "15px",
          marginBottom: "8px",
@@ -112,6 +114,6 @@ const headerLinksStyle = (theme) => ({
    marginRight5: {
       marginRight: "5px"
    }
-});
+};
 
 export default headerLinksStyle;

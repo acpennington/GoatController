@@ -10,7 +10,7 @@ import getCardDetails from "shared/getCardDetails.js";
 
 import { orderedCardTypes, SIDEDECK, OVER_COLOR, allLocations } from "shared/constants.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/decklist.js";
 
 function DeckPile({ classes, name, player, cardCount, noDrop }) {

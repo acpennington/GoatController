@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import Switch from "@material-ui/core/Switch";
+import Switch from "@mui/material/Switch";
 
 import { switchChatShortcuts } from "stateStore/actions/shared/settings.js";
 

@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { Fragment, PureComponent } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
@@ -7,8 +7,7 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import BackButton from "components/CustomButtons/BackButton.js";
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
-import Snackbar from "components/Snackbar/SnackbarContent.js";
+import GenericFinder from "components/CardFinder/GenericFinder.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import JustSleeves from "components/YugiohCard/JustSleeves";
 import CardForm from "components/Card/CardForm.js";
@@ -25,11 +24,11 @@ import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL, backgrounds } from "shared/constants.js";
 
 import { MdEmail, MdLockOutline } from "react-icons/md";
-import InputAdornment from "@material-ui/core/InputAdornment";
+import InputAdornment from "@mui/material/InputAdornment";
 import { FaSave } from "react-icons/fa";
 import { SiDiscord } from "react-icons/si";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/settingsPage.js";
 
 const sleeveChoices = [
@@ -152,17 +151,15 @@ class SettingsPage extends PureComponent {
             <GridContainer>
                <GridItem xs={12}>
                   <div className={classes.center}>
-                     <CustomDropdown
-                        buttonText={`Game Background: ${gamebg.startsWith("http") ? "Custom" : formatFileName(gamebg)}`}
-                        buttonProps={{ color: "transparent" }}
-                        dropdownList={[
-                           ...backgrounds.map((bg, index) => (
-                              <div onClick={() => this.setBg(bg)} key={index}>
-                                 {formatFileName(bg)}
-                              </div>
-                           ))
-                        ]}
-                     />
+                     <div style={{ width: "50%", margin: "auto" }}>
+                        <GenericFinder
+                           value={gamebg}
+                           options={backgrounds.map((bg) => {
+                              return { name: formatFileName(bg), value: bg };
+                           })}
+                           onChange={this.setBg}
+                        />
+                     </div>
                      <CustomInput
                         labelText="Custom Background URL"
                         id="bgUrl"
@@ -180,18 +177,12 @@ class SettingsPage extends PureComponent {
                <GridItem xs={12}>
                   <div className={classes.centerFlex}>
                      <div className={classes.center}>
-                        <CustomDropdown
-                           buttonText={"Sleeves: " + formatFileName(sleeves)}
-                           buttonProps={{
-                              color: "transparent"
-                           }}
-                           dropdownList={[
-                              ...sleeveChoices.map((sleeve, index) => (
-                                 <div onClick={() => this.setSleeves(sleeve)} key={index}>
-                                    {formatFileName(sleeve)}
-                                 </div>
-                              ))
-                           ]}
+                        <GenericFinder
+                           value={formatFileName(sleeves)}
+                           options={sleeveChoices.map((sleeve) => {
+                              return { name: formatFileName(sleeve), value: sleeve };
+                           })}
+                           onChange={this.setSleeves}
                         />
                         <div className={classes.sleeves}>
                            <JustSleeves height={250} sleeves={sleeves} />
@@ -301,7 +292,12 @@ class SettingsPage extends PureComponent {
                </GridItem>
                <GridItem xs={12}>
                   <div className={classes.center}>
-                     {errors && <Snackbar message={"ERROR: " + errors} color="danger" />}
+                     {errors && (
+                        <Fragment>
+                           <span style={{ color: "red" }}>{"ERROR: " + errors}</span>
+                           <br />
+                        </Fragment>
+                     )}
                      <BackButton />
                      <Button color={unsaved && (!requirePass || oldPassword) && "primary"} size="lg" round onClick={this.save}>
                         <FaSave /> Save Settings

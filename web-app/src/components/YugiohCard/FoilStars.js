@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import { GoStar } from "react-icons/go";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
 class FoilStars extends PureComponent {

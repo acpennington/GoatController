@@ -6,7 +6,7 @@ import compress from "utils/compressName.js";
 import { SENTINEL } from "shared/constants.js";
 import FoilStars from "./FoilStars.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
 class CardArt extends PureComponent {

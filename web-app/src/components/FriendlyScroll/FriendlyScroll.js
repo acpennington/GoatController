@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import ArrowButtons from "./ArrowButtons.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import friendlyScrollStyles from "assets/jss/material-kit-react/components/friendlyScrollStyle.js";
 
 class FriendlyScroll extends Component {

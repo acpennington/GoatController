@@ -7,7 +7,7 @@ import { newHover } from "stateStore/actions/shared/hoverCard";
 import { newSelection } from "stateStore/actions/shared/selectedCard";
 import { cards, tokens } from "shared/database";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 import { SENTINEL } from "shared/constants.js";
 

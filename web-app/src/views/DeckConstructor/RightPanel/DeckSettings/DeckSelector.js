@@ -8,7 +8,7 @@ import GenericFinder from "components/CardFinder/GenericFinder.js";
 import Visibility from "components/Switches/Visibility.js";
 import ButtonRow from "components/CustomButtons/ButtonRow";
 import DialogButton from "components/CustomButtons/DialogButton.js";
-import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogContentText from "@mui/material/DialogContentText";
 import Button from "components/CustomButtons/Button.js";
 import { setDecklist } from "stateStore/actions/deckConstructor/decklist.js";
 import { loadDeck, setUnsaved } from "stateStore/actions/shared/settings.js";
@@ -24,7 +24,7 @@ import { getAuthHeaders } from "utils/authToken.js";
 import { API_URL } from "shared/constants.js";
 import { getDeckOptions, getDecks } from "./utils.js";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/deckConstructorSections/rightPanel.js";
 
 const blankDeck = {

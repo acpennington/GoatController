@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bind, unbind } from "mousetrap";
 
-import Tooltip from "@material-ui/core/Tooltip";
+import Tooltip from "components/Tooltip/PatchedTooltip.js";
 
 import CloseX from "components/CloseX/CloseX";
 import { closeModal } from "stateStore/actions/shared/settings.js";
@@ -13,7 +13,7 @@ import display from "shared/display";
 
 import { DECK } from "shared/constants";
 
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.js";
 
 class ModalHeader extends PureComponent {
