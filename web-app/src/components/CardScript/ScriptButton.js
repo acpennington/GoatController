@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
-import Button from "components/CustomButtons/Button.js";
 import ScriptName from "./ScriptName.js";
 import { moveCard, createTokens, discardAndDraw, shuffleAndDraw } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
@@ -11,6 +10,7 @@ import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/script
 import { playSound } from "stateStore/actions/game/field.js";
 import compress from "utils/compressName.js";
 
+import Button from "components/CustomButtons/Button.js";
 import Tooltip from "components/Tooltip/PatchedTooltip.js";
 
 import {
@@ -182,7 +182,6 @@ class ScriptButton extends PureComponent {
 
       const button = (
          <Button
-            ref={this.ref}
             action={this.action}
             color="primary"
             onClick={this.runScript}
