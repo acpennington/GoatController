@@ -17,10 +17,10 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 
 class HeaderLinks extends PureComponent {
    render() {
-      const { classes, loggedInAs, goatGold } = this.props;
+      const { classes, loggedInAs, goatGold, clientWidth } = this.props;
 
       return (
-         <List component={Stack} direction="row" className={classes.list}>
+         <List component={Stack} direction={clientWidth < 900 ? "column" : "row"} className={classes.list}>
             <ListItem className={classes.listItem}>
                <Tooltip id="FAQ" title="More about GoatDuels.com" placement={window.innerWidth > 959 ? "top" : "left"} classes={{ tooltip: classes.tooltip }}>
                   <Button href="/faq" color="transparent" target="_blank" className={classes.navLink}>
@@ -97,7 +97,8 @@ class HeaderLinks extends PureComponent {
 HeaderLinks.propTypes = {
    loggedInAs: PropTypes.string,
    goatGold: PropTypes.string,
-   classes: PropTypes.object.isRequired
+   classes: PropTypes.object.isRequired,
+   clientWidth: PropTypes.number.isRequired
 };
 
 export default withStyles(styles)(HeaderLinks);

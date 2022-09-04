@@ -8,6 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import { MdMenu } from "react-icons/md";
+import HeaderLinks from "components/Header/HeaderLinks.js";
 
 import StyledEngineProvider from "@mui/material/StyledEngineProvider";
 import { makeStyles } from "@mui/styles";
@@ -41,7 +42,7 @@ export default function Header(props) {
          document.body.getElementsByTagName("header")[0].classList.remove(classes[changeColorOnScroll.color]);
       }
    };
-   const { color, rightLinks, fixed, absolute } = props;
+   const { color, fixed, absolute, loggedInAs, goatGold } = props;
    const appBarClasses = classNames({
       [classes.appBar]: true,
       [classes[color]]: color,
@@ -50,6 +51,7 @@ export default function Header(props) {
    });
 
    const clientWidth = document.documentElement.clientWidth;
+   const rightLinks = <HeaderLinks loggedInAs={loggedInAs} goatGold={goatGold} clientWidth={clientWidth} />;
 
    const brandComponent = (
       <Button href={props.loggedInAs ? "/wall" : "/"} className={classes.title}>
@@ -96,8 +98,8 @@ Header.defaultProp = {
 
 Header.propTypes = {
    color: PropTypes.string,
-   rightLinks: PropTypes.node,
    loggedInAs: PropTypes.string,
+   goatGold: PropTypes.string,
    fixed: PropTypes.bool,
    absolute: PropTypes.bool,
    // this will cause the sidebar to change the color from
