@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import Header from "components/Header/Header.js";
-import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
 
 import setBodyImage from "utils/setBodyImage.js";
@@ -31,7 +30,7 @@ class PageTemplate extends Component {
                absolute
                color="transparent"
                loggedInAs={this.username}
-               rightLinks={<HeaderLinks loggedInAs={this.username} goatGold={this.goatGold} />}
+               goatGold={this.goatGold}
                fixed
                changeColorOnScroll={{
                   height: 100,
