@@ -26,9 +26,11 @@ function YugiohCard({ height, location, name, quantity, player, zone, noDrop }) 
 
    const [{ isDragging }, drag] = useDrag({
       type: location,
-      item: { name },
+      item: { name, type: location },
       end: (item, monitor) => {
-         if (!monitor.didDrop() && !noDrop) dispatch(transferCard(item.name, SEARCH_RESULTS, item.type));
+         if (!monitor.didDrop() && !noDrop) {
+            dispatch(transferCard(item.name, SEARCH_RESULTS, item.type));
+         }
       },
       collect: (monitor) => ({
          isDragging: !!monitor.isDragging()
