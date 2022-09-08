@@ -6,7 +6,7 @@ import RenderCards from "components/RenderCards/RenderCards.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import getCardDetails from "shared/getCardDetails";
-import { SENTINEL } from "shared/constants.js";
+import { SENTINEL, SEARCH_RESULTS } from "shared/constants.js";
 
 class CardsToRender extends Component {
    componentDidUpdate() {
@@ -38,7 +38,7 @@ class CardsToRender extends Component {
       const cardHeight = this.context / 6.05; // this is a magic number to make 2 cards per row take up whole container
       const cardsToRender = this.updateResults();
 
-      return <RenderCards cardsToRender={cardsToRender} maxHeight={maxHeight} cardHeight={cardHeight} player={player} decklist />;
+      return <RenderCards cardsToRender={cardsToRender} maxHeight={maxHeight} cardHeight={cardHeight} player={player} decklist={SEARCH_RESULTS} />;
    }
 }
 
