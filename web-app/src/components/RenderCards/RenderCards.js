@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import DecklistCard from "components/YugiohCard/DecklistCard.js";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 
-import { SEARCH_RESULTS } from "shared/constants.js";
-
 import { withStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/components/renderCardsStyle.js";
 
@@ -17,9 +15,7 @@ class RenderCards extends Component {
       let i = 0;
       for (const card of cardsToRender) {
          if (decklist)
-            cards.push(
-               <DecklistCard height={cardHeight} player={player} location={SEARCH_RESULTS} name={card.name} quantity={card.quantity} zone={i} key={i} />
-            );
+            cards.push(<DecklistCard height={cardHeight} player={player} location={decklist} name={card.name} quantity={card.quantity} zone={i} key={i} />);
          else
             cards.push(
                <YugiohCard height={cardHeight} player={player} row={row} zone={card.zone} cardName={card.name} notFull modal isHero={isHero} key={i} />
@@ -42,7 +38,7 @@ RenderCards.propTypes = {
    cardsToRender: PropTypes.array.isRequired,
    player: PropTypes.string.isRequired,
    row: PropTypes.string,
-   decklist: PropTypes.bool,
+   decklist: PropTypes.string,
    isHero: PropTypes.bool
 };
 
