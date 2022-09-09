@@ -26,7 +26,8 @@ const wallStyle = {
       width: "100%",
       backgroundColor: "rgba(0,0,0,0.88)",
       border: "2px solid black",
-      borderRadius: "3px"
+      borderRadius: "3px",
+      cursor: "pointer"
    },
    header: {
       width: "100%",
@@ -36,7 +37,13 @@ const wallStyle = {
       textAlign: "center"
    },
    text: {
-      width: "100%"
+      width: "100%",
+      display: "box",
+      lineClamp: 10,
+      overflow: "hidden",
+      textOverflow: " ...Click to read more",
+      boxOrient: "vertical",
+      padding: "2px"
    },
    video: {
       width: "100%",
@@ -56,9 +63,18 @@ const wallStyle = {
       position: "absolute",
       width: "100%",
       height: "100%",
-      top: "0",
+      bottom: "0",
       left: "0",
       zIndex: "1"
+   },
+   pagination: {
+      width: "100%",
+      margin: "15px 0px",
+      padding: "3px",
+      backgroundColor: "rgba(255,255,255,0.75)",
+      display: "flex",
+      justifyContent: "center",
+      borderRadius: "10px"
    },
    ...commonDeckConstructor,
    ...tooltip

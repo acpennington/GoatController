@@ -13,7 +13,7 @@ class NavButton extends PureComponent {
 
       if (!href || tip)
          return (
-            <Tooltip id={href} title={tip || "Coming soon!"}>
+            <Tooltip id={href} title={tip || "Coming soon!"} classes={{ tooltip: classes.tooltip }}>
                <Button color={href && "primary"} size="lg" round className={classes.fullButton} href={href}>
                   {children}
                </Button>
