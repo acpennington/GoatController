@@ -189,9 +189,10 @@ class ScriptButton extends PureComponent {
                activeCard && activeCard.name
                   ? {
                        backgroundImage:
-                          'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/' + compress(variant || activeCard.name) + '.jpg")'
+                          'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/' + compress(variant || activeCard.name) + '.jpg")',
+                       width: "97.5%"
                     }
-                  : {}
+                  : { width: "97.5%" }
             }
             round
          >
