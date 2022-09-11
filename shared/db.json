@@ -5326,6 +5326,18 @@
       "def": 1800,
       "text": "Rock/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Target 1 monster your opponent controls; return that target to the hand.</effect>"
    },
+   "Good Goblin Housekeeping": {
+      "id": "09744376",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Draw cards equal to the number of \"Good Goblin Housekeeping\" cards in your Graveyard +1, then select 1 card from your hand and return it to the bottom of your Deck.",
+      "script": {
+         "name": "BOTTOM",
+         "displayCondition": { "row": "spellTrap" },
+         "params": "hand"
+      },
+      "limit": 2
+   },
    "Gora Turtle": {
       "id": "80233946",
       "cardType": "effectMonster",

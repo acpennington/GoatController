@@ -13,7 +13,10 @@ const ZONES = [MONSTER, SPELL_TRAP, FIELD_SPELL];
 async function sendCardMove(id, username, from, fromCard, to, settingTrap, shuffleDeck, msg, connectionId, api) {
    const player = to.player === username ? "their" : `${to.player}'s`;
    const unknown =
-      settingTrap || (from.row === DECK && to.row === HAND && from.zone === -1) || (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED);
+      settingTrap ||
+      (from.row === DECK && to.row === HAND && from.zone === -1) ||
+      (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED) ||
+      (from.row === HAND && to.row === DECK);
    const cardName = unknown ? "a card" : "<<" + fromCard.name + ">>";
    const adverb = msg ? ` ${msg} ` : " ";
    const noMessage = (from.row === HAND && to.row === HAND) || (from.row === DECK && to.row === DECK);

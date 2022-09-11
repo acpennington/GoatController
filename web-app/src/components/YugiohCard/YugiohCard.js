@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Mousetrap from "mousetrap";
 
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
-import { getBools, rowClass, isAcceptable } from "./utils.js";
+import { getBools, checkBottom, rowClass, isAcceptable } from "./utils.js";
 import getOtherPlayer from "utils/getOtherPlayer.js";
 import getCardDetails from "shared/getCardDetails.js";
 import CardArt from "./CardArt.js";
@@ -35,7 +35,8 @@ import {
    REVEAL_COLOR,
    BATTLE,
    LP_INPUT_ID,
-   FIELD
+   FIELD,
+   BOTTOM
 } from "shared/constants.js";
 
 import { makeStyles } from "@mui/styles";
@@ -58,42 +59,57 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone } = getBools(row, zone);
 
-   let { deckCount, card, counters, sleeves, selected, heroPlayer, heroSelected, villSelected, handRevealed, inBattlePhase, cycle, modalRow, autoClose } =
-      useSelector((state) => {
-         const sfPlayer = state.field[player];
-         const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
-         const counters = (card && card.counters) || 0;
-         const otherPlayer = getOtherPlayer(player, state.field);
-         const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[otherPlayer].sleeves;
-         const selections = state.selectedCard;
-         const heroPlayer = isHero ? player : otherPlayer;
-         const villPlayer = isHero ? otherPlayer : player;
-         const heroSelection = selections && selections[heroPlayer];
-         const villSelection = selections && selections[villPlayer];
-         const heroSelected = heroSelection && heroSelection.player === player && heroSelection.row === row && heroSelection.zone === zone;
-         const villSelected = villSelection && villSelection.player === player && villSelection.row === row && villSelection.zone === zone;
-         const handRevealed = sfPlayer.handRevealed;
-         const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
-         const inBattlePhase = state.turn.phase === BATTLE;
-         const cycle = makeCycle(sfPlayer, heroSelection && heroSelection.player === player ? heroSelection : null);
-         const modalRow = state.settings.modal && state.settings.modal.row;
-         const autoClose = state.settings.modal && state.settings.modal.autoClose;
-         return {
-            deckCount,
-            card,
-            counters,
-            sleeves,
-            selected,
-            heroPlayer,
-            heroSelected,
-            villSelected,
-            handRevealed,
-            inBattlePhase,
-            cycle,
-            modalRow,
-            autoClose
-         };
-      });
+   let {
+      deckCount,
+      sfPlayer,
+      card,
+      counters,
+      sleeves,
+      selected,
+      heroPlayer,
+      heroSelected,
+      villSelected,
+      handRevealed,
+      inBattlePhase,
+      cycle,
+      modalRow,
+      autoClose
+   } = useSelector((state) => {
+      const sfPlayer = state.field[player];
+      const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
+      const counters = (card && card.counters) || 0;
+      const otherPlayer = getOtherPlayer(player, state.field);
+      const sleeves = isExtraDeck || (card && !card.notOwned) ? sfPlayer.sleeves : state.field[otherPlayer].sleeves;
+      const selections = state.selectedCard;
+      const heroPlayer = isHero ? player : otherPlayer;
+      const villPlayer = isHero ? otherPlayer : player;
+      const heroSelection = selections && selections[heroPlayer];
+      const villSelection = selections && selections[villPlayer];
+      const heroSelected = heroSelection && heroSelection.player === player && heroSelection.row === row && heroSelection.zone === zone;
+      const villSelected = villSelection && villSelection.player === player && villSelection.row === row && villSelection.zone === zone;
+      const handRevealed = sfPlayer.handRevealed;
+      const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
+      const inBattlePhase = state.turn.phase === BATTLE;
+      const cycle = makeCycle(sfPlayer, heroSelection && heroSelection.player === player ? heroSelection : null);
+      const modalRow = state.settings.modal && state.settings.modal.row;
+      const autoClose = state.settings.modal && state.settings.modal.autoClose;
+      return {
+         deckCount,
+         sfPlayer,
+         card,
+         counters,
+         sleeves,
+         selected,
+         heroPlayer,
+         heroSelected,
+         villSelected,
+         handRevealed,
+         inBattlePhase,
+         cycle,
+         modalRow,
+         autoClose
+      };
+   });
 
    if (isDiscardZone) {
       const cardLength = card ? card.length : 0;
@@ -138,7 +154,11 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       canDrop: (item) => isAcceptable(item.type, acceptables) && !(item.row === DECK && row === DECK),
       drop: (item) => {
          if (inBattlePhase && item.row === MONSTER && monsterZone && !blank) dispatch(attack({ from: item, to: { player, row, zone }, socket }));
-         else dispatch(moveCard({ from: item, to: { player, row, zone } }, socket));
+         else {
+            const goToBottom = row === DECK && checkBottom(sfPlayer);
+            console.log("goToBottom = " + goToBottom);
+            dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone } }, socket));
+         }
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver(),

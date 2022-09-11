@@ -1,4 +1,5 @@
-import { MONSTER, SPELL_TRAP, FIELD_SPELL, HAND, DECK, EXTRA_DECK, deckZones, discardZones } from "shared/constants.js";
+import getCardDetails from "shared/getCardDetails.js";
+import { MONSTER, SPELL_TRAP, FIELD_SPELL, HAND, DECK, EXTRA_DECK, deckZones, discardZones, GRAVEYARD, BOTTOM } from "shared/constants.js";
 
 function getBools(row, zone) {
    const discardZone = discardZones.includes(row);
@@ -12,6 +13,39 @@ function getBools(row, zone) {
    const fieldZone = row === FIELD_SPELL;
 
    return { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone };
+}
+
+function checkBottom(field) {
+   const checkRows = [MONSTER, SPELL_TRAP];
+   for (const row of checkRows) {
+      for (const card of field[row]) {
+         console.log(JSON.stringify(card));
+         const bottom = checkCardForBottom(card, row);
+         if (bottom) return bottom;
+      }
+   }
+
+   const graveyard = field[GRAVEYARD];
+   if (graveyard) {
+      const bottom = checkCardForBottom(graveyard[graveyard.length - 1], GRAVEYARD);
+      if (bottom) return bottom;
+   }
+
+   return false;
+}
+
+function checkCardForBottom(card, row) {
+   //console.log(JSON.stringify(card));
+   //console.log(row);
+   if (card && !card.facedown) {
+      const { script } = getCardDetails(card.name);
+      if (card.name === "Good Goblin Housekeeping") console.log(!!script + " " + script.name + "/" + BOTTOM + " " + (script.displayCondition.row === row));
+      if (script && script.name === BOTTOM && script.displayCondition.row === row) {
+         console.log("returning: " + script.params);
+         return script.params;
+      }
+   }
+   return false;
 }
 
 function rowClass(row) {
@@ -33,4 +67,4 @@ function isAcceptable(itemType, acceptables) {
    return acceptables.includes(itemType);
 }
 
-export { getBools, rowClass, isAcceptable };
+export { getBools, checkBottom, rowClass, isAcceptable };
