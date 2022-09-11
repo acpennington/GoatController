@@ -404,7 +404,7 @@ test("database", () => {
 
             const players = JSON.stringify(script.displayCondition.players);
             expect(
-               ['["HERO"]', '["VILLAIN"]', '["HERO","VILLAIN"]'].includes(players),
+               ['["HERO"]', '["VILLAIN"]', '["HERO","VILLAIN"]', undefined].includes(players),
                `"${name}" has an invalid script.displayConditions.players: "${players}"`
             ).toBe(true);
 
