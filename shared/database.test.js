@@ -282,7 +282,6 @@ function verifyScriptParams(name, script) {
       case DRAW_N:
       case FLIP_COINS:
       case ROLL_DICE:
-      case BOTTOM:
       case SKIP_DRAWS:
          expect(params).toBeGreaterThan(0);
          break;
@@ -292,6 +291,8 @@ function verifyScriptParams(name, script) {
       case SHUFFLE_AND_DRAW:
          expect(isNumber(params) || params === "same" || params === "graveyard").toBe(true);
          break;
+      case BOTTOM:
+         expect(["hand", "graveyard"]).toContain(params.pos);
       default:
          throw new Error(`"${name}" has an unknown script name: '${script.name}'`);
    }
