@@ -10461,7 +10461,7 @@
       "id": "96316857",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>During your Standby Phase: You can pay 300 LP, then target 1 Spell/Trap in your Graveyard; send it to the bottom of the Deck.</effect>",
+      "text": "<effect=Trigger-like>During your Standby Phase: You can pay 300 Life Points, then target 1 Spell/Trap in your Graveyard; send it to the bottom of the Deck.</effect>",
       "script": {
          "name": "BOTTOM",
          "displayCondition": { "row": "spellTrap" },
@@ -14801,7 +14801,7 @@
       "levelOrSubtype": 4,
       "atk": 900,
       "def": 1700,
-      "text": "<effect=Trigger>When this card is changed from Attack Position to Defense Position: You can send any number of cards from your hand to the bottom of your Deck in any order.</effect>",
+      "text": "Aqua/Effect – <effect=Trigger>When this card is changed from Attack Position to Defense Position: You can send any number of cards from your hand to the bottom of your Deck in any order.</effect>",
       "script": {
          "name": "BOTTOM",
          "displayCondition": { "row": "monster" },
