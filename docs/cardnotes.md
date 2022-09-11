@@ -15,11 +15,10 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Ancient Telescope: We could just use a mill 5 script for this (pre: seems like this would be wrong as it would reveal them to the opponent?)
 -  Big Eye: similar logic required as with Ancient Telescope?
 -  Chain Destruction, Chain Disappearance, Spell Vanishing: These should use some kind of banish all script similar to Nobleman.
--  Coach Goblin: needs a bottom of deck script (see ticket #245)
 -  Convulsion of Nature: This shit is far from "easy." Will require voodoo-level scripting.
 -  Crimson Sentry: needs a bottom of deck script (see ticket #245)
 -  Dark Sage: This card is currently impossible to search/summon. Need to figure out how we're going to do this.
--  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script (see ticket #245)
+-  Dark Scorpion Chick the Yellow: requires some sort of bottom of deck script + other weird stuff
 -  Darkness Approaches: need ability to turn to face down Attack Position when this card is on the field :(
 -  Different Dimension Capsule: face down banishing script
 -  Drop Off: need a script to ensure the card discarded is the card that was just drawn
@@ -27,7 +26,6 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Freed the Matchless General: need to be able to turn off auto draw...
 -  Fruits of Kozaky's Studies: Requires script to look at top 3
 -  Gamble: ditto, need ability to turn off auto draw when skipping turn
--  Good Goblin Housekeeping: also requires the bottom of the deck script (see ticket #245)
 -  Grave Lure: Convulsion/Parasite Paracide-esque
 -  Lightforce Sword: similar to Different Dimension Capsule
 -  Maharaghi: Will require significant scripting

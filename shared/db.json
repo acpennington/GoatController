@@ -2329,6 +2329,20 @@
       "def": 300,
       "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 1 Trap on the field; destroy that target. (If the target is Set, reveal it, and destroy it if it is a Trap. Otherwise, return it to its original position).</effect>"
    },
+   "Crimson Sentry": {
+      "id": "28358902",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1200,
+      "text": "Warrior/Effect – During your Main Phase 1: You can Tribute this card (for cost). This turn, the first time (and if) a monster you control is destroyed by battle and sent to the GY: You can target that monster in the GY; place that target on the bottom of the Deck.",
+      "script": {
+         "name": "BOTTOM",
+         "displayCondition": { "row": "graveyard" },
+         "params": "graveyard"
+      }
+   },
    "Criosphinx": {
       "id": "18654201",
       "cardType": "effectMonster",
