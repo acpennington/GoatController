@@ -281,6 +281,7 @@ function verifyScriptParams(name, script) {
       case DRAW_N:
       case FLIP_COINS:
       case ROLL_DICE:
+      case BOTTOM:
       case SKIP_DRAWS:
          expect(params).toBeGreaterThan(0);
          break;
