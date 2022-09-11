@@ -2336,7 +2336,7 @@
       "levelOrSubtype": 4,
       "atk": 1500,
       "def": 1200,
-      "text": "Warrior/Effect – <effect=Ignition>During your Main Phase 1: You can Tribute this card (for cost).</effect> <effect=Lingering>This turn, the first time (and if) a monster you control is destroyed by battle and sent to the GY: You can target that monster in the GY; place that target on the bottom of the Deck.</effect>",
+      "text": "Warrior/Effect – <effect=Ignition>During your Main Phase 1: You can Tribute this card (for cost).</effect> <effect=Lingering>This turn, the first time (and if) a monster you control is destroyed by battle and sent to the Graveyard: You can target that monster in the Graveyard; place that target on the bottom of the Deck.</effect>",
       "script": {
          "name": "BOTTOM",
          "displayCondition": { "row": "graveyard" },
@@ -5358,7 +5358,7 @@
       "id": "09744376",
       "cardType": "Trap",
       "levelOrSubtype": "Normal",
-      "text": "Draw cards equal to the number of \"Good Goblin Housekeeping\" in your GY +1, then place 1 card from your hand on the bottom of the Deck.",
+      "text": "Draw cards equal to the number of \"Good Goblin Housekeeping\" in your Graveyard +1, then place 1 card from your hand on the bottom of the Deck.",
       "script": {
          "name": "BOTTOM",
          "displayCondition": { "row": "spellTrap" },
@@ -10461,7 +10461,7 @@
       "id": "96316857",
       "cardType": "Spell",
       "levelOrSubtype": "Continuous",
-      "text": "<effect=Trigger-like>During your Standby Phase: You can pay 300 LP, then target 1 Spell/Trap in your GY; send it to the bottom of the Deck.</effect>",
+      "text": "<effect=Trigger-like>During your Standby Phase: You can pay 300 LP, then target 1 Spell/Trap in your Graveyard; send it to the bottom of the Deck.</effect>",
       "script": {
          "name": "BOTTOM",
          "displayCondition": { "row": "spellTrap" },
