@@ -292,7 +292,7 @@ function verifyScriptParams(name, script) {
          expect(isNumber(params) || params === "same" || params === "graveyard").toBe(true);
          break;
       case BOTTOM:
-         expect(["hand", "graveyard"]).toContain(params.pos);
+         expect(["hand", "graveyard"]).toContain(params);
       default:
          throw new Error(`"${name}" has an unknown script name: '${script.name}'`);
    }
