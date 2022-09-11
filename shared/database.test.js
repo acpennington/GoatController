@@ -400,7 +400,6 @@ test("database", () => {
             expectFields(`"${name}" script.displayCondition`, script, [], ["name", "tooltip", "displayCondition", "params", "oneParam", "autoClose"]);
             expect(scriptNames).toContain(script.name);
             if (script.tooltip) expect(script.tooltip.length).toBeGreaterThan(0);
-            expectFields(`"${name}" script.displayCondition`, script.displayCondition, ["players", "row"]);
             expect(allZones).toContain(script.displayCondition.row);
 
             const players = JSON.stringify(script.displayCondition.players);
