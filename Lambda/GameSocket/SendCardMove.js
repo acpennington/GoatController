@@ -1,6 +1,6 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
 const reorderDeck = require("./ReorderDeck");
-const { HAND, DECK, GRAVEYARD, BANISHED, MONSTER, SPELL_TRAP, FIELD_SPELL } = require("./shared/constants");
+const { HAND, DECK, GRAVEYARD, BANISHED, MONSTER, SPELL_TRAP, FIELD_SPELL, BOTTOM } = require("./shared/constants");
 const display = require("./shared/display");
 const shuffle = require("./shared/shuffle");
 
@@ -13,13 +13,16 @@ const ZONES = [MONSTER, SPELL_TRAP, FIELD_SPELL];
 async function sendCardMove(id, username, from, fromCard, to, settingTrap, shuffleDeck, msg, connectionId, api) {
    const player = to.player === username ? "their" : `${to.player}'s`;
    const unknown =
-      settingTrap || (from.row === DECK && to.row === HAND && from.zone === -1) || (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED);
+      settingTrap ||
+      (from.row === DECK && to.row === HAND && from.zone === -1) ||
+      (fromCard.facedown && to.row !== GRAVEYARD && to.row !== BANISHED) ||
+      (from.row === HAND && to.row === DECK);
    const cardName = unknown ? "a card" : "<<" + fromCard.name + ">>";
    const adverb = msg ? ` ${msg} ` : " ";
    const noMessage = (from.row === HAND && to.row === HAND) || (from.row === DECK && to.row === DECK);
 
    const fromZone = ZONES.includes(from.row) ? `${display(from.row)} Zone` : display(from.row);
-   const toZone = ZONES.includes(to.row) ? `${display(to.row)} Zone` : display(to.row);
+   const toZone = (ZONES.includes(to.row) ? `${display(to.row)} Zone` : display(to.row)) + (to.row === DECK && to.zone === BOTTOM ? " (bottom)" : "");
 
    const message = !noMessage && {
       author: "Server",

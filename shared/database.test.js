@@ -14,6 +14,7 @@ const {
    ROLL_DICE,
    scriptNames,
    SEARCH_DECK,
+   BOTTOM,
    SHUFFLE_AND_DRAW,
    SKIP_DRAWS,
    SPELL,
@@ -290,6 +291,9 @@ function verifyScriptParams(name, script) {
       case SHUFFLE_AND_DRAW:
          expect(isNumber(params) || params === "same" || params === "graveyard").toBe(true);
          break;
+      case BOTTOM:
+         expect(["hand", "graveyard"]).toContain(params);
+         break;
       default:
          throw new Error(`"${name}" has an unknown script name: '${script.name}'`);
    }
@@ -400,12 +404,11 @@ test("database", () => {
             expectFields(`"${name}" script.displayCondition`, script, [], ["name", "tooltip", "displayCondition", "params", "oneParam", "autoClose"]);
             expect(scriptNames).toContain(script.name);
             if (script.tooltip) expect(script.tooltip.length).toBeGreaterThan(0);
-            expectFields(`"${name}" script.displayCondition`, script.displayCondition, ["players", "row"]);
             expect(allZones).toContain(script.displayCondition.row);
 
             const players = JSON.stringify(script.displayCondition.players);
             expect(
-               ['["HERO"]', '["VILLAIN"]', '["HERO","VILLAIN"]'].includes(players),
+               ['["HERO"]', '["VILLAIN"]', '["HERO","VILLAIN"]', undefined].includes(players),
                `"${name}" has an invalid script.displayConditions.players: "${players}"`
             ).toBe(true);
 

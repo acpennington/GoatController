@@ -2111,6 +2111,20 @@
       "def": 0,
       "text": "Zombie – A clown revived by the powers of darkness. Its deadly dance has sent many monsters to their graves."
    },
+   "Coach Goblin": {
+      "id": "42541548",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1200,
+      "def": 1500,
+      "text": "Fiend/Effect – <effect=Trigger>Once per turn, during your End Phase: You can reveal 1 Normal Monster Card in your hand, then return it to the bottom of your Deck; draw 1 card. This card must be face-up on the field to activate and to resolve this effect.</effect>",
+      "script": {
+         "name": "BOTTOM",
+         "displayCondition": { "row": "monster" },
+         "params": "hand"
+      }
+   },
    "Cobra Jar": {
       "id": "86801871",
       "cardType": "effectMonster",
@@ -2314,6 +2328,20 @@
       "atk": 300,
       "def": 300,
       "text": "Warrior/Flip/Effect – <effect=Trigger>FLIP: Target 1 Trap on the field; destroy that target. (If the target is Set, reveal it, and destroy it if it is a Trap. Otherwise, return it to its original position).</effect>"
+   },
+   "Crimson Sentry": {
+      "id": "28358902",
+      "cardType": "effectMonster",
+      "attribute": "Fire",
+      "levelOrSubtype": 4,
+      "atk": 1500,
+      "def": 1200,
+      "text": "Warrior/Effect – <effect=Ignition>During your Main Phase 1: You can Tribute this card (for cost).</effect> <effect=Lingering>This turn, the first time (and if) a monster you control is destroyed by battle and sent to the Graveyard: You can target that monster in the Graveyard; place that target on the bottom of the Deck.</effect>",
+      "script": {
+         "name": "BOTTOM",
+         "displayCondition": { "row": "graveyard" },
+         "params": "graveyard"
+      }
    },
    "Criosphinx": {
       "id": "18654201",
@@ -5325,6 +5353,18 @@
       "atk": 800,
       "def": 1800,
       "text": "Rock/Effect – <effect=Ignition>Once per turn: You can change this card to face-down Defense Position.</effect> <effect=Trigger>If this card is Flip Summoned: Target 1 monster your opponent controls; return that target to the hand.</effect>"
+   },
+   "Good Goblin Housekeeping": {
+      "id": "09744376",
+      "cardType": "Trap",
+      "levelOrSubtype": "Normal",
+      "text": "Draw cards equal to the number of \"Good Goblin Housekeeping\" in your Graveyard +1, then place 1 card from your hand on the bottom of the Deck.",
+      "script": {
+         "name": "BOTTOM",
+         "displayCondition": { "row": "spellTrap" },
+         "params": "hand"
+      },
+      "limit": 2
    },
    "Gora Turtle": {
       "id": "80233946",
@@ -10417,6 +10457,17 @@
       },
       "limit": 1
    },
+   "Recycle": {
+      "id": "96316857",
+      "cardType": "Spell",
+      "levelOrSubtype": "Continuous",
+      "text": "<effect=Trigger-like>During your Standby Phase: You can pay 300 Life Points, then target 1 Spell/Trap in your Graveyard; send it to the bottom of the Deck.</effect>",
+      "script": {
+         "name": "BOTTOM",
+         "displayCondition": { "row": "spellTrap" },
+         "params": "graveyard"
+      }
+   },
    "Red Archery Girl": {
       "id": "65570596",
       "cardType": "normalMonster",
@@ -14742,6 +14793,20 @@
       "text": "Machine/Fusion/Effect – \"Y-Dragon Head\" + \"Z-Metal Tank\". <effect=Summon>Must first be Special Summoned (from your Fusion Deck) by banishing the above cards you control. (You do not use \"Polymerization\".)</effect> <effect=Summon>Cannot be Special Summoned from the Graveyard.</effect> <effect=Ignition>You can discard 1 card, then target 1 face-down monster your opponent controls; destroy that target.</effect>",
       "noMeta": true,
       "art": 2
+   },
+   "Yado Karu": {
+      "id": "29380133",
+      "cardType": "effectMonster",
+      "attribute": "Water",
+      "levelOrSubtype": 4,
+      "atk": 900,
+      "def": 1700,
+      "text": "Aqua/Effect – <effect=Trigger>When this card is changed from Attack Position to Defense Position: You can send any number of cards from your hand to the bottom of your Deck in any order.</effect>",
+      "script": {
+         "name": "BOTTOM",
+         "displayCondition": { "row": "monster" },
+         "params": "hand"
+      }
    },
    "Yamadron": {
       "id": "70345785",
