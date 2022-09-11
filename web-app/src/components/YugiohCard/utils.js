@@ -19,7 +19,6 @@ function checkBottom(field) {
    const checkRows = [MONSTER, SPELL_TRAP];
    for (const row of checkRows) {
       for (const card of field[row]) {
-         console.log(JSON.stringify(card));
          const bottom = checkCardForBottom(card, row);
          if (bottom) return bottom;
       }
@@ -35,15 +34,9 @@ function checkBottom(field) {
 }
 
 function checkCardForBottom(card, row) {
-   //console.log(JSON.stringify(card));
-   //console.log(row);
    if (card && !card.facedown) {
       const { script } = getCardDetails(card.name);
-      if (card.name === "Good Goblin Housekeeping") console.log(!!script + " " + script.name + "/" + BOTTOM + " " + (script.displayCondition.row === row));
-      if (script && script.name === BOTTOM && script.displayCondition.row === row) {
-         console.log("returning: " + script.params);
-         return script.params;
-      }
+      if (script && script.name === BOTTOM && script.displayCondition.row === row) return script.params;
    }
    return false;
 }

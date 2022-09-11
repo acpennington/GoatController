@@ -156,7 +156,6 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          if (inBattlePhase && item.row === MONSTER && monsterZone && !blank) dispatch(attack({ from: item, to: { player, row, zone }, socket }));
          else {
             const goToBottom = row === DECK && checkBottom(sfPlayer);
-            console.log("goToBottom = " + goToBottom);
             dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone } }, socket));
          }
       },
