@@ -2111,6 +2111,20 @@
       "def": 0,
       "text": "Zombie – A clown revived by the powers of darkness. Its deadly dance has sent many monsters to their graves."
    },
+   "Coach Goblin": {
+      "id": "42541548",
+      "cardType": "effectMonster",
+      "attribute": "Earth",
+      "levelOrSubtype": 4,
+      "atk": 1200,
+      "def": 1500,
+      "text": "Fiend/Effect – <effect=Trigger>Once per turn, during your End Phase: You can reveal 1 Normal Monster Card in your hand, then return it to the bottom of your Deck; draw 1 card. This card must be face-up on the field to activate and to resolve this effect.</effect>",
+      "script": {
+         "name": "BOTTOM",
+         "displayCondition": { "row": "monster" },
+         "params": "hand"
+      }
+   },
    "Cobra Jar": {
       "id": "86801871",
       "cardType": "effectMonster",
