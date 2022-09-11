@@ -293,6 +293,7 @@ function verifyScriptParams(name, script) {
          break;
       case BOTTOM:
          expect(["hand", "graveyard"]).toContain(params);
+         break;
       default:
          throw new Error(`"${name}" has an unknown script name: '${script.name}'`);
    }
