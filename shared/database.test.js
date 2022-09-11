@@ -14,6 +14,7 @@ const {
    ROLL_DICE,
    scriptNames,
    SEARCH_DECK,
+   BOTTOM,
    SHUFFLE_AND_DRAW,
    SKIP_DRAWS,
    SPELL,
