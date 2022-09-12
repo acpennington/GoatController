@@ -59,7 +59,9 @@ class GetPosts extends PureComponent {
       return (
          <div className={classes.bigContainer}>
             <div className={classes.flexRow}>
-               <Shadow style={{width: "50%", display: "flex", justifyContent: "right", alignItems: "center", paddingRight: "5px"}}><strong>Posts by:</strong></Shadow>
+               <Shadow style={{ width: "50%", display: "flex", justifyContent: "right", alignItems: "center", paddingRight: "5px" }}>
+                  <strong>Posts by:</strong>
+               </Shadow>
                <GenericFinder
                   value="All"
                   options={[
