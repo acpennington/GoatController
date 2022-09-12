@@ -18,11 +18,12 @@ import { withStyles } from "@mui/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
 
 const EFFECT_MESSAGE = "Effect!";
+const RESPONSE_MESSAGE = "Response?";
 const cannedMessages = {
    OK: "k",
    No: "n",
    Thinking: null, // NB: "t" is already used to cycle through spell/traps
-   "Response?": "?",
+   [RESPONSE_MESSAGE]: "?",
    [EFFECT_MESSAGE]: "f"
 };
 
@@ -50,10 +51,11 @@ class Chat extends PureComponent {
       const { chat, addMessage, heroSelected, heroField } = this.props;
       content = content.trim();
 
-      if (content === EFFECT_MESSAGE && heroSelected) {
+      if (heroSelected && (content === EFFECT_MESSAGE || content === RESPONSE_MESSAGE)) {
          const { row, zone } = heroSelected;
          const card = row === FIELD_SPELL ? heroField[FIELD_SPELL] : heroField[row][zone];
-         if (row !== HAND && !card.facedown) content = "Activate the effect of <<" + card.name + ">>.";
+         if (row !== HAND && !card.facedown)
+            content = content === EFFECT_MESSAGE ? "Activate the effect of <<" + card.name + ">>." : "Response to <<" + card.name + ">>?";
       }
 
       if (content) {
