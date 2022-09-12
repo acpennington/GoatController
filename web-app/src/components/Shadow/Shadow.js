@@ -19,7 +19,7 @@ class Shadow extends Component {
 Shadow.propTypes = {
    classes: PropTypes.object.isRequired,
    style: PropTypes.object,
-   children: PropTypes.oneOf([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired
+   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired
 };
 
 export default withStyles(styles)(Shadow);
