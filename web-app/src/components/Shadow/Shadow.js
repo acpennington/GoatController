@@ -9,7 +9,7 @@ class Shadow extends Component {
       const { classes, style, children } = this.props;
 
       return (
-         <div className={classes.shadow} style={{ style }}>
+         <div className={classes.shadow} style={style}>
             {children}
          </div>
       );
@@ -19,7 +19,7 @@ class Shadow extends Component {
 Shadow.propTypes = {
    classes: PropTypes.object.isRequired,
    style: PropTypes.object,
-   children: PropTypes.element.isRequired
+   children: PropTypes.oneOf([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired
 };
 
 export default withStyles(styles)(Shadow);
