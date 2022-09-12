@@ -5,6 +5,7 @@ import axios from "axios";
 import Pagination from "@mui/material/Pagination";
 import GenericFinder from "components/CardFinder/GenericFinder.js";
 import GridContainer from "components/Grid/GridContainer.js";
+import Shadow from "components/Shadow/Shadow.js";
 
 import Post from "./Post.js";
 import getApiStage from "utils/getApiStage.js";
@@ -58,7 +59,7 @@ class GetPosts extends PureComponent {
       return (
          <div className={classes.bigContainer}>
             <div className={classes.flexRow}>
-               <span style={{ textAlign: "right", paddingRight: "5px", width: "50%" }}>Posts by:</span>
+               <Shadow style={{width: "50%", display: "flex", justifyContent: "right", alignItems: "center", paddingRight: "5px"}}><strong>Posts by:</strong></Shadow>
                <GenericFinder
                   value="All"
                   options={[

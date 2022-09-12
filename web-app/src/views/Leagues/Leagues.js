@@ -8,6 +8,7 @@ import BackButton from "components/CustomButtons/BackButton.js";
 import PageTemplate from "components/Header/PageTemplate.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
+import Shadow from "components/Shadow/Shadow.js";
 
 import Tooltip from "components/Tooltip/PatchedTooltip.js";
 import { MdCreate, MdArrowRight, MdArrowDropDown } from "react-icons/md";
@@ -70,7 +71,7 @@ class Leagues extends PureComponent {
             <GridContainer>
                <GridItem xs={12}>
                   <div className={classes.center}>
-                     <h3>Your Leagues</h3>
+                     <Shadow><h3>Your Leagues</h3></Shadow>
                      {doneFetching ? <LeaguesMap leagues={yourLeagues} color="success" /> : "Fetching list of your leagues..."}
                   </div>
                </GridItem>
@@ -82,7 +83,7 @@ class Leagues extends PureComponent {
                         classes={{ tooltip: classes.tooltip }}
                         placement="top"
                      >
-                        <h3 onClick={this.swapExpanded}>Join League {joinExpanded ? <MdArrowDropDown /> : <MdArrowRight />}</h3>
+                        <Shadow><h3 onClick={this.swapExpanded}>Join League {joinExpanded ? <MdArrowDropDown /> : <MdArrowRight />}</h3></Shadow>
                      </Tooltip>
                      {joinExpanded && (
                         <div className={classes.leaguesList}>
