@@ -93,11 +93,14 @@ export default function (state = initialState, action) {
 
          if (!fromCard.name.includes("Token") || to.row === MONSTER || to.row === SPELL_TRAP) {
             if (toExtraZones.includes(to.row) && getCardDetails(fromCard.name).cardType === FUSION_MONSTER) state[to.player].usedFusions[fromCard.name] -= 1;
-            else if (dynamicZones.includes(to.row))
-               to.zone === BOTTOM
-                  ? state[to.player][to.row].unshift({ name: fromCard.name, order: fromCard.order })
-                  : state[to.player][to.row].push({ name: fromCard.name, order: fromCard.order });
-            else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
+            else if (dynamicZones.includes(to.row)) {
+               const myCard = { name: fromCard.name, order: fromCard.order };
+               if (to.forceFacedown) {
+                  myCard.facedown = true;
+                  settingTrap = true;
+               }
+               to.zone === BOTTOM ? state[to.player][to.row].unshift(myCard) : state[to.player][to.row].push(myCard);
+            } else if (to.row === FIELD_SPELL) state[to.player][FIELD_SPELL] = { ...fromCard };
             else state[to.player][to.row][to.zone] = { ...fromCard };
          }
 

@@ -3402,6 +3402,17 @@
       "levelOrSubtype": "Normal",
       "text": "One time, during the rest of this turn, if either player(s) rolls a die (or dice), you can have the player(s) re-roll. (You can only gain this effect once per turn)."
    },
+   "Different Dimension Capsule": {
+      "id": "11961740",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "Banish 1 card from your Deck face-down. After this card's activation, it remains on the field. Destroy this card during your 2nd Standby Phase after activating this card, and if you do, add the banished card to the hand.",
+      "script": {
+         "name": "SEARCH_DECK",
+         "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
+         "autoClose": true
+      }
+   },
    "Different Dimension Dragon": {
       "id": "50939127",
       "cardType": "effectMonster",
