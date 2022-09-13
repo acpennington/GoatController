@@ -30,7 +30,6 @@ This file contains notes regarding the monumental task of adding all Goat Format
 -  Maharaghi: Will require significant scripting
 -  Parasite Paracide: requires complex scripting.
 -  Pharaoh's Treasure: Needs to be shuffled face up into the deck
--  Question: Need to be able to disable looking in the graveyard somehow (alternatively - log when looking in the Graveyard/Banished zone always)
 -  Senri Eye: Look at card on opponent's deck without them seeing.
 -  Spellbook Organization: Requires significant scripting
 

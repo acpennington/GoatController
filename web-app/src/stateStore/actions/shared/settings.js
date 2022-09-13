@@ -1,5 +1,7 @@
 import { shuffleDeck } from "../game/field.js";
+import { addMessage } from "../game/chat.js";
 import { DECK, SWITCH_NAMES, OPEN_MODAL, CLOSE_MODAL, PREPOP_LP, LOAD_DECK, SET_UNSAVED, SET_CARDSIZE, SET_STACK, CHAT_SHORTCUTS } from "shared/constants.js";
+import display from "shared/display.js";
 
 function switchNames() {
    return { type: SWITCH_NAMES };
@@ -9,8 +11,14 @@ function switchChatShortcuts() {
    return { type: CHAT_SHORTCUTS };
 }
 
-function openModal(player, row, filter = false, autoClose = false, oneParam = false, source = false) {
-   return { type: OPEN_MODAL, data: { player, row, filter, autoClose, oneParam, source } };
+function openModal(player, row, heroPlayer = false, socket = false, filter = false, autoClose = false, oneParam = false, source = false) {
+   return (dispatch) => {
+      dispatch({ type: OPEN_MODAL, data: { player, row, filter, autoClose, oneParam, source } });
+      if (socket && socket.api) {
+         const message = heroPlayer + " looked at " + (player === heroPlayer ? "their " : player + "'s ") + display(row) + ".";
+         dispatch(addMessage("Game", message, socket));
+      }
+   };
 }
 
 function closeModal(row, player, socket = false, auto = true) {

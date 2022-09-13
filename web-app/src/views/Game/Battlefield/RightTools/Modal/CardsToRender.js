@@ -18,8 +18,8 @@ class CardsToRender extends Component {
       const lastZoneLen = prevState.zoneLen;
 
       if (zoneLen === 0 || (autoClose && lastZoneLen !== zoneLen && lastRow === row)) closeModal(row, player, this.context);
-      else if (zoneLen === 1 && source === "Thunder Dragon" && this.context.api) openModal(player, DECK, filter, true, oneParam);
-      else if (lastZoneLen - zoneLen === 1 && source === "Rescue Cat") openModal(player, DECK, filter, true, oneParam);
+      else if (zoneLen === 1 && source === "Thunder Dragon" && this.context.api) openModal(player, DECK, false, false, filter, true, oneParam);
+      else if (lastZoneLen - zoneLen === 1 && source === "Rescue Cat") openModal(player, DECK, false, false, filter, true, oneParam);
    }
 
    filterZones = () => {

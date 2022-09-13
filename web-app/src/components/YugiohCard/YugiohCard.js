@@ -238,7 +238,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
                   }
                   dispatch(clearSelection(socket));
                }
-            } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row));
+            } else if (!blank && (discardZone || (isExtraDeck && isHero))) dispatch(openModal(player, row, heroPlayer, socket));
             else if (isHero && deckZone && modalRow === DECK) dispatch(closeModal(row, player, socket));
          }}
          onMouseEnter={() => {

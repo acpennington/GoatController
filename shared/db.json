@@ -10279,6 +10279,12 @@
       "def": 300,
       "text": "Warrior/Effect – <effect=Continuous>This card can attack directly.</effect>"
    },
+   "Question": {
+      "id": "38723936",
+      "cardType": "Spell",
+      "levelOrSubtype": "Normal",
+      "text": "While activating this card and until it finishes resolving, your opponent cannot check cards in the Graveyard. Your opponent declares one card name; If that is the first monster at the bottom of your Graveyard, banish that monster. Otherwise, Special Summon that monster to your side of the field."
+   },
    "Rabid Horseman": {
       "id": "94905343",
       "cardType": "fusionMonster",

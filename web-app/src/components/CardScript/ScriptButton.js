@@ -64,7 +64,7 @@ class ScriptButton extends PureComponent {
       const socket = this.context;
       switch (name) {
          case SEARCH_DECK:
-            filterDeck(heroPlayer, script, activeCard.name);
+            filterDeck(heroPlayer, script, activeCard.name, socket);
             break;
          case BANISH_ALL:
             banishAll(field, heroPlayer, activeCard, variant, params, socket);
