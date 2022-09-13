@@ -5,17 +5,22 @@ import PropTypes from "prop-types";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import RenderCards from "components/RenderCards/RenderCards.js";
 import checkParams from "utils/checkParams.js";
-import { closeModal } from "stateStore/actions/shared/settings.js";
+import { closeModal, openModal } from "stateStore/actions/shared/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
+
+import { DECK } from "shared/constants.js";
 
 class CardsToRender extends Component {
    componentDidUpdate(prevProps, prevState) {
-      const { autoClose, row, player, closeModal } = this.props;
+      const { autoClose, row, player, closeModal, openModal, filter, oneParam } = this.props;
       const { zoneLen } = this.state;
       const lastRow = prevProps.row;
       const lastZoneLen = prevState.zoneLen;
 
       if (zoneLen === 0 || (autoClose && lastZoneLen !== zoneLen && lastRow === row)) closeModal(row, player, this.context);
+      if (row === DECK && zoneLen === 1 && !autoClose && this.context.api) {
+         openModal(player, DECK, filter, true, oneParam);
+      }
    }
 
    filterZones = () => {
@@ -84,9 +89,10 @@ CardsToRender.propTypes = {
    autoClose: PropTypes.bool.isRequired,
    oneParam: PropTypes.bool,
    closeModal: PropTypes.func.isRequired,
+   openModal: PropTypes.func.isRequired,
    cards: PropTypes.oneOfType([PropTypes.array, PropTypes.bool])
 };
 
 CardsToRender.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { closeModal })(CardsToRender);
+export default connect(mapStateToProps, { closeModal, openModal })(CardsToRender);

@@ -132,6 +132,8 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
 
    const type = dynamicZones.includes(row) ? (levelOrSubtype === FIELD && FIELD_SPELL) || OFF_FIELD + (!isNaN(levelOrSubtype) ? MONSTER : SPELL_TRAP) : row;
 
+   if (name === "Thunder Dragon" && row === DECK) console.log("autoClose: " + autoClose);
+
    const [{ isDragging }, drag] = useDrag({
       type,
       item: { type, player, row, zone, cardName, autoClose },

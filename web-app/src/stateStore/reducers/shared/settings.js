@@ -31,7 +31,7 @@ export default function (state = initialState, action) {
       case CHAT_SHORTCUTS:
          return { ...state, chatShortcuts: !state.chatShortcuts };
       case OPEN_MODAL:
-         if (state.modal && state.modal.row === data.row && state.modal.player === data.player) state.modal = null;
+         if (state.modal && state.modal.row === data.row && state.modal.player === data.player && state.modal.autoClose === data.autoClose) state.modal = null;
          else state.modal = data;
          return { ...state };
       case CLOSE_MODAL:

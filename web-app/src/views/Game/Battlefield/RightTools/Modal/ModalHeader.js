@@ -18,7 +18,7 @@ import styles from "assets/jss/material-kit-react/views/gameSections/rightTools.
 
 class ModalHeader extends PureComponent {
    componentDidMount() {
-      bind("esc", () => this.props.closeModal(this.props.row, this.props.player, this.context));
+      bind("esc", () => this.props.closeModal(this.props.row, this.props.player, this.context, false));
    }
 
    componentWillUnmount() {
@@ -34,7 +34,7 @@ class ModalHeader extends PureComponent {
 
       return (
          <Tooltip id="close" title="Click to close" placement="bottom" classes={{ tooltip: classes.tooltip }}>
-            <div className={classes.headerContainer} onClick={() => closeModal(row, player, this.context)}>
+            <div className={classes.headerContainer} onClick={() => closeModal(row, player, this.context, false)}>
                <CloseX />
                <div id="modalheader" className={classes["header" + row]}>
                   <div className={classes.headerText}>

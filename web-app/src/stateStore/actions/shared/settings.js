@@ -10,15 +10,16 @@ function switchChatShortcuts() {
 }
 
 function openModal(player, row, filter = false, autoClose = false, oneParam = false) {
+   console.log("attempting to open modal");
    return { type: OPEN_MODAL, data: { player, row, filter, autoClose, oneParam } };
 }
 
-function closeModal(row, player, socket = false) {
+function closeModal(row, player, socket = false, auto = true) {
    const isSocket = socket && socket.api;
 
    return (dispatch) => {
       dispatch({ type: CLOSE_MODAL });
-      if (row === DECK && !isSocket) dispatch(shuffleDeck(player));
+      if (row === DECK && (!isSocket || auto === false)) dispatch(shuffleDeck(player, socket));
    };
 }
 
