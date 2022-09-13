@@ -3,7 +3,7 @@
       "type": "text",
       "title": "Deck Searching Improved",
       "date": "2022-09-13",
-      "story": "Fixed a bug and improved deck searching. Both Thunder Dragon and Rescue now shuffle correctly after their second search. I hope this will be the end to the search bug saga. Additionally, after clicking on a card and the Response? button, the chat will now say \"Response to [card name]?\" More updates coming soon.<br>Edit: This update now also includes a server message that tells you when a player is looking at a graveyard/banished/deck. The card Question has now also been added to the game."
+      "story": "Fixed a bug and improved deck searching. Both Thunder Dragon and Rescue now shuffle correctly after their second search. I hope this will be the end to the search bug saga. Additionally, after clicking on a card and the Response? button, the chat will now say \"Response to [card name]?\" More updates coming soon.<br>Edit: This update now also includes a server message that tells you when a player is looking at a graveyard/banished/deck. The card Question has now also been added to the game.<br>Edit 2: So many updates! Different Dimension Capsule has been added to the game as well. It should work correctly."
    },
    {
       "type": "text",

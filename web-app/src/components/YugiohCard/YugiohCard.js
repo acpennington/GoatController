@@ -73,7 +73,8 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       inBattlePhase,
       cycle,
       modalRow,
-      autoClose
+      autoClose,
+      modalSource
    } = useSelector((state) => {
       const sfPlayer = state.field[player];
       const card = cardName ? { name: cardName } : zone === -1 ? sfPlayer[row] : sfPlayer[row][zone];
@@ -94,6 +95,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       const modal = state.settings.modal;
       const modalRow = modal && modal.row;
       const autoClose = modal && modal.autoClose;
+      const modalSource = modal && modal.source;
       return {
          deckCount,
          sfPlayer,
@@ -108,7 +110,8 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          inBattlePhase,
          cycle,
          modalRow,
-         autoClose
+         autoClose,
+         modalSource
       };
    });
 
@@ -157,7 +160,8 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          if (inBattlePhase && item.row === MONSTER && monsterZone && !blank) dispatch(attack({ from: item, to: { player, row, zone }, socket }));
          else {
             const goToBottom = row === DECK && checkBottom(sfPlayer);
-            dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone } }, socket));
+            const forceFacedown = modalSource === "Different Dimension Capsule" && row === BANISHED && item.row === DECK;
+            dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone, forceFacedown } }, socket));
          }
       },
       collect: (monitor) => ({
