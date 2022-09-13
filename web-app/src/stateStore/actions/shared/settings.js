@@ -9,9 +9,8 @@ function switchChatShortcuts() {
    return { type: CHAT_SHORTCUTS };
 }
 
-function openModal(player, row, filter = false, autoClose = false, oneParam = false) {
-   console.log("attempting to open modal");
-   return { type: OPEN_MODAL, data: { player, row, filter, autoClose, oneParam } };
+function openModal(player, row, filter = false, autoClose = false, oneParam = false, source = false) {
+   return { type: OPEN_MODAL, data: { player, row, filter, autoClose, oneParam, source } };
 }
 
 function closeModal(row, player, socket = false, auto = true) {

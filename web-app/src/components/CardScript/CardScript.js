@@ -52,10 +52,8 @@ class CardScript extends PureComponent {
 
       return (
          <Fragment>
-            {validScript && <ScriptButton script={script} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} focus={focus} />}
-            {validScript2 && (
-               <ScriptButton script={script2} heroPlayer={heroPlayer} cardName={cardName} activeCard={activeCard} focus={focus && !validScript} />
-            )}
+            {validScript && <ScriptButton script={script} heroPlayer={heroPlayer} activeCard={activeCard} focus={focus} />}
+            {validScript2 && <ScriptButton script={script2} heroPlayer={heroPlayer} activeCard={activeCard} focus={focus && !validScript} />}
             {[BANISHED, MONSTER].includes(activeCard.row) && text.includes("/Flip/") && (
                <ScriptButton
                   script={{ name: BANISH_ALL }}

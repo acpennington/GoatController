@@ -54,7 +54,7 @@ function mapStateToProps(state) {
 }
 
 ConcedeButton.propTypes = {
-   concessionLink: PropTypes.string
+   concessionLink: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 };
 
 ConcedeButton.contextType = WebSocketContext;

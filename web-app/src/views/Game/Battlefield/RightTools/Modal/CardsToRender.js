@@ -12,15 +12,14 @@ import { DECK } from "shared/constants.js";
 
 class CardsToRender extends Component {
    componentDidUpdate(prevProps, prevState) {
-      const { autoClose, row, player, closeModal, openModal, filter, oneParam } = this.props;
+      const { autoClose, row, player, closeModal, openModal, filter, oneParam, source } = this.props;
       const { zoneLen } = this.state;
       const lastRow = prevProps.row;
       const lastZoneLen = prevState.zoneLen;
 
       if (zoneLen === 0 || (autoClose && lastZoneLen !== zoneLen && lastRow === row)) closeModal(row, player, this.context);
-      if (row === DECK && zoneLen === 1 && !autoClose && this.context.api) {
-         openModal(player, DECK, filter, true, oneParam);
-      }
+      else if (zoneLen === 1 && source === "Thunder Dragon" && this.context.api) openModal(player, DECK, filter, true, oneParam);
+      else if (lastZoneLen - zoneLen === 1 && source === "Rescue Cat") openModal(player, DECK, filter, true, oneParam);
    }
 
    filterZones = () => {
@@ -74,7 +73,7 @@ function mapStateToProps(state, ownProps) {
    const { player, row, cardNames, filter } = ownProps;
    const cards = filter && state.field[player][row];
    const cardsLen = cardNames ? cardNames.length : state.field[player][row].length;
-   return { cards, cardsLen };
+   return { cards, cardsLen, source: state.settings.modal.source };
 }
 
 CardsToRender.propTypes = {
@@ -90,7 +89,8 @@ CardsToRender.propTypes = {
    oneParam: PropTypes.bool,
    closeModal: PropTypes.func.isRequired,
    openModal: PropTypes.func.isRequired,
-   cards: PropTypes.oneOfType([PropTypes.array, PropTypes.bool])
+   cards: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+   source: PropTypes.string
 };
 
 CardsToRender.contextType = WebSocketContext;
