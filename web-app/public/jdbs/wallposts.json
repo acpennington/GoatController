@@ -1,6 +1,12 @@
 [
    {
       "type": "text",
+      "title": "Deck Searching Improved",
+      "date": "2022-09-13",
+      "story": "Fixed a bug and improved deck searching. Both Thunder Dragon and Rescue now shuffle correctly after their second search. I hope this will be the end to the search bug saga. Additionally, after clicking on a card and the Response? button, the chat will now say \"Response to [card name]?\" More updates coming soon."
+   },
+   {
+      "type": "text",
       "title": "Bottom Cards Added",
       "date": "2022-09-11",
       "story": "As of now, cards that require you to put cards on the bottom of your deck (e.g. Good Goblin Housekeeping) can now be used. In addition, the server correctly prints messages when you move cards from your hand to your deck. Before there was an issue with it revealing those cards to your opponent. This update also includes a minor bug in the way that certain script buttons were displaying. I hope you guys enjoy! Lots of progress is being made, and we're getting closer and closer to open beta with each passing day."
