@@ -9,16 +9,16 @@ function switchChatShortcuts() {
    return { type: CHAT_SHORTCUTS };
 }
 
-function openModal(player, row, filter = false, autoClose = false, oneParam = false) {
-   return { type: OPEN_MODAL, data: { player, row, filter, autoClose, oneParam } };
+function openModal(player, row, filter = false, autoClose = false, oneParam = false, source = false) {
+   return { type: OPEN_MODAL, data: { player, row, filter, autoClose, oneParam, source } };
 }
 
-function closeModal(row, player, socket = false) {
+function closeModal(row, player, socket = false, auto = true) {
    const isSocket = socket && socket.api;
 
    return (dispatch) => {
       dispatch({ type: CLOSE_MODAL });
-      if (row === DECK && !isSocket) dispatch(shuffleDeck(player));
+      if (row === DECK && (!isSocket || auto === false)) dispatch(shuffleDeck(player, socket));
    };
 }
 

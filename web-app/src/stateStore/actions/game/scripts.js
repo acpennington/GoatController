@@ -6,9 +6,9 @@ import getOtherPlayer from "utils/getOtherPlayer.js";
 import getCardDetails from "shared/getCardDetails.js";
 import { DECK, HAND, GRAVEYARD, BANISHED, MILL, SEND_ENTIRE_GAMESTATE, FUSION_MONSTER, EXTRA_DECK } from "shared/constants.js";
 
-function filterDeck(player, script) {
+function filterDeck(player, script, source = false) {
    const { params, autoClose, oneParam } = script;
-   return openModal(player, DECK, params, autoClose, oneParam);
+   return openModal(player, DECK, params, autoClose, oneParam, source);
 }
 
 function millUntil(player, deck, params, socket = false) {

@@ -91,8 +91,9 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
       const inBattlePhase = state.turn.phase === BATTLE;
       const cycle = makeCycle(sfPlayer, heroSelection && heroSelection.player === player ? heroSelection : null);
-      const modalRow = state.settings.modal && state.settings.modal.row;
-      const autoClose = state.settings.modal && state.settings.modal.autoClose;
+      const modal = state.settings.modal;
+      const modalRow = modal && modal.row;
+      const autoClose = modal && modal.autoClose;
       return {
          deckCount,
          sfPlayer,
