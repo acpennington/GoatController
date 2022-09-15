@@ -3,7 +3,7 @@
       "type": "text",
       "title": "More Bug Fixes",
       "date": "2022-09-15",
-      "story": "Fixed a bug in which cards with alternate art searched in the deck construction via the \"find from deck\" feature did not display correctly. Also fixed a bug where the server did not display the correct message after resolving Card Destruction.<br>Note that there currentlyis a bug that occurs very rarely after Rescue Cat's effect that will cause a desync (both players see different cards). Please let me know if you run into this bug. I am trying to fix it."
+      "story": "Fixed a bug in which cards with alternate art searched in the deck construction via the \"find from deck\" feature did not display correctly. Also fixed a bug where the server did not display the correct message after resolving Card Destruction.<br>Note that there currently is a bug that occurs very rarely after Rescue Cat's effect that will cause a desync (both players see different cards). Please let me know if you run into this bug. I am trying to fix it."
    },
    {
       "type": "video",
