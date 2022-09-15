@@ -5,7 +5,8 @@ const actionAndMessage = require("./utils/actionAndMessage.js");
 // @access Private
 // @db 1 read, 0 writes
 async function SendDiscardAndDraw(id, username, count, connectionId, api) {
-   const message = { author: "Server", content: username + " discarded their hand" + (count > 0 ? " and drew " + count + " cards." : ".") };
+   const countMsg = count !== 0 ? " and drew " + (count === "same" ? "the same number of" : count) + " cards." : ".";
+   const message = { author: "Server", content: username + " discarded their hand" + countMsg };
    const action = { action: "DISCARD_AND_DRAW", data: { player: username, count } };
 
    await actionAndMessage(id, action, message, connectionId, api);
