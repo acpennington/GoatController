@@ -8765,7 +8765,7 @@
       "id": "43040603",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set. Special Summon it, also send the other excavated cards to the Graveyard.",
+      "text": "Tribute 1 monster; excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned. Special Summon it, also send the other excavated cards to the Graveyard.",
       "script": {
          "name": "MILL_UNTIL",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
@@ -10441,7 +10441,7 @@
       "id": "58577036",
       "cardType": "Spell",
       "levelOrSubtype": "Normal",
-      "text": "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned/Set, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the Graveyard. If not, Special Summon the excavated monster, also send the remaining cards to the Graveyard.",
+      "text": "Your opponent declares a monster Level from 1 to 12. Excavate cards from the top of your Deck until you excavate a monster that can be Normal Summoned, then, if that monster is the same Level as the one declared by your opponent, send all excavated cards to the Graveyard. If not, Special Summon the excavated monster, also send the remaining cards to the Graveyard.",
       "script": {
          "name": "MILL_UNTIL",
          "displayCondition": { "players": ["HERO"], "row": "spellTrap" },
