@@ -6,7 +6,8 @@ import RenderCards from "components/RenderCards/RenderCards.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 import { SizeContext } from "components/ResizableContainer/ResizableContainer.js";
 import getCardDetails from "shared/getCardDetails";
-import { SENTINEL, SEARCH_RESULTS } from "shared/constants.js";
+import { SEARCH_RESULTS } from "shared/constants.js";
+import { removeArt } from "utils/splitArt.js";
 
 class CardsToRender extends Component {
    componentDidUpdate() {
@@ -22,7 +23,7 @@ class CardsToRender extends Component {
       const side = deduped(sidedeck);
 
       for (const name of searchResults) {
-         const originalName = name.split(SENTINEL)[0];
+         const originalName = removeArt(name);
          const card = getCardDetails(originalName);
          const effectiveName = card.treatedAs || originalName;
          const quantity = (card.limit || 3) - (main[effectiveName] || 0) - (side[effectiveName] || 0);
@@ -45,7 +46,7 @@ class CardsToRender extends Component {
 function deduped(deck) {
    const names = {};
    for (const raw in deck) {
-      let name = raw.split(SENTINEL)[0];
+      let name = removeArt(raw);
       const card = getCardDetails(name);
       name = card.treatedAs || name;
       names[name] = names[name] ? names[name] + deck[raw] : deck[raw];

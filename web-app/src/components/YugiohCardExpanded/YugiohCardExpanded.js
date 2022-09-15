@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 import Button from "components/CustomButtons/Button.js";
 import EffectTooltips from "./EffectTooltips.js";
 import compress from "utils/compressName.js";
+import { splitArt } from "utils/splitArt.js";
 import getCardDetails from "shared/getCardDetails.js";
-import { FACEDOWN_CARD, NORMAL_MONSTER, SENTINEL } from "shared/constants";
+import { FACEDOWN_CARD, NORMAL_MONSTER } from "shared/constants";
 
 import { MdDescription } from "react-icons/md";
 
@@ -21,7 +22,7 @@ class YugiohCardExpanded extends PureComponent {
       if (!cardName) return <div className={classes.largePic}></div>;
 
       const { cardType, attribute, levelOrSubtype, atk, def, text } = getCardDetails(cardName);
-      const [name, art] = cardName.split(SENTINEL);
+      const [name, art] = splitArt(cardName);
 
       return (
          <div

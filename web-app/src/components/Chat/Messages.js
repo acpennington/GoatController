@@ -9,7 +9,7 @@ import { cards, tokens } from "shared/database";
 
 import { withStyles } from "@mui/styles";
 import chatStyle from "assets/jss/material-kit-react/components/chatStyle.js";
-import { SENTINEL } from "shared/constants.js";
+import { removeArt } from "utils/splitArt.js";
 
 const DRAW_PHASE_MESSAGE = /set the Phase to Draw./;
 
@@ -33,8 +33,7 @@ class Messages extends PureComponent {
          const thirdPart = secondSplit.join(">>");
 
          if (secondPart) {
-            let cardName = secondPart;
-            cardName = cardName.split(SENTINEL)[0];
+            let cardName = removeArt(secondPart);
 
             if (!cards[cardName] && !tokens[cardName]) {
                const fuse = new Fuse(CARD_LIST, { threshold: 0.3 });

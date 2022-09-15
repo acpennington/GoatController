@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import Button from "components/CustomButtons/Button.js";
 import { revealHand } from "stateStore/actions/game/field.js";
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
-import { HAND, SENTINEL } from "shared/constants";
+import { removeArt } from "utils/splitArt.js";
+import { HAND } from "shared/constants";
 
 class RevealHand extends PureComponent {
    render() {
@@ -35,7 +36,7 @@ class RevealHand extends PureComponent {
 function mapStateToProps(state, ownProps) {
    const handRevealed = state.field[ownProps.name] && state.field[ownProps.name].handRevealed;
    return {
-      hand: handRevealed ? null : state.field[ownProps.name][HAND].map(({ name }) => name.split(SENTINEL)[0])
+      hand: handRevealed ? null : state.field[ownProps.name][HAND].map(({ name }) => removeArt(name))
    };
 }
 

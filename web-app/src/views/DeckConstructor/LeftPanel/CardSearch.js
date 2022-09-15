@@ -10,6 +10,7 @@ import GenericFinder from "components/CardFinder/GenericFinder.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 import display from "shared/display.js";
 import checkParams from "utils/checkParams.js";
+import { removeArt } from "utils/splitArt.js";
 import { getDeckOptions, getDecks } from "../RightPanel/DeckSettings/utils";
 import { nonfusions } from "shared/database";
 import { FaSearch } from "react-icons/fa";
@@ -123,7 +124,8 @@ class CardSearch extends PureComponent {
       const decks = getDecks();
       const maindeck = decks[deckName].maindeck;
 
-      for (const name in maindeck) {
+      for (const raw in maindeck) {
+         const name = removeArt(raw);
          for (let i = 0; i < (nonfusions[name].art || 1); i++) {
             results.push(i > 0 ? `${name}${SENTINEL}${i}` : name);
          }
