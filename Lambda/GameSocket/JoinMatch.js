@@ -3,7 +3,7 @@ const redis = new Redis("goatmatches.z9dvan.0001.use2.cache.amazonaws.com:6379")
 
 const sendChatMessage = require("./utils/sendChatMessage.js");
 const findMatch = require("./utils/findMatch.js");
-const redisSet = require("./utils/redisSet.js");
+const redisSet = require("./utils/redis/redisSet.js");
 
 // @action JoinMatch
 // @desc Connects one of the players to the game
