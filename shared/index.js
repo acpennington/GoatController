@@ -1,6 +1,6 @@
 const cardCount = require("./cardCount");
 const display = require("./display");
-const expandDeck = require("./expandDeck");
+//const reformatDeck = require("./reformatDeck");
 const exportYDK = require("./exportYDK");
 const getCardDetails = require("./getCardDetails");
 const importYDK = require("./importYDK");
@@ -10,7 +10,7 @@ const verifyDecks = require("./verifyDecks");
 module.exports = {
    cardCount,
    display,
-   expandDeck,
+   //reformatDeck,
    exportYDK,
    getCardDetails,
    importYDK,

@@ -1,14 +1,14 @@
 {
    "private": true,
    "name": "shared",
-   "version": "1.0.0",
+   "version": "2.0.0",
    "main": "index.js",
    "exports": {
       "./cardCount": "./cardCount.js",
       "./constants": "./constants.js",
       "./database": "./database.js",
       "./display": "./display.js",
-      "./expandDeck": "./expandDeck.js",
+      "./reformatDeck": "./reformatDeck.js",
       "./exportYDK": "./exportYDK.js",
       "./getCardDetails": "./getCardDetails.js",
       "./importYDK": "./importYDK.js",
