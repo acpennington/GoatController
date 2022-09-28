@@ -14,6 +14,7 @@ import { newHover } from "stateStore/actions/shared/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/shared/selectedCard.js";
 import { moveCard, switchPosition, attack } from "stateStore/actions/game/field.js";
 import { openModal, closeModal } from "stateStore/actions/shared/settings.js";
+import cardCount from "shared/cardCount.js";
 import {
    CARD_RATIO,
    FACEDOWN_CARD,
@@ -89,7 +90,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       const heroSelected = heroSelection && heroSelection.player === player && heroSelection.row === row && heroSelection.zone === zone;
       const villSelected = villSelection && villSelection.player === player && villSelection.row === row && villSelection.zone === zone;
       const handRevealed = sfPlayer.handRevealed;
-      const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
+      const deckCount = row === DECK ? (Array.isArray(sfPlayer[DECK]) ? sfPlayer[DECK].length : cardCount(sfPlayer[DECK].cards)) : 1;
       const inBattlePhase = state.turn.phase === BATTLE;
       const cycle = makeCycle(sfPlayer, heroSelection && heroSelection.player === player ? heroSelection : null);
       const modal = state.settings.modal;
