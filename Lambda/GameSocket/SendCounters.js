@@ -1,4 +1,5 @@
 const actionAndMessage = require("./utils/actionAndMessage.js");
+const changeCardState = require("./utils/redis/changeCardState.js");
 
 // @action SendCounters
 // @desc Pushes out a counter adjustment from one player to the other (and watchers)
@@ -8,9 +9,13 @@ async function sendCounters(id, username, row, zone, counters, cardName, connect
    const [verb, preposition] = counters > 0 ? ["added", "to"] : ["removed", "from"];
    const target = cardName === "a facedown card" ? cardName : "<<" + cardName + ">>";
    const message = { author: "Server", content: `${username} ${verb} a counter ${preposition} ${target}.` };
-   const action = { action: "ADJUST_COUNTERS", data: { player: username, row, zone, counters } };
+   const data = { player: username, row, zone, counters };
+   const action = { action: "ADJUST_COUNTERS", data };
 
    await actionAndMessage(id, action, message, connectionId, api);
+
+   await changeCardState(id, { counters }, data);
+
    return { statusCode: 200, body: "Counters adjusted" };
 }
 
