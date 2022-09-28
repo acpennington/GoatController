@@ -7,8 +7,10 @@ const sendChatToOnly = require("./sendChatToOnly.js");
 // @function actionAndMessage
 // @desc Sends a chat message to the player, and an action/message to everyone else
 // @db 1 reads, 0 writes
-async function actionAndMessage(id, action, message, connectionId, api) {
-   const match = await findMatch(id);
+async function actionAndMessage(id, action, message, connectionId, api, prevData = false) {
+   let match = prevData;
+   if (!match) match = await findMatch(id);
+
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Match not found" }] } };
    const { players, watchers } = match;
 

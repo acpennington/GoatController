@@ -43,7 +43,8 @@ import {
    SHUFFLE_AND_DRAW,
    UNDO_DRAW,
    SEND_DRAW_UNDONE,
-   BOTTOM
+   BOTTOM,
+   RECEIVE_DRAW
 } from "shared/constants.js";
 
 const blankField = {
@@ -152,21 +153,30 @@ export default function (state = initialState, action) {
          const { player, socket } = data;
          const shouldSkipDraw = state[player].skippedDraws > 0;
 
-         if (shouldSkipDraw) {
-            state[player].skippedDraws -= 1;
+         if (shouldSkipDraw) state[player].skippedDraws -= 1;
+
+         if (socket && socket.api) {
+            // TODO: check if the top card of the deck is known, and if so, don't ask the server for it
+            const payload = { action: SEND_DRAW_PHASE, data: { token: socket.token, id: socket.matchId, shouldSkipDraw } };
+            socket.api.send(JSON.stringify(payload));
          } else if (state[player][DECK].length > 0) {
             const card = state[player][DECK].pop();
             card.order = ++state[player].lastDraw;
             state[player][HAND].push(card);
             playSound("/sounds/drawcard.mp3");
-         } else {
-            // TODO: player loses
          }
 
-         if (socket && socket.api) {
-            const payload = { action: SEND_DRAW_PHASE, data: { token: socket.token, id: socket.matchId, shouldSkipDraw } };
-            socket.api.send(JSON.stringify(payload));
+         return { ...state };
+      }
+      case RECEIVE_DRAW: {
+         const { player, newDraws } = data;
+
+         for (const card of newDraws) {
+            card.order = ++state[player].lastDraw;
+            state[player][HAND].push(card);
          }
+
+         playSound("/sounds/drawcard.mp3");
 
          return { ...state };
       }

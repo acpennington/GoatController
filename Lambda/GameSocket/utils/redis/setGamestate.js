@@ -11,7 +11,10 @@ async function setGamestate(id, data, player, prevData = false) {
    if (!match) match = await findMatch(id);
 
    const exportData = { gamestate: match.gamestate };
-   exportData.gamestate[player] = { ...exportData.gamestate[player], ...data };
+   if (data.adjust) {
+      delete data.adjust;
+      for (const key in data) data[key] += exportData.gamestate[player][key];
+   } else exportData.gamestate[player] = { ...exportData.gamestate[player], ...data };
 
    await redis.set(id, JSON.stringify({ ...match, ...exportData }));
 }

@@ -148,6 +148,7 @@ const SET_TURN = "SET_TURN";
 const SHUFFLE_DECK = "SHUFFLE_DECK";
 const SET_DECK = "SET_DECK";
 const UNDO_DRAW = "UNDO_DRAW";
+const RECEIVE_DRAW = "RECEIVE_DRAW";
 
 // deck constructor actions
 const SET_DECKLIST = "SET_DECKLIST";
@@ -393,6 +394,7 @@ module.exports = {
    QUICKPLAY,
    RANDOM_DISCARD,
    BOTTOM,
+   RECEIVE_DRAW,
    REDIRECT,
    REMOVE_SELECTION,
    REORDER_DECK,
