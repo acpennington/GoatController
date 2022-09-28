@@ -3,6 +3,7 @@ const redis = new Redis("goatmatches.z9dvan.0001.use2.cache.amazonaws.com:6379")
 
 const sendChatMessage = require("./utils/sendChatMessage.js");
 const findMatch = require("./utils/findMatch.js");
+const redisSet = require("./utils/redis/redisSet.js");
 
 // @action JoinMatch
 // @desc Connects one of the players to the game
@@ -17,7 +18,8 @@ async function joinMatch(id, username, connectionId, api) {
    if (players.hasOwnProperty(username)) {
       await sendChatMessage(message, players, watchers, api, connectionId);
       chat.push(message);
-      await redis.set(id, JSON.stringify({ ...match, players: { ...players, [username]: connectionId }, chat }));
+      const data = { players: { ...players, [username]: connectionId }, chat };
+      await redisSet(id, data, match);
    } else {
       // Join as a watcher
    }
