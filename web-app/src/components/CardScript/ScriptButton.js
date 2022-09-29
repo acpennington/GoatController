@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import ScriptName from "./ScriptName.js";
-import { moveCard, createTokens, discardAndDraw, shuffleAndDraw } from "stateStore/actions/game/field.js";
+import { moveCard, createTokens, discardAndDraw, shuffleAndDraw, drawCard } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
 import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
 import { playSound } from "stateStore/actions/game/field.js";
@@ -14,7 +14,6 @@ import Button from "components/CustomButtons/Button.js";
 import Tooltip from "components/Tooltip/PatchedTooltip.js";
 
 import {
-   DECK,
    GRAVEYARD,
    HAND,
    SPELL_TRAP,
@@ -59,7 +58,8 @@ class ScriptButton extends PureComponent {
    }
 
    runScript = () => {
-      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw, shuffleAndDraw, script } = this.props;
+      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw, shuffleAndDraw, drawCard, script } =
+         this.props;
       const { name, params } = script;
       const socket = this.context;
       switch (name) {
@@ -85,7 +85,7 @@ class ScriptButton extends PureComponent {
             this.rollDice(params);
             break;
          case DRAW_N:
-            this.drawN(params);
+            drawCard(heroPlayer, params, socket);
             break;
          case DISCARD_AND_DRAW:
             discardAndDraw(heroPlayer, params, socket);
@@ -121,21 +121,6 @@ class ScriptButton extends PureComponent {
             },
             // NOTE: this gets turned into <b>randomly</b> by the client.
             { ...this.context, msg: "RANDOMLY" }
-         );
-      }
-   };
-
-   drawN = (count) => {
-      const { field, heroPlayer, moveCard } = this.props;
-      const deck = field[heroPlayer][DECK];
-
-      for (let i = count || 1; i > 0 && deck.length > 0; i--) {
-         moveCard(
-            {
-               from: { player: heroPlayer, row: DECK, zone: -1 },
-               to: { player: heroPlayer, row: HAND, zone: 0 }
-            },
-            this.context
          );
       }
    };
@@ -237,6 +222,7 @@ ScriptButton.propTypes = {
    field: PropTypes.object.isRequired,
    filterDeck: PropTypes.func.isRequired,
    moveCard: PropTypes.func.isRequired,
+   drawCard: PropTypes.func.isRequired,
    createTokens: PropTypes.func.isRequired,
    millUntil: PropTypes.func.isRequired,
    banishAll: PropTypes.func.isRequired,
@@ -247,6 +233,6 @@ ScriptButton.propTypes = {
 
 ScriptButton.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw, shuffleAndDraw })(
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw, shuffleAndDraw, drawCard })(
    withStyles(styles)(ScriptButton)
 );
