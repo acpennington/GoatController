@@ -194,7 +194,7 @@ export default function (state = initialState, action) {
             deckCards === 1 ? delete deckCards[card.name] : (deckCards[card.name] -= 1);
          }
 
-         playSound("/sounds/drawcard.mp3");
+         if (to.row === HAND) playSound("/sounds/drawcard.mp3");
 
          return { ...state };
       }
@@ -395,11 +395,13 @@ export default function (state = initialState, action) {
       }
       case SHUFFLE_DECK: {
          const { player, socket } = data;
-         state[player].deck = shuffle(state[player].deck);
 
          if (socket && socket.api) {
-            const payload = { action: REORDER_DECK, data: { token: socket.token, id: socket.matchId, deck: state[player].deck } };
+            state[player].deck.top = [];
+            const payload = { action: REORDER_DECK, data: { token: socket.token, id: socket.matchId } };
             socket.api.send(JSON.stringify(payload));
+         } else {
+            state[player].deck = shuffle(state[player].deck);
          }
 
          return { ...state };
