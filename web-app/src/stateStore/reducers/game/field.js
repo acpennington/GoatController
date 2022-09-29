@@ -175,7 +175,7 @@ export default function (state = initialState, action) {
 
          if (socket && socket.api) {
             // TODO: check if the top card of the deck is known, and if so, don't ask the server for it
-            const payload = { action: REQUEST_CARD, data: { token: socket.token, id: socket.matchId, numCards, to: HAND } };
+            const payload = { action: REQUEST_CARD, data: { token: socket.token, id: socket.matchId, numCards, to: { row: HAND } } };
             socket.api.send(JSON.stringify(payload));
          } else {
             for (let i = i; i < numCards; i++) {
@@ -193,7 +193,7 @@ export default function (state = initialState, action) {
 
          for (const card of newDraws) {
             card.order = ++state[player].lastDraw;
-            state[player][to].push(card);
+            state[player][to.row].push(card);
             const deckCards = state[player][DECK].cards;
             deckCards === 1 ? delete deckCards[card.name] : (deckCards[card.name] -= 1);
          }

@@ -17,7 +17,7 @@ async function sendDrawPhase(id, username, shouldSkipDraw, api) {
 
       await sendChatMessage(message, players, watchers, api);
       await setGamestate(id, { skippedDraws: -1, adjust: true }, username);
-   } else await giveCards(id, username, 1, HAND, api, " for their Draw Phase");
+   } else await giveCards(id, username, 1, { row: HAND }, api, " for their Draw Phase");
 
    return { statusCode: 200, body: "Draw phase draw sent" };
 }
