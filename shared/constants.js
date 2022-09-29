@@ -148,7 +148,7 @@ const SET_TURN = "SET_TURN";
 const SHUFFLE_DECK = "SHUFFLE_DECK";
 const SET_DECK = "SET_DECK";
 const UNDO_DRAW = "UNDO_DRAW";
-const RECEIVE_DRAW = "RECEIVE_DRAW";
+const RECEIVE_CARD = "RECEIVE_CARD";
 
 // deck constructor actions
 const SET_DECKLIST = "SET_DECKLIST";
@@ -177,6 +177,7 @@ const SEND_TOKENS = "SendTokens";
 const SEND_REVEAL = "SendReveal";
 const SEND_CARD_MOVE = "SendCardMove";
 const SEND_DRAW_PHASE = "SendDrawPhase";
+const REQUEST_CARD = "RequestCard";
 const SEND_POS_CHANGE = "SendPosChange";
 const SEND_ATTACK = "SendAttack";
 const SEND_CLEAR = "SendClear";
@@ -394,7 +395,7 @@ module.exports = {
    QUICKPLAY,
    RANDOM_DISCARD,
    BOTTOM,
-   RECEIVE_DRAW,
+   RECEIVE_CARD,
    REDIRECT,
    REMOVE_SELECTION,
    REORDER_DECK,
@@ -418,6 +419,7 @@ module.exports = {
    SEND_COUNTERS,
    SEND_DND,
    SEND_DRAW_PHASE,
+   REQUEST_CARD,
    SEND_DRAW_UNDONE,
    SEND_ENTIRE_GAMESTATE,
    SEND_LP_CHANGE,

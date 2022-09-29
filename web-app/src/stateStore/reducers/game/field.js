@@ -30,6 +30,7 @@ import {
    SHUFFLE_DECK,
    SEND_CARD_MOVE,
    SEND_DRAW_PHASE,
+   REQUEST_CARD,
    SEND_POS_CHANGE,
    SEND_ATTACK,
    SEND_CLEAR,
@@ -44,7 +45,8 @@ import {
    UNDO_DRAW,
    SEND_DRAW_UNDONE,
    BOTTOM,
-   RECEIVE_DRAW
+   RECEIVE_CARD,
+   DRAW_CARD
 } from "shared/constants.js";
 
 const blankField = {
@@ -168,12 +170,30 @@ export default function (state = initialState, action) {
 
          return { ...state };
       }
-      case RECEIVE_DRAW: {
-         const { player, newDraws } = data;
+      case DRAW_CARD: {
+         const { player, numCards, socket } = data;
+
+         if (socket && socket.api) {
+            // TODO: check if the top card of the deck is known, and if so, don't ask the server for it
+            const payload = { action: REQUEST_CARD, data: { token: socket.token, id: socket.matchId, numCards } };
+            socket.api.send(JSON.stringify(payload));
+         } else {
+            for (let i = i; i < numCards; i++) {
+               const card = state[player][DECK].pop();
+               card.order = ++state[player].lastDraw;
+               state[player][HAND].push(card);
+            }
+            playSound("/sounds/drawcard.mp3");
+         }
+
+         return { ...state };
+      }
+      case RECEIVE_CARD: {
+         const { player, newDraws, to } = data;
 
          for (const card of newDraws) {
             card.order = ++state[player].lastDraw;
-            state[player][HAND].push(card);
+            state[player][to].push(card);
             const deckCards = state[player][DECK].cards;
             deckCards === 1 ? delete deckCards[card.name] : (deckCards[card.name] -= 1);
          }

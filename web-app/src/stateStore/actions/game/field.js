@@ -24,7 +24,8 @@ import {
    HAND,
    SEND_DND,
    SENTINEL,
-   GRAVEYARD
+   GRAVEYARD,
+   DRAW_CARD
 } from "shared/constants";
 
 function soundOn() {
@@ -44,6 +45,10 @@ function moveCard(data, socket = false) {
 
 function drawPhaseDraw(player, socket = false) {
    return { type: DRAW_PHASE_DRAW, data: { player, socket } };
+}
+
+function drawCard(player, numCards = 1, socket = false) {
+   return { type: DRAW_CARD, data: { player, numCards, socket } };
 }
 
 function createTokens(player, params, socket = false) {
@@ -143,6 +148,7 @@ export {
    playSound,
    moveCard,
    drawPhaseDraw,
+   drawCard,
    createTokens,
    switchPosition,
    adjustCounters,

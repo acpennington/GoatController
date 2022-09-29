@@ -94,7 +94,7 @@ class CardsToRender extends Component {
 function mapStateToProps(state, ownProps) {
    const { player, row, cardNames, filter } = ownProps;
    const cards = filter && state.field[player][row];
-   const isCardArray = Array.isArray(cards);
+   const isCardArray = Array.isArray(cards) || cardNames || !cards;
    const cardsLen = cardNames ? cardNames.length : isCardArray ? state.field[player][row].length : 0;
    return { cards, isCardArray, cardsLen, source: state.settings.modal.source };
 }
@@ -114,7 +114,7 @@ CardsToRender.propTypes = {
    openModal: PropTypes.func.isRequired,
    cards: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.bool]),
    isCardArray: PropTypes.bool.isRequired,
-   source: PropTypes.string
+   source: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 };
 
 CardsToRender.contextType = WebSocketContext;
