@@ -23,6 +23,7 @@ const sendDiscardAndDraw = require("./SendDiscardAndDraw.js");
 const playerConceded = require("./PlayerConceded.js");
 const cleanupGame = require("./CleanupGame.js");
 const sendEntireGamestate = require("./SendEntireGamestate.js");
+const giveCards = require("./utils/giveCards.js");
 
 // Routes GameSocket actions
 exports.handler = async (event) => {
@@ -55,7 +56,9 @@ exports.handler = async (event) => {
       case "SendCardMove":
          return await sendCardMove(id, username, data.from, data.fromCard, data.to, data.settingTrap, data.shuffleDeck, data.msg, connectionId, api);
       case "SendDrawPhase":
-         return await sendDrawPhase(id, username, data.shouldSkipDraw, connectionId, api);
+         return await sendDrawPhase(id, username, data.shouldSkipDraw, api);
+      case "RequestCard":
+         return await giveCards(id, username, data.numCards, data.to, api);
       case "SendDrawUndone":
          return await undoDraw(id, username, connectionId, api);
       case "SendPosChange":

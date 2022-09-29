@@ -10,7 +10,6 @@ const sendChatToOnly = require("./sendChatToOnly.js");
 async function actionAndMessage(id, action, message, connectionId, api, prevData = false) {
    let match = prevData;
    if (!match) match = await findMatch(id);
-
    if (!match) return { statusCode: 400, body: { errors: [{ msg: "Match not found" }] } };
    const { players, watchers } = match;
 

@@ -175,7 +175,7 @@ export default function (state = initialState, action) {
 
          if (socket && socket.api) {
             // TODO: check if the top card of the deck is known, and if so, don't ask the server for it
-            const payload = { action: REQUEST_CARD, data: { token: socket.token, id: socket.matchId, numCards } };
+            const payload = { action: REQUEST_CARD, data: { token: socket.token, id: socket.matchId, numCards, to: HAND } };
             socket.api.send(JSON.stringify(payload));
          } else {
             for (let i = i; i < numCards; i++) {
