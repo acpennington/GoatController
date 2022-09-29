@@ -38,14 +38,36 @@ class CardsToRender extends Component {
       return zoneNumbers;
    };
 
+   filterObject = () => {
+      const { cards, filter, oneParam } = this.props;
+      const deckCards = cards.cards;
+
+      const deckCardNames = Object.keys(deckCards);
+      const filteredNames =
+         filter &&
+         deckCardNames.filter((name) => {
+            const { fail, pass } = checkParams({ name }, filter);
+            return oneParam ? pass.length > 0 : fail.length === 0;
+         });
+
+      const returnCards = [];
+      for (const name of filteredNames) {
+         for (let i = 0; i < deckCards[name]; i++) returnCards.push({ name });
+      }
+
+      return returnCards;
+   };
+
    updateResults = () => {
-      const { cardNames } = this.props;
-      const zoneNumbers = this.filterZones();
+      const { cardNames, isCardArray } = this.props;
+      const zoneNumbers = isCardArray ? this.filterZones() : this.filterObject();
       const cardsToRender = [];
 
       // eslint-disable-next-line
       this.state = { zoneLen: zoneNumbers.length };
       const { zoneLen } = this.state;
+
+      if (!isCardArray) return zoneNumbers;
 
       for (let i = zoneLen - 1; i >= 0; i -= 1) {
          const card = { zone: zoneNumbers[i] };
@@ -72,8 +94,9 @@ class CardsToRender extends Component {
 function mapStateToProps(state, ownProps) {
    const { player, row, cardNames, filter } = ownProps;
    const cards = filter && state.field[player][row];
-   const cardsLen = cardNames ? cardNames.length : state.field[player][row].length;
-   return { cards, cardsLen, source: state.settings.modal.source };
+   const isCardArray = Array.isArray(cards);
+   const cardsLen = cardNames ? cardNames.length : isCardArray ? state.field[player][row].length : 0;
+   return { cards, isCardArray, cardsLen, source: state.settings.modal.source };
 }
 
 CardsToRender.propTypes = {
@@ -89,7 +112,8 @@ CardsToRender.propTypes = {
    oneParam: PropTypes.bool,
    closeModal: PropTypes.func.isRequired,
    openModal: PropTypes.func.isRequired,
-   cards: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+   cards: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.bool]),
+   isCardArray: PropTypes.bool.isRequired,
    source: PropTypes.string
 };
 

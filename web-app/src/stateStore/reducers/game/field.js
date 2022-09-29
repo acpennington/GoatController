@@ -175,9 +175,7 @@ export default function (state = initialState, action) {
             card.order = ++state[player].lastDraw;
             state[player][HAND].push(card);
             const deckCards = state[player][DECK].cards;
-            console.log(deckCards[card.name]);
             deckCards === 1 ? delete deckCards[card.name] : (deckCards[card.name] -= 1);
-            console.log(deckCards[card.name]);
          }
 
          playSound("/sounds/drawcard.mp3");

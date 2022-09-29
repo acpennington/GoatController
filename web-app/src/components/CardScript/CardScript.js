@@ -6,6 +6,7 @@ import ScriptButton from "./ScriptButton.js";
 import getCardDetails from "shared/getCardDetails.js";
 import checkParams from "utils/checkParams.js";
 
+import { expandDeck } from "shared/reformatDeck.js";
 import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, TRAP, SEARCH_DECK, DECK, BANISHED, MONSTER, SPELL_TRAP } from "shared/constants";
 
 class CardScript extends PureComponent {
@@ -26,8 +27,9 @@ class CardScript extends PureComponent {
       }
 
       if (script.name === SEARCH_DECK && script.params) {
-         for (const name in deck) {
-            const { fail, pass } = checkParams(deck[name], script.params);
+         const deckArray = Array.isArray(deck) ? deck : expandDeck(deck.cards);
+         for (const name in deckArray) {
+            const { fail, pass } = checkParams(deckArray[name], script.params);
             if (script.oneParam ? pass.length > 0 : fail.length === 0) return true;
          }
          return false;
@@ -109,7 +111,7 @@ function mapStateToProps(state, ownProps) {
 CardScript.propTypes = {
    heroPlayer: PropTypes.string.isRequired,
    activeCard: PropTypes.object,
-   deck: PropTypes.array.isRequired
+   deck: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
 };
 
 export default connect(mapStateToProps)(CardScript);
