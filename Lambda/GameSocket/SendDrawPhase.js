@@ -1,5 +1,6 @@
-const actionAndMessage = require("./utils/actionAndMessage.js");
+const sendChatMessage = require("./utils/sendChatMessage.js");
 const setGamestate = require("./utils/redis/setGamestate.js");
+const findMatch = require("./utils/findMatch.js");
 const GiveDraws = require("./GiveDraws.js");
 
 // @action SendDrawPhase
@@ -7,11 +8,13 @@ const GiveDraws = require("./GiveDraws.js");
 // @access Private
 // @db 1 read, 0 writes
 async function sendDrawPhase(id, username, shouldSkipDraw, connectionId, api) {
+   const match = await findMatch(id);
+   const { players, watchers } = match;
+
    const drawMessage = shouldSkipDraw ? `${username} skipped their Draw Phase.` : `${username} drew a card for their Draw Phase.`;
    const message = { author: "Server", content: drawMessage };
-   const action = { action: "DRAW_PHASE_DRAW", data: { player: username } };
 
-   await actionAndMessage(id, action, message, connectionId, api);
+   await sendChatMessage(message, players, watchers, api);
 
    if (shouldSkipDraw) await setGamestate(id, { skippedDraws: -1, adjust: true }, username);
    else await GiveDraws(id, username, 1, connectionId, api, false);

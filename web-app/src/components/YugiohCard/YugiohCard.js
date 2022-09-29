@@ -57,6 +57,7 @@ Mousetrap.prototype.stopCallback = function (e, element, combo, sequence) {
 function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHero, style }) {
    const classes = useStyles();
    const dispatch = useDispatch();
+
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone } = getBools(row, zone);
 
