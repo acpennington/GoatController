@@ -82,11 +82,8 @@ export default function (state = initialState, action) {
       case MOVE_CARD: {
          const { from, to, socket } = data;
          const oldFromZone = from.zone;
-         const drawingFromDeck = from.row === DECK && from.zone === -1;
-         if (drawingFromDeck) from.zone = state[from.player][DECK].length - 1;
          const fieldSpell = from.row === FIELD_SPELL;
          const fromCard = from.cardName ? { name: from.cardName } : fieldSpell ? state[from.player][FIELD_SPELL] : state[from.player][from.row][from.zone];
-         if (drawingFromDeck) fromCard.order = ++state[from.player].lastDraw;
          if (fromCard.battle) clearBattle(state);
          const facedown = fromCard.facedown;
          let settingTrap = false;
@@ -122,7 +119,6 @@ export default function (state = initialState, action) {
             else if (settingTrap || (facedown && from.row !== to.row && to.row !== HAND)) playSound("/sounds/set.mp3");
             else if (to.row === MONSTER && from.row !== MONSTER && from.row !== SPELL_TRAP) playSound("/sounds/summon.mp3");
             else if (to.row === SPELL_TRAP && from.row !== MONSTER && from.row !== SPELL_TRAP) playSound("/sounds/activate.mp3");
-            else if (drawingFromDeck) playSound("/sounds/drawcard.mp3");
             else if (to.row === HAND && from.row !== HAND) playSound("/sounds/tohand.mp3");
          }
 
