@@ -9,6 +9,7 @@ import { closeModal, openModal } from "stateStore/actions/shared/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 
 import { DECK } from "shared/constants.js";
+import { cardCount } from "shared";
 
 class CardsToRender extends Component {
    componentDidUpdate(prevProps, prevState) {
@@ -83,6 +84,8 @@ class CardsToRender extends Component {
       const cardsToRender = this.updateResults();
       const { zoneLen } = this.state;
 
+      console.log("rendering modal stack");
+
       return (
          <FriendlyScroll id={"modal" + player + row} count={zoneLen} flexDirection="column" style={{ maxHeight: maxHeight + "px" }}>
             <RenderCards cardsToRender={cardsToRender} maxHeight={maxHeight} cardHeight={height} player={player} row={row} isHero={isHero} />
@@ -95,7 +98,8 @@ function mapStateToProps(state, ownProps) {
    const { player, row, cardNames, filter } = ownProps;
    const cards = filter && state.field[player][row];
    const isCardArray = Array.isArray(cards) || cardNames || !cards;
-   const cardsLen = cardNames ? cardNames.length : isCardArray ? state.field[player][row].length : 0;
+   const cardsLen = cardNames ? cardNames.length : isCardArray ? state.field[player][row].length : cardCount(state.field[player][row].cards);
+   console.log("count: " + cardsLen);
    return { cards, isCardArray, cardsLen, source: state.settings.modal.source };
 }
 

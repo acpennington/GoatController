@@ -1,7 +1,7 @@
 {
    "private": true,
    "name": "shared",
-   "version": "2.0.1",
+   "version": "2.0.2",
    "main": "index.js",
    "exports": {
       "./cardCount": "./cardCount.js",
@@ -9,6 +9,7 @@
       "./database": "./database.js",
       "./display": "./display.js",
       "./reformatDeck": "./reformatDeck.js",
+      "./manipulateGamestate": "./manipulateGamestate.js",
       "./exportYDK": "./exportYDK.js",
       "./getCardDetails": "./getCardDetails.js",
       "./importYDK": "./importYDK.js",

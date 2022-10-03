@@ -9,6 +9,7 @@ async function setGamestate(id, data, player, prevData = false) {
    // We assign match conditionally in order to avoid reading the same data from redis repeatedly if the function that called this already did so
    let match = prevData;
    if (!match) match = await findMatch(id);
+   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Match not found" }] } };
 
    const exportData = { gamestate: match.gamestate };
    if (data.adjust) {

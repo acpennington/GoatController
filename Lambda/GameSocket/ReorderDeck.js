@@ -7,9 +7,12 @@ const shuffle = require("./shared/shuffle");
 // @desc Sends a reordered deck from one player to the other (and watchers)
 // @access Private
 // @db 1 read, 0 writes
-async function reorderDeck(id, username, api) {
-   const match = await findMatch(id);
+async function reorderDeck(id, username, api, prevData = false) {
+   let match = prevData;
+   if (!match) match = await findMatch(id);
+   if (!match) return { statusCode: 400, body: { errors: [{ msg: "Match not found" }] } };
    const { players, watchers } = match;
+
    const message = { author: "Server", content: `${username} shuffled their Deck.` };
    await sendChatMessage(message, players, watchers, api);
 

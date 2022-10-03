@@ -1,7 +1,7 @@
 import { playSound } from "../../actions/game/field.js";
 import getCardDetails from "shared/getCardDetails.js";
 import getOtherPlayer from "utils/getOtherPlayer.js";
-import { shuffle, expandDeck, display } from "shared";
+import { shuffle, expandDeck, display, giveRowCard } from "shared";
 
 import {
    FUSION_MONSTER,
@@ -46,7 +46,9 @@ import {
    SEND_DRAW_UNDONE,
    BOTTOM,
    RECEIVE_CARD,
-   DRAW_CARD
+   DRAW_CARD,
+   SEARCH_DECK,
+   SEND_SEARCH
 } from "shared/constants.js";
 
 const blankField = {
@@ -113,14 +115,7 @@ export default function (state = initialState, action) {
             }
          }
 
-         if (to.row !== DECK) {
-            if (to.row === GRAVEYARD) playSound("/sounds/tograve.mp3");
-            else if (to.row === BANISHED) playSound("/sounds/tobanished.mp3");
-            else if (settingTrap || (facedown && from.row !== to.row && to.row !== HAND)) playSound("/sounds/set.mp3");
-            else if (to.row === MONSTER && from.row !== MONSTER && from.row !== SPELL_TRAP) playSound("/sounds/summon.mp3");
-            else if (to.row === SPELL_TRAP && from.row !== MONSTER && from.row !== SPELL_TRAP) playSound("/sounds/activate.mp3");
-            else if (to.row === HAND && from.row !== HAND) playSound("/sounds/tohand.mp3");
-         }
+         playAppropriateSound(from, to, facedown, settingTrap);
 
          if (dynamicZones.includes(from.row)) state[from.player][from.row].splice(from.zone, 1);
          else if (fieldSpell) state[from.player][from.row] = null;
@@ -184,14 +179,39 @@ export default function (state = initialState, action) {
 
          return { ...state };
       }
+      case SEARCH_DECK: {
+         const { from, to, shouldShuffle, socket } = data;
+
+         const fromCard = from.cardName ? { name: from.cardName } : state[from.player][DECK][from.zone];
+         giveRowCard(state, fromCard, to);
+
+         const deck = state[from.player][DECK];
+         if (!Array.isArray(deck)) {
+            decrementDeck(deck.cards, from.cardName);
+            if (socket && socket.api) {
+               const payload = { action: SEND_SEARCH, data: { token: socket.token, id: socket.matchId, from, to, shouldShuffle } };
+               socket.api.send(JSON.stringify(payload));
+            }
+         } else {
+            state[from.player][DECK].splice(from.zone, 1);
+            // if (shouldShuffle) then shuffle deck
+         }
+
+         playAppropriateSound(from, to);
+         if (shouldShuffle) {
+            if (!Array.isArray(deck)) state[from.player][DECK].top = [];
+            playSound("/sounds/shuffle.mp3");
+         }
+
+         return { ...state };
+      }
       case RECEIVE_CARD: {
          const { player, newDraws, to } = data;
 
          for (const card of newDraws) {
             card.order = ++state[player].lastDraw;
             state[player][to.row].push(card);
-            const deckCards = state[player][DECK].cards;
-            deckCards === 1 ? delete deckCards[card.name] : (deckCards[card.name] -= 1);
+            decrementDeck(state[player][DECK].cards, card.name);
          }
 
          if (to.row === HAND) playSound("/sounds/drawcard.mp3");
@@ -430,4 +450,19 @@ function clearBattle(field) {
    }
 
    return clearedCards;
+}
+
+function playAppropriateSound(from, to, facedown = false, settingTrap = false) {
+   if (to.row === GRAVEYARD) playSound("/sounds/tograve.mp3");
+   else if (to.row === BANISHED) playSound("/sounds/tobanished.mp3");
+   else if (settingTrap || (facedown && from.row !== to.row && to.row !== HAND)) playSound("/sounds/set.mp3");
+   else if (to.row === MONSTER && from.row !== MONSTER && from.row !== SPELL_TRAP) playSound("/sounds/summon.mp3");
+   else if (to.row === SPELL_TRAP && from.row !== MONSTER && from.row !== SPELL_TRAP) playSound("/sounds/activate.mp3");
+   else if (to.row === HAND && from.row !== HAND) playSound("/sounds/tohand.mp3");
+}
+
+function decrementDeck(deckCards, cardName) {
+   if (deckCards[cardName] === 1) delete deckCards[cardName];
+   else deckCards[cardName] -= 1;
+   return;
 }

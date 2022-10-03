@@ -1,6 +1,7 @@
 const cardCount = require("./cardCount");
 const display = require("./display");
 const { expandDeck, collapseDeck } = require("./reformatDeck");
+const { giveRowCard } = require("./manipulateGamestate");
 const exportYDK = require("./exportYDK");
 const getCardDetails = require("./getCardDetails");
 const importYDK = require("./importYDK");
@@ -12,6 +13,7 @@ module.exports = {
    display,
    expandDeck,
    collapseDeck,
+   giveRowCard,
    exportYDK,
    getCardDetails,
    importYDK,

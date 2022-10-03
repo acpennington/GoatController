@@ -12,7 +12,7 @@ import CardArt from "./CardArt.js";
 import ZoneLabel from "./ZoneLabel.js";
 import { newHover } from "stateStore/actions/shared/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/shared/selectedCard.js";
-import { moveCard, switchPosition, attack } from "stateStore/actions/game/field.js";
+import { moveCard, switchPosition, attack, searchDeck } from "stateStore/actions/game/field.js";
 import { openModal, closeModal } from "stateStore/actions/shared/settings.js";
 import cardCount from "shared/cardCount.js";
 import {
@@ -165,7 +165,8 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
          else {
             const goToBottom = row === DECK && checkBottom(sfPlayer);
             const forceFacedown = modalSource === "Different Dimension Capsule" && row === BANISHED && item.row === DECK;
-            dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone, forceFacedown } }, socket));
+            if (item.row === DECK) dispatch(searchDeck(item, { player, row, zone }, socket));
+            else dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone, forceFacedown } }, socket));
          }
       },
       collect: (monitor) => ({

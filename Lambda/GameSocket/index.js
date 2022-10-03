@@ -10,6 +10,7 @@ const sendTokens = require("./SendTokens.js");
 const sendReveal = require("./SendReveal.js");
 const sendCardMove = require("./SendCardMove.js");
 const sendDrawPhase = require("./SendDrawPhase");
+const sendSearch = require("./SendSearch.js");
 const undoDraw = require("./UndoDraw.js");
 const sendPosChange = require("./SendPosChange.js");
 const sendAttack = require("./SendAttack.js");
@@ -57,6 +58,8 @@ exports.handler = async (event) => {
          return await sendCardMove(id, username, data.from, data.fromCard, data.to, data.settingTrap, data.shuffleDeck, data.msg, connectionId, api);
       case "SendDrawPhase":
          return await sendDrawPhase(id, username, data.shouldSkipDraw, api);
+      case "SendSearch":
+         return await sendSearch(id, username, data.from, data.to, data.shouldShuffle, connectionId, api);
       case "RequestCard":
          return await giveCards(id, username, data.numCards, data.to, api);
       case "SendDrawUndone":

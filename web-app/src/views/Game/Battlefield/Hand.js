@@ -7,13 +7,13 @@ import Mousetrap from "mousetrap";
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
-import { moveCard, drawCard, attack } from "stateStore/actions/game/field.js";
+import { moveCard, drawCard, attack, searchDeck } from "stateStore/actions/game/field.js";
 import { WebSocketContext } from "../WebSocketContext";
-import { VILLAIN_HAND_HEIGHT_FRACTION, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "shared/constants.js";
+import { VILLAIN_HAND_HEIGHT_FRACTION, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN, DECK } from "shared/constants.js";
 
 import { makeStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/battlefield.js";
-import fromDeck from "utils/fromDeck.js";
+import fromDeckTop from "utils/fromDeckTop.js";
 const useStyles = makeStyles(styles);
 const { bind, unbind } = Mousetrap;
 
@@ -31,7 +31,8 @@ function Hand({ player, handCount, rowHeight, isHero, revealed, phase }) {
       canDrop: (item) => item.row !== EXTRA_DECK && (!herosBattlePhase || item.row === MONSTER),
       drop: (item) => {
          if (herosBattlePhase) dispatch(attack({ from: item, to: { player, row: HAND }, socket }));
-         else if (fromDeck(item)) dispatch(drawCard(player, 1, socket));
+         else if (fromDeckTop(item)) dispatch(drawCard(player, 1, socket));
+         else if (item.row === DECK) dispatch(searchDeck(item, { player, row: HAND }, socket));
          else dispatch(moveCard({ from: item, to: { player, row: HAND } }, socket));
       },
       collect: (monitor) => ({

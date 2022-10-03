@@ -178,6 +178,7 @@ const SEND_REVEAL = "SendReveal";
 const SEND_CARD_MOVE = "SendCardMove";
 const SEND_DRAW_PHASE = "SendDrawPhase";
 const REQUEST_CARD = "RequestCard";
+const SEND_SEARCH = "SendSearch";
 const SEND_POS_CHANGE = "SendPosChange";
 const SEND_ATTACK = "SendAttack";
 const SEND_CLEAR = "SendClear";
@@ -420,6 +421,7 @@ module.exports = {
    SEND_DND,
    SEND_DRAW_PHASE,
    REQUEST_CARD,
+   SEND_SEARCH,
    SEND_DRAW_UNDONE,
    SEND_ENTIRE_GAMESTATE,
    SEND_LP_CHANGE,

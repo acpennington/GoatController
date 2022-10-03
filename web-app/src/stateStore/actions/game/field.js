@@ -25,7 +25,8 @@ import {
    SEND_DND,
    SENTINEL,
    GRAVEYARD,
-   DRAW_CARD
+   DRAW_CARD,
+   SEARCH_DECK
 } from "shared/constants";
 
 function soundOn() {
@@ -48,7 +49,17 @@ function drawPhaseDraw(player, socket = false) {
 }
 
 function drawCard(player, numCards = 1, socket = false) {
-   return { type: DRAW_CARD, data: { player, numCards, socket } };
+   return (dispatch) => {
+      dispatch({ type: DRAW_CARD, data: { player, numCards, socket } });
+      dispatch(clearSelection(socket));
+   };
+}
+
+function searchDeck(from, to, socket = false) {
+   return (dispatch) => {
+      dispatch({ type: SEARCH_DECK, data: { from, to, shouldShuffle: from.autoClose, socket } });
+      dispatch(clearSelection(socket));
+   };
 }
 
 function createTokens(player, params, socket = false) {
@@ -149,6 +160,7 @@ export {
    moveCard,
    drawPhaseDraw,
    drawCard,
+   searchDeck,
    createTokens,
    switchPosition,
    adjustCounters,
