@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 import ScriptButton from "./ScriptButton.js";
 import getCardDetails from "shared/getCardDetails.js";
-import checkParams from "utils/checkParams.js";
+import checkParams from "shared/checkParams.js";
 
 import { expandDeck } from "shared/reformatDeck.js";
 import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, TRAP, SEARCH_DECK, DECK, BANISHED, MONSTER, SPELL_TRAP } from "shared/constants";

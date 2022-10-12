@@ -1,6 +1,7 @@
 const setGamestate = require("./redis/setGamestate.js");
 const findMatch = require("./findMatch.js");
 const sendMultiPayload = require("./sendMultiPayload.js");
+const { HAND, GRAVEYARD } = require("../shared/constants.js");
 
 async function giveCards(id, player, cards, to, api, addMessage = "", prevData = false) {
    let match = prevData;
@@ -18,7 +19,8 @@ async function giveCards(id, player, cards, to, api, addMessage = "", prevData =
       toRow.push(card);
    }
 
-   const message = { author: "Server", content: player + " drew " + (cards === 1 ? "a card" : cards + " cards") + addMessage + "." };
+   const verb = to === HAND ? " drew " : to.row === GRAVEYARD ? " milled " : " milled (to banished) ";
+   const message = { author: "Server", content: player + verb + (cards === 1 ? "a card" : cards + " cards") + addMessage + "." };
    const action = { action: "RECEIVE_CARD", data: { player, newDraws, to } };
    await sendMultiPayload([action, { action: "ADD_MESSAGE", data: message }], players, watchers, api);
 

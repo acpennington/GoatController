@@ -42,6 +42,8 @@ import {
 
 import { makeStyles } from "@mui/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
+import fromDeckTop from "utils/fromDeckTop.js";
+import { millUntil } from "stateStore/actions/game/scripts.js";
 const useStyles = makeStyles(cardStyle);
 
 const { bind, unbind } = Mousetrap;
@@ -161,12 +163,16 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       drop: (item) => {
          if (inBattlePhase && item.row === MONSTER && monsterZone && !blank) dispatch(attack({ from: item, to: { player, row, zone }, socket }));
          // detect where card is coming from and respond accordingly
-         // else if (item.row === DECK && item.zone === -1) dispatch(drawCard(player, 1, socket));
          else {
-            const goToBottom = row === DECK && checkBottom(sfPlayer);
-            const forceFacedown = modalSource === "Different Dimension Capsule" && row === BANISHED && item.row === DECK;
-            if (item.row === DECK) dispatch(searchDeck(item, { player, row, zone }, socket));
-            else dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone, forceFacedown } }, socket));
+            if (fromDeckTop(item) && (row === GRAVEYARD || row === BANISHED)) {
+               const socketOrDeck = socket && socket.api ? socket : sfPlayer[DECK];
+               dispatch(millUntil(heroPlayer, row, 1, socketOrDeck));
+            } else if (item.row === DECK) dispatch(searchDeck(item, { player, row, zone }, socket));
+            else {
+               const goToBottom = row === DECK && checkBottom(sfPlayer);
+               const forceFacedown = modalSource === "Different Dimension Capsule" && row === BANISHED && item.row === DECK;
+               dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone, forceFacedown } }, socket));
+            }
          }
       },
       collect: (monitor) => ({

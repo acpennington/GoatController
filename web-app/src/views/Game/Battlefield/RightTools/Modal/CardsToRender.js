@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import RenderCards from "components/RenderCards/RenderCards.js";
-import checkParams from "utils/checkParams.js";
+import checkParams from "shared/checkParams.js";
 import { closeModal, openModal } from "stateStore/actions/shared/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 

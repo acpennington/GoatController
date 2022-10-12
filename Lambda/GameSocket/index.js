@@ -73,7 +73,7 @@ exports.handler = async (event) => {
       case "ReorderDeck":
          return await reorderDeck(id, username, api);
       case "Mill":
-         return await mill(id, username, data.deck, data.params, data.fail, connectionId, api);
+         return await mill(id, username, data.row, data.params, api);
       case "SendSelection":
          return await sendSelection(id, data, connectionId, api);
       case "RemoveSelection":

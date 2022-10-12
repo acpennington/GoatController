@@ -214,7 +214,7 @@ export default function (state = initialState, action) {
             decrementDeck(state[player][DECK].cards, card.name);
          }
 
-         if (to.row === HAND) playSound("/sounds/drawcard.mp3");
+         playAppropriateSound(DECK, to);
 
          return { ...state };
       }

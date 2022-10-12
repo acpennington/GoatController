@@ -69,9 +69,12 @@ class ScriptButton extends PureComponent {
          case BANISH_ALL:
             banishAll(field, heroPlayer, activeCard, variant, params, socket);
             break;
-         case MILL_UNTIL:
-            millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, socket);
+         case MILL_UNTIL: {
+            // TODO: consider checking for banisher of light in the future
+            const socketOrDeck = socket && socket.api ? socket : this.props.field[heroPlayer].deck;
+            millUntil(heroPlayer, GRAVEYARD, params, socketOrDeck);
             break;
+         }
          case TOKENS:
             createTokens(heroPlayer, params, socket);
             break;

@@ -9,7 +9,7 @@ import CardFinder from "components/CardFinder/CardFinder.js";
 import GenericFinder from "components/CardFinder/GenericFinder.js";
 import { newResults } from "stateStore/actions/deckConstructor/searchResults.js";
 import display from "shared/display.js";
-import checkParams from "utils/checkParams.js";
+import checkParams from "shared/checkParams.js";
 import { removeArt } from "utils/splitArt.js";
 import { getDeckOptions, getDecks } from "../RightPanel/DeckSettings/utils";
 import { nonfusions } from "shared/database";

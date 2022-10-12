@@ -8,7 +8,6 @@ import LeftPanel from "./LeftPanel.js";
 import Battlefield from "./Battlefield/Battlefield.js";
 import { WebSocketContext } from "./WebSocketContext.js";
 import { resetSolo, adjustLP, createTokens, moveCard } from "stateStore/actions/game/field.js";
-import { millUntil } from "stateStore/actions/game/scripts.js";
 
 import { getAuthHeaders } from "utils/authToken.js";
 import getApiStage from "utils/getApiStage.js";
@@ -23,7 +22,6 @@ import {
    ADJUST_LP,
    CREATE_TOKEN,
    MOVE_CARD,
-   MILL_UNTIL,
    DIVIDER_HEIGHT
 } from "shared/constants.js";
 
@@ -105,11 +103,6 @@ class Game extends Component {
             case MOVE_CARD:
                dispatch(moveCard(data));
                break;
-            case MILL_UNTIL: {
-               const { player, deck, params } = data;
-               dispatch(millUntil(player, deck, params));
-               break;
-            }
             default:
                dispatch({ type: action, data });
          }
