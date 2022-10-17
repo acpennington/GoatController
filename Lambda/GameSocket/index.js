@@ -10,6 +10,7 @@ const sendTokens = require("./SendTokens.js");
 const sendReveal = require("./SendReveal.js");
 const sendCardMove = require("./SendCardMove.js");
 const sendDrawPhase = require("./SendDrawPhase");
+const sendSearch = require("./SendSearch.js");
 const undoDraw = require("./UndoDraw.js");
 const sendPosChange = require("./SendPosChange.js");
 const sendAttack = require("./SendAttack.js");
@@ -23,6 +24,7 @@ const sendDiscardAndDraw = require("./SendDiscardAndDraw.js");
 const playerConceded = require("./PlayerConceded.js");
 const cleanupGame = require("./CleanupGame.js");
 const sendEntireGamestate = require("./SendEntireGamestate.js");
+const giveCards = require("./utils/giveCards.js");
 
 // Routes GameSocket actions
 exports.handler = async (event) => {
@@ -55,7 +57,11 @@ exports.handler = async (event) => {
       case "SendCardMove":
          return await sendCardMove(id, username, data.from, data.fromCard, data.to, data.settingTrap, data.shuffleDeck, data.msg, connectionId, api);
       case "SendDrawPhase":
-         return await sendDrawPhase(id, username, data.shouldSkipDraw, connectionId, api);
+         return await sendDrawPhase(id, username, data.shouldSkipDraw, api);
+      case "SendSearch":
+         return await sendSearch(id, username, data.from, data.to, data.shouldShuffle, connectionId, api);
+      case "RequestCard":
+         return await giveCards(id, username, data.numCards, data.to, api);
       case "SendDrawUndone":
          return await undoDraw(id, username, connectionId, api);
       case "SendPosChange":
@@ -65,9 +71,9 @@ exports.handler = async (event) => {
       case "SendClear":
          return await sendClear(id, connectionId, api);
       case "ReorderDeck":
-         return await reorderDeck(id, username, data.deck, connectionId, api);
+         return await reorderDeck(id, username, api);
       case "Mill":
-         return await mill(id, username, data.deck, data.params, data.fail, connectionId, api);
+         return await mill(id, username, data.row, data.params, api);
       case "SendSelection":
          return await sendSelection(id, data, connectionId, api);
       case "RemoveSelection":

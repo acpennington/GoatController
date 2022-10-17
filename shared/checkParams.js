@@ -1,7 +1,7 @@
-import getCardDetails from "shared/getCardDetails.js";
+const getCardDetails = require("./getCardDetails.js");
 
 // gets a card and a params object and reports which params the card passed/failed
-export default function checkParams(card, params) {
+module.exports = function checkParams(card, params) {
    const pass = [];
    const fail = [];
    const cardName = card.name;
@@ -21,7 +21,7 @@ export default function checkParams(card, params) {
    }
 
    return { pass, fail };
-}
+};
 
 function paramPassed(cardParam, value, operator) {
    switch (operator) {

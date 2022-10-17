@@ -2,17 +2,20 @@ import React, { useContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { connect, useDispatch } from "react-redux";
 import { useDrop } from "react-dnd";
+import Mousetrap from "mousetrap";
 
 import YugiohCard from "components/YugiohCard/YugiohCard.js";
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
-import { moveCard, attack } from "stateStore/actions/game/field.js";
+import { moveCard, drawCard, attack, searchDeck } from "stateStore/actions/game/field.js";
 import { WebSocketContext } from "../WebSocketContext";
-import { VILLAIN_HAND_HEIGHT_FRACTION, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN } from "shared/constants.js";
+import { VILLAIN_HAND_HEIGHT_FRACTION, HAND, allTypes, OVER_COLOR, MONSTER, EXTRA_DECK, FACEDOWN_CARD, BATTLE, NEXT_TURN, DECK } from "shared/constants.js";
 
 import { makeStyles } from "@mui/styles";
 import styles from "assets/jss/material-kit-react/views/gameSections/battlefield.js";
+import fromDeckTop from "utils/fromDeckTop.js";
 const useStyles = makeStyles(styles);
+const { bind, unbind } = Mousetrap;
 
 function Hand({ player, handCount, rowHeight, isHero, revealed, phase }) {
    const classes = useStyles();
@@ -28,12 +31,18 @@ function Hand({ player, handCount, rowHeight, isHero, revealed, phase }) {
       canDrop: (item) => item.row !== EXTRA_DECK && (!herosBattlePhase || item.row === MONSTER),
       drop: (item) => {
          if (herosBattlePhase) dispatch(attack({ from: item, to: { player, row: HAND }, socket }));
+         else if (fromDeckTop(item)) dispatch(drawCard(player, 1, socket));
+         else if (item.row === DECK) dispatch(searchDeck(item, { player, row: HAND }, socket));
          else dispatch(moveCard({ from: item, to: { player, row: HAND } }, socket));
       },
       collect: (monitor) => ({
          isOver: !!monitor.isOver(),
          canDrop: monitor.canDrop()
       })
+   });
+
+   bind("d", () => {
+      dispatch(drawCard(player, 1, socket));
    });
 
    const prevCount = usePrevious(handCount);
@@ -48,6 +57,12 @@ function Hand({ player, handCount, rowHeight, isHero, revealed, phase }) {
    for (let i = 0; i < handCount; i++) {
       handList.push(<YugiohCard height={handRowHeight} player={player} row={HAND} zone={i} isHero={isHero} notFull key={i} cardName={cardName} />);
    }
+
+   useEffect(() => {
+      return function cleanup() {
+         unbind(["d"]);
+      };
+   }, []);
 
    return (
       <FriendlyScroll

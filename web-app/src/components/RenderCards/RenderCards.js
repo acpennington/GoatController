@@ -18,7 +18,17 @@ class RenderCards extends Component {
             cards.push(<DecklistCard height={cardHeight} player={player} location={decklist} name={card.name} quantity={card.quantity} zone={i} key={i} />);
          else
             cards.push(
-               <YugiohCard height={cardHeight} player={player} row={row} zone={card.zone} cardName={card.name} notFull modal isHero={isHero} key={i} />
+               <YugiohCard
+                  height={cardHeight}
+                  player={player}
+                  row={row}
+                  zone={"zone" in card ? card.zone : i}
+                  cardName={card.name}
+                  notFull
+                  modal
+                  isHero={isHero}
+                  key={i}
+               />
             );
          i++;
       }

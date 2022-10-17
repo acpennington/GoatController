@@ -4,11 +4,12 @@ import PropTypes from "prop-types";
 
 import FriendlyScroll from "components/FriendlyScroll/FriendlyScroll.js";
 import RenderCards from "components/RenderCards/RenderCards.js";
-import checkParams from "utils/checkParams.js";
+import checkParams from "shared/checkParams.js";
 import { closeModal, openModal } from "stateStore/actions/shared/settings.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 
 import { DECK } from "shared/constants.js";
+import { cardCount } from "shared";
 
 class CardsToRender extends Component {
    componentDidUpdate(prevProps, prevState) {
@@ -38,14 +39,36 @@ class CardsToRender extends Component {
       return zoneNumbers;
    };
 
+   filterObject = () => {
+      const { cards, filter, oneParam } = this.props;
+      const deckCards = cards.cards;
+
+      const deckCardNames = Object.keys(deckCards);
+      const filteredNames =
+         filter &&
+         deckCardNames.filter((name) => {
+            const { fail, pass } = checkParams({ name }, filter);
+            return oneParam ? pass.length > 0 : fail.length === 0;
+         });
+
+      const returnCards = [];
+      for (const name of filteredNames) {
+         for (let i = 0; i < deckCards[name]; i++) returnCards.push({ name });
+      }
+
+      return returnCards;
+   };
+
    updateResults = () => {
-      const { cardNames } = this.props;
-      const zoneNumbers = this.filterZones();
+      const { cardNames, isCardArray } = this.props;
+      const zoneNumbers = isCardArray ? this.filterZones() : this.filterObject();
       const cardsToRender = [];
 
       // eslint-disable-next-line
       this.state = { zoneLen: zoneNumbers.length };
       const { zoneLen } = this.state;
+
+      if (!isCardArray) return zoneNumbers;
 
       for (let i = zoneLen - 1; i >= 0; i -= 1) {
          const card = { zone: zoneNumbers[i] };
@@ -61,6 +84,8 @@ class CardsToRender extends Component {
       const cardsToRender = this.updateResults();
       const { zoneLen } = this.state;
 
+      console.log("rendering modal stack");
+
       return (
          <FriendlyScroll id={"modal" + player + row} count={zoneLen} flexDirection="column" style={{ maxHeight: maxHeight + "px" }}>
             <RenderCards cardsToRender={cardsToRender} maxHeight={maxHeight} cardHeight={height} player={player} row={row} isHero={isHero} />
@@ -72,8 +97,10 @@ class CardsToRender extends Component {
 function mapStateToProps(state, ownProps) {
    const { player, row, cardNames, filter } = ownProps;
    const cards = filter && state.field[player][row];
-   const cardsLen = cardNames ? cardNames.length : state.field[player][row].length;
-   return { cards, cardsLen, source: state.settings.modal.source };
+   const isCardArray = Array.isArray(cards) || cardNames || !cards;
+   const cardsLen = cardNames ? cardNames.length : isCardArray ? state.field[player][row].length : cardCount(state.field[player][row].cards);
+   console.log("count: " + cardsLen);
+   return { cards, isCardArray, cardsLen, source: state.settings.modal.source };
 }
 
 CardsToRender.propTypes = {
@@ -89,8 +116,9 @@ CardsToRender.propTypes = {
    oneParam: PropTypes.bool,
    closeModal: PropTypes.func.isRequired,
    openModal: PropTypes.func.isRequired,
-   cards: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-   source: PropTypes.string
+   cards: PropTypes.oneOfType([PropTypes.array, PropTypes.object, PropTypes.bool]),
+   isCardArray: PropTypes.bool.isRequired,
+   source: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 };
 
 CardsToRender.contextType = WebSocketContext;

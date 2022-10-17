@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 
 import { WebSocketContext } from "views/Game/WebSocketContext.js";
 import ScriptName from "./ScriptName.js";
-import { moveCard, createTokens, discardAndDraw, shuffleAndDraw } from "stateStore/actions/game/field.js";
+import { moveCard, createTokens, discardAndDraw, shuffleAndDraw, drawCard } from "stateStore/actions/game/field.js";
 import { addMessage } from "stateStore/actions/game/chat.js";
-import { filterDeck, millUntil, banishAll } from "stateStore/actions/game/scripts.js";
+import { filterDeck, millUntil } from "stateStore/actions/game/scripts.js";
 import { playSound } from "stateStore/actions/game/field.js";
 import compress from "utils/compressName.js";
 
@@ -14,12 +14,9 @@ import Button from "components/CustomButtons/Button.js";
 import Tooltip from "components/Tooltip/PatchedTooltip.js";
 
 import {
-   DECK,
    GRAVEYARD,
    HAND,
-   SPELL_TRAP,
    SEARCH_DECK,
-   BANISH_ALL,
    MILL_UNTIL,
    TOKENS,
    RANDOM_DISCARD,
@@ -59,19 +56,19 @@ class ScriptButton extends PureComponent {
    }
 
    runScript = () => {
-      const { field, activeCard, banishAll, heroPlayer, variant, filterDeck, millUntil, createTokens, discardAndDraw, shuffleAndDraw, script } = this.props;
+      const { activeCard, heroPlayer, filterDeck, millUntil, createTokens, discardAndDraw, shuffleAndDraw, drawCard, script } = this.props;
       const { name, params } = script;
       const socket = this.context;
       switch (name) {
          case SEARCH_DECK:
             filterDeck(heroPlayer, script, activeCard.name, socket);
             break;
-         case BANISH_ALL:
-            banishAll(field, heroPlayer, activeCard, variant, params, socket);
+         case MILL_UNTIL: {
+            // TODO: consider checking for banisher of light in the future
+            const socketOrDeck = socket && socket.api ? socket : this.props.field[heroPlayer].deck;
+            millUntil(heroPlayer, GRAVEYARD, params, socketOrDeck);
             break;
-         case MILL_UNTIL:
-            millUntil(heroPlayer, this.props.field[heroPlayer].deck, params, socket);
-            break;
+         }
          case TOKENS:
             createTokens(heroPlayer, params, socket);
             break;
@@ -85,7 +82,7 @@ class ScriptButton extends PureComponent {
             this.rollDice(params);
             break;
          case DRAW_N:
-            this.drawN(params);
+            drawCard(heroPlayer, params, socket);
             break;
          case DISCARD_AND_DRAW:
             discardAndDraw(heroPlayer, params, socket);
@@ -125,21 +122,6 @@ class ScriptButton extends PureComponent {
       }
    };
 
-   drawN = (count) => {
-      const { field, heroPlayer, moveCard } = this.props;
-      const deck = field[heroPlayer][DECK];
-
-      for (let i = count || 1; i > 0 && deck.length > 0; i--) {
-         moveCard(
-            {
-               from: { player: heroPlayer, row: DECK, zone: -1 },
-               to: { player: heroPlayer, row: HAND, zone: 0 }
-            },
-            this.context
-         );
-      }
-   };
-
    flipCoins = (count) => {
       const { heroPlayer, addMessage } = this.props;
       let heads = 0,
@@ -175,10 +157,8 @@ class ScriptButton extends PureComponent {
    };
 
    render() {
-      const { classes, script, variant, field, activeCard } = this.props;
+      const { classes, script, activeCard } = this.props;
       const { tooltip, params } = script;
-
-      if (variant && !fieldContains(field, variant)) return null;
 
       const button = (
          <Button
@@ -188,8 +168,7 @@ class ScriptButton extends PureComponent {
             style={
                activeCard && activeCard.name
                   ? {
-                       backgroundImage:
-                          'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/' + compress(variant || activeCard.name) + '.jpg")',
+                       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url("/cards/art/' + compress(activeCard.name) + '.jpg")',
                        width: "97.5%"
                     }
                   : { width: "97.5%" }
@@ -210,19 +189,6 @@ class ScriptButton extends PureComponent {
    }
 }
 
-function fieldContains(field, card) {
-   switch (card) {
-      case "Nobleman of Extermination":
-      case "Nobleman of Crossout":
-      case "Chain Destruction":
-      case "Chain Disappearance":
-         for (const key in field) for (const zone of field[key][SPELL_TRAP]) if (zone && !zone.facedown && zone.name === card) return true;
-         return false;
-      default:
-         return false;
-   }
-}
-
 function mapStateToProps(state) {
    return { field: state.field };
 }
@@ -232,14 +198,13 @@ ScriptButton.propTypes = {
    script: PropTypes.object.isRequired,
    heroPlayer: PropTypes.string.isRequired,
    activeCard: PropTypes.object.isRequired,
-   variant: PropTypes.string,
    focus: PropTypes.bool,
-   field: PropTypes.object.isRequired,
+   field: PropTypes.object,
    filterDeck: PropTypes.func.isRequired,
    moveCard: PropTypes.func.isRequired,
+   drawCard: PropTypes.func.isRequired,
    createTokens: PropTypes.func.isRequired,
    millUntil: PropTypes.func.isRequired,
-   banishAll: PropTypes.func.isRequired,
    addMessage: PropTypes.func.isRequired,
    discardAndDraw: PropTypes.func.isRequired,
    shuffleAndDraw: PropTypes.func.isRequired
@@ -247,6 +212,6 @@ ScriptButton.propTypes = {
 
 ScriptButton.contextType = WebSocketContext;
 
-export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, banishAll, addMessage, discardAndDraw, shuffleAndDraw })(
+export default connect(mapStateToProps, { filterDeck, moveCard, createTokens, millUntil, addMessage, discardAndDraw, shuffleAndDraw, drawCard })(
    withStyles(styles)(ScriptButton)
 );

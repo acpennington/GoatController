@@ -12,8 +12,9 @@ import CardArt from "./CardArt.js";
 import ZoneLabel from "./ZoneLabel.js";
 import { newHover } from "stateStore/actions/shared/hoverCard.js";
 import { newSelection, clearSelection } from "stateStore/actions/shared/selectedCard.js";
-import { moveCard, switchPosition, attack } from "stateStore/actions/game/field.js";
+import { moveCard, switchPosition, attack, searchDeck } from "stateStore/actions/game/field.js";
 import { openModal, closeModal } from "stateStore/actions/shared/settings.js";
+import cardCount from "shared/cardCount.js";
 import {
    CARD_RATIO,
    FACEDOWN_CARD,
@@ -41,6 +42,8 @@ import {
 
 import { makeStyles } from "@mui/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
+import fromDeckTop from "utils/fromDeckTop.js";
+import { millUntil } from "stateStore/actions/game/scripts.js";
 const useStyles = makeStyles(cardStyle);
 
 const { bind, unbind } = Mousetrap;
@@ -56,6 +59,7 @@ Mousetrap.prototype.stopCallback = function (e, element, combo, sequence) {
 function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHero, style }) {
    const classes = useStyles();
    const dispatch = useDispatch();
+
    const socket = useContext(WebSocketContext);
    const { discardZone, deckZone, isDeck, isExtraDeck, isDiscardZone, inHand, monsterZone, spellTrapZone, fieldZone } = getBools(row, zone);
 
@@ -89,7 +93,7 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       const heroSelected = heroSelection && heroSelection.player === player && heroSelection.row === row && heroSelection.zone === zone;
       const villSelected = villSelection && villSelection.player === player && villSelection.row === row && villSelection.zone === zone;
       const handRevealed = sfPlayer.handRevealed;
-      const deckCount = row === DECK ? sfPlayer[DECK].length : 1;
+      const deckCount = row === DECK ? (Array.isArray(sfPlayer[DECK]) ? sfPlayer[DECK].length : cardCount(sfPlayer[DECK].cards)) : 1;
       const inBattlePhase = state.turn.phase === BATTLE;
       const cycle = makeCycle(sfPlayer, heroSelection && heroSelection.player === player ? heroSelection : null);
       const modal = state.settings.modal;
@@ -158,10 +162,17 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       canDrop: (item) => isAcceptable(item.type, acceptables) && !(item.row === DECK && row === DECK),
       drop: (item) => {
          if (inBattlePhase && item.row === MONSTER && monsterZone && !blank) dispatch(attack({ from: item, to: { player, row, zone }, socket }));
+         // detect where card is coming from and respond accordingly
          else {
-            const goToBottom = row === DECK && checkBottom(sfPlayer);
-            const forceFacedown = modalSource === "Different Dimension Capsule" && row === BANISHED && item.row === DECK;
-            dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone, forceFacedown } }, socket));
+            if (fromDeckTop(item) && (row === GRAVEYARD || row === BANISHED)) {
+               const socketOrDeck = socket && socket.api ? socket : sfPlayer[DECK];
+               dispatch(millUntil(heroPlayer, row, 1, socketOrDeck));
+            } else if (item.row === DECK) dispatch(searchDeck(item, { player, row, zone }, socket));
+            else {
+               const goToBottom = row === DECK && checkBottom(sfPlayer);
+               const forceFacedown = modalSource === "Different Dimension Capsule" && row === BANISHED && item.row === DECK;
+               dispatch(moveCard({ from: item, to: { player, row, zone: goToBottom === item.row ? BOTTOM : zone, forceFacedown } }, socket));
+            }
          }
       },
       collect: (monitor) => ({
@@ -177,9 +188,6 @@ function YugiohCard({ height, notFull, player, row, zone, cardName, modal, isHer
       else if (!isExtraDeck) dragOrDrop = drag;
    } else if (row === MONSTER && (blank || inBattlePhase)) dragOrDrop = drop;
 
-   bind("d", () => {
-      dispatch(moveCard({ from: { player, row: DECK, zone: -1 }, to: { player, row: HAND, zone: 0 } }, socket));
-   });
    if (isHero && heroSelected) {
       bind("g", () => {
          dispatch(moveCard({ from: { player, row, zone }, to: { player, row: GRAVEYARD, zone: 0 } }, socket));

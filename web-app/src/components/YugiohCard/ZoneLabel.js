@@ -6,6 +6,7 @@ import { withStyles } from "@mui/styles";
 import cardStyle from "assets/jss/material-kit-react/components/yugiohCardStyle.js";
 
 import { DECK, EXTRA_DECK } from "shared/constants.js";
+import cardCount from "shared/cardCount.js";
 import display from "shared/display.js";
 
 class ZoneLabel extends PureComponent {
@@ -29,8 +30,9 @@ class ZoneLabel extends PureComponent {
 
 function mapStateToProps(state, ownProps) {
    const { player, row, isDeck, isExtraDeck, isDiscardZone, cardName } = ownProps;
+   const deck = state.field[player][DECK].cards;
    const zoneLabel =
-      (isDeck && state.field[player][DECK].length) ||
+      (isDeck && (Array.isArray(deck) ? deck.length : cardCount(deck))) ||
       (isExtraDeck && EXTRA_DECK) ||
       (row === EXTRA_DECK && 3 - (state.field[player].usedFusions[cardName] || 0)) ||
       (isDiscardZone && state.field[player][row].length);

@@ -7,7 +7,7 @@ import CustomInput from "components/CustomInput/CustomInput.js";
 import { adjustLP } from "stateStore/actions/game/field.js";
 import { prepopLP } from "stateStore/actions/shared/settings.js";
 import { BANISHED, MONSTER, PREPOP_LP_HELPER, HAND, GRAVEYARD, SPELL_TRAP, FIELD_SPELL, LP_INPUT_ID } from "shared/constants.js";
-import checkParams from "utils/checkParams.js";
+import checkParams from "shared/checkParams.js";
 import { WebSocketContext } from "views/Game/WebSocketContext";
 
 import { FaPlusCircle, FaMinusCircle } from "react-icons/fa";

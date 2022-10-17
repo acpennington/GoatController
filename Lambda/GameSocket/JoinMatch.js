@@ -1,5 +1,6 @@
 const Redis = require("ioredis");
 const redis = new Redis("goatmatches.z9dvan.0001.use2.cache.amazonaws.com:6379");
+const { collapseDeck } = require("./shared");
 
 const sendChatMessage = require("./utils/sendChatMessage.js");
 const findMatch = require("./utils/findMatch.js");
@@ -23,6 +24,10 @@ async function joinMatch(id, username, connectionId, api) {
    } else {
       // Join as a watcher
    }
+
+   // convert decks from arrays to objects
+   const keys = Object.keys(gamestate);
+   for (const key of keys) gamestate[key].deck = { cards: collapseDeck(gamestate[key].deck), top: [] };
 
    // when the user connects, we send back multiple actions to the client, but all in one message
    const payload = {
