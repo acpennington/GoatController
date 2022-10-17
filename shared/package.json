@@ -1,13 +1,14 @@
 {
    "private": true,
    "name": "shared",
-   "version": "2.0.3",
+   "version": "2.1.0",
    "main": "index.js",
    "exports": {
       "./cardCount": "./cardCount.js",
       "./constants": "./constants.js",
       "./database": "./database.js",
       "./display": "./display.js",
+      "./fieldContains": "./fieldContains",
       "./reformatDeck": "./reformatDeck.js",
       "./manipulateGamestate": "./manipulateGamestate.js",
       "./exportYDK": "./exportYDK.js",

@@ -7,7 +7,7 @@ import getCardDetails from "shared/getCardDetails.js";
 import checkParams from "shared/checkParams.js";
 
 import { expandDeck } from "shared/reformatDeck.js";
-import { FACEDOWN_CARD, BANISH_ALL, HERO, VILLAIN, TRAP, SEARCH_DECK, DECK, BANISHED, MONSTER, SPELL_TRAP } from "shared/constants";
+import { FACEDOWN_CARD, HERO, VILLAIN, SEARCH_DECK, DECK } from "shared/constants";
 
 class CardScript extends PureComponent {
    validScript = (activeCard, cardPlayer, script) => {
@@ -46,7 +46,7 @@ class CardScript extends PureComponent {
 
       if (!cardName) return null;
 
-      const { cardType, atk, text, script, script2, prepopLP } = getCardDetails(cardName);
+      const { script, script2, prepopLP } = getCardDetails(cardName);
       const focus = !(prepopLP && (player === heroPlayer ? prepopLP.hero : prepopLP.villain));
 
       const validScript = script && this.validScript(activeCard, player, script);
@@ -56,42 +56,6 @@ class CardScript extends PureComponent {
          <Fragment>
             {validScript && <ScriptButton script={script} heroPlayer={heroPlayer} activeCard={activeCard} focus={focus} />}
             {validScript2 && <ScriptButton script={script2} heroPlayer={heroPlayer} activeCard={activeCard} focus={focus && !validScript} />}
-            {[BANISHED, MONSTER].includes(activeCard.row) && text.includes("/Flip/") && (
-               <ScriptButton
-                  script={{ name: BANISH_ALL }}
-                  variant="Nobleman of Crossout"
-                  activeCard={activeCard}
-                  heroPlayer={heroPlayer}
-                  focus={focus && !validScript && !validScript2}
-               />
-            )}
-            {[BANISHED, SPELL_TRAP].includes(activeCard.row) && cardType === TRAP && (
-               <ScriptButton
-                  script={{ name: BANISH_ALL }}
-                  variant="Nobleman of Extermination"
-                  activeCard={activeCard}
-                  heroPlayer={heroPlayer}
-                  focus={focus && !validScript && !validScript2}
-               />
-            )}
-            {[BANISHED, MONSTER].includes(activeCard.row) && cardType.includes("Monster") && atk <= 2000 && (
-               <ScriptButton
-                  script={{ name: BANISH_ALL, params: true }}
-                  variant="Chain Destruction"
-                  activeCard={activeCard}
-                  heroPlayer={heroPlayer}
-                  focus={focus && !validScript && !validScript2}
-               />
-            )}
-            {[BANISHED, MONSTER].includes(activeCard.row) && cardType.includes("Monster") && atk <= 1000 && (
-               <ScriptButton
-                  script={{ name: BANISH_ALL, params: true }}
-                  variant="Chain Disappearance"
-                  activeCard={activeCard}
-                  heroPlayer={heroPlayer}
-                  focus={focus && !validScript && !validScript2}
-               />
-            )}
          </Fragment>
       );
    }

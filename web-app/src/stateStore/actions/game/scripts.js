@@ -42,37 +42,38 @@ function millUntil(player, row, params, socketOrDeck) {
 
 function banishAll(field, heroPlayer, activeCard, variant, chain, socket = false) {
    return (dispatch) => {
-      if (chain) {
-         dispatch(moveCard({ from: activeCard, to: { player: activeCard.player, row: BANISHED, zone: 0 }, noSound: true }));
-         banish(dispatch, activeCard, field, activeCard.player, HAND);
-         if (getCardDetails(activeCard.name).cardType === FUSION_MONSTER) {
-            // NOTE: moving the card updates usedFusions for us
-            while (field[activeCard.player].usedFusions[activeCard.name] < 3) {
-               dispatch(
-                  moveCard({
-                     from: { player: activeCard.player, type: EXTRA_DECK, row: EXTRA_DECK, zone: 0, cardName: activeCard.name },
-                     to: { player: activeCard.player, row: BANISHED, zone: 0 },
-                     noSound: true
-                  })
-               );
-            }
-         }
-         banish(dispatch, activeCard, field, activeCard.player, DECK);
-         dispatch(shuffleDeck(activeCard.player, false, !chain));
-      } else {
-         const otherPlayer = getOtherPlayer(heroPlayer, field);
-         dispatch(moveCard({ from: activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 }, noSound: true }));
-         banish(dispatch, activeCard, field, heroPlayer, DECK);
-         banish(dispatch, activeCard, field, otherPlayer, DECK);
-         dispatch(shuffleDeck(heroPlayer));
-         dispatch(shuffleDeck(otherPlayer, false, true));
-      }
-
-      if (socket && socket.api)
+      if (socket && socket.api) {
          dispatch({
             type: SEND_ENTIRE_GAMESTATE,
             data: { socket, message: `${heroPlayer} resolved <<${variant}>>. All copies of <<${activeCard.name}>> were banished.` }
          });
+      } else {
+         if (chain) {
+            dispatch(moveCard({ from: activeCard, to: { player: activeCard.player, row: BANISHED, zone: 0 }, noSound: true }));
+            banish(dispatch, activeCard, field, activeCard.player, HAND);
+            if (getCardDetails(activeCard.name).cardType === FUSION_MONSTER) {
+               // NOTE: moving the card updates usedFusions for us
+               while (field[activeCard.player].usedFusions[activeCard.name] < 3) {
+                  dispatch(
+                     moveCard({
+                        from: { player: activeCard.player, type: EXTRA_DECK, row: EXTRA_DECK, zone: 0, cardName: activeCard.name },
+                        to: { player: activeCard.player, row: BANISHED, zone: 0 },
+                        noSound: true
+                     })
+                  );
+               }
+            }
+            banish(dispatch, activeCard, field, activeCard.player, DECK);
+            dispatch(shuffleDeck(activeCard.player, false, !chain));
+         } else {
+            const otherPlayer = getOtherPlayer(heroPlayer, field);
+            dispatch(moveCard({ from: activeCard, to: { player: heroPlayer, row: BANISHED, zone: 0 }, noSound: true }));
+            banish(dispatch, activeCard, field, heroPlayer, DECK);
+            banish(dispatch, activeCard, field, otherPlayer, DECK);
+            dispatch(shuffleDeck(heroPlayer));
+            dispatch(shuffleDeck(otherPlayer, false, true));
+         }
+      }
    };
 }
 

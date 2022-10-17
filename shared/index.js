@@ -3,6 +3,7 @@ const display = require("./display");
 const { expandDeck, collapseDeck } = require("./reformatDeck");
 const { giveRowCard } = require("./manipulateGamestate");
 const exportYDK = require("./exportYDK");
+const fieldContains = require("./fieldContains");
 const getCardDetails = require("./getCardDetails");
 const checkParams = require("./checkParams");
 const importYDK = require("./importYDK");
@@ -16,6 +17,7 @@ module.exports = {
    collapseDeck,
    giveRowCard,
    exportYDK,
+   fieldContains,
    getCardDetails,
    checkParams,
    importYDK,
